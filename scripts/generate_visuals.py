@@ -16,7 +16,7 @@ def load_data():
     return models_df, taxonomy_df
 
 def process_data(models_df, taxonomy_df):
-    # Categories of interest
+    # Categories of interest (used for graph structure)
     category_cols = [
         'Knowledge', 'Thinking & Reasoning', 'Math', 'Coding', 'Agent', 
         'Multimodal', 'Long Context', 'Safety', 'Instruction'
@@ -26,11 +26,14 @@ def process_data(models_df, taxonomy_df):
     benchmark_cats = {}
     for _, row in taxonomy_df.iterrows():
         name = str(row['Benchmark']).strip()
-        cats = []
-        for col in category_cols:
-            val = str(row[col]).strip()
-            if val and val.lower() != 'nan' and len(val) > 0:
-                cats.append(col)
+        
+        # Only use Main Category column
+        main_cat = str(row.get('Main Category', '')).strip()
+        if main_cat and main_cat.lower() != 'nan':
+            cats = [main_cat]
+        else:
+            cats = []
+        
         benchmark_cats[name.lower()] = cats
 
     # 2. Process each model

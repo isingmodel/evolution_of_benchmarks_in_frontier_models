@@ -39,26 +39,25 @@ def process_benchmark_dates(models_df):
 def generate_trend_graph():
     models_df, taxonomy_df = load_data()
     
-    # Categories of interest (same order as before)
+    # Categories of interest
     category_cols = [
         'Knowledge', 'Thinking & Reasoning', 'Math', 'Coding', 'Agent', 
         'Multimodal', 'Long Context', 'Safety', 'Instruction'
     ]
-    
-    # Map benchmarks to categories
-    # We need a robust map that handles the "MMLU / MMLU-Pro" issue similarly
-    benchmark_to_cats = {}
     
     # 1. Build lookup from taxonomy
     # Key: Lowercase clean name
     taxonomy_lookup = {}
     for _, row in taxonomy_df.iterrows():
         name = str(row['Benchmark']).strip().lower()
-        cats = []
-        for col in category_cols:
-            val = str(row[col]).strip()
-            if val and val.lower() != 'nan' and len(val) > 0:
-                cats.append(col)
+        
+        # Only use Main Category
+        main_cat = str(row.get('Main Category', '')).strip()
+        if main_cat and main_cat.lower() != 'nan':
+            cats = [main_cat]
+        else:
+            cats = []
+        
         taxonomy_lookup[name] = cats
         
         # Split alias if exists (e.g. "MMLU / MMLU-Pro")
@@ -131,6 +130,12 @@ def generate_trend_graph():
     # Cumulative Sum
     cum_data = daily_counts.cumsum()
     
+    # Normalize to Percentage
+    # Divide each row by its sum to get proportion (0-1)
+    row_sums = cum_data.sum(axis=1)
+    # Avoid division by zero
+    cum_data_percent = cum_data.div(row_sums, axis=0).fillna(0)
+    
     # Plotting
     fig, ax = plt.subplots(figsize=(16, 9))
     
@@ -139,15 +144,19 @@ def generate_trend_graph():
     
     # Stackplot
     # x needs to be separate
-    x = cum_data.index
-    y = [cum_data[col] for col in category_cols]
+    x = cum_data_percent.index
+    y = [cum_data_percent[col] for col in category_cols]
     
     ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
     
     # Aesthetics
-    ax.set_title("Growth of Benchmark Landscape by Topic", fontsize=20, weight='bold', pad=20)
-    ax.set_ylabel("Cumulative Number of Unique Benchmarks", fontsize=14, labelpad=10)
+    ax.set_title("Relative Composition of Benchmark Landscape over Time", fontsize=20, weight='bold', pad=20)
+    ax.set_ylabel("Percentage of Total Benchmarks", fontsize=14, labelpad=10)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
+    
+    # Format Y axis as percentage
+    import matplotlib.ticker as mtick
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     
     # Legend
     # Inverse legend order to match stack order usually?
