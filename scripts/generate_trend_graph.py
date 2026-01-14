@@ -99,7 +99,7 @@ def generate_trend_graph():
         
     events_df.sort_values('Date', inplace=True)
     
-    # 4. Create Cumulative Data
+    # 4. Create Trend Data (Rolling Window)
     # Min date to Max date
     min_date = events_df['Date'].min()
     max_date = events_df['Date'].max()
@@ -107,13 +107,6 @@ def generate_trend_graph():
     max_date = max(max_date, pd.to_datetime('today'))
     
     date_range = pd.date_range(start=min_date, end=max_date, freq='D')
-    
-    # DataFrame to hold cumulative counts
-    # Index: Date, Columns: Categories
-    cum_counts = pd.DataFrame(0, index=date_range, columns=category_cols)
-    
-    # Iterate through days and cumulative sum?
-    # Easier: group by date and count, then reindex and cumsum
     
     # Pivot events: Date, Category -> Count
     # We aggregate by Day first
@@ -127,14 +120,18 @@ def generate_trend_graph():
         if c not in daily_counts.columns:
             daily_counts[c] = 0
             
-    # Cumulative Sum
-    cum_data = daily_counts.cumsum()
+    # Rolling Sum instead of Cumulative
+    # Using ~6 months window to show "current trend"
+    window_days = 180
+    rolling_data = daily_counts.rolling(window=window_days, min_periods=1).sum()
     
     # Normalize to Percentage
     # Divide each row by its sum to get proportion (0-1)
-    row_sums = cum_data.sum(axis=1)
-    # Avoid division by zero
-    cum_data_percent = cum_data.div(row_sums, axis=0).fillna(0)
+    row_sums = rolling_data.sum(axis=1)
+    
+    # Avoid division by zero and forward fill gaps
+    # If a window has 0 benchmarks, we carry forward the last known distribution
+    trend_data_percent = rolling_data.div(row_sums, axis=0).ffill().fillna(0)
     
     # Plotting
     fig, ax = plt.subplots(figsize=(16, 9))
@@ -144,14 +141,14 @@ def generate_trend_graph():
     
     # Stackplot
     # x needs to be separate
-    x = cum_data_percent.index
-    y = [cum_data_percent[col] for col in category_cols]
+    x = trend_data_percent.index
+    y = [trend_data_percent[col] for col in category_cols]
     
     ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
     
     # Aesthetics
-    ax.set_title("Relative Composition of Benchmark Landscape over Time", fontsize=20, weight='bold', pad=20)
-    ax.set_ylabel("Percentage of Total Benchmarks", fontsize=14, labelpad=10)
+    ax.set_title("Evolution of Benchmark Landscape Composition (Rolling 6-month)", fontsize=20, weight='bold', pad=20)
+    ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
     
     # Format Y axis as percentage
@@ -177,7 +174,7 @@ def generate_trend_graph():
     
     # Limits
     ax.set_xlim(min_date, max_date)
-    ax.set_ylim(0, cum_data.iloc[-1].sum() * 1.1)
+    ax.set_ylim(0, 1.0)
     
     plt.tight_layout()
     
