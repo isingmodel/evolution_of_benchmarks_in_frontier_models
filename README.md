@@ -9,7 +9,7 @@ This repository tracks the benchmarks used by frontier AI models (OpenAI, Google
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the cumulative growth of unique benchmarks per topic over time.
+The following graph shows the proportion of benchmark categories over time (rolling 6-month window). Each model's benchmarks are normalized so that all models contribute equally regardless of how many benchmarks they report.
 ![Benchmark Growth](assets/benchmark_growth.png)
 
 ## Models Data
