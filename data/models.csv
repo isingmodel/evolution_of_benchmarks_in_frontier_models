@@ -1,6 +1,6 @@
 Provider,Model name,link,release date,benchmarks
 OpenAI,GPT-3.5,https://openai.com/ko-KR/index/chatgpt/,2022-11-30,
-OpenAI,GPT-4,https://openai.com/ko-KR/index/gpt-4/,2023-03-14,
+OpenAI,GPT-4,https://openai.com/ko-KR/index/gpt-4/,2023-03-14,"Uniform Bar Exam, Biology Olympiad"
 OpenAI,GPT-4o,https://openai.com/ko-KR/index/hello-gpt-4o/,2024-05-13,"MMLU, GPQA, MATH, HumanEval, MGSM, DROP, M3Exam, MMMU, MathVista, AI2D, ChartQA, DocVQA, ActivityNet, EgoSchema"
 OpenAI,o1,https://openai.com/ko-KR/index/learning-to-reason-with-llms/,2024-09-12,"IMO, AIME, Codeforces, GPQA, MATH, MathVista, MMMU, MMLU"
 OpenAI,o1-mini,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/,2024-09-12,"Codeforces, HumanEval, Cybersecurity CTFs, MMLU, GPQA, MATH, AIME, Jailbreak Eval"

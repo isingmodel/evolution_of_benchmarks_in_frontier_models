@@ -50,7 +50,7 @@ MMMLU,OpenAI,O,,,,,O,,,,Knowledge,Industry standard for subject knowledge.,https
 MMLU / MMLU-Pro,Academia,O,O,,,,,,,,Knowledge,Industry standard for subject knowledge.,https://mmlu-pro.github.io/
 MMMU / MMMU Pro,Academia,O,O,,,,O,,,,Multimodal,Multi-discipline multimodal understanding.,https://mmmu-benchmark.github.io/
 MRCR,OpenAI,,O,,,,,O,,,Long Context,Multi-Round context retrieval.,https://arxiv.org/abs/2409.12640
-MTOB benchmark,"Academia, Google",,O,,O,O,,,,,Agent,Tool-use and agentic behavior in a modular environment.,https://github.com/lukemelas/mtob
+MTOB benchmark,"Academia, Google",,O,,O,O,,,,,Long Context,Tool-use and agentic behavior in a modular environment.,https://github.com/lukemelas/mtob
 MultiChallenge,Others(Scale AI),,O,,,,,,,O,Instruction,Multi-turn instruction following.,https://scale.com/leaderboard/multichallenge
 Multi-IF,Meta,,,,,,,,,O,Instruction,Multi-turn instruction following.,https://github.com/facebookresearch/multi-if
 Natural2Code,Google,,,,O,,,,,,Coding,Natural user queries converted to code.,https://arxiv.org/abs/2312.11805
@@ -62,7 +62,7 @@ SimpleQA,OpenAI,O,,,,,,,,,Knowledge,"Short, fact-based question answering.",http
 STEM,Academia,O,,O,,,,,,,Knowledge,"Science, Tech, Engineering, and Math knowledge.",https://github.com/hendrycks/test
 SWE-bench verified,OpenAI,,O,,O,O,,,,,Agent,Solving real-world software engineering issues.,https://www.swebench.com/
 SWE-lancer,OpenAI,,O,,O,O,,,,,Agent,Freelance coding tasks in complete project context.,https://github.com/openai/swe-lancer
-Tau-bench (All variants),Academia,,O,,O,O,,,,,Agent,Reasoning and tool-use in user environments.,https://tau-bench.github.io/
+Tau-bench,Academia,,O,,O,O,,,,,Agent,Reasoning and tool-use in user environments.,https://tau-bench.github.io/
 Terminal-Bench 2.0,Academia,,O,,O,O,,,,,Agent,Command-line interaction and task automation.,https://github.com/mshumer/terminal-bench
 TextVQA,Meta,,,,,,O,,,,Multimodal,Reading text within images.,https://textvqa.org/
 Toolathlon,"Academia, Others(All Hands AI)",,O,,,O,,,,,Agent,Competitive tool-use benchmark.,https://toolathlon.github.io/
@@ -75,3 +75,5 @@ VQAv2,Academia,,,,,,O,,,,Multimodal,Standard visual question answering.,https://
 WebVoyager,Academia,,,,,O,O,,,,Agent,End-to-end web agent tasks.,https://github.com/Square_Z/WebVoyager
 LMArena,Academia,O,O,O,O,,O,,,O,Instruction,Human preference on instruction adherence.,https://chat.lmsys.org/
 WebDev Arena,Others(Epoch AI),,,,O,O,,,,,Agent,Web development tasks requiring execution.,https://web.lmarena.ai/
+Uniform Bar Exam,Academia,O,,,,,,,,,Knowledge,,
+Biology Olympiad,Academia,O,,,,,,,,,Knowledge,,
