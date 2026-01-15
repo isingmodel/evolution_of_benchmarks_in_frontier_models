@@ -69,28 +69,44 @@ def generate_trend_graph():
     # 2. Find first seen dates
     benchmark_dates = process_benchmark_dates(models_df)
     
-    # 3. Create Timeline Events: (Date, Category)
+    # 3. Create Timeline Events: (Date, Category, Weight)
+    # Weight is normalized per model: 1/N where N = number of benchmarks in model
     events = []
     
-    for b_name, date in benchmark_dates.items():
-        # Find category
-        cats = []
-        if b_name in taxonomy_lookup:
-            cats = taxonomy_lookup[b_name]
-        else:
-            # Fuzzy match attempt
-            found = False
-            for k, v in taxonomy_lookup.items():
-                if b_name == k or b_name in k or k in b_name:
-                    cats = v
-                    found = True
-                    break
-            if not found:
-                # print(f"Unknown category for benchmark: {b_name}")
-                continue
+    for _, row in models_df.iterrows():
+        date = pd.to_datetime(row['release date'])
+        benchmarks_str = str(row['benchmarks'])
+        if pd.isna(benchmarks_str) or benchmarks_str.lower() == 'nan':
+            continue
         
-        for c in cats:
-            events.append({'Date': date, 'Category': c})
+        b_list = [b.strip() for b in benchmarks_str.split(',')]
+        n_benchmarks = len(b_list)
+        if n_benchmarks == 0:
+            continue
+        
+        # Normalized weight: each benchmark gets 1/N weight
+        weight = 1.0 / n_benchmarks
+        
+        for b in b_list:
+            b_name = b.strip().lower()
+            
+            # Find category
+            cats = []
+            if b_name in taxonomy_lookup:
+                cats = taxonomy_lookup[b_name]
+            else:
+                # Fuzzy match attempt
+                found = False
+                for k, v in taxonomy_lookup.items():
+                    if b_name == k or b_name in k or k in b_name:
+                        cats = v
+                        found = True
+                        break
+                if not found:
+                    continue
+            
+            for c in cats:
+                events.append({'Date': date, 'Category': c, 'Weight': weight})
             
     events_df = pd.DataFrame(events)
     if events_df.empty:
@@ -108,9 +124,9 @@ def generate_trend_graph():
     
     date_range = pd.date_range(start=min_date, end=max_date, freq='D')
     
-    # Pivot events: Date, Category -> Count
-    # We aggregate by Day first
-    daily_counts = events_df.groupby(['Date', 'Category']).size().unstack(fill_value=0)
+    # Pivot events: Date, Category -> Weighted Count
+    # We aggregate weights by Day first (sum of weights instead of count)
+    daily_counts = events_df.groupby(['Date', 'Category'])['Weight'].sum().unstack(fill_value=0)
     
     # Reindex to full range
     daily_counts = daily_counts.reindex(date_range, fill_value=0)
@@ -132,6 +148,15 @@ def generate_trend_graph():
     # Avoid division by zero and forward fill gaps
     # If a window has 0 benchmarks, we carry forward the last known distribution
     trend_data_percent = rolling_data.div(row_sums, axis=0).ffill().fillna(0)
+    
+    # Apply smoothing for smoother curves using exponential weighted moving average
+    smoothing_span = 30  # Smoothing factor in days
+    for col in trend_data_percent.columns:
+        trend_data_percent[col] = trend_data_percent[col].ewm(span=smoothing_span, adjust=False).mean()
+    
+    # Re-normalize after smoothing to ensure values sum to 1
+    row_sums_smooth = trend_data_percent.sum(axis=1)
+    trend_data_percent = trend_data_percent.div(row_sums_smooth, axis=0).fillna(0)
     
     # Plotting
     fig, ax = plt.subplots(figsize=(16, 9))
