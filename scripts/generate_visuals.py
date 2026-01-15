@@ -129,17 +129,14 @@ def generate_graph():
     # colors = sns.color_palette("tab10", n_colors=len(cat_cols)) 
     
     # Title & Labels
+    # Title & Labels
     ax.set_title("Evolution of Frontier Model Benchmarks", fontsize=20, weight='bold', pad=20)
     ax.set_xlabel("Release Date", fontsize=14, labelpad=10)
-    # ax.set_ylabel("Provider", fontsize=14)
     
     # Timeline Lines
     for p in providers:
         y = y_map[p]
         ax.axhline(y, color='gray', alpha=0.3, linestyle='-', linewidth=1.5, zorder=1)
-        # Provider Label on Left
-        # ax.text(df['Date'].min() - pd.Timedelta(days=30), y, p, 
-        #         ha='right', va='center', fontsize=14, fontweight='bold', color='#333')
 
     # Configure Axes
     ax.set_yticks(range(len(providers)))
@@ -158,65 +155,76 @@ def generate_graph():
     max_date = df['Date'].max() + pd.Timedelta(days=60)
     ax.set_xlim(min_date, max_date)
     ax.set_ylim(-0.8, len(providers) - 0.2)
+
+    # Track label positions to minimize overlap
+    # Format: {provider: {'top': [(x, offset_y)], 'bottom': [(x, offset_y)]}}
+    # We'll use a history of labels to check for collisions
+    label_history = {p: {'top': [], 'bottom': []} for p in providers}
     
-    # Draw Model Pies
-    # Increase zorder to be on top
+    # Threshold for horizontal collision (in days)
+    X_THRESHOLD = 60 
     
-    # Track label positions to minimize overlap (simple alternation)
-    last_x_per_y = {y: min_date for y in y_map.values()}
+    print("\n--- Label Placement Debug ---")
+    # Track pie positions to offset overlapping charts horizontally
+    pie_history = {p: [] for p in providers}  # list of x_val
+    PIE_CLOSE_THRESHOLD = 15  # days - for X offset
+    PIE_X_OFFSET = 8  # days to shift
     
     for idx, row in df.iterrows():
-        y_val = y_map[row['Provider']]
+        provider = row['Provider']
+        y_val = y_map[provider]
         date_val = row['Date']
         x_val = mdates.date2num(date_val)
         ratios = row['Ratios']
         
+        # Check for nearby pies and offset horizontally
+        pie_x_offset = 0
+        nearby_pies = [p for p in pie_history[provider] if abs(x_val - p) < PIE_CLOSE_THRESHOLD]
+        if nearby_pies:
+            # Shift to the right by a few days
+            pie_x_offset = PIE_X_OFFSET * len(nearby_pies)
+        
+        adjusted_x = x_val + pie_x_offset
+        pie_history[provider].append(adjusted_x)
+        
         # Pie Size
-        # If no data (sum=0), show a gray dot
         if sum(ratios) == 0:
-            ax.scatter(date_val, y_val, s=100, color='#cccccc', zorder=3)
+            ax.scatter(mdates.num2date(adjusted_x), y_val, s=100, color='#cccccc', zorder=3)
         else:
-            # Create Inset Axis for Pie
-            # width/height in inches. 
-            # 0.5 inches is a decent size for 16x9 figure
             pie_size = 0.55
             sub_ax = inset_axes(ax, width=pie_size, height=pie_size, 
                                 loc='center', 
-                                bbox_to_anchor=(x_val, y_val), 
+                                bbox_to_anchor=(adjusted_x, y_val), 
                                 bbox_transform=ax.transData,
                                 borderpad=0)
-            
             sub_ax.pie(ratios, colors=colors, startangle=90)
-            sub_ax.set_aspect('equal') # Ensure circle
-            sub_ax.axis('off') # Hide box
+            sub_ax.set_aspect('equal')
+            sub_ax.axis('off')
     
-        # Label Annotation
-        # Alternating top/bottom to reduce collision
-        # Simple heuristic: alternating based on index? Or random?
-        # Let's just alternate.
-        offset_y = 25 if idx % 2 == 0 else -35
+        # Simple alternating label placement
+        offset_y = 30 if idx % 2 == 0 else -35
+        
+        print(f"Model: {row['Model']:15} | Date: {row['Date'].strftime('%Y-%m-%d')} | Pie X-Offset: {pie_x_offset:3} days")
         
         ax.annotate(row['Model'], 
-                    (date_val, y_val), 
+                    (mdates.num2date(adjusted_x), y_val), 
                     xytext=(0, offset_y), 
                     textcoords='offset points', 
                     ha='center', va='center',
                     fontsize=9, 
                     fontweight='normal',
-                    bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.7, ec="none"),
+                    bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.8, ec="none"),
                     arrowprops=dict(arrowstyle="-", color='gray', alpha=0.5))
 
     # Legend
     legend_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=c, markersize=12, label=cat) 
                       for cat, c in zip(cat_cols, colors)]
     
-    # Place legend outside or neatly inside
     ax.legend(handles=legend_handles, title="Benchmark Category", 
               loc='upper center', bbox_to_anchor=(0.5, -0.15),
               ncol=5, frameon=False, fontsize=11, title_fontsize=12)
     
-    plt.tight_layout()
-    # Adjust layout to make room for legend at bottom
+    # plt.tight_layout() # Removed due to inset_axes incompatibility
     plt.subplots_adjust(bottom=0.2)
     
     os.makedirs('assets', exist_ok=True)
