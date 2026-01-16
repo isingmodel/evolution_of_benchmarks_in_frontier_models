@@ -1,15 +1,12 @@
 # Benchmark Evolution in Frontier Models
 
-This repository tracks the benchmarks used by frontier AI models (OpenAI, Google) over time.
-
-> exclusively collects benchmarks featured on official model landing pages and announcement blogs. Model providers typically showcase their model's primary strengths in these public reveals, providing a curated view of performance compared to more exhaustive technical reports.
-
+This repository tracks the benchmarks used by frontier AI models (OpenAI, Google, etc.) over time.
 
 ## Evolution Graph
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the proportion of benchmark categories over time (rolling 6-month window). Each model's benchmarks are normalized so that all models contribute equally regardless of how many benchmarks they report.
+The following graph shows the cumulative growth of unique benchmarks per topic over time.
 ![Benchmark Growth](assets/benchmark_growth.png)
 
 ## Models Data
@@ -87,8 +84,8 @@ Classification of various benchmarks by category.
 | MATH                       | Academia                                         |             | O                      | O      |          |         |              |                |          |               | Math                 | Challenging competition-level math problems.            | https://github.com/hendrycks/math                                                         |
 | MathVista                  | Academia                                         |             | O                      | O      |          |         | O            |                |          |               | Multimodal           | Visual mathematical reasoning.                          | https://mathvista.github.io/                                                              |
 | MCQA                       | Academia                                         | O           |                        |        |          |         |              |                |          |               | Knowledge            | Broad multiple-choice question sets.                    | https://paperswithcode.com/task/multiple-choice-question-answering                        |
-| MMMLU                      | OpenAI                                           | O           |                        |        |          |         | O            |                |          |               | Knowledge            | Industry standard for subject knowledge.                | https://github.com/hendrycks/test                                                         |
-| MMLU / MMLU-Pro            | Academia                                         | O           | O                      |        |          |         |              |                |          |               | Knowledge            | Industry standard for subject knowledge.                | https://mmlu-pro.github.io/                                                               |
+| MMMLU                      | OpenAI                                           | O           |                        |        |          |         | O            |                |          |               | Knowledge            | Multilingual industry standard for subject knowledge.   | https://huggingface.co/datasets/openai/MMMLU                                              |
+| MMLU / MMLU-Pro            | Academia                                         | O           | O                      |        |          |         |              |                |          |               | Knowledge            | Industry standard for subject knowledge.                | https://github.com/TIGER-AI-Lab/MMLU-Pro                                                  |
 | MMMU / MMMU Pro            | Academia                                         | O           | O                      |        |          |         | O            |                |          |               | Multimodal           | Multi-discipline multimodal understanding.              | https://mmmu-benchmark.github.io/                                                         |
 | MRCR                       | OpenAI                                           |             | O                      |        |          |         |              | O              |          |               | Long Context         | Multi-Round context retrieval.                          | https://arxiv.org/abs/2409.12640                                                          |
 | MTOB benchmark             | Academia, Google                                 |             | O                      |        | O        | O       |              |                |          |               | Long Context         | Tool-use and agentic behavior in a modular environment. | https://github.com/lukemelas/mtob                                                         |
