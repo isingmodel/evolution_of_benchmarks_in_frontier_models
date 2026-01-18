@@ -47,9 +47,6 @@ The following table lists the models and their associated benchmarks.
 ## Benchmark Taxonomy
 Classification of various benchmarks by category.
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 | Benchmark                  | author(Openai, google, academia, Meta, others)   | Knowledge   | Thinking & Reasoning   | Math   | Coding   | Agent   | Multimodal   | Long Context   | Safety   | Instruction   | Main Category        | Rationale                                               | Reference Link                                                                            |
 |:---------------------------|:-------------------------------------------------|:------------|:-----------------------|:-------|:---------|:--------|:-------------|:---------------|:---------|:--------------|:---------------------|:--------------------------------------------------------|:------------------------------------------------------------------------------------------|
 | ActivityNet                | Academia                                         |             |                        |        |          |         | O            |                |          |               | Multimodal           | Video understanding and action recognition.             | https://activity-net.org/                                                                 |
