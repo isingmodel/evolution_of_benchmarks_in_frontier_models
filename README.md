@@ -226,7 +226,7 @@ Classification of various benchmarks by category.
 | SWE-bench                  | Academia                                         |             | O                      |        | O        | O       |              |                |          |               | Agent                | Solving real-world software engineering issues (Base).               | https://www.swebench.com/                                                                 |
 | SWE-bench Pro              | Others(Scale AI)                                 |             | O                      |        | O        | O       |              |                |          |               | Agent                | Long-horizon software engineering tasks in large codebases.          | https://scale.com/blog/swe-bench-pro                                                      |
 | SWE-Lancer                 | OpenAI                                           |             | O                      |        | O        | O       |              |                |          |               | Agent                | Freelance software engineering tasks with monetary rewards.          | https://openai.com/index/swe-lancer-benchmark/                                            |
-<<<<<<< HEAD
+
 
 ## Categorization Logic
 To simplify visualizations, each benchmark is assigned a single **Main Category**. When a benchmark maps to multiple categories, the following priority logic is applied:
@@ -245,5 +245,5 @@ python scripts/generate_visuals.py
 python scripts/generate_trend_graph.py
 python scripts/update_readme.py
 ```
-=======
+
 
