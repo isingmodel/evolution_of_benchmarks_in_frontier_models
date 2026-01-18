@@ -77,3 +77,17 @@ LMArena,Academia,O,O,O,O,,O,,,O,Instruction,Human preference on instruction adhe
 WebDev Arena,Others(Epoch AI),,,,O,O,,,,,Agent,Web development tasks requiring execution.,https://web.lmarena.ai/
 Uniform Bar Exam,Academia,O,,,,,,,,,Knowledge,,
 Biology Olympiad,Academia,O,,,,,,,,,Knowledge,,
+ARC-AGI-2,Academia,,O,,,,,,,,Thinking & Reasoning,Evaluates abstract reasoning and problem-solving via visual puzzles.,https://arxiv.org/abs/2505.11831
+BrowseComp-Plus,Academia,O,O,,,O,O,,,,Agent,Evaluation benchmark for deep-research agents.,https://arxiv.org/abs/2508.06600
+Finance Agent,"Academia, Others(vals.ai)",O,O,,,,,O,,,Agent,Real-world financial research tasks using SEC filings.,https://vals.ai/finance-agent
+GPQA Diamond,"Academia, Others(Cohere, Anthropic)",,O,,,,,,,,Thinking & Reasoning,High-quality subset of GPQA with validated answers.,https://arxiv.org/abs/2311.12022
+GRE,"Academia, Others(ETS)",O,O,,,,,,,,Knowledge,Standardized test for graduate school admission.,https://www.ets.org/gre
+MATH 500,Academia,,O,O,,,,,,,Math,Challenging 500-problem subset of the MATH dataset.,https://arxiv.org/abs/2103.03874
+OSWorld,Academia,,,,,O,O,,,,Agent,Multimodal agents in real computer environments.,https://os-world.github.io
+SWE-bench Multilingual,Academia,,O,,O,O,,,,,Agent,Multilingual software engineering issue resolving.,https://multi-swe-bench.github.io
+TAU-2 bench,Academia,,O,,O,O,,,,,Agent,Dual-control environment for agent-user collaboration.,https://arxiv.org/abs/2406.12000
+Terminal-bench,Academia,,O,,O,O,,,,,Agent,Evaluates agents in realistic terminal environments.,https://github.com/cpacker/Terminal-Bench
+Vending-Bench,"Others(Andon Labs)",,O,,,O,,,,,Agent,Long-horizon planning in a vending machine business simulation.,https://andonlabs.com/
+SWE-bench,Academia,,O,,O,O,,,,,Agent,Solving real-world software engineering issues (Base).,https://www.swebench.com/
+SWE-bench Pro,"Others(Scale AI)",,O,,O,O,,,,,Agent,Long-horizon software engineering tasks in large codebases.,https://scale.com/blog/swe-bench-pro
+SWE-Lancer,OpenAI,,O,,O,O,,,,,Agent,Freelance software engineering tasks with monetary rewards.,https://openai.com/index/swe-lancer-benchmark/
