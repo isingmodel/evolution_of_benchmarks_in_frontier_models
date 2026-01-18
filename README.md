@@ -6,7 +6,7 @@ This repository tracks the benchmarks used by frontier AI models (OpenAI, Google
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the cumulative growth of unique benchmarks per topic over time.
+The following graph shows the proportion of benchmark categories over time (rolling 6-month window). Each model's benchmarks are normalized so that all models contribute equally regardless of how many benchmarks they report.
 ![Benchmark Growth](assets/benchmark_growth.png)
 
 ## Models Data
@@ -223,22 +223,3 @@ Classification of various benchmarks by category.
 | SWE-bench                  | Academia                                         |             | O                      |        | O        | O       |              |                |          |               | Agent                | Solving real-world software engineering issues (Base).               | https://www.swebench.com/                                                                 |
 | SWE-bench Pro              | Others(Scale AI)                                 |             | O                      |        | O        | O       |              |                |          |               | Agent                | Long-horizon software engineering tasks in large codebases.          | https://scale.com/blog/swe-bench-pro                                                      |
 | SWE-Lancer                 | OpenAI                                           |             | O                      |        | O        | O       |              |                |          |               | Agent                | Freelance software engineering tasks with monetary rewards.          | https://openai.com/index/swe-lancer-benchmark/                                            |
->>>>>>> d72bdf9 (ADD: Anthropic Claude)
-
-## Categorization Logic
-To simplify visualizations, each benchmark is assigned a single **Main Category**. When a benchmark maps to multiple categories, the following priority logic is applied:
-1. **Agent**: Tasks requiring environment interaction or multi-step tool use.
-2. **Multimodal**: Tasks involving vision, audio, or video.
-3. **Math/Coding**: Specialized technical skills.
-4. **Long Context**: Retrieval/reasoning over long sequences.
-5. **Safety/Instruction**: Alignment, safety, or formatting constraints.
-6. **Thinking & Reasoning**: General high-level reasoning.
-7. **Knowledge**: General factual Q&A.
-
-## Auto-Update
-To keep this repository up-to-date, run:
-```bash
-python scripts/generate_visuals.py
-python scripts/generate_trend_graph.py
-python scripts/update_readme.py
-```
