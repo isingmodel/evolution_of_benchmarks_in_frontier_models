@@ -2,7 +2,9 @@
 **Abstract**
 This repository provides a comprehensive analysis of the evolution of benchmarks used by frontier AI models. By tracking benchmarks cited in technical reports from major AI providers (OpenAI, Google, Anthropic, etc.), we visualize the shifting landscape of AI evaluation. The project offers data-driven insights into the growth of benchmark categories, model capabilities, and the taxonomy of evaluation metrics.
 
-This repository tracks the benchmarks used by frontier AI models (OpenAI, Google, etc.) over time.
+This repo tracks which benchmarks frontier AI providers choose to highlight on their official model release pages over time, and visualizes the resulting shifts across categories (e.g., coding, multimodal, long-context, agents).
+
+**Scope & methodology:** we extract benchmark mentions from primary release pages (and only include report details when explicitly surfaced on those pages). Each benchmark is mapped to a single main category using documented prioritization logic.
 
 ## Evolution Graph
 ![Benchmark Evolution](assets/benchmark_evolution.png)
