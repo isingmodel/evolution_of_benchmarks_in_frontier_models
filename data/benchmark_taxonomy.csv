@@ -91,9 +91,9 @@ Vending-Bench,"Others(Andon Labs)",,O,,,O,,,,,Agent,Long-horizon planning in a v
 SWE-bench,Academia,,O,,O,O,,,,,Agent,Solving real-world software engineering issues (Base).,https://www.swebench.com/
 SWE-bench Pro,"Others(Scale AI)",,O,,O,O,,,,,Agent,Long-horizon software engineering tasks in large codebases.,https://scale.com/blog/swe-bench-pro
 SWE-Lancer,OpenAI,,O,,O,O,,,,,Agent,Freelance software engineering tasks with monetary rewards.,https://openai.com/index/swe-lancer-benchmark/
-GDPval-AA,OpenAI,,,,,O,,,,Agent,Real-world economically valuable knowledge work.,https://openai.com/index/measuring-the-performance-of-our-models-on-real-world-tasks/
-MRCR v2,OpenAI,,,,,,,,O,,,Long Context,Multi-Round Coreference Resolution version 2.,https://arxiv.org/abs/2409.12640
-OpenRCA,"Academia, Others(Microsoft)",,,,O,,,,,,,Coding,Root cause analysis of software failures.,https://github.com/microsoft/OpenRCA
-BigLaw Bench,Others(Harvey),,,,,,O,,,,Agent,Real-world legal tasks mirroring billable work.,https://harvey.ai/
-CyberGym,Academia,,,,O,,,,,,,Coding,Evaluating real-world cybersecurity capabilities.,https://arxiv.org/abs/2506.02548
-BioPipelineBench,Anthropic,,,,,,O,,,,Agent,Execution of complex bioinformatics workflows.,https://www.anthropic.com/
+GDPval-AA,OpenAI,,,,,O,,,,,Agent,Real-world economically valuable knowledge work.,https://openai.com/index/measuring-the-performance-of-our-models-on-real-world-tasks/
+MRCR v2,OpenAI,,O,,,,,O,,,Long Context,Multi-Round Coreference Resolution version 2.,https://arxiv.org/abs/2409.12640
+OpenRCA,"Academia, Others(Microsoft)",,,,O,,,,,,Coding,Root cause analysis of software failures.,https://github.com/microsoft/OpenRCA
+BigLaw Bench,Others(Harvey),,,,,O,,,,,Agent,Real-world legal tasks mirroring billable work.,https://harvey.ai/
+CyberGym,Academia,,,,O,,,,,,Coding,Evaluating real-world cybersecurity capabilities.,https://arxiv.org/abs/2506.02548
+BioPipelineBench,Anthropic,,,,,O,,,,,Agent,Execution of complex bioinformatics workflows.,https://www.anthropic.com/
