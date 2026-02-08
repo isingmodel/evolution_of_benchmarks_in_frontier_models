@@ -25,7 +25,7 @@ FLEURS,"Meta, Google",O,,,,,O (Audio),,,,Multimodal,Speech recognition and trans
 FrontierMath,"Others(Epoch AI, backed by Google)",,O,O,,,,,,,Math,Extremely difficult advanced math reasoning.,https://epoch.ai/frontiermath
 GDPval,OpenAI,,O,,,,,,O,,Safety,Policy adherence and risk evaluation.,https://openai.com/index/measuring-the-performance-of-our-models-on-real-world-tasks/
 Global PIQA,Academia,O,,,,,,,,,Knowledge,Culturally diverse commonsense knowledge.,https://mrlbenchmarks.github.io/
-GPQA,"Academia, Others(Cohere, Anthropic)",,O,,,,,,,,Thinking & Reasoning,Graduate-level expert-written reasoning.,https://github.com/idavidrein/gpqa
+GPQA,"Anthropic, Academia, Cohere",,O,,,,,,,,Thinking & Reasoning,Graduate-level expert-written reasoning.,https://github.com/idavidrein/gpqa
 GraphWalks,OpenAI,,O,,,,,,,,Thinking & Reasoning,Logic over graph structures.,https://huggingface.co/datasets/openai/graphwalks
 GSM8K,OpenAI,,O,O,,,,,,,Math,Grade school math word problems.,https://github.com/openai/grade-school-math
 MGSM,"Google, Academia",,,,,,,,,,Math,Multilingual grade school math problems.,https://github.com/google-research/google-research/tree/master/mgsm
@@ -80,7 +80,7 @@ Biology Olympiad,Academia,O,,,,,,,,,Knowledge,,
 ARC-AGI-2,Academia,,O,,,,,,,,Thinking & Reasoning,Evaluates abstract reasoning and problem-solving via visual puzzles.,https://arxiv.org/abs/2505.11831
 BrowseComp-Plus,Academia,O,O,,,O,O,,,,Agent,Evaluation benchmark for deep-research agents.,https://arxiv.org/abs/2508.06600
 Finance Agent,"Academia, Others(vals.ai)",O,O,,,,,O,,,Agent,Real-world financial research tasks using SEC filings.,https://vals.ai/finance-agent
-GPQA Diamond,"Academia, Others(Cohere, Anthropic)",,O,,,,,,,,Thinking & Reasoning,High-quality subset of GPQA with validated answers.,https://arxiv.org/abs/2311.12022
+GPQA Diamond,"Anthropic, Academia, Others(Cohere)",,O,,,,,,,,Thinking & Reasoning,High-quality subset of GPQA with validated answers.,https://arxiv.org/abs/2311.12022
 GRE,"Academia, Others(ETS)",O,O,,,,,,,,Knowledge,Standardized test for graduate school admission.,https://www.ets.org/gre
 MATH 500,Academia,,O,O,,,,,,,Math,Challenging 500-problem subset of the MATH dataset.,https://arxiv.org/abs/2103.03874
 OSWorld,Academia,,,,,O,O,,,,Agent,Multimodal agents in real computer environments.,https://os-world.github.io
@@ -91,3 +91,9 @@ Vending-Bench,"Others(Andon Labs)",,O,,,O,,,,,Agent,Long-horizon planning in a v
 SWE-bench,Academia,,O,,O,O,,,,,Agent,Solving real-world software engineering issues (Base).,https://www.swebench.com/
 SWE-bench Pro,"Others(Scale AI)",,O,,O,O,,,,,Agent,Long-horizon software engineering tasks in large codebases.,https://scale.com/blog/swe-bench-pro
 SWE-Lancer,OpenAI,,O,,O,O,,,,,Agent,Freelance software engineering tasks with monetary rewards.,https://openai.com/index/swe-lancer-benchmark/
+GDPval-AA,OpenAI,,,,,O,,,,Agent,Real-world economically valuable knowledge work.,https://openai.com/index/measuring-the-performance-of-our-models-on-real-world-tasks/
+MRCR v2,OpenAI,,,,,,,,O,,,Long Context,Multi-Round Coreference Resolution version 2.,https://arxiv.org/abs/2409.12640
+OpenRCA,"Academia, Others(Microsoft)",,,,O,,,,,,,Coding,Root cause analysis of software failures.,https://github.com/microsoft/OpenRCA
+BigLaw Bench,Others(Harvey),,,,,,O,,,,Agent,Real-world legal tasks mirroring billable work.,https://harvey.ai/
+CyberGym,Academia,,,,O,,,,,,,Coding,Evaluating real-world cybersecurity capabilities.,https://arxiv.org/abs/2506.02548
+BioPipelineBench,Anthropic,,,,,,O,,,,Agent,Execution of complex bioinformatics workflows.,https://www.anthropic.com/
