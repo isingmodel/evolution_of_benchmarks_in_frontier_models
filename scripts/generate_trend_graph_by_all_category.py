@@ -1,0 +1,215 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import seaborn as sns
+import numpy as np
+import os
+
+# Set aesthetic style
+sns.set_theme(style="whitegrid")
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['Verdana', 'Arial', 'DejaVu Sans']
+
+def load_data():
+    models_df = pd.read_csv('data/models.csv')
+    taxonomy_df = pd.read_csv('data/benchmark_taxonomy.csv')
+    return models_df, taxonomy_df
+
+def process_benchmark_dates(models_df):
+    # Find the first appearance date for each benchmark
+    benchmark_first_seen = {}
+    
+    for _, row in models_df.iterrows():
+        date = pd.to_datetime(row['release date'])
+        benchmarks_str = str(row['benchmarks'])
+        if pd.isna(benchmarks_str) or benchmarks_str.lower() == 'nan':
+            continue
+            
+        b_list = [b.strip() for b in benchmarks_str.split(',')]
+        for b in b_list:
+            b_clean = b.strip().lower() # normalize for key
+            if b_clean not in benchmark_first_seen:
+                benchmark_first_seen[b_clean] = date
+            else:
+                if date < benchmark_first_seen[b_clean]:
+                    benchmark_first_seen[b_clean] = date
+                    
+    return benchmark_first_seen
+
+def generate_trend_graph():
+    models_df, taxonomy_df = load_data()
+    
+    # Categories of interest
+    category_cols = [
+        'Knowledge', 'Reasoning', 'Math', 'Coding', 'Agent', 
+        'Multimodal', 'Long Context', 'Safety', 'Instruction'
+    ]
+    
+    # 1. Build lookup from taxonomy
+    # Key: Lowercase clean name, Value: List of active categories
+    taxonomy_lookup = {}
+    
+    for _, row in taxonomy_df.iterrows():
+        name = str(row['Benchmark']).strip().lower()
+        
+        cats = []
+        for cat in category_cols:
+            val = str(row.get(cat, '')).strip()
+            if val and val.lower() != 'nan':
+                cats.append(cat)
+        
+        taxonomy_lookup[name] = cats
+        
+        # Split alias if exists (e.g. "MMLU / MMLU-Pro")
+        if '/' in name:
+            parts = [p.strip() for p in name.split('/')]
+            for p in parts:
+                taxonomy_lookup[p] = cats
+
+    # 2. Find first seen dates (not strictly creating events based on first seen, but used for reference if needed)
+    # In the previous script, events were created based on model release dates, which is what we want here too.
+    
+    # 3. Create Timeline Events: (Date, Category, Weight)
+    # Weight logic:
+    # Model has N benchmarks. Each benchmark gets 1/N weight.
+    # Benchmark has K categories. Each category gets (1/N)/K weight.
+    
+    events = []
+    
+    for _, row in models_df.iterrows():
+        date = pd.to_datetime(row['release date'])
+        benchmarks_str = str(row['benchmarks'])
+        if pd.isna(benchmarks_str) or benchmarks_str.lower() == 'nan':
+            continue
+        
+        b_list = [b.strip() for b in benchmarks_str.split(',')]
+        n_benchmarks = len(b_list)
+        if n_benchmarks == 0:
+            continue
+            
+        # Base weight for this benchmark tuple in this model
+        base_weight = 1.0 / n_benchmarks
+        
+        for b in b_list:
+            b_name = b.strip().lower()
+            
+            # Find categories
+            cats = []
+            if b_name in taxonomy_lookup:
+                cats = taxonomy_lookup[b_name]
+            else:
+                # Fuzzy match attempt
+                found = False
+                for k, v in taxonomy_lookup.items():
+                    if b_name == k or b_name in k or k in b_name:
+                        cats = v
+                        found = True
+                        break
+                if not found:
+                    pass # Benchmark not found or no categories mapping
+            
+            n_cats = len(cats)
+            if n_cats > 0:
+                final_weight = base_weight / n_cats
+                for c in cats:
+                    events.append({'Date': date, 'Category': c, 'Weight': final_weight})
+            
+    events_df = pd.DataFrame(events)
+    if events_df.empty:
+        print("No events found.")
+        return
+        
+    events_df.sort_values('Date', inplace=True)
+    
+    # 4. Create Trend Data (Rolling Window)
+    # Min date to Max date
+    min_date = events_df['Date'].min()
+    max_date = events_df['Date'].max()
+    # Extend max date a bit for future view
+    max_date = max(max_date, pd.to_datetime('today'))
+    
+    date_range = pd.date_range(start=min_date, end=max_date, freq='D')
+    
+    # Pivot events: Date, Category -> Weighted Count
+    # We aggregate weights by Day first (sum of weights)
+    daily_counts = events_df.groupby(['Date', 'Category'])['Weight'].sum().unstack(fill_value=0)
+    
+    # Reindex to full range
+    daily_counts = daily_counts.reindex(date_range, fill_value=0)
+    
+    # Ensure all columns exist
+    for c in category_cols:
+        if c not in daily_counts.columns:
+            daily_counts[c] = 0
+            
+    # Rolling Sum
+    # Using ~6 months window to show "current trend"
+    window_days = 180
+    rolling_data = daily_counts.rolling(window=window_days, min_periods=1).sum()
+    
+    # Normalize to Percentage
+    # Divide each row by its sum to get proportion (0-1)
+    row_sums = rolling_data.sum(axis=1)
+    
+    # Avoid division by zero and forward fill gaps
+    trend_data_percent = rolling_data.div(row_sums, axis=0).ffill().fillna(0)
+    
+    # Apply smoothing
+    smoothing_span = 30  # Smoothing factor in days
+    for col in trend_data_percent.columns:
+        trend_data_percent[col] = trend_data_percent[col].ewm(span=smoothing_span, adjust=False).mean()
+    
+    # Re-normalize after smoothing
+    row_sums_smooth = trend_data_percent.sum(axis=1)
+    trend_data_percent = trend_data_percent.div(row_sums_smooth, axis=0).fillna(0)
+    
+    # Plotting
+    fig, ax = plt.subplots(figsize=(16, 9))
+    
+    # Colors
+    colors = sns.color_palette("Set3", n_colors=len(category_cols))
+    
+    # Stackplot
+    x = trend_data_percent.index
+    y = [trend_data_percent[col] for col in category_cols]
+    
+    ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
+    
+    # Aesthetics
+    ax.set_title("Evolution of Benchmark Landscape Composition (Rolling 6-month)", fontsize=20, weight='bold', pad=20)
+    ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
+    ax.set_xlabel("Time", fontsize=14, labelpad=10)
+    
+    # Format Y axis as percentage
+    import matplotlib.ticker as mtick
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+    
+    # Legend
+    # Inverse legend order to match visual stack order (top to bottom)
+    handles, labels = ax.get_legend_handles_labels()
+    ax.legend(handles[::-1], labels[::-1], loc='upper left', fontsize=12, title="Category", bbox_to_anchor=(1.02, 1))
+    
+    # Grid
+    ax.grid(True, which='major', axis='y', linestyle='--', alpha=0.5)
+    ax.grid(False, axis='x')
+    
+    # X-Axis Date formatting
+    locator = mdates.MonthLocator(interval=3)
+    fmt = mdates.DateFormatter('%Y-%m')
+    ax.xaxis.set_major_locator(locator)
+    ax.xaxis.set_major_formatter(fmt)
+    plt.xticks(rotation=45)
+    
+    # Limits
+    ax.set_xlim(min_date, max_date)
+    ax.set_ylim(0, 1.0)
+    
+    plt.tight_layout()
+    
+    os.makedirs('assets', exist_ok=True)
+    out_path = 'assets/benchmark_growth_by_all_category.png'
+    plt.savefig(out_path, dpi=150, bbox_inches='tight')
+    print(f"Graph generated at {out_path}")
+
+if __name__ == "__main__":
+    generate_trend_graph()
