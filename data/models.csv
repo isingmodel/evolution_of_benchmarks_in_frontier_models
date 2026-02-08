@@ -28,4 +28,5 @@ Anthropic,Claude 4.1 (Opus),https://www.anthropic.com/news/claude-opus-4-1,2025-
 Anthropic,Claude 4.5 (Sonnet),https://www.anthropic.com/news/claude-sonnet-4-5,2025-09-30,"SWE-bench verified, Terminal-bench, TAU-2 bench, OSWorld, AIME, GPQA Diamond, MMMLU, MMMU / MMMU Pro, Finance Agent"
 Anthropic,Claude 4.5 (Haiku),https://www.anthropic.com/news/claude-haiku-4-5,2025-10-16,"SWE-bench verified, Terminal-bench, TAU-2 bench, OSWorld, AIME, GPQA Diamond, MMMLU, MMMU / MMMU Pro"
 Anthropic,Claude 4.5 (Opus),https://www.anthropic.com/news/claude-opus-4-5,2025-11-24,"SWE-bench verified, Terminal-Bench 2.0, TAU-2 bench, Scale MCP-Atlas, OSWorld, ARC-AGI-2, GPQA Diamond, MMMU / MMMU Pro, MMMLU, SWE-bench Multilingual, Aider Polyglot, BrowseComp-Plus, Vending-Bench"
+Anthropic,Claude 4.6 (Opus),https://www.anthropic.com/news/claude-opus-4-6,2026-02-05,"GDPval-AA, Terminal-bench, SWE-bench verified, OSWorld, TAU-2 bench, MCP-Atlas, BrowseComp, Humanity's Last Exam, Finance Agent, ARC-AGI-2, GPQA Diamond, MMMU Pro, MMMLU, MRCR v2, OpenRCA, BigLaw Bench, CyberGym, Graphwalks, SWE-bench Multilingual, Vending-Bench 2, BioPipelineBench"
 
