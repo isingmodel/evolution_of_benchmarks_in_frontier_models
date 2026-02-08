@@ -1,10 +1,10 @@
-Benchmark,"author(Openai, google, academia, Meta, others)",Knowledge,Thinking & Reasoning,Math,Coding,Agent,Multimodal,Long Context,Safety,Instruction,Main Category,Rationale,Reference Link
+Benchmark,"author(Openai, google, academia, Meta, others)",Knowledge,Reasoning,Math,Coding,Agent,Multimodal,Long Context,Safety,Instruction,Main Category,Rationale,Reference Link
 ActivityNet,Academia,,,,,,O,,,,Multimodal,Video understanding and action recognition.,https://activity-net.org/
 AI2D,Academia,,,,,,O,,,,Multimodal,Diagram understanding and reasoning.,https://allenai.org/data/ai2d
 Aider Polyglot,Others(Aider),,O,,O,O,,,,,Coding,Code editing across multiple languages.,https://aider.chat/docs/benchmarks.html
 AIME,Academia,,O,O,,,,,,,Math,Competition-level math problems (USA).,https://artificialanalysis.ai/models/o1/benchmarks
-ARC-AGI,Academia,,O,,,,,,,,Thinking & Reasoning,Fluid intelligence and core reasoning.,https://arcprize.org/
-Big-Bench Hard,Google,O,O,,,,,,,,Thinking & Reasoning,Tasks where models previously failed.,https://github.com/suzgunmirac/BIG-Bench-Hard
+ARC-AGI,Academia,,O,,,,,,,,Reasoning,Fluid intelligence and core reasoning.,https://arcprize.org/
+Big-Bench Hard,Google,O,O,,,,,,,,Reasoning,Tasks where models previously failed.,https://github.com/suzgunmirac/BIG-Bench-Hard
 Bird-SQL,Academia,,O,,O,,,,,,Coding,Text-to-SQL generation.,https://bird-sql.github.io/
 BrowseComp,OpenAI,,O,,,O,O,,,,Agent,Ability to use a web browser to complete tasks.,https://openai.com/index/browsecomp/
 BrowseComp Long Context,OpenAI,,O,,,O,O,O,,,Long Context,Tasks over large-scale web contexts.,https://openai.com/index/browsecomp/
@@ -16,7 +16,7 @@ ComplexFunc Bench,Academia,,O,O,O,,,,,,Coding,Complex function calling evaluatio
 CoVoST 2,Meta,,,,,,O (Audio),,,,Multimodal,Speech-to-text translation (Audio).,https://github.com/facebookresearch/covost
 Cybersecurity CTFs,Academia,O,O,,O,,,,O,,Coding,Coding-based security tasks.,https://openai.com/index/learning-to-reason-with-llms/
 DocVQA,Academia,,,,,,O,,,,Multimodal,Document image understanding.,https://www.docvqa.org/
-DROP,Academia,,O,,,,,,,,Thinking & Reasoning,Discrete reasoning over text paragraphs.,https://allenai.org/data/drop
+DROP,Academia,,O,,,,,,,,Reasoning,Discrete reasoning over text paragraphs.,https://allenai.org/data/drop
 EgoSchema,Academia,,O,,,,O,,,,Multimodal,Long-form first-person video understanding.,https://egoschema.github.io/
 ERQA,Google,O,O,,,,,,,,Knowledge,retrieval and quality of factual QA.,https://arxiv.org/abs/2402.11402
 FACTS Benchmark suite,Google,O,,,,,,,,,Knowledge,Factuality and response grounding.,https://scale.com/leaderboard/facts
@@ -25,14 +25,14 @@ FLEURS,"Meta, Google",O,,,,,O (Audio),,,,Multimodal,Speech recognition and trans
 FrontierMath,"Others(Epoch AI, backed by Google)",,O,O,,,,,,,Math,Extremely difficult advanced math reasoning.,https://epoch.ai/frontiermath
 GDPval,OpenAI,O,,,,O,,,,,Agent,Real-world economically valuable knowledge work.,https://openai.com/index/gdpval/
 Global PIQA,Academia,O,,,,,,,,,Knowledge,Culturally diverse commonsense knowledge.,https://mrlbenchmarks.github.io/
-GPQA,"Anthropic, Academia, Cohere",,O,,,,,,,,Thinking & Reasoning,Graduate-level expert-written reasoning.,https://github.com/idavidrein/gpqa
-GraphWalks,OpenAI,,O,,,,,,,,Thinking & Reasoning,Logic over graph structures.,https://huggingface.co/datasets/openai/graphwalks
+GPQA,"Anthropic, Academia, Cohere",,O,,,,,,,,Reasoning,Graduate-level expert-written reasoning.,https://github.com/idavidrein/gpqa
+GraphWalks,OpenAI,,O,,,,,,,,Reasoning,Logic over graph structures.,https://huggingface.co/datasets/openai/graphwalks
 GSM8K,OpenAI,,O,O,,,,,,,Math,Grade school math word problems.,https://github.com/openai/grade-school-math
 MGSM,"Google, Academia",,,,,,,,,,Math,Multilingual grade school math problems.,https://github.com/google-research/google-research/tree/master/mgsm
 Healthbench,OpenAI,O,O,,,,,,,,Knowledge,Medical and health domain knowledge.,https://openai.com/index/introducing-healthbench/
-HellaSwag,Academia,,O,,,,,,,,Thinking & Reasoning,Commonsense sentence completion.,https://rowanzellers.com/hellaswag/
+HellaSwag,Academia,,O,,,,,,,,Reasoning,Commonsense sentence completion.,https://rowanzellers.com/hellaswag/
 HiddenMath,Google,,O,O,,,,,,,Math,Internal holdout math competition set.,https://blog.google/technology/ai/google-gemini-ai/
-HLE (Humanity's Last Exam),Academia,O,O,O,,,O,,,,Thinking & Reasoning,Experts' most difficult reasoning tasks.,https://lastexam.ai/
+HLE (Humanity's Last Exam),Academia,O,O,O,,,O,,,,Reasoning,Experts' most difficult reasoning tasks.,https://lastexam.ai/
 HMMT,Academia,,O,O,,,,,,,Math,Harvard-MIT Math Tournament problems.,https://www.hmmt.org/
 HumanEval,OpenAI,,,,O,,,,,,Coding,Basic Python function completion.,https://github.com/openai/human-eval
 IFEval,Google,,,,,,,,,O,Instruction,Strict formatting and constraint checks.,https://github.com/google-research/google-research/tree/master/instruction_following_eval
@@ -77,10 +77,10 @@ LMArena,Academia,O,O,O,O,,O,,,O,Instruction,Human preference on instruction adhe
 WebDev Arena,Others(Epoch AI),,,,O,O,,,,,Agent,Web development tasks requiring execution.,https://web.lmarena.ai/
 Uniform Bar Exam,Academia,O,,,,,,,,,Knowledge,,
 Biology Olympiad,Academia,O,,,,,,,,,Knowledge,,
-ARC-AGI-2,Academia,,O,,,,,,,,Thinking & Reasoning,Evaluates abstract reasoning and problem-solving via visual puzzles.,https://arxiv.org/abs/2505.11831
+ARC-AGI-2,Academia,,O,,,,,,,,Reasoning,Evaluates abstract reasoning and problem-solving via visual puzzles.,https://arxiv.org/abs/2505.11831
 BrowseComp-Plus,Academia,O,O,,,O,O,,,,Agent,Evaluation benchmark for deep-research agents.,https://arxiv.org/abs/2508.06600
 Finance Agent,"Academia, Others(vals.ai)",O,O,,,,,O,,,Agent,Real-world financial research tasks using SEC filings.,https://vals.ai/finance-agent
-GPQA Diamond,"Anthropic, Academia, Others(Cohere)",,O,,,,,,,,Thinking & Reasoning,High-quality subset of GPQA with validated answers.,https://arxiv.org/abs/2311.12022
+GPQA Diamond,"Anthropic, Academia, Others(Cohere)",,O,,,,,,,,Reasoning,High-quality subset of GPQA with validated answers.,https://arxiv.org/abs/2311.12022
 GRE,"Academia, Others(ETS)",O,O,,,,,,,,Knowledge,Standardized test for graduate school admission.,https://www.ets.org/gre
 MATH 500,Academia,,O,O,,,,,,,Math,Challenging 500-problem subset of the MATH dataset.,https://arxiv.org/abs/2103.03874
 OSWorld,Academia,,,,,O,O,,,,Agent,Multimodal agents in real computer environments.,https://os-world.github.io

@@ -46,7 +46,7 @@ To simplify visualizations, each benchmark is assigned a single **Main Category*
 3. **Math/Coding**: Specialized technical skills.
 4. **Long Context**: Retrieval/reasoning over long sequences.
 5. **Safety/Instruction**: Alignment, safety, or formatting constraints.
-6. **Thinking & Reasoning**: General high-level reasoning.
+6. **Reasoning**: General high-level reasoning.
 7. **Knowledge**: General factual Q&A.
 
 ## Auto-Update

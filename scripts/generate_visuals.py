@@ -18,7 +18,7 @@ def load_data():
 def process_data(models_df, taxonomy_df):
     # Categories of interest (used for graph structure)
     category_cols = [
-        'Knowledge', 'Thinking & Reasoning', 'Math', 'Coding', 'Agent', 
+        'Knowledge', 'Reasoning', 'Math', 'Coding', 'Agent', 
         'Multimodal', 'Long Context', 'Safety', 'Instruction'
     ]
     

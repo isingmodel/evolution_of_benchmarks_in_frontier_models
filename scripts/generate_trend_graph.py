@@ -41,7 +41,7 @@ def generate_trend_graph():
     
     # Categories of interest
     category_cols = [
-        'Knowledge', 'Thinking & Reasoning', 'Math', 'Coding', 'Agent', 
+        'Knowledge', 'Reasoning', 'Math', 'Coding', 'Agent', 
         'Multimodal', 'Long Context', 'Safety', 'Instruction'
     ]
     
