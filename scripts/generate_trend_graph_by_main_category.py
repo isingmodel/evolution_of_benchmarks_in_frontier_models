@@ -1,212 +1,256 @@
+import argparse
+import os
+from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import matplotlib.ticker as mtick
 import seaborn as sns
-import numpy as np
-import os
 
-# Set aesthetic style
+try:
+    from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
+except ImportError:
+    from scripts.taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
+
 sns.set_theme(style="whitegrid")
-plt.rcParams['font.family'] = 'sans-serif'
-plt.rcParams['font.sans-serif'] = ['Verdana', 'Arial', 'DejaVu Sans']
+plt.rcParams["font.family"] = "sans-serif"
+plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
+
+TAXONOMY_PATH = Path("data/benchmark_taxonomy_v2.csv")
+ALIAS_PATH = Path("data/benchmark_aliases.csv")
+
+MODE_ORDER = [
+    "Agentic",
+    "Multimodal Perception",
+    "Generative Reasoning",
+    "Constraint Satisfaction",
+    "Knowledge Retrieval",
+]
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Generate the rolling benchmark task-mode trend chart.")
+    parser.add_argument(
+        "--as-of",
+        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to the latest release date in data/models.csv.",
+    )
+    parser.add_argument(
+        "--window-days",
+        type=int,
+        default=180,
+        help="Rolling window size in days.",
+    )
+    parser.add_argument(
+        "--output",
+        default="assets/benchmark_growth.png",
+        help="Output image path.",
+    )
+    parser.add_argument(
+        "--strict-resolution",
+        action="store_true",
+        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
+    )
+    return parser.parse_args()
+
 
 def load_data():
-    models_df = pd.read_csv('data/models.csv')
-    taxonomy_df = pd.read_csv('data/benchmark_taxonomy.csv')
+    models_df = pd.read_csv("data/models.csv")
+    taxonomy_df = pd.read_csv(TAXONOMY_PATH)
     return models_df, taxonomy_df
 
-def process_benchmark_dates(models_df):
-    # Find the first appearance date for each benchmark
-    benchmark_first_seen = {}
-    
-    for _, row in models_df.iterrows():
-        date = pd.to_datetime(row['release date'])
-        benchmarks_str = str(row['benchmarks'])
-        if pd.isna(benchmarks_str) or benchmarks_str.lower() == 'nan':
-            continue
-            
-        b_list = [b.strip() for b in benchmarks_str.split(',')]
-        for b in b_list:
-            b_clean = b.strip().lower() # normalize for key
-            if b_clean not in benchmark_first_seen:
-                benchmark_first_seen[b_clean] = date
-            else:
-                if date < benchmark_first_seen[b_clean]:
-                    benchmark_first_seen[b_clean] = date
-                    
-    return benchmark_first_seen
 
-def generate_trend_graph():
-    models_df, taxonomy_df = load_data()
-    
-    # Categories of interest
-    category_cols = [
-        'Knowledge', 'Reasoning', 'Math', 'Coding', 'Agent', 
-        'Multimodal', 'Long Context', 'Safety', 'Instruction'
-    ]
-    
-    # 1. Build lookup from taxonomy
-    # Key: Lowercase clean name
-    taxonomy_lookup = {}
+def normalize_name(value):
+    return str(value).strip().casefold()
+
+
+def benchmark_aliases(name):
+    normalized = normalize_name(name)
+    aliases = {normalized} if normalized else set()
+
+    # Current v2 data encodes explicit alternatives as slash-separated names,
+    # e.g. "MMLU / MMLU-Pro". Do not infer substring aliases beyond this.
+    if "/" in normalized:
+        aliases.update(part.strip() for part in normalized.split("/") if part.strip())
+
+    return aliases
+
+
+def build_mode_lookup(taxonomy_df):
+    exact_lookup = {}
+    by_id = {}
     for _, row in taxonomy_df.iterrows():
-        name = str(row['Benchmark']).strip().lower()
-        
-        # Only use Main Category
-        main_cat = str(row.get('Main Category', '')).strip()
-        if main_cat and main_cat.lower() != 'nan':
-            cats = [main_cat]
-        else:
-            cats = []
-        
-        taxonomy_lookup[name] = cats
-        
-        # Split alias if exists (e.g. "MMLU / MMLU-Pro")
-        if '/' in name:
-            parts = [p.strip() for p in name.split('/')]
-            for p in parts:
-                taxonomy_lookup[p] = cats
+        name = str(row.get("benchmark_name", "")).strip()
+        mode = str(row.get("task_mode", "")).strip()
+        if not name or not mode:
+            continue
 
-    # 2. Find first seen dates
-    benchmark_dates = process_benchmark_dates(models_df)
-    
-    # 3. Create Timeline Events: (Date, Category, Weight)
-    # Weight is normalized per model: 1/N where N = number of benchmarks in model
+        if canonical_benchmark_id is not None:
+            by_id[canonical_benchmark_id(name)] = mode
+
+        for alias in benchmark_aliases(name):
+            exact_lookup[alias] = mode
+
+    resolver = None
+    if CanonicalResolver is not None and ALIAS_PATH.exists():
+        resolver = CanonicalResolver.from_files(TAXONOMY_PATH, ALIAS_PATH)
+
+    return {"by_id": by_id, "exact": exact_lookup, "resolver": resolver}
+
+
+def find_mode(benchmark_name, lookup):
+    resolver = lookup.get("resolver")
+    if resolver is not None:
+        resolution = resolver.resolve(benchmark_name)
+        if not resolution:
+            return ""
+        return lookup["by_id"].get(resolution.benchmark_id, "")
+
+    return lookup["exact"].get(normalize_name(benchmark_name), "")
+
+
+def split_benchmarks(value):
+    if pd.isna(value):
+        return []
+
+    text = str(value).strip()
+    if not text or text.casefold() == "nan":
+        return []
+
+    return [b.strip() for b in text.split(",") if b.strip()]
+
+
+def parse_as_of(value):
+    if not value:
+        return None
+
+    parsed = pd.to_datetime(value, errors="raise")
+    return parsed.normalize()
+
+
+def validate_window_days(window_days):
+    if window_days <= 0:
+        raise ValueError("--window-days must be a positive integer.")
+    return window_days
+
+
+def warn_unresolved(unresolved, strict_resolution):
+    if not unresolved:
+        return
+
+    sample = ", ".join(sorted({bench for _, bench in unresolved})[:10])
+    message = (
+        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
+        "Add explicit taxonomy/alias rows to resolve them; fuzzy substring matching is disabled."
+    )
+    if strict_resolution:
+        raise ValueError(message)
+
+    print(f"Warning: {message}")
+
+
+def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchmark_growth.png", strict_resolution=False):
+    window_days = validate_window_days(window_days)
+    models_df, taxonomy_df = load_data()
+    if as_of is None:
+        as_of = pd.to_datetime(models_df["release date"]).max().normalize()
+
+    mode_lookup = build_mode_lookup(taxonomy_df)
+
     events = []
-    
+    unresolved = []
     for _, row in models_df.iterrows():
-        date = pd.to_datetime(row['release date'])
-        benchmarks_str = str(row['benchmarks'])
-        if pd.isna(benchmarks_str) or benchmarks_str.lower() == 'nan':
+        date = pd.to_datetime(row["release date"])
+        if date > as_of:
             continue
-        
-        b_list = [b.strip() for b in benchmarks_str.split(',')]
-        n_benchmarks = len(b_list)
-        if n_benchmarks == 0:
+
+        benchmarks = split_benchmarks(row.get("benchmarks", ""))
+        if not benchmarks:
             continue
-        
-        # Normalized weight: each benchmark gets 1/N weight
-        weight = 1.0 / n_benchmarks
-        
-        for b in b_list:
-            b_name = b.strip().lower()
-            
-            # Find category
-            cats = []
-            if b_name in taxonomy_lookup:
-                cats = taxonomy_lookup[b_name]
+
+        resolved_modes = []
+        for bench in benchmarks:
+            mode = find_mode(bench, mode_lookup)
+            if mode:
+                resolved_modes.append(mode)
             else:
-                # Fuzzy match attempt
-                found = False
-                for k, v in taxonomy_lookup.items():
-                    if b_name == k or b_name in k or k in b_name:
-                        cats = v
-                        found = True
-                        break
-                if not found:
-                    continue
-            
-            for c in cats:
-                events.append({'Date': date, 'Category': c, 'Weight': weight})
-            
+                unresolved.append((str(row.get("Model name", "")), bench))
+
+        if not resolved_modes:
+            continue
+
+        weight = 1.0 / len(resolved_modes)
+        for mode in resolved_modes:
+            events.append({"Date": date, "Category": mode, "Weight": weight})
+
+    warn_unresolved(unresolved, strict_resolution)
+
     events_df = pd.DataFrame(events)
     if events_df.empty:
         print("No events found.")
         return
-        
-    events_df.sort_values('Date', inplace=True)
-    
-    # 4. Create Trend Data (Rolling Window)
-    # Min date to Max date
-    min_date = events_df['Date'].min()
-    max_date = events_df['Date'].max()
-    # Extend max date a bit for future view
-    max_date = max(max_date, pd.to_datetime('today'))
-    
-    date_range = pd.date_range(start=min_date, end=max_date, freq='D')
-    
-    # Pivot events: Date, Category -> Weighted Count
-    # We aggregate weights by Day first (sum of weights instead of count)
-    daily_counts = events_df.groupby(['Date', 'Category'])['Weight'].sum().unstack(fill_value=0)
-    
-    # Reindex to full range
+
+    min_date = events_df["Date"].min()
+    date_range = pd.date_range(start=min_date, end=as_of, freq="D")
+
+    daily_counts = events_df.groupby(["Date", "Category"])["Weight"].sum().unstack(fill_value=0)
     daily_counts = daily_counts.reindex(date_range, fill_value=0)
-    
-    # Ensure all columns exist
+
+    category_cols = MODE_ORDER
     for c in category_cols:
         if c not in daily_counts.columns:
             daily_counts[c] = 0
-            
-    # Rolling Sum instead of Cumulative
-    # Using ~6 months window to show "current trend"
-    window_days = 180
+    daily_counts = daily_counts[category_cols]
+
     rolling_data = daily_counts.rolling(window=window_days, min_periods=1).sum()
-    
-    # Normalize to Percentage
-    # Divide each row by its sum to get proportion (0-1)
-    row_sums = rolling_data.sum(axis=1)
-    
-    # Avoid division by zero and forward fill gaps
-    # If a window has 0 benchmarks, we carry forward the last known distribution
-    trend_data_percent = rolling_data.div(row_sums, axis=0).ffill().fillna(0)
-    
-    # Apply smoothing for smoother curves using exponential weighted moving average
-    smoothing_span = 30  # Smoothing factor in days
-    for col in trend_data_percent.columns:
-        trend_data_percent[col] = trend_data_percent[col].ewm(span=smoothing_span, adjust=False).mean()
-    
-    # Re-normalize after smoothing to ensure values sum to 1
-    row_sums_smooth = trend_data_percent.sum(axis=1)
-    trend_data_percent = trend_data_percent.div(row_sums_smooth, axis=0).fillna(0)
-    
-    # Plotting
+    trend_data = rolling_data.div(rolling_data.sum(axis=1), axis=0).ffill().fillna(0)
+
+    for col in trend_data.columns:
+        trend_data[col] = trend_data[col].ewm(span=30, adjust=False).mean()
+    trend_data = trend_data.div(trend_data.sum(axis=1), axis=0).fillna(0)
+
     fig, ax = plt.subplots(figsize=(16, 9))
-    
-    # Colors
-    colors = sns.color_palette("Set3", n_colors=len(category_cols))
-    
-    # Stackplot
-    # x needs to be separate
-    x = trend_data_percent.index
-    y = [trend_data_percent[col] for col in category_cols]
-    
+    colors = sns.color_palette("Set2", n_colors=len(category_cols))
+
+    x = trend_data.index
+    y = [trend_data[col] for col in category_cols]
     ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
-    
-    # Aesthetics
-    ax.set_title("Evolution of Benchmark Landscape Composition (Rolling 6-month)", fontsize=20, weight='bold', pad=20)
+
+    ax.set_title(
+        f"Evolution of Benchmark Task Modes (Rolling {window_days}-day, as of {as_of.date()})",
+        fontsize=20,
+        weight="bold",
+        pad=20,
+    )
     ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
-    
-    # Format Y axis as percentage
-    import matplotlib.ticker as mtick
+
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
-    
-    # Legend
-    # Inverse legend order to match stack order usually?
-    # Stackplot draws first bottom, so legend should match
     handles, labels = ax.get_legend_handles_labels()
-    ax.legend(handles[::-1], labels[::-1], loc='upper left', fontsize=12, title="Category", bbox_to_anchor=(1.02, 1))
-    
-    # Grid
-    ax.grid(True, which='major', axis='y', linestyle='--', alpha=0.5)
-    ax.grid(False, axis='x') # clean look
-    
-    # X-Axis Date formatting
-    locator = mdates.MonthLocator(interval=3)
-    fmt = mdates.DateFormatter('%Y-%m')
-    ax.xaxis.set_major_locator(locator)
-    ax.xaxis.set_major_formatter(fmt)
+    ax.legend(handles[::-1], labels[::-1], loc="upper left", fontsize=12, title="Task Mode", bbox_to_anchor=(1.02, 1))
+
+    ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.5)
+    ax.grid(False, axis="x")
+
+    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=3))
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
     plt.xticks(rotation=45)
-    
-    # Limits
-    ax.set_xlim(min_date, max_date)
+
+    ax.set_xlim(min_date, as_of)
     ax.set_ylim(0, 1.0)
-    
     plt.tight_layout()
-    
-    os.makedirs('assets', exist_ok=True)
-    out_path = 'assets/benchmark_growth.png'
-    plt.savefig(out_path, dpi=150, bbox_inches='tight')
-    print(f"Graph generated at {out_path}")
+
+    output_dir = os.path.dirname(output_path)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
+    plt.savefig(output_path, dpi=150, bbox_inches="tight")
+    print(f"Graph generated at {output_path}")
+
 
 if __name__ == "__main__":
-    generate_trend_graph()
+    args = parse_args()
+    generate_trend_graph(
+        as_of=parse_as_of(args.as_of),
+        window_days=args.window_days,
+        output_path=args.output,
+        strict_resolution=args.strict_resolution,
+    )

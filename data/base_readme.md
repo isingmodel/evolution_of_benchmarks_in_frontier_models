@@ -1,15 +1,27 @@
 # Benchmark Evolution in Frontier Models
 **Abstract**
-This repository provides a comprehensive analysis of the evolution of benchmarks used by frontier AI models. By tracking benchmarks cited in technical reports from major AI providers (OpenAI, Google, Anthropic, etc.), we visualize the shifting landscape of AI evaluation. The project offers data-driven insights into the growth of benchmark categories, model capabilities, and the taxonomy of evaluation metrics.
+This repository analyzes the evolution of benchmarks emphasized on frontier model release pages from major AI providers (OpenAI, Google, Anthropic, etc.). It tracks provider benchmark selection and positioning over time; it should not be interpreted as a direct measurement of model capability progress.
 
-This repository tracks the benchmarks used by frontier AI models (OpenAI, Google, etc.) over time.
+The charts summarize how providers frame capability claims in public launch material. Benchmark categories are multi-facet in the v3 methodology; any single headline category shown in a chart is a visualization projection, not an exclusive benchmark identity.
 
 ## Evolution Graph
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the evolution of the benchmark landscape composition over time (rolling 6-month window).
+The following graph shows the headline task-mode projection over time (rolling 6-month window). This is a readable projection from the taxonomy, not an exclusive benchmark identity.
 ![Benchmark Growth](assets/benchmark_growth.png)
+
+## Separate Axis Trends
+The following graph keeps task mode and domain as separate axes, avoiding a single denominator that mixes unlike taxonomy dimensions.
+![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
+
+## Classification Review Debt
+The following graph summarizes low-confidence or review-needed facet rows in the generated v3 seed data.
+![Benchmark Review Debt](assets/benchmark_review_debt.png)
+
+## v3 Multi-Facet Trends
+The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the v3 methodology than the headline projection charts above.
+![Benchmark v3 Facet Trends](assets/benchmark_v3_facet_trends.png)
 
 ## Analysis & Observations
 
@@ -17,7 +29,11 @@ The following graph shows the evolution of the benchmark landscape composition o
 When Gemini 1.5 was released in February 2024, GPT-4 was the market leader. Lacking significant performance advantages in other areas compared to GPT-4, Google focused heavily on promoting its **Long Context** capabilities. While competitors like GPT and Llama were limited to tens of thousands of tokens, Gemini 1.5 boasted support for hundreds of thousands, making Long Context the highlight of its release page.
 
 ### Benchmark Analysis Methodology
-This analysis focuses on benchmarks featured prominently on the models' main release pages, rather than those buried in technical reports, to identify what capabilities providers seemingly prioritize for marketing.
+This analysis focuses on benchmarks featured prominently on model release pages, rather than every benchmark buried in technical reports, to identify what capabilities providers choose to foreground. See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
+
+Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction.
+
+The current v3 seed includes evidence-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and remaining review queue.
 
 ### Evolution of Benchmarks
 *   **Early GPT (3, 3.5)**: Focused on simple knowledge-based QA benchmarks (e.g., Biology Olympiad), reflecting the limitations of early LLMs.
@@ -40,19 +56,27 @@ Classification of various benchmarks by category.
 {{TAXONOMY_TABLE}}
 
 ## Categorization Logic
-To simplify visualizations, each benchmark is assigned a single **Main Category**. When a benchmark maps to multiple categories, the following priority logic is applied:
-1. **Agent**: Tasks requiring environment interaction or multi-step tool use.
-2. **Multimodal**: Tasks involving vision, audio, or video.
-3. **Math/Coding**: Specialized technical skills.
-4. **Long Context**: Retrieval/reasoning over long sequences.
-5. **Safety/Instruction**: Alignment, safety, or formatting constraints.
-6. **Reasoning**: General high-level reasoning.
-7. **Knowledge**: General factual Q&A.
+The generated taxonomy table currently exposes the v2-compatible headline fields used by existing scripts:
+1. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
+2. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
+
+Under the v3 methodology, these fields should be treated as projections from richer benchmark facets such as construct claim, task mechanism, domain, modality, interaction pattern, metric type, context pressure, and lifecycle risk.
 
 ## Auto-Update
-To keep this repository up-to-date, run:
+To regenerate the normalized v3 seed data, current chart assets, and README, run:
 ```bash
-python scripts/generate_visuals.py
-python scripts/generate_trend_graph.py
+AS_OF=2026-02-05          # latest release date included in data/models.csv
+ACCESSED_DATE=2026-04-25  # date used for seeded evidence records
+
+python scripts/build_v3_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/validate_data.py
+python scripts/apply_mention_prominence.py --dry-run
+python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
+python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
+python scripts/generate_v3_facet_trends.py --as-of "$AS_OF" --window-days 180
 python scripts/update_readme.py
+python scripts/validate_data.py
 ```
+
+The v3 build currently seeds normalized canonical benchmark, evidence, facet-edge, and release-mention tables from the legacy CSVs. Mention prominence is deterministic and manual: `data/mention_prominence_overrides.csv` is validated and applied by the build, but no release-page scraping is performed by default. The generated README taxonomy table and trend scripts remain v2/headline-compatible while the normalized v3 tables preserve richer multi-facet labels for quantitative and qualitative analysis.

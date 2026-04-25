@@ -1,0 +1,18 @@
+alias,benchmark_id,match_type,notes
+MCP-Atlas,benchmark_scale_mcp_atlas,provider_abbreviation,Provider shorthand for Scale MCP-Atlas
+MCP Atlas,benchmark_scale_mcp_atlas,provider_abbreviation,Provider shorthand without hyphen
+Humanity's Last Exam,benchmark_hle_humanity_s_last_exam,legacy_name,Expanded name for HLE canonical row
+HLE,benchmark_hle_humanity_s_last_exam,provider_abbreviation,Abbreviation for Humanity's Last Exam
+MMMU Pro,benchmark_mmmu_mmmu_pro,version_alias,Provider shorthand for combined MMMU taxonomy row
+MMMU-Pro,benchmark_mmmu_mmmu_pro,version_alias,Hyphenated shorthand for combined MMMU taxonomy row
+MMMU,benchmark_mmmu_mmmu_pro,provider_abbreviation,Base shorthand for combined MMMU taxonomy row
+MMLU-Pro,benchmark_mmlu_mmlu_pro,version_alias,Variant name for combined MMLU taxonomy row
+MMLU Pro,benchmark_mmlu_mmlu_pro,version_alias,Space variant for combined MMLU taxonomy row
+MMLU,benchmark_mmlu_mmlu_pro,provider_abbreviation,Base shorthand for combined MMLU taxonomy row
+Graphwalks,benchmark_graphwalks,case_variant,Provider casing variant for GraphWalks
+NIAH,benchmark_needle_in_a_haystack,provider_abbreviation,Common abbreviation for Needle In A Haystack
+Needle in a Haystack,benchmark_needle_in_a_haystack,case_variant,Case variant for Needle In A Haystack
+Terminal-Bench,benchmark_terminal_bench,case_variant,Case variant for Terminal-bench
+SWE-bench Verified,benchmark_swe_bench_verified,case_variant,Case variant for SWE-bench verified
+TAU-2,benchmark_tau_2_bench,provider_abbreviation,Short name for TAU-2 bench
+BrowseComp Plus,benchmark_browsecomp_plus,version_alias,Space variant for BrowseComp-Plus
