@@ -1,6 +1,7 @@
 # Benchmark Evolution in Frontier Models
-**Abstract**
 This repository analyzes the evolution of benchmarks emphasized on frontier model release pages from major AI providers (OpenAI, Google, Anthropic, etc.). It tracks provider benchmark selection and positioning over time; it should not be interpreted as a direct measurement of model capability progress.
+
+The unit of analysis is the public launch page written for a general audience: the page a provider presents to customers, developers, journalists, and the broader market. When a benchmark appears there, this repository treats it as a signal of the capability the provider chose to foreground, not simply as evidence that the model was evaluated on that benchmark.
 
 The charts summarize how providers frame capability claims in public launch material. Benchmark categories are multi-facet in the v3 methodology; any single headline category shown in a chart is a visualization projection, not an exclusive benchmark identity.
 
@@ -29,7 +30,7 @@ The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` 
 When Gemini 1.5 was released in February 2024, GPT-4 was the market leader. Lacking significant performance advantages in other areas compared to GPT-4, Google focused heavily on promoting its **Long Context** capabilities. While competitors like GPT and Llama were limited to tens of thousands of tokens, Gemini 1.5 boasted support for hundreds of thousands, making Long Context the highlight of its release page.
 
 ### Benchmark Analysis Methodology
-This analysis focuses on benchmarks featured prominently on model release pages, rather than every benchmark buried in technical reports, to identify what capabilities providers choose to foreground. See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
+This analysis therefore focuses on benchmarks featured prominently on model release pages, rather than every benchmark listed in technical reports, system cards, model cards, or API documentation. Those detailed sources are useful for verification and safety analysis, but they answer a different question: what was evaluated? Here, the question is narrower: which benchmarks did providers choose to emphasize in public launch messaging, and how did that emphasis change over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
 
 Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction.
 
@@ -41,7 +42,7 @@ The current v3 seed includes evidence-audited multi-facet annotations for `TAU-2
 *   **Current Trend**: **Agentic** benchmarks are rapidly increasing. We anticipate a surge in agent-related benchmarks for the upcoming frontier models in the first half of this year.
 
 ### The Battle for Hegemony
-Observations from the model cards reveal a strategic battle:
+Observations from these public release pages reveal a strategic battle:
 *   **Google's Catch-up**: As a fast follower in the LLM product space, Google's early Gemini releases heavily adopted benchmarks established by OpenAI.
 *   **OpenAI's Lead**: OpenAI often created new benchmarks to define the direction of the field. Google followed suit, and the landscape has now become highly competitive with comparable performance metrics.
 
