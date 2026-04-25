@@ -26,6 +26,23 @@ The scraper deliberately avoids broad generated aliases as the main solution. Al
 
 This makes the pipeline more useful for new release pages: a new benchmark should surface as an unknown candidate instead of being silently forced into the nearest existing alias.
 
+## Multi-Agent Review Framework
+
+For new model releases, use the scraper as an evidence generator rather than a fully automatic writer. The recommended review split is:
+
+1. **Source extractor**: recover every raw benchmark-like name from prose, rendered tabs, images, alt text, captions, and OCR.
+2. **False-positive auditor**: reject cost/speed/price metrics, source platforms, chart subtitles, descriptions, model-family names, and wrong variants.
+3. **Catalog mapper**: map only exact canonical names or explicit source-backed aliases; propose new benchmark rows or review-queue entries for unresolved variants.
+4. **Data-integrity auditor**: verify model name, release date, row order, `AS_OF`, generated files, and validation commands.
+
+Generate a reusable review packet from one extraction JSON:
+
+```bash
+python scraping/review_packet.py scraping/output/new_release_extract.json
+```
+
+See `docs/release_page_extraction_workflow.md` for the full adjudication rules.
+
 ## Acceptance Policy
 
 The scraper separates extracted mentions into two lanes:
