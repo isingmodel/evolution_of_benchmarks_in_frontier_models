@@ -15,4 +15,10 @@ Needle in a Haystack,benchmark_needle_in_a_haystack,case_variant,Case variant fo
 Terminal-Bench,benchmark_terminal_bench,case_variant,Case variant for Terminal-bench
 SWE-bench Verified,benchmark_swe_bench_verified,case_variant,Case variant for SWE-bench verified
 TAU-2,benchmark_tau_2_bench,provider_abbreviation,Short name for TAU-2 bench
+t2-bench,benchmark_tau_2_bench,provider_abbreviation,Google chart shorthand for TAU-2 bench
+τ2-bench,benchmark_tau_2_bench,provider_abbreviation,Greek tau shorthand used in Gemini 3.1 Pro methodology
+Arena.ai Leaderboard,benchmark_lmarena,version_alias,Arena rebrand/leaderboard wording used on Google release pages
+FACTS Benchmark Suite,benchmark_facts_benchmark_suite,case_variant,Capitalization variant used on Google release pages
+Multilingual MMLU,benchmark_mmmlu,legacy_name,Expanded name for MMMLU used in Google methodology notes
+MRCR v2 (8-needle),benchmark_mrcr_v2,version_alias,Google chart configuration label for MRCR v2
 BrowseComp Plus,benchmark_browsecomp_plus,version_alias,Space variant for BrowseComp-Plus

@@ -66,7 +66,7 @@ Under the v3 methodology, these fields should be treated as projections from ric
 ## Auto-Update
 To regenerate the normalized v3 seed data, current chart assets, and README, run:
 ```bash
-AS_OF=2026-02-05          # latest release date included in data/models.csv
+AS_OF=2026-03-03          # latest release date included in data/models.csv
 ACCESSED_DATE=2026-04-25  # date used for seeded evidence records
 
 python scripts/build_v3_data.py --accessed-date "$ACCESSED_DATE"
@@ -81,3 +81,6 @@ python scripts/validate_data.py
 ```
 
 The v3 build currently seeds normalized canonical benchmark, evidence, facet-edge, and release-mention tables from the legacy CSVs. Mention prominence is deterministic and manual: `data/mention_prominence_overrides.csv` is validated and applied by the build, but no release-page scraping is performed by default. The generated README taxonomy table and trend scripts remain v2/headline-compatible while the normalized v3 tables preserve richer multi-facet labels for quantitative and qualitative analysis.
+
+## Release-Page Extraction Workflow
+For new model launches, run the scraper as an evidence generator and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.
