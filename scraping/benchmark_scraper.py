@@ -52,7 +52,7 @@ TEXT_HINT_RE = re.compile(
     re.IGNORECASE,
 )
 URL_RE = re.compile(r"https?://[^\s|)>\"]+")
-READER_URL_PREFIX = "https://r.jina.ai/http://r.jina.ai/http://"
+READER_URL_PREFIX = "https://r.jina.ai/http://"
 TAB_HINT_RE = re.compile(
     r"benchmark|eval|evaluation|score|performance|compare|comparison|"
     r"reasoning|coding|agent|intelligence|chart|table|"
