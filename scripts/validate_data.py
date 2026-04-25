@@ -15,6 +15,7 @@ from mention_prominence import (
 from taxonomy_utils import (
     ALLOWED_ALIAS_MATCH_TYPE,
     ALLOWED_FACET_AXIS,
+    ALLOWED_FACET_LABELS,
     ALLOWED_REVIEW_STATUS,
     ALLOWED_TASK_DOMAIN,
     ALLOWED_TASK_MODE,
@@ -120,15 +121,6 @@ DOMAIN_ORDER = [
     "General/Commonsense",
     "Specialized (Law/Bio/Finance)",
 ]
-V3_DOMAIN_LABELS = set(DOMAIN_ORDER) | {
-    "Law",
-    "Bio/Medicine",
-    "Finance",
-    "Cybersecurity",
-    "Multilingual",
-    "Visual/Document",
-    "Other Specialized",
-}
 VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS) | {"legacy_seed"}
 VALID_FACET_AXES = set(ALLOWED_FACET_AXIS) | {"headline_task_mode"}
 VALID_MENTION_PROMINENCE = set(MENTION_PROMINENCE_WEIGHTS)
@@ -358,9 +350,10 @@ def validate_facet_frame(
     if invalid_headline:
         report.error(f"{label} has invalid headline_task_mode labels: {invalid_headline}")
 
-    invalid_domains = sorted(set(facets[facets["facet_axis"] == "domain"]["facet_label"]) - V3_DOMAIN_LABELS - {""})
-    if invalid_domains:
-        report.error(f"{label} has invalid domain labels: {invalid_domains}")
+    for axis, allowed_labels in ALLOWED_FACET_LABELS.items():
+        invalid_labels = sorted(set(facets[facets["facet_axis"] == axis]["facet_label"]) - allowed_labels - {""})
+        if invalid_labels:
+            report.error(f"{label} has invalid {axis} labels: {invalid_labels}")
 
     active_facets = facets[facets["review_status"] != "deprecated"].copy()
     active_facets["label_weight"] = pd.to_numeric(active_facets["label_weight"], errors="coerce")

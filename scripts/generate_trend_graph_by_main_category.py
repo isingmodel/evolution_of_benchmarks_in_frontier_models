@@ -167,13 +167,20 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
         if not benchmarks:
             continue
 
-        weight = 1.0 / len(benchmarks)
+        resolved_modes = []
         for bench in benchmarks:
             mode = find_mode(bench, mode_lookup)
             if mode:
-                events.append({"Date": date, "Category": mode, "Weight": weight})
+                resolved_modes.append(mode)
             else:
                 unresolved.append((str(row.get("Model name", "")), bench))
+
+        if not resolved_modes:
+            continue
+
+        weight = 1.0 / len(resolved_modes)
+        for mode in resolved_modes:
+            events.append({"Date": date, "Category": mode, "Weight": weight})
 
     warn_unresolved(unresolved, strict_resolution)
 

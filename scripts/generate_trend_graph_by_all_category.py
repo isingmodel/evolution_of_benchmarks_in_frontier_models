@@ -178,14 +178,19 @@ def collect_axis_events(models_df, lookup, as_of):
         if not benchmarks:
             continue
 
-        base_weight = 1.0 / len(benchmarks)
-
+        resolved_mentions = []
         for bench in benchmarks:
             tx = find_taxonomy(bench, lookup)
             if not tx:
                 unresolved.append((str(row.get("Model name", "")), bench))
                 continue
+            resolved_mentions.append(tx)
 
+        if not resolved_mentions:
+            continue
+
+        base_weight = 1.0 / len(resolved_mentions)
+        for tx in resolved_mentions:
             if tx["mode"]:
                 mode_events.append({"Date": date, "Category": tx["mode"], "Weight": base_weight})
             if tx["domain"]:

@@ -14,7 +14,7 @@ import re
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Set, Tuple
 
 
 ALLOWED_TASK_MODE = {
@@ -78,6 +78,172 @@ ALLOWED_FACET_AXIS = {
     "context_pressure",
     "benchmark_lifecycle_risk",
 }
+
+ALLOWED_HEADLINE_PROJECTION = {
+    "Agentic / Environment Interaction",
+    "Multimodal / Perceptual Understanding",
+    "Constraint / Safety / Control",
+    "Generative or Deliberative Reasoning",
+    "Knowledge / Retrieval",
+    "Long Context Projection",
+    "needs_review",
+}
+
+HEADLINE_TO_LEGACY_TASK_MODE = {
+    "Agentic / Environment Interaction": "Agentic",
+    "Multimodal / Perceptual Understanding": "Multimodal Perception",
+    "Constraint / Safety / Control": "Constraint Satisfaction",
+    "Generative or Deliberative Reasoning": "Generative Reasoning",
+    "Knowledge / Retrieval": "Knowledge Retrieval",
+    "Long Context Projection": "Knowledge Retrieval",
+}
+
+ALLOWED_CONSTRUCT_CLAIM = {
+    "reasoning",
+    "mathematical_reasoning",
+    "scientific_reasoning",
+    "factual_knowledge",
+    "coding",
+    "software_engineering",
+    "agentic_task_completion",
+    "tool_use",
+    "web_navigation",
+    "computer_use",
+    "multimodal_understanding",
+    "document_understanding",
+    "long_context_retrieval",
+    "long_context_reasoning",
+    "instruction_following",
+    "safety_or_refusal",
+    "domain_expertise",
+    "preference_or_human_judgment",
+}
+
+ALLOWED_TASK_MECHANISM = {
+    "multiple_choice_qa",
+    "short_answer_qa",
+    "factuality_verification",
+    "free_form_generation",
+    "math_problem_solving",
+    "code_generation",
+    "code_repair",
+    "repository_issue_resolution",
+    "unit_test_passing",
+    "sql_generation",
+    "security_challenge_solving",
+    "browser_navigation",
+    "terminal_operation",
+    "tool_calling",
+    "computer_control_task",
+    "visual_question_answering",
+    "visual_grounding",
+    "video_question_answering",
+    "document_parsing",
+    "speech_or_audio_translation",
+    "long_context_retrieval",
+    "long_context_synthesis",
+    "format_constrained_output",
+    "adversarial_refusal",
+    "human_preference_comparison",
+}
+
+ALLOWED_DOMAIN = {
+    "General/Commonsense",
+    "STEM/Math",
+    "Coding/Engineering",
+    "Law",
+    "Bio/Medicine",
+    "Finance",
+    "Cybersecurity",
+    "Multilingual",
+    "Visual/Document",
+    "Other Specialized",
+}
+
+ALLOWED_MODALITY = {
+    "text",
+    "image",
+    "video",
+    "audio",
+    "document_layout",
+    "code",
+    "browser_ui",
+    "desktop_ui",
+    "tool_api",
+    "multimodal_mixed",
+}
+
+ALLOWED_INTERACTION_PATTERN = {
+    "static_prompt_response",
+    "single_turn_tool_use",
+    "multi_turn_dialogue",
+    "multi_step_planning",
+    "environment_interaction",
+    "browser_or_web_interaction",
+    "terminal_or_codebase_interaction",
+    "computer_control",
+    "human_in_the_loop",
+}
+
+ALLOWED_METRIC_TYPE = {
+    "accuracy",
+    "exact_match",
+    "pass_at_k",
+    "unit_test_pass_rate",
+    "win_rate",
+    "human_preference",
+    "LLM_judge",
+    "rubric_score",
+    "completion_rate",
+    "safety_violation_rate",
+    "latency_or_cost",
+    "composite_score",
+    "unknown",
+}
+
+ALLOWED_CONTEXT_PRESSURE = {
+    "none",
+    "short",
+    "medium",
+    "long_context_supporting",
+    "long_context_primary",
+}
+
+ALLOWED_BENCHMARK_LIFECYCLE_RISK = {
+    "none_identified",
+    "contamination_risk",
+    "saturation_risk",
+    "private_or_opaque_eval",
+    "version_instability",
+    "provider_created_benchmark",
+    "unclear_metric",
+    "construct_validity_risk",
+    "distribution_shift_risk",
+}
+
+ALLOWED_FACET_LABELS: Mapping[str, Set[str]] = {
+    "construct_claim": ALLOWED_CONSTRUCT_CLAIM,
+    "benchmark_construct_claim": ALLOWED_CONSTRUCT_CLAIM,
+    "provider_construct_claim": ALLOWED_CONSTRUCT_CLAIM,
+    "task_mechanism": ALLOWED_TASK_MECHANISM,
+    "domain": ALLOWED_DOMAIN,
+    "modality": ALLOWED_MODALITY,
+    "interaction_pattern": ALLOWED_INTERACTION_PATTERN,
+    "metric_type": ALLOWED_METRIC_TYPE,
+    "context_pressure": ALLOWED_CONTEXT_PRESSURE,
+    "benchmark_lifecycle_risk": ALLOWED_BENCHMARK_LIFECYCLE_RISK,
+}
+
+PROMPT_FACET_AXES = [
+    "construct_claim",
+    "task_mechanism",
+    "domain",
+    "modality",
+    "interaction_pattern",
+    "metric_type",
+    "context_pressure",
+    "benchmark_lifecycle_risk",
+]
 
 REQUIRED_FACET_AXES = {
     "construct_claim",

@@ -136,18 +136,24 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 
 - `multiple_choice_qa`
 - `short_answer_qa`
+- `factuality_verification`
 - `free_form_generation`
 - `math_problem_solving`
 - `code_generation`
 - `code_repair`
 - `repository_issue_resolution`
 - `unit_test_passing`
+- `sql_generation`
+- `security_challenge_solving`
 - `browser_navigation`
 - `terminal_operation`
 - `tool_calling`
+- `computer_control_task`
 - `visual_question_answering`
+- `visual_grounding`
 - `video_question_answering`
 - `document_parsing`
+- `speech_or_audio_translation`
 - `long_context_retrieval`
 - `long_context_synthesis`
 - `format_constrained_output`
@@ -230,6 +236,7 @@ Agentic 여부는 이 facet에서 가장 잘 드러난다.
 - `safety_violation_rate`
 - `latency_or_cost`
 - `composite_score`
+- `unknown`
 
 정량 분석에서는 metric이 다른 benchmark를 같은 의미로 합치지 않도록 주의해야 한다.
 
@@ -259,6 +266,7 @@ benchmark는 시간이 지나며 의미가 변할 수 있다. 다음 위험을 �
 - `unclear_metric`
 - `construct_validity_risk`
 - `distribution_shift_risk`
+- `none_identified`
 
 이 facet은 정성 분석과 limitations 작성에 특히 중요하다.
 

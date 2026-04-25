@@ -362,6 +362,26 @@ def text_blob(row):
     ).casefold()
 
 
+def infer_domain(row):
+    name = str(row["benchmark_name"]).casefold()
+    legacy_domain = str(row["legacy_task_domain"]).strip()
+    text = text_blob(row)
+
+    if legacy_domain in {"General/Commonsense", "STEM/Math", "Coding/Engineering"}:
+        return legacy_domain
+    if any(token in name for token in ["bar exam", "biglaw", "law"]):
+        return "Law"
+    if any(token in name for token in ["bio", "health", "medical", "biology"]):
+        return "Bio/Medicine"
+    if "finance" in name:
+        return "Finance"
+    if any(token in name for token in ["ctf", "cyber"]):
+        return "Cybersecurity"
+    if any(token in name for token in ["multilingual", "polyglot"]) or "translation" in text:
+        return "Multilingual"
+    return "Other Specialized"
+
+
 def infer_construct_claim(row):
     name = str(row["benchmark_name"]).casefold()
     mode = str(row["legacy_task_mode"])
@@ -593,11 +613,11 @@ def build_facet_edges(benchmarks_df, evidence_df, review_notes):
         if add_manual_facet_rows(rows, row, evidence_id, benchmark_name):
             continue
 
-        for axis, label_column in [
-            ("headline_task_mode", "legacy_task_mode"),
-            ("domain", "legacy_task_domain"),
-        ]:
-            label = str(row[label_column]).strip()
+        projected_seed_labels = {
+            "headline_task_mode": str(row["legacy_task_mode"]).strip(),
+            "domain": infer_domain(row),
+        }
+        for axis, label in projected_seed_labels.items():
             if not label:
                 continue
             status, confidence = seed_status_and_confidence(
