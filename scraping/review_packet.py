@@ -17,11 +17,11 @@ from typing import Any, Iterable, Mapping, Sequence
 ROLE_BRIEFS = [
     (
         "Source Extractor",
-        "Recover every benchmark-like or leaderboard-like name present on the public release page, including text, tables, image alt text, rendered tabs, and OCR evidence. Keep raw names exactly as shown and explicitly mark cost, latency, price, and descriptive row labels as non-benchmarks.",
+        "Recover every benchmark-like, evaluation-like, leaderboard-like, suite-component, and aggregate-index-component name present on the public release page, including text, tables, image alt text, rendered tabs, footnotes, and OCR evidence. Keep release-page names visible and explicitly mark cost, latency, price, and non-evaluation UI labels as non-benchmarks.",
     ),
     (
         "False-Positive Auditor",
-        "Challenge each candidate. Reject source datasets, task descriptions, price/speed metrics, chart subtitles, model families, and wrong benchmark variants. Preserve exact variant wording such as Pro, Verified, v2, or track names when it changes the benchmark identity.",
+        "Challenge each candidate, but inclusion wins for ambiguous benchmark-like names. Reject only clear non-benchmark artifacts such as source datasets, task descriptions, price/speed metrics, chart subtitles, model families, UI labels, and wrong variants. Do not reject a page mention solely because it is indirect, component-level, low-prominence, third-party, or not a direct score row.",
     ),
     (
         "Catalog Mapper",
@@ -35,11 +35,13 @@ ROLE_BRIEFS = [
 
 
 FINAL_ADJUDICATION_RULES = [
-    "The unit of analysis is the public launch page, not system cards or every internal evaluation.",
-    "Images, JavaScript-rendered tabs, tables, captions, and alt text count when they are part of the public release page.",
+    "The requested public launch page is the source of truth; if it names a benchmark-like or evaluation-like item, include it.",
+    "Images, JavaScript-rendered tabs, tables, captions, alt text, footnotes, aggregate-index component lists, and OCR text count when they are part of the public release page.",
+    "Direct score rows, aggregate-index components, suite members, comparison-only benchmark names, and OCR-only benchmark names are included.",
+    "Do not split the same benchmark into multiple model-row mentions solely because the page reports different run settings, tool settings, context windows, tiers, prompt settings, or metric variants.",
     "Do not count cost, latency, throughput, pricing, or the source of those measurements as capability benchmarks.",
     "Do not create broad semantic aliases to improve recall; unknown or variant names should become review items or new canonical rows.",
-    "Keep raw mention wording visible when canonicalizing variants, especially Pro, Verified, v2, subset, track, and leaderboard names.",
+    "Keep raw mention wording visible when canonicalizing variants, especially Pro, Verified, v2, subset, track, and leaderboard names when they change benchmark identity rather than only run settings.",
     "Final data writes happen in the foreground after independent reviews are reconciled against evidence.",
 ]
 

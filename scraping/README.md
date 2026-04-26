@@ -30,10 +30,12 @@ This makes the pipeline more useful for new release pages: a new benchmark shoul
 
 For new model releases, use the scraper as an evidence generator rather than a fully automatic writer. The recommended review split is:
 
-1. **Source extractor**: recover every raw benchmark-like name from prose, rendered tabs, images, alt text, captions, and OCR.
-2. **False-positive auditor**: reject cost/speed/price metrics, source platforms, chart subtitles, descriptions, model-family names, and wrong variants.
+1. **Source extractor**: recover every benchmark-like, evaluation-like, suite-component, and aggregate-index-component name from prose, rendered tabs, images, alt text, captions, footnotes, and OCR.
+2. **False-positive auditor**: reject only clear non-benchmark artifacts such as cost/speed/price metrics, source platforms, chart subtitles, UI labels, descriptions, model-family names, and wrong variants.
 3. **Catalog mapper**: map only exact canonical names or explicit source-backed aliases; propose new benchmark rows or review-queue entries for unresolved variants.
 4. **Data-integrity auditor**: verify model name, release date, row order, `AS_OF`, generated files, and validation commands.
+
+For requested release pages, inclusion wins: if the page names a benchmark-like or evaluation-like item, keep it for `data/models.csv` even when it appears only as a footnote, aggregate-index component, suite member, comparison item, or OCR-only chart label. Do not split the same benchmark into multiple model-row mentions only because the page reports different run settings such as with-tools/no-tools, tiers, context ranges, prompt settings, or metric variants.
 
 Generate a reusable review packet from one extraction JSON:
 

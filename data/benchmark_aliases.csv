@@ -38,3 +38,10 @@ ARC-AGI-2 (Verified),benchmark_arc_agi_2,version_alias,Verified ARC-AGI-2 label 
 CoT controllability,benchmark_cot_control,legacy_name,Release-page wording for the CoT-Control evaluation suite
 Expert-SWE,benchmark_expert_swe_internal,version_alias,Short name for OpenAI Expert-SWE internal eval used in GPT-5.5 prose
 OfficeQA-Pro,benchmark_officeqa_pro,case_variant,Hyphenated variant for OfficeQA Pro
+Artificial Analysis's Coding Index,benchmark_artificial_analysis_coding_index,provider_abbreviation,Possessive wording used on the GPT-5.5 release page for Artificial Analysis Coding Index
+τ²-Bench Telecom,benchmark_tau_2_bench,provider_abbreviation,Greek tau squared spelling used in Artificial Analysis Intelligence Index component lists
+Terminal Bench,benchmark_terminal_bench,case_variant,Space variant used on the Anthropic Claude Opus 4.7 release page
+TBench,benchmark_terminal_bench,provider_abbreviation,Partner shorthand used on the Anthropic Claude Opus 4.7 release page
+SWE-bench Multimodal (internal implementation),benchmark_swe_bench_multimodal,version_alias,Legend wording used on the Anthropic Claude Opus 4.7 release page
+Qodo’s real-world code review benchmark,benchmark_qodo_s_real_world_code_review_benchmark,case_variant,Curly-apostrophe variant used on the Anthropic Claude Opus 4.7 release page
+internal agentic coding evaluation,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,provider_abbreviation,Caption shorthand for Anthropic's internal autonomous agentic coding evaluation
