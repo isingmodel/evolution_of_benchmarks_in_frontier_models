@@ -1,108 +1,108 @@
-# Benchmark Classification Methodology v3
+# Benchmark Classification Methodology
 
-이 문서는 `Benchmark Evolution in Frontier Models` 프로젝트의 benchmark 분류 및 분석 방법론을 정의한다.
+This document defines the benchmark classification and analysis methodology for the `Benchmark Evolution in Frontier Models` project.
 
-핵심 목표는 benchmark를 하나의 고정 category로 환원하지 않고, 각 benchmark mention이 가진 여러 성격을 보존하면서도 정량 분석과 정성 분석에 사용할 수 있는 안정적인 체계를 만드는 것이다.
+The central goal is to avoid reducing each benchmark to one fixed category. Instead, the methodology preserves the multiple properties carried by each benchmark mention while still producing a stable structure for quantitative and qualitative analysis.
 
-## 1. 문제 정의
+## 1. Problem Definition
 
-현재 방식의 가장 큰 문제는 각 benchmark를 하나의 `task_mode`와 하나의 `task_domain`으로만 분류한다는 점이다. 이 방식은 간단한 시각화에는 유리하지만, 실제 benchmark의 성격을 과도하게 압축한다.
+The main limitation of the previous approach is that each benchmark is assigned only one `task_mode` and one `task_domain`. This is convenient for simple visualizations, but it compresses the actual character of a benchmark too aggressively.
 
-예를 들어 `SWE-bench`는 coding benchmark이면서 동시에 repository-level repair task이고, 현대 frontier model release에서는 agentic software engineering capability의 증거로 쓰인다. 이것을 `Agentic` 하나로만 표시하면 coding domain이 사라진다. 반대로 `Coding` 하나로만 표시하면 interaction pattern과 agentic workflow가 사라진다.
+For example, `SWE-bench` is both a coding benchmark and a repository-level repair task. In recent frontier model releases, it is also used as evidence for agentic software engineering capability. If it is labeled only as `Agentic`, the coding domain disappears. If it is labeled only as `Coding`, the interaction pattern and agentic workflow disappear.
 
-따라서 이 프로젝트는 다음 원칙을 따른다.
+This project therefore follows the principle below.
 
 > A benchmark category is not a single truth. It is a projection from multiple documented facets.
 
-즉, 하나의 benchmark는 여러 facet의 조합으로 기록하고, 그래프에서 하나의 색이 필요한 경우에만 별도의 projection rule을 사용한다.
+In other words, each benchmark should be recorded as a combination of multiple facets. A separate projection rule should be used only when a visualization requires a single color or a single headline category.
 
-## 2. 연구 질문
+## 2. Research Questions
 
-이 프로젝트의 분석 대상은 모델 성능 그 자체가 아니라 frontier model release page에서 드러나는 benchmark emphasis이다. 따라서 모든 분류와 분석은 다음 질문을 중심으로 설계한다.
+This project does not directly measure model performance. It analyzes benchmark emphasis in frontier model release pages. All classification and analysis choices are therefore organized around the following questions.
 
-1. Frontier model provider들은 시간이 지남에 따라 어떤 benchmark를 더 자주 강조하는가?
-2. 그 benchmark들은 어떤 capability claim, domain, modality, interaction pattern을 대표하는가?
-3. provider별로 benchmark selection strategy가 어떻게 다른가?
-4. 특정 benchmark가 field-wide progress의 증거인지, release marketing 또는 narrative positioning의 장치인지 어떻게 구분할 수 있는가?
-5. 어떤 benchmark 분류가 불확실하거나 논쟁적이며, 그 불확실성이 정량 분석 결과를 얼마나 흔드는가?
+1. Which benchmarks do frontier model providers emphasize more frequently over time?
+2. Which capability claims, domains, modalities, and interaction patterns do those benchmarks represent?
+3. How do benchmark selection strategies differ across providers?
+4. How can we distinguish a benchmark used as evidence of field-wide progress from a benchmark used for release marketing or narrative positioning?
+5. Which benchmark classifications are uncertain or contested, and how much does that uncertainty affect quantitative results?
 
-## 3. 관찰 단위
+## 3. Unit of Observation
 
-정량 분석의 기본 단위는 `benchmark` 자체가 아니라 `release_mention`이다.
+The basic unit for quantitative analysis is not the `benchmark` itself, but the `release_mention`.
 
-`release_mention`은 특정 provider의 특정 model release page에서 특정 benchmark가 언급된 사건을 의미한다.
+A `release_mention` is an event in which a specific benchmark is mentioned on a specific model release page from a specific provider.
 
-이 선택이 중요한 이유는 다음과 같다.
+This choice matters for several reasons.
 
-- 이 repository는 benchmark score leaderboard가 아니라 release page에서 강조된 benchmark landscape를 추적한다.
-- 같은 benchmark라도 provider마다 다른 narrative로 사용할 수 있다.
-- 같은 benchmark라도 시간이 지나면서 의미가 변한다. 예를 들어 coding benchmark는 초기에는 code generation의 증거였지만, 최근에는 agentic software engineering의 증거로 쓰일 수 있다.
-- 하나의 benchmark가 여러 model release에서 반복 언급될 때, 그 반복 자체가 field 또는 provider strategy의 신호가 된다.
+- This repository tracks the benchmark landscape emphasized in release pages, not a benchmark score leaderboard.
+- The same benchmark can be used with different narratives by different providers.
+- The meaning of a benchmark can shift over time. For example, a coding benchmark may initially function as evidence of code generation, but later function as evidence of agentic software engineering.
+- When the same benchmark appears repeatedly across model releases, that repetition is itself a signal of field-level or provider-level strategy.
 
-## 4. 핵심 원칙
+## 4. Core Principles
 
 ### 4.1 Multi-Facet First
 
-모든 benchmark는 가능한 한 여러 facet으로 기록한다. 하나의 `task_mode`를 정답처럼 취급하지 않는다.
+Every benchmark should be recorded with as many relevant facets as possible. A single `task_mode` should not be treated as the ground truth.
 
-필수 facet은 다음과 같다.
+Required facets are:
 
-- `construct_claim`: provider 또는 benchmark creator가 무엇을 측정한다고 주장하는가?
-- `task_mechanism`: 실제 task가 어떤 방식으로 수행되는가?
-- `domain`: 어떤 지식 또는 작업 영역인가?
-- `modality`: 어떤 입력 및 출력 매체를 사용하는가?
-- `interaction_pattern`: static prompt-response인가, tool/environment interaction인가?
-- `metric_type`: 어떤 평가 metric 또는 scoring rule을 사용하는가?
-- `context_pressure`: long context가 핵심 병목인가?
-- `benchmark_lifecycle_risk`: contamination, saturation, private eval, changing benchmark 등의 위험이 있는가?
+- `construct_claim`: what the provider or benchmark creator claims the benchmark measures.
+- `task_mechanism`: how the task is actually performed.
+- `domain`: the knowledge area or work domain involved.
+- `modality`: the input and output media used by the benchmark.
+- `interaction_pattern`: whether the benchmark is static prompt-response, tool use, environment interaction, or another interaction format.
+- `metric_type`: the evaluation metric or scoring rule used.
+- `context_pressure`: whether long context is a central bottleneck.
+- `benchmark_lifecycle_risk`: risks such as contamination, saturation, private evaluation, or benchmark version instability.
 
 ### 4.2 Projection Is Not Identity
 
-시각화를 위해 하나의 category가 필요할 수 있다. 이때 사용하는 category는 benchmark의 본질이 아니라 projection이다.
+A visualization may require one category per benchmark. That category is not the benchmark's identity. It is a projection.
 
-문서와 그래프 캡션에는 다음 문장을 명시해야 한다.
+Documentation and chart captions should state this explicitly.
 
 > Headline category is a visualization projection, not an exclusive benchmark identity.
 
 ### 4.3 Evidence Before Label
 
-benchmark 이름만 보고 분류하지 않는다. 최소한 다음 중 하나 이상의 근거를 확인해야 한다.
+Do not classify a benchmark from its name alone. At least one of the following evidence sources should be checked.
 
-- benchmark paper 또는 공식 benchmark page
-- provider release page의 benchmark 설명
-- model card 또는 technical report
-- benchmark documentation card
-- 신뢰 가능한 secondary source
+- The benchmark paper or official benchmark page.
+- The provider release page's explanation of the benchmark.
+- A model card or technical report.
+- A benchmark documentation card.
+- A reliable secondary source.
 
-LLM 기반 분류는 초안 생성에는 사용할 수 있지만, evidence와 review status 없이 canonical data로 승격하지 않는다.
+LLM-based classification can be used to draft candidate labels, but a candidate should not be promoted into canonical data without evidence and review status.
 
-### 4.4 Separate Importance From Confidence
+### 4.4 Separate Importance from Confidence
 
-`classification_confidence`와 `mention_prominence`는 완전히 다른 값이다.
+`classification_confidence` and `mention_prominence` are different quantities.
 
-- `classification_confidence`: 이 분류 판단을 얼마나 확신하는가?
-- `mention_prominence`: release page에서 이 benchmark가 얼마나 강하게 강조되었는가?
+- `classification_confidence`: how confident we are in the classification judgment.
+- `mention_prominence`: how strongly the benchmark is emphasized on the release page.
 
-confidence를 benchmark count의 가중치로 사용하면 안 된다. confidence는 uncertainty analysis에 사용하고, importance는 prominence weighting에 사용한다.
+Confidence must not be used as a benchmark-count weight. Confidence belongs in uncertainty analysis, while importance belongs in prominence weighting.
 
 ### 4.5 Preserve Disagreement
 
-분류가 애매한 benchmark를 억지로 하나의 label로 확정하지 않는다. 불확실성 자체를 데이터로 보존한다.
+Ambiguous benchmarks should not be forced into a single label. The uncertainty itself should be preserved as data.
 
-가능한 상태값은 다음과 같다.
+Possible status values are:
 
-- `accepted`: 근거가 충분하고 논쟁이 작음
-- `needs_review`: 근거가 부족하거나 label이 불안정함
-- `disputed`: reviewer 간 이견이 크거나 benchmark 자체의 construct가 모호함
-- `deprecated`: 기존 분류가 잘못되었거나 더 이상 사용하지 않음
+- `accepted`: the evidence is sufficient and the classification is not substantially contested.
+- `needs_review`: the evidence is incomplete or the label is unstable.
+- `disputed`: reviewers disagree materially, or the benchmark's construct is inherently ambiguous.
+- `deprecated`: an earlier classification was wrong or is no longer used.
 
-## 5. Facet 정의
+## 5. Facet Definitions
 
 ### 5.1 construct_claim
 
-`construct_claim`은 benchmark가 측정한다고 주장하는 추상 능력이다.
+`construct_claim` is the abstract capability that a benchmark claims to measure.
 
-예시 label:
+Example labels:
 
 - `reasoning`
 - `mathematical_reasoning`
@@ -123,16 +123,16 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 - `domain_expertise`
 - `preference_or_human_judgment`
 
-주의할 점은 benchmark creator의 claim과 provider의 release-page claim이 다를 수 있다는 것이다. 이 경우 두 값을 분리한다.
+The benchmark creator's claim and the provider's release-page claim may differ. When they differ, record them separately.
 
-- `benchmark_construct_claim`: benchmark 자체의 원래 claim
-- `provider_construct_claim`: release page에서 provider가 암시하거나 명시한 claim
+- `benchmark_construct_claim`: the benchmark's original claim.
+- `provider_construct_claim`: the claim the provider implies or states on the release page.
 
 ### 5.2 task_mechanism
 
-`task_mechanism`은 실제 task가 무엇을 요구하는지 나타낸다.
+`task_mechanism` describes what the task actually requires the model to do.
 
-예시 label:
+Example labels:
 
 - `multiple_choice_qa`
 - `short_answer_qa`
@@ -160,13 +160,13 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 - `adversarial_refusal`
 - `human_preference_comparison`
 
-이 facet은 정량 분석에서 매우 중요하다. `task_mode`보다 더 operational하기 때문이다.
+This facet is especially important for quantitative analysis because it is more operational than `task_mode`.
 
 ### 5.3 domain
 
-`domain`은 benchmark가 요구하는 지식 또는 작업 영역이다.
+`domain` is the knowledge area or work domain required by the benchmark.
 
-기본 label:
+Base labels:
 
 - `General/Commonsense`
 - `STEM/Math`
@@ -179,13 +179,13 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 - `Visual/Document`
 - `Other Specialized`
 
-기존 `Specialized (Law/Bio/Finance)`는 너무 넓다. 정량 분석에서는 상위 grouping으로 쓸 수 있지만, 원자료에는 가능한 한 더 세밀하게 보존한다.
+The older `Specialized (Law/Bio/Finance)` category is too broad. It may be used as a higher-level grouping in quantitative analysis, but the source data should preserve finer-grained domains whenever possible.
 
 ### 5.4 modality
 
-`modality`는 benchmark의 입력 및 출력 매체를 나타낸다.
+`modality` describes the input and output media used by the benchmark.
 
-예시 label:
+Example labels:
 
 - `text`
 - `image`
@@ -198,13 +198,13 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 - `tool_api`
 - `multimodal_mixed`
 
-`Multimodal Perception`을 task mode로만 두면 domain과 interaction이 사라질 수 있으므로, modality는 독립 facet으로 둔다.
+If `Multimodal Perception` is treated only as a task mode, domain and interaction details can disappear. Modality is therefore recorded as an independent facet.
 
 ### 5.5 interaction_pattern
 
-`interaction_pattern`은 model이 benchmark를 수행하는 동안 외부 환경과 상호작용하는 방식을 나타낸다.
+`interaction_pattern` describes how the model interacts with an external environment while performing the benchmark.
 
-예시 label:
+Example labels:
 
 - `static_prompt_response`
 - `single_turn_tool_use`
@@ -216,13 +216,13 @@ confidence를 benchmark count의 가중치로 사용하면 안 된다. confidenc
 - `computer_control`
 - `human_in_the_loop`
 
-Agentic 여부는 이 facet에서 가장 잘 드러난다.
+Agentic behavior is usually most visible in this facet.
 
 ### 5.6 metric_type
 
-`metric_type`은 benchmark result가 어떻게 산출되는지 나타낸다.
+`metric_type` describes how the benchmark result is produced.
 
-예시 label:
+Example labels:
 
 - `accuracy`
 - `exact_match`
@@ -238,13 +238,13 @@ Agentic 여부는 이 facet에서 가장 잘 드러난다.
 - `composite_score`
 - `unknown`
 
-정량 분석에서는 metric이 다른 benchmark를 같은 의미로 합치지 않도록 주의해야 한다.
+Quantitative analysis should avoid treating benchmarks with different metric types as if they measured the same thing.
 
 ### 5.7 context_pressure
 
-`context_pressure`는 long context가 benchmark의 핵심 병목인지 나타낸다.
+`context_pressure` describes whether long context is a central bottleneck in the benchmark.
 
-권장값:
+Recommended values:
 
 - `none`
 - `short`
@@ -252,11 +252,11 @@ Agentic 여부는 이 facet에서 가장 잘 드러난다.
 - `long_context_supporting`
 - `long_context_primary`
 
-`Needle In A Haystack`처럼 retrieval 자체가 핵심인 경우 `long_context_primary`로 둔다. 긴 문서를 사용하지만 핵심이 reasoning 또는 document understanding인 경우에는 `long_context_supporting`으로 둔다.
+Benchmarks such as `Needle In A Haystack`, where retrieval from a long context is the core task, should use `long_context_primary`. Benchmarks that use long documents but primarily test reasoning or document understanding should use `long_context_supporting`.
 
 ### 5.8 benchmark_lifecycle_risk
 
-benchmark는 시간이 지나며 의미가 변할 수 있다. 다음 위험을 기록한다.
+Benchmarks can change meaning over time. Record the following risks when relevant.
 
 - `contamination_risk`
 - `saturation_risk`
@@ -268,24 +268,24 @@ benchmark는 시간이 지나며 의미가 변할 수 있다. 다음 위험을 �
 - `distribution_shift_risk`
 - `none_identified`
 
-이 facet은 정성 분석과 limitations 작성에 특히 중요하다.
+This facet is especially important for qualitative analysis and limitations sections.
 
 ## 6. Headline Projection
 
-기존 그래프처럼 하나의 색상이 필요한 경우 `headline_category`를 계산한다.
+When a chart needs one color per benchmark, compute a `headline_category`.
 
-권장 projection 우선순위:
+Recommended projection priority:
 
-1. `Long Context Projection`, 단 context length가 primary bottleneck일 때만
+1. `Long Context Projection`, only when context length is the primary bottleneck.
 2. `Agentic / Environment Interaction`
 3. `Multimodal / Perceptual Understanding`
 4. `Constraint / Safety / Control`
 5. `Generative or Deliberative Reasoning`
 6. `Knowledge / Retrieval`
 
-단, 이 순서는 benchmark의 중요도나 우월성을 의미하지 않는다. 겹치는 facet을 하나의 readable chart로 압축하기 위한 deterministic rule일 뿐이다.
+This order does not imply importance or superiority. It is only a deterministic rule for compressing overlapping facets into a readable chart.
 
-예시:
+Examples:
 
 | Benchmark | Facets | Headline Projection |
 |---|---|---|
@@ -297,13 +297,13 @@ benchmark는 시간이 지나며 의미가 변할 수 있다. 다음 위험을 �
 | `IFEval` | instruction following, format constraints | Constraint / Safety / Control |
 | `NIAH` | long-context retrieval | Long Context Projection |
 
-`Long Context`는 별도 facet으로 보존한다. 다만 `context_pressure=long_context_primary`처럼 context length 자체가 benchmark의 핵심 병목이면 headline projection으로 승격할 수 있다. 긴 context가 보조 조건일 뿐이면 `Knowledge / Retrieval`, `Generative`, `Agentic` 등 해당 construct의 projection을 유지한다.
+`Long Context` is preserved as a separate facet. It may be promoted to the headline projection only when context length itself is the benchmark's primary bottleneck, as in `context_pressure=long_context_primary`. If long context is merely a supporting condition, keep the projection attached to the relevant construct, such as `Knowledge / Retrieval`, `Generative`, or `Agentic`.
 
-## 7. Data Model 권장안
+## 7. Recommended Data Model
 
 ### 7.1 benchmarks.csv
 
-benchmark의 canonical identity를 기록한다.
+Records the canonical identity of each benchmark.
 
 ```csv
 benchmark_id,benchmark_name,canonical_url,source_author,created_year,notes
@@ -311,13 +311,13 @@ benchmark_id,benchmark_name,canonical_url,source_author,created_year,notes
 
 ### 7.2 benchmark_aliases.csv
 
-release page 또는 CSV에서 나타나는 다양한 표기를 canonical benchmark로 연결한다.
+Maps surface forms from release pages or CSV files to canonical benchmarks.
 
 ```csv
 alias,benchmark_id,match_type,notes
 ```
 
-`match_type` 예시:
+Example `match_type` values:
 
 - `exact`
 - `case_variant`
@@ -325,17 +325,17 @@ alias,benchmark_id,match_type,notes
 - `version_alias`
 - `legacy_name`
 
-substring fallback은 사용하지 않는다. 모든 alias는 명시적으로 기록한다.
+Do not use substring fallback. Every alias must be recorded explicitly.
 
 ### 7.3 release_mentions.csv
 
-정량 분석의 중심 table이다.
+This is the central table for quantitative analysis.
 
 ```csv
 mention_id,provider,model_name,model_id,release_date,source_url,benchmark_id,benchmark_name,raw_mention,mention_index,mention_prominence,mention_weight
 ```
 
-`mention_prominence` 예시:
+Example `mention_prominence` values:
 
 - `headline`
 - `chart`
@@ -343,58 +343,58 @@ mention_id,provider,model_name,model_id,release_date,source_url,benchmark_id,ben
 - `footnote`
 - `technical_report_only`
 
-초기 build는 live website scraping을 하지 않고 `release_page_unspecified`와 `mention_weight=1.0`을 기본값으로 둔다. Source-backed manual review가 끝난 mention만 `mention_prominence_overrides.csv`를 통해 명시적으로 승격하거나 하향 조정한다.
+The initial build does not perform live website scraping. It defaults to `release_page_unspecified` and `mention_weight=1.0`. Only source-backed manually reviewed mentions should be promoted or demoted through `mention_prominence_overrides.csv`.
 
 ### 7.4 mention_prominence_overrides.csv
 
-release page에서 benchmark가 얼마나 강하게 강조되었는지를 사람이 검토해 기록하는 override table이다. 이 파일은 scraper output이 아니라 local, source-backed adjudication layer다.
+This override table records human review decisions about how strongly a benchmark is emphasized on a release page. It is not scraper output. It is a local, source-backed adjudication layer.
 
 ```csv
 mention_id,mention_prominence,evidence_id,review_status,rationale
 ```
 
-규칙:
+Rules:
 
-- `mention_id`는 `release_mentions.csv`의 기존 row를 참조해야 한다.
-- `mention_prominence`는 `headline`, `chart`, `body`, `footnote`, `technical_report_only` 중 하나여야 한다.
-- `release_page_unspecified`는 override row에 쓰지 않는다. 기본값을 유지하려면 row를 삭제한다.
-- `mention_weight`는 사람이 입력하지 않고 중앙 weight table에서 deterministic하게 계산한다.
-- `accepted` override는 provider release page 또는 technical report evidence를 인용해야 한다.
-- default workflow는 scraping을 하지 않는다. live page inspection은 별도 review task로 수행하고 결과만 CSV에 기록한다.
+- `mention_id` must reference an existing row in `release_mentions.csv`.
+- `mention_prominence` must be one of `headline`, `chart`, `body`, `footnote`, or `technical_report_only`.
+- Do not write `release_page_unspecified` in an override row. Delete the row if the default value should be preserved.
+- `mention_weight` must not be entered manually. It is computed deterministically from the central weight table.
+- An `accepted` override must cite provider release-page evidence or technical-report evidence.
+- The default workflow does not scrape live pages. Live page inspection is a separate review task, and only the adjudicated result is written to CSV.
 
 ### 7.5 benchmark_facet_edges.csv
 
-benchmark와 facet label의 관계를 long-form으로 기록한다.
+Records benchmark-to-facet-label relationships in long form.
 
 ```csv
 benchmark_id,facet_axis,facet_label,label_weight,classification_confidence,evidence_id,review_status,rationale
 ```
 
-규칙:
+Rules:
 
-- 같은 `benchmark_id + facet_axis` 안에서 `label_weight` 합은 1.0에 가까워야 한다.
-- `classification_confidence < 0.7`이면 `review_status=needs_review`를 기본값으로 둔다.
-- 같은 benchmark에 여러 domain 또는 modality가 있을 수 있다.
+- Within the same `benchmark_id + facet_axis`, `label_weight` values should sum to approximately 1.0.
+- If `classification_confidence < 0.7`, default to `review_status=needs_review`.
+- A benchmark may have multiple domains or modalities.
 
 ### 7.6 mention_facet_overrides.csv
 
-같은 benchmark라도 provider release page에서 다른 의미로 사용될 수 있다. 이 경우 mention-level override를 둔다.
+The same benchmark can be used with different meanings on different provider release pages. Use mention-level overrides in those cases.
 
 ```csv
 mention_id,facet_axis,facet_label,label_weight,classification_confidence,evidence_id,review_status,rationale
 ```
 
-예를 들어 어떤 provider가 `SWE-bench`를 coding benchmark가 아니라 agentic coding workflow의 핵심 증거로 강조했다면, mention-level `provider_construct_claim`을 별도로 기록한다.
+For example, if a provider emphasizes `SWE-bench` not merely as a coding benchmark but as core evidence for an agentic coding workflow, record that mention-level `provider_construct_claim` separately.
 
 ### 7.7 evidence.csv
 
-모든 분류 판단의 근거를 기록한다.
+Records the evidence behind every classification judgment.
 
 ```csv
 evidence_id,evidence_type,title,url,source_date,accessed_date,notes
 ```
 
-`evidence_type` 예시:
+Example `evidence_type` values:
 
 - `benchmark_definition`
 - `provider_mention`
@@ -404,34 +404,34 @@ evidence_id,evidence_type,title,url,source_date,accessed_date,notes
 - `classification_rationale`
 - `override_adjudication`
 
-## 8. 분류 절차
+## 8. Classification Procedure
 
 ### Step 1. Canonicalize
 
-raw benchmark mention을 canonical benchmark로 연결한다.
+Connect each raw benchmark mention to a canonical benchmark.
 
-필수 조건:
+Requirements:
 
-- 모든 raw mention은 exact match 또는 explicit alias로만 resolve한다.
-- fuzzy substring match는 금지한다.
-- unresolved mention은 validator error로 처리한다.
+- Every raw mention must resolve only through exact match or explicit alias.
+- Fuzzy substring matching is prohibited.
+- Unresolved mentions must be treated as validator errors.
 
 ### Step 2. Collect Evidence
 
-benchmark별로 최소 evidence를 수집한다.
+Collect minimum evidence for each benchmark.
 
-우선순위:
+Priority order:
 
-1. benchmark official page 또는 paper
-2. provider release page
-3. technical report 또는 model card
-4. benchmark documentation 또는 trusted secondary source
+1. Official benchmark page or paper.
+2. Provider release page.
+3. Technical report or model card.
+4. Benchmark documentation or trusted secondary source.
 
 ### Step 3. Assign Facets
 
-각 benchmark에 facet labels를 부여한다.
+Assign facet labels to each benchmark.
 
-필수 facet:
+Required facets:
 
 - `construct_claim`
 - `task_mechanism`
@@ -440,99 +440,99 @@ benchmark별로 최소 evidence를 수집한다.
 - `interaction_pattern`
 - `metric_type`
 
-선택 facet:
+Optional facets:
 
 - `context_pressure`
 - `benchmark_lifecycle_risk`
 
-### Step 4. Score Weight And Confidence
+### Step 4. Score Weight and Confidence
 
-각 label에 대해 두 숫자를 분리해서 기록한다.
+Record two separate numbers for each label.
 
 `label_weight`:
 
-- 해당 facet axis에서 그 label이 benchmark를 얼마나 대표하는가?
-- 예: mixed-domain benchmark에서 `STEM/Math=0.5`, `General/Commonsense=0.5`
+- How representative is this label within the given facet axis?
+- Example: in a mixed-domain benchmark, use `STEM/Math=0.5` and `General/Commonsense=0.5`.
 
 `classification_confidence`:
 
-- evidence를 바탕으로 그 판단을 얼마나 확신하는가?
-- 예: 공식 paper가 명확하면 0.9 이상, 이름만 보고 추정하면 0.5 이하
+- How confident are we in this judgment given the evidence?
+- Example: use 0.9 or higher when an official paper is clear, and 0.5 or lower when the classification is inferred from the name alone.
 
 ### Step 5. Review Ambiguous Cases
 
-다음 조건에 해당하면 `needs_review`로 둔다.
+Use `needs_review` when any of the following conditions apply.
 
-- benchmark 이름만으로 분류한 경우
-- source URL이 없거나 불분명한 경우
-- label_weight가 0.5 이하로 분산되는 경우
-- reviewer 간 disagreement가 있는 경우
-- provider-created benchmark이고 external documentation이 약한 경우
-- version별로 task가 달라지는 benchmark인 경우
+- The benchmark was classified from its name alone.
+- The source URL is missing or unclear.
+- Label weights are spread such that a major label is at or below 0.5.
+- Reviewers disagree.
+- The benchmark is provider-created and has weak external documentation.
+- The benchmark changes task format across versions.
 
 ### Step 6. Derive Headline Projection
 
-facet이 확정된 후에만 headline projection을 계산한다.
+Compute the headline projection only after facets are assigned.
 
-중요한 점:
+Important constraints:
 
-- projection은 사람이 직접 입력하는 primary truth가 아니다.
-- projection rule은 deterministic해야 한다.
-- projection 결과와 facet label이 충돌하면 warning을 낸다.
+- The projection is not the primary truth entered by a human.
+- The projection rule must be deterministic.
+- If the projection conflicts with facet labels, emit a warning.
 
-## 9. 정량 분석 설계
+## 9. Quantitative Analysis Design
 
 ### 9.1 Basic Mention Counts
 
-가장 단순한 분석은 release mention count다.
+The simplest analysis is a release mention count.
 
-질문:
+Questions:
 
-- 어떤 benchmark가 가장 자주 언급되는가?
-- provider별로 가장 많이 등장한 benchmark는 무엇인가?
-- 특정 benchmark family가 어느 시점부터 증가했는가?
+- Which benchmarks are mentioned most often?
+- Which benchmarks appear most often by provider?
+- When does a specific benchmark family begin to increase?
 
-주의:
+Cautions:
 
-- mention count는 model performance가 아니다.
-- release page editorial decision과 marketing emphasis의 영향을 받는다.
+- Mention count is not model performance.
+- Mention count is influenced by release-page editorial decisions and marketing emphasis.
 
 ### 9.2 Facet Trend Analysis
 
-facet별 trend를 따로 그린다. 서로 다른 axis를 하나의 stackplot에 섞지 않는다.
+Plot trends separately by facet. Do not mix different axes into one stack plot.
 
-권장 chart:
+Recommended charts:
 
-- `construct_claim` trend
-- `domain` trend
-- `modality` trend
-- `interaction_pattern` trend
-- `context_pressure` trend
-- `benchmark_lifecycle_risk` trend
+- `construct_claim` trend.
+- `domain` trend.
+- `modality` trend.
+- `interaction_pattern` trend.
+- `context_pressure` trend.
+- `benchmark_lifecycle_risk` trend.
 
 ### 9.3 Provider Strategy Analysis
 
-provider별 benchmark selection을 비교한다.
+Compare benchmark selection across providers.
 
-가능한 지표:
+Possible metrics:
 
-- provider별 unique benchmark count
-- common benchmark adoption rate
-- provider-created benchmark share
-- first-adopter benchmark count
-- cross-provider convergence score
-- benchmark portfolio entropy
+- Unique benchmark count by provider.
+- Common benchmark adoption rate.
+- Provider-created benchmark share.
+- First-adopter benchmark count.
+- Cross-provider convergence score.
+- Benchmark portfolio entropy.
 
 ### 9.4 Prominence-Weighted Analysis
 
-모든 mention을 동일하게 세는 방식은 간단하지만, release page에서 크게 강조된 benchmark와 부차적으로 언급된 benchmark를 구분하지 못한다.
+Counting every mention equally is simple, but it cannot distinguish benchmarks that are prominently highlighted from benchmarks that are only mentioned in passing.
 
-따라서 두 가지 view를 병행한다.
+Use two views in parallel.
 
-- `equal_weight`: 모든 mention을 동일하게 계산
-- `prominence_weight`: headline/chart/body/footnote에 따라 가중치 부여
+- `equal_weight`: every mention receives the same weight.
+- `prominence_weight`: mentions are weighted by headline, chart, body, or footnote prominence.
 
-권장 prominence weight 초안:
+Recommended initial prominence weights:
 
 | prominence | weight |
 |---|---:|
@@ -543,80 +543,80 @@ provider별 benchmark selection을 비교한다.
 | `technical_report_only` | 0.10 |
 | `release_page_unspecified` | 1.00 |
 
-`release_page_unspecified`의 1.00은 prominence가 검토되기 전의 equal-weight baseline을 보존하기 위한 값이며, headline급 강조를 의미하지 않는다. 이 가중치는 고정된 진리가 아니므로 sensitivity analysis를 반드시 수행한다.
+The `release_page_unspecified` value of 1.00 preserves the equal-weight baseline before prominence has been reviewed. It does not mean the benchmark received headline-level emphasis. Because these weights are not fixed truths, sensitivity analysis is required.
 
 ### 9.5 Uncertainty Analysis
 
-분류 불확실성을 결과에 함께 표시한다.
+Show classification uncertainty alongside results.
 
-권장 지표:
+Recommended metrics:
 
-- low-confidence label share
-- `needs_review` benchmark share
-- disputed benchmark count
-- reviewer agreement
-- result sensitivity under alternative projection rules
+- Low-confidence label share.
+- `needs_review` benchmark share.
+- Disputed benchmark count.
+- Reviewer agreement.
+- Result sensitivity under alternative projection rules.
 
 ### 9.6 Sensitivity Analysis
 
-최소 세 가지 결과를 비교한다.
+Compare at least three result variants.
 
-1. Equal mention weighting
-2. Provider-normalized weighting
-3. Prominence weighting
+1. Equal mention weighting.
+2. Provider-normalized weighting.
+3. Prominence weighting.
 
-결과가 세 방식에서 모두 안정적이면 강한 주장으로 쓸 수 있다. 한 방식에서만 보이면 정성적 해석 또는 limitation으로 다룬다.
+If a result is stable across all three variants, it can support a stronger claim. If it appears only under one variant, treat it as a qualitative interpretation or limitation.
 
-## 10. 정성 분석 설계
+## 10. Qualitative Analysis Design
 
-정성 분석은 숫자만으로 설명할 수 없는 benchmark의 의미 변화를 해석한다.
+Qualitative analysis interprets shifts in benchmark meaning that cannot be explained by counts alone.
 
-### 10.1 BenchmarkCard 작성
+### 10.1 BenchmarkCard Writing
 
-주요 benchmark에 대해 간단한 BenchmarkCard를 작성한다.
+Create concise BenchmarkCards for major benchmarks.
 
-권장 항목:
+Recommended fields:
 
-- benchmark name
-- original purpose
-- measured construct
-- task format
-- data source
-- scoring method
-- intended use
-- known limitations
-- contamination or saturation risk
-- how providers use it in release pages
-- classification notes
+- Benchmark name.
+- Original purpose.
+- Measured construct.
+- Task format.
+- Data source.
+- Scoring method.
+- Intended use.
+- Known limitations.
+- Contamination or saturation risk.
+- How providers use the benchmark in release pages.
+- Classification notes.
 
 ### 10.2 Case Study
 
-정량 trend에서 전환점이 나타나는 구간을 case study로 분석한다.
+Analyze periods where quantitative trends show turning points.
 
-예시:
+Examples:
 
-- `Gemini 1.5`: long context benchmark emphasis
-- `GPT-4o / Gemini multimodal releases`: multimodal benchmark emphasis
-- `Claude / GPT coding-agent releases`: SWE-bench and agentic coding benchmarks
-- `o-series / reasoning model releases`: GPQA, AIME, FrontierMath, HLE-like hard reasoning benchmarks
+- `Gemini 1.5`: emphasis on long-context benchmarks.
+- `GPT-4o / Gemini multimodal releases`: emphasis on multimodal benchmarks.
+- `Claude / GPT coding-agent releases`: SWE-bench and agentic coding benchmarks.
+- `o-series / reasoning model releases`: GPQA, AIME, FrontierMath, and HLE-like hard reasoning benchmarks.
 
 ### 10.3 Provider Narrative Analysis
 
-release page의 언어를 분석한다.
+Analyze the language used in release pages.
 
-질문:
+Questions:
 
-- benchmark가 objective evaluation으로 제시되는가?
-- 특정 product capability를 정당화하는 marketing evidence로 쓰이는가?
-- provider가 직접 만든 benchmark인가?
-- 기존 public benchmark와 private eval이 어떻게 섞이는가?
-- benchmark가 capability gap을 보완하는 narrative 장치로 사용되는가?
+- Is the benchmark presented as objective evaluation?
+- Is it used as marketing evidence for a specific product capability?
+- Was the benchmark created by the provider?
+- How are existing public benchmarks and private evaluations combined?
+- Is the benchmark used as a narrative device to compensate for a capability gap?
 
 ### 10.4 Dispute Memo
 
-애매한 benchmark는 별도 memo를 남긴다.
+Maintain separate memos for ambiguous benchmarks.
 
-우선 review 대상:
+Priority review targets:
 
 - `SWE-lancer` / `SWE-Lancer`
 - `MCP-Atlas`
@@ -624,166 +624,166 @@ release page의 언어를 분석한다.
 - `BioPipelineBench`
 - `HLE (Humanity's Last Exam)` / `Humanity's Last Exam`
 
-각 memo에는 다음을 포함한다.
+Each memo should include:
 
-- 왜 애매한가?
-- 어떤 evidence가 있는가?
-- 가능한 label 후보는 무엇인가?
-- 정량 분석에서 어떤 projection을 사용할 것인가?
-- 향후 재검토 조건은 무엇인가?
+- Why the benchmark is ambiguous.
+- What evidence exists.
+- Which candidate labels are plausible.
+- Which projection should be used in quantitative analysis.
+- What conditions would trigger future re-review.
 
-## 11. Visualization 원칙
+## 11. Visualization Principles
 
 ### 11.1 Do Not Mix Axes
 
-`Mode: Agentic`과 `Domain: Coding`을 같은 stackplot에 넣지 않는다. 이는 서로 다른 질문에 대한 답을 하나의 denominator로 섞는 것이다.
+Do not place `Mode: Agentic` and `Domain: Coding` in the same stack plot. Doing so mixes answers to different questions under one denominator.
 
-대신 다음처럼 분리한다.
+Separate them instead.
 
-- chart 1: headline projection trend
-- chart 2: domain trend
-- chart 3: modality trend
-- chart 4: interaction pattern trend
-- chart 5: ambiguity and review debt
+- Chart 1: headline projection trend.
+- Chart 2: domain trend.
+- Chart 3: modality trend.
+- Chart 4: interaction pattern trend.
+- Chart 5: ambiguity and review debt.
 
 ### 11.2 Show Uncertainty
 
-불확실성을 숨기지 않는다.
+Do not hide uncertainty.
 
-가능한 표현:
+Possible representations:
 
-- low-confidence share line
-- disputed benchmark markers
-- shaded uncertainty band under alternative weighting
-- table of top ambiguous benchmarks
+- Low-confidence share line.
+- Disputed benchmark markers.
+- Shaded uncertainty bands under alternative weighting.
+- Table of top ambiguous benchmarks.
 
-### 11.3 Keep A Readable Headline View
+### 11.3 Keep a Readable Headline View
 
-multi-facet 방식은 정확하지만 복잡하다. README에는 readable headline chart가 필요하다.
+The multi-facet approach is more accurate, but also more complex. The README still needs a readable headline chart.
 
-따라서 README에는 다음 두 층을 둔다.
+The README should therefore include two layers.
 
-1. Simple headline projection chart
-2. Methodology note explaining that the chart is a projection
+1. A simple headline projection chart.
+2. A methodology note explaining that the chart is a projection.
 
-상세 분석은 docs 또는 notebook으로 이동한다.
+Move detailed analysis into docs or notebooks.
 
 ## 12. Validation Gates
 
-데이터와 그래프 생성 전에 validator가 다음 조건을 확인해야 한다.
+Before data and charts are generated, the validator should check the following conditions.
 
-필수 gate:
+Required gates:
 
-- every raw benchmark mention resolves to exactly one canonical benchmark
-- no fuzzy substring fallback is used
-- no duplicate canonical benchmark names after normalization
-- every alias points to an existing benchmark
-- every required facet exists for reviewed benchmarks
-- label weights sum to 1.0 per `benchmark_id + facet_axis`
-- confidence values are between 0 and 1
-- low-confidence labels have `needs_review` or `disputed` status
-- every mention prominence override references an existing `mention_id`
-- `mention_weight` is derived from the central prominence weight table
-- headline projection is derivable from facets
-- generated charts are deterministic under the same `--as-of` date
+- Every raw benchmark mention resolves to exactly one canonical benchmark.
+- No fuzzy substring fallback is used.
+- No duplicate canonical benchmark names remain after normalization.
+- Every alias points to an existing benchmark.
+- Every required facet exists for reviewed benchmarks.
+- Label weights sum to 1.0 per `benchmark_id + facet_axis`.
+- Confidence values are between 0 and 1.
+- Low-confidence labels have `needs_review` or `disputed` status.
+- Every mention prominence override references an existing `mention_id`.
+- `mention_weight` is derived from the central prominence weight table.
+- Headline projection is derivable from facets.
+- Generated charts are deterministic under the same `--as-of` date.
 
-권장 gate:
+Recommended gates:
 
-- every reviewed benchmark has at least one `benchmark_definition` evidence
-- every release mention has provider source URL
-- every accepted prominence override cites provider release or technical-report evidence
-- every provider-created benchmark is flagged
-- every private or opaque eval is flagged
+- Every reviewed benchmark has at least one `benchmark_definition` evidence record.
+- Every release mention has a provider source URL.
+- Every accepted prominence override cites provider release-page or technical-report evidence.
+- Every provider-created benchmark is flagged.
+- Every private or opaque evaluation is flagged.
 
 ## 13. Migration Plan
 
 ### Phase 0. Reproducibility
 
-- dependency file 추가
-- all scripts support `--as-of`
-- charts generated deterministically
-- current outputs reproducible
+- Add a dependency file.
+- Ensure all scripts support `--as-of`.
+- Generate charts deterministically.
+- Make current outputs reproducible.
 
 ### Phase 1. Exact Resolution
 
-- `benchmark_aliases.csv` 추가
-- substring fallback 제거
-- unresolved mention validator 추가
-- duplicate canonical benchmark detection 추가
+- Add `benchmark_aliases.csv`.
+- Remove substring fallback.
+- Add an unresolved mention validator.
+- Add duplicate canonical benchmark detection.
 
 ### Phase 2. Long-Form Mention Table
 
-- `models.csv`의 comma-separated benchmark field를 `release_mentions.csv`로 explode
-- deterministic `model_id`, `benchmark_id`, `mention_id` 생성
-- existing counts와 migration counts 일치 확인
-- `mention_prominence_overrides.csv`와 deterministic `mention_weight` 적용 경로 추가
+- Explode the comma-separated benchmark field in `models.csv` into `release_mentions.csv`.
+- Generate deterministic `model_id`, `benchmark_id`, and `mention_id` values.
+- Verify that existing counts and migrated counts match.
+- Add the `mention_prominence_overrides.csv` and deterministic `mention_weight` application path.
 
 ### Phase 3. Multi-Facet Taxonomy
 
-- `benchmark_facet_edges.csv` 추가
-- 핵심 benchmark 15-20개 pilot annotation
-- label_weight와 classification_confidence 분리
-- `needs_review` workflow 도입
+- Add `benchmark_facet_edges.csv`.
+- Pilot annotations for 15-20 core benchmarks.
+- Separate `label_weight` from `classification_confidence`.
+- Introduce the `needs_review` workflow.
 
 ### Phase 4. Visualization Revision
 
-- 기존 single-label chart는 headline projection chart로 명시
-- mode/domain mixed chart는 제거하거나 별도 axis chart로 대체
-- ambiguity debt chart 추가
-- sensitivity analysis chart 추가
+- Explicitly present the existing single-label chart as a headline projection chart.
+- Remove charts that mix mode and domain, or replace them with separate axis charts.
+- Add an ambiguity debt chart.
+- Add a sensitivity analysis chart.
 
 ### Phase 5. Qualitative Layer
 
-- 주요 benchmark BenchmarkCard 작성
-- provider narrative case study 작성
-- disputed benchmark memo 작성
-- README에는 핵심 결과만 요약
+- Write BenchmarkCards for major benchmarks.
+- Write provider narrative case studies.
+- Write memos for disputed benchmarks.
+- Summarize only the core findings in the README.
 
 ## 14. Recommended Initial Pilot
 
-처음부터 전체 benchmark를 재분류하지 않는다. 우선 다음 benchmark로 pilot을 수행한다.
+Do not reclassify every benchmark at once. Start with a pilot set.
 
-| Benchmark | 이유 |
+| Benchmark | Reason |
 |---|---|
-| `SWE-bench` | coding과 agentic interaction이 겹침 |
-| `HumanEval` | coding이지만 static generation에 가까움 |
-| `LiveCodeBench` | coding benchmark의 modern variant |
-| `MMMU` | multimodal과 domain이 혼합됨 |
-| `Video-MME` | modality가 핵심인 benchmark |
-| `GPQA` | expert knowledge와 reasoning이 겹침 |
-| `AIME` | math와 reasoning의 경계 |
-| `FrontierMath` | hard math/reasoning construct 논쟁 |
-| `HLE` | broad difficult knowledge/reasoning benchmark |
-| `MMLU` | knowledge benchmark의 대표이지만 construct가 넓음 |
-| `IFEval` | instruction following과 constraint satisfaction의 경계 |
-| `Jailbreak Eval` | safety/refusal benchmark |
-| `NIAH` | long-context retrieval 대표 |
-| `BrowseComp` | web/search/agentic interaction 가능성 |
-| `TAU-2 bench` | pilot audit 완료, dual-control agentic benchmark로 seed |
-| `Vending-Bench 2` | pilot audit 완료, long-horizon vending business agent benchmark로 seed |
-| `GDPval` | pilot audit 완료, mixed professional deliverable generation으로 seed |
-| `GDPval-AA` | pilot audit 완료, Artificial Analysis agentic knowledge-work evaluation으로 seed |
-| `BrowseComp Long Context` | pilot audit 완료, long-context retrieval benchmark로 seed |
-| `FACTS Benchmark suite` | composite factuality suite라 subbenchmark card 필요 |
-| `BioPipelineBench` | provider system-card 기반 seed 완료, public benchmark card 필요 |
-| `MCP-Atlas` | alias와 benchmark identity 검증 필요 |
+| `SWE-bench` | Coding and agentic interaction overlap. |
+| `HumanEval` | Coding benchmark, but closer to static generation. |
+| `LiveCodeBench` | Modern variant of coding benchmarks. |
+| `MMMU` | Modality and domain are mixed. |
+| `Video-MME` | Modality is the central benchmark property. |
+| `GPQA` | Expert knowledge and reasoning overlap. |
+| `AIME` | Boundary case between math and reasoning. |
+| `FrontierMath` | Contested hard math/reasoning construct. |
+| `HLE` | Broad, difficult knowledge/reasoning benchmark. |
+| `MMLU` | Canonical knowledge benchmark with a broad construct. |
+| `IFEval` | Boundary between instruction following and constraint satisfaction. |
+| `Jailbreak Eval` | Safety/refusal benchmark. |
+| `NIAH` | Representative long-context retrieval benchmark. |
+| `BrowseComp` | Possible web, search, and agentic interaction benchmark. |
+| `TAU-2 bench` | Pilot audit complete; seeded as a dual-control agentic benchmark. |
+| `Vending-Bench 2` | Pilot audit complete; seeded as a long-horizon vending-business agent benchmark. |
+| `GDPval` | Pilot audit complete; seeded as mixed professional deliverable generation. |
+| `GDPval-AA` | Pilot audit complete; seeded as Artificial Analysis' agentic knowledge-work evaluation. |
+| `BrowseComp Long Context` | Pilot audit complete; seeded as a long-context retrieval benchmark. |
+| `FACTS Benchmark suite` | Composite factuality suite requiring subbenchmark cards. |
+| `BioPipelineBench` | Seeded from provider system-card evidence; needs a public benchmark card. |
+| `MCP-Atlas` | Needs alias and benchmark identity verification. |
 
 ## 15. Source-Informed Rationale
 
-이 방법론은 다음 연구 흐름을 참고한다.
+This methodology draws on the following research threads.
 
-- [HELM](https://arxiv.org/abs/2211.09110): scenario와 metric을 분리하고, 투명하고 표준화된 평가 조건을 강조한다.
-- [BenchmarkCards](https://openreview.net/forum?id=b2IJBWhGFu): benchmark의 objective, methodology, data source, limitation을 표준화해 benchmark misuse를 줄이려는 접근이다.
-- [Datasheets for Datasets](https://arxiv.org/abs/1803.09010): dataset의 motivation, composition, collection process, recommended use를 문서화해야 한다는 원칙을 제공한다.
-- [Model Cards](https://arxiv.org/abs/1810.03993): model reporting에서 intended use, evaluation procedure, limitation을 명시해야 한다는 원칙을 제공한다.
-- [AI and the Everything in the Whole Wide World Benchmark](https://arxiv.org/abs/2111.15366): benchmark가 일반 지능 또는 field-wide progress의 대리 지표처럼 과잉 해석되는 문제를 지적한다.
-- [Validity Challenges in Machine Learning Benchmarks](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2022/EECS-2022-180.html): benchmark result가 실제 deployment setting으로 일반화되는지, 외적 타당성 문제를 제기한다.
-- [Can We Trust AI Benchmarks?](https://arxiv.org/abs/2502.06559): construct validity, documentation, contamination, gaming, sociotechnical incentives 등 benchmark practice의 구조적 위험을 정리한다.
-- [Dynabench](https://aclanthology.org/2021.naacl-main.324/): static benchmark saturation과 real-world robustness 문제를 해결하기 위해 dynamic, human-and-model-in-the-loop evaluation을 제안한다.
+- [HELM](https://arxiv.org/abs/2211.09110): separates scenarios from metrics and emphasizes transparent, standardized evaluation conditions.
+- [BenchmarkCards](https://openreview.net/forum?id=b2IJBWhGFu): standardizes benchmark objectives, methodology, data sources, and limitations to reduce benchmark misuse.
+- [Datasheets for Datasets](https://arxiv.org/abs/1803.09010): argues that dataset motivation, composition, collection process, and recommended use should be documented.
+- [Model Cards](https://arxiv.org/abs/1810.03993): establishes the importance of intended use, evaluation procedures, and limitations in model reporting.
+- [AI and the Everything in the Whole Wide World Benchmark](https://arxiv.org/abs/2111.15366): critiques the tendency to overinterpret benchmarks as proxies for general intelligence or field-wide progress.
+- [Validity Challenges in Machine Learning Benchmarks](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2022/EECS-2022-180.html): raises questions about whether benchmark results generalize to deployment settings and highlights external validity concerns.
+- [Can We Trust AI Benchmarks?](https://arxiv.org/abs/2502.06559): summarizes structural risks in benchmark practice, including construct validity, documentation gaps, contamination, gaming, and sociotechnical incentives.
+- [Dynabench](https://aclanthology.org/2021.naacl-main.324/): proposes dynamic, human-and-model-in-the-loop evaluation to address static benchmark saturation and real-world robustness problems.
 
 ## 16. Recommended README Language
 
-README에는 다음과 같은 표현을 사용하는 것을 권장한다.
+The README should use language like the following.
 
 ```text
 This repository analyzes the evolution of benchmarks emphasized in frontier model release pages.
@@ -793,24 +793,24 @@ Benchmark categories are represented through a multi-facet taxonomy; any single 
 
 ## 17. What This Methodology Enables
 
-이 방법론을 사용하면 다음 분석이 가능해진다.
+This methodology makes the following analyses possible.
 
-- frontier model release가 reasoning에서 agency로 이동했는지 검증
-- coding benchmark가 줄어든 것이 아니라 agentic coding으로 재포장된 것인지 검증
-- multimodal benchmark가 실제 capability claim인지 product positioning인지 해석
-- provider별 benchmark adoption과 benchmark creation 전략 비교
-- benchmark category choice가 trend conclusion에 미치는 영향 측정
-- 불확실하고 논쟁적인 benchmark를 숨기지 않고 분석 결과에 반영
+- Test whether frontier model releases have shifted from reasoning toward agency.
+- Test whether coding benchmarks have declined, or whether they have been reframed as agentic coding benchmarks.
+- Interpret whether multimodal benchmarks function as capability claims or product positioning.
+- Compare benchmark adoption and benchmark creation strategies across providers.
+- Measure how benchmark category choices affect trend conclusions.
+- Include uncertain and contested benchmarks in the analysis instead of hiding them.
 
 ## 18. What This Methodology Does Not Claim
 
-이 방법론은 다음을 주장하지 않는다.
+This methodology does not claim that:
 
-- benchmark mention frequency가 model capability와 동일하다는 주장
-- provider release page가 field 전체의 객관적 benchmark landscape라는 주장
-- headline projection category가 benchmark의 본질이라는 주장
-- LLM classifier가 evidence review 없이 reliable taxonomy를 만들 수 있다는 주장
+- Benchmark mention frequency is the same as model capability.
+- Provider release pages are an objective map of the entire benchmark landscape.
+- A headline projection category is the essence of a benchmark.
+- An LLM classifier can produce a reliable taxonomy without evidence review.
 
-대신 이 방법론은 더 제한적이고 방어 가능한 주장을 목표로 한다.
+Instead, the methodology aims for a narrower and more defensible claim.
 
 > Frontier model release pages reveal how leading AI providers select, frame, and emphasize benchmarks over time. Multi-facet benchmark documentation allows us to analyze that evolution without pretending that each benchmark has a single exclusive identity.
