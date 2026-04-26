@@ -22,3 +22,19 @@ FACTS Benchmark Suite,benchmark_facts_benchmark_suite,case_variant,Capitalizatio
 Multilingual MMLU,benchmark_mmmlu,legacy_name,Expanded name for MMMLU used in Google methodology notes
 MRCR v2 (8-needle),benchmark_mrcr_v2,version_alias,Google chart configuration label for MRCR v2
 BrowseComp Plus,benchmark_browsecomp_plus,version_alias,Space variant for BrowseComp-Plus
+SWE-Bench Pro,benchmark_swe_bench_pro,case_variant,Capitalization variant used on OpenAI GPT-5.3-Codex release page
+SWE-Bench Pro (Public),benchmark_swe_bench_pro,version_alias,Public split label used on OpenAI GPT-5.3-Codex appendix
+SWE-lancer IC Diamond,benchmark_swe_lancer_ic_diamond,case_variant,Capitalization variant used on OpenAI GPT-5.3-Codex appendix
+Cybersecurity Capture The Flag Challenges,benchmark_cybersecurity_ctfs,legacy_name,Expanded wording for Cybersecurity CTFs used on OpenAI GPT-5.3-Codex appendix
+Finance Agent v1.1,benchmark_financeagent_v1_1,case_variant,Space variant for FinanceAgent v1.1 used in public benchmark listings
+FrontierScience Research,benchmark_frontier_science_research,case_variant,No-space product spelling for the FrontierScience research track
+WebArena Verified,benchmark_webarena_verified,case_variant,Space variant for WebArena-Verified
+Online Mind2Web,benchmark_online_mind2web,case_variant,Space variant for Online-Mind2Web
+OpenAI MRCR v2,benchmark_mrcr_v2,provider_abbreviation,Provider-prefixed MRCR v2 label used on OpenAI GPT-5.4 release page
+Tau2-bench,benchmark_tau_2_bench,case_variant,ASCII spelling variant for TAU-2 bench used on OpenAI GPT-5.4 release page
+Tau2-bench Telecom,benchmark_tau_2_bench,version_alias,Telecom domain label used for TAU-2 bench on OpenAI GPT-5.4 appendix
+ARC-AGI-1 (Verified),benchmark_arc_agi,version_alias,Verified ARC-AGI-1 label used on OpenAI GPT-5.4 appendix
+ARC-AGI-2 (Verified),benchmark_arc_agi_2,version_alias,Verified ARC-AGI-2 label used on OpenAI GPT-5.4 appendix
+CoT controllability,benchmark_cot_control,legacy_name,Release-page wording for the CoT-Control evaluation suite
+Expert-SWE,benchmark_expert_swe_internal,version_alias,Short name for OpenAI Expert-SWE internal eval used in GPT-5.5 prose
+OfficeQA-Pro,benchmark_officeqa_pro,case_variant,Hyphenated variant for OfficeQA Pro

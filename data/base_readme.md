@@ -66,8 +66,8 @@ Under the v3 methodology, these fields should be treated as projections from ric
 ## Auto-Update
 To regenerate the normalized v3 seed data, current chart assets, and README, run:
 ```bash
-AS_OF=2026-03-03          # latest release date included in data/models.csv
-ACCESSED_DATE=2026-04-25  # date used for seeded evidence records
+AS_OF=2026-04-23          # latest release date included in data/models.csv
+ACCESSED_DATE=2026-04-26  # date used for seeded evidence records
 
 python scripts/build_v3_data.py --accessed-date "$ACCESSED_DATE"
 python scripts/validate_data.py
