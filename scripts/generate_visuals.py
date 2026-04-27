@@ -202,18 +202,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
             if last_label_date is None or (row["Date"] - last_label_date).days >= 180:
                 label_rows.add(row_index)
                 last_label_date = row["Date"]
-        latest_index = provider_df["Date"].idxmax()
-        latest_date = provider_df.loc[latest_index, "Date"]
-        nearby_latest_labels = [
-            row_index
-            for row_index in label_rows
-            if row_index in provider_df.index
-            and row_index != latest_index
-            and abs((latest_date - provider_df.loc[row_index, "Date"]).days) < 120
-        ]
-        for row_index in nearby_latest_labels:
-            label_rows.discard(row_index)
-        label_rows.add(latest_index)
+        label_rows.add(provider_df["Date"].idxmax())
 
     fig, ax = plt.subplots(figsize=(18, 9.5))
 

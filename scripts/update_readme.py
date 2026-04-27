@@ -133,70 +133,6 @@ def source_evidence_summary():
     return pd.DataFrame(rows).to_markdown(index=False)
 
 
-def source_examples(models_df, row_count=6):
-    return models_df.head(row_count)[
-        ["Provider", "Model name", "release date", "link"]
-    ].to_markdown(index=False)
-
-
-def sensitivity_summary():
-    mentions_df = pd.read_csv("data/release_mentions.csv")
-    benchmarks_df = pd.read_csv("data/benchmarks.csv")
-    mentions_df["release_date"] = pd.to_datetime(mentions_df["release_date"], errors="raise")
-    latest_end = mentions_df["release_date"].max()
-    latest_start = latest_end - pd.Timedelta(days=180)
-    latest = mentions_df[(mentions_df["release_date"] >= latest_start) & (mentions_df["release_date"] <= latest_end)]
-    joined = latest.merge(
-        benchmarks_df[["benchmark_id", "legacy_task_mode"]],
-        on="benchmark_id",
-        how="left",
-    )
-
-    scenario_rows = []
-    scenarios = [
-        ("All latest-window mentions", joined),
-        (
-            "Exclude explicit composite/index rows",
-            joined[~joined["benchmark_name"].str.contains("index", case=False, na=False)],
-        ),
-    ]
-    for label, frame in scenarios:
-        counts = frame["legacy_task_mode"].value_counts()
-        scenario_rows.append(
-            {
-                "scenario": label,
-                "mentions": len(frame),
-                "Agentic": int(counts.get("Agentic", 0)),
-                "Generative Reasoning": int(counts.get("Generative Reasoning", 0)),
-                "Other task modes": int(len(frame) - counts.get("Agentic", 0) - counts.get("Generative Reasoning", 0)),
-            }
-        )
-
-    family_patterns = {
-        "SWE-bench / SWE-Lancer": r"SWE[- ]?bench|SWE[- ]?Lancer|SWE-lancer",
-        "Terminal-Bench": r"Terminal[- ]?Bench|Terminal Bench|Terminal-bench",
-        "ARC-AGI": r"ARC-AGI",
-        "MRCR": r"MRCR",
-        "OSWorld": r"OSWorld",
-    }
-    family_rows = []
-    raw_names = joined["raw_mention"].fillna(joined["benchmark_name"]).astype(str)
-    for family, pattern in family_patterns.items():
-        family_rows.append(
-            {
-                "benchmark_family_proxy": family,
-                "latest_window_mentions": int(raw_names.str.contains(pattern, case=False, regex=True).sum()),
-            }
-        )
-
-    return (
-        "Composite/index sensitivity:\n\n"
-        + pd.DataFrame(scenario_rows).to_markdown(index=False)
-        + "\n\nVersion-family proxy counts:\n\n"
-        + pd.DataFrame(family_rows).to_markdown(index=False)
-    )
-
-
 def projection_summary_tables(benchmark_table_df):
     statuses = ["accepted", "needs_review", "legacy_seed"]
 
@@ -225,8 +161,6 @@ def generate_markdown():
     ].fillna("").to_markdown(index=False)
     md_content = md_content.replace("{{LATEST_RELEASE_SUMMARY_TABLE}}", latest_release_summary(models_df))
     md_content = md_content.replace("{{SOURCE_EVIDENCE_SUMMARY_TABLE}}", source_evidence_summary())
-    md_content = md_content.replace("{{SOURCE_EXAMPLE_TABLE}}", source_examples(models_df))
-    md_content = md_content.replace("{{SENSITIVITY_SUMMARY_TABLES}}", sensitivity_summary())
     md_content = md_content.replace("{{REVIEW_STATUS_SUMMARY_TABLE}}", review_status_summary(benchmark_table_df))
     md_content = md_content.replace("{{REVIEW_DEBT_TABLE}}", review_debt_summary())
     md_content = md_content.replace("{{PROJECTION_SUMMARY_TABLES}}", projection_summary_tables(benchmark_table_df))
