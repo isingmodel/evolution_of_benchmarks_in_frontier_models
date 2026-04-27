@@ -268,8 +268,16 @@ def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_pat
     if min_date is not None:
         ax.set_xlim(min_date, as_of)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
+    fig.text(
+        0.5,
+        0.025,
+        "Release-normalized mention shares; domain has its own denominator and should not be mixed with task-mode shares.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
     plt.xticks(rotation=45)
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0.045, 1, 1])
     save_figure(fig, output_path)
     plt.close(fig)
 
@@ -317,8 +325,16 @@ def generate_review_debt_graph(output_path):
     ax.legend(["Low confidence (<0.7)", "Needs review or disputed"], frameon=False)
     ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.5)
     ax.grid(False, axis="x")
+    fig.text(
+        0.5,
+        0.025,
+        "Shares are computed within each facet axis from benchmark_facet_edges.csv; higher values indicate review backlog, not model capability.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
     plt.xticks(rotation=30, ha="right")
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0.055, 1, 1])
     save_figure(fig, output_path)
     plt.close(fig)
 
@@ -379,8 +395,16 @@ def generate_trend_graph(
         weight="bold",
         y=0.99,
     )
+    fig.text(
+        0.5,
+        0.025,
+        "Task mode and domain are separate denominators. Each release is normalized before the 180-day rolling window and 30-day EWMA smoothing.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
     plt.xticks(rotation=45)
-    plt.tight_layout(rect=[0, 0, 1, 0.97])
+    plt.tight_layout(rect=[0, 0.045, 1, 0.97])
     save_figure(fig, output_path)
     plt.close(fig)
 

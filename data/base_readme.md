@@ -11,6 +11,11 @@ The current normalized data covers 36 model-release rows, 32 rows with captured 
 - **Uncertainty:** row-level review status is still mixed. The projection tables include `review_status`, and the multi-facet chart should be read as an experimental seed layer until review debt falls.
 - **Zero-count model rows:** a `0` mention count or "No public launch-page benchmark mentions captured" entry means no benchmark mentions were captured for that release row; it is not a claim that the model was unevaluated.
 
+## Main Findings
+- Recent launch pages emphasize agentic task completion, coding environments, tool use, professional workflows, and safety/alignment evaluations more than early static exam-style benchmark lists.
+- In the raw latest-window count, Agentic and Generative Reasoning dominate captured mentions; in the rolling charts, the same categories are shown as release-normalized shares so releases with long benchmark lists do not overwhelm the trend.
+- The most important limitation is not missing counts but unresolved review debt: most multi-facet rows still need manual audit, and prominence, quote-level release evidence, composite-index rollups, and benchmark-family sensitivity analyses remain future work.
+
 ## Evolution Graph
 Each release is plotted on its provider row. Pie slices show the release-normalized headline task-mode projection for resolved benchmark mentions; a gray dot marks a release row with no resolved benchmark mentions captured. The pies are intentionally equal-sized, so they show composition rather than volume; the number in each label is the count of resolved mentions for that release.
 ![Benchmark Evolution](assets/benchmark_evolution.png)
@@ -30,13 +35,19 @@ The following graph summarizes low-confidence or review-needed facet rows in the
 {{REVIEW_DEBT_TABLE}}
 
 ## Multi-Facet Trends
-The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above. Because 1,008 of 1,275 facet rows still need review, treat this figure as experimental rather than final.
+The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. It plots the default facet axes `domain`, `modality`, `interaction_pattern`, and `context_pressure`; each panel has its own denominator. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, and the top 10 labels per axis are shown while smaller labels are grouped into `Other`. Because 1,008 of 1,275 facet rows still need review, treat this figure as experimental rather than final.
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Review Status And Caveats
 The current normalized data has 5 accepted benchmark rows, 38 `needs_review` benchmark rows, and 92 `legacy_seed` rows. The accepted multi-facet benchmark rows are `BrowseComp Long Context`, `GDPval`, `GDPval-AA`, `TAU-2 bench`, and `Vending-Bench 2`; `FACTS Benchmark suite` and `BioPipelineBench` remain review-needed. At the facet level, 1,008 of 1,275 rows are `needs_review`, so the multi-facet charts should be treated as an evolving seed layer rather than a final taxonomy.
 
 {{REVIEW_STATUS_SUMMARY_TABLE}}
+
+Review-status terms:
+
+- `accepted`: manually reviewed under the current multi-facet methodology.
+- `needs_review`: present in the normalized tables but still awaiting manual audit or higher-confidence evidence.
+- `legacy_seed`: inherited from the older single-projection catalog or rule-seeded pipeline output; useful for continuity, but not yet audited as a v3 multi-facet classification.
 
 Several modern release-page patterns require special caution:
 
@@ -45,10 +56,17 @@ Several modern release-page patterns require special caution:
 - Private, provider-created, and partner-branded evals: some rows are launch-page labels without public item sets or full scoring methodology.
 - Release-page mentions are positioning signals, not capability measurements.
 
+Open follow-up audits:
+
+- Add quote-level, page-section, and OCR provenance for release-page mentions.
+- Audit mention prominence so counts can be compared with page-position-weighted views.
+- Run rollup-aware sensitivity analyses for composite indices and version families such as SWE-bench, Terminal-Bench, MRCR, ARC-AGI, and OSWorld.
+- Promote high-impact `legacy_seed` and `needs_review` rows into accepted multi-facet rows through source-backed review.
+
 ## Preliminary Analysis & Observations
 
 ### Current Picture
-The benchmark landscape has moved from mostly static exam, reasoning, and multimodal tasks toward agentic task completion, coding environments, tool use, professional workflows, and safety/alignment evaluations. In the latest 180-day window in the dataset, from 2025-10-25 through 2026-04-23, Agentic is the largest headline projection at 43.5% of resolved mentions (87 of 200), followed by Generative Reasoning at 39.5% (79 of 200).
+The benchmark landscape has moved from mostly static exam, reasoning, and multimodal tasks toward agentic task completion, coding environments, tool use, professional workflows, and safety/alignment evaluations. In the raw latest-window count, from 2025-10-25 through 2026-04-23, Agentic is the largest headline projection at 43.5% of resolved mentions (87 of 200), followed by Generative Reasoning at 39.5% (79 of 200). This raw count is separate from the rolling chart shares, which normalize each release before smoothing.
 
 The shift is not simply "more benchmarks." The release-page set is being refreshed by hardened successors and variants: SWE-bench Verified gives way to SWE-bench Pro, Terminal-bench to Terminal-Bench 2.0/Hard, OSWorld to OSWorld-Verified, MRCR to MRCR v2, ARC-AGI to ARC-AGI-2, SimpleQA to SimpleQA Verified, and OmniDocBench to OmniDocBench 1.5. Trend charts should therefore be read as a record of benchmark positioning, not as a clean longitudinal test suite.
 
@@ -98,22 +116,22 @@ benchmark_catalog.csv
 Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction. See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
 
 ## Models Data
-The compact table below shows the latest release rows and captured mention counts. The full generated model table is kept in a collapsible block because benchmark lists are long; use `data/models.csv` and `data/release_mentions.csv` for analysis.
+The compact table below shows the latest release rows and captured mention counts. The all-release-row summary is kept in a collapsible block; use `data/models.csv` for raw benchmark-list strings and `data/release_mentions.csv` for normalized mention-level analysis.
 
 {{LATEST_RELEASE_SUMMARY_TABLE}}
 
 <details>
-<summary>Full generated model table</summary>
+<summary>All release rows summary</summary>
 
 {{MODELS_TABLE}}
 
 </details>
 
 ## Benchmark Projection Table
-This table shows normalized source metadata plus chart-compatible projection fields and row-level review status. It is not the full multi-facet taxonomy; use `data/benchmark_facet_edges.csv` for the long-form facet annotations.
+This compact table shows chart-compatible projection fields and row-level review status. It is intentionally narrow enough to scan in the README. Use `data/benchmarks.csv` for reference links, source authors, and rationales, and `data/benchmark_facet_edges.csv` for long-form facet annotations.
 
 <details>
-<summary>Full generated benchmark projection table</summary>
+<summary>Compact generated benchmark projection table</summary>
 
 {{TAXONOMY_TABLE}}
 

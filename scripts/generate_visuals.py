@@ -195,7 +195,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
 
     df = df.sort_values("Date")
 
-    fig, ax = plt.subplots(figsize=(16, 9))
+    fig, ax = plt.subplots(figsize=(18, 9.5))
 
     providers = sorted(df["Provider"].dropna().unique())
     y_map = {p: i for i, p in enumerate(providers)}
@@ -228,8 +228,9 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
     ax.set_ylim(-0.8, len(providers) - 0.2)
 
     pie_history = {p: [] for p in providers}
-    pie_close_threshold = 15
-    pie_x_offset = 8
+    pie_close_threshold = 24
+    pie_x_offset = 14
+    label_offset_cycle = [34, -42, 58, -64]
 
     for idx, row in df.iterrows():
         provider = row["Provider"]
@@ -259,7 +260,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
             sub_ax.set_aspect("equal")
             sub_ax.axis("off")
 
-        offset_y = 30 if idx % 2 == 0 else -35
+        offset_y = label_offset_cycle[len(close) % len(label_offset_cycle)]
         ax.annotate(
             f"{row['Model']} ({row['TotalHits']})",
             (mdates.num2date(adjusted_x), y_val),
@@ -267,7 +268,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
             textcoords="offset points",
             ha="center",
             va="center",
-            fontsize=9,
+            fontsize=8,
             bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.8, ec="none"),
             arrowprops=dict(arrowstyle="-", color="gray", alpha=0.5),
         )
@@ -299,7 +300,15 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
         title_fontsize=12,
     )
 
-    plt.subplots_adjust(bottom=0.2)
+    fig.text(
+        0.5,
+        0.035,
+        "Equal-sized pies show per-release composition, not mention volume. Label numbers are resolved mention counts; gray markers mean no resolved benchmark mentions captured.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
+    plt.subplots_adjust(bottom=0.24)
     output_dir = os.path.dirname(output_path)
     if output_dir:
         os.makedirs(output_dir, exist_ok=True)

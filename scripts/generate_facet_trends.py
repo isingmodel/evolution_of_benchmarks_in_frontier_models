@@ -197,7 +197,15 @@ def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=No
     axs[-1].set_xlabel("Time", fontsize=12)
     plt.xticks(rotation=45)
     fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=18, weight="bold", y=0.995)
-    plt.tight_layout(rect=[0, 0, 1, 0.985])
+    fig.text(
+        0.5,
+        0.012,
+        f"Weighted by release-normalized mention_weight x label_weight. Top {top_labels} labels per axis are shown; smaller labels are grouped into Other. Facet data remains review-heavy.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
+    plt.tight_layout(rect=[0, 0.025, 1, 0.985])
     save_figure(fig, output_path)
     plt.close(fig)
 

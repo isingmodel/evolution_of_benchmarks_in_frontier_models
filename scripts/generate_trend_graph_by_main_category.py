@@ -237,7 +237,15 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
 
     ax.set_xlim(min_date, as_of)
     ax.set_ylim(0, 1.0)
-    plt.tight_layout()
+    fig.text(
+        0.5,
+        0.025,
+        "Each release contributes total weight 1 across resolved mentions; values use a rolling window and 30-day EWMA smoothing.",
+        ha="center",
+        fontsize=9,
+        color="#555555",
+    )
+    plt.tight_layout(rect=[0, 0.045, 1, 1])
 
     output_dir = os.path.dirname(output_path)
     if output_dir:
