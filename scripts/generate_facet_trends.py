@@ -142,7 +142,11 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     colors = sns.color_palette("tab20", n_colors=len(labels))
     ax.stackplot(trend.index, [trend[label] for label in labels], labels=labels, colors=colors, alpha=0.9)
     title = axis.replace("_", " ").title()
-    ax.set_title(f"{title} Trend (facet data, {window_days}-day, as of {as_of.date()})", fontsize=14, weight="bold")
+    ax.set_title(
+        f"{title} Trend (experimental facet data, {window_days}-day, as of {as_of.date()})",
+        fontsize=14,
+        weight="bold",
+    )
     ax.set_ylabel("Share of weighted mentions", fontsize=11)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)

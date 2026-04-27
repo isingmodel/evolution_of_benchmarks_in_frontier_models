@@ -235,7 +235,7 @@ def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
     ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
 
     ax.set_title(title, fontsize=16, weight="bold", pad=12)
-    ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
+    ax.set_ylabel("Share of normalized release mentions", fontsize=14, labelpad=10)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     handles, labels = ax.get_legend_handles_labels()
     ax.legend(handles[::-1], labels[::-1], loc="upper left", fontsize=10, title=legend_title, bbox_to_anchor=(1.02, 1))
@@ -309,9 +309,9 @@ def generate_review_debt_graph(output_path):
 
     fig, ax = plt.subplots(figsize=(14, 7))
     summary.plot(kind="bar", ax=ax, color=["#d95f02", "#7570b3"], width=0.8)
-    ax.set_title("Benchmark Classification Review Debt", fontsize=18, weight="bold", pad=16)
+    ax.set_title("Benchmark Classification Review Debt by Facet Axis", fontsize=18, weight="bold", pad=16)
     ax.set_xlabel("Facet Axis", fontsize=12)
-    ax.set_ylabel("Share of Labels", fontsize=12)
+    ax.set_ylabel("Share of facet labels", fontsize=12)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
     ax.legend(["Low confidence (<0.7)", "Needs review or disputed"], frameon=False)

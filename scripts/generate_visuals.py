@@ -261,7 +261,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
 
         offset_y = 30 if idx % 2 == 0 else -35
         ax.annotate(
-            row["Model"],
+            f"{row['Model']} ({row['TotalHits']})",
             (mdates.num2date(adjusted_x), y_val),
             xytext=(0, offset_y),
             textcoords="offset points",
@@ -276,10 +276,21 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
         plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=c, markersize=12, label=cat)
         for cat, c in zip(cat_cols, colors)
     ]
+    legend_handles.append(
+        plt.Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="w",
+            markerfacecolor="#cccccc",
+            markersize=10,
+            label="No resolved mentions",
+        )
+    )
 
     ax.legend(
         handles=legend_handles,
-        title="Task Mode",
+        title="Task Mode / Marker",
         loc="upper center",
         bbox_to_anchor=(0.5, -0.15),
         ncol=3,

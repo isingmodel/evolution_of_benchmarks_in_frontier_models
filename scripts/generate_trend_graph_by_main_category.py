@@ -216,12 +216,12 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
     ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
 
     ax.set_title(
-        f"Evolution of Benchmark Task Modes (Rolling {window_days}-day, as of {as_of.date()})",
+        f"Evolution of Normalized Benchmark Mention Share by Task Mode (Rolling {window_days}-day, as of {as_of.date()})",
         fontsize=20,
         weight="bold",
         pad=20,
     )
-    ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
+    ax.set_ylabel("Share of normalized release mentions", fontsize=14, labelpad=10)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
 
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
