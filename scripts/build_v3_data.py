@@ -22,6 +22,75 @@ MENTION_WEIGHT_DEFAULT = MENTION_PROMINENCE_WEIGHTS[PROMINENCE_DEFAULT]
 RULE_SEED_CONFIDENCE = 0.6
 LEGACY_SEED_CONFIDENCE = 0.7
 REVIEW_NEEDED_CONFIDENCE = 0.55
+FRONTIER_LAB_AUTHOR_LABELS = [
+    "OpenAI",
+    "Anthropic",
+    "Google",
+    "DeepMind",
+    "Microsoft",
+    "xAI",
+    "Meta",
+]
+FRONTIER_LAB_AUTHOR_OVERRIDES = {
+    # Direct-source verification pass. Use needs_review only when no reliable
+    # benchmark source or paper link was found for the configured row.
+    "Biology Olympiad": "none",
+    "Bird-SQL": "none",
+    "CritPt": "none",
+    "ERQA": "Google; DeepMind",
+    "FACTS Grounding": "Google; DeepMind",
+    "FLEURS": "Google",
+    "GPQA": "none",
+    "GPQA Diamond": "none",
+    "HLE (Humanity's Last Exam)": "OpenAI; Anthropic; Google; DeepMind; Microsoft",
+    "HiddenMath": "Google; DeepMind",
+    "MGSM": "Google",
+    "LMArena": "none",
+    "M3Exam": "none",
+    "MRCR": "Google; DeepMind",
+    "MRCR v2": "Google; DeepMind",
+    "MTOB benchmark": "none",
+    "MathVista": "Microsoft",
+    "Natural2Code": "Google; DeepMind",
+    "Needle In A Haystack": "none",
+    "OmniDocBench": "none",
+    "OmniDocBench 1.5": "none",
+    "SWE-Lancer": "OpenAI",
+    "SWE-bench Multimodal": "none",
+    "ScreenSpot-Pro": "none",
+    "Structural Biology": "Anthropic",
+    "Tau-bench": "none",
+    "Terminal-Bench 2.0": "Anthropic",
+    "Terminal-bench": "Anthropic",
+    "Toolathlon": "none",
+    "VATEX": "none",
+    "Vibe-Eval": "none",
+    "Video-MMMU": "none",
+    "WebVoyager": "none",
+}
+REFERENCE_LINK_OVERRIDES = {
+    "Bird-SQL": "https://arxiv.org/abs/2305.03111",
+    "CritPt": "https://arxiv.org/abs/2509.26574",
+    "ERQA": "https://github.com/embodiedreasoning/ERQA",
+    "FACTS Grounding": "https://storage.googleapis.com/deepmind-media/FACTS/FACTS_grounding_paper.pdf",
+    "HiddenMath": "https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf",
+    "LMArena": "https://arxiv.org/abs/2403.04132",
+    "M3Exam": "https://arxiv.org/abs/2306.05179",
+    "MGSM": "https://openreview.net/forum?id=fR3wGCk-IXp",
+    "OmniDocBench": "https://arxiv.org/abs/2412.07626",
+    "OmniDocBench 1.5": "https://github.com/opendatalab/OmniDocBench",
+    "SWE-Lancer": "https://arxiv.org/abs/2502.12115",
+    "ScreenSpot-Pro": "https://arxiv.org/abs/2504.07981",
+    "Structural Biology": "https://www.anthropic.com/claude-opus-4-7-system-card",
+    "Tau-bench": "https://arxiv.org/abs/2406.12045",
+    "Terminal-Bench 2.0": "https://arxiv.org/abs/2601.11868",
+    "Terminal-bench": "https://arxiv.org/abs/2601.11868",
+    "Toolathlon": "https://arxiv.org/abs/2510.25726",
+    "VATEX": "https://arxiv.org/abs/1904.03493",
+    "Vibe-Eval": "https://arxiv.org/abs/2405.02287",
+    "Video-MMMU": "https://arxiv.org/abs/2501.13826",
+    "WebVoyager": "https://arxiv.org/abs/2401.13919",
+}
 
 
 MANUAL_FACET_OVERRIDES = {
@@ -292,6 +361,53 @@ def manual_benchmark_status(benchmark_name):
     return "legacy_seed"
 
 
+def infer_frontier_lab_author_affiliations(row):
+    benchmark_name = str(row.get("benchmark_name", "")).strip()
+    if benchmark_name in FRONTIER_LAB_AUTHOR_OVERRIDES:
+        return FRONTIER_LAB_AUTHOR_OVERRIDES[benchmark_name]
+
+    source_author = str(row.get("source_author", "")).strip()
+    reference_link = str(row.get("reference_link", "")).strip()
+    rationale = str(row.get("rationale", "")).strip()
+    text = " ".join([source_author, reference_link, rationale])
+    text_lower = text.casefold()
+    labels = []
+
+    def add(label):
+        if label not in labels:
+            labels.append(label)
+
+    # Authorship only: do not treat funding/backing or release-page hosting as
+    # benchmark author affiliation.
+    source_without_backing = re.sub(r"backed by\s+google", "", source_author, flags=re.IGNORECASE)
+
+    for label in ["OpenAI", "Anthropic", "Microsoft", "xAI", "Meta"]:
+        if re.search(rf"(?<![A-Za-z]){re.escape(label)}(?![A-Za-z])", source_without_backing, flags=re.IGNORECASE):
+            add(label)
+
+    if re.search(r"(?<![A-Za-z])Google(?![A-Za-z])", source_without_backing, flags=re.IGNORECASE):
+        add("Google")
+
+    if "deepmind" in text_lower:
+        # Represent Google DeepMind as atomic Google + DeepMind tags.
+        add("Google")
+        add("DeepMind")
+
+    for marker in [
+        "github.com/google-research",
+        "huggingface.co/datasets/google/",
+        "blog.google/",
+    ]:
+        if marker in reference_link.casefold():
+            add("Google")
+
+    if not labels:
+        return "none"
+
+    ordered = [label for label in FRONTIER_LAB_AUTHOR_LABELS if label in labels]
+    return "; ".join(ordered)
+
+
 def build_benchmarks(taxonomy_df):
     rows = []
     for _, row in taxonomy_df.fillna("").iterrows():
@@ -304,8 +420,11 @@ def build_benchmarks(taxonomy_df):
             {
                 "benchmark_id": benchmark_id,
                 "benchmark_name": benchmark_name,
-                "reference_link": str(row.get("reference_link", "")).strip(),
+                "reference_link": REFERENCE_LINK_OVERRIDES.get(
+                    benchmark_name, str(row.get("reference_link", "")).strip()
+                ),
                 "source_author": str(row.get("source_author", "")).strip(),
+                "frontier_lab_author_affiliations": infer_frontier_lab_author_affiliations(row),
                 "legacy_task_mode": str(row.get("task_mode", "")).strip(),
                 "legacy_task_domain": str(row.get("task_domain", "")).strip(),
                 "legacy_rationale": str(row.get("rationale", "")).strip(),

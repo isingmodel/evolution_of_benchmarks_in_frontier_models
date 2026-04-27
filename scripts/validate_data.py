@@ -49,6 +49,7 @@ REQUIRED_BENCHMARK_COLUMNS = {
     "benchmark_name",
     "reference_link",
     "source_author",
+    "frontier_lab_author_affiliations",
     "legacy_task_mode",
     "legacy_task_domain",
     "legacy_rationale",
@@ -124,6 +125,15 @@ DOMAIN_ORDER = [
 VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS) | {"legacy_seed"}
 VALID_FACET_AXES = set(ALLOWED_FACET_AXIS) | {"headline_task_mode"}
 VALID_MENTION_PROMINENCE = set(MENTION_PROMINENCE_WEIGHTS)
+ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
+    "OpenAI",
+    "Anthropic",
+    "Google",
+    "DeepMind",
+    "Microsoft",
+    "xAI",
+    "Meta",
+}
 
 
 class Report:
@@ -382,6 +392,48 @@ def validate_facet_frame(
                 report.error(f"{label} headline projection is not derivable for {owner_id}")
 
 
+def validate_frontier_lab_author_affiliations(report, benchmarks, path):
+    empty_values = benchmarks[
+        benchmarks["frontier_lab_author_affiliations"].astype(str).str.strip() == ""
+    ]["benchmark_id"].tolist()
+    if empty_values:
+        report.error(f"{path} has empty frontier_lab_author_affiliations values: {empty_values[:10]}")
+
+    for _, row in benchmarks.iterrows():
+        benchmark_id_value = row["benchmark_id"]
+        value = str(row["frontier_lab_author_affiliations"]).strip()
+        if value in {"none", "needs_review"}:
+            continue
+
+        if "Google DeepMind" in value:
+            report.error(
+                f"{path} {benchmark_id_value} uses Google DeepMind; use 'Google; DeepMind' instead"
+            )
+            continue
+
+        labels = [part.strip() for part in value.split(";")]
+        if any(not label for label in labels):
+            report.error(f"{path} {benchmark_id_value} has an empty frontier lab affiliation label")
+            continue
+
+        duplicates = duplicate_values(labels)
+        if duplicates:
+            report.error(
+                f"{path} {benchmark_id_value} has duplicate frontier lab affiliation labels: {sorted(duplicates)}"
+            )
+
+        invalid_labels = sorted(set(labels) - ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS)
+        if invalid_labels:
+            report.error(
+                f"{path} {benchmark_id_value} has invalid frontier lab affiliation labels: {invalid_labels}"
+            )
+
+        if value != "; ".join(labels):
+            report.error(
+                f"{path} {benchmark_id_value} should separate frontier lab affiliations with '; '"
+            )
+
+
 def validate_generated_v3(report, models, resolver, data_dir=None):
     data_dir = Path(data_dir) if data_dir else DATA_DIR
     paths = {
@@ -457,6 +509,8 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
         invalid_statuses = sorted(set(benchmarks["review_status"]) - VALID_FACET_STATUSES - {""})
         if invalid_statuses:
             report.error(f"{paths['benchmarks']} has invalid review_status values: {invalid_statuses}")
+
+        validate_frontier_lab_author_affiliations(report, benchmarks, paths["benchmarks"])
 
     benchmark_ids = set(benchmarks["benchmark_id"]) if not benchmarks.empty else None
     evidence_ids = set(evidence["evidence_id"]) if not evidence.empty else None
