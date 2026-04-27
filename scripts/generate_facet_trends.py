@@ -1,6 +1,7 @@
 import argparse
 import os
 from pathlib import Path
+import sys
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -8,10 +9,11 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-try:
-    from taxonomy_utils import CanonicalResolver, split_benchmark_mentions
-except ImportError:
-    from scripts.taxonomy_utils import CanonicalResolver, split_benchmark_mentions
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from taxonomy_utils import CanonicalResolver, split_benchmark_mentions
 
 
 sns.set_theme(style="whitegrid")
@@ -44,6 +46,11 @@ def parse_args():
         type=int,
         default=10,
         help="Maximum labels to show per axis before grouping the remainder into Other.",
+    )
+    parser.add_argument(
+        "--strict-resolution",
+        action="store_true",
+        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
     )
     return parser.parse_args()
 
@@ -81,7 +88,22 @@ def load_inputs():
     return models, facets, resolver
 
 
-def build_model_mentions(models, resolver):
+def warn_unresolved(unresolved, strict_resolution):
+    if not unresolved:
+        return
+
+    sample = "; ".join(unresolved[:10])
+    message = (
+        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
+        "Add canonical benchmark rows or explicit aliases to resolve them."
+    )
+    if strict_resolution:
+        raise ValueError(message)
+
+    print(f"Warning: {message}")
+
+
+def build_model_mentions(models, resolver, strict_resolution=False):
     rows = []
     unresolved = []
     for _, model in models.fillna("").iterrows():
@@ -106,12 +128,7 @@ def build_model_mentions(models, resolver):
                 }
             )
 
-    if unresolved:
-        sample = "; ".join(unresolved[:10])
-        raise ValueError(
-            f"Unresolved benchmark mentions in models.csv ({len(unresolved)}): {sample}. "
-            "Add canonical benchmark rows or explicit aliases before generating facet trends."
-        )
+    warn_unresolved(unresolved, strict_resolution)
 
     return pd.DataFrame(
         rows,
@@ -207,7 +224,14 @@ def save_figure(fig, output_path):
     print(f"Graph generated at {output_path}")
 
 
-def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=None, top_labels=10):
+def generate_facet_trends(
+    as_of=None,
+    window_days=180,
+    axes=None,
+    output_path=None,
+    top_labels=10,
+    strict_resolution=False,
+):
     window_days = validate_window_days(window_days)
     axes = axes or DEFAULT_AXES
     output_path = output_path or "assets/benchmark_facet_trends.png"
@@ -215,7 +239,7 @@ def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=No
     if as_of is None:
         as_of = pd.to_datetime(models["release date"], errors="raise").max().normalize()
 
-    mentions = build_model_mentions(models, resolver)
+    mentions = build_model_mentions(models, resolver, strict_resolution=strict_resolution)
     mentions = normalize_mentions(mentions, as_of)
     if mentions.empty:
         print("No model benchmark mentions found.")
@@ -253,4 +277,5 @@ if __name__ == "__main__":
         axes=split_axes(args.axes),
         output_path=args.output,
         top_labels=args.top_labels,
+        strict_resolution=args.strict_resolution,
     )

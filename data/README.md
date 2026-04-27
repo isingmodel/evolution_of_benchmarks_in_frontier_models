@@ -22,21 +22,21 @@ benchmark_facet_edges.csv
 
 `models.csv` remains the source for model release rows and their benchmark lists. `benchmarks.csv` is the canonical benchmark source. Scripts that need mention-level data expand the comma-separated `benchmarks` field at runtime and resolve each raw benchmark label through canonical names plus `benchmark_aliases.csv`.
 
-## Current Snapshot
+## File Overview
 
-| File | Rows | Role |
+| File | Current rows | Role |
 | --- | ---: | --- |
-| `models.csv` | 37 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 135 | Canonical benchmark table used by README, scraping catalog matching, evidence generation, and facet generation. |
-| `benchmark_aliases.csv` | 46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_metadata_overrides.csv` | 35 | Manual benchmark metadata corrections. |
-| `benchmark_facet_overrides.csv` | 123 | Manual multi-facet classification corrections. |
-| `benchmark_review_queue.csv` | 40 | Open identity, classification, and evidence review items. |
-| `evidence.csv` | 135 | Generated evidence/source table for benchmark definitions. |
-| `benchmark_facet_edges.csv` | 1,275 | Generated benchmark-to-facet long table. |
+| `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
+| `benchmarks.csv` | ~135 | Canonical benchmark table used by README, scraping catalog matching, evidence generation, and facet generation. |
+| `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_metadata_overrides.csv` | ~35 | Manual benchmark metadata corrections. |
+| `benchmark_facet_overrides.csv` | ~123 | Manual multi-facet classification corrections. |
+| `benchmark_review_queue.csv` | ~40 | Open identity, classification, and evidence review items. |
+| `evidence.csv` | ~135 | Generated evidence/source table for benchmark definitions. |
+| `benchmark_facet_edges.csv` | ~1,275 | Generated benchmark-to-facet long table. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
-Row counts describe the current repository snapshot and may change after regeneration.
+Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
 
 ## File Reference
 
@@ -276,7 +276,7 @@ python scripts/validate_data.py
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180
+python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/update_readme.py
 python scripts/validate_data.py
 ```

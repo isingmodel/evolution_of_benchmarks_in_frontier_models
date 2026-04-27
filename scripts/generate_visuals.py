@@ -1,16 +1,18 @@
 import argparse
 import os
 from pathlib import Path
+import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import seaborn as sns
 
-try:
-    from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
-except ImportError:
-    from scripts.taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
 
 sns.set_theme(style="whitegrid")
 plt.rcParams["font.family"] = "sans-serif"

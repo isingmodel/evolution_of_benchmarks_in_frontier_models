@@ -60,6 +60,19 @@ def read_csv_or_empty(path, columns):
     return data
 
 
+def read_required_csv(path, columns):
+    if not path.exists():
+        raise FileNotFoundError(f"Required source CSV not found: {path}")
+
+    data = pd.read_csv(path).fillna("")
+    missing = set(columns) - set(data.columns)
+    if missing:
+        raise ValueError(f"{path} is missing required columns: {sorted(missing)}")
+    if data.empty:
+        raise ValueError(f"Required source CSV has no rows: {path}")
+    return data
+
+
 def read_benchmark_metadata_overrides(path):
     overrides_df = read_csv_or_empty(path, BENCHMARK_METADATA_OVERRIDE_COLUMNS)
     overrides = {}
@@ -131,20 +144,6 @@ def read_review_queue(path):
     return pd.read_csv(path).fillna("")
 
 
-def dedupe_benchmarks(benchmarks_df):
-    rows_by_norm = {}
-    for _, row in benchmarks_df.fillna("").iterrows():
-        name = str(row["benchmark_name"]).strip()
-        if not name:
-            continue
-        key = normalize_name(name)
-        # Last row wins for normalized duplicates. The validator still reports
-        # duplicate legacy rows so they can be cleaned intentionally.
-        rows_by_norm[key] = row
-
-    return pd.DataFrame(rows_by_norm.values()).reset_index(drop=True)
-
-
 def build_canonical_lookup(benchmarks_df, aliases_df):
     canonical = {}
     for name in benchmarks_df["benchmark_name"]:
@@ -200,18 +199,64 @@ def split_benchmarks(value):
     return [part.strip() for part in text.split(",") if part.strip()]
 
 
+def duplicate_values(values):
+    seen = set()
+    duplicates = set()
+    for value in values:
+        if not value:
+            continue
+        if value in seen:
+            duplicates.add(value)
+        seen.add(value)
+    return sorted(duplicates)
+
+
+def validate_benchmark_source(benchmarks_df):
+    empty_names = benchmarks_df[
+        benchmarks_df["benchmark_name"].astype(str).str.strip() == ""
+    ].index.tolist()
+    if empty_names:
+        raise ValueError(f"benchmarks.csv has empty benchmark_name values on rows {[idx + 2 for idx in empty_names]}")
+
+    empty_ids = benchmarks_df[
+        benchmarks_df["benchmark_id"].astype(str).str.strip() == ""
+    ].index.tolist()
+    if empty_ids:
+        raise ValueError(f"benchmarks.csv has empty benchmark_id values on rows {[idx + 2 for idx in empty_ids]}")
+
+    duplicate_names = duplicate_values(
+        normalize_name(name) for name in benchmarks_df["benchmark_name"]
+    )
+    if duplicate_names:
+        raise ValueError(f"benchmarks.csv has duplicate benchmark names after normalization: {duplicate_names}")
+
+    duplicate_ids = duplicate_values(str(benchmark_id).strip() for benchmark_id in benchmarks_df["benchmark_id"])
+    if duplicate_ids:
+        raise ValueError(f"benchmarks.csv has duplicate benchmark_id values: {duplicate_ids}")
+
+    mismatched_ids = [
+        f"{row['benchmark_name']} -> {row['benchmark_id']} expected {stable_id('benchmark', row['benchmark_name'])}"
+        for _, row in benchmarks_df.iterrows()
+        if str(row["benchmark_id"]).strip() != stable_id("benchmark", row["benchmark_name"])
+    ]
+    if mismatched_ids:
+        raise ValueError(f"benchmarks.csv has unexpected benchmark_id values: {mismatched_ids[:10]}")
+
+
 def manual_benchmark_status(benchmark_name, facet_overrides):
     overrides = facet_overrides.get(benchmark_name)
     if not overrides:
         return ""
 
-    statuses = {status for _, _, _, _, status, _ in overrides}
-    if statuses == {"accepted"}:
-        return "accepted"
+    statuses = {status for _, _, _, _, status, _ in overrides if status != "deprecated"}
+    if not statuses:
+        return ""
     if "disputed" in statuses:
         return "disputed"
     if "needs_review" in statuses:
         return "needs_review"
+    if "accepted" in statuses:
+        return "accepted"
     return "legacy_seed"
 
 
@@ -407,8 +452,12 @@ def infer_construct_claim(row):
         if "facts" in name or "factual" in text:
             return "factual_knowledge"
         return "factual_knowledge"
-    if "math" in name or domain == "STEM/Math" or any(token in name for token in ["aime", "gpqa", "hmmt", "imo"]):
-        return "mathematical_reasoning" if "math" in name or domain == "STEM/Math" else "scientific_reasoning"
+    is_math = "math" in name or domain == "STEM/Math"
+    is_science = any(token in name for token in ["aime", "gpqa", "hmmt", "imo"])
+    if is_math:
+        return "mathematical_reasoning"
+    if is_science:
+        return "scientific_reasoning"
     if domain == "Coding/Engineering":
         return "software_engineering" if any(token in name for token in ["swe", "terminal", "openrca"]) else "coding"
     if domain == "Specialized (Law/Bio/Finance)":
@@ -422,7 +471,7 @@ def infer_task_mechanism(row):
     domain = str(row["legacy_task_domain"])
     text = text_blob(row)
 
-    if any(token in name for token in ["swe-bench", "swe-lancer", "swe-lancer", "swe"]):
+    if re.search(r"\bswe(?:-bench|-lancer)?\b", name):
         return "repository_issue_resolution"
     if "terminal" in name:
         return "terminal_operation"
@@ -663,7 +712,7 @@ def build_facet_edges(benchmarks_df, evidence_df, review_notes, facet_overrides)
 
 
 def build_normalized_data(accessed_date):
-    benchmarks_source_df = read_csv_or_empty(DATA_DIR / "benchmarks.csv", BENCHMARK_COLUMNS)
+    benchmarks_source_df = read_required_csv(DATA_DIR / "benchmarks.csv", BENCHMARK_COLUMNS)
     aliases_df = read_aliases(DATA_DIR / "benchmark_aliases.csv")
     review_queue_df = read_review_queue(DATA_DIR / "benchmark_review_queue.csv")
     metadata_overrides = read_benchmark_metadata_overrides(
@@ -671,8 +720,8 @@ def build_normalized_data(accessed_date):
     )
     facet_overrides = read_facet_overrides(DATA_DIR / "benchmark_facet_overrides.csv")
 
-    canonical_benchmarks_df = dedupe_benchmarks(benchmarks_source_df)
-    benchmarks_df = normalize_benchmarks(canonical_benchmarks_df, metadata_overrides, facet_overrides)
+    validate_benchmark_source(benchmarks_source_df)
+    benchmarks_df = normalize_benchmarks(benchmarks_source_df, metadata_overrides, facet_overrides)
     canonical_lookup = build_canonical_lookup(benchmarks_df, aliases_df)
     review_notes = build_review_notes(review_queue_df, canonical_lookup)
     benchmarks_df = apply_benchmark_review_status(benchmarks_df, review_notes)
@@ -688,11 +737,10 @@ def build_normalized_data(accessed_date):
         facet_overrides,
     )
 
-    benchmarks_df.to_csv(DATA_DIR / "benchmarks.csv", index=False)
     evidence_df.to_csv(DATA_DIR / "evidence.csv", index=False)
     facet_edges_df.to_csv(DATA_DIR / "benchmark_facet_edges.csv", index=False)
 
-    print(f"Wrote {len(benchmarks_df)} benchmarks")
+    print(f"Read {len(benchmarks_df)} benchmarks")
     print(f"Wrote {len(evidence_df)} evidence records")
     print(f"Wrote {len(facet_edges_df)} facet edges")
 
