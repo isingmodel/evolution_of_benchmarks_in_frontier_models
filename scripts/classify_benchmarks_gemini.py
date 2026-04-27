@@ -66,10 +66,8 @@ CANDIDATE_FACET_COLUMNS: List[str] = [
 
 CANONICAL_OUTPUT_FILENAMES = {
     "benchmark_facet_edges.csv",
-    "mention_facet_overrides.csv",
     "evidence.csv",
     "benchmarks.csv",
-    "release_mentions.csv",
 }
 
 

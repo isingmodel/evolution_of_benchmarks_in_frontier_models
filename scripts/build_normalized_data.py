@@ -4,16 +4,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from mention_prominence import apply_prominence_overrides, read_prominence_overrides
-from taxonomy_utils import MENTION_PROMINENCE_DEFAULT, MENTION_PROMINENCE_WEIGHTS
-
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 
-PROMINENCE_DEFAULT = MENTION_PROMINENCE_DEFAULT
-MENTION_WEIGHT_DEFAULT = MENTION_PROMINENCE_WEIGHTS[PROMINENCE_DEFAULT]
 RULE_SEED_CONFIDENCE = 0.6
 LEGACY_SEED_CONFIDENCE = 0.7
 REVIEW_NEEDED_CONFIDENCE = 0.55
@@ -40,6 +35,17 @@ FACET_OVERRIDE_COLUMNS = [
     "classification_confidence",
     "review_status",
     "rationale",
+]
+BENCHMARK_COLUMNS = [
+    "benchmark_id",
+    "benchmark_name",
+    "reference_link",
+    "source_author",
+    "frontier_lab_author_affiliations",
+    "legacy_task_mode",
+    "legacy_task_domain",
+    "legacy_rationale",
+    "review_status",
 ]
 
 
@@ -125,9 +131,9 @@ def read_review_queue(path):
     return pd.read_csv(path).fillna("")
 
 
-def dedupe_taxonomy(taxonomy_df):
+def dedupe_benchmarks(benchmarks_df):
     rows_by_norm = {}
-    for _, row in taxonomy_df.fillna("").iterrows():
+    for _, row in benchmarks_df.fillna("").iterrows():
         name = str(row["benchmark_name"]).strip()
         if not name:
             continue
@@ -214,7 +220,7 @@ def infer_frontier_lab_author_affiliations(row, reference_link=None, source_auth
         source_author = str(row.get("source_author", "")).strip()
     if reference_link is None:
         reference_link = str(row.get("reference_link", "")).strip()
-    rationale = str(row.get("rationale", "")).strip()
+    rationale = str(row.get("rationale", "") or row.get("legacy_rationale", "")).strip()
     text = " ".join([source_author, reference_link, rationale])
     text_lower = text.casefold()
     labels = []
@@ -254,11 +260,13 @@ def infer_frontier_lab_author_affiliations(row, reference_link=None, source_auth
     return "; ".join(ordered)
 
 
-def build_benchmarks(taxonomy_df, metadata_overrides, facet_overrides):
+def normalize_benchmarks(benchmarks_df, metadata_overrides, facet_overrides):
     rows = []
-    for _, row in taxonomy_df.fillna("").iterrows():
+    for _, row in benchmarks_df.fillna("").iterrows():
         benchmark_name = str(row["benchmark_name"]).strip()
-        benchmark_id = stable_id("benchmark", benchmark_name)
+        if not benchmark_name:
+            continue
+        benchmark_id = str(row.get("benchmark_id", "")).strip() or stable_id("benchmark", benchmark_name)
         metadata_override = metadata_overrides.get(benchmark_name, {})
         reference_link = (
             metadata_override.get("reference_link")
@@ -278,7 +286,7 @@ def build_benchmarks(taxonomy_df, metadata_overrides, facet_overrides):
         )
         review_status = manual_benchmark_status(benchmark_name, facet_overrides)
         if not review_status:
-            review_status = "legacy_seed"
+            review_status = str(row.get("review_status", "")).strip() or "legacy_seed"
         rows.append(
             {
                 "benchmark_id": benchmark_id,
@@ -286,13 +294,13 @@ def build_benchmarks(taxonomy_df, metadata_overrides, facet_overrides):
                 "reference_link": reference_link,
                 "source_author": source_author,
                 "frontier_lab_author_affiliations": frontier_lab_author_affiliations,
-                "legacy_task_mode": str(row.get("task_mode", "")).strip(),
-                "legacy_task_domain": str(row.get("task_domain", "")).strip(),
-                "legacy_rationale": str(row.get("rationale", "")).strip(),
+                "legacy_task_mode": str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip(),
+                "legacy_task_domain": str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip(),
+                "legacy_rationale": str(row.get("legacy_rationale", "") or row.get("rationale", "")).strip(),
                 "review_status": review_status,
             }
         )
-    return pd.DataFrame(rows).sort_values("benchmark_name").reset_index(drop=True)
+    return pd.DataFrame(rows, columns=BENCHMARK_COLUMNS).sort_values("benchmark_name").reset_index(drop=True)
 
 
 def apply_benchmark_review_status(benchmarks_df, review_notes):
@@ -324,7 +332,7 @@ def build_evidence(benchmarks_df, metadata_overrides, accessed_date):
                 if metadata_override
                 else ""
             )
-            or "Seeded from benchmark_catalog reference_link."
+            or "Seeded from benchmarks reference_link."
         )
         rows.append(
             {
@@ -654,45 +662,8 @@ def build_facet_edges(benchmarks_df, evidence_df, review_notes, facet_overrides)
     return pd.DataFrame(rows).sort_values(["benchmark_id", "facet_axis", "facet_label"]).reset_index(drop=True)
 
 
-def build_release_mentions(models_df, benchmarks_df, canonical_lookup):
-    benchmark_id_by_name = dict(zip(benchmarks_df["benchmark_name"], benchmarks_df["benchmark_id"]))
-
-    rows = []
-    for _, model in models_df.fillna("").iterrows():
-        provider = str(model["Provider"]).strip()
-        model_name = str(model["Model name"]).strip()
-        release_date = str(model["release date"]).strip()
-        model_id = stable_id("model", provider, model_name, release_date)
-        source_url = str(model.get("link", "")).strip()
-        benchmarks = split_benchmarks(model.get("benchmarks", ""))
-
-        for mention_index, raw_mention in enumerate(benchmarks, start=1):
-            benchmark_name = resolve_benchmark(raw_mention, canonical_lookup)
-            benchmark_id = benchmark_id_by_name[benchmark_name]
-            mention_id = stable_id("mention", model_id, f"{mention_index:03d}")
-            rows.append(
-                {
-                    "mention_id": mention_id,
-                    "model_id": model_id,
-                    "provider": provider,
-                    "model_name": model_name,
-                    "release_date": release_date,
-                    "source_url": source_url,
-                    "benchmark_id": benchmark_id,
-                    "benchmark_name": benchmark_name,
-                    "raw_mention": raw_mention,
-                    "mention_index": mention_index,
-                    "mention_prominence": PROMINENCE_DEFAULT,
-                    "mention_weight": MENTION_WEIGHT_DEFAULT,
-                }
-            )
-
-    return pd.DataFrame(rows).sort_values(["release_date", "provider", "model_name", "mention_index"]).reset_index(drop=True)
-
-
 def build_normalized_data(accessed_date):
-    models_df = pd.read_csv(DATA_DIR / "models.csv")
-    taxonomy_df = pd.read_csv(DATA_DIR / "benchmark_catalog.csv")
+    benchmarks_source_df = read_csv_or_empty(DATA_DIR / "benchmarks.csv", BENCHMARK_COLUMNS)
     aliases_df = read_aliases(DATA_DIR / "benchmark_aliases.csv")
     review_queue_df = read_review_queue(DATA_DIR / "benchmark_review_queue.csv")
     metadata_overrides = read_benchmark_metadata_overrides(
@@ -700,8 +671,8 @@ def build_normalized_data(accessed_date):
     )
     facet_overrides = read_facet_overrides(DATA_DIR / "benchmark_facet_overrides.csv")
 
-    canonical_taxonomy_df = dedupe_taxonomy(taxonomy_df)
-    benchmarks_df = build_benchmarks(canonical_taxonomy_df, metadata_overrides, facet_overrides)
+    canonical_benchmarks_df = dedupe_benchmarks(benchmarks_source_df)
+    benchmarks_df = normalize_benchmarks(canonical_benchmarks_df, metadata_overrides, facet_overrides)
     canonical_lookup = build_canonical_lookup(benchmarks_df, aliases_df)
     review_notes = build_review_notes(review_queue_df, canonical_lookup)
     benchmarks_df = apply_benchmark_review_status(benchmarks_df, review_notes)
@@ -716,27 +687,18 @@ def build_normalized_data(accessed_date):
         review_notes,
         facet_overrides,
     )
-    release_mentions_df = build_release_mentions(models_df, benchmarks_df, canonical_lookup)
-    prominence_overrides_df = read_prominence_overrides(DATA_DIR / "mention_prominence_overrides.csv")
-    release_mentions_df, prominence_override_count = apply_prominence_overrides(
-        release_mentions_df,
-        prominence_overrides_df,
-    )
 
     benchmarks_df.to_csv(DATA_DIR / "benchmarks.csv", index=False)
     evidence_df.to_csv(DATA_DIR / "evidence.csv", index=False)
     facet_edges_df.to_csv(DATA_DIR / "benchmark_facet_edges.csv", index=False)
-    release_mentions_df.to_csv(DATA_DIR / "release_mentions.csv", index=False)
 
     print(f"Wrote {len(benchmarks_df)} benchmarks")
     print(f"Wrote {len(evidence_df)} evidence records")
     print(f"Wrote {len(facet_edges_df)} facet edges")
-    print(f"Wrote {len(release_mentions_df)} release mentions")
-    print(f"Applied {prominence_override_count} mention prominence override(s)")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build normalized benchmark data from source CSVs.")
+    parser = argparse.ArgumentParser(description="Build normalized benchmark evidence and facet data.")
     parser.add_argument("--accessed-date", default="2026-04-25", help="Date to stamp seeded evidence rows.")
     args = parser.parse_args()
     build_normalized_data(accessed_date=args.accessed_date)

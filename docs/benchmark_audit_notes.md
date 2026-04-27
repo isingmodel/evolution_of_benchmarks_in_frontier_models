@@ -143,4 +143,3 @@ The main unresolved items are:
 - `Humanity's Last Exam`: confirm whether canonical display name should remain `HLE (Humanity's Last Exam)`.
 - `FACTS Benchmark suite`: decide whether to split into subbenchmark rows.
 - `BioPipelineBench`: wait for public benchmark documentation or create a fuller BenchmarkCard from provider material.
-- `mention_prominence_overrides.csv`: all release mentions still use `release_page_unspecified` until source-backed prominence review is performed.

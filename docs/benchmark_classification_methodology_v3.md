@@ -76,14 +76,14 @@ Do not classify a benchmark from its name alone. At least one of the following e
 
 LLM-based classification can be used to draft candidate labels, but a candidate should not be promoted into canonical data without evidence and review status.
 
-### 4.4 Separate Importance from Confidence
+### 4.4 Separate Mention Counting from Confidence
 
-`classification_confidence` and `mention_prominence` are different quantities.
+`classification_confidence` is an evidence-quality judgment, not an importance or count weight.
 
 - `classification_confidence`: how confident we are in the classification judgment.
-- `mention_prominence`: how strongly the benchmark is emphasized on the release page.
+- Mention counting: each benchmark listed for a model release is counted equally unless a future methodology explicitly introduces a reviewed weighting scheme.
 
-Confidence must not be used as a benchmark-count weight. Confidence belongs in uncertainty analysis, while importance belongs in prominence weighting.
+Confidence must not be used as a benchmark-count weight. Confidence belongs in uncertainty analysis.
 
 ### 4.5 Preserve Disagreement
 
@@ -327,42 +327,22 @@ Example `match_type` values:
 
 Do not use substring fallback. Every alias must be recorded explicitly.
 
-### 7.3 release_mentions.csv
+### 7.3 Model Benchmark Mentions
 
-This is the central table for quantitative analysis.
-
-```csv
-mention_id,provider,model_name,model_id,release_date,source_url,benchmark_id,benchmark_name,raw_mention,mention_index,mention_prominence,mention_weight
-```
-
-Example `mention_prominence` values:
-
-- `headline`
-- `chart`
-- `body`
-- `footnote`
-- `technical_report_only`
-
-The initial build does not perform live website scraping. It defaults to `release_page_unspecified` and `mention_weight=1.0`. Only source-backed manually reviewed mentions should be promoted or demoted through `mention_prominence_overrides.csv`.
-
-### 7.4 mention_prominence_overrides.csv
-
-This override table records human review decisions about how strongly a benchmark is emphasized on a release page. It is not scraper output. It is a local, source-backed adjudication layer.
+Model-level benchmark mentions are stored directly in `models.csv` as the comma-separated `benchmarks` field. Analysis scripts expand that field at runtime and resolve each raw mention through canonical benchmark names plus `benchmark_aliases.csv`.
 
 ```csv
-mention_id,mention_prominence,evidence_id,review_status,rationale
+Provider,Model name,link,release date,benchmarks
 ```
 
 Rules:
 
-- `mention_id` must reference an existing row in `release_mentions.csv`.
-- `mention_prominence` must be one of `headline`, `chart`, `body`, `footnote`, or `technical_report_only`.
-- Do not write `release_page_unspecified` in an override row. Delete the row if the default value should be preserved.
-- `mention_weight` must not be entered manually. It is computed deterministically from the central weight table.
-- An `accepted` override must cite provider release-page evidence or technical-report evidence.
-- The default workflow does not scrape live pages. Live page inspection is a separate review task, and only the adjudicated result is written to CSV.
+- Keep the release-page benchmark list in `models.csv`.
+- Preserve the provider-facing label in the comma-separated list when it is source-backed.
+- Add explicit aliases to `benchmark_aliases.csv` when a release-page label is not an exact canonical name.
+- Do not maintain a separate materialized mention table unless a future analysis needs audited mention-level metadata.
 
-### 7.5 benchmark_facet_edges.csv
+### 7.4 benchmark_facet_edges.csv
 
 Records benchmark-to-facet-label relationships in long form.
 
@@ -376,17 +356,7 @@ Rules:
 - If `classification_confidence < 0.7`, default to `review_status=needs_review`.
 - A benchmark may have multiple domains or modalities.
 
-### 7.6 mention_facet_overrides.csv
-
-The same benchmark can be used with different meanings on different provider release pages. Use mention-level overrides in those cases.
-
-```csv
-mention_id,facet_axis,facet_label,label_weight,classification_confidence,evidence_id,review_status,rationale
-```
-
-For example, if a provider emphasizes `SWE-bench` not merely as a coding benchmark but as core evidence for an agentic coding workflow, record that mention-level `provider_construct_claim` separately.
-
-### 7.7 evidence.csv
+### 7.5 evidence.csv
 
 Records the evidence behind every classification judgment.
 
@@ -523,27 +493,11 @@ Possible metrics:
 - Cross-provider convergence score.
 - Benchmark portfolio entropy.
 
-### 9.4 Prominence-Weighted Analysis
+### 9.4 Equal-Weight Mention Analysis
 
-Counting every mention equally is simple, but it cannot distinguish benchmarks that are prominently highlighted from benchmarks that are only mentioned in passing.
+The current methodology counts every benchmark mention listed for a model release equally. This keeps the analysis reproducible and avoids implying precision that the source data does not currently support.
 
-Use two views in parallel.
-
-- `equal_weight`: every mention receives the same weight.
-- `prominence_weight`: mentions are weighted by headline, chart, body, or footnote prominence.
-
-Recommended initial prominence weights:
-
-| prominence | weight |
-|---|---:|
-| `headline` | 1.00 |
-| `chart` | 0.80 |
-| `body` | 0.50 |
-| `footnote` | 0.20 |
-| `technical_report_only` | 0.10 |
-| `release_page_unspecified` | 1.00 |
-
-The `release_page_unspecified` value of 1.00 preserves the equal-weight baseline before prominence has been reviewed. It does not mean the benchmark received headline-level emphasis. Because these weights are not fixed truths, sensitivity analysis is required.
+A future weighting method should be introduced only if mention-level evidence is reviewed and materially improves the analysis.
 
 ### 9.5 Uncertainty Analysis
 
@@ -563,7 +517,7 @@ Compare at least three result variants.
 
 1. Equal mention weighting.
 2. Provider-normalized weighting.
-3. Prominence weighting.
+3. Alternative headline-projection rules.
 
 If a result is stable across all three variants, it can support a stronger claim. If it appears only under one variant, treat it as a qualitative interpretation or limitation.
 
@@ -682,8 +636,6 @@ Required gates:
 - Label weights sum to 1.0 per `benchmark_id + facet_axis`.
 - Confidence values are between 0 and 1.
 - Low-confidence labels have `needs_review` or `disputed` status.
-- Every mention prominence override references an existing `mention_id`.
-- `mention_weight` is derived from the central prominence weight table.
 - Headline projection is derivable from facets.
 - Generated charts are deterministic under the same `--as-of` date.
 
@@ -691,7 +643,6 @@ Recommended gates:
 
 - Every reviewed benchmark has at least one `benchmark_definition` evidence record.
 - Every release mention has a provider source URL.
-- Every accepted prominence override cites provider release-page or technical-report evidence.
 - Every provider-created benchmark is flagged.
 - Every private or opaque evaluation is flagged.
 
@@ -711,12 +662,11 @@ Recommended gates:
 - Add an unresolved mention validator.
 - Add duplicate canonical benchmark detection.
 
-### Phase 2. Long-Form Mention Table
+### Phase 2. Runtime Mention Expansion
 
-- Explode the comma-separated benchmark field in `models.csv` into `release_mentions.csv`.
-- Generate deterministic `model_id`, `benchmark_id`, and `mention_id` values.
-- Verify that existing counts and migrated counts match.
-- Add the `mention_prominence_overrides.csv` and deterministic `mention_weight` application path.
+- Expand the comma-separated benchmark field in `models.csv` at runtime for charts and validation.
+- Resolve each raw mention through canonical names or explicit aliases.
+- Verify that every listed benchmark mention resolves without fuzzy matching.
 
 ### Phase 3. Multi-Facet Taxonomy
 

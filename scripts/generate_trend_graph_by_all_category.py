@@ -16,7 +16,7 @@ sns.set_theme(style="whitegrid")
 plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
 
-TAXONOMY_PATH = Path("data/benchmark_catalog.csv")
+BENCHMARKS_PATH = Path("data/benchmarks.csv")
 ALIAS_PATH = Path("data/benchmark_aliases.csv")
 
 MODE_ORDER = [
@@ -70,8 +70,8 @@ def parse_args():
 
 def load_data():
     models_df = pd.read_csv("data/models.csv")
-    taxonomy_df = pd.read_csv(TAXONOMY_PATH)
-    return models_df, taxonomy_df
+    benchmarks_df = pd.read_csv(BENCHMARKS_PATH)
+    return models_df, benchmarks_df
 
 
 def normalize_name(value):
@@ -90,25 +90,28 @@ def benchmark_aliases(name):
     return aliases
 
 
-def build_lookup(taxonomy_df):
+def build_lookup(benchmarks_df):
     exact_lookup = {}
     by_id = {}
-    for _, row in taxonomy_df.iterrows():
+    for _, row in benchmarks_df.iterrows():
         name = str(row.get("benchmark_name", "")).strip()
-        mode = str(row.get("task_mode", "")).strip()
-        domain = str(row.get("task_domain", "")).strip()
+        mode = str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip()
+        domain = str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip()
         if not name:
             continue
 
-        if canonical_benchmark_id is not None:
-            by_id[canonical_benchmark_id(name)] = {"mode": mode, "domain": domain}
+        benchmark_id = str(row.get("benchmark_id", "")).strip()
+        if not benchmark_id and canonical_benchmark_id is not None:
+            benchmark_id = canonical_benchmark_id(name)
+        if benchmark_id:
+            by_id[benchmark_id] = {"mode": mode, "domain": domain}
 
         for alias in benchmark_aliases(name):
             exact_lookup[alias] = {"mode": mode, "domain": domain}
 
     resolver = None
     if CanonicalResolver is not None and ALIAS_PATH.exists():
-        resolver = CanonicalResolver.from_files(TAXONOMY_PATH, ALIAS_PATH)
+        resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH)
 
     return {"by_id": by_id, "exact": exact_lookup, "resolver": resolver}
 
@@ -332,11 +335,11 @@ def generate_trend_graph(
     strict_resolution=False,
 ):
     window_days = validate_window_days(window_days)
-    models_df, taxonomy_df = load_data()
+    models_df, benchmarks_df = load_data()
     if as_of is None:
         as_of = pd.to_datetime(models_df["release date"]).max().normalize()
 
-    lookup = build_lookup(taxonomy_df)
+    lookup = build_lookup(benchmarks_df)
     mode_events, domain_events, unresolved = collect_axis_events(models_df, lookup, as_of)
     warn_unresolved(unresolved, strict_resolution)
 
