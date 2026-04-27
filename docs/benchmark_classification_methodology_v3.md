@@ -347,14 +347,14 @@ Rules:
 Records benchmark-to-facet-label relationships in long form.
 
 ```csv
-benchmark_id,facet_axis,facet_label,label_weight,classification_confidence,review_status,rationale
+benchmark_id,facet_axis,facet_label,classification_confidence,review_status,rationale
 ```
 
 Rules:
 
-- Within the same `benchmark_id + facet_axis`, `label_weight` values should sum to approximately 1.0.
 - If `classification_confidence < 0.7`, default to `review_status=needs_review`.
 - A benchmark may have multiple domains or modalities.
+- When multiple labels exist within the same `benchmark_id + facet_axis`, trend scripts divide that benchmark's contribution equally across those labels at runtime.
 - Human-reviewed changes should be integrated here after review. `benchmark_facet_manual.csv` is a temporary update-staging file, not a permanent project table.
 
 ## 8. Classification Procedure
@@ -398,14 +398,9 @@ Optional facets:
 - `context_pressure`
 - `benchmark_lifecycle_risk`
 
-### Step 4. Score Weight and Confidence
+### Step 4. Score Confidence
 
-Record two separate numbers for each label.
-
-`label_weight`:
-
-- How representative is this label within the given facet axis?
-- Example: in a mixed-domain benchmark, use `STEM/Math=0.5` and `General/Commonsense=0.5`.
+Record confidence for each label. Do not store label weights in the source data. If multiple labels are present in one facet axis, downstream analysis treats them as equal shares for that benchmark-axis.
 
 `classification_confidence`:
 
@@ -418,7 +413,7 @@ Use `needs_review` when any of the following conditions apply.
 
 - The benchmark was classified from its name alone.
 - The source URL is missing or unclear.
-- Label weights are spread such that a major label is at or below 0.5.
+- The correct label set for an axis is unclear or would require arbitrary weighting.
 - Reviewers disagree.
 - The benchmark is provider-created and has weak external documentation.
 - The benchmark changes task format across versions.
@@ -616,7 +611,6 @@ Required gates:
 - No duplicate canonical benchmark names remain after normalization.
 - Every alias points to an existing benchmark.
 - Every required facet exists for reviewed benchmarks.
-- Label weights sum to 1.0 per `benchmark_id + facet_axis`.
 - Confidence values are between 0 and 1.
 - Low-confidence labels have `needs_review` or `disputed` status.
 - Headline projection is derivable from facets.
@@ -654,7 +648,7 @@ Recommended gates:
 
 - Add `benchmark_facets.csv`.
 - Pilot annotations for 15-20 core benchmarks.
-- Separate `label_weight` from `classification_confidence`.
+- Keep `classification_confidence` separate from mention counting.
 - Introduce the `needs_review` workflow.
 
 ### Phase 4. Visualization Revision

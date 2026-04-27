@@ -36,28 +36,28 @@ Output JSON schema:
   "provider_construct_claim": ["labels from methodology v3 section 5.1, or [] if unavailable"],
   "facets": {
     "construct_claim": [
-      {"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "task_mechanism": [
-      {"label": "label from methodology v3 section 5.2", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.2", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "domain": [
-      {"label": "label from methodology v3 section 5.3", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.3", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "modality": [
-      {"label": "label from methodology v3 section 5.4", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.4", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "interaction_pattern": [
-      {"label": "label from methodology v3 section 5.5", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.5", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "metric_type": [
-      {"label": "label from methodology v3 section 5.6, or unknown", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.6, or unknown", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "context_pressure": [
-      {"label": "label from methodology v3 section 5.7", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.7", "classification_confidence": 0.0, "evidence": "short source note"}
     ],
     "benchmark_lifecycle_risk": [
-      {"label": "label from methodology v3 section 5.8", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}
+      {"label": "label from methodology v3 section 5.8", "classification_confidence": 0.0, "evidence": "short source note"}
     ]
   },
   "headline_projection": "Agentic / Environment Interaction | Multimodal / Perceptual Understanding | Constraint / Safety / Control | Generative or Deliberative Reasoning | Knowledge / Retrieval | Long Context Projection | needs_review",
@@ -70,7 +70,7 @@ Rules:
 - Evidence before label: use the reference link and release-page context when available. If evidence is weak, lower confidence and set review_status to needs_review.
 - Projection is not identity: headline_projection is only for charts. Preserve all relevant facets even when one headline category is selected.
 - Separate confidence from importance: classification_confidence reflects evidence quality, not how prominently the benchmark appears on a release page.
-- Weights within each facet axis should sum to approximately 1.0 when multiple labels are present.
+- When multiple labels apply within one facet axis, include each supported label once. Downstream analysis divides contribution equally across labels at runtime.
 - Long context is a facet. Use Long Context Projection only when context length is the primary release-page emphasis or benchmark bottleneck.
 - If provider framing differs from the benchmark's original purpose, preserve both benchmark_construct_claim and provider_construct_claim.
 

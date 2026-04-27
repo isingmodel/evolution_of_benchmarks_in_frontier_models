@@ -45,3 +45,4 @@ TBench,benchmark_terminal_bench,provider_abbreviation,Partner shorthand used on 
 SWE-bench Multimodal (internal implementation),benchmark_swe_bench_multimodal,version_alias,Legend wording used on the Anthropic Claude Opus 4.7 release page
 Qodo’s real-world code review benchmark,benchmark_qodo_s_real_world_code_review_benchmark,case_variant,Curly-apostrophe variant used on the Anthropic Claude Opus 4.7 release page
 internal agentic coding evaluation,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,provider_abbreviation,Caption shorthand for Anthropic's internal autonomous agentic coding evaluation
+Misaligned behavior,benchmark_automated_behavioral_audit,legacy_name,Claude Opus 4.7 release-page surface label treated as part of the automated behavioral audit rather than a standalone benchmark.

@@ -52,7 +52,6 @@ CANDIDATE_FACET_COLUMNS: List[str] = [
     "release_page_url",
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "evidence",
     "review_status",
@@ -114,28 +113,28 @@ Output JSON schema:
   "provider_construct_claim": ["labels from construct_claim, or [] if unavailable"],
   "facets": {{
     "construct_claim": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "task_mechanism": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "domain": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "modality": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "interaction_pattern": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "metric_type": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "context_pressure": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ],
     "benchmark_lifecycle_risk": [
-      {{"label": "string", "label_weight": 0.0, "classification_confidence": 0.0, "evidence": "short source note"}}
+      {{"label": "string", "classification_confidence": 0.0, "evidence": "short source note"}}
     ]
   }},
   "headline_projection": "Agentic / Environment Interaction | Multimodal / Perceptual Understanding | Constraint / Safety / Control | Generative or Deliberative Reasoning | Knowledge / Retrieval | Long Context Projection | needs_review",
@@ -148,7 +147,7 @@ Rules:
 - Evidence before label: use the reference link and release-page context when available. If evidence is weak, lower confidence and set review_status to needs_review.
 - Projection is not identity: headline_projection is only for charts. Preserve all relevant facets even when one headline category is selected.
 - Separate confidence from importance: classification_confidence reflects evidence quality, not release-page prominence.
-- Weights within each facet axis should sum to approximately 1.0 when multiple labels are present.
+- When multiple labels apply within one facet axis, include each supported label once. Downstream analysis divides contribution equally across labels at runtime.
 - Long context is a facet. Use Long Context Projection only when context length is the primary release-page emphasis or benchmark bottleneck.
 - If provider framing differs from the benchmark's original purpose, preserve both benchmark_construct_claim and provider_construct_claim.
 
@@ -369,7 +368,6 @@ def normalize_facet_entry(axis: str, entry: object) -> Dict[str, object]:
 
     return {
         "label": label,
-        "label_weight": as_float(entry.get("label_weight"), f"{axis}:{label}.label_weight"),
         "classification_confidence": as_float(
             entry.get("classification_confidence"),
             f"{axis}:{label}.classification_confidence",
@@ -407,16 +405,6 @@ def minimum_confidence(facets: Mapping[str, Sequence[Mapping[str, object]]]) -> 
         for entry in entries
     ]
     return min(confidences) if confidences else 0.0
-
-
-def has_weight_sum_issue(facets: Mapping[str, Sequence[Mapping[str, object]]]) -> bool:
-    for entries in facets.values():
-        if not entries:
-            continue
-        weight_sum = sum(float(entry["label_weight"]) for entry in entries)
-        if weight_sum < 0.85 or weight_sum > 1.15:
-            return True
-    return False
 
 
 def derive_projection_from_response(response: Mapping[str, object]) -> str:
@@ -475,7 +463,7 @@ def validate_and_normalize_v3(parsed: Dict[str, object], original: Mapping[str, 
     derived_projection = derive_projection_from_response(normalized)
     normalized["derived_headline_projection"] = derived_projection
 
-    if minimum_confidence(facets) < 0.7 or has_weight_sum_issue(facets):
+    if minimum_confidence(facets) < 0.7:
         normalized["review_status"] = "needs_review"
     if normalized["headline_projection"] != derived_projection and normalized["headline_projection"] != "Long Context Projection":
         normalized["review_status"] = "needs_review"
@@ -663,7 +651,6 @@ def candidate_facet_rows(
                     **base,
                     "facet_axis": axis,
                     "facet_label": str(label),
-                    "label_weight": str(round(1.0 / len(labels), 6)) if labels else "1.0",
                     "classification_confidence": str(confidence),
                     "evidence": evidence,
                     "review_status": facet_review_status(str(classification.get("review_status", "")), confidence),
@@ -681,7 +668,6 @@ def candidate_facet_rows(
                     **base,
                     "facet_axis": axis,
                     "facet_label": str(entry["label"]),
-                    "label_weight": str(entry["label_weight"]),
                     "classification_confidence": str(confidence),
                     "evidence": str(entry["evidence"]),
                     "review_status": facet_review_status(str(classification.get("review_status", "")), confidence),
@@ -694,7 +680,7 @@ def primary_domain(facets: Mapping[str, Sequence[Mapping[str, object]]]) -> str:
     domains = list(facets.get("domain", []))
     if not domains:
         return ""
-    return str(max(domains, key=lambda entry: float(entry["label_weight"]))["label"])
+    return str(domains[0]["label"])
 
 
 def collapse_domain_to_legacy(domain: str) -> str:

@@ -23,7 +23,6 @@ FACET_COLUMNS = [
     "benchmark_id",
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -31,7 +30,6 @@ FACET_COLUMNS = [
 MANUAL_FACET_REQUIRED_COLUMNS = [
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -481,7 +479,7 @@ def seed_status_and_confidence(row, default_status, default_confidence):
     return default_status, default_confidence
 
 
-def add_facet_row(rows, row, axis, label, status, confidence, rationale, label_weight=1.0):
+def add_facet_row(rows, row, axis, label, status, confidence, rationale):
     if not label:
         return
     rows.append(
@@ -489,7 +487,6 @@ def add_facet_row(rows, row, axis, label, status, confidence, rationale, label_w
             "benchmark_id": row["benchmark_id"],
             "facet_axis": axis,
             "facet_label": label,
-            "label_weight": label_weight,
             "classification_confidence": confidence,
             "review_status": status,
             "rationale": rationale,
@@ -553,7 +550,7 @@ def normalize_facet_frame(facets_df):
     facets_df = facets_df[FACET_COLUMNS].fillna("").copy()
     for column in ["benchmark_id", "facet_axis", "facet_label", "review_status", "rationale"]:
         facets_df[column] = facets_df[column].astype(str).str.strip()
-    for column in ["label_weight", "classification_confidence"]:
+    for column in ["classification_confidence"]:
         facets_df[column] = pd.to_numeric(facets_df[column], errors="raise")
     return facets_df.sort_values(["benchmark_id", "facet_axis", "facet_label"]).reset_index(drop=True)
 
@@ -581,7 +578,6 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
                 "benchmark_id": benchmark_id,
                 "facet_axis": str(row["facet_axis"]).strip(),
                 "facet_label": str(row["facet_label"]).strip(),
-                "label_weight": row["label_weight"],
                 "classification_confidence": row["classification_confidence"],
                 "review_status": str(row["review_status"]).strip(),
                 "rationale": str(row["rationale"]).strip(),

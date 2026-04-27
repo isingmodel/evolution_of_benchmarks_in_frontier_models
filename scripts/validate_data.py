@@ -43,7 +43,6 @@ REQUIRED_FACET_COLUMNS = {
     "benchmark_id",
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -51,7 +50,6 @@ REQUIRED_FACET_COLUMNS = {
 REQUIRED_MANUAL_FACET_COLUMNS = {
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -262,7 +260,7 @@ def validate_facet_frame(
     require_required_facets=False,
     check_projection=False,
 ):
-    for column in ["label_weight", "classification_confidence"]:
+    for column in ["classification_confidence"]:
         values = pd.to_numeric(facets[column], errors="coerce")
         if values.isna().any() or ((values < 0) | (values > 1)).any():
             report.error(f"{label} has invalid {column}; expected numeric values in [0, 1]")
@@ -299,11 +297,19 @@ def validate_facet_frame(
             report.error(f"{label} has invalid {axis} labels: {invalid_labels}")
 
     active_facets = facets[facets["review_status"] != "deprecated"].copy()
-    active_facets["label_weight"] = pd.to_numeric(active_facets["label_weight"], errors="coerce")
-    for (owner_id, axis), group in active_facets.groupby([owner_column, "facet_axis"]):
-        total = group["label_weight"].sum()
-        if abs(total - 1.0) > 1e-6:
-            report.error(f"{label} weights for {owner_id}/{axis} sum to {total}, expected 1.0")
+    duplicate_facet_rows = active_facets.duplicated(
+        subset=[owner_column, "facet_axis", "facet_label"],
+        keep=False,
+    )
+    if duplicate_facet_rows.any():
+        examples = active_facets.loc[
+            duplicate_facet_rows,
+            [owner_column, "facet_axis", "facet_label"],
+        ].drop_duplicates().head(10)
+        report.error(
+            f"{label} has duplicate active facet rows: "
+            f"{examples.to_dict(orient='records')}"
+        )
 
     reviewed = facets[facets["review_status"].isin(["accepted", "disputed"])]
     if require_required_facets and not reviewed.empty:

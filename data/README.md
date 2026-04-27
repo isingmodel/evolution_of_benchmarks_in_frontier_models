@@ -25,9 +25,9 @@ benchmark_facets.csv
 | File | Current rows | Role |
 | --- | ---: | --- |
 | `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | ~135 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
+| `benchmarks.csv` | ~134 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
 | `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_facets.csv` | ~1,275 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
+| `benchmark_facets.csv` | ~1,266 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
@@ -108,7 +108,6 @@ Columns:
 - `benchmark_id`: Canonical benchmark ID.
 - `facet_axis`: Facet dimension.
 - `facet_label`: Label within the facet dimension.
-- `label_weight`: Numeric label contribution.
 - `classification_confidence`: Confidence score for the classification.
 - `review_status`: Review state.
 - `rationale`: Explanation for the classification.
@@ -117,6 +116,7 @@ Notes:
 
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
+- When multiple labels exist within the same benchmark and facet axis, trend scripts divide that benchmark's contribution equally across the labels at runtime.
 - `headline_task_mode` is a visualization projection; it should not be treated as the benchmark's exclusive identity.
 - Rule-seeded rows and human-reviewed rows live together here after review.
 - During data updates, reviewers may temporarily create `benchmark_facet_manual.csv` with the same facet columns plus either `benchmark_id` or `benchmark_name`. Running `scripts/build_normalized_data.py` merges those rows into `benchmark_facets.csv` by replacing the touched `benchmark_id + facet_axis` rows. Remove the temporary file after integration; it is intentionally ignored by Git.
