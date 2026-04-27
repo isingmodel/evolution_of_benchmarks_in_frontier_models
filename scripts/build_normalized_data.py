@@ -472,8 +472,12 @@ def seed_status_and_confidence(row, default_status, default_confidence):
     row_status = str(row.get("review_status", "")).strip()
     if row_status == "needs_review":
         return "needs_review", min(default_confidence, RULE_SEED_CONFIDENCE)
-    if row_status in {"accepted", "disputed"}:
-        return row_status, default_confidence
+    if row_status == "accepted":
+        if default_confidence < LEGACY_SEED_CONFIDENCE:
+            return "needs_review", default_confidence
+        return "accepted", default_confidence
+    if row_status == "disputed":
+        return "disputed", default_confidence
     return default_status, default_confidence
 
 

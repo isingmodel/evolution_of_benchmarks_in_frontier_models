@@ -367,6 +367,33 @@ def validate_frontier_lab_author_affiliations(report, benchmarks, path):
             )
 
 
+def build_manual_benchmark_lookup(benchmarks, resolver):
+    lookup = {}
+    if not benchmarks.empty:
+        lookup.update(
+            {
+                identity_key(row["benchmark_name"]): row["benchmark_id"]
+                for _, row in benchmarks.iterrows()
+            }
+        )
+
+    if resolver is not None:
+        lookup.update(
+            {
+                identity_key(benchmark.benchmark_name): benchmark.benchmark_id
+                for benchmark in resolver.canonical_by_exact.values()
+            }
+        )
+        lookup.update(
+            {
+                identity_key(alias.alias): alias.benchmark_id
+                for alias in resolver.alias_by_exact.values()
+            }
+        )
+
+    return lookup
+
+
 def validate_normalized_data(report, models, resolver, data_dir=None):
     data_dir = Path(data_dir) if data_dir else DATA_DIR
     paths = {
@@ -436,7 +463,7 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
         validate_frontier_lab_author_affiliations(report, benchmarks, paths["benchmarks"])
 
     benchmark_ids = set(benchmarks["benchmark_id"]) if not benchmarks.empty else None
-    benchmark_names = set(benchmarks["benchmark_name"]) if not benchmarks.empty else None
+    manual_benchmark_lookup = build_manual_benchmark_lookup(benchmarks, resolver)
 
     if not manual_facets.empty:
         manual_for_validation = manual_facets.copy()
@@ -444,14 +471,18 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
             manual_for_validation["benchmark_id"] = ""
 
         if "benchmark_name" in manual_for_validation.columns and not benchmarks.empty:
-            benchmark_id_by_name = dict(zip(benchmarks["benchmark_name"], benchmarks["benchmark_id"]))
             empty_ids = manual_for_validation["benchmark_id"].astype(str).str.strip() == ""
             manual_for_validation.loc[empty_ids, "benchmark_id"] = manual_for_validation.loc[
                 empty_ids, "benchmark_name"
-            ].map(benchmark_id_by_name).fillna("")
+            ].map(lambda name: manual_benchmark_lookup.get(identity_key(name), "")).fillna("")
 
             unknown_names = sorted(
-                set(manual_for_validation.loc[empty_ids, "benchmark_name"]) - benchmark_names - {""}
+                str(name).strip()
+                for _, name in manual_for_validation.loc[
+                    empty_ids & (manual_for_validation["benchmark_id"].astype(str).str.strip() == ""),
+                    "benchmark_name",
+                ].items()
+                if str(name).strip()
             )
             if unknown_names:
                 report.error(f"{paths['manual_facets']} references unknown benchmark names: {unknown_names}")
