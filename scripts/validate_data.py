@@ -6,12 +6,6 @@ from pathlib import Path
 
 import pandas as pd
 
-from mention_prominence import (
-    REQUIRED_PROMINENCE_OVERRIDE_COLUMNS,
-    active_prominence_overrides,
-    validate_prominence_overrides,
-    weight_for_prominence,
-)
 from taxonomy_utils import (
     ALLOWED_ALIAS_MATCH_TYPE,
     ALLOWED_FACET_AXIS,
@@ -21,8 +15,6 @@ from taxonomy_utils import (
     ALLOWED_TASK_MODE,
     REQUIRED_FACET_AXES,
     CanonicalResolver,
-    MENTION_PROMINENCE_DEFAULT,
-    MENTION_PROMINENCE_WEIGHTS,
     benchmark_id,
     derive_headline_projection,
     exact_key,
@@ -35,14 +27,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 REQUIRED_MODEL_COLUMNS = {"Provider", "Model name", "link", "release date", "benchmarks"}
-REQUIRED_TAXONOMY_COLUMNS = {
-    "benchmark_name",
-    "reference_link",
-    "source_author",
-    "task_mode",
-    "task_domain",
-    "rationale",
-}
 REQUIRED_ALIAS_COLUMNS = {"alias", "benchmark_id", "match_type", "notes"}
 REQUIRED_BENCHMARK_COLUMNS = {
     "benchmark_id",
@@ -55,32 +39,8 @@ REQUIRED_BENCHMARK_COLUMNS = {
     "legacy_rationale",
     "review_status",
 }
-REQUIRED_MENTION_COLUMNS = {
-    "mention_id",
-    "model_id",
-    "provider",
-    "model_name",
-    "release_date",
-    "source_url",
-    "benchmark_id",
-    "benchmark_name",
-    "raw_mention",
-    "mention_index",
-    "mention_prominence",
-    "mention_weight",
-}
 REQUIRED_FACET_COLUMNS = {
     "benchmark_id",
-    "facet_axis",
-    "facet_label",
-    "label_weight",
-    "classification_confidence",
-    "evidence_id",
-    "review_status",
-    "rationale",
-}
-REQUIRED_MENTION_OVERRIDE_COLUMNS = {
-    "mention_id",
     "facet_axis",
     "facet_label",
     "label_weight",
@@ -140,7 +100,6 @@ DOMAIN_ORDER = [
 ]
 VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS) | {"legacy_seed"}
 VALID_FACET_AXES = set(ALLOWED_FACET_AXIS) | {"headline_task_mode"}
-VALID_MENTION_PROMINENCE = set(MENTION_PROMINENCE_WEIGHTS)
 ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
     "OpenAI",
     "Anthropic",
@@ -200,23 +159,13 @@ def load_csv(path):
     return pd.read_csv(path).fillna("")
 
 
-def normalize_taxonomy_frame(report, taxonomy, label):
-    if "benchmark_name" in taxonomy.columns:
-        report.require_columns(taxonomy, REQUIRED_TAXONOMY_COLUMNS, label)
-        return taxonomy
+def normalize_benchmark_frame(report, benchmarks, label):
+    if "benchmark_name" not in benchmarks.columns:
+        report.error(f"{label} missing benchmark_name column")
+        return benchmarks
 
-    if "Benchmark" in taxonomy.columns:
-        rename_map = {
-            "Benchmark": "benchmark_name",
-            "Reference Link": "reference_link",
-            "author(Openai, google, academia, Meta, others)": "source_author",
-            "Rationale": "rationale",
-            "Main Category": "legacy_main_category",
-        }
-        return taxonomy.rename(columns={k: v for k, v in rename_map.items() if k in taxonomy.columns})
-
-    report.error(f"{label} missing benchmark_name or Benchmark column")
-    return taxonomy
+    report.require_columns(benchmarks, REQUIRED_BENCHMARK_COLUMNS, label)
+    return benchmarks
 
 
 def iter_legacy_mentions(models):
@@ -239,46 +188,44 @@ def iter_legacy_mentions(models):
             }
 
 
-def validate_legacy(report, models_path=None, taxonomy_path=None, alias_path=None):
+def validate_legacy(report, models_path=None, benchmarks_path=None, alias_path=None):
     models_path = Path(models_path) if models_path else DATA_DIR / "models.csv"
-    taxonomy_path = Path(taxonomy_path) if taxonomy_path else DATA_DIR / "benchmark_catalog.csv"
+    benchmarks_path = Path(benchmarks_path) if benchmarks_path else DATA_DIR / "benchmarks.csv"
     alias_path = Path(alias_path) if alias_path else DATA_DIR / "benchmark_aliases.csv"
 
     models = load_csv(models_path)
-    taxonomy = load_csv(taxonomy_path)
+    benchmarks = load_csv(benchmarks_path)
     aliases = load_csv(alias_path)
 
     report.require_columns(models, REQUIRED_MODEL_COLUMNS, str(models_path))
-    taxonomy = normalize_taxonomy_frame(report, taxonomy, str(taxonomy_path))
+    benchmarks = normalize_benchmark_frame(report, benchmarks, str(benchmarks_path))
     if alias_path.exists():
         report.require_columns(aliases, REQUIRED_ALIAS_COLUMNS, str(alias_path))
 
     if report.errors:
-        return models, taxonomy, aliases, None
+        return models, benchmarks, aliases, None
 
     bad_dates = models[pd.to_datetime(models["release date"], errors="coerce").isna()]["Model name"].tolist()
     if bad_dates:
         report.error(f"Invalid model release dates: {bad_dates}")
 
-    duplicate_canonical = duplicate_values(identity_key(name) for name in taxonomy["benchmark_name"])
+    duplicate_canonical = duplicate_values(identity_key(name) for name in benchmarks["benchmark_name"])
     if duplicate_canonical:
         examples = []
         for key in duplicate_canonical:
-            names = taxonomy[taxonomy["benchmark_name"].map(identity_key) == key]["benchmark_name"].tolist()
+            names = benchmarks[benchmarks["benchmark_name"].map(identity_key) == key]["benchmark_name"].tolist()
             examples.append(f"{key}: {names}")
         report.error(f"Duplicate canonical benchmark names after normalization: {examples}")
 
-    if "task_mode" in taxonomy.columns:
-        invalid_modes = sorted(set(taxonomy["task_mode"]) - ALLOWED_TASK_MODE - {""})
-        if invalid_modes:
-            report.error(f"Invalid task_mode values: {invalid_modes}")
+    invalid_modes = sorted(set(benchmarks["legacy_task_mode"]) - ALLOWED_TASK_MODE - {""})
+    if invalid_modes:
+        report.error(f"Invalid legacy_task_mode values: {invalid_modes}")
 
-    if "task_domain" in taxonomy.columns:
-        invalid_domains = sorted(set(taxonomy["task_domain"]) - ALLOWED_TASK_DOMAIN - {""})
-        if invalid_domains:
-            report.error(f"Invalid task_domain values: {invalid_domains}")
+    invalid_domains = sorted(set(benchmarks["legacy_task_domain"]) - ALLOWED_TASK_DOMAIN - {""})
+    if invalid_domains:
+        report.error(f"Invalid legacy_task_domain values: {invalid_domains}")
 
-    canonical_ids = {benchmark_id(name) for name in taxonomy["benchmark_name"]}
+    canonical_ids = set(benchmarks["benchmark_id"])
     if alias_path.exists():
         empty_aliases = aliases[aliases["alias"].map(exact_key) == ""].index.tolist()
         if empty_aliases:
@@ -294,16 +241,16 @@ def validate_legacy(report, models_path=None, taxonomy_path=None, alias_path=Non
 
         missing_targets = sorted(set(aliases["benchmark_id"]) - canonical_ids - {""})
         if missing_targets:
-            report.error(f"Alias benchmark_id targets missing from taxonomy: {missing_targets}")
+            report.error(f"Alias benchmark_id targets missing from benchmarks: {missing_targets}")
 
         invalid_match_types = sorted(set(aliases["match_type"]) - ALLOWED_ALIAS_MATCH_TYPE - {""})
         if invalid_match_types:
             report.error(f"Invalid alias match_type values: {invalid_match_types}")
 
         canonical_by_exact = {
-            exact_key(name): benchmark_id(name)
-            for name in taxonomy["benchmark_name"]
-            if exact_key(name)
+            exact_key(row["benchmark_name"]): row["benchmark_id"]
+            for _, row in benchmarks.iterrows()
+            if exact_key(row["benchmark_name"])
         }
         shadowing_aliases = []
         for _, row in aliases.iterrows():
@@ -315,10 +262,10 @@ def validate_legacy(report, models_path=None, taxonomy_path=None, alias_path=Non
             report.error(f"Aliases shadow canonical benchmark names with different targets: {shadowing_aliases}")
 
     try:
-        resolver = CanonicalResolver.from_files(taxonomy_path, alias_path if alias_path.exists() else None)
+        resolver = CanonicalResolver.from_files(benchmarks_path, alias_path if alias_path.exists() else None)
     except Exception as exc:
         report.error(f"Failed to build canonical resolver: {exc}")
-        return models, taxonomy, aliases, None
+        return models, benchmarks, aliases, None
 
     unresolved = []
     mention_count = 0
@@ -332,7 +279,7 @@ def validate_legacy(report, models_path=None, taxonomy_path=None, alias_path=Non
     else:
         print(f"Resolved {mention_count}/{mention_count} benchmark mentions by exact canonical name or explicit alias.")
 
-    return models, taxonomy, aliases, resolver
+    return models, benchmarks, aliases, resolver
 
 
 def validate_facet_frame(
@@ -453,12 +400,9 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
     data_dir = Path(data_dir) if data_dir else DATA_DIR
     paths = {
         "benchmarks": data_dir / "benchmarks.csv",
-        "release_mentions": data_dir / "release_mentions.csv",
         "benchmark_metadata_overrides": data_dir / "benchmark_metadata_overrides.csv",
         "benchmark_facet_overrides": data_dir / "benchmark_facet_overrides.csv",
-        "mention_prominence_overrides": data_dir / "mention_prominence_overrides.csv",
         "facets": data_dir / "benchmark_facet_edges.csv",
-        "mention_overrides": data_dir / "mention_facet_overrides.csv",
         "evidence": data_dir / "evidence.csv",
     }
     missing_core_paths = [
@@ -468,8 +412,6 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
         not in {
             "benchmark_metadata_overrides",
             "benchmark_facet_overrides",
-            "mention_overrides",
-            "mention_prominence_overrides",
         }
         and not path.exists()
     ]
@@ -485,8 +427,6 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
 
     if "benchmarks" in frames:
         report.require_columns(frames["benchmarks"], REQUIRED_BENCHMARK_COLUMNS, str(paths["benchmarks"]))
-    if "release_mentions" in frames:
-        report.require_columns(frames["release_mentions"], REQUIRED_MENTION_COLUMNS, str(paths["release_mentions"]))
     if "benchmark_metadata_overrides" in frames:
         report.require_columns(
             frames["benchmark_metadata_overrides"],
@@ -499,32 +439,17 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
             REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS,
             str(paths["benchmark_facet_overrides"]),
         )
-    if "mention_prominence_overrides" in frames:
-        report.require_columns(
-            frames["mention_prominence_overrides"],
-            REQUIRED_PROMINENCE_OVERRIDE_COLUMNS,
-            str(paths["mention_prominence_overrides"]),
-        )
     if "facets" in frames:
         report.require_columns(frames["facets"], REQUIRED_FACET_COLUMNS, str(paths["facets"]))
-    if "mention_overrides" in frames:
-        report.require_columns(
-            frames["mention_overrides"],
-            REQUIRED_MENTION_OVERRIDE_COLUMNS,
-            str(paths["mention_overrides"]),
-        )
     if "evidence" in frames:
         report.require_columns(frames["evidence"], REQUIRED_EVIDENCE_COLUMNS, str(paths["evidence"]))
     if report.errors:
         return
 
     benchmarks = frames.get("benchmarks", pd.DataFrame())
-    release_mentions = frames.get("release_mentions", pd.DataFrame())
     benchmark_metadata_overrides = frames.get("benchmark_metadata_overrides", pd.DataFrame())
     benchmark_facet_overrides = frames.get("benchmark_facet_overrides", pd.DataFrame())
-    mention_prominence_overrides = frames.get("mention_prominence_overrides", pd.DataFrame())
     facets = frames.get("facets", pd.DataFrame())
-    mention_overrides = frames.get("mention_overrides", pd.DataFrame())
     evidence = frames.get("evidence", pd.DataFrame())
 
     if not benchmarks.empty:
@@ -618,7 +543,6 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
 
     benchmark_ids = set(benchmarks["benchmark_id"]) if not benchmarks.empty else None
     evidence_ids = set(evidence["evidence_id"]) if not evidence.empty else None
-    mention_ids = set(release_mentions["mention_id"]) if not release_mentions.empty else None
 
     if not evidence.empty:
         duplicates = duplicate_values(evidence["evidence_id"])
@@ -638,102 +562,6 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
         if not empty_urls.empty:
             report.warning(f"{len(empty_urls)} evidence rows have empty URLs inherited from legacy taxonomy.")
 
-    if not release_mentions.empty:
-        duplicates = duplicate_values(release_mentions["mention_id"])
-        if duplicates:
-            report.error(f"{paths['release_mentions']} has duplicate mention_id values: {sorted(duplicates)}")
-
-        invalid_prominence = sorted(set(release_mentions["mention_prominence"]) - VALID_MENTION_PROMINENCE - {""})
-        if invalid_prominence:
-            report.error(f"{paths['release_mentions']} has invalid mention_prominence values: {invalid_prominence}")
-
-        legacy_count = sum(1 for _ in iter_legacy_mentions(models))
-        if len(release_mentions) != legacy_count:
-            report.error(f"release_mentions row count {len(release_mentions)} != legacy mention count {legacy_count}")
-
-        benchmark_names_by_id = (
-            dict(zip(benchmarks["benchmark_id"], benchmarks["benchmark_name"])) if not benchmarks.empty else {}
-        )
-        for _, row in release_mentions.iterrows():
-            expected_model_id = stable_id("model", row["provider"], row["model_name"], row["release_date"])
-            try:
-                mention_index = int(row["mention_index"])
-            except ValueError:
-                report.error(f"Invalid mention_index for {row['raw_mention']}: {row['mention_index']}")
-                break
-            expected_mention_id = stable_id("mention", expected_model_id, f"{mention_index:03d}")
-            if row["model_id"] != expected_model_id:
-                report.error(f"Unexpected model_id for {row['model_name']}: {row['model_id']} != {expected_model_id}")
-                break
-            if row["mention_id"] != expected_mention_id:
-                report.error(f"Unexpected mention_id for {row['raw_mention']}: {row['mention_id']} != {expected_mention_id}")
-                break
-            resolved = resolver.resolve(row["raw_mention"]) if resolver else None
-            if resolved and resolved.benchmark_id != row["benchmark_id"]:
-                report.error(f"{row['raw_mention']} resolved to {resolved.benchmark_id}, not {row['benchmark_id']}")
-                break
-            if benchmark_names_by_id and row["benchmark_name"] != benchmark_names_by_id.get(row["benchmark_id"], ""):
-                report.error(f"release_mentions benchmark_name mismatch for {row['raw_mention']}")
-                break
-
-        if benchmark_ids is not None:
-            missing = sorted(set(release_mentions["benchmark_id"]) - benchmark_ids - {""})
-            if missing:
-                report.error(f"release_mentions references missing benchmark_id values: {missing}")
-
-        mention_weights = pd.to_numeric(release_mentions["mention_weight"], errors="coerce")
-        if mention_weights.isna().any() or (mention_weights < 0).any():
-            report.error("release_mentions has invalid mention_weight; expected non-negative numeric values")
-        else:
-            mismatched_weights = []
-            for _, row in release_mentions.iterrows():
-                prominence = row["mention_prominence"] or MENTION_PROMINENCE_DEFAULT
-                try:
-                    expected_weight = weight_for_prominence(prominence)
-                except ValueError:
-                    continue
-                actual_weight = float(row["mention_weight"])
-                if abs(actual_weight - expected_weight) > 1e-9:
-                    mismatched_weights.append(
-                        f"{row['mention_id']}: {actual_weight} != {expected_weight} for {prominence}"
-                    )
-            if mismatched_weights:
-                report.error(
-                    "release_mentions mention_weight values must match the configured prominence weights: "
-                    f"{mismatched_weights[:10]}"
-                )
-
-    if not mention_prominence_overrides.empty:
-        errors, warnings = validate_prominence_overrides(
-            mention_prominence_overrides,
-            known_mention_ids=mention_ids,
-            known_evidence_ids=evidence_ids,
-        )
-        for error in errors:
-            report.error(f"{paths['mention_prominence_overrides']}: {error}")
-        for warning in warnings:
-            report.warning(f"{paths['mention_prominence_overrides']}: {warning}")
-
-        if mention_ids is not None and not release_mentions.empty:
-            release_prominence_by_id = dict(zip(release_mentions["mention_id"], release_mentions["mention_prominence"]))
-            stale_overrides = []
-            for _, row in active_prominence_overrides(mention_prominence_overrides).iterrows():
-                mention_id = row["mention_id"]
-                if mention_id not in release_prominence_by_id:
-                    continue
-                expected_prominence = row["mention_prominence"]
-                actual_prominence = release_prominence_by_id[mention_id]
-                if actual_prominence != expected_prominence:
-                    stale_overrides.append(
-                        f"{mention_id}: release_mentions has {actual_prominence!r}, "
-                        f"override expects {expected_prominence!r}"
-                    )
-            if stale_overrides:
-                report.error(
-                    "mention prominence overrides have not been applied to release_mentions: "
-                    f"{stale_overrides[:10]}"
-                )
-
     if not facets.empty:
         validate_facet_frame(
             report,
@@ -749,36 +577,21 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
             if missing_evidence:
                 report.error(f"benchmark_facet_edges references missing evidence_id values: {missing_evidence}")
 
-    if not mention_overrides.empty:
-        validate_facet_frame(
-            report,
-            mention_overrides,
-            str(paths["mention_overrides"]),
-            "mention_id",
-            known_owner_ids=mention_ids,
-            require_required_facets=False,
-            check_projection=False,
-        )
-        if evidence_ids is not None:
-            missing_evidence = sorted(set(mention_overrides["evidence_id"]) - evidence_ids - {""})
-            if missing_evidence:
-                report.error(f"mention_facet_overrides references missing evidence_id values: {missing_evidence}")
-
     present = ", ".join(str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path) for path in paths.values() if path.exists())
     if present:
         print(f"Validated optional normalized data file(s): {present}.")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate benchmark taxonomy and generated normalized data.")
+    parser = argparse.ArgumentParser(description="Validate benchmark source and generated normalized data.")
     parser.add_argument("--models", default=str(DATA_DIR / "models.csv"), help="Path to models CSV")
-    parser.add_argument("--taxonomy", default=str(DATA_DIR / "benchmark_catalog.csv"), help="Path to benchmark catalog CSV")
+    parser.add_argument("--benchmarks", default=str(DATA_DIR / "benchmarks.csv"), help="Path to benchmarks CSV")
     parser.add_argument("--aliases", default=str(DATA_DIR / "benchmark_aliases.csv"), help="Path to benchmark aliases CSV")
     parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing optional normalized CSVs")
     args = parser.parse_args()
 
     report = Report()
-    models, _, _, resolver = validate_legacy(report, args.models, args.taxonomy, args.aliases)
+    models, _, _, resolver = validate_legacy(report, args.models, args.benchmarks, args.aliases)
     validate_normalized_data(report, models, resolver, args.data_dir)
     report.print()
     if report.errors:

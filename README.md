@@ -21,7 +21,7 @@ The following graph summarizes low-confidence or review-needed facet rows in the
 ![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
 ## Multi-Facet Trends
-The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
+The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facet_edges.csv`. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Analysis & Observations
@@ -245,16 +245,15 @@ ACCESSED_DATE=2026-04-26  # date used for seeded evidence records
 
 python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
 python scripts/validate_data.py
-python scripts/apply_mention_prominence.py --dry-run
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180
+python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/update_readme.py
 python scripts/validate_data.py
 ```
 
-The normalized-data build seeds canonical benchmark, evidence, facet-edge, and release-mention tables from source CSVs. Curated corrections live in `data/benchmark_metadata_overrides.csv` and `data/benchmark_facet_overrides.csv` rather than in the build script. Mention prominence is deterministic and manual: `data/mention_prominence_overrides.csv` is validated and applied by the build, but no release-page scraping is performed by default. The generated README taxonomy table and trend scripts remain headline-compatible while the normalized tables preserve richer multi-facet labels for quantitative and qualitative analysis.
+The normalized-data build seeds canonical benchmark, evidence, and facet-edge tables from source CSVs. Curated corrections live in `data/benchmark_metadata_overrides.csv` and `data/benchmark_facet_overrides.csv` rather than in the build script. The generated README taxonomy table and trend scripts remain headline-compatible while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis.
 
 ## Release-Page Extraction Workflow
 For new model launches, run the scraper as an evidence generator and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.

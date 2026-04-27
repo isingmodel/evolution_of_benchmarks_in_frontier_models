@@ -1,12 +1,19 @@
 import argparse
 import os
 from pathlib import Path
+import sys
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
+
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from taxonomy_utils import CanonicalResolver, split_benchmark_mentions
 
 
 sns.set_theme(style="whitegrid")
@@ -21,7 +28,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Generate rolling trends from benchmark facet edges.")
     parser.add_argument(
         "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest release_mentions date.",
+        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest models.csv release date.",
     )
     parser.add_argument("--window-days", type=int, default=180, help="Rolling window size in days.")
     parser.add_argument(
@@ -39,6 +46,11 @@ def parse_args():
         type=int,
         default=10,
         help="Maximum labels to show per axis before grouping the remainder into Other.",
+    )
+    parser.add_argument(
+        "--strict-resolution",
+        action="store_true",
+        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
     )
     return parser.parse_args()
 
@@ -63,26 +75,77 @@ def split_axes(value):
 
 
 def load_inputs():
-    mentions_path = DATA_DIR / "release_mentions.csv"
+    models_path = DATA_DIR / "models.csv"
+    benchmarks_path = DATA_DIR / "benchmarks.csv"
+    aliases_path = DATA_DIR / "benchmark_aliases.csv"
     facets_path = DATA_DIR / "benchmark_facet_edges.csv"
-    if not mentions_path.exists() or not facets_path.exists():
+    if not models_path.exists() or not benchmarks_path.exists() or not facets_path.exists():
         raise FileNotFoundError("Run scripts/build_normalized_data.py before generating facet trends.")
 
-    mentions = pd.read_csv(mentions_path).fillna("")
+    models = pd.read_csv(models_path).fillna("")
+    resolver = CanonicalResolver.from_files(benchmarks_path, aliases_path if aliases_path.exists() else None)
     facets = pd.read_csv(facets_path).fillna("")
-    return mentions, facets
+    return models, facets, resolver
+
+
+def warn_unresolved(unresolved, strict_resolution):
+    if not unresolved:
+        return
+
+    sample = "; ".join(unresolved[:10])
+    message = (
+        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
+        "Add canonical benchmark rows or explicit aliases to resolve them."
+    )
+    if strict_resolution:
+        raise ValueError(message)
+
+    print(f"Warning: {message}")
+
+
+def build_model_mentions(models, resolver, strict_resolution=False):
+    rows = []
+    unresolved = []
+    for _, model in models.fillna("").iterrows():
+        provider = str(model.get("Provider", "")).strip()
+        model_name = str(model.get("Model name", "")).strip()
+        release_date = str(model.get("release date", "")).strip()
+        model_key = "|".join([provider, model_name, release_date])
+        raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
+
+        for raw_mention in raw_mentions:
+            resolution = resolver.resolve(raw_mention)
+            if not resolution:
+                unresolved.append(f"{provider} / {model_name} / {raw_mention}")
+                continue
+            rows.append(
+                {
+                    "model_key": model_key,
+                    "release_date": release_date,
+                    "benchmark_id": resolution.benchmark_id,
+                    "raw_mention": raw_mention,
+                    "raw_weight": 1.0,
+                }
+            )
+
+    warn_unresolved(unresolved, strict_resolution)
+
+    return pd.DataFrame(
+        rows,
+        columns=["model_key", "release_date", "benchmark_id", "raw_mention", "raw_weight"],
+    )
 
 
 def normalize_mentions(mentions, as_of):
     mentions = mentions.copy()
     mentions["release_date"] = pd.to_datetime(mentions["release_date"], errors="raise")
-    mentions["mention_weight"] = pd.to_numeric(mentions["mention_weight"], errors="coerce").fillna(1.0)
+    mentions["raw_weight"] = pd.to_numeric(mentions["raw_weight"], errors="coerce").fillna(1.0)
     mentions = mentions[mentions["release_date"] <= as_of].copy()
     if mentions.empty:
         return mentions
 
-    model_totals = mentions.groupby("model_id")["mention_weight"].transform("sum")
-    mentions["normalized_mention_weight"] = mentions["mention_weight"] / model_totals.where(model_totals > 0, 1.0)
+    model_totals = mentions.groupby("model_key")["raw_weight"].transform("sum")
+    mentions["normalized_model_weight"] = mentions["raw_weight"] / model_totals.where(model_totals > 0, 1.0)
     return mentions
 
 
@@ -102,7 +165,7 @@ def events_for_axis(mentions, facets, axis, top_labels):
         return pd.DataFrame(columns=["Date", "Category", "Weight"])
 
     joined = mentions.merge(axis_facets, on="benchmark_id", how="inner")
-    joined["Weight"] = joined["normalized_mention_weight"] * joined["label_weight"]
+    joined["Weight"] = joined["normalized_model_weight"] * joined["label_weight"]
     joined = joined[joined["Weight"] > 0].copy()
 
     if top_labels > 0:
@@ -161,17 +224,25 @@ def save_figure(fig, output_path):
     print(f"Graph generated at {output_path}")
 
 
-def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=None, top_labels=10):
+def generate_facet_trends(
+    as_of=None,
+    window_days=180,
+    axes=None,
+    output_path=None,
+    top_labels=10,
+    strict_resolution=False,
+):
     window_days = validate_window_days(window_days)
     axes = axes or DEFAULT_AXES
     output_path = output_path or "assets/benchmark_facet_trends.png"
-    mentions, facets = load_inputs()
+    models, facets, resolver = load_inputs()
     if as_of is None:
-        as_of = pd.to_datetime(mentions["release_date"], errors="raise").max().normalize()
+        as_of = pd.to_datetime(models["release date"], errors="raise").max().normalize()
 
+    mentions = build_model_mentions(models, resolver, strict_resolution=strict_resolution)
     mentions = normalize_mentions(mentions, as_of)
     if mentions.empty:
-        print("No release mentions found.")
+        print("No model benchmark mentions found.")
         return
 
     fig_height = max(4.5 * len(axes), 7)
@@ -206,4 +277,5 @@ if __name__ == "__main__":
         axes=split_axes(args.axes),
         output_path=args.output,
         top_labels=args.top_labels,
+        strict_resolution=args.strict_resolution,
     )

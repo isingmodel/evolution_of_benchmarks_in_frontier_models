@@ -1,22 +1,24 @@
 import argparse
 import os
 from pathlib import Path
+import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import seaborn as sns
 
-try:
-    from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
-except ImportError:
-    from scripts.taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
 
 sns.set_theme(style="whitegrid")
 plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
 
-TAXONOMY_PATH = Path("data/benchmark_catalog.csv")
+BENCHMARKS_PATH = Path("data/benchmarks.csv")
 ALIAS_PATH = Path("data/benchmark_aliases.csv")
 
 MODE_ORDER = [
@@ -49,8 +51,8 @@ def parse_args():
 
 def load_data():
     models_df = pd.read_csv("data/models.csv")
-    taxonomy_df = pd.read_csv(TAXONOMY_PATH)
-    return models_df, taxonomy_df
+    benchmarks_df = pd.read_csv(BENCHMARKS_PATH)
+    return models_df, benchmarks_df
 
 
 def normalize_name(value):
@@ -69,24 +71,27 @@ def benchmark_aliases(name):
     return aliases
 
 
-def build_mode_lookup(taxonomy_df):
+def build_mode_lookup(benchmarks_df):
     exact_lookup = {}
     by_id = {}
-    for _, row in taxonomy_df.iterrows():
+    for _, row in benchmarks_df.iterrows():
         name = str(row.get("benchmark_name", "")).strip()
-        mode = str(row.get("task_mode", "")).strip()
+        mode = str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip()
         if not name or not mode:
             continue
 
-        if canonical_benchmark_id is not None:
-            by_id[canonical_benchmark_id(name)] = mode
+        benchmark_id = str(row.get("benchmark_id", "")).strip()
+        if not benchmark_id and canonical_benchmark_id is not None:
+            benchmark_id = canonical_benchmark_id(name)
+        if benchmark_id:
+            by_id[benchmark_id] = mode
 
         for alias in benchmark_aliases(name):
             exact_lookup[alias] = mode
 
     resolver = None
     if CanonicalResolver is not None and ALIAS_PATH.exists():
-        resolver = CanonicalResolver.from_files(TAXONOMY_PATH, ALIAS_PATH)
+        resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH)
 
     return {"by_id": by_id, "exact": exact_lookup, "resolver": resolver}
 
@@ -136,8 +141,8 @@ def warn_unresolved(unresolved, strict_resolution):
     print(f"Warning: {message}")
 
 
-def process_data(models_df, taxonomy_df, as_of=None, strict_resolution=False):
-    mode_lookup = build_mode_lookup(taxonomy_df)
+def process_data(models_df, benchmarks_df, as_of=None, strict_resolution=False):
+    mode_lookup = build_mode_lookup(benchmarks_df)
     category_cols = MODE_ORDER
     unresolved = []
 
@@ -183,11 +188,11 @@ def process_data(models_df, taxonomy_df, as_of=None, strict_resolution=False):
 
 
 def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", strict_resolution=False):
-    models_df_raw, taxonomy_df = load_data()
+    models_df_raw, benchmarks_df = load_data()
     if as_of is None:
         as_of = pd.to_datetime(models_df_raw["release date"]).max().normalize()
 
-    df, cat_cols = process_data(models_df_raw, taxonomy_df, as_of=as_of, strict_resolution=strict_resolution)
+    df, cat_cols = process_data(models_df_raw, benchmarks_df, as_of=as_of, strict_resolution=strict_resolution)
 
     if df.empty:
         print("No data.")

@@ -47,25 +47,6 @@ ALLOWED_REVIEW_STATUS = {
     "deprecated",
 }
 
-ALLOWED_MENTION_PROMINENCE = {
-    "headline",
-    "chart",
-    "body",
-    "footnote",
-    "technical_report_only",
-}
-
-MENTION_PROMINENCE_DEFAULT = "release_page_unspecified"
-
-MENTION_PROMINENCE_WEIGHTS = {
-    "headline": 1.0,
-    "chart": 0.8,
-    "body": 0.5,
-    "footnote": 0.2,
-    "technical_report_only": 0.1,
-    MENTION_PROMINENCE_DEFAULT: 1.0,
-}
-
 ALLOWED_FACET_AXIS = {
     "construct_claim",
     "benchmark_construct_claim",
