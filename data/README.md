@@ -1,6 +1,6 @@
 # Data Directory Guide
 
-This directory contains the source tables, generated normalized benchmark tables, and manual review layers for the benchmark evolution analysis. The project studies which benchmarks frontier model providers emphasize on public release pages. It does not claim to measure model capability directly.
+This directory contains the source tables and integrated benchmark facet table for the benchmark evolution analysis. The project studies which benchmarks frontier model providers emphasize on public release pages. It does not claim to measure model capability directly.
 
 ## Data Flow
 
@@ -8,16 +8,14 @@ This directory contains the source tables, generated normalized benchmark tables
 models.csv
 benchmarks.csv
 benchmark_aliases.csv
-benchmark_metadata_overrides.csv
-benchmark_facet_overrides.csv
-benchmark_review_queue.csv
+benchmark_facets.csv
+benchmark_facet_manual.csv   # temporary, optional
         |
         v
 scripts/build_normalized_data.py
         |
         v
-evidence.csv
-benchmark_facet_edges.csv
+benchmark_facets.csv
 ```
 
 `models.csv` remains the source for model release rows and their benchmark lists. `benchmarks.csv` is the canonical benchmark source. Scripts that need mention-level data expand the comma-separated `benchmarks` field at runtime and resolve each raw benchmark label through canonical names plus `benchmark_aliases.csv`.
@@ -27,13 +25,9 @@ benchmark_facet_edges.csv
 | File | Current rows | Role |
 | --- | ---: | --- |
 | `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | ~135 | Canonical benchmark table used by README, scraping catalog matching, evidence generation, and facet generation. |
+| `benchmarks.csv` | ~135 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
 | `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_metadata_overrides.csv` | ~35 | Manual benchmark metadata corrections. |
-| `benchmark_facet_overrides.csv` | ~123 | Manual multi-facet classification corrections. |
-| `benchmark_review_queue.csv` | ~40 | Open identity, classification, and evidence review items. |
-| `evidence.csv` | ~135 | Generated evidence/source table for benchmark definitions. |
-| `benchmark_facet_edges.csv` | ~1,275 | Generated benchmark-to-facet long table. |
+| `benchmark_facets.csv` | ~1,275 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
@@ -77,8 +71,8 @@ Columns:
 Notes:
 
 - This file is the canonical benchmark source.
-- `scripts/build_normalized_data.py` reads this file to regenerate `evidence.csv` and `benchmark_facet_edges.csv`.
-- Richer v3 classifications are represented in `benchmark_facet_edges.csv`.
+- `scripts/build_normalized_data.py` reads this file when keeping `benchmark_facets.csv` aligned with current benchmark IDs.
+- Richer v3 classifications are represented in `benchmark_facets.csv`.
 
 ### `benchmark_aliases.csv`
 
@@ -105,84 +99,9 @@ Notes:
 - Add an alias here when a provider uses shorthand such as `MCP-Atlas` for `Scale MCP-Atlas`.
 - Alias rows should be narrow and source-backed.
 
-### `benchmark_metadata_overrides.csv`
+### `benchmark_facets.csv`
 
-Manual metadata correction layer for canonical benchmarks.
-
-Columns:
-
-- `benchmark_name`: Canonical benchmark name from `benchmarks.csv`.
-- `reference_link`: Replacement source URL, if the benchmark source URL needs correction.
-- `source_author`: Replacement author/source label, if needed.
-- `frontier_lab_author_affiliations`: Manual frontier-lab affiliation label.
-- `evidence_notes`: Notes explaining the source-backed correction.
-
-Notes:
-
-- Use this file instead of editing generated `benchmarks.csv`.
-- Blank override fields leave the benchmark source value or inferred value unchanged.
-- These overrides also affect generated evidence notes in `evidence.csv`.
-
-### `benchmark_facet_overrides.csv`
-
-Manual v3 multi-facet classification layer.
-
-Columns:
-
-- `benchmark_name`: Canonical benchmark name.
-- `facet_axis`: Facet dimension, such as `construct_claim`, `task_mechanism`, `domain`, `modality`, `interaction_pattern`, `metric_type`, `context_pressure`, `benchmark_lifecycle_risk`, or `headline_task_mode`.
-- `facet_label`: Label within the selected facet axis.
-- `label_weight`: Numeric contribution of the label for this benchmark and axis.
-- `classification_confidence`: Reviewer confidence score.
-- `review_status`: Classification state.
-- `rationale`: Source-backed explanation for the override.
-
-Notes:
-
-- This is the preferred place to record audited classification decisions.
-- A benchmark can have multiple labels on the same axis, with weights representing a split across labels.
-- Overrides are used by `scripts/build_normalized_data.py` to produce `benchmark_facet_edges.csv`.
-
-### `benchmark_review_queue.csv`
-
-Manual queue for unresolved benchmark identity or classification issues.
-
-Columns:
-
-- `benchmark_name`: Benchmark or mention requiring review.
-- `issue_type`: Type of issue, such as alias identity, subset identity, private eval review, or construct validity review.
-- `priority`: Review priority.
-- `reason`: Why the item needs review.
-- `suggested_action`: Recommended next step.
-
-Notes:
-
-- Medium-priority review items can cause generated benchmark rows to be marked `needs_review`.
-- This file is useful for preserving uncertainty instead of making unsupported classification decisions.
-
-### `evidence.csv`
-
-Generated evidence/source table for benchmark definitions.
-
-Columns:
-
-- `evidence_id`: Stable generated evidence ID.
-- `benchmark_id`: Canonical benchmark ID.
-- `evidence_type`: Type of evidence, currently focused on benchmark definitions.
-- `title`: Human-readable evidence title.
-- `url`: Source URL.
-- `source_date`: Date of the source, when known.
-- `accessed_date`: Date used when the evidence record was generated.
-- `notes`: Source or override notes.
-
-Notes:
-
-- This table supports source-backed classification and review.
-- It is generated from benchmark metadata and the configured accessed date.
-
-### `benchmark_facet_edges.csv`
-
-Generated long-form multi-facet taxonomy table.
+Integrated long-form multi-facet taxonomy table.
 
 Columns:
 
@@ -191,7 +110,6 @@ Columns:
 - `facet_label`: Label within the facet dimension.
 - `label_weight`: Numeric label contribution.
 - `classification_confidence`: Confidence score for the classification.
-- `evidence_id`: Evidence row supporting the classification.
 - `review_status`: Review state.
 - `rationale`: Explanation for the classification.
 
@@ -200,7 +118,8 @@ Notes:
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
 - `headline_task_mode` is a visualization projection; it should not be treated as the benchmark's exclusive identity.
-- Most rows are seeded from legacy classifications unless overridden and audited.
+- Rule-seeded rows and human-reviewed rows live together here after review.
+- During data updates, reviewers may temporarily create `benchmark_facet_manual.csv` with the same facet columns plus either `benchmark_id` or `benchmark_name`. Running `scripts/build_normalized_data.py` merges those rows into `benchmark_facets.csv` by replacing the touched `benchmark_id + facet_axis` rows. Remove the temporary file after integration; it is intentionally ignored by Git.
 
 ### `base_readme.md`
 
@@ -269,9 +188,8 @@ Run the standard pipeline from the repository root:
 
 ```bash
 AS_OF=2026-04-23
-ACCESSED_DATE=2026-04-26
 
-python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/build_normalized_data.py
 python scripts/validate_data.py
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution

@@ -3,12 +3,12 @@
 
 The scraper is intentionally staged:
 
-1. Gather static page evidence from HTML, tables, metadata, scripts, and image
+1. Gather static page source context from HTML, tables, metadata, scripts, and image
    alt/title text.
 2. Optionally render with Playwright and click benchmark-like tabs/buttons.
 3. Optionally run OCR over benchmark/performance-like images.
 4. Match a canonical benchmark catalog from local CSV data.
-5. Optionally ask Gemini to extract evidence-backed benchmark mentions and
+5. Optionally ask Gemini to extract source-backed benchmark mentions and
    map them to the catalog without inventing aliases.
 6. Evaluate against data/models.csv as a gold answer key.
 """
@@ -116,8 +116,8 @@ class LLMExtractionItem:
     canonical_name: str
     relationship: str
     confidence: float
-    evidence: str
-    evidence_block: str
+    source_excerpt: str
+    source_block: str
 
 
 @dataclass
@@ -127,8 +127,8 @@ class ReviewMention:
     relationship: str
     confidence: float
     reason: str
-    evidence: str
-    evidence_block: str
+    source_excerpt: str
+    source_block: str
 
 
 @dataclass
@@ -828,8 +828,8 @@ def partition_llm_items(
                         relationship=item.relationship,
                         confidence=item.confidence,
                         reason=reason,
-                        evidence=item.evidence,
-                        evidence_block=item.evidence_block,
+                        source_excerpt=item.source_excerpt,
+                        source_block=item.source_block,
                     )
                 )
             continue
@@ -846,8 +846,8 @@ def partition_llm_items(
                 alias=item.canonical_name,
                 alias_source=f"gemini:{item.relationship or 'unspecified'}",
                 source_kind="llm",
-                source_label=item.evidence_block or "gemini",
-                snippet=item.evidence or "Added by Gemini from collected page evidence.",
+                source_label=item.source_block or "gemini",
+                snippet=item.source_excerpt or "Added by Gemini from collected page source context.",
                 score=max(0.0, min(1.0, item.confidence)),
             )
         )
@@ -921,22 +921,22 @@ def gemini_extract_mentions(
         for hit in result.hits
     ]
     catalog_names = sorted(catalog.benchmarks.values(), key=str.casefold)
-    evidence = build_llm_evidence(document.fragments)
+    source_context = build_llm_source_context(document.fragments)
 
     prompt = f"""You extract benchmark names from public model launch pages.
 
 Project scope:
-- Include benchmarks emphasized in the public launch/release page evidence below.
+- Include benchmarks emphasized in the public launch/release page source context below.
 - Include benchmark tables that appear in OCR text, even if formatting is imperfect.
 - Do not include benchmarks merely because they are mentioned as source datasets, examples, related work, footnotes, navigation, or methodology notes.
-- Do not invent aliases. First extract the raw benchmark name as written in evidence, then map it to the allowed catalog only when the mapping is semantically clear.
+- Do not invent aliases. First extract the raw benchmark name as written in the source context, then map it to the allowed catalog only when the mapping is semantically clear.
 - If a raw benchmark mention is real but not in the catalog, keep canonical_name null and add it to unknown_mentions.
 - Mark exact string matches as relationship="exact".
 - Mark only explicit abbreviations as relationship="abbreviation"; do not use abbreviation for broad family/variant guesses.
 - Mark variant/family rollups, semantic similarity, and OCR corrections honestly. The caller will require human review for those mappings.
-- If the evidence names a more specific variant and the catalog contains that variant, choose the specific variant rather than a broader family.
-- If the evidence says something like "LiveCodeBench Pro from Codeforces", include LiveCodeBench or LiveCodeBench Pro if available, not Codeforces.
-- If OCR confuses a name but nearby context clearly identifies the benchmark, use the corrected canonical catalog name and explain through evidence.
+- If the source context names a more specific variant and the catalog contains that variant, choose the specific variant rather than a broader family.
+- If the source context says something like "LiveCodeBench Pro from Codeforces", include LiveCodeBench or LiveCodeBench Pro if available, not Codeforces.
+- If OCR confuses a name but nearby context clearly identifies the benchmark, use the corrected canonical catalog name and explain using source context.
 - Return only JSON.
 
 Provider: {result.provider}
@@ -949,19 +949,19 @@ Allowed benchmark catalog:
 Deterministic candidates already found:
 {json.dumps(deterministic_candidates, ensure_ascii=False)}
 
-Collected page evidence:
-{evidence}
+Collected page source context:
+{source_context}
 
 Return schema:
 {{
   "benchmarks": [
     {{
-      "raw_name": "name exactly as written or OCR-corrected from evidence",
+      "raw_name": "name exactly as written or OCR-corrected from source context",
       "canonical_name": "one allowed catalog name, or null",
       "relationship": "exact | abbreviation | semantic_equivalent | variant_or_family | ocr_correction | unknown | reject_source_only",
       "confidence": 0.0,
-      "evidence_block": "F001",
-      "evidence": "short evidence quote or paraphrase from the block"
+      "source_block": "F001",
+      "source_excerpt": "short quote or paraphrase from the block"
     }}
   ],
   "unknown_mentions": ["raw benchmark-like names not in the allowed catalog"],
@@ -983,16 +983,16 @@ Return schema:
             canonical_name = raw_name
             relationship = "exact"
             confidence = ACCEPT_MIN_CONFIDENCE
-            evidence_block = "gemini"
-            evidence_text = "Added by Gemini from collected page evidence."
+            source_block = "gemini"
+            source_excerpt = "Added by Gemini from collected page source context."
         elif isinstance(raw_item, Mapping):
             raw_name = exact_key(str(raw_item.get("raw_name") or raw_item.get("name") or ""))
             canonical_value = raw_item.get("canonical_name")
             canonical_name = exact_key(str(canonical_value)) if canonical_value is not None else ""
             relationship = normalize_relationship(str(raw_item.get("relationship") or ""))
             confidence = parse_confidence(raw_item.get("confidence"))
-            evidence_block = exact_key(str(raw_item.get("evidence_block") or "gemini"))
-            evidence_text = exact_key(str(raw_item.get("evidence") or ""))
+            source_block = exact_key(str(raw_item.get("source_block") or raw_item.get("evidence_block") or "gemini"))
+            source_excerpt = exact_key(str(raw_item.get("source_excerpt") or raw_item.get("evidence") or ""))
         else:
             continue
 
@@ -1004,8 +1004,8 @@ Return schema:
                 canonical_name=canonical_name,
                 relationship=relationship or "unspecified",
                 confidence=confidence,
-                evidence=evidence_text,
-                evidence_block=evidence_block,
+                source_excerpt=source_excerpt,
+                source_block=source_block,
             )
         )
 
@@ -1018,8 +1018,8 @@ Return schema:
                     canonical_name="",
                     relationship="unknown",
                     confidence=ACCEPT_MIN_CONFIDENCE,
-                    evidence="Listed by Gemini as an unknown benchmark-like mention.",
-                    evidence_block="gemini",
+                    source_excerpt="Listed by Gemini as an unknown benchmark-like mention.",
+                    source_block="gemini",
                 )
             )
 
@@ -1036,7 +1036,7 @@ def parse_confidence(value: Any) -> float:
     return max(0.0, min(1.0, confidence))
 
 
-def build_llm_evidence(fragments: Sequence[PageFragment], max_chars: int = 110_000) -> str:
+def build_llm_source_context(fragments: Sequence[PageFragment], max_chars: int = 110_000) -> str:
     scored: List[Tuple[int, int, PageFragment]] = []
     source_rank = {
         "image_ocr": 9,
@@ -1331,8 +1331,8 @@ def extract_one(args: argparse.Namespace) -> int:
                 "relationship": mention.relationship,
                 "confidence": mention.confidence,
                 "reason": mention.reason,
-                "evidence_block": mention.evidence_block,
-                "evidence": mention.evidence,
+                "source_block": mention.source_block,
+                "source_excerpt": mention.source_excerpt,
             }
             for mention in result.review_required_mentions
         ],
@@ -1368,7 +1368,7 @@ def build_parser() -> argparse.ArgumentParser:
     extract.add_argument(
         "--use-gemini",
         action="store_true",
-        help="Use Gemini for evidence-first extraction and conservative catalog mapping.",
+        help="Use Gemini for source-first extraction and conservative catalog mapping.",
     )
     extract.set_defaults(func=extract_one)
 
@@ -1388,7 +1388,7 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument(
         "--use-gemini",
         action="store_true",
-        help="Use Gemini for evidence-first extraction and conservative catalog mapping.",
+        help="Use Gemini for source-first extraction and conservative catalog mapping.",
     )
     evaluate.add_argument("--output", default=str(ROOT / "scraping" / "output" / "benchmark_scrape_eval.csv"))
     evaluate.set_defaults(func=evaluate_against_models)

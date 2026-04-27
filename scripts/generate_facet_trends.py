@@ -25,7 +25,7 @@ DEFAULT_AXES = ["domain", "modality", "interaction_pattern", "context_pressure"]
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Generate rolling trends from benchmark facet edges.")
+    parser = argparse.ArgumentParser(description="Generate rolling trends from benchmark facets.")
     parser.add_argument(
         "--as-of",
         help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest models.csv release date.",
@@ -78,7 +78,7 @@ def load_inputs():
     models_path = DATA_DIR / "models.csv"
     benchmarks_path = DATA_DIR / "benchmarks.csv"
     aliases_path = DATA_DIR / "benchmark_aliases.csv"
-    facets_path = DATA_DIR / "benchmark_facet_edges.csv"
+    facets_path = DATA_DIR / "benchmark_facets.csv"
     if not models_path.exists() or not benchmarks_path.exists() or not facets_path.exists():
         raise FileNotFoundError("Run scripts/build_normalized_data.py before generating facet trends.")
 

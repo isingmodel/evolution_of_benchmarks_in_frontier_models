@@ -54,7 +54,6 @@ CANDIDATE_FACET_COLUMNS: List[str] = [
     "facet_label",
     "label_weight",
     "classification_confidence",
-    "evidence_id",
     "evidence",
     "review_status",
     "rationale",
@@ -65,8 +64,7 @@ CANDIDATE_FACET_COLUMNS: List[str] = [
 ]
 
 CANONICAL_OUTPUT_FILENAMES = {
-    "benchmark_facet_edges.csv",
-    "evidence.csv",
+    "benchmark_facets.csv",
     "benchmarks.csv",
 }
 
@@ -647,7 +645,6 @@ def candidate_facet_rows(
         "provider": row.get("provider", ""),
         "model_name": row.get("model_name", ""),
         "release_page_url": row.get("release_page_url", ""),
-        "evidence_id": "",
         "rationale": str(classification.get("rationale", "")),
         "headline_projection": str(classification.get("headline_projection", "")),
         "derived_headline_projection": str(classification.get("derived_headline_projection", "")),

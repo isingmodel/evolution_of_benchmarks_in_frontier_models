@@ -4,11 +4,11 @@ This directory contains an experimental scraper for extracting benchmark mention
 
 The key design choice is to avoid asking an LLM to read an arbitrary web page from scratch. Release pages often spread benchmark names across normal text, tables, JavaScript-rendered tabs, image alt text, and serialized page data. The scraper therefore uses a staged pipeline:
 
-1. Collect as much page evidence as possible from static HTML.
+1. Collect as much page source context as possible from static HTML.
 2. Optionally render the page with Playwright and click benchmark-like tabs/buttons.
 3. Optionally run OCR over benchmark/performance-like images.
 4. Match a canonical benchmark catalog built from `data/benchmarks.csv` and the small, curated `data/benchmark_aliases.csv` seed list.
-5. Optionally ask Gemini to perform evidence-first extraction: identify raw benchmark mentions from text/rendered/OCR evidence, accept only exact or explicitly curated catalog mappings, and route uncertain or new names to review fields.
+5. Optionally ask Gemini to perform source-first extraction: identify raw benchmark mentions from text, rendered content, and OCR source context; accept only exact or explicitly curated catalog mappings; and route uncertain or new names to review fields.
 6. Evaluate extraction quality against the existing `data/models.csv` `benchmarks` column.
 
 The current implementation treats `data/models.csv` as an answer key. That makes it useful for regression tests before applying the scraper to new model release links.
@@ -17,9 +17,9 @@ The current implementation treats `data/models.csv` as an answer key. That makes
 
 The scraper deliberately avoids broad generated aliases as the main solution. Alias expansion can inflate recall on a fixed gold file while creating brittle false positives for future benchmark names. The safer workflow is:
 
-1. Collect high-coverage evidence from static HTML, reader markdown, Playwright-rendered text, image metadata, and OCR.
+1. Collect high-coverage source context from static HTML, reader markdown, Playwright-rendered text, image metadata, and OCR.
 2. Use deterministic catalog matching only for exact canonical names and explicitly curated aliases.
-3. Use Gemini, when requested, as a conservative evidence-grounded extractor rather than as a post-hoc synonym generator.
+3. Use Gemini, when requested, as a conservative source-grounded extractor rather than as a post-hoc synonym generator.
 4. Automatically accept only exact canonical names and explicitly curated aliases from `data/benchmark_aliases.csv`.
 5. Put semantic mappings, family/variant rollups, OCR corrections, low-confidence mappings, and catalog-missing names into `review_required_mentions`.
 6. Keep catalog-missing benchmark-like names in `llm_unknown_mentions` as candidates for `data/benchmarks.csv`.
@@ -28,7 +28,7 @@ This makes the pipeline more useful for new release pages: a new benchmark shoul
 
 ## Multi-Agent Review Framework
 
-For new model releases, use the scraper as an evidence generator rather than a fully automatic writer. The recommended review split is:
+For new model releases, use the scraper as a source extractor rather than a fully automatic writer. The recommended review split is:
 
 1. **Source extractor**: recover every benchmark-like, evaluation-like, suite-component, and aggregate-index-component name from prose, rendered tabs, images, alt text, captions, footnotes, and OCR.
 2. **False-positive auditor**: reject only clear non-benchmark artifacts such as cost/speed/price metrics, source platforms, chart subtitles, UI labels, descriptions, model-family names, and wrong variants.
@@ -52,7 +52,7 @@ The scraper separates extracted mentions into two lanes:
 | Lane | Meaning | Examples |
 | --- | --- | --- |
 | `accepted_mentions` | Safe to count as extracted benchmark mentions. | `GPQA Diamond -> GPQA Diamond`, `HLE -> HLE (Humanity's Last Exam)` when `HLE` is an explicit alias. |
-| `review_required_mentions` | Evidence-backed but not safe to auto-map. | `GPQA (diamond) -> GPQA Diamond`, `MRCR v2 -> MRCR`, OCR-corrected names, or a new `NewAgentBench`. |
+| `review_required_mentions` | Source-backed but not safe to auto-map. | `GPQA (diamond) -> GPQA Diamond`, `MRCR v2 -> MRCR`, OCR-corrected names, or a new `NewAgentBench`. |
 | `llm_unknown_mentions` | Subset of review items that do not map to any current catalog row. | A newly introduced benchmark absent from `data/benchmarks.csv`. |
 
 This policy intentionally sacrifices some automatic recall. The goal is to avoid silent data corruption when a new benchmark resembles an existing one.
@@ -94,7 +94,7 @@ python scraping/benchmark_scraper.py extract \
   --ocr-images
 ```
 
-Use Gemini as the evidence-first extractor and conservative catalog mapper:
+Use Gemini as the source-first extractor and conservative catalog mapper:
 
 ```bash
 python scraping/benchmark_scraper.py evaluate --rendered --ocr-images --use-gemini --max-pages 3

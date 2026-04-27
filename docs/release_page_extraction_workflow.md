@@ -49,7 +49,7 @@ For every potentially benchmark-bearing image:
 - use three passes or a manual zoomed visual inspection for dense, low-resolution, cropped, carousel, or table-heavy images,
 - reconcile disagreements in the foreground before editing source CSVs,
 - preserve every benchmark-like/evaluation-like name found by any pass unless it is clearly a non-benchmark artifact,
-- record uncertainty, OCR ambiguity, or possible chart-label false positives in `data/benchmark_review_queue.csv`.
+- record uncertainty, OCR ambiguity, or possible chart-label false positives in benchmark `review_status` fields or facet rationales.
 
 The output of image reviewers should be image-scoped: image URL or screenshot name, interaction state such as tab/slide label, raw transcribed text, benchmark-like candidates, and rejected non-benchmark labels. Do not merge image OCR candidates into nearest existing benchmarks unless there is an exact canonical match or a source-backed alias.
 
@@ -71,11 +71,11 @@ The output of image reviewers should be image-scoped: image URL or screenshot na
 - If a benchmark-like or evaluation-like name appears on the requested page, include it in `data/models.csv` even when it is only an aggregate-index component, suite constituent, comparison item, footnote item, or OCR-only item.
 - Never reject a benchmark-like/evaluation-like page mention solely because it is indirect, secondary, component-level, third-party, low-prominence, or not a model-score table row.
 - Do not split the same benchmark into multiple model-row mentions solely because the page reports different run settings, tool settings, context windows, tiers, prompt settings, or metric variants.
-- When unsure whether a page item is a benchmark/evaluation or a descriptive label, include it first and record the uncertainty in `data/benchmark_review_queue.csv`.
+- When unsure whether a page item is a benchmark/evaluation or a descriptive label, include it first and record the uncertainty in `benchmarks.csv` or temporary `benchmark_facet_manual.csv`.
 - Do not rely on one OCR pass for an image. Multiple independent image/OCR passes are required for benchmark-bearing images, and any benchmark-like item found by any pass must be adjudicated.
 - Exclude cost, latency, throughput, token price, and the source of those measurements unless the project explicitly adds an efficiency-metric axis later.
 - Treat unknown benchmark-like names as review candidates, not as nearest-neighbor matches.
-- Record unresolved subset or variant decisions in `data/benchmark_review_queue.csv`.
+- Record unresolved subset or variant decisions in the canonical benchmark row or the relevant facet rationale.
 
 ## Local Workflow
 
@@ -102,17 +102,14 @@ After the independent reviews are reconciled, edit only the source CSVs:
 - `data/models.csv` for release-page benchmark mentions.
 - `data/benchmarks.csv` for new canonical benchmark rows.
 - `data/benchmark_aliases.csv` for narrow source-backed aliases.
-- `data/benchmark_review_queue.csv` for unresolved identity, subset, or construct concerns.
-- `data/benchmark_metadata_overrides.csv` for source-backed link or author-affiliation corrections.
-- `data/benchmark_facet_overrides.csv` for audited multi-facet benchmark annotations.
+- Temporary `data/benchmark_facet_manual.csv` for audited multi-facet benchmark annotations that will be integrated into `data/benchmark_facets.csv`.
 
 Then regenerate and validate:
 
 ```bash
 AS_OF=YYYY-MM-DD
-ACCESSED_DATE=YYYY-MM-DD
 
-python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/build_normalized_data.py
 python scripts/validate_data.py
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution

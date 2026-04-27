@@ -280,9 +280,9 @@ def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_pat
 
 
 def generate_review_debt_graph(output_path):
-    facet_path = "data/benchmark_facet_edges.csv"
+    facet_path = "data/benchmark_facets.csv"
     if not os.path.exists(facet_path):
-        print("Review-debt graph skipped: data/benchmark_facet_edges.csv not found.")
+        print("Review-debt graph skipped: data/benchmark_facets.csv not found.")
         return
 
     facet_df = pd.read_csv(facet_path)
