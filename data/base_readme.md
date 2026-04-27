@@ -20,6 +20,10 @@ The current normalized data covers 36 model-release rows, 32 rows with captured 
 ## Source & Evidence Status
 {{SOURCE_EVIDENCE_SUMMARY_TABLE}}
 
+Example source pages from the latest rows:
+
+{{SOURCE_EXAMPLE_TABLE}}
+
 ## Category Quick Reference
 Task modes used in the headline charts:
 
@@ -37,25 +41,25 @@ Domains used in the separate-axis chart:
 - **Specialized (Law/Bio/Finance):** professional or domain-specialist work such as law, biology, finance, and office deliverables.
 
 ## Evolution Graph
-Each release is plotted on its provider row. Pie slices show the release-normalized headline projection for resolved benchmark mentions; a gray dot marks a release row with no resolved benchmark mentions captured. The pies are intentionally equal-sized, so they show composition rather than volume. To avoid overplotting, only spaced release labels are shown; the number in a shown label is the count of resolved mentions for that release.
+Each release is plotted on its provider row. Pie slices show the release-normalized headline projection for resolved benchmark mentions; a gray dot marks a release row with no resolved benchmark mentions captured. The pies are intentionally equal-sized, so they show composition rather than volume. To avoid overplotting, only spaced release labels are shown; the number in a shown label is the count of resolved mentions for that release. Takeaway: later releases show more agentic, coding, professional-work, and internal/partner evaluation rows than the earliest exam-style rows.
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the headline task-mode projection over time. It uses release-normalized mention weights, a rolling 180-day window, and 30-day exponentially weighted smoothing. This is a readable projection from the taxonomy, not an exclusive benchmark identity.
+The following graph shows the headline task-mode projection over time. It uses release-normalized mention weights, a rolling 180-day window, and 30-day exponentially weighted smoothing. This is a readable legacy chart-compatible projection from the taxonomy, not an exclusive benchmark identity. Takeaway: the recent window is much more agentic than the early release-page set.
 ![Benchmark Growth](assets/benchmark_growth.png)
 
 ## Separate Axis Trends
-The following graph keeps task mode and domain as separate axes, using the same release-normalized rolling window as the headline trend. Keeping the axes separate avoids a single denominator that mixes unlike taxonomy dimensions.
+The following graph keeps task mode and domain as separate axes, using the same release-normalized rolling window as the headline trend. Keeping the axes separate avoids a single denominator that mixes unlike taxonomy dimensions. Takeaway: coding/engineering often appears through the Agentic task mode rather than as a separate task-mode category.
 ![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
 
 ## Classification Review Debt
-The following graph summarizes low-confidence or review-needed facet rows in the generated normalized data. It is a data-quality dashboard: high bars mean the corresponding facet axis needs more manual audit before strong conclusions should be drawn from that axis.
+The following graph summarizes low-confidence or review-needed facet rows in the generated normalized data. It is a data-quality dashboard: high bars mean the corresponding facet axis needs more manual audit before strong conclusions should be drawn from that axis. Takeaway: the richer v3 facet layer is still much less reviewed than the legacy chart-compatible projection fields.
 ![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
 {{REVIEW_DEBT_TABLE}}
 
 ## Multi-Facet Trends
-The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. It plots the default facet axes `domain`, `modality`, `interaction_pattern`, and `context_pressure`; each panel has its own denominator. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, the fraction of that benchmark's contribution assigned to a label. The top 10 labels per axis are shown while smaller labels are grouped into `Other`. Because 1,008 of 1,275 facet rows still need review, treat this figure as experimental rather than final.
+The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. It plots the default facet axes `domain`, `modality`, `interaction_pattern`, and `context_pressure`; each panel has its own denominator. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, the fraction of that benchmark's contribution assigned to a label. The top 10 labels per axis are shown while smaller labels are grouped into `Other`. Because 1,008 of 1,275 facet rows still need review, treat this figure as experimental rather than final. Takeaway: the multi-facet view is useful for hypothesis generation, not final trend claims.
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Review Status And Caveats
@@ -83,6 +87,11 @@ Open follow-up audits:
 - Run rollup-aware sensitivity analyses for composite indices and version families such as SWE-bench, Terminal-Bench, MRCR, ARC-AGI, and OSWorld.
 - Promote high-impact `legacy_seed` and `needs_review` rows into accepted multi-facet rows through source-backed review.
 
+## Lightweight Sensitivity Snapshot
+These checks are simple proxies from the current normalized tables, not a substitute for a full benchmark-family audit. They show why composite indices and version families should be analyzed separately before making strong provider-level claims.
+
+{{SENSITIVITY_SUMMARY_TABLES}}
+
 ## Preliminary Analysis & Observations
 
 ### Current Picture
@@ -101,13 +110,6 @@ Two new release-page patterns are especially visible in 2026. First, composite a
 | Google Gemini 3.1 Pro, 2026-02-19 | 16 | Split between Agentic and Generative Reasoning, with SWE-bench Pro, Terminal-Bench 2.0, APEX-Agents, GDPval-AA, BrowseComp, and MRCR v2. |
 | Google Gemini 3.1 Flash-Lite, 2026-03-03 | 11 | No Agentic headline projection; focuses on LMArena, factuality, multimodal reasoning, multilingual evaluation, and MRCR v2. |
 | OpenAI GPT-5.3-Codex, 2026-02-05 | 7 | Coding-specialized release: 5 Agentic mentions and 6 Coding/Engineering domain mentions. |
-
-### Provider Positioning
-OpenAI still contributes many benchmark rows with OpenAI authorship or affiliation, but GPT-5.5 differs from earlier OpenAI rows: its first two captured benchmark entries are third-party Artificial Analysis composite indices, followed by both component benchmarks and OpenAI internal evaluations. The release-page signal is no longer only provider-created benchmarks; it also includes external rollups and internal professional-work evals.
-
-Anthropic's Opus 4.5-4.7 releases show a strong concentration in software-engineering agents, partner/customer-oriented benchmarks, and safety evaluation. Claude Opus 4.7 in particular combines SWE-bench variants, partner-branded coding rows such as CursorBench, Rakuten-SWE-Bench, and Qodo's real-world code review benchmark, plus internal research-agent and behavioral-audit evaluations.
-
-Google's Gemini 3.x releases emphasize a different mix from the latest OpenAI and Anthropic pages. Gemini 3.0 and 3.1 emphasize factuality, multimodal reasoning, multilingual evaluation, long-context/retrieval style tasks, and user-facing quality signals such as LMArena and SimpleQA Verified, while Gemini 3.1 Pro also joins the common agentic/coding comparison set.
 
 ### Methodology
 This analysis focuses on benchmarks mentioned on public model launch pages, rather than every benchmark listed in technical reports, system cards, model cards, or API documentation. Those detailed sources are useful for verification and safety analysis, but they answer a different question: what was evaluated? Here, the narrower question is: which benchmarks did providers choose to mention in public launch messaging, and how did that selection change over time?
