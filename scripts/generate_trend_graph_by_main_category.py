@@ -16,7 +16,7 @@ sns.set_theme(style="whitegrid")
 plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
 
-TAXONOMY_PATH = Path("data/benchmark_taxonomy_v2.csv")
+TAXONOMY_PATH = Path("data/benchmark_catalog.csv")
 ALIAS_PATH = Path("data/benchmark_aliases.csv")
 
 MODE_ORDER = [

@@ -241,7 +241,7 @@ def iter_legacy_mentions(models):
 
 def validate_legacy(report, models_path=None, taxonomy_path=None, alias_path=None):
     models_path = Path(models_path) if models_path else DATA_DIR / "models.csv"
-    taxonomy_path = Path(taxonomy_path) if taxonomy_path else DATA_DIR / "benchmark_taxonomy_v2.csv"
+    taxonomy_path = Path(taxonomy_path) if taxonomy_path else DATA_DIR / "benchmark_catalog.csv"
     alias_path = Path(alias_path) if alias_path else DATA_DIR / "benchmark_aliases.csv"
 
     models = load_csv(models_path)
@@ -772,7 +772,7 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
 def main():
     parser = argparse.ArgumentParser(description="Validate benchmark taxonomy and generated normalized data.")
     parser.add_argument("--models", default=str(DATA_DIR / "models.csv"), help="Path to models CSV")
-    parser.add_argument("--taxonomy", default=str(DATA_DIR / "benchmark_taxonomy_v2.csv"), help="Path to taxonomy CSV")
+    parser.add_argument("--taxonomy", default=str(DATA_DIR / "benchmark_catalog.csv"), help="Path to benchmark catalog CSV")
     parser.add_argument("--aliases", default=str(DATA_DIR / "benchmark_aliases.csv"), help="Path to benchmark aliases CSV")
     parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing optional normalized CSVs")
     args = parser.parse_args()

@@ -324,7 +324,7 @@ def build_evidence(benchmarks_df, metadata_overrides, accessed_date):
                 if metadata_override
                 else ""
             )
-            or "Seeded from legacy benchmark_taxonomy_v2 reference_link."
+            or "Seeded from benchmark_catalog reference_link."
         )
         rows.append(
             {
@@ -692,7 +692,7 @@ def build_release_mentions(models_df, benchmarks_df, canonical_lookup):
 
 def build_normalized_data(accessed_date):
     models_df = pd.read_csv(DATA_DIR / "models.csv")
-    taxonomy_df = pd.read_csv(DATA_DIR / "benchmark_taxonomy_v2.csv")
+    taxonomy_df = pd.read_csv(DATA_DIR / "benchmark_catalog.csv")
     aliases_df = read_aliases(DATA_DIR / "benchmark_aliases.csv")
     review_queue_df = read_review_queue(DATA_DIR / "benchmark_review_queue.csv")
     metadata_overrides = read_benchmark_metadata_overrides(
