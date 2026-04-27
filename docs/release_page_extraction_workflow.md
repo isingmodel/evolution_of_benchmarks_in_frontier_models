@@ -100,7 +100,7 @@ python scraping/review_packet.py scraping/output/new_release_extract.json
 After the independent reviews are reconciled, edit only the source CSVs:
 
 - `data/models.csv` for release-page benchmark mentions.
-- `data/benchmark_taxonomy_v2.csv` for new canonical benchmark rows.
+- `data/benchmark_catalog.csv` for new canonical benchmark rows.
 - `data/benchmark_aliases.csv` for narrow source-backed aliases.
 - `data/benchmark_review_queue.csv` for unresolved identity, subset, or construct concerns.
 - `data/benchmark_metadata_overrides.csv` for source-backed link or author-affiliation corrections.

@@ -174,7 +174,7 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
             "## Data Patch Checklist",
             "",
             "- Add or update `data/models.csv` only after raw mentions are reconciled.",
-            "- Add new benchmark rows to `data/benchmark_taxonomy_v2.csv` only when the name is not safely represented by an existing canonical benchmark.",
+            "- Add new benchmark rows to `data/benchmark_catalog.csv` only when the name is not safely represented by an existing canonical benchmark.",
             "- Add aliases to `data/benchmark_aliases.csv` only for exact, source-backed identity mappings.",
             "- Add unresolved variants or construct concerns to `data/benchmark_review_queue.csv`.",
             "- Add source-backed link or author-affiliation corrections to `data/benchmark_metadata_overrides.csv`.",
