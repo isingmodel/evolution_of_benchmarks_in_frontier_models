@@ -103,6 +103,8 @@ After the independent reviews are reconciled, edit only the source CSVs:
 - `data/benchmark_taxonomy_v2.csv` for new canonical benchmark rows.
 - `data/benchmark_aliases.csv` for narrow source-backed aliases.
 - `data/benchmark_review_queue.csv` for unresolved identity, subset, or construct concerns.
+- `data/benchmark_metadata_overrides.csv` for source-backed link or author-affiliation corrections.
+- `data/benchmark_facet_overrides.csv` for audited multi-facet benchmark annotations.
 
 Then regenerate and validate:
 
@@ -110,13 +112,13 @@ Then regenerate and validate:
 AS_OF=YYYY-MM-DD
 ACCESSED_DATE=YYYY-MM-DD
 
-python scripts/build_v3_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
 python scripts/validate_data.py
 python scripts/apply_mention_prominence.py --dry-run
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_v3_facet_trends.py --as-of "$AS_OF" --window-days 180
+python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180
 python scripts/update_readme.py
 python scripts/validate_data.py
 ```

@@ -17,12 +17,12 @@ The following graph keeps task mode and domain as separate axes, avoiding a sing
 ![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
 
 ## Classification Review Debt
-The following graph summarizes low-confidence or review-needed facet rows in the generated v3 seed data.
+The following graph summarizes low-confidence or review-needed facet rows in the generated normalized data.
 ![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
-## v3 Multi-Facet Trends
-The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the v3 methodology than the headline projection charts above.
-![Benchmark v3 Facet Trends](assets/benchmark_v3_facet_trends.png)
+## Multi-Facet Trends
+The following graph uses `release_mentions.csv` and `benchmark_facet_edges.csv` directly. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
+![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Analysis & Observations
 
@@ -34,7 +34,7 @@ This analysis therefore focuses on benchmarks featured prominently on model rele
 
 Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction.
 
-The current v3 seed includes evidence-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and remaining review queue.
+The current normalized seed includes evidence-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and remaining review queue.
 
 ### Evolution of Benchmarks
 *   **Early GPT (3, 3.5)**: Focused on simple knowledge-based QA benchmarks (e.g., Biology Olympiad), reflecting the limitations of early LLMs.
@@ -57,30 +57,31 @@ Classification of various benchmarks by category.
 {{TAXONOMY_TABLE}}
 
 ## Categorization Logic
-The generated taxonomy table currently exposes the v2-compatible headline fields used by existing scripts:
-1. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
-2. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
+The generated taxonomy table currently exposes the normalized source metadata plus the headline fields used by existing scripts:
+1. **frontier_lab_author_affiliations**: whether benchmark authors include the tracked frontier labs (OpenAI, Anthropic, Google, DeepMind, Microsoft, xAI).
+2. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
+3. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
 
 Under the v3 methodology, these fields should be treated as projections from richer benchmark facets such as construct claim, task mechanism, domain, modality, interaction pattern, metric type, context pressure, and lifecycle risk.
 
 ## Auto-Update
-To regenerate the normalized v3 seed data, current chart assets, and README, run:
+To regenerate the normalized benchmark data, current chart assets, and README, run:
 ```bash
 AS_OF=2026-04-23          # latest release date included in data/models.csv
 ACCESSED_DATE=2026-04-26  # date used for seeded evidence records
 
-python scripts/build_v3_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
 python scripts/validate_data.py
 python scripts/apply_mention_prominence.py --dry-run
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_v3_facet_trends.py --as-of "$AS_OF" --window-days 180
+python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180
 python scripts/update_readme.py
 python scripts/validate_data.py
 ```
 
-The v3 build currently seeds normalized canonical benchmark, evidence, facet-edge, and release-mention tables from the legacy CSVs. Mention prominence is deterministic and manual: `data/mention_prominence_overrides.csv` is validated and applied by the build, but no release-page scraping is performed by default. The generated README taxonomy table and trend scripts remain v2/headline-compatible while the normalized v3 tables preserve richer multi-facet labels for quantitative and qualitative analysis.
+The normalized-data build seeds canonical benchmark, evidence, facet-edge, and release-mention tables from source CSVs. Curated corrections live in `data/benchmark_metadata_overrides.csv` and `data/benchmark_facet_overrides.csv` rather than in the build script. Mention prominence is deterministic and manual: `data/mention_prominence_overrides.csv` is validated and applied by the build, but no release-page scraping is performed by default. The generated README taxonomy table and trend scripts remain headline-compatible while the normalized tables preserve richer multi-facet labels for quantitative and qualitative analysis.
 
 ## Release-Page Extraction Workflow
 For new model launches, run the scraper as an evidence generator and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.

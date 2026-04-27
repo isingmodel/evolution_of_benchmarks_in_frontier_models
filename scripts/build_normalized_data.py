@@ -12,11 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 
 
-PREFERRED_CANONICAL_NAMES = {
-    "swe-lancer": "SWE-Lancer",
-}
-
-
 PROMINENCE_DEFAULT = MENTION_PROMINENCE_DEFAULT
 MENTION_WEIGHT_DEFAULT = MENTION_PROMINENCE_WEIGHTS[PROMINENCE_DEFAULT]
 RULE_SEED_CONFIDENCE = 0.6
@@ -29,209 +24,74 @@ FRONTIER_LAB_AUTHOR_LABELS = [
     "DeepMind",
     "Microsoft",
     "xAI",
-    "Meta",
 ]
-FRONTIER_LAB_AUTHOR_OVERRIDES = {
-    # Direct-source verification pass. Use needs_review only when no reliable
-    # benchmark source or paper link was found for the configured row.
-    "Biology Olympiad": "none",
-    "Bird-SQL": "none",
-    "CritPt": "none",
-    "ERQA": "Google; DeepMind",
-    "FACTS Grounding": "Google; DeepMind",
-    "FLEURS": "Google",
-    "GPQA": "none",
-    "GPQA Diamond": "none",
-    "HLE (Humanity's Last Exam)": "OpenAI; Anthropic; Google; DeepMind; Microsoft",
-    "HiddenMath": "Google; DeepMind",
-    "MGSM": "Google",
-    "LMArena": "none",
-    "M3Exam": "none",
-    "MRCR": "Google; DeepMind",
-    "MRCR v2": "Google; DeepMind",
-    "MTOB benchmark": "none",
-    "MathVista": "Microsoft",
-    "Natural2Code": "Google; DeepMind",
-    "Needle In A Haystack": "none",
-    "OmniDocBench": "none",
-    "OmniDocBench 1.5": "none",
-    "SWE-Lancer": "OpenAI",
-    "SWE-bench Multimodal": "none",
-    "ScreenSpot-Pro": "none",
-    "Structural Biology": "Anthropic",
-    "Tau-bench": "none",
-    "Terminal-Bench 2.0": "Anthropic",
-    "Terminal-bench": "Anthropic",
-    "Toolathlon": "none",
-    "VATEX": "none",
-    "Vibe-Eval": "none",
-    "Video-MMMU": "none",
-    "WebVoyager": "none",
-}
-REFERENCE_LINK_OVERRIDES = {
-    "Bird-SQL": "https://arxiv.org/abs/2305.03111",
-    "CritPt": "https://arxiv.org/abs/2509.26574",
-    "ERQA": "https://github.com/embodiedreasoning/ERQA",
-    "FACTS Grounding": "https://storage.googleapis.com/deepmind-media/FACTS/FACTS_grounding_paper.pdf",
-    "HiddenMath": "https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf",
-    "LMArena": "https://arxiv.org/abs/2403.04132",
-    "M3Exam": "https://arxiv.org/abs/2306.05179",
-    "MGSM": "https://openreview.net/forum?id=fR3wGCk-IXp",
-    "OmniDocBench": "https://arxiv.org/abs/2412.07626",
-    "OmniDocBench 1.5": "https://github.com/opendatalab/OmniDocBench",
-    "SWE-Lancer": "https://arxiv.org/abs/2502.12115",
-    "ScreenSpot-Pro": "https://arxiv.org/abs/2504.07981",
-    "Structural Biology": "https://www.anthropic.com/claude-opus-4-7-system-card",
-    "Tau-bench": "https://arxiv.org/abs/2406.12045",
-    "Terminal-Bench 2.0": "https://arxiv.org/abs/2601.11868",
-    "Terminal-bench": "https://arxiv.org/abs/2601.11868",
-    "Toolathlon": "https://arxiv.org/abs/2510.25726",
-    "VATEX": "https://arxiv.org/abs/1904.03493",
-    "Vibe-Eval": "https://arxiv.org/abs/2405.02287",
-    "Video-MMMU": "https://arxiv.org/abs/2501.13826",
-    "WebVoyager": "https://arxiv.org/abs/2401.13919",
-}
+BENCHMARK_METADATA_OVERRIDE_COLUMNS = [
+    "benchmark_name",
+    "reference_link",
+    "source_author",
+    "frontier_lab_author_affiliations",
+    "evidence_notes",
+]
+FACET_OVERRIDE_COLUMNS = [
+    "benchmark_name",
+    "facet_axis",
+    "facet_label",
+    "label_weight",
+    "classification_confidence",
+    "review_status",
+    "rationale",
+]
 
 
-MANUAL_FACET_OVERRIDES = {
-    "TAU-2 bench": [
-        ("headline_task_mode", "Agentic", 1.0, 0.93, "accepted", "TAU-2 is a dual-control conversational agent benchmark with shared tool-mediated state."),
-        ("construct_claim", "agentic_task_completion", 0.7, 0.93, "accepted", "The benchmark tests whether an agent can complete tasks while coordinating with an active simulated user."),
-        ("construct_claim", "tool_use", 0.3, 0.93, "accepted", "Both agent and user can use tools in the shared environment."),
-        ("task_mechanism", "tool_calling", 1.0, 0.93, "accepted", "Task progress depends on tool-mediated changes to the environment state."),
-        ("domain", "Other Specialized", 1.0, 0.93, "accepted", "The audited source describes a telecom/customer-support style domain rather than coding or autonomous driving."),
-        ("modality", "text", 0.7, 0.93, "accepted", "Interaction is primarily conversational text."),
-        ("modality", "tool_api", 0.3, 0.93, "accepted", "The environment exposes tools to agent and simulated user."),
-        ("interaction_pattern", "environment_interaction", 0.5, 0.93, "accepted", "Agent actions alter a shared environment state."),
-        ("interaction_pattern", "multi_turn_dialogue", 0.3, 0.93, "accepted", "The task is a conversational agent-user interaction."),
-        ("interaction_pattern", "human_in_the_loop", 0.2, 0.93, "accepted", "The simulated user actively participates in the task state."),
-        ("metric_type", "completion_rate", 0.6, 0.93, "accepted", "The benchmark reports task success/pass style outcomes."),
-        ("metric_type", "accuracy", 0.4, 0.93, "accepted", "World-state correctness is used to determine success."),
-        ("context_pressure", "medium", 1.0, 0.93, "accepted", "The source emphasizes coordination and tool use more than context length."),
-        ("benchmark_lifecycle_risk", "version_instability", 0.5, 0.93, "accepted", "The benchmark family is evolving across tau-bench variants."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.5, 0.93, "accepted", "Dual-control simulation is an explicit proxy for real support workflows."),
-    ],
-    "Vending-Bench 2": [
-        ("headline_task_mode", "Agentic", 1.0, 0.94, "accepted", "Vending-Bench 2 evaluates long-horizon autonomous business operation."),
-        ("construct_claim", "agentic_task_completion", 1.0, 0.94, "accepted", "The benchmark scores agents by success in a simulated vending-machine business."),
-        ("task_mechanism", "tool_calling", 1.0, 0.94, "accepted", "Agents operate through business-management tools and stateful actions."),
-        ("domain", "Other Specialized", 1.0, 0.94, "accepted", "The task domain is simulated small-business operations."),
-        ("modality", "text", 0.4, 0.94, "accepted", "The simulation is mediated through textual instructions and state."),
-        ("modality", "tool_api", 0.6, 0.94, "accepted", "Tool use is central to ordering, pricing, and operational decisions."),
-        ("interaction_pattern", "environment_interaction", 0.55, 0.94, "accepted", "Agent choices change the simulated business environment."),
-        ("interaction_pattern", "multi_step_planning", 0.45, 0.94, "accepted", "Performance depends on sustained planning over a year-long simulation."),
-        ("metric_type", "composite_score", 1.0, 0.94, "accepted", "The benchmark summarizes business outcomes with final performance scoring."),
-        ("context_pressure", "long_context_supporting", 1.0, 0.94, "accepted", "Long-horizon state tracking supports the task but is not the only construct."),
-        ("benchmark_lifecycle_risk", "version_instability", 0.34, 0.94, "accepted", "The benchmark has active variants such as Vending-Bench Arena."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.33, 0.94, "accepted", "The simulation is a proxy for real business operation."),
-        ("benchmark_lifecycle_risk", "distribution_shift_risk", 0.33, 0.94, "accepted", "Supplier and market dynamics may change across benchmark versions."),
-    ],
-    "GDPval": [
-        ("headline_task_mode", "Generative Reasoning", 1.0, 0.92, "accepted", "GDPval asks models to produce realistic professional deliverables."),
-        ("construct_claim", "domain_expertise", 1.0, 0.92, "accepted", "Tasks span professional occupations and require domain-specific work products."),
-        ("task_mechanism", "free_form_generation", 1.0, 0.92, "accepted", "The benchmark compares generated deliverables against expert work."),
-        ("domain", "Other Specialized", 0.4, 0.92, "accepted", "GDPval spans many professional sectors beyond the named v2 buckets."),
-        ("domain", "Coding/Engineering", 0.2, 0.92, "accepted", "OpenAI lists software developers and mechanical engineers among included occupations."),
-        ("domain", "Law", 0.15, 0.92, "accepted", "OpenAI lists lawyers among included occupations."),
-        ("domain", "Bio/Medicine", 0.15, 0.92, "accepted", "OpenAI lists registered nurses among included occupations."),
-        ("domain", "Finance", 0.1, 0.92, "accepted", "Economically significant sectors include finance-adjacent professional work."),
-        ("modality", "text", 0.55, 0.92, "accepted", "Most deliverables are text or document-centered work products."),
-        ("modality", "document_layout", 0.25, 0.92, "accepted", "Professional deliverables may require document structure and formatting."),
-        ("modality", "code", 0.1, 0.92, "accepted", "Some occupations include software or engineering deliverables."),
-        ("modality", "multimodal_mixed", 0.1, 0.92, "accepted", "The task suite spans heterogeneous professional artifacts."),
-        ("interaction_pattern", "static_prompt_response", 1.0, 0.92, "accepted", "GDPval is framed as deliverable generation rather than environment interaction."),
-        ("metric_type", "human_preference", 0.6, 0.92, "accepted", "Expert comparison is central to scoring."),
-        ("metric_type", "rubric_score", 0.4, 0.92, "accepted", "Evaluation depends on professional quality judgments."),
-        ("context_pressure", "long_context_supporting", 1.0, 0.92, "accepted", "Professional deliverables can require substantial context, but context length is not the primary construct."),
-        ("benchmark_lifecycle_risk", "provider_created_benchmark", 0.4, 0.92, "accepted", "GDPval is introduced by OpenAI."),
-        ("benchmark_lifecycle_risk", "private_or_opaque_eval", 0.3, 0.92, "accepted", "Full evaluation details and items are not fully public in the legacy data."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.3, 0.92, "accepted", "Professional work quality is difficult to reduce to one benchmark score."),
-    ],
-    "GDPval-AA": [
-        ("headline_task_mode", "Agentic", 1.0, 0.88, "accepted", "Artificial Analysis runs GDPval-AA through an agentic task-completion harness."),
-        ("construct_claim", "agentic_task_completion", 0.5, 0.88, "accepted", "The methodology describes agentic completion with file outputs."),
-        ("construct_claim", "domain_expertise", 0.5, 0.88, "accepted", "The tasks remain real-world professional knowledge-work tasks."),
-        ("task_mechanism", "tool_calling", 0.5, 0.88, "accepted", "The benchmark allows tool usage in the evaluation harness."),
-        ("task_mechanism", "free_form_generation", 0.5, 0.88, "accepted", "The agent must produce professional file or deliverable outputs."),
-        ("domain", "Other Specialized", 0.4, 0.88, "accepted", "GDPval-AA covers mixed professional domains."),
-        ("domain", "Coding/Engineering", 0.2, 0.88, "accepted", "The source categorizes it as real-world knowledge work with technical occupations included."),
-        ("domain", "Law", 0.15, 0.88, "accepted", "The underlying GDPval-style task set includes legal work."),
-        ("domain", "Bio/Medicine", 0.15, 0.88, "accepted", "The underlying GDPval-style task set includes healthcare work."),
-        ("domain", "Finance", 0.1, 0.88, "accepted", "The suite includes economically significant professional sectors."),
-        ("modality", "text", 0.35, 0.88, "accepted", "Task inputs and final answers are primarily language-mediated."),
-        ("modality", "document_layout", 0.25, 0.88, "accepted", "File outputs can require professional document structure."),
-        ("modality", "code", 0.15, 0.88, "accepted", "Some tasks may require technical or computational artifacts."),
-        ("modality", "tool_api", 0.15, 0.88, "accepted", "The harness exposes tools to the agent."),
-        ("modality", "multimodal_mixed", 0.1, 0.88, "accepted", "The task suite spans heterogeneous work products."),
-        ("interaction_pattern", "environment_interaction", 0.4, 0.88, "accepted", "The agent operates in an evaluation environment to complete tasks."),
-        ("interaction_pattern", "terminal_or_codebase_interaction", 0.3, 0.88, "accepted", "The harness can include shell or file interactions."),
-        ("interaction_pattern", "single_turn_tool_use", 0.3, 0.88, "accepted", "Tool calls are part of the task-completion pathway."),
-        ("metric_type", "win_rate", 0.5, 0.88, "accepted", "Artificial Analysis reports pairwise/Elo-style scoring."),
-        ("metric_type", "human_preference", 0.5, 0.88, "accepted", "The score is based on pairwise quality comparison of outputs."),
-        ("context_pressure", "long_context_supporting", 1.0, 0.88, "accepted", "Professional task completion can require substantial context but is not only a context test."),
-        ("benchmark_lifecycle_risk", "private_or_opaque_eval", 0.35, 0.88, "accepted", "The full evaluation implementation is not fully represented in local data."),
-        ("benchmark_lifecycle_risk", "unclear_metric", 0.2, 0.88, "accepted", "Pairwise/Elo aggregation requires careful interpretation."),
-        ("benchmark_lifecycle_risk", "version_instability", 0.2, 0.88, "accepted", "Artificial Analysis evaluation methodology evolves over time."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.25, 0.88, "accepted", "Real-world professional work is difficult to compress into a single score."),
-    ],
-    "BrowseComp Long Context": [
-        ("headline_task_mode", "Knowledge Retrieval", 1.0, 0.9, "accepted", "The long-context variant converts browsing questions into in-context retrieval."),
-        ("construct_claim", "long_context_retrieval", 1.0, 0.9, "accepted", "The dataset card states that it retrieves relevant information from noisy context."),
-        ("task_mechanism", "long_context_retrieval", 1.0, 0.9, "accepted", "The task is to answer from provided long-context URL content."),
-        ("domain", "General/Commonsense", 1.0, 0.9, "accepted", "Questions are broad BrowseComp-style information queries."),
-        ("modality", "text", 1.0, 0.9, "accepted", "The Hugging Face dataset card lists text modality."),
-        ("interaction_pattern", "static_prompt_response", 1.0, 0.9, "accepted", "The converted task is answered from provided context rather than live browsing."),
-        ("metric_type", "exact_match", 0.5, 0.9, "accepted", "Question-answering tasks can be judged by answer match."),
-        ("metric_type", "accuracy", 0.5, 0.9, "accepted", "Accuracy summarizes correct retrieval and answer synthesis."),
-        ("context_pressure", "long_context_primary", 1.0, 0.9, "accepted", "Long context is the primary benchmark bottleneck."),
-        ("benchmark_lifecycle_risk", "contamination_risk", 0.5, 0.9, "accepted", "The dataset card includes canary warnings about benchmark data exposure."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.5, 0.9, "accepted", "Converted browsing tasks may not measure live web-agent behavior."),
-    ],
-    "FACTS Benchmark suite": [
-        ("headline_task_mode", "Knowledge Retrieval", 1.0, 0.86, "needs_review", "FACTS is a factuality suite; this is a projection over several subbenchmarks."),
-        ("construct_claim", "factual_knowledge", 1.0, 0.86, "needs_review", "The suite evaluates factual accuracy across several settings."),
-        ("task_mechanism", "short_answer_qa", 0.3, 0.86, "needs_review", "The parametric component uses factoid question answering."),
-        ("task_mechanism", "visual_question_answering", 0.25, 0.86, "needs_review", "The multimodal component asks image-grounded factual questions."),
-        ("task_mechanism", "browser_navigation", 0.25, 0.86, "needs_review", "The search component evaluates use of search as a tool."),
-        ("task_mechanism", "long_context_synthesis", 0.2, 0.86, "needs_review", "The grounding component tests answers grounded in provided context."),
-        ("domain", "General/Commonsense", 0.7, 0.86, "needs_review", "Most factuality tasks cover broad general knowledge."),
-        ("domain", "Visual/Document", 0.3, 0.86, "needs_review", "The suite includes a multimodal image-based component."),
-        ("modality", "text", 0.5, 0.86, "needs_review", "Textual factuality tasks are central to the suite."),
-        ("modality", "image", 0.25, 0.86, "needs_review", "The multimodal benchmark uses image inputs."),
-        ("modality", "tool_api", 0.15, 0.86, "needs_review", "The search benchmark exposes search as a tool."),
-        ("modality", "multimodal_mixed", 0.1, 0.86, "needs_review", "The suite aggregates multiple input modalities."),
-        ("interaction_pattern", "static_prompt_response", 0.7, 0.86, "needs_review", "Parametric, grounding, and multimodal components are primarily prompt-response tasks."),
-        ("interaction_pattern", "single_turn_tool_use", 0.3, 0.86, "needs_review", "The search component introduces tool use."),
-        ("metric_type", "accuracy", 0.5, 0.86, "needs_review", "FACTS score is based on accuracy across public and private sets."),
-        ("metric_type", "composite_score", 0.3, 0.86, "needs_review", "The suite averages multiple benchmark components."),
-        ("metric_type", "LLM_judge", 0.2, 0.86, "needs_review", "Factuality scoring can involve automated judging; confirm per component before acceptance."),
-        ("context_pressure", "long_context_supporting", 1.0, 0.86, "needs_review", "Grounding and search tasks can require synthesizing supplied context."),
-        ("benchmark_lifecycle_risk", "private_or_opaque_eval", 0.25, 0.86, "needs_review", "The suite includes private held-out sets."),
-        ("benchmark_lifecycle_risk", "unclear_metric", 0.25, 0.86, "needs_review", "Metric details differ by component and should be carded separately."),
-        ("benchmark_lifecycle_risk", "version_instability", 0.25, 0.86, "needs_review", "The suite extends and updates earlier FACTS benchmarks."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.25, 0.86, "needs_review", "Composite factuality scores can hide subtask differences."),
-    ],
-    "BioPipelineBench": [
-        ("headline_task_mode", "Agentic", 1.0, 0.72, "needs_review", "Anthropic describes bash/code/package-manager access for computational-biology workflows."),
-        ("construct_claim", "domain_expertise", 0.5, 0.72, "needs_review", "The benchmark requires specialized bioinformatics knowledge."),
-        ("construct_claim", "tool_use", 0.5, 0.72, "needs_review", "The system card describes access to bash, code execution, and package managers."),
-        ("task_mechanism", "tool_calling", 0.4, 0.72, "needs_review", "Workflow execution depends on external tools."),
-        ("task_mechanism", "code_generation", 0.3, 0.72, "needs_review", "Bioinformatics workflows can require scripts and code."),
-        ("task_mechanism", "terminal_operation", 0.3, 0.72, "needs_review", "The benchmark is run with bash access."),
-        ("domain", "Bio/Medicine", 1.0, 0.72, "needs_review", "The benchmark covers bioinformatics workflows."),
-        ("modality", "text", 0.3, 0.72, "needs_review", "Task descriptions are language-mediated."),
-        ("modality", "code", 0.4, 0.72, "needs_review", "Computational workflows involve scripts and code artifacts."),
-        ("modality", "tool_api", 0.3, 0.72, "needs_review", "Package managers and execution tools are part of the environment."),
-        ("interaction_pattern", "terminal_or_codebase_interaction", 0.55, 0.72, "needs_review", "The system card describes bash and code execution."),
-        ("interaction_pattern", "environment_interaction", 0.45, 0.72, "needs_review", "The model executes workflows in a computational environment."),
-        ("metric_type", "accuracy", 1.0, 0.72, "needs_review", "Anthropic reports a percentage score, but detailed public scoring criteria need review."),
-        ("context_pressure", "medium", 1.0, 0.72, "needs_review", "The bottleneck is workflow execution and domain reasoning, not primarily long context."),
-        ("benchmark_lifecycle_risk", "private_or_opaque_eval", 0.35, 0.72, "needs_review", "The benchmark appears in an Anthropic system card rather than a public benchmark card."),
-        ("benchmark_lifecycle_risk", "provider_created_benchmark", 0.25, 0.72, "needs_review", "The available evidence is provider documentation."),
-        ("benchmark_lifecycle_risk", "unclear_metric", 0.2, 0.72, "needs_review", "The public source gives scores but limited metric detail."),
-        ("benchmark_lifecycle_risk", "construct_validity_risk", 0.2, 0.72, "needs_review", "Bioinformatics workflow execution needs benchmark-card review before strong claims."),
-    ],
-}
+def read_csv_or_empty(path, columns):
+    if not path.exists():
+        return pd.DataFrame(columns=columns)
+
+    data = pd.read_csv(path).fillna("")
+    missing = set(columns) - set(data.columns)
+    if missing:
+        raise ValueError(f"{path} is missing required columns: {sorted(missing)}")
+    return data
+
+
+def read_benchmark_metadata_overrides(path):
+    overrides_df = read_csv_or_empty(path, BENCHMARK_METADATA_OVERRIDE_COLUMNS)
+    overrides = {}
+    for _, row in overrides_df.iterrows():
+        benchmark_name = str(row["benchmark_name"]).strip()
+        if not benchmark_name:
+            continue
+        if benchmark_name in overrides:
+            raise ValueError(f"Duplicate benchmark metadata override for {benchmark_name!r}")
+        overrides[benchmark_name] = {
+            "reference_link": str(row.get("reference_link", "")).strip(),
+            "source_author": str(row.get("source_author", "")).strip(),
+            "frontier_lab_author_affiliations": str(
+                row.get("frontier_lab_author_affiliations", "")
+            ).strip(),
+            "evidence_notes": str(row.get("evidence_notes", "")).strip(),
+        }
+    return overrides
+
+
+def read_facet_overrides(path):
+    overrides_df = read_csv_or_empty(path, FACET_OVERRIDE_COLUMNS)
+    overrides = {}
+    for _, row in overrides_df.iterrows():
+        benchmark_name = str(row["benchmark_name"]).strip()
+        if not benchmark_name:
+            continue
+        overrides.setdefault(benchmark_name, []).append(
+            (
+                str(row["facet_axis"]).strip(),
+                str(row["facet_label"]).strip(),
+                float(row["label_weight"]),
+                float(row["classification_confidence"]),
+                str(row["review_status"]).strip(),
+                str(row["rationale"]).strip(),
+            )
+        )
+    return overrides
 
 
 def stable_id(prefix, *parts):
@@ -266,24 +126,12 @@ def read_review_queue(path):
 
 
 def dedupe_taxonomy(taxonomy_df):
-    preferred_by_norm = {
-        normalize_name(name): preferred for name, preferred in PREFERRED_CANONICAL_NAMES.items()
-    }
-
     rows_by_norm = {}
     for _, row in taxonomy_df.fillna("").iterrows():
         name = str(row["benchmark_name"]).strip()
         if not name:
             continue
         key = normalize_name(name)
-        preferred = preferred_by_norm.get(key)
-        if preferred:
-            if name == preferred:
-                rows_by_norm[key] = row
-            elif key not in rows_by_norm:
-                rows_by_norm[key] = row
-            continue
-
         # Last row wins for normalized duplicates. The validator still reports
         # duplicate legacy rows so they can be cleaned intentionally.
         rows_by_norm[key] = row
@@ -346,8 +194,8 @@ def split_benchmarks(value):
     return [part.strip() for part in text.split(",") if part.strip()]
 
 
-def manual_benchmark_status(benchmark_name):
-    overrides = MANUAL_FACET_OVERRIDES.get(benchmark_name)
+def manual_benchmark_status(benchmark_name, facet_overrides):
+    overrides = facet_overrides.get(benchmark_name)
     if not overrides:
         return ""
 
@@ -361,13 +209,11 @@ def manual_benchmark_status(benchmark_name):
     return "legacy_seed"
 
 
-def infer_frontier_lab_author_affiliations(row):
-    benchmark_name = str(row.get("benchmark_name", "")).strip()
-    if benchmark_name in FRONTIER_LAB_AUTHOR_OVERRIDES:
-        return FRONTIER_LAB_AUTHOR_OVERRIDES[benchmark_name]
-
-    source_author = str(row.get("source_author", "")).strip()
-    reference_link = str(row.get("reference_link", "")).strip()
+def infer_frontier_lab_author_affiliations(row, reference_link=None, source_author=None):
+    if source_author is None:
+        source_author = str(row.get("source_author", "")).strip()
+    if reference_link is None:
+        reference_link = str(row.get("reference_link", "")).strip()
     rationale = str(row.get("rationale", "")).strip()
     text = " ".join([source_author, reference_link, rationale])
     text_lower = text.casefold()
@@ -381,7 +227,7 @@ def infer_frontier_lab_author_affiliations(row):
     # benchmark author affiliation.
     source_without_backing = re.sub(r"backed by\s+google", "", source_author, flags=re.IGNORECASE)
 
-    for label in ["OpenAI", "Anthropic", "Microsoft", "xAI", "Meta"]:
+    for label in ["OpenAI", "Anthropic", "Microsoft", "xAI"]:
         if re.search(rf"(?<![A-Za-z]){re.escape(label)}(?![A-Za-z])", source_without_backing, flags=re.IGNORECASE):
             add(label)
 
@@ -408,23 +254,38 @@ def infer_frontier_lab_author_affiliations(row):
     return "; ".join(ordered)
 
 
-def build_benchmarks(taxonomy_df):
+def build_benchmarks(taxonomy_df, metadata_overrides, facet_overrides):
     rows = []
     for _, row in taxonomy_df.fillna("").iterrows():
         benchmark_name = str(row["benchmark_name"]).strip()
         benchmark_id = stable_id("benchmark", benchmark_name)
-        review_status = manual_benchmark_status(benchmark_name)
+        metadata_override = metadata_overrides.get(benchmark_name, {})
+        reference_link = (
+            metadata_override.get("reference_link")
+            or str(row.get("reference_link", "")).strip()
+        )
+        source_author = (
+            metadata_override.get("source_author")
+            or str(row.get("source_author", "")).strip()
+        )
+        frontier_lab_author_affiliations = (
+            metadata_override.get("frontier_lab_author_affiliations")
+            or infer_frontier_lab_author_affiliations(
+                row,
+                reference_link=reference_link,
+                source_author=source_author,
+            )
+        )
+        review_status = manual_benchmark_status(benchmark_name, facet_overrides)
         if not review_status:
             review_status = "legacy_seed"
         rows.append(
             {
                 "benchmark_id": benchmark_id,
                 "benchmark_name": benchmark_name,
-                "reference_link": REFERENCE_LINK_OVERRIDES.get(
-                    benchmark_name, str(row.get("reference_link", "")).strip()
-                ),
-                "source_author": str(row.get("source_author", "")).strip(),
-                "frontier_lab_author_affiliations": infer_frontier_lab_author_affiliations(row),
+                "reference_link": reference_link,
+                "source_author": source_author,
+                "frontier_lab_author_affiliations": frontier_lab_author_affiliations,
                 "legacy_task_mode": str(row.get("task_mode", "")).strip(),
                 "legacy_task_domain": str(row.get("task_domain", "")).strip(),
                 "legacy_rationale": str(row.get("rationale", "")).strip(),
@@ -450,10 +311,21 @@ def apply_benchmark_review_status(benchmarks_df, review_notes):
     return benchmarks_df
 
 
-def build_evidence(benchmarks_df, accessed_date):
+def build_evidence(benchmarks_df, metadata_overrides, accessed_date):
     rows = []
     for _, row in benchmarks_df.iterrows():
         benchmark_id = row["benchmark_id"]
+        benchmark_name = str(row["benchmark_name"]).strip()
+        metadata_override = metadata_overrides.get(benchmark_name, {})
+        notes = (
+            metadata_override.get("evidence_notes")
+            or (
+                "Seeded from curated benchmark metadata override."
+                if metadata_override
+                else ""
+            )
+            or "Seeded from legacy benchmark_taxonomy_v2 reference_link."
+        )
         rows.append(
             {
                 "evidence_id": stable_id("evidence", benchmark_id, "definition"),
@@ -463,7 +335,7 @@ def build_evidence(benchmarks_df, accessed_date):
                 "url": row["reference_link"],
                 "source_date": "",
                 "accessed_date": accessed_date,
-                "notes": "Seeded from legacy benchmark_taxonomy_v2 reference_link.",
+                "notes": notes,
             }
         )
     return pd.DataFrame(rows)
@@ -699,8 +571,8 @@ def add_facet_row(rows, row, evidence_id, axis, label, status, confidence, ratio
     )
 
 
-def add_manual_facet_rows(rows, row, evidence_id, benchmark_name):
-    overrides = MANUAL_FACET_OVERRIDES.get(benchmark_name)
+def add_manual_facet_rows(rows, row, evidence_id, benchmark_name, facet_overrides):
+    overrides = facet_overrides.get(benchmark_name)
     if not overrides:
         return False
 
@@ -719,7 +591,7 @@ def add_manual_facet_rows(rows, row, evidence_id, benchmark_name):
     return True
 
 
-def build_facet_edges(benchmarks_df, evidence_df, review_notes):
+def build_facet_edges(benchmarks_df, evidence_df, review_notes, facet_overrides):
     evidence_by_benchmark = dict(zip(evidence_df["benchmark_id"], evidence_df["evidence_id"]))
     rows = []
     for _, row in benchmarks_df.iterrows():
@@ -729,7 +601,7 @@ def build_facet_edges(benchmarks_df, evidence_df, review_notes):
         review_note = review_notes.get(benchmark_name)
         review_reason = f" Review note: {review_note['reason']}" if review_note else ""
 
-        if add_manual_facet_rows(rows, row, evidence_id, benchmark_name):
+        if add_manual_facet_rows(rows, row, evidence_id, benchmark_name, facet_overrides):
             continue
 
         projected_seed_labels = {
@@ -773,7 +645,7 @@ def build_facet_edges(benchmarks_df, evidence_df, review_notes):
                 default_confidence=RULE_SEED_CONFIDENCE,
             )
             rationale = (
-                f"Rule-based v3 seed inferred from legacy task_mode={row['legacy_task_mode']!r}, "
+                f"Rule-based multi-facet seed inferred from legacy task_mode={row['legacy_task_mode']!r}, "
                 f"task_domain={row['legacy_task_domain']!r}, benchmark name, and legacy rationale."
                 f"{review_reason}"
             )
@@ -818,19 +690,32 @@ def build_release_mentions(models_df, benchmarks_df, canonical_lookup):
     return pd.DataFrame(rows).sort_values(["release_date", "provider", "model_name", "mention_index"]).reset_index(drop=True)
 
 
-def build_v3_data(accessed_date):
+def build_normalized_data(accessed_date):
     models_df = pd.read_csv(DATA_DIR / "models.csv")
     taxonomy_df = pd.read_csv(DATA_DIR / "benchmark_taxonomy_v2.csv")
     aliases_df = read_aliases(DATA_DIR / "benchmark_aliases.csv")
     review_queue_df = read_review_queue(DATA_DIR / "benchmark_review_queue.csv")
+    metadata_overrides = read_benchmark_metadata_overrides(
+        DATA_DIR / "benchmark_metadata_overrides.csv"
+    )
+    facet_overrides = read_facet_overrides(DATA_DIR / "benchmark_facet_overrides.csv")
 
     canonical_taxonomy_df = dedupe_taxonomy(taxonomy_df)
-    benchmarks_df = build_benchmarks(canonical_taxonomy_df)
+    benchmarks_df = build_benchmarks(canonical_taxonomy_df, metadata_overrides, facet_overrides)
     canonical_lookup = build_canonical_lookup(benchmarks_df, aliases_df)
     review_notes = build_review_notes(review_queue_df, canonical_lookup)
     benchmarks_df = apply_benchmark_review_status(benchmarks_df, review_notes)
-    evidence_df = build_evidence(benchmarks_df, accessed_date=accessed_date)
-    facet_edges_df = build_facet_edges(benchmarks_df, evidence_df, review_notes)
+    evidence_df = build_evidence(
+        benchmarks_df,
+        metadata_overrides,
+        accessed_date=accessed_date,
+    )
+    facet_edges_df = build_facet_edges(
+        benchmarks_df,
+        evidence_df,
+        review_notes,
+        facet_overrides,
+    )
     release_mentions_df = build_release_mentions(models_df, benchmarks_df, canonical_lookup)
     prominence_overrides_df = read_prominence_overrides(DATA_DIR / "mention_prominence_overrides.csv")
     release_mentions_df, prominence_override_count = apply_prominence_overrides(
@@ -851,10 +736,10 @@ def build_v3_data(accessed_date):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build v3 normalized benchmark data from legacy CSVs.")
+    parser = argparse.ArgumentParser(description="Build normalized benchmark data from source CSVs.")
     parser.add_argument("--accessed-date", default="2026-04-25", help="Date to stamp seeded evidence rows.")
     args = parser.parse_args()
-    build_v3_data(accessed_date=args.accessed_date)
+    build_normalized_data(accessed_date=args.accessed_date)
 
 
 if __name__ == "__main__":
