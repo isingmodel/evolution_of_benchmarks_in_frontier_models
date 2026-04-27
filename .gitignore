@@ -1,6 +1,7 @@
 secrets/*
 scraping/cache/
 scraping/output/
+data/benchmark_facet_manual.csv
 .DS_Store
 
 # Byte-compiled / optimized / DLL files

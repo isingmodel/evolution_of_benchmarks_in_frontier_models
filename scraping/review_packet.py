@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a multi-agent review packet from one scraper extraction JSON.
 
-The scraper extracts evidence-backed candidates; this script turns that raw
+The scraper extracts source-backed candidates; this script turns that raw
 extraction into a stable handoff packet for independent reviewers/subagents.
 It does not call any model API and does not modify canonical data files.
 """
@@ -17,7 +17,7 @@ from typing import Any, Iterable, Mapping, Sequence
 ROLE_BRIEFS = [
     (
         "Source Extractor",
-        "Recover every benchmark-like, evaluation-like, leaderboard-like, suite-component, and aggregate-index-component name present on the public release page, including text, tables, image alt text, rendered tabs, footnotes, and OCR evidence. Keep release-page names visible and explicitly mark cost, latency, price, and non-evaluation UI labels as non-benchmarks.",
+        "Recover every benchmark-like, evaluation-like, leaderboard-like, suite-component, and aggregate-index-component name present on the public release page, including text, tables, image alt text, rendered tabs, footnotes, and OCR source context. Keep release-page names visible and explicitly mark cost, latency, price, and non-evaluation UI labels as non-benchmarks.",
     ),
     (
         "False-Positive Auditor",
@@ -25,11 +25,11 @@ ROLE_BRIEFS = [
     ),
     (
         "Catalog Mapper",
-        "Map only exact canonical names or explicit curated aliases to the local catalog. Propose new canonical rows for genuinely new benchmark names, and propose narrow aliases only when the source identity is evidence-backed.",
+        "Map only exact canonical names or explicit curated aliases to the local catalog. Propose new canonical rows for genuinely new benchmark names, and propose narrow aliases only when the source identity is source-backed.",
     ),
     (
         "Data Integrity Auditor",
-        "Check the model name, release date, source URL, row order, AS_OF value, generated release mentions, expected asset regeneration, and validation commands. Flag any change that would silently rewrite existing rows or broaden aliases.",
+        "Check the model name, release date, source URL, row order, AS_OF value, generated files, expected asset regeneration, and validation commands. Flag any change that would silently rewrite existing rows or broaden aliases.",
     ),
 ]
 
@@ -42,7 +42,7 @@ FINAL_ADJUDICATION_RULES = [
     "Do not count cost, latency, throughput, pricing, or the source of those measurements as capability benchmarks.",
     "Do not create broad semantic aliases to improve recall; unknown or variant names should become review items or new canonical rows.",
     "Keep raw mention wording visible when canonicalizing variants, especially Pro, Verified, v2, subset, track, and leaderboard names when they change benchmark identity rather than only run settings.",
-    "Final data writes happen in the foreground after independent reviews are reconciled against evidence.",
+    "Final data writes happen in the foreground after independent reviews are reconciled against the source page.",
 ]
 
 
@@ -104,7 +104,7 @@ def review_rows(data: Mapping[str, Any]) -> list[list[Any]]:
                 item.get("relationship", ""),
                 item.get("confidence", ""),
                 item.get("reason", ""),
-                item.get("evidence", ""),
+                item.get("source_excerpt", item.get("evidence", "")),
             ]
         )
     return rows
@@ -138,7 +138,7 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
     lines.extend(
         [
             "",
-            "## Benchmark Evidence Hits",
+            "## Benchmark Source Hits",
             "",
             *table(
                 ["canonical", "raw", "source_kind", "source_label", "score", "snippet"],
@@ -148,7 +148,7 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
             "## Review-Required Mentions",
             "",
             *table(
-                ["raw", "candidate canonical", "relationship", "confidence", "reason", "evidence"],
+                ["raw", "candidate canonical", "relationship", "confidence", "reason", "source_excerpt"],
                 review_rows(data),
             ),
             "",
@@ -176,16 +176,14 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
             "- Add or update `data/models.csv` only after raw mentions are reconciled.",
             "- Add new benchmark rows to `data/benchmarks.csv` only when the name is not safely represented by an existing canonical benchmark.",
             "- Add aliases to `data/benchmark_aliases.csv` only for exact, source-backed identity mappings.",
-            "- Add unresolved variants or construct concerns to `data/benchmark_review_queue.csv`.",
-            "- Add source-backed link or author-affiliation corrections to `data/benchmark_metadata_overrides.csv`.",
-            "- Add audited multi-facet annotations to `data/benchmark_facet_overrides.csv`.",
+            "- Record unresolved variants or construct concerns directly in `data/benchmarks.csv` or temporary `data/benchmark_facet_manual.csv`.",
+            "- Add audited multi-facet annotations to temporary `data/benchmark_facet_manual.csv`, then integrate them into `data/benchmark_facets.csv` with `scripts/build_normalized_data.py`.",
             "- Regenerate normalized data, README, and chart assets; then run validation.",
             "",
             "```bash",
             "AS_OF=YYYY-MM-DD",
-            "ACCESSED_DATE=YYYY-MM-DD",
             "",
-            "python scripts/build_normalized_data.py --accessed-date \"$ACCESSED_DATE\"",
+            "python scripts/build_normalized_data.py",
             "python scripts/validate_data.py",
             "python scripts/generate_visuals.py --as-of \"$AS_OF\" --strict-resolution",
             "python scripts/generate_trend_graph_by_main_category.py --as-of \"$AS_OF\" --window-days 180 --strict-resolution",

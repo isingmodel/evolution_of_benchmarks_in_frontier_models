@@ -1,6 +1,6 @@
 # Benchmark Audit Notes
 
-이 문서는 v3 migration 중 evidence audit가 끝난 benchmark들의 분류 결정을 기록한다. 목표는 단일 `task_mode`로 애매한 benchmark를 억지로 고정하지 않고, legacy chart projection과 연구용 multi-facet annotation을 분리해 보존하는 것이다.
+이 문서는 v3 migration 중 source audit가 끝난 benchmark들의 분류 결정을 기록한다. 목표는 단일 `task_mode`로 애매한 benchmark를 억지로 고정하지 않고, legacy chart projection과 연구용 multi-facet annotation을 분리해 보존하는 것이다.
 
 Accessed date: 2026-04-25
 
@@ -14,7 +14,7 @@ Accessed date: 2026-04-25
 | `GDPval-AA` | `Agentic / Specialized` | `accepted` | Treat as Artificial Analysis' agentic GDPval-style knowledge-work evaluation. |
 | `BrowseComp Long Context` | `Knowledge Retrieval / General` | `accepted` | This variant is long-context retrieval from noisy in-context data, not live browsing. |
 | `FACTS Benchmark suite` | `Knowledge Retrieval / General` | `needs_review` | Suite-level projection is useful, but subbenchmarks should be carded separately. |
-| `BioPipelineBench` | `Agentic / Specialized` | `needs_review` | Provider evidence supports bioinformatics workflow execution with tools, but public benchmark details are limited. |
+| `BioPipelineBench` | `Agentic / Specialized` | `needs_review` | Provider documentation supports bioinformatics workflow execution with tools, but public benchmark details are limited. |
 
 ## Decisions
 
@@ -135,9 +135,9 @@ Rationale:
 
 Anthropic's system card describes bioinformatics workflow execution with bash, code execution, and package-manager access. That supports an agentic workflow interpretation, but public scoring details remain limited.
 
-## Residual Review Queue
+## Open Caveats
 
-The main unresolved items are:
+The main known caveats are represented directly in `benchmarks.csv` review statuses and the generated facet rows:
 
 - `MCP-Atlas`: confirm alias identity with `Scale MCP-Atlas`.
 - `Humanity's Last Exam`: confirm whether canonical display name should remain `HLE (Humanity's Last Exam)`.

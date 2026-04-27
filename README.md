@@ -21,7 +21,7 @@ The following graph summarizes low-confidence or review-needed facet rows in the
 ![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
 ## Multi-Facet Trends
-The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facet_edges.csv`. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
+The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facets.csv`. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Analysis & Observations
@@ -34,7 +34,7 @@ This analysis therefore focuses on benchmarks featured prominently on model rele
 
 Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction.
 
-The current normalized seed includes evidence-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and remaining review queue.
+The current normalized seed includes source-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and known open caveats.
 
 ### Evolution of Benchmarks
 *   **Early GPT (3, 3.5)**: Focused on simple knowledge-based QA benchmarks (e.g., Biology Olympiad), reflecting the limitations of early LLMs.
@@ -241,9 +241,8 @@ Under the v3 methodology, these fields should be treated as projections from ric
 To regenerate the normalized benchmark data, current chart assets, and README, run:
 ```bash
 AS_OF=2026-04-23          # latest release date included in data/models.csv
-ACCESSED_DATE=2026-04-26  # date used for seeded evidence records
 
-python scripts/build_normalized_data.py --accessed-date "$ACCESSED_DATE"
+python scripts/build_normalized_data.py
 python scripts/validate_data.py
 python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
 python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
@@ -253,7 +252,7 @@ python scripts/update_readme.py
 python scripts/validate_data.py
 ```
 
-The normalized-data build seeds canonical benchmark, evidence, and facet-edge tables from source CSVs. Curated corrections live in `data/benchmark_metadata_overrides.csv` and `data/benchmark_facet_overrides.csv` rather than in the build script. The generated README taxonomy table and trend scripts remain headline-compatible while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis.
+The normalized-data build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are integrated into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. The generated README taxonomy table and trend scripts remain headline-compatible while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis.
 
 ## Release-Page Extraction Workflow
-For new model launches, run the scraper as an evidence generator and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.
+For new model launches, run the scraper as a source extractor and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.

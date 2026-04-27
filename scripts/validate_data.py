@@ -45,29 +45,10 @@ REQUIRED_FACET_COLUMNS = {
     "facet_label",
     "label_weight",
     "classification_confidence",
-    "evidence_id",
     "review_status",
     "rationale",
 }
-REQUIRED_EVIDENCE_COLUMNS = {
-    "evidence_id",
-    "benchmark_id",
-    "evidence_type",
-    "title",
-    "url",
-    "source_date",
-    "accessed_date",
-    "notes",
-}
-REQUIRED_BENCHMARK_METADATA_OVERRIDE_COLUMNS = {
-    "benchmark_name",
-    "reference_link",
-    "source_author",
-    "frontier_lab_author_affiliations",
-    "evidence_notes",
-}
-REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS = {
-    "benchmark_name",
+REQUIRED_MANUAL_FACET_COLUMNS = {
     "facet_axis",
     "facet_label",
     "label_weight",
@@ -75,16 +56,6 @@ REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS = {
     "review_status",
     "rationale",
 }
-ALLOWED_EVIDENCE_TYPE = {
-    "benchmark_definition",
-    "provider_mention",
-    "technical_report",
-    "model_card",
-    "benchmark_card",
-    "classification_rationale",
-    "override_adjudication",
-}
-
 MODE_ORDER = [
     "Agentic",
     "Multimodal Perception",
@@ -396,22 +367,46 @@ def validate_frontier_lab_author_affiliations(report, benchmarks, path):
             )
 
 
+def build_manual_benchmark_lookup(benchmarks, resolver):
+    lookup = {}
+    if not benchmarks.empty:
+        lookup.update(
+            {
+                identity_key(row["benchmark_name"]): row["benchmark_id"]
+                for _, row in benchmarks.iterrows()
+            }
+        )
+
+    if resolver is not None:
+        lookup.update(
+            {
+                identity_key(benchmark.benchmark_name): benchmark.benchmark_id
+                for benchmark in resolver.canonical_by_exact.values()
+            }
+        )
+        lookup.update(
+            {
+                identity_key(alias.alias): alias.benchmark_id
+                for alias in resolver.alias_by_exact.values()
+            }
+        )
+
+    return lookup
+
+
 def validate_normalized_data(report, models, resolver, data_dir=None):
     data_dir = Path(data_dir) if data_dir else DATA_DIR
     paths = {
         "benchmarks": data_dir / "benchmarks.csv",
-        "benchmark_metadata_overrides": data_dir / "benchmark_metadata_overrides.csv",
-        "benchmark_facet_overrides": data_dir / "benchmark_facet_overrides.csv",
-        "facets": data_dir / "benchmark_facet_edges.csv",
-        "evidence": data_dir / "evidence.csv",
+        "facets": data_dir / "benchmark_facets.csv",
+        "manual_facets": data_dir / "benchmark_facet_manual.csv",
     }
     missing_core_paths = [
         path
         for key, path in paths.items()
         if key
         not in {
-            "benchmark_metadata_overrides",
-            "benchmark_facet_overrides",
+            "manual_facets",
         }
         and not path.exists()
     ]
@@ -427,30 +422,22 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
 
     if "benchmarks" in frames:
         report.require_columns(frames["benchmarks"], REQUIRED_BENCHMARK_COLUMNS, str(paths["benchmarks"]))
-    if "benchmark_metadata_overrides" in frames:
+    if "manual_facets" in frames:
         report.require_columns(
-            frames["benchmark_metadata_overrides"],
-            REQUIRED_BENCHMARK_METADATA_OVERRIDE_COLUMNS,
-            str(paths["benchmark_metadata_overrides"]),
+            frames["manual_facets"],
+            REQUIRED_MANUAL_FACET_COLUMNS,
+            str(paths["manual_facets"]),
         )
-    if "benchmark_facet_overrides" in frames:
-        report.require_columns(
-            frames["benchmark_facet_overrides"],
-            REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS,
-            str(paths["benchmark_facet_overrides"]),
-        )
+        if "benchmark_id" not in frames["manual_facets"].columns and "benchmark_name" not in frames["manual_facets"].columns:
+            report.error(f"{paths['manual_facets']} must include either benchmark_id or benchmark_name")
     if "facets" in frames:
         report.require_columns(frames["facets"], REQUIRED_FACET_COLUMNS, str(paths["facets"]))
-    if "evidence" in frames:
-        report.require_columns(frames["evidence"], REQUIRED_EVIDENCE_COLUMNS, str(paths["evidence"]))
     if report.errors:
         return
 
     benchmarks = frames.get("benchmarks", pd.DataFrame())
-    benchmark_metadata_overrides = frames.get("benchmark_metadata_overrides", pd.DataFrame())
-    benchmark_facet_overrides = frames.get("benchmark_facet_overrides", pd.DataFrame())
+    manual_facets = frames.get("manual_facets", pd.DataFrame())
     facets = frames.get("facets", pd.DataFrame())
-    evidence = frames.get("evidence", pd.DataFrame())
 
     if not benchmarks.empty:
         duplicates = duplicate_values(benchmarks["benchmark_id"])
@@ -475,92 +462,48 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
 
         validate_frontier_lab_author_affiliations(report, benchmarks, paths["benchmarks"])
 
-    benchmark_names = set(benchmarks["benchmark_name"]) if not benchmarks.empty else None
-
-    if not benchmark_metadata_overrides.empty:
-        duplicate_override_names = duplicate_values(
-            identity_key(name) for name in benchmark_metadata_overrides["benchmark_name"]
-        )
-        if duplicate_override_names:
-            report.error(
-                f"{paths['benchmark_metadata_overrides']} has duplicate benchmark_name values: "
-                f"{sorted(duplicate_override_names)}"
-            )
-        if benchmark_names is not None:
-            unknown_names = sorted(set(benchmark_metadata_overrides["benchmark_name"]) - benchmark_names - {""})
-            if unknown_names:
-                report.error(
-                    f"{paths['benchmark_metadata_overrides']} references unknown benchmark names: "
-                    f"{unknown_names}"
-                )
-
-        override_affiliations = benchmark_metadata_overrides[
-            benchmark_metadata_overrides["frontier_lab_author_affiliations"].astype(str).str.strip() != ""
-        ].copy()
-        if not override_affiliations.empty:
-            override_affiliations["benchmark_id"] = override_affiliations["benchmark_name"].map(benchmark_id)
-            validate_frontier_lab_author_affiliations(
-                report,
-                override_affiliations,
-                paths["benchmark_metadata_overrides"],
-            )
-
-    if not benchmark_facet_overrides.empty:
-        if benchmark_names is not None:
-            unknown_names = sorted(set(benchmark_facet_overrides["benchmark_name"]) - benchmark_names - {""})
-            if unknown_names:
-                report.error(
-                    f"{paths['benchmark_facet_overrides']} references unknown benchmark names: "
-                    f"{unknown_names}"
-                )
-
-        invalid_statuses = sorted(
-            set(benchmark_facet_overrides["review_status"]) - VALID_FACET_STATUSES - {""}
-        )
-        if invalid_statuses:
-            report.error(
-                f"{paths['benchmark_facet_overrides']} has invalid review_status values: {invalid_statuses}"
-            )
-
-        numeric_columns = ["label_weight", "classification_confidence"]
-        for column in numeric_columns:
-            values = pd.to_numeric(benchmark_facet_overrides[column], errors="coerce")
-            if values.isna().any() or (values < 0).any():
-                report.error(f"{paths['benchmark_facet_overrides']} has invalid {column} values")
-
-        for _, row in benchmark_facet_overrides.iterrows():
-            axis = row["facet_axis"]
-            label = row["facet_label"]
-            if axis not in VALID_FACET_AXES:
-                report.error(f"{paths['benchmark_facet_overrides']} has invalid facet_axis {axis!r}")
-                break
-            allowed_labels = set(MODE_ORDER) if axis == "headline_task_mode" else ALLOWED_FACET_LABELS.get(axis, set())
-            if label not in allowed_labels:
-                report.error(
-                    f"{paths['benchmark_facet_overrides']} has invalid label {label!r} for axis {axis!r}"
-                )
-                break
-
     benchmark_ids = set(benchmarks["benchmark_id"]) if not benchmarks.empty else None
-    evidence_ids = set(evidence["evidence_id"]) if not evidence.empty else None
+    manual_benchmark_lookup = build_manual_benchmark_lookup(benchmarks, resolver)
 
-    if not evidence.empty:
-        duplicates = duplicate_values(evidence["evidence_id"])
-        if duplicates:
-            report.error(f"{paths['evidence']} has duplicate evidence_id values: {sorted(duplicates)}")
+    if not manual_facets.empty:
+        manual_for_validation = manual_facets.copy()
+        if "benchmark_id" not in manual_for_validation.columns:
+            manual_for_validation["benchmark_id"] = ""
 
-        invalid_evidence_types = sorted(set(evidence["evidence_type"]) - ALLOWED_EVIDENCE_TYPE - {""})
-        if invalid_evidence_types:
-            report.error(f"{paths['evidence']} has invalid evidence_type values: {invalid_evidence_types}")
+        if "benchmark_name" in manual_for_validation.columns and not benchmarks.empty:
+            empty_ids = manual_for_validation["benchmark_id"].astype(str).str.strip() == ""
+            manual_for_validation.loc[empty_ids, "benchmark_id"] = manual_for_validation.loc[
+                empty_ids, "benchmark_name"
+            ].map(lambda name: manual_benchmark_lookup.get(identity_key(name), "")).fillna("")
 
-        if benchmark_ids is not None:
-            missing = sorted(set(evidence["benchmark_id"]) - benchmark_ids - {""})
-            if missing:
-                report.error(f"evidence references missing benchmark_id values: {missing}")
+            unknown_names = sorted(
+                str(name).strip()
+                for _, name in manual_for_validation.loc[
+                    empty_ids & (manual_for_validation["benchmark_id"].astype(str).str.strip() == ""),
+                    "benchmark_name",
+                ].items()
+                if str(name).strip()
+            )
+            if unknown_names:
+                report.error(f"{paths['manual_facets']} references unknown benchmark names: {unknown_names}")
 
-        empty_urls = evidence[evidence["url"].astype(str).str.strip() == ""]
-        if not empty_urls.empty:
-            report.warning(f"{len(empty_urls)} evidence rows have empty URLs inherited from legacy taxonomy.")
+        report.require_columns(manual_for_validation, REQUIRED_FACET_COLUMNS, str(paths["manual_facets"]))
+        empty_ids = manual_for_validation["benchmark_id"].astype(str).str.strip() == ""
+        if empty_ids.any():
+            report.error(
+                f"{paths['manual_facets']} has rows without benchmark_id or resolvable benchmark_name: "
+                f"{[idx + 2 for idx in manual_for_validation[empty_ids].index.tolist()]}"
+            )
+        if not report.errors:
+            validate_facet_frame(
+                report,
+                manual_for_validation,
+                str(paths["manual_facets"]),
+                "benchmark_id",
+                known_owner_ids=benchmark_ids,
+                require_required_facets=False,
+                check_projection=False,
+            )
 
     if not facets.empty:
         validate_facet_frame(
@@ -572,10 +515,6 @@ def validate_normalized_data(report, models, resolver, data_dir=None):
             require_required_facets=True,
             check_projection=True,
         )
-        if evidence_ids is not None:
-            missing_evidence = sorted(set(facets["evidence_id"]) - evidence_ids - {""})
-            if missing_evidence:
-                report.error(f"benchmark_facet_edges references missing evidence_id values: {missing_evidence}")
 
     present = ", ".join(str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path) for path in paths.values() if path.exists())
     if present:

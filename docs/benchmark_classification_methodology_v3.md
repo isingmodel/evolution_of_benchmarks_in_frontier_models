@@ -342,12 +342,12 @@ Rules:
 - Add explicit aliases to `benchmark_aliases.csv` when a release-page label is not an exact canonical name.
 - Do not maintain a separate materialized mention table unless a future analysis needs audited mention-level metadata.
 
-### 7.4 benchmark_facet_edges.csv
+### 7.4 benchmark_facets.csv
 
 Records benchmark-to-facet-label relationships in long form.
 
 ```csv
-benchmark_id,facet_axis,facet_label,label_weight,classification_confidence,evidence_id,review_status,rationale
+benchmark_id,facet_axis,facet_label,label_weight,classification_confidence,review_status,rationale
 ```
 
 Rules:
@@ -355,24 +355,7 @@ Rules:
 - Within the same `benchmark_id + facet_axis`, `label_weight` values should sum to approximately 1.0.
 - If `classification_confidence < 0.7`, default to `review_status=needs_review`.
 - A benchmark may have multiple domains or modalities.
-
-### 7.5 evidence.csv
-
-Records the evidence behind every classification judgment.
-
-```csv
-evidence_id,evidence_type,title,url,source_date,accessed_date,notes
-```
-
-Example `evidence_type` values:
-
-- `benchmark_definition`
-- `provider_mention`
-- `technical_report`
-- `model_card`
-- `benchmark_card`
-- `classification_rationale`
-- `override_adjudication`
+- Human-reviewed changes should be integrated here after review. `benchmark_facet_manual.csv` is a temporary update-staging file, not a permanent project table.
 
 ## 8. Classification Procedure
 
@@ -386,9 +369,9 @@ Requirements:
 - Fuzzy substring matching is prohibited.
 - Unresolved mentions must be treated as validator errors.
 
-### Step 2. Collect Evidence
+### Step 2. Collect Source Context
 
-Collect minimum evidence for each benchmark.
+Collect minimum source context for each benchmark.
 
 Priority order:
 
@@ -641,7 +624,6 @@ Required gates:
 
 Recommended gates:
 
-- Every reviewed benchmark has at least one `benchmark_definition` evidence record.
 - Every release mention has a provider source URL.
 - Every provider-created benchmark is flagged.
 - Every private or opaque evaluation is flagged.
@@ -670,7 +652,7 @@ Recommended gates:
 
 ### Phase 3. Multi-Facet Taxonomy
 
-- Add `benchmark_facet_edges.csv`.
+- Add `benchmark_facets.csv`.
 - Pilot annotations for 15-20 core benchmarks.
 - Separate `label_weight` from `classification_confidence`.
 - Introduce the `needs_review` workflow.
