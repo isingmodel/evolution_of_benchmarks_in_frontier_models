@@ -18,7 +18,7 @@ DEFAULT_AXES = ["domain", "modality", "interaction_pattern", "context_pressure"]
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Generate rolling trends from v3 benchmark facet edges.")
+    parser = argparse.ArgumentParser(description="Generate rolling trends from benchmark facet edges.")
     parser.add_argument(
         "--as-of",
         help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest release_mentions date.",
@@ -31,7 +31,7 @@ def parse_args():
     )
     parser.add_argument(
         "--output",
-        default="assets/benchmark_v3_facet_trends.png",
+        default="assets/benchmark_facet_trends.png",
         help="Output image path.",
     )
     parser.add_argument(
@@ -66,7 +66,7 @@ def load_inputs():
     mentions_path = DATA_DIR / "release_mentions.csv"
     facets_path = DATA_DIR / "benchmark_facet_edges.csv"
     if not mentions_path.exists() or not facets_path.exists():
-        raise FileNotFoundError("Run scripts/build_v3_data.py before generating v3 facet trends.")
+        raise FileNotFoundError("Run scripts/build_normalized_data.py before generating facet trends.")
 
     mentions = pd.read_csv(mentions_path).fillna("")
     facets = pd.read_csv(facets_path).fillna("")
@@ -142,7 +142,7 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     colors = sns.color_palette("tab20", n_colors=len(labels))
     ax.stackplot(trend.index, [trend[label] for label in labels], labels=labels, colors=colors, alpha=0.9)
     title = axis.replace("_", " ").title()
-    ax.set_title(f"{title} Trend (v3 facets, {window_days}-day, as of {as_of.date()})", fontsize=14, weight="bold")
+    ax.set_title(f"{title} Trend (facet data, {window_days}-day, as of {as_of.date()})", fontsize=14, weight="bold")
     ax.set_ylabel("Share of weighted mentions", fontsize=11)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
@@ -161,10 +161,10 @@ def save_figure(fig, output_path):
     print(f"Graph generated at {output_path}")
 
 
-def generate_v3_facet_trends(as_of=None, window_days=180, axes=None, output_path=None, top_labels=10):
+def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=None, top_labels=10):
     window_days = validate_window_days(window_days)
     axes = axes or DEFAULT_AXES
-    output_path = output_path or "assets/benchmark_v3_facet_trends.png"
+    output_path = output_path or "assets/benchmark_facet_trends.png"
     mentions, facets = load_inputs()
     if as_of is None:
         as_of = pd.to_datetime(mentions["release_date"], errors="raise").max().normalize()
@@ -192,7 +192,7 @@ def generate_v3_facet_trends(as_of=None, window_days=180, axes=None, output_path
             ax.set_xlim(min(min_dates), as_of)
     axs[-1].set_xlabel("Time", fontsize=12)
     plt.xticks(rotation=45)
-    fig.suptitle("Benchmark Trends by v3 Multi-Facet Taxonomy", fontsize=18, weight="bold", y=0.995)
+    fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=18, weight="bold", y=0.995)
     plt.tight_layout(rect=[0, 0, 1, 0.985])
     save_figure(fig, output_path)
     plt.close(fig)
@@ -200,7 +200,7 @@ def generate_v3_facet_trends(as_of=None, window_days=180, axes=None, output_path
 
 if __name__ == "__main__":
     args = parse_args()
-    generate_v3_facet_trends(
+    generate_facet_trends(
         as_of=parse_as_of(args.as_of),
         window_days=args.window_days,
         axes=split_axes(args.axes),

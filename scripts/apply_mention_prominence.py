@@ -26,7 +26,7 @@ DATA_DIR = ROOT / "data"
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Apply manual release mention prominence overrides.")
-    parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing v3 data CSVs.")
+    parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing normalized data CSVs.")
     parser.add_argument(
         "--release-mentions",
         help="Path to release_mentions.csv. Defaults to DATA_DIR/release_mentions.csv.",

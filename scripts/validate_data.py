@@ -99,6 +99,22 @@ REQUIRED_EVIDENCE_COLUMNS = {
     "accessed_date",
     "notes",
 }
+REQUIRED_BENCHMARK_METADATA_OVERRIDE_COLUMNS = {
+    "benchmark_name",
+    "reference_link",
+    "source_author",
+    "frontier_lab_author_affiliations",
+    "evidence_notes",
+}
+REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS = {
+    "benchmark_name",
+    "facet_axis",
+    "facet_label",
+    "label_weight",
+    "classification_confidence",
+    "review_status",
+    "rationale",
+}
 ALLOWED_EVIDENCE_TYPE = {
     "benchmark_definition",
     "provider_mention",
@@ -132,7 +148,6 @@ ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
     "DeepMind",
     "Microsoft",
     "xAI",
-    "Meta",
 }
 
 
@@ -434,11 +449,13 @@ def validate_frontier_lab_author_affiliations(report, benchmarks, path):
             )
 
 
-def validate_generated_v3(report, models, resolver, data_dir=None):
+def validate_normalized_data(report, models, resolver, data_dir=None):
     data_dir = Path(data_dir) if data_dir else DATA_DIR
     paths = {
         "benchmarks": data_dir / "benchmarks.csv",
         "release_mentions": data_dir / "release_mentions.csv",
+        "benchmark_metadata_overrides": data_dir / "benchmark_metadata_overrides.csv",
+        "benchmark_facet_overrides": data_dir / "benchmark_facet_overrides.csv",
         "mention_prominence_overrides": data_dir / "mention_prominence_overrides.csv",
         "facets": data_dir / "benchmark_facet_edges.csv",
         "mention_overrides": data_dir / "mention_facet_overrides.csv",
@@ -447,11 +464,18 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
     missing_core_paths = [
         path
         for key, path in paths.items()
-        if key not in {"mention_overrides", "mention_prominence_overrides"} and not path.exists()
+        if key
+        not in {
+            "benchmark_metadata_overrides",
+            "benchmark_facet_overrides",
+            "mention_overrides",
+            "mention_prominence_overrides",
+        }
+        and not path.exists()
     ]
     if missing_core_paths:
         report.warning(
-            "Generated v3 data not fully present yet: "
+            "Generated normalized data not fully present yet: "
             + ", ".join(str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path) for path in missing_core_paths)
         )
 
@@ -463,6 +487,18 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
         report.require_columns(frames["benchmarks"], REQUIRED_BENCHMARK_COLUMNS, str(paths["benchmarks"]))
     if "release_mentions" in frames:
         report.require_columns(frames["release_mentions"], REQUIRED_MENTION_COLUMNS, str(paths["release_mentions"]))
+    if "benchmark_metadata_overrides" in frames:
+        report.require_columns(
+            frames["benchmark_metadata_overrides"],
+            REQUIRED_BENCHMARK_METADATA_OVERRIDE_COLUMNS,
+            str(paths["benchmark_metadata_overrides"]),
+        )
+    if "benchmark_facet_overrides" in frames:
+        report.require_columns(
+            frames["benchmark_facet_overrides"],
+            REQUIRED_BENCHMARK_FACET_OVERRIDE_COLUMNS,
+            str(paths["benchmark_facet_overrides"]),
+        )
     if "mention_prominence_overrides" in frames:
         report.require_columns(
             frames["mention_prominence_overrides"],
@@ -484,6 +520,8 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
 
     benchmarks = frames.get("benchmarks", pd.DataFrame())
     release_mentions = frames.get("release_mentions", pd.DataFrame())
+    benchmark_metadata_overrides = frames.get("benchmark_metadata_overrides", pd.DataFrame())
+    benchmark_facet_overrides = frames.get("benchmark_facet_overrides", pd.DataFrame())
     mention_prominence_overrides = frames.get("mention_prominence_overrides", pd.DataFrame())
     facets = frames.get("facets", pd.DataFrame())
     mention_overrides = frames.get("mention_overrides", pd.DataFrame())
@@ -511,6 +549,72 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
             report.error(f"{paths['benchmarks']} has invalid review_status values: {invalid_statuses}")
 
         validate_frontier_lab_author_affiliations(report, benchmarks, paths["benchmarks"])
+
+    benchmark_names = set(benchmarks["benchmark_name"]) if not benchmarks.empty else None
+
+    if not benchmark_metadata_overrides.empty:
+        duplicate_override_names = duplicate_values(
+            identity_key(name) for name in benchmark_metadata_overrides["benchmark_name"]
+        )
+        if duplicate_override_names:
+            report.error(
+                f"{paths['benchmark_metadata_overrides']} has duplicate benchmark_name values: "
+                f"{sorted(duplicate_override_names)}"
+            )
+        if benchmark_names is not None:
+            unknown_names = sorted(set(benchmark_metadata_overrides["benchmark_name"]) - benchmark_names - {""})
+            if unknown_names:
+                report.error(
+                    f"{paths['benchmark_metadata_overrides']} references unknown benchmark names: "
+                    f"{unknown_names}"
+                )
+
+        override_affiliations = benchmark_metadata_overrides[
+            benchmark_metadata_overrides["frontier_lab_author_affiliations"].astype(str).str.strip() != ""
+        ].copy()
+        if not override_affiliations.empty:
+            override_affiliations["benchmark_id"] = override_affiliations["benchmark_name"].map(benchmark_id)
+            validate_frontier_lab_author_affiliations(
+                report,
+                override_affiliations,
+                paths["benchmark_metadata_overrides"],
+            )
+
+    if not benchmark_facet_overrides.empty:
+        if benchmark_names is not None:
+            unknown_names = sorted(set(benchmark_facet_overrides["benchmark_name"]) - benchmark_names - {""})
+            if unknown_names:
+                report.error(
+                    f"{paths['benchmark_facet_overrides']} references unknown benchmark names: "
+                    f"{unknown_names}"
+                )
+
+        invalid_statuses = sorted(
+            set(benchmark_facet_overrides["review_status"]) - VALID_FACET_STATUSES - {""}
+        )
+        if invalid_statuses:
+            report.error(
+                f"{paths['benchmark_facet_overrides']} has invalid review_status values: {invalid_statuses}"
+            )
+
+        numeric_columns = ["label_weight", "classification_confidence"]
+        for column in numeric_columns:
+            values = pd.to_numeric(benchmark_facet_overrides[column], errors="coerce")
+            if values.isna().any() or (values < 0).any():
+                report.error(f"{paths['benchmark_facet_overrides']} has invalid {column} values")
+
+        for _, row in benchmark_facet_overrides.iterrows():
+            axis = row["facet_axis"]
+            label = row["facet_label"]
+            if axis not in VALID_FACET_AXES:
+                report.error(f"{paths['benchmark_facet_overrides']} has invalid facet_axis {axis!r}")
+                break
+            allowed_labels = set(MODE_ORDER) if axis == "headline_task_mode" else ALLOWED_FACET_LABELS.get(axis, set())
+            if label not in allowed_labels:
+                report.error(
+                    f"{paths['benchmark_facet_overrides']} has invalid label {label!r} for axis {axis!r}"
+                )
+                break
 
     benchmark_ids = set(benchmarks["benchmark_id"]) if not benchmarks.empty else None
     evidence_ids = set(evidence["evidence_id"]) if not evidence.empty else None
@@ -662,20 +766,20 @@ def validate_generated_v3(report, models, resolver, data_dir=None):
 
     present = ", ".join(str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path) for path in paths.values() if path.exists())
     if present:
-        print(f"Validated optional v3 data file(s): {present}.")
+        print(f"Validated optional normalized data file(s): {present}.")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Validate benchmark taxonomy and generated v3 data.")
+    parser = argparse.ArgumentParser(description="Validate benchmark taxonomy and generated normalized data.")
     parser.add_argument("--models", default=str(DATA_DIR / "models.csv"), help="Path to models CSV")
     parser.add_argument("--taxonomy", default=str(DATA_DIR / "benchmark_taxonomy_v2.csv"), help="Path to taxonomy CSV")
     parser.add_argument("--aliases", default=str(DATA_DIR / "benchmark_aliases.csv"), help="Path to benchmark aliases CSV")
-    parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing optional v3 CSVs")
+    parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing optional normalized CSVs")
     args = parser.parse_args()
 
     report = Report()
     models, _, _, resolver = validate_legacy(report, args.models, args.taxonomy, args.aliases)
-    validate_generated_v3(report, models, resolver, args.data_dir)
+    validate_normalized_data(report, models, resolver, args.data_dir)
     report.print()
     if report.errors:
         sys.exit(1)
