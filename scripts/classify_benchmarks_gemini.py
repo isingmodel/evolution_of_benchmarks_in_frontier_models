@@ -67,6 +67,20 @@ CANONICAL_OUTPUT_FILENAMES = {
     "benchmarks.csv",
 }
 
+LEGACY_DOMAIN_PRIORITY: Tuple[str, ...] = (
+    "Coding/Engineering",
+    "STEM/Math",
+    "Law",
+    "Bio/Medicine",
+    "Finance",
+    "Cybersecurity",
+    "Visual/Document",
+    "Multilingual",
+    "Other Specialized",
+    "General/Commonsense",
+)
+LEGACY_DOMAIN_PRIORITY_INDEX = {label: index for index, label in enumerate(LEGACY_DOMAIN_PRIORITY)}
+
 
 def label_options(axis: str) -> str:
     return " | ".join(sorted(ALLOWED_FACET_LABELS[axis]))
@@ -677,10 +691,17 @@ def candidate_facet_rows(
 
 
 def primary_domain(facets: Mapping[str, Sequence[Mapping[str, object]]]) -> str:
-    domains = list(facets.get("domain", []))
+    domains = {
+        str(entry.get("label", "")).strip()
+        for entry in facets.get("domain", [])
+        if isinstance(entry, Mapping) and str(entry.get("label", "")).strip()
+    }
     if not domains:
         return ""
-    return str(domains[0]["label"])
+    return min(
+        sorted(domains),
+        key=lambda label: (LEGACY_DOMAIN_PRIORITY_INDEX.get(label, len(LEGACY_DOMAIN_PRIORITY_INDEX)), label),
+    )
 
 
 def collapse_domain_to_legacy(domain: str) -> str:
