@@ -200,7 +200,7 @@ def generate_facet_trends(as_of=None, window_days=180, axes=None, output_path=No
     fig.text(
         0.5,
         0.012,
-        f"Weighted by release-normalized mention_weight x label_weight. Top {top_labels} labels per axis are shown; smaller labels are grouped into Other. Facet data remains review-heavy.",
+        f"Public launch-page mentions, not capability measurements. Weighted by normalized mention_weight x label_weight; top {top_labels} labels shown, smaller labels grouped into Other.",
         ha="center",
         fontsize=9,
         color="#555555",

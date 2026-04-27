@@ -271,7 +271,7 @@ def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_pat
     fig.text(
         0.5,
         0.025,
-        "Release-normalized mention shares; domain has its own denominator and should not be mixed with task-mode shares.",
+        "Public launch-page mentions, not capability measurements. Release-normalized shares; domain has its own denominator and should not be mixed with task-mode shares.",
         ha="center",
         fontsize=9,
         color="#555555",
@@ -328,7 +328,7 @@ def generate_review_debt_graph(output_path):
     fig.text(
         0.5,
         0.025,
-        "Shares are computed within each facet axis from benchmark_facet_edges.csv; higher values indicate review backlog, not model capability.",
+        "Public launch-page benchmark taxonomy data, not capability measurements. Higher values indicate review backlog, not model performance.",
         ha="center",
         fontsize=9,
         color="#555555",
@@ -398,7 +398,7 @@ def generate_trend_graph(
     fig.text(
         0.5,
         0.025,
-        "Task mode and domain are separate denominators. Each release is normalized before the 180-day rolling window and 30-day EWMA smoothing.",
+        "Public launch-page mentions, not capability measurements. Task mode and domain are separate denominators; each release is normalized before exponential smoothing.",
         ha="center",
         fontsize=9,
         color="#555555",

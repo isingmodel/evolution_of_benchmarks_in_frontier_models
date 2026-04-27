@@ -194,6 +194,15 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
         return
 
     df = df.sort_values("Date")
+    label_rows = set()
+    for _, provider_df in df.groupby("Provider"):
+        provider_df = provider_df.sort_values("Date")
+        last_label_date = None
+        for row_index, row in provider_df.iterrows():
+            if last_label_date is None or (row["Date"] - last_label_date).days >= 180:
+                label_rows.add(row_index)
+                last_label_date = row["Date"]
+        label_rows.add(provider_df["Date"].idxmax())
 
     fig, ax = plt.subplots(figsize=(18, 9.5))
 
@@ -260,18 +269,19 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
             sub_ax.set_aspect("equal")
             sub_ax.axis("off")
 
-        offset_y = label_offset_cycle[len(close) % len(label_offset_cycle)]
-        ax.annotate(
-            f"{row['Model']} ({row['TotalHits']})",
-            (mdates.num2date(adjusted_x), y_val),
-            xytext=(0, offset_y),
-            textcoords="offset points",
-            ha="center",
-            va="center",
-            fontsize=8,
-            bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.8, ec="none"),
-            arrowprops=dict(arrowstyle="-", color="gray", alpha=0.5),
-        )
+        if idx in label_rows:
+            offset_y = label_offset_cycle[len(close) % len(label_offset_cycle)]
+            ax.annotate(
+                f"{row['Model']} ({row['TotalHits']})",
+                (mdates.num2date(adjusted_x), y_val),
+                xytext=(0, offset_y),
+                textcoords="offset points",
+                ha="center",
+                va="center",
+                fontsize=8,
+                bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.8, ec="none"),
+                arrowprops=dict(arrowstyle="-", color="gray", alpha=0.5),
+            )
 
     legend_handles = [
         plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=c, markersize=12, label=cat)
@@ -303,7 +313,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
     fig.text(
         0.5,
         0.035,
-        "Equal-sized pies show per-release composition, not mention volume. Label numbers are resolved mention counts; gray markers mean no resolved benchmark mentions captured.",
+        "Public launch-page mentions, not capability measurements. Equal-sized pies show per-release composition, not volume; selected label numbers are resolved mention counts.",
         ha="center",
         fontsize=9,
         color="#555555",

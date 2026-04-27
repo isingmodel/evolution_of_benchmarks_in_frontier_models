@@ -240,7 +240,7 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
     fig.text(
         0.5,
         0.025,
-        "Each release contributes total weight 1 across resolved mentions; values use a rolling window and 30-day EWMA smoothing.",
+        "Public launch-page mentions, not capability measurements. Each release contributes total weight 1 across resolved mentions; rolling window plus exponential smoothing.",
         ha="center",
         fontsize=9,
         color="#555555",
