@@ -79,6 +79,31 @@ SPECIALIZED_DOMAINS = {
 LONG_CONTEXT_BROAD = {"long_context_primary", "long_context_supporting"}
 LONG_CONTEXT_PRIMARY = {"long_context_primary"}
 FRONTIER_LABS = {"OpenAI", "Anthropic", "Google", "DeepMind", "Microsoft", "xAI"}
+MENTION_COLUMNS = [
+    "provider",
+    "model_name",
+    "link",
+    "release_date",
+    "release_year",
+    "model_key",
+    "raw_mention",
+    "benchmark_id",
+    "benchmark_name",
+    "release_weight",
+    "raw_weight",
+    "resolved_benchmark_count_for_release",
+]
+DIFFUSION_CASCADE_COLUMNS = [
+    "benchmark_id",
+    "benchmark_name",
+    "first_tracked_public_mention",
+    "first_tracked_providers",
+    "next_provider",
+    "next_provider_date",
+    "days_to_next_provider",
+    "public_mention_path",
+    "source_author",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -134,10 +159,11 @@ def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.Data
     for _, model in models.iterrows():
         raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
         resolved: dict[str, dict[str, object]] = {}
+        model_unresolved = []
         for raw_mention in raw_mentions:
             resolution = resolver.resolve(raw_mention)
             if not resolution:
-                unresolved.append(f"{model['Provider']} / {model['Model name']} / {raw_mention}")
+                model_unresolved.append(f"{model['Provider']} / {model['Model name']} / {raw_mention}")
                 continue
             entry = resolved.setdefault(
                 resolution.benchmark_id,
@@ -148,7 +174,8 @@ def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.Data
             )
             entry["raw_mentions"].append(raw_mention)
 
-        if unresolved:
+        if model_unresolved:
+            unresolved.extend(model_unresolved)
             continue
         if not resolved:
             continue
@@ -178,7 +205,7 @@ def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.Data
         sample = "; ".join(unresolved[:10])
         raise ValueError(f"Unresolved benchmark mentions found: {sample}")
 
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=MENTION_COLUMNS)
 
 
 def display_path(path: Path) -> str:
@@ -237,6 +264,24 @@ def add_metadata_and_flags(
         how="left",
         validate="many_to_one",
     )
+    flag_defaults = {
+        "is_static_exam": False,
+        "is_work_simulation": False,
+        "is_specialized_domain": False,
+        "is_long_context_broad": False,
+        "is_long_context_primary": False,
+        "context_pressure_labels": "",
+        "interaction_pattern_labels": "",
+        "task_mechanism_labels": "",
+        "construct_claim_labels": "",
+        "domain_labels": "",
+    }
+    if enriched.empty:
+        output = enriched.copy()
+        for column, default in flag_defaults.items():
+            output[column] = default
+        return output
+
     rows = []
     for _, row in enriched.iterrows():
         labels = facet_map.get(row["benchmark_id"], {})
@@ -251,6 +296,7 @@ def add_metadata_and_flags(
         is_specialized = bool(domains & SPECIALIZED_DOMAINS)
 
         out = row.to_dict()
+        out.update(flag_defaults)
         out.update(
             {
                 "is_static_exam": is_static,
@@ -266,7 +312,7 @@ def add_metadata_and_flags(
             }
         )
         rows.append(out)
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=[*enriched.columns, *flag_defaults])
 
 
 def pct(value: float) -> str:
@@ -451,7 +497,7 @@ def write_long_context_outputs(enriched: pd.DataFrame, output_dir: Path, asset_d
             fontsize=8,
         )
     ax.set_xticks(list(x))
-    ax.set_xticklabels([f"{p}\nn={n}" for p, n in zip(case["provider"], case["benchmarked_releases"], strict=True)])
+    ax.set_xticklabels([f"{p}\nn={n}" for p, n in zip(case["provider"], case["benchmarked_releases"])])
     ax.set_ylim(0, max(0.38, case["broad_long_context_share"].max() + 0.08))
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_title("2024 Long-Context Benchmark Emphasis by Provider", fontsize=15, weight="bold")
@@ -561,7 +607,11 @@ def write_diffusion_outputs(enriched: pd.DataFrame, output_dir: Path) -> None:
                 "source_author": group["source_author"].iloc[0],
             }
         )
-    cascades = pd.DataFrame(rows).sort_values(["days_to_next_provider", "benchmark_name"])
+    cascades = (
+        pd.DataFrame(rows, columns=DIFFUSION_CASCADE_COLUMNS)
+        .sort_values(["days_to_next_provider", "benchmark_name"])
+        .reset_index(drop=True)
+    )
     cascades.to_csv(output_dir / "public_benchmark_diffusion_cascades.csv", index=False)
     cascades.head(8).to_csv(output_dir / "public_benchmark_diffusion_fastest.csv", index=False)
 

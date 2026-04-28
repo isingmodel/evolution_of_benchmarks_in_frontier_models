@@ -86,6 +86,55 @@ CODING_MECHANISM_LABELS = {
     "terminal_operation",
     "security_challenge_solving",
 }
+MENTION_COLUMNS = [
+    "mention_id",
+    "model_row_id",
+    "provider",
+    "model_name",
+    "release_date",
+    "release_date_text",
+    "period",
+    "hypothesis_period",
+    "raw_mention",
+    "benchmark_id",
+    "benchmark_name",
+    "match_source",
+    "match_type",
+    "raw_weight",
+    "release_weight",
+    "resolved_benchmark_count_for_release",
+]
+UNRESOLVED_COLUMNS = ["provider", "model_name", "release_date", "raw_mention"]
+MENTION_LABEL_COLUMNS = [
+    "context_pressure_labels",
+    "headline_task_mode_labels",
+    "domain_labels",
+    "modality_labels",
+    "interaction_pattern_labels",
+]
+MENTION_FLAG_COLUMNS = [
+    "is_long_context_primary",
+    "is_long_context_broad",
+    "is_agentic",
+    "is_multimodal",
+    "is_coding",
+    "is_coding_or_agentic",
+    "is_coding_and_agentic",
+]
+BENCHMARK_DRIVER_COLUMNS = [
+    "provider",
+    "period",
+    "benchmark_id",
+    "benchmark_name",
+    "raw_mention_count",
+    "weighted_mentions",
+    "models",
+    "first_release_date",
+    "last_release_date",
+    *MENTION_FLAG_COLUMNS,
+    "period_weight_denominator",
+    "share_of_provider_period",
+]
 
 
 def parse_args() -> argparse.Namespace:
@@ -229,10 +278,7 @@ def build_mentions(
             )
             mention_id += 1
 
-    unresolved = pd.DataFrame(
-        unresolved_rows,
-        columns=["provider", "model_name", "release_date", "raw_mention"],
-    )
+    unresolved = pd.DataFrame(unresolved_rows, columns=UNRESOLVED_COLUMNS)
     if not unresolved.empty and not allow_unresolved:
         sample = unresolved.head(20).to_dict("records")
         raise ValueError(
@@ -240,21 +286,7 @@ def build_mentions(
             f"canonical rows before trusting this analysis. Sample: {sample}"
         )
 
-    mentions = pd.DataFrame(rows)
-    if mentions.empty:
-        columns = [
-            "mention_id",
-            "provider",
-            "model_name",
-            "release_date",
-            "period",
-            "hypothesis_period",
-            "raw_mention",
-            "benchmark_id",
-            "benchmark_name",
-            "release_weight",
-        ]
-        mentions = pd.DataFrame(columns=columns)
+    mentions = pd.DataFrame(rows, columns=MENTION_COLUMNS)
     return mentions, unresolved
 
 
@@ -282,10 +314,14 @@ def labels_for(
 
 
 def add_flags(mentions: pd.DataFrame, labels_by_axis: dict[str, dict[str, set[str]]]) -> pd.DataFrame:
-    if mentions.empty:
-        return mentions
-
     output = mentions.copy()
+    if mentions.empty:
+        for column in MENTION_LABEL_COLUMNS:
+            output[column] = ""
+        for column in MENTION_FLAG_COLUMNS:
+            output[column] = False
+        return output
+
     output["context_pressure_labels"] = output["benchmark_id"].map(
         lambda bid: ";".join(sorted(labels_for(labels_by_axis, bid, "context_pressure")))
     )
@@ -462,6 +498,9 @@ def benchmark_driver_table(
     period_column: str,
     period_order: list[str],
 ) -> pd.DataFrame:
+    if mentions.empty:
+        return pd.DataFrame(columns=BENCHMARK_DRIVER_COLUMNS)
+
     denominator = (
         mentions.groupby(["provider", period_column])["release_weight"]
         .sum()
@@ -528,8 +567,42 @@ def write_csv(df: pd.DataFrame, path: Path) -> None:
     print(f"Wrote {path.relative_to(ROOT)}")
 
 
+def write_placeholder_chart(output_path: Path, title: str, message: str, figsize: tuple[float, float]) -> None:
+    fig, ax = plt.subplots(figsize=figsize)
+    ax.axis("off")
+    ax.set_title(title, weight="bold")
+    ax.text(0.5, 0.5, message, ha="center", va="center", wrap=True)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    print(f"Wrote {output_path.relative_to(ROOT)}")
+
+
 def plot_long_context(summary: pd.DataFrame, output_path: Path) -> None:
+    required_columns = {"provider", "period", "long_context_broad_share"}
+    if summary.empty or not required_columns.issubset(summary.columns):
+        write_placeholder_chart(
+            output_path,
+            "Long-Context Benchmark Emphasis by Provider",
+            "No 2024-2026 long-context data is available for this cutoff.",
+            (8.5, 4.8),
+        )
+        return
+
     plot_df = summary[summary["period"].isin(HYPOTHESIS_PERIOD_ORDER)].copy()
+    if plot_df.empty:
+        write_placeholder_chart(
+            output_path,
+            "Long-Context Benchmark Emphasis by Provider",
+            "No 2024-2026 long-context data is available for this cutoff.",
+            (8.5, 4.8),
+        )
+        return
+
+    plot_df["long_context_broad_share"] = pd.to_numeric(
+        plot_df["long_context_broad_share"],
+        errors="coerce",
+    ).fillna(0.0)
     plot_df["provider"] = pd.Categorical(plot_df["provider"], PROVIDER_ORDER, ordered=True)
     plot_df["period"] = pd.Categorical(
         plot_df["period"], HYPOTHESIS_PERIOD_ORDER, ordered=True
@@ -565,7 +638,6 @@ def plot_long_context(summary: pd.DataFrame, output_path: Path) -> None:
 
 
 def plot_strategy_heatmap(summary: pd.DataFrame, output_path: Path) -> None:
-    plot_df = summary[summary["period"].isin(["2024", "2025", "2026 YTD"])].copy()
     metrics = [
         "long_context_broad_share",
         "agentic_share",
@@ -578,6 +650,16 @@ def plot_strategy_heatmap(summary: pd.DataFrame, output_path: Path) -> None:
         "coding_share": "Coding",
         "multimodal_share": "Multimodal",
     }
+    required_columns = {"provider", "period", *metrics}
+    if summary.empty or not required_columns.issubset(summary.columns):
+        write_strategy_heatmap_placeholder(output_path)
+        return
+
+    plot_df = summary[summary["period"].isin(["2024", "2025", "2026 YTD"])].copy()
+    if plot_df.empty:
+        write_strategy_heatmap_placeholder(output_path)
+        return
+
     plot_df["column"] = plot_df["provider"] + " " + plot_df["period"]
     matrix = plot_df.set_index("column")[metrics].T
     matrix.index = [label_map[metric] for metric in metrics]
@@ -588,7 +670,12 @@ def plot_strategy_heatmap(summary: pd.DataFrame, output_path: Path) -> None:
         for provider in PROVIDER_ORDER
         if f"{provider} {period}" in matrix.columns
     ]
+    if not column_order:
+        write_strategy_heatmap_placeholder(output_path)
+        return
+
     matrix = matrix[column_order]
+    matrix = matrix.fillna(0.0)
 
     fig_width = max(9.5, len(column_order) * 0.9)
     fig, ax = plt.subplots(figsize=(fig_width, 3.8))
@@ -612,6 +699,15 @@ def plot_strategy_heatmap(summary: pd.DataFrame, output_path: Path) -> None:
     fig.savefig(output_path, dpi=180, bbox_inches="tight")
     plt.close(fig)
     print(f"Wrote {output_path.relative_to(ROOT)}")
+
+
+def write_strategy_heatmap_placeholder(output_path: Path) -> None:
+    write_placeholder_chart(
+        output_path,
+        "Provider Showcase Strategy Signals",
+        "No 2024-2026 provider strategy data is available for this cutoff.",
+        (9.5, 3.8),
+    )
 
 
 def main() -> None:
