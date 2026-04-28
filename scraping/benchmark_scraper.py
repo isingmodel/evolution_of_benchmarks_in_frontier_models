@@ -8,8 +8,7 @@ The scraper is intentionally staged:
 2. Optionally render with Playwright and click benchmark-like tabs/buttons.
 3. Optionally run OCR over benchmark/performance-like images.
 4. Match a canonical benchmark catalog from local CSV data.
-5. Optionally ask Gemini to extract source-backed benchmark mentions and
-   map them to the catalog without inventing aliases.
+5. Optionally use the local OpenAI OAuth proxy for source-first LLM extraction.
 6. Evaluate against data/models.csv as a gold answer key.
 """
 
@@ -18,7 +17,6 @@ from __future__ import annotations
 import argparse
 import csv
 import json
-import os
 import re
 import shutil
 import sys
@@ -38,6 +36,12 @@ SCRIPTS_DIR = ROOT / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
+from openai_oauth_client import (  # noqa: E402
+    DEFAULT_OPENAI_OAUTH_BASE_URL,
+    DEFAULT_OPENAI_OAUTH_MODEL,
+    OpenAIOAuthClient,
+    resolve_openai_oauth_dir,
+)
 from taxonomy_utils import exact_key, identity_key, split_benchmark_mentions  # noqa: E402
 
 
@@ -110,7 +114,7 @@ class BenchmarkHit:
     score: float
 
 
-@dataclass
+@dataclass(frozen=True)
 class LLMExtractionItem:
     raw_name: str
     canonical_name: str
@@ -120,7 +124,7 @@ class LLMExtractionItem:
     source_block: str
 
 
-@dataclass
+@dataclass(frozen=True)
 class ReviewMention:
     raw_name: str
     canonical_name: str
@@ -139,7 +143,7 @@ class ExtractionResult:
     provider: str = ""
     model_name: str = ""
     rendered: bool = False
-    used_gemini: bool = False
+    used_openai_oauth: bool = False
     hits: List[BenchmarkHit] = field(default_factory=list)
     llm_added: List[str] = field(default_factory=list)
     llm_unknown_mentions: List[str] = field(default_factory=list)
@@ -738,9 +742,13 @@ def scrape_url(
     reader_fallback: bool = True,
     ocr_images: bool = False,
     max_ocr_images: int = 12,
-    use_gemini: bool = False,
-    gemini_model: str = "gemini-3-pro-preview",
-    api_key_file: Path = ROOT / "secrets" / "gemini_api_key.txt",
+    use_openai_oauth: bool = False,
+    openai_oauth_model: str = DEFAULT_OPENAI_OAUTH_MODEL,
+    openai_oauth_base_url: str = DEFAULT_OPENAI_OAUTH_BASE_URL,
+    openai_oauth_dir: Path | None = None,
+    openai_oauth_auto_start: bool = True,
+    openai_oauth_timeout: float = 120.0,
+    openai_oauth_client: Optional[OpenAIOAuthClient] = None,
 ) -> ExtractionResult:
     errors: List[str] = []
     static_doc: Optional[PageDocument] = None
@@ -776,14 +784,21 @@ def scrape_url(
         provider=provider,
         model_name=model_name,
         rendered=rendered,
-        used_gemini=use_gemini,
+        used_openai_oauth=use_openai_oauth,
         hits=hits,
         errors=[*errors, *document.errors],
     )
 
-    if use_gemini:
+    if use_openai_oauth:
+        client = openai_oauth_client or OpenAIOAuthClient(
+            base_url=openai_oauth_base_url,
+            model=openai_oauth_model,
+            project_dir=openai_oauth_dir,
+            auto_start=openai_oauth_auto_start,
+            timeout=openai_oauth_timeout,
+        )
         try:
-            llm_items = gemini_extract_mentions(document, result, catalog, gemini_model, api_key_file)
+            llm_items = openai_oauth_extract_mentions(document, result, catalog, client)
             deterministic_ids = result.benchmark_ids
             llm_hits, review_mentions = partition_llm_items(llm_items, catalog)
             result.hits = merge_hits([*result.hits, *llm_hits])
@@ -797,7 +812,10 @@ def scrape_url(
             )
             result.hits.sort(key=lambda hit: (-hit.score, hit.benchmark_name.casefold()))
         except Exception as e:
-            result.errors.append(f"gemini extraction failed: {e}")
+            result.errors.append(f"openai-oauth extraction failed: {e}")
+        finally:
+            if openai_oauth_client is None:
+                client.close()
 
     return result
 
@@ -844,10 +862,10 @@ def partition_llm_items(
                 benchmark_name=benchmark_name,
                 raw_match=item.raw_name,
                 alias=item.canonical_name,
-                alias_source=f"gemini:{item.relationship or 'unspecified'}",
+                alias_source=f"openai_oauth:{item.relationship or 'unspecified'}",
                 source_kind="llm",
-                source_label=item.source_block or "gemini",
-                snippet=item.source_excerpt or "Added by Gemini from collected page source context.",
+                source_label=item.source_block or "openai_oauth",
+                snippet=item.source_excerpt or "Added by OpenAI OAuth from collected page source context.",
                 score=max(0.0, min(1.0, item.confidence)),
             )
         )
@@ -893,24 +911,12 @@ def normalize_relationship(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", (value or "").casefold()).strip("_")
 
 
-def gemini_extract_mentions(
+def openai_oauth_extract_mentions(
     document: PageDocument,
     result: ExtractionResult,
     catalog: BenchmarkCatalog,
-    model: str,
-    api_key_file: Path,
+    client: OpenAIOAuthClient,
 ) -> List[LLMExtractionItem]:
-    try:
-        from google import genai
-    except ImportError as e:
-        raise RuntimeError("Missing dependency: google-genai.") from e
-
-    api_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    if not api_key and api_key_file.exists():
-        api_key = api_key_file.read_text(encoding="utf-8").strip()
-    if not api_key:
-        raise RuntimeError("No Gemini API key found. Set GEMINI_API_KEY or provide --api-key-file.")
-
     deterministic_candidates = [
         {
             "canonical_name": hit.benchmark_name,
@@ -968,13 +974,11 @@ Return schema:
   "notes": "short note about uncertainty"
 }}
 """
-    client = genai.Client(api_key=api_key)
-    response = client.models.generate_content(model=model, contents=prompt)
-    text = (response.text or "").strip().replace("```json", "").replace("```", "").strip()
+    text = client.generate_text(prompt).strip().replace("```json", "").replace("```", "").strip()
     parsed = json.loads(re.search(r"\{.*\}", text, re.DOTALL).group(0) if not text.startswith("{") else text)
     raw_items = parsed.get("benchmarks", [])
     if not isinstance(raw_items, list):
-        raise ValueError("Gemini response field 'benchmarks' must be a list.")
+        raise ValueError("OpenAI OAuth response field 'benchmarks' must be a list.")
 
     items: List[LLMExtractionItem] = []
     for raw_item in raw_items:
@@ -983,15 +987,15 @@ Return schema:
             canonical_name = raw_name
             relationship = "exact"
             confidence = ACCEPT_MIN_CONFIDENCE
-            source_block = "gemini"
-            source_excerpt = "Added by Gemini from collected page source context."
+            source_block = "openai_oauth"
+            source_excerpt = "Added by OpenAI OAuth from collected page source context."
         elif isinstance(raw_item, Mapping):
             raw_name = exact_key(str(raw_item.get("raw_name") or raw_item.get("name") or ""))
             canonical_value = raw_item.get("canonical_name")
             canonical_name = exact_key(str(canonical_value)) if canonical_value is not None else ""
             relationship = normalize_relationship(str(raw_item.get("relationship") or ""))
             confidence = parse_confidence(raw_item.get("confidence"))
-            source_block = exact_key(str(raw_item.get("source_block") or raw_item.get("evidence_block") or "gemini"))
+            source_block = exact_key(str(raw_item.get("source_block") or raw_item.get("evidence_block") or "openai_oauth"))
             source_excerpt = exact_key(str(raw_item.get("source_excerpt") or raw_item.get("evidence") or ""))
         else:
             continue
@@ -1018,8 +1022,8 @@ Return schema:
                     canonical_name="",
                     relationship="unknown",
                     confidence=ACCEPT_MIN_CONFIDENCE,
-                    source_excerpt="Listed by Gemini as an unknown benchmark-like mention.",
-                    source_block="gemini",
+                    source_excerpt="Listed by OpenAI OAuth as an unknown benchmark-like mention.",
+                    source_block="openai_oauth",
                 )
             )
 
@@ -1168,79 +1172,98 @@ def evaluate_against_models(args: argparse.Namespace) -> int:
     total_gold = 0
     total_predicted = 0
     total_tp = 0
+    openai_client = (
+        OpenAIOAuthClient(
+            base_url=args.openai_oauth_base_url,
+            model=args.openai_oauth_model,
+            project_dir=Path(args.openai_oauth_dir),
+            auto_start=not args.no_openai_oauth_start,
+            timeout=args.openai_oauth_timeout,
+        )
+        if args.use_openai_oauth
+        else None
+    )
 
-    for index, row in enumerate(rows, start=1):
-        provider = row.get("Provider", "")
-        model_name = row.get("Model name", "")
-        url = row.get("link", "")
-        print(f"[{index}/{len(rows)}] scraping {provider} {model_name}: {url}", flush=True)
+    try:
+        for index, row in enumerate(rows, start=1):
+            provider = row.get("Provider", "")
+            model_name = row.get("Model name", "")
+            url = row.get("link", "")
+            print(f"[{index}/{len(rows)}] scraping {provider} {model_name}: {url}", flush=True)
 
-        gold_ids, unresolved_gold = gold_benchmark_ids(row, catalog)
-        started = time.time()
-        try:
-            result = scrape_url(
-                url=url,
-                catalog=catalog,
-                provider=provider,
-                model_name=model_name,
-                rendered=args.rendered,
-                reader_fallback=not args.no_reader_fallback,
-                ocr_images=args.ocr_images,
-                max_ocr_images=args.max_ocr_images,
-                use_gemini=args.use_gemini,
-                gemini_model=args.gemini_model,
-                api_key_file=Path(args.api_key_file),
+            gold_ids, unresolved_gold = gold_benchmark_ids(row, catalog)
+            started = time.time()
+            try:
+                result = scrape_url(
+                    url=url,
+                    catalog=catalog,
+                    provider=provider,
+                    model_name=model_name,
+                    rendered=args.rendered,
+                    reader_fallback=not args.no_reader_fallback,
+                    ocr_images=args.ocr_images,
+                    max_ocr_images=args.max_ocr_images,
+                    use_openai_oauth=args.use_openai_oauth,
+                    openai_oauth_model=args.openai_oauth_model,
+                    openai_oauth_base_url=args.openai_oauth_base_url,
+                    openai_oauth_dir=Path(args.openai_oauth_dir),
+                    openai_oauth_auto_start=not args.no_openai_oauth_start,
+                    openai_oauth_timeout=args.openai_oauth_timeout,
+                    openai_oauth_client=openai_client,
+                )
+            except Exception as e:
+                result = ExtractionResult(url=url, final_url=url, provider=provider, model_name=model_name, errors=[str(e)])
+
+            predicted_ids = result.benchmark_ids
+            true_positive_ids = gold_ids & predicted_ids
+            missing_ids = gold_ids - predicted_ids
+            extra_ids = predicted_ids - gold_ids
+            recall = len(true_positive_ids) / len(gold_ids) if gold_ids else 1.0
+            precision = len(true_positive_ids) / len(predicted_ids) if predicted_ids else (1.0 if not gold_ids else 0.0)
+
+            total_gold += len(gold_ids)
+            total_predicted += len(predicted_ids)
+            total_tp += len(true_positive_ids)
+
+            print(
+                f"  recall={recall:.2%} precision={precision:.2%} "
+                f"gold={len(gold_ids)} predicted={len(predicted_ids)} missing={len(missing_ids)} extra={len(extra_ids)}",
+                flush=True,
             )
-        except Exception as e:
-            result = ExtractionResult(url=url, final_url=url, provider=provider, model_name=model_name, errors=[str(e)])
 
-        predicted_ids = result.benchmark_ids
-        true_positive_ids = gold_ids & predicted_ids
-        missing_ids = gold_ids - predicted_ids
-        extra_ids = predicted_ids - gold_ids
-        recall = len(true_positive_ids) / len(gold_ids) if gold_ids else 1.0
-        precision = len(true_positive_ids) / len(predicted_ids) if predicted_ids else (1.0 if not gold_ids else 0.0)
-
-        total_gold += len(gold_ids)
-        total_predicted += len(predicted_ids)
-        total_tp += len(true_positive_ids)
-
-        print(
-            f"  recall={recall:.2%} precision={precision:.2%} "
-            f"gold={len(gold_ids)} predicted={len(predicted_ids)} missing={len(missing_ids)} extra={len(extra_ids)}",
-            flush=True,
-        )
-
-        report_rows.append(
-            {
-                "provider": provider,
-                "model_name": model_name,
-                "release_date": row.get("release date", ""),
-                "url": url,
-                "final_url": result.final_url,
-                "rendered": str(args.rendered),
-                "reader_fallback": str(not args.no_reader_fallback),
-                "ocr_images": str(args.ocr_images),
-                "used_gemini": str(args.use_gemini),
-                "gold_count": str(len(gold_ids)),
-                "predicted_count": str(len(predicted_ids)),
-                "true_positive_count": str(len(true_positive_ids)),
-                "recall": f"{recall:.4f}",
-                "precision": f"{precision:.4f}",
-                "missing": "; ".join(benchmark_names(missing_ids, catalog)),
-                "extra": "; ".join(benchmark_names(extra_ids, catalog)),
-                "predicted": "; ".join(result.benchmark_names),
-                "accepted_mentions": "; ".join(accepted_mentions(result)),
-                "review_required_mentions": "; ".join(review_required_mentions(result)),
-                "unresolved_gold": "; ".join(unresolved_gold),
-                "llm_added": "; ".join(result.llm_added),
-                "llm_raw_mentions": "; ".join(llm_raw_mentions(result)),
-                "llm_mappings": "; ".join(llm_mappings(result)),
-                "llm_unknown_mentions": "; ".join(result.llm_unknown_mentions),
-                "errors": " | ".join(result.errors),
-                "elapsed_seconds": f"{time.time() - started:.2f}",
-            }
-        )
+            report_rows.append(
+                {
+                    "provider": provider,
+                    "model_name": model_name,
+                    "release_date": row.get("release date", ""),
+                    "url": url,
+                    "final_url": result.final_url,
+                    "rendered": str(args.rendered),
+                    "reader_fallback": str(not args.no_reader_fallback),
+                    "ocr_images": str(args.ocr_images),
+                    "used_openai_oauth": str(args.use_openai_oauth),
+                    "gold_count": str(len(gold_ids)),
+                    "predicted_count": str(len(predicted_ids)),
+                    "true_positive_count": str(len(true_positive_ids)),
+                    "recall": f"{recall:.4f}",
+                    "precision": f"{precision:.4f}",
+                    "missing": "; ".join(benchmark_names(missing_ids, catalog)),
+                    "extra": "; ".join(benchmark_names(extra_ids, catalog)),
+                    "predicted": "; ".join(result.benchmark_names),
+                    "accepted_mentions": "; ".join(accepted_mentions(result)),
+                    "review_required_mentions": "; ".join(review_required_mentions(result)),
+                    "unresolved_gold": "; ".join(unresolved_gold),
+                    "llm_added": "; ".join(result.llm_added),
+                    "llm_raw_mentions": "; ".join(llm_raw_mentions(result)),
+                    "llm_mappings": "; ".join(llm_mappings(result)),
+                    "llm_unknown_mentions": "; ".join(result.llm_unknown_mentions),
+                    "errors": " | ".join(result.errors),
+                    "elapsed_seconds": f"{time.time() - started:.2f}",
+                }
+            )
+    finally:
+        if openai_client is not None:
+            openai_client.close()
 
     fieldnames = [
         "provider",
@@ -1250,7 +1273,7 @@ def evaluate_against_models(args: argparse.Namespace) -> int:
         "final_url",
         "rendered",
         "reader_fallback",
-        "used_gemini",
+        "used_openai_oauth",
         "ocr_images",
         "gold_count",
         "predicted_count",
@@ -1296,9 +1319,12 @@ def extract_one(args: argparse.Namespace) -> int:
         reader_fallback=not args.no_reader_fallback,
         ocr_images=args.ocr_images,
         max_ocr_images=args.max_ocr_images,
-        use_gemini=args.use_gemini,
-        gemini_model=args.gemini_model,
-        api_key_file=Path(args.api_key_file),
+        use_openai_oauth=args.use_openai_oauth,
+        openai_oauth_model=args.openai_oauth_model,
+        openai_oauth_base_url=args.openai_oauth_base_url,
+        openai_oauth_dir=Path(args.openai_oauth_dir),
+        openai_oauth_auto_start=not args.no_openai_oauth_start,
+        openai_oauth_timeout=args.openai_oauth_timeout,
     )
 
     payload = {
@@ -1310,7 +1336,7 @@ def extract_one(args: argparse.Namespace) -> int:
         "rendered": result.rendered,
         "reader_fallback": not args.no_reader_fallback,
         "ocr_images": args.ocr_images,
-        "used_gemini": result.used_gemini,
+        "used_openai_oauth": result.used_openai_oauth,
         "benchmarks": [
             {
                 "benchmark_id": hit.benchmark_id,
@@ -1348,8 +1374,15 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--benchmarks", default=str(ROOT / "data" / "benchmarks.csv"))
     parser.add_argument("--aliases", default=str(ROOT / "data" / "benchmark_aliases.csv"))
-    parser.add_argument("--gemini-model", default="gemini-3-pro-preview")
-    parser.add_argument("--api-key-file", default=str(ROOT / "secrets" / "gemini_api_key.txt"))
+    parser.add_argument("--openai-oauth-model", default=DEFAULT_OPENAI_OAUTH_MODEL)
+    parser.add_argument("--openai-oauth-base-url", default=DEFAULT_OPENAI_OAUTH_BASE_URL)
+    parser.add_argument("--openai-oauth-dir", default=str(resolve_openai_oauth_dir()))
+    parser.add_argument(
+        "--no-openai-oauth-start",
+        action="store_true",
+        help="Do not auto-start the local openai-oauth proxy when LLM extraction is requested.",
+    )
+    parser.add_argument("--openai-oauth-timeout", type=float, default=120.0)
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -1366,9 +1399,9 @@ def build_parser() -> argparse.ArgumentParser:
     extract.add_argument("--ocr-images", action="store_true", help="Run OCR over benchmark/performance-like images.")
     extract.add_argument("--max-ocr-images", type=int, default=12, help="Maximum candidate images to OCR.")
     extract.add_argument(
-        "--use-gemini",
+        "--use-openai-oauth",
         action="store_true",
-        help="Use Gemini for source-first extraction and conservative catalog mapping.",
+        help="Use the local OpenAI OAuth proxy for source-first extraction and conservative catalog mapping.",
     )
     extract.set_defaults(func=extract_one)
 
@@ -1386,9 +1419,9 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument("--ocr-images", action="store_true", help="Run OCR over benchmark/performance-like images.")
     evaluate.add_argument("--max-ocr-images", type=int, default=12, help="Maximum candidate images to OCR per page.")
     evaluate.add_argument(
-        "--use-gemini",
+        "--use-openai-oauth",
         action="store_true",
-        help="Use Gemini for source-first extraction and conservative catalog mapping.",
+        help="Use the local OpenAI OAuth proxy for source-first extraction and conservative catalog mapping.",
     )
     evaluate.add_argument("--output", default=str(ROOT / "scraping" / "output" / "benchmark_scrape_eval.csv"))
     evaluate.set_defaults(func=evaluate_against_models)
