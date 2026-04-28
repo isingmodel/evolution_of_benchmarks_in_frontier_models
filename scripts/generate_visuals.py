@@ -1,33 +1,37 @@
 import argparse
-import os
-from pathlib import Path
-import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import seaborn as sns
 
-SCRIPTS_DIR = Path(__file__).resolve().parent
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+if __package__:
+    from .plot_utils import (
+        MODE_ORDER,
+        build_legacy_taxonomy_lookup,
+        configure_plot_style,
+        latest_release_date,
+        load_models_and_benchmarks,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        warn_unresolved,
+    )
+else:
+    from plot_utils import (
+        MODE_ORDER,
+        build_legacy_taxonomy_lookup,
+        configure_plot_style,
+        latest_release_date,
+        load_models_and_benchmarks,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        warn_unresolved,
+    )
 
-from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
 
-sns.set_theme(style="whitegrid")
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
-
-BENCHMARKS_PATH = Path("data/benchmarks.csv")
-ALIAS_PATH = Path("data/benchmark_aliases.csv")
-
-MODE_ORDER = [
-    "Agentic",
-    "Multimodal Perception",
-    "Generative Reasoning",
-    "Constraint Satisfaction",
-    "Knowledge Retrieval",
-]
+configure_plot_style()
 
 
 def parse_args():
@@ -49,100 +53,8 @@ def parse_args():
     return parser.parse_args()
 
 
-def load_data():
-    models_df = pd.read_csv("data/models.csv")
-    benchmarks_df = pd.read_csv(BENCHMARKS_PATH)
-    return models_df, benchmarks_df
-
-
-def normalize_name(value):
-    return str(value).strip().casefold()
-
-
-def benchmark_aliases(name):
-    normalized = normalize_name(name)
-    aliases = {normalized} if normalized else set()
-
-    # Current v2 data encodes explicit alternatives as slash-separated names,
-    # e.g. "MMLU / MMLU-Pro". Do not infer substring aliases beyond this.
-    if "/" in normalized:
-        aliases.update(part.strip() for part in normalized.split("/") if part.strip())
-
-    return aliases
-
-
-def build_mode_lookup(benchmarks_df):
-    exact_lookup = {}
-    by_id = {}
-    for _, row in benchmarks_df.iterrows():
-        name = str(row.get("benchmark_name", "")).strip()
-        mode = str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip()
-        if not name or not mode:
-            continue
-
-        benchmark_id = str(row.get("benchmark_id", "")).strip()
-        if not benchmark_id and canonical_benchmark_id is not None:
-            benchmark_id = canonical_benchmark_id(name)
-        if benchmark_id:
-            by_id[benchmark_id] = mode
-
-        for alias in benchmark_aliases(name):
-            exact_lookup[alias] = mode
-
-    resolver = None
-    if CanonicalResolver is not None and ALIAS_PATH.exists():
-        resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH)
-
-    return {"by_id": by_id, "exact": exact_lookup, "resolver": resolver}
-
-
-def find_mode(benchmark_name, lookup):
-    resolver = lookup.get("resolver")
-    if resolver is not None:
-        resolution = resolver.resolve(benchmark_name)
-        if not resolution:
-            return ""
-        return lookup["by_id"].get(resolution.benchmark_id, "")
-
-    return lookup["exact"].get(normalize_name(benchmark_name), "")
-
-
-def split_benchmarks(value):
-    if pd.isna(value):
-        return []
-
-    text = str(value).strip()
-    if not text or text.casefold() == "nan":
-        return []
-
-    return [b.strip() for b in text.split(",") if b.strip()]
-
-
-def parse_as_of(value):
-    if not value:
-        return None
-
-    parsed = pd.to_datetime(value, errors="raise")
-    return parsed.normalize()
-
-
-def warn_unresolved(unresolved, strict_resolution):
-    if not unresolved:
-        return
-
-    sample = ", ".join(sorted({bench for _, bench in unresolved})[:10])
-    message = (
-        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
-        "Add explicit taxonomy/alias rows to resolve them; fuzzy substring matching is disabled."
-    )
-    if strict_resolution:
-        raise ValueError(message)
-
-    print(f"Warning: {message}")
-
-
 def process_data(models_df, benchmarks_df, as_of=None, strict_resolution=False):
-    mode_lookup = build_mode_lookup(benchmarks_df)
+    taxonomy_lookup = build_legacy_taxonomy_lookup(benchmarks_df)
     category_cols = MODE_ORDER
     unresolved = []
 
@@ -164,7 +76,8 @@ def process_data(models_df, benchmarks_df, as_of=None, strict_resolution=False):
         total_hits = 0
 
         for bench in bench_list:
-            mode = find_mode(bench, mode_lookup)
+            taxonomy = taxonomy_lookup.resolve(bench)
+            mode = taxonomy.mode if taxonomy else ""
             if mode and mode in cat_counts:
                 cat_counts[mode] += 1
                 total_hits += 1
@@ -188,9 +101,9 @@ def process_data(models_df, benchmarks_df, as_of=None, strict_resolution=False):
 
 
 def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", strict_resolution=False):
-    models_df_raw, benchmarks_df = load_data()
+    models_df_raw, benchmarks_df = load_models_and_benchmarks()
     if as_of is None:
-        as_of = pd.to_datetime(models_df_raw["release date"]).max().normalize()
+        as_of = latest_release_date(models_df_raw)
 
     df, cat_cols = process_data(models_df_raw, benchmarks_df, as_of=as_of, strict_resolution=strict_resolution)
 
@@ -294,11 +207,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
     )
 
     plt.subplots_adjust(bottom=0.2)
-    output_dir = os.path.dirname(output_path)
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
-    plt.savefig(output_path, dpi=150, bbox_inches="tight")
-    print(f"Graph generated at {output_path}")
+    save_figure(fig, output_path)
 
 
 if __name__ == "__main__":

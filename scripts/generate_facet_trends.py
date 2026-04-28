@@ -1,7 +1,4 @@
 import argparse
-import os
-from pathlib import Path
-import sys
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -9,18 +6,36 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-SCRIPTS_DIR = Path(__file__).resolve().parent
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+if __package__:
+    from .plot_utils import (
+        DATA_DIR,
+        build_rolling_share_trend,
+        configure_plot_style,
+        latest_release_date,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        validate_window_days,
+        warn_unresolved,
+    )
+    from .taxonomy_utils import CanonicalResolver
+else:
+    from plot_utils import (
+        DATA_DIR,
+        build_rolling_share_trend,
+        configure_plot_style,
+        latest_release_date,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        validate_window_days,
+        warn_unresolved,
+    )
+    from taxonomy_utils import CanonicalResolver
 
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions
 
+configure_plot_style()
 
-sns.set_theme(style="whitegrid")
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
-
-DATA_DIR = Path("data")
 DEFAULT_AXES = ["domain", "modality", "interaction_pattern", "context_pressure"]
 
 
@@ -55,18 +70,6 @@ def parse_args():
     return parser.parse_args()
 
 
-def parse_as_of(value):
-    if not value:
-        return None
-    return pd.to_datetime(value, errors="raise").normalize()
-
-
-def validate_window_days(window_days):
-    if window_days <= 0:
-        raise ValueError("--window-days must be a positive integer.")
-    return window_days
-
-
 def split_axes(value):
     axes = [axis.strip() for axis in value.split(",") if axis.strip()]
     if not axes:
@@ -88,21 +91,6 @@ def load_inputs():
     return models, facets, resolver
 
 
-def warn_unresolved(unresolved, strict_resolution):
-    if not unresolved:
-        return
-
-    sample = "; ".join(unresolved[:10])
-    message = (
-        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
-        "Add canonical benchmark rows or explicit aliases to resolve them."
-    )
-    if strict_resolution:
-        raise ValueError(message)
-
-    print(f"Warning: {message}")
-
-
 def build_model_mentions(models, resolver, strict_resolution=False):
     rows = []
     unresolved = []
@@ -111,7 +99,7 @@ def build_model_mentions(models, resolver, strict_resolution=False):
         model_name = str(model.get("Model name", "")).strip()
         release_date = str(model.get("release date", "")).strip()
         model_key = "|".join([provider, model_name, release_date])
-        raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
+        raw_mentions = split_benchmarks(model.get("benchmarks", ""))
 
         for raw_mention in raw_mentions:
             resolution = resolver.resolve(raw_mention)
@@ -128,7 +116,12 @@ def build_model_mentions(models, resolver, strict_resolution=False):
                 }
             )
 
-    warn_unresolved(unresolved, strict_resolution)
+    warn_unresolved(
+        unresolved,
+        strict_resolution,
+        resolution_hint="Add canonical benchmark rows or explicit aliases to resolve them.",
+        sample_separator="; ",
+    )
 
     return pd.DataFrame(
         rows,
@@ -179,23 +172,6 @@ def events_for_axis(mentions, facets, axis, top_labels):
     ]
 
 
-def build_trend(events, as_of, window_days):
-    if events.empty:
-        return pd.DataFrame(), None
-
-    min_date = events["Date"].min()
-    date_range = pd.date_range(start=min_date, end=as_of, freq="D")
-    daily = events.groupby(["Date", "Category"])["Weight"].sum().unstack(fill_value=0)
-    daily = daily.reindex(date_range, fill_value=0)
-
-    rolling = daily.rolling(window=window_days, min_periods=1).sum()
-    trend = rolling.div(rolling.sum(axis=1), axis=0).ffill().fillna(0)
-    for col in trend.columns:
-        trend[col] = trend[col].ewm(span=30, adjust=False).mean()
-    trend = trend.div(trend.sum(axis=1), axis=0).fillna(0)
-    return trend, min_date
-
-
 def plot_axis(ax, trend, axis, window_days, as_of):
     if trend.empty:
         ax.text(0.5, 0.5, f"No {axis} events", transform=ax.transAxes, ha="center", va="center")
@@ -217,14 +193,6 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1), fontsize=8, frameon=False)
 
 
-def save_figure(fig, output_path):
-    output_dir = os.path.dirname(output_path)
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
-    fig.savefig(output_path, dpi=150, bbox_inches="tight")
-    print(f"Graph generated at {output_path}")
-
-
 def generate_facet_trends(
     as_of=None,
     window_days=180,
@@ -238,7 +206,7 @@ def generate_facet_trends(
     output_path = output_path or "assets/benchmark_facet_trends.png"
     models, facets, resolver = load_inputs()
     if as_of is None:
-        as_of = pd.to_datetime(models["release date"], errors="raise").max().normalize()
+        as_of = latest_release_date(models)
 
     mentions = build_model_mentions(models, resolver, strict_resolution=strict_resolution)
     mentions = normalize_mentions(mentions, as_of)
@@ -254,7 +222,7 @@ def generate_facet_trends(
     min_dates = []
     for ax, axis in zip(axs, axes):
         events = events_for_axis(mentions, facets, axis, top_labels)
-        trend, min_date = build_trend(events, as_of, window_days)
+        trend, min_date = build_rolling_share_trend(events, as_of, window_days)
         if min_date is not None:
             min_dates.append(min_date)
         plot_axis(ax, trend, axis, window_days, as_of)
