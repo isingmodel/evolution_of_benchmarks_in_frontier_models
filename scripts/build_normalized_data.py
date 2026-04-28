@@ -23,7 +23,6 @@ FACET_COLUMNS = [
     "benchmark_id",
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -31,7 +30,6 @@ FACET_COLUMNS = [
 MANUAL_FACET_REQUIRED_COLUMNS = [
     "facet_axis",
     "facet_label",
-    "label_weight",
     "classification_confidence",
     "review_status",
     "rationale",
@@ -87,7 +85,10 @@ def read_manual_facets(path):
         raise ValueError(f"{path} is missing required columns: {sorted(missing)}")
     if "benchmark_id" not in data.columns and "benchmark_name" not in data.columns:
         raise ValueError(f"{path} must include either benchmark_id or benchmark_name")
-    return data.copy()
+    for column in ["benchmark_id", "benchmark_name"]:
+        if column not in data.columns:
+            data[column] = ""
+    return data[["benchmark_id", "benchmark_name", *MANUAL_FACET_REQUIRED_COLUMNS]].copy()
 
 
 def stable_id(prefix, *parts):
@@ -473,15 +474,13 @@ def seed_status_and_confidence(row, default_status, default_confidence):
     if row_status == "needs_review":
         return "needs_review", min(default_confidence, RULE_SEED_CONFIDENCE)
     if row_status == "accepted":
-        if default_confidence < LEGACY_SEED_CONFIDENCE:
-            return "needs_review", default_confidence
-        return "accepted", default_confidence
+        return default_status, default_confidence
     if row_status == "disputed":
         return "disputed", default_confidence
     return default_status, default_confidence
 
 
-def add_facet_row(rows, row, axis, label, status, confidence, rationale, label_weight=1.0):
+def add_facet_row(rows, row, axis, label, status, confidence, rationale):
     if not label:
         return
     rows.append(
@@ -489,7 +488,6 @@ def add_facet_row(rows, row, axis, label, status, confidence, rationale, label_w
             "benchmark_id": row["benchmark_id"],
             "facet_axis": axis,
             "facet_label": label,
-            "label_weight": label_weight,
             "classification_confidence": confidence,
             "review_status": status,
             "rationale": rationale,
@@ -553,7 +551,7 @@ def normalize_facet_frame(facets_df):
     facets_df = facets_df[FACET_COLUMNS].fillna("").copy()
     for column in ["benchmark_id", "facet_axis", "facet_label", "review_status", "rationale"]:
         facets_df[column] = facets_df[column].astype(str).str.strip()
-    for column in ["label_weight", "classification_confidence"]:
+    for column in ["classification_confidence"]:
         facets_df[column] = pd.to_numeric(facets_df[column], errors="raise")
     return facets_df.sort_values(["benchmark_id", "facet_axis", "facet_label"]).reset_index(drop=True)
 
@@ -565,7 +563,7 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
     id_by_name = dict(zip(benchmarks_df["benchmark_name"], benchmarks_df["benchmark_id"]))
     known_ids = set(benchmarks_df["benchmark_id"])
     rows = []
-    for _, row in manual_facets_df.iterrows():
+    for row_number, row in enumerate(manual_facets_df.to_dict(orient="records"), start=2):
         benchmark_id = str(row.get("benchmark_id", "")).strip()
         benchmark_name = str(row.get("benchmark_name", "")).strip()
         if not benchmark_id and benchmark_name:
@@ -573,6 +571,8 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
             if not canonical_name:
                 raise ValueError(f"benchmark_facet_manual.csv references unknown benchmark_name: {benchmark_name!r}")
             benchmark_id = id_by_name[canonical_name]
+        if not benchmark_id and not benchmark_name:
+            raise ValueError(f"benchmark_facet_manual.csv row {row_number} has neither benchmark_id nor benchmark_name")
         if benchmark_id not in known_ids:
             raise ValueError(f"benchmark_facet_manual.csv references unknown benchmark_id: {benchmark_id!r}")
 
@@ -581,7 +581,6 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
                 "benchmark_id": benchmark_id,
                 "facet_axis": str(row["facet_axis"]).strip(),
                 "facet_label": str(row["facet_label"]).strip(),
-                "label_weight": row["label_weight"],
                 "classification_confidence": row["classification_confidence"],
                 "review_status": str(row["review_status"]).strip(),
                 "rationale": str(row["rationale"]).strip(),
@@ -593,6 +592,15 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
 def merge_facet_tables(benchmarks_df, existing_facets_df, manual_facets_df, canonical_lookup):
     benchmark_ids = set(benchmarks_df["benchmark_id"])
     existing_facets_df = normalize_facet_frame(existing_facets_df)
+    stale_benchmark_ids = sorted(set(existing_facets_df["benchmark_id"]) - benchmark_ids - {""})
+    if stale_benchmark_ids:
+        stale_rows = existing_facets_df[existing_facets_df["benchmark_id"].isin(stale_benchmark_ids)]
+        preview = ", ".join(stale_benchmark_ids[:5])
+        suffix = "..." if len(stale_benchmark_ids) > 5 else ""
+        print(
+            f"Dropped {len(stale_rows)} existing facet rows for removed benchmark_id values: "
+            f"{preview}{suffix}"
+        )
     existing_facets_df = existing_facets_df[existing_facets_df["benchmark_id"].isin(benchmark_ids)].copy()
 
     missing_benchmark_ids = benchmark_ids - set(existing_facets_df["benchmark_id"])
@@ -606,12 +614,8 @@ def merge_facet_tables(benchmarks_df, existing_facets_df, manual_facets_df, cano
     manual_final_df = manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup)
     if not manual_final_df.empty:
         manual_keys = set(zip(manual_final_df["benchmark_id"], manual_final_df["facet_axis"]))
-        existing_facets_df = existing_facets_df[
-            ~existing_facets_df.apply(
-                lambda row: (row["benchmark_id"], row["facet_axis"]) in manual_keys,
-                axis=1,
-            )
-        ]
+        existing_keys = pd.MultiIndex.from_frame(existing_facets_df[["benchmark_id", "facet_axis"]])
+        existing_facets_df = existing_facets_df[~existing_keys.isin(manual_keys)]
         existing_facets_df = pd.concat([existing_facets_df, manual_final_df], ignore_index=True)
 
     return normalize_facet_frame(existing_facets_df)
@@ -643,6 +647,10 @@ def build_normalized_data():
 
 def main():
     parser = argparse.ArgumentParser(description="Build normalized benchmark facet data.")
+    parser.add_argument(
+        "--accessed-date",
+        help="Deprecated no-op retained for compatibility with older build scripts.",
+    )
     parser.parse_args()
     build_normalized_data()
 

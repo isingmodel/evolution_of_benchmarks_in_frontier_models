@@ -155,7 +155,6 @@ def active_facets_for_axis(facets, axis):
         & (facets["review_status"] != "deprecated")
         & (facets["facet_label"].astype(str).str.strip() != "")
     ].copy()
-    axis_facets["label_weight"] = pd.to_numeric(axis_facets["label_weight"], errors="coerce").fillna(0.0)
     return axis_facets
 
 
@@ -164,8 +163,10 @@ def events_for_axis(mentions, facets, axis, top_labels):
     if mentions.empty or axis_facets.empty:
         return pd.DataFrame(columns=["Date", "Category", "Weight"])
 
-    joined = mentions.merge(axis_facets, on="benchmark_id", how="inner")
-    joined["Weight"] = joined["normalized_model_weight"] * joined["label_weight"]
+    mentions_with_id = mentions.reset_index(drop=True).reset_index(names="mention_row_id")
+    joined = mentions_with_id.merge(axis_facets, on="benchmark_id", how="inner")
+    label_counts = joined.groupby("mention_row_id")["facet_label"].transform("count")
+    joined["Weight"] = joined["normalized_model_weight"] / label_counts.where(label_counts > 0, 1.0)
     joined = joined[joined["Weight"] > 0].copy()
 
     if top_labels > 0:

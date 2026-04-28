@@ -21,7 +21,7 @@ The following graph summarizes low-confidence or review-needed facet rows in the
 ![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
 ## Multi-Facet Trends
-The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facets.csv`. A single benchmark can contribute to multiple labels within a facet axis through `label_weight`, so this chart is closer to the multi-facet methodology than the headline projection charts above.
+The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facets.csv`. When a benchmark has multiple labels within one facet axis, the chart divides that benchmark's contribution equally across those labels at runtime.
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
 ## Analysis & Observations

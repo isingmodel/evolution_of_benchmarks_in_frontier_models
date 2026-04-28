@@ -20,14 +20,16 @@ benchmark_facets.csv
 
 `models.csv` remains the source for model release rows and their benchmark lists. `benchmarks.csv` is the canonical benchmark source. Scripts that need mention-level data expand the comma-separated `benchmarks` field at runtime and resolve each raw benchmark label through canonical names plus `benchmark_aliases.csv`.
 
+`scripts/build_normalized_data.py` is an additive merge, not a destructive facet rebuild. It preserves existing `benchmark_facets.csv` rows for existing benchmark IDs, seeds facets only for new benchmark IDs, drops rows whose benchmark IDs no longer exist in `benchmarks.csv`, and applies temporary `benchmark_facet_manual.csv` rows by replacing the touched `benchmark_id + facet_axis` groups. Changing `benchmarks.csv` identity fields does not automatically rewrite already integrated facet rows.
+
 ## File Overview
 
 | File | Current rows | Role |
 | --- | ---: | --- |
 | `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | ~135 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
+| `benchmarks.csv` | ~134 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
 | `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_facets.csv` | ~1,275 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
+| `benchmark_facets.csv` | ~1,266 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
@@ -73,6 +75,7 @@ Notes:
 - This file is the canonical benchmark source.
 - `scripts/build_normalized_data.py` reads this file when keeping `benchmark_facets.csv` aligned with current benchmark IDs.
 - Richer v3 classifications are represented in `benchmark_facets.csv`.
+- `review_status` in this file is about canonical benchmark identity, not completion of every facet review.
 
 ### `benchmark_aliases.csv`
 
@@ -108,7 +111,6 @@ Columns:
 - `benchmark_id`: Canonical benchmark ID.
 - `facet_axis`: Facet dimension.
 - `facet_label`: Label within the facet dimension.
-- `label_weight`: Numeric label contribution.
 - `classification_confidence`: Confidence score for the classification.
 - `review_status`: Review state.
 - `rationale`: Explanation for the classification.
@@ -117,7 +119,9 @@ Notes:
 
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
+- When multiple labels exist within the same benchmark and facet axis, trend scripts divide that benchmark's contribution equally across the labels at runtime.
 - `headline_task_mode` is a visualization projection; it should not be treated as the benchmark's exclusive identity.
+- `headline_task_mode` must have at most one active row per benchmark because the chart projection is single-label.
 - Rule-seeded rows and human-reviewed rows live together here after review.
 - During data updates, reviewers may temporarily create `benchmark_facet_manual.csv` with the same facet columns plus either `benchmark_id` or `benchmark_name`. Running `scripts/build_normalized_data.py` merges those rows into `benchmark_facets.csv` by replacing the touched `benchmark_id + facet_axis` rows. Remove the temporary file after integration; it is intentionally ignored by Git.
 
@@ -143,7 +147,7 @@ Notes:
 
 Common review status values include:
 
-- `accepted`: Source-backed and reviewed.
+- `accepted`: Source-backed and reviewed for the table where it appears. In `benchmarks.csv`, this means the benchmark identity is accepted; in `benchmark_facets.csv`, this means the specific facet label is accepted.
 - `needs_review`: Known uncertainty remains.
 - `disputed`: Classification or identity is contested.
 - `deprecated`: Row is retained for traceability but should not be active.
