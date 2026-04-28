@@ -1,0 +1,28 @@
+{
+  "output_dir": "analysis/ideation_network_dynamics",
+  "resolved_mentions": 422,
+  "unique_benchmarks_mentioned": 133,
+  "providers": [
+    "Anthropic",
+    "Google",
+    "OpenAI"
+  ],
+  "latest_release_date": "2026-04-23",
+  "csv_outputs": [
+    "adoption_events.csv",
+    "cascade_metrics.csv",
+    "normalized_mentions.csv",
+    "provider_diffusion_roles.csv",
+    "provider_similarity_latest.csv",
+    "provider_similarity_timeseries.csv",
+    "release_source_author_mix.csv",
+    "release_strategy_metrics.csv",
+    "source_author_dependency_by_provider.csv",
+    "summary_metrics.csv"
+  ],
+  "chart_outputs": [
+    "portfolio_similarity_over_time.png",
+    "provider_role_balance.png",
+    "source_author_mix_by_provider.png"
+  ]
+}

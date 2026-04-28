@@ -1,0 +1,10 @@
+priority,result,recommended_treatment,best_display,readiness,next_step
+1,Static exams to work simulations,Main README section,Revised line chart plus compact annual table,High after small edits,"Relabel 2026 as YTD; add n counts; add top contributor table"
+2,Gemini 1.5 long-context emphasis,Bounded case study,Bar chart plus 2024 driver table,High after small edits,"Add broad vs primary sensitivity; show release counts; review context_pressure drivers"
+3,Review leverage / review debt,Methodology caveat and audit roadmap,Top-10 table or review leverage chart,High,"Frame as uncertainty roadmap; list high-impact audit targets"
+4,Provider framing fingerprints,Main section after redesign and sensitivity checks,Simplified heatmap or small multiples,Medium,"Rename strategy to framing; add denominators; add accepted-only sensitivity"
+5,Public benchmark diffusion,Secondary README section,Compact cascade table plus annotated similarity chart,Medium,"Replace import/export wording; annotate low denominators; keep source-author dependency appendix"
+6,Borrowed benchmark authority,Short caveated callout,Compact period comparison table,Medium,"Add release-normalized shares; strict sensitivity; audit authorship/affiliation fields"
+7,Provider-created/private escalation,Appendix for now,Caveated table,Low-medium,"Split provider-created, same-provider, private/opaque, internal, unclear metric"
+8,Domain-interaction alluvial,Methods appendix or replace,Domain-interaction matrix,Low-medium,"Replace alluvial with matrix and accepted-pair coverage markers"
+9,Source-author dependency/import-export,Backlog or appendix,Share bars after audit,Low,"Add benchmark publication dates; audit source_author and affiliation metadata"

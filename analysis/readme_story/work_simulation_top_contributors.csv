@@ -1,0 +1,46 @@
+benchmark_name,raw_mentions,release_weighted_mentions,first_seen,providers,interaction_patterns,task_mechanisms
+SWE-bench verified,18,1.6017519030676926,2024-10-23,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+Tau-bench,6,0.6513800526958422,2024-10-23,Anthropic; OpenAI,single_turn_tool_use,tool_calling
+TAU-2 bench,10,0.6511455864397041,2025-08-07,Anthropic; Google; OpenAI,environment_interaction; human_in_the_loop; multi_turn_dialogue,tool_calling
+Terminal-bench,6,0.6027777777777777,2025-05-23,Anthropic,terminal_or_codebase_interaction,terminal_operation
+OSWorld,5,0.47176434676434675,2024-10-23,Anthropic,computer_control,computer_control_task
+Terminal-Bench 2.0,7,0.43110590390002157,2025-11-18,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,terminal_operation
+SWE-bench Pro,6,0.356563779357897,2025-12-11,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+BrowseComp,7,0.35074876104287867,2025-04-16,Anthropic; Google; OpenAI,browser_or_web_interaction,browser_navigation
+Scale MCP-Atlas,7,0.3382487610428787,2025-11-24,Anthropic; Google; OpenAI,single_turn_tool_use,tool_calling
+Cybersecurity CTFs,2,0.26785714285714285,2024-09-12,OpenAI,static_prompt_response,security_challenge_solving
+OSWorld-Verified,4,0.244063779357897,2026-02-05,Anthropic; OpenAI,computer_control,computer_control_task
+SWE-Lancer,3,0.17955465587044533,2025-04-14,OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+GDPval-AA,4,0.1728641456582633,2026-02-05,Anthropic; Google; OpenAI,environment_interaction; single_turn_tool_use; terminal_or_codebase_interaction,free_form_generation; tool_calling
+SWE-bench,1,0.16666666666666666,2025-02-27,OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+Finance Agent,2,0.15873015873015872,2025-09-30,Anthropic,single_turn_tool_use,tool_calling
+SWE-bench Multilingual,3,0.15787545787545787,2025-11-24,Anthropic,terminal_or_codebase_interaction,repository_issue_resolution
+SWE-Lancer IC Diamond,1,0.14285714285714285,2026-02-05,OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+FACTS Benchmark suite,2,0.13852813852813853,2025-11-18,Google,single_turn_tool_use; static_prompt_response,browser_navigation; long_context_synthesis; short_answer_qa; visual_question_answering
+ScreenSpot-Pro,3,0.13095238095238096,2025-11-18,Anthropic; Google; OpenAI,computer_control,visual_grounding
+Vending-Bench 2,3,0.12857142857142856,2025-11-18,Anthropic; Google,environment_interaction; multi_step_planning,tool_calling
+Toolathlon,3,0.11787330316742081,2025-12-11,OpenAI,single_turn_tool_use,tool_calling
+CyberGym,3,0.1103641456582633,2026-02-05,Anthropic; OpenAI,terminal_or_codebase_interaction,security_challenge_solving
+FinanceAgent v1.1,3,0.10120663650075415,2026-03-05,Anthropic; OpenAI,environment_interaction,free_form_generation
+APEX-Agents,2,0.10096153846153846,2026-02-19,Google; OpenAI,environment_interaction,free_form_generation
+BrowseComp-Plus,1,0.07692307692307693,2025-11-24,Anthropic,browser_or_web_interaction,browser_navigation
+Vending-Bench,1,0.07692307692307693,2025-11-24,Anthropic,single_turn_tool_use,tool_calling
+Bird-SQL,1,0.07142857142857142,2024-12-11,Google,static_prompt_response,sql_generation
+WebVoyager,1,0.07142857142857142,2024-12-11,Google,browser_or_web_interaction,browser_navigation
+ComplexFunc Bench,1,0.05263157894736842,2025-04-14,OpenAI,single_turn_tool_use,tool_calling
+BioPipelineBench,1,0.047619047619047616,2026-02-05,Anthropic,environment_interaction; terminal_or_codebase_interaction,code_generation; terminal_operation; tool_calling
+OpenRCA,1,0.047619047619047616,2026-02-05,Anthropic,static_prompt_response,code_generation
+Online-Mind2Web,1,0.038461538461538464,2026-03-05,OpenAI,environment_interaction,free_form_generation
+WebArena-Verified,1,0.038461538461538464,2026-03-05,OpenAI,environment_interaction,human_preference_comparison
+93-task coding benchmark,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction,code_generation
+Anthropic internal autonomous agentic coding evaluation,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction,code_generation
+CursorBench,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction,code_generation
+Rakuten-SWE-Bench,1,0.03333333333333333,2026-04-16,Anthropic,terminal_or_codebase_interaction,repository_issue_resolution
+SWE-bench Multimodal,1,0.03333333333333333,2026-04-16,Anthropic,terminal_or_codebase_interaction,repository_issue_resolution
+implicit-need tests,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction,free_form_generation
+internal research-agent benchmark,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction,free_form_generation
+BixBench,1,0.029411764705882353,2026-04-23,OpenAI,environment_interaction,free_form_generation
+Capture-the-Flags challenge tasks (Internal),1,0.029411764705882353,2026-04-23,OpenAI,terminal_or_codebase_interaction,security_challenge_solving
+Expert-SWE (Internal),1,0.029411764705882353,2026-04-23,OpenAI,terminal_or_codebase_interaction,repository_issue_resolution
+GeneBench,1,0.029411764705882353,2026-04-23,OpenAI,environment_interaction,free_form_generation
+Terminal-Bench Hard,1,0.029411764705882353,2026-04-23,OpenAI,terminal_or_codebase_interaction,terminal_operation

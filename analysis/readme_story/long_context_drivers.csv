@@ -1,0 +1,21 @@
+provider,period,benchmark_name,release_weighted_mentions,raw_mentions,models,context_pressure_labels
+Anthropic,2024,Needle In A Haystack,0.0625,1,Claude 3,long_context_primary
+Google,2024,Needle In A Haystack,0.5,1,Gemini 1.5,long_context_primary
+Google,2024,EgoSchema,0.07142857142857142,1,Gemini 2.0,long_context_supporting
+Google,2024,MRCR,0.07142857142857142,1,Gemini 2.0,long_context_supporting
+OpenAI,2024,EgoSchema,0.07142857142857142,1,GPT-4o,long_context_supporting
+Anthropic,2025-2026,GDPval-AA,0.08095238095238094,2,Claude 4.6 (Opus); Claude 4.7 (Opus),long_context_supporting
+Anthropic,2025-2026,Vending-Bench 2,0.08095238095238094,2,Claude 4.6 (Opus); Claude 4.7 (Opus),long_context_supporting
+Anthropic,2025-2026,MRCR v2,0.047619047619047616,1,Claude 4.6 (Opus),long_context_supporting
+Google,2025-2026,MRCR v2,0.1534090909090909,2,Gemini 3.1 Flash-Lite; Gemini 3.1 Pro,long_context_supporting
+Google,2025-2026,MRCR,0.14761904761904762,2,Gemini 2.5; Gemini 3.0,long_context_supporting
+Google,2025-2026,FACTS Benchmark suite,0.13852813852813853,2,Gemini 3.0; Gemini 3.1 Flash-Lite,long_context_supporting
+Google,2025-2026,GDPval-AA,0.0625,1,Gemini 3.1 Pro,long_context_supporting
+Google,2025-2026,Vending-Bench 2,0.047619047619047616,1,Gemini 3.0,long_context_supporting
+OpenAI,2025-2026,GDPval,0.26073044602456363,4,GPT-5.2; GPT-5.3-Codex; GPT-5.4; GPT-5.5,long_context_supporting
+OpenAI,2025-2026,MRCR v2,0.11787330316742081,3,GPT-5.2; GPT-5.4; GPT-5.5,long_context_supporting
+OpenAI,2025-2026,MRCR,0.05263157894736842,1,GPT-4.1,long_context_supporting
+OpenAI,2025-2026,Needle In A Haystack,0.05263157894736842,1,GPT-4.1,long_context_primary
+OpenAI,2025-2026,BrowseComp Long Context,0.05,1,GPT-5.2,long_context_primary
+OpenAI,2025-2026,AA-LCR,0.029411764705882353,1,GPT-5.5,long_context_primary
+OpenAI,2025-2026,GDPval-AA,0.029411764705882353,1,GPT-5.5,long_context_supporting

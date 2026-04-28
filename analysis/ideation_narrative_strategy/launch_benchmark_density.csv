@@ -1,0 +1,37 @@
+Provider,Model name,link,release_date,release_year,raw_benchmark_mentions,resolved_benchmark_mentions,unresolved_benchmark_mentions,resolution_rate
+OpenAI,GPT-3.5,https://openai.com/ko-KR/index/chatgpt/,2022-11-30,2022,0,0,0,0.0
+Anthropic,Claude 1,https://www.anthropic.com/news/introducing-claude,2023-03-14,2023,0,0,0,0.0
+OpenAI,GPT-4,https://openai.com/ko-KR/index/gpt-4/,2023-03-14,2023,2,2,0,1.0
+Anthropic,Claude 2,https://www.anthropic.com/news/claude-2,2023-07-11,2023,4,4,0,1.0
+Anthropic,Claude 2.1,https://www.anthropic.com/news/claude-2-1,2023-11-21,2023,0,0,0,0.0
+Google,gemini 1.0,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai/,2023-12-06,2023,18,18,0,1.0
+Google,Gemini 1.5,https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024,2024-02-15,2024,2,2,0,1.0
+Anthropic,Claude 3,https://www.anthropic.com/news/claude-3-family,2024-03-04,2024,16,16,0,1.0
+OpenAI,GPT-4o,https://openai.com/ko-KR/index/hello-gpt-4o/,2024-05-13,2024,14,14,0,1.0
+Anthropic,Claude 3.5 Sonnet,https://www.anthropic.com/news/claude-3-5-sonnet,2024-06-21,2024,13,13,0,1.0
+OpenAI,o1,https://openai.com/ko-KR/index/learning-to-reason-with-llms/,2024-09-12,2024,8,8,0,1.0
+OpenAI,o1-mini,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/,2024-09-12,2024,8,8,0,1.0
+Anthropic,Claude 3.5 Haiku,https://www.anthropic.com/news/3-5-models-and-computer-use,2024-10-23,2024,9,9,0,1.0
+Google,Gemini 2.0,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024/,2024-12-11,2024,14,14,0,1.0
+OpenAI,o3-mini,https://openai.com/ko-KR/index/openai-o3-mini/,2025-01-31,2025,11,11,0,1.0
+Anthropic,Claude 3.7 Sonnet,https://www.anthropic.com/news/claude-3-7-sonnet,2025-02-25,2025,8,8,0,1.0
+OpenAI,GPT-4.5,https://openai.com/ko-KR/index/introducing-gpt-4-5/,2025-02-27,2025,6,6,0,1.0
+Google,Gemini 2.5,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/,2025-03-25,2025,10,10,0,1.0
+OpenAI,GPT-4.1,https://openai.com/index/gpt-4-1/,2025-04-14,2025,19,19,0,1.0
+OpenAI,o3,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,2025-04-16,2025,13,13,0,1.0
+Anthropic,Claude 4,https://www.anthropic.com/news/claude-4,2025-05-23,2025,7,7,0,1.0
+Anthropic,Claude 4.1 (Opus),https://www.anthropic.com/news/claude-opus-4-1,2025-08-05,2025,7,7,0,1.0
+OpenAI,GPT-5,https://openai.com/ko-KR/index/introducing-gpt-5/,2025-08-07,2025,16,16,0,1.0
+Anthropic,Claude 4.5 (Sonnet),https://www.anthropic.com/news/claude-sonnet-4-5,2025-09-30,2025,9,9,0,1.0
+Anthropic,Claude 4.5 (Haiku),https://www.anthropic.com/news/claude-haiku-4-5,2025-10-16,2025,8,8,0,1.0
+OpenAI,GPT-5.1,https://openai.com/ko-KR/index/gpt-5-1/,2025-11-12,2025,0,0,0,0.0
+Google,Gemini 3.0,https://blog.google/products-and-platforms/products/gemini/gemini-3/#note-from-ceo,2025-11-18,2025,21,21,0,1.0
+Anthropic,Claude 4.5 (Opus),https://www.anthropic.com/news/claude-opus-4-5,2025-11-24,2025,13,13,0,1.0
+OpenAI,GPT-5.2,https://openai.com/ko-KR/index/introducing-gpt-5-2/,2025-12-11,2025,20,20,0,1.0
+Anthropic,Claude 4.6 (Opus),https://www.anthropic.com/news/claude-opus-4-6,2026-02-05,2026,21,21,0,1.0
+OpenAI,GPT-5.3-Codex,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex/,2026-02-05,2026,7,7,0,1.0
+Google,Gemini 3.1 Pro,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/,2026-02-19,2026,16,16,0,1.0
+Google,Gemini 3.1 Flash-Lite,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/,2026-03-03,2026,11,11,0,1.0
+OpenAI,GPT-5.4,https://openai.com/index/introducing-gpt-5-4/,2026-03-05,2026,26,26,0,1.0
+Anthropic,Claude 4.7 (Opus),https://www.anthropic.com/news/claude-opus-4-7,2026-04-16,2026,31,31,0,1.0
+OpenAI,GPT-5.5,https://openai.com/index/introducing-gpt-5-5/,2026-04-23,2026,34,34,0,1.0

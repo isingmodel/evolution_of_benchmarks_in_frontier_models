@@ -1,0 +1,10 @@
+criterion,score_10,assessment,next_action
+Project fit,8.5,"Directly addresses benchmark mentions, provider strategy, and benchmark hegemony without claiming capability.","Use as a supporting section after the main benchmark-evolution charts."
+Novelty,8.0,"Adds a borrowed-authority/source-author lens beyond task-mode and domain trends.","Frame as evaluation supply chain or lab-authored benchmark visibility."
+Data support,7.0,"Clear local denominators and exact canonical resolution, but raw mention shares can be skewed by long release tables.","Add release-normalized shares and benchmark-family grouping."
+Reproducibility,8.0,"Scripted outputs from local CSVs with clear README command; exact alias resolver avoids fuzzy matches.","Do not rely on manual table edits; keep generated summaries in sync."
+Risk of overclaiming,5.0,"The term hegemony can imply causal influence or internal adoption that release-page mentions cannot prove.","Use cautious language and avoid causal verbs like made, drove, or controlled."
+Taxonomy dependency,4.5,"Core claim depends on source_author and frontier_lab_author_affiliations, mostly legacy_seed among OpenAI-linked non-OpenAI mentions.","Audit high-impact authorship and affiliation rows before publication."
+Presentation value,7.0,"The table is persuasive, but the existing stacked bar hides the headline result.","Create an OpenAI-adoption slope chart and keep stacked author mix as appendix."
+Audience value,8.0,"Useful counterpoint to a simple fading-hegemony story and concrete enough for readers to remember.","Lead with the counterintuitive rise plus neutral-benchmark majority caveat."
+Publication readiness,5.0,"Promising but needs normalization, sensitivity checks, and field audits.","Treat as README-ready only after small edits; publication-ready after audit."

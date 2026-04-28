@@ -192,15 +192,17 @@ Run the standard pipeline from the repository root:
 
 ```bash
 AS_OF=2026-04-23
+PY=.venv/bin/python
 
-python scripts/build_normalized_data.py
-python scripts/validate_data.py
-python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
-python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-python scripts/update_readme.py
-python scripts/validate_data.py
+$PY scripts/build_normalized_data.py
+$PY scripts/validate_data.py
+$PY scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
+$PY scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
+$PY scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY scripts/generate_story_analyses.py --as-of "$AS_OF"
+$PY scripts/update_readme.py
+$PY scripts/validate_data.py
 ```
 
 After adding new model releases or benchmark classifications, run validation before trusting the generated charts or README tables.

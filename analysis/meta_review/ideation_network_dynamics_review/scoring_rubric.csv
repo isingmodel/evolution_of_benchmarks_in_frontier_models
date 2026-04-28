@@ -1,0 +1,10 @@
+criterion,score_10,rationale,recommended_status
+Project fit,8.0,Directly addresses benchmark diffusion provider strategy competitive dynamics and benchmark evolution on public release pages,README secondary section
+Novelty,8.0,Adds cascade portfolio similarity release strategy and source dependency lenses beyond existing trend charts,README secondary section
+Data support,6.5,Core counts and tables are reproducible from CSVs but all mentions are unweighted and provider scope is small,Use with caveats
+Reproducibility,7.0,Script manifest and normalized outputs are clear but running the script rewrites the result folder and no output tests are present,Improve before formal pipeline
+Overclaim control,4.5,Current import export and first mover language can imply causality ownership or private adoption not supported by the data,Revise language before README
+Publication date robustness,4.0,Missing benchmark publication dates make first tracked release-page mention easy to confuse with benchmark creation or true adoption,Publication blocker
+Audience value,8.0,Readers will understand convergence diffusion and strategic positioning more concretely with a compact table and revised chart,Good after edits
+Presentation readiness,6.0,Existing charts are useful but should be replaced or annotated for main README use,Needs presentation pass
+Publication readiness,5.0,Strong exploratory result but source-author audit publication dates and safer labels are needed before paper-style claims,Appendix or backlog

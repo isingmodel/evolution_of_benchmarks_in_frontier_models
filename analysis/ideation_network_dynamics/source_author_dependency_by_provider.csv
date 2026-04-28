@@ -1,0 +1,4 @@
+provider,total_mentions,unique_benchmarks,self_affiliated_mentions,self_affiliated_share,other_frontier_lab_affiliated_mentions,other_frontier_lab_affiliated_share,academia_mentions,academia_share,independent_industry_mentions,independent_industry_share,unknown_source_mentions,unknown_source_share,provider_created_risk_mentions,provider_created_risk_share
+Anthropic,146,62,26,0.1780821917808219,37,0.2534246575342466,65,0.4452054794520548,18,0.1232876712328767,0,0.0,52,0.3561643835616438
+Google,92,59,19,0.20652173913043478,14,0.15217391304347827,48,0.5217391304347826,11,0.11956521739130435,0,0.0,30,0.32608695652173914
+OpenAI,184,86,46,0.25,11,0.059782608695652176,95,0.5163043478260869,32,0.17391304347826086,0,0.0,66,0.358695652173913

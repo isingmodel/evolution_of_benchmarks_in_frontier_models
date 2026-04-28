@@ -1,0 +1,9 @@
+criterion,score_10,rationale,recommended_action
+Project fit,9.0,"Directly targets provider narrative strategy, benchmark evolution, launch-page density, and static-to-work-simulation themes.","Foreground the static/work result in the main README."
+Novelty,8.0,"Adds a stronger narrative-strategy lens than the existing general benchmark growth charts.","Use as a new interpretive section rather than only an appendix."
+Data support,7.5,"CSV outputs support the main shares and provider portfolios, with 422 resolved mentions and 0 unresolved mentions.","Add top-contributor and provider-balanced sensitivity tables."
+Reproducibility,8.5,"analyze.py regenerates the CSVs and PNGs from repository data using the canonical resolver.","Keep the run command and denominator notes near the outputs."
+Risk control,6.5,"The README includes good caveats, but chart titles and prose can still imply rhetoric, intent, or opacity beyond the data.","Use benchmark-selection framing language and split private/provider-created metrics."
+Taxonomy dependency,6.5,"Static/work and risk conclusions rely heavily on facet labels and lifecycle-risk taxonomy choices.","Expose contributing benchmarks and run sensitivity checks."
+Audience value,8.5,"The static-to-work shift is readable, relevant, and useful for the project's public-facing story.","Make the trend the main figure with a compact annual table."
+Presentation readiness,7.0,"One chart is close to README-ready, while provider heatmap and risk escalation need simplification and caveats.","Revise chart labels, add density chart, and move risk material to appendix."
