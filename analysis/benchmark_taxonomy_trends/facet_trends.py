@@ -1,4 +1,6 @@
 import argparse
+import sys
+from pathlib import Path
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -6,32 +8,24 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-if __package__:
-    from .plot_utils import (
-        DATA_DIR,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
-    from .taxonomy_utils import CanonicalResolver
-else:
-    from plot_utils import (
-        DATA_DIR,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
-    from taxonomy_utils import CanonicalResolver
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = ROOT / "scripts"
+
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from plot_utils import (  # noqa: E402
+    DATA_DIR,
+    build_rolling_share_trend,
+    configure_plot_style,
+    latest_release_date,
+    parse_as_of,
+    save_figure,
+    split_benchmarks,
+    validate_window_days,
+    warn_unresolved,
+)
+from taxonomy_utils import CanonicalResolver  # noqa: E402
 
 
 configure_plot_style()

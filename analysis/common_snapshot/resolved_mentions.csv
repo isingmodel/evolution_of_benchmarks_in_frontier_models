@@ -1,0 +1,423 @@
+provider,model_name,release_date,release_year,raw_mention,benchmark_id,benchmark_name,match_source,match_type,source_author,frontier_lab_author_affiliations,legacy_task_mode,legacy_task_domain,benchmark_review_status
+OpenAI,GPT-4,2023-03-14,2023,Uniform Bar Exam,benchmark_uniform_bar_exam,Uniform Bar Exam,canonical,exact,Academia,none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-4,2023-03-14,2023,Biology Olympiad,benchmark_biology_olympiad,Biology Olympiad,canonical,exact,Academia,none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,MGSM,benchmark_mgsm,MGSM,canonical,exact,"Google, Academia",Google,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,DROP,benchmark_drop,DROP,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,M3Exam,benchmark_m3exam,M3Exam,canonical,exact,"Academia, Others(Alibaba etc)",none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,AI2D,benchmark_ai2d,AI2D,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,ChartQA,benchmark_chartqa,ChartQA,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,DocVQA,benchmark_docvqa,DocVQA,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,ActivityNet,benchmark_activitynet,ActivityNet,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4o,2024-05-13,2024,EgoSchema,benchmark_egoschema,EgoSchema,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,o1,2024-09-12,2024,IMO,benchmark_imo,IMO,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1,2024-09-12,2024,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1,2024-09-12,2024,Codeforces,benchmark_codeforces,Codeforces,canonical,exact,Others(Codeforces platform),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o1,2024-09-12,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1,2024-09-12,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1,2024-09-12,2024,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,o1,2024-09-12,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,o1,2024-09-12,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,Codeforces,benchmark_codeforces,Codeforces,canonical,exact,Others(Codeforces platform),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,Cybersecurity CTFs,benchmark_cybersecurity_ctfs,Cybersecurity CTFs,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o1-mini,2024-09-12,2024,Jailbreak Eval,benchmark_jailbreak_eval,Jailbreak Eval,canonical,exact,Academia,none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,FrontierMath,benchmark_frontiermath,FrontierMath,canonical,exact,"Others(Epoch AI, backed by Google)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,Codeforces,benchmark_codeforces,Codeforces,canonical,exact,Others(Codeforces platform),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,LiveBench Coding,benchmark_livebench_coding,LiveBench Coding,canonical,exact,"Academia, Others(Nvidia etc)",none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,MGSM,benchmark_mgsm,MGSM,canonical,exact,"Google, Academia",Google,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,SimpleQA,benchmark_simpleqa,SimpleQA,canonical,exact,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense,legacy_seed
+OpenAI,o3-mini,2025-01-31,2025,STEM,benchmark_stem,STEM,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,SimpleQA,benchmark_simpleqa,SimpleQA,canonical,exact,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4.5,2025-02-27,2025,SWE-bench,benchmark_swe_bench,SWE-bench,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,MultiChallenge,benchmark_multichallenge,MultiChallenge,canonical,exact,Others(Scale AI),none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,Video-MME,benchmark_video_mme,Video-MME,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,Aider Polyglot,benchmark_aider_polyglot,Aider Polyglot,canonical,exact,Others(Aider),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,IFEval,benchmark_ifeval,IFEval,canonical,exact,Google,Google,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,Needle In A Haystack,benchmark_needle_in_a_haystack,Needle In A Haystack,canonical,exact,"Academia, Others(Microsoft)",none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,GraphWalks,benchmark_graphwalks,GraphWalks,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,CharXiv,benchmark_charxiv,CharXiv,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,COLLIE,benchmark_collie,COLLIE,canonical,exact,Academia,none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,Multi-IF,benchmark_multi_if,Multi-IF,canonical,exact,Meta,none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,MRCR,benchmark_mrcr,MRCR,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,ComplexFunc Bench,benchmark_complexfunc_bench,ComplexFunc Bench,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-4.1,2025-04-14,2025,SWE-Lancer,benchmark_swe_lancer,SWE-Lancer,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,o3,2025-04-16,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,o3,2025-04-16,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3,2025-04-16,2025,Codeforces,benchmark_codeforces,Codeforces,canonical,exact,Others(Codeforces platform),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o3,2025-04-16,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,o3,2025-04-16,2025,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,o3,2025-04-16,2025,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,o3,2025-04-16,2025,CharXiv,benchmark_charxiv,CharXiv,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,o3,2025-04-16,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,o3,2025-04-16,2025,Aider Polyglot,benchmark_aider_polyglot,Aider Polyglot,canonical,exact,Others(Aider),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,o3,2025-04-16,2025,MultiChallenge,benchmark_multichallenge,MultiChallenge,canonical,exact,Others(Scale AI),none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,o3,2025-04-16,2025,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+OpenAI,o3,2025-04-16,2025,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+OpenAI,o3,2025-04-16,2025,SWE-Lancer,benchmark_swe_lancer,SWE-Lancer,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,Healthbench,benchmark_healthbench,Healthbench,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,Aider Polyglot,benchmark_aider_polyglot,Aider Polyglot,canonical,exact,Others(Aider),none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,FrontierMath,benchmark_frontiermath,FrontierMath,canonical,exact,"Others(Epoch AI, backed by Google)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,HMMT,benchmark_hmmt,HMMT,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5,2025-08-07,2025,MultiChallenge,benchmark_multichallenge,MultiChallenge,canonical,exact,Others(Scale AI),none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,COLLIE,benchmark_collie,COLLIE,canonical,exact,Academia,none,Constraint Satisfaction,General/Commonsense,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5,2025-08-07,2025,Video-MMMU,benchmark_video_mmmu,Video-MMMU,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,CharXiv,benchmark_charxiv,CharXiv,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-5,2025-08-07,2025,ERQA,benchmark_erqa,ERQA,canonical,exact,Google,Google; DeepMind,Knowledge Retrieval,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,GDPval,benchmark_gdpval,GDPval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.2,2025-12-11,2025,SWE-bench Pro,benchmark_swe_bench_pro,SWE-bench Pro,canonical,exact,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,CharXiv,benchmark_charxiv,CharXiv,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,HMMT,benchmark_hmmt,HMMT,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,FrontierMath,benchmark_frontiermath,FrontierMath,canonical,exact,"Others(Epoch AI, backed by Google)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,ARC-AGI,benchmark_arc_agi,ARC-AGI,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,MRCR v2,benchmark_mrcr_v2,MRCR v2,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,ScreenSpot-Pro,benchmark_screenspot_pro,ScreenSpot-Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.2,2025-12-11,2025,BrowseComp Long Context,benchmark_browsecomp_long_context,BrowseComp Long Context,canonical,exact,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense,accepted
+OpenAI,GPT-5.2,2025-12-11,2025,GraphWalks,benchmark_graphwalks,GraphWalks,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,Video-MMMU,benchmark_video_mmmu,Video-MMMU,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,Scale MCP-Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,canonical,exact,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.2,2025-12-11,2025,Toolathlon,benchmark_toolathlon,Toolathlon,canonical,exact,"Academia, Others(All Hands AI)",none,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-5.2,2025-12-11,2025,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.2,2025-12-11,2025,SWE-Lancer,benchmark_swe_lancer,SWE-Lancer,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,SWE-Bench Pro (Public),benchmark_swe_bench_pro,SWE-bench Pro,alias,version_alias,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,SWE-bench Verified,benchmark_swe_bench_verified,SWE-bench verified,alias,case_variant,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,OSWorld-Verified,benchmark_osworld_verified,OSWorld-Verified,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,GDPval,benchmark_gdpval,GDPval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,Cybersecurity Capture The Flag Challenges,benchmark_cybersecurity_ctfs,Cybersecurity CTFs,alias,legacy_name,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.3-Codex,2026-02-05,2026,SWE-lancer IC Diamond,benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,alias,case_variant,OpenAI,OpenAI,Agentic,Coding/Engineering,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,APEX-Agents,benchmark_apex_agents,APEX-Agents,canonical,exact,Others(Mercor),none,Agentic,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,GDPval,benchmark_gdpval,GDPval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.4,2026-03-05,2026,FinanceAgent v1.1,benchmark_financeagent_v1_1,FinanceAgent v1.1,canonical,exact,"Academia, Others(vals.ai)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.4,2026-03-05,2026,Investment Banking Modeling Tasks (Internal),benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.4,2026-03-05,2026,OfficeQA,benchmark_officeqa,OfficeQA,canonical,exact,"Academia, Others(Databricks)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.4,2026-03-05,2026,BigLaw Bench,benchmark_biglaw_bench,BigLaw Bench,canonical,exact,Others(Harvey),none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,OSWorld-Verified,benchmark_osworld_verified,OSWorld-Verified,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,WebArena-Verified,benchmark_webarena_verified,WebArena-Verified,canonical,exact,"Academia, Others(ServiceNow)",none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,Online-Mind2Web,benchmark_online_mind2web,Online-Mind2Web,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,alias,version_alias,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,OmniDocBench,benchmark_omnidocbench,OmniDocBench,canonical,exact,"Academia, Others(OpenGVLab)",none,Multimodal Perception,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,SWE-Bench Pro (Public),benchmark_swe_bench_pro,SWE-bench Pro,alias,version_alias,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,MCP Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,alias,provider_abbreviation,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,Toolathlon,benchmark_toolathlon,Toolathlon,canonical,exact,"Academia, Others(All Hands AI)",none,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,Tau2-bench Telecom,benchmark_tau_2_bench,TAU-2 bench,alias,version_alias,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,Frontier Science Research,benchmark_frontier_science_research,Frontier Science Research,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,accepted
+OpenAI,GPT-5.4,2026-03-05,2026,FrontierMath,benchmark_frontiermath,FrontierMath,canonical,exact,"Others(Epoch AI, backed by Google)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,Humanity's Last Exam,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),alias,legacy_name,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.4,2026-03-05,2026,Graphwalks,benchmark_graphwalks,GraphWalks,alias,case_variant,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,OpenAI MRCR v2,benchmark_mrcr_v2,MRCR v2,alias,provider_abbreviation,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,ARC-AGI-1 (Verified),benchmark_arc_agi,ARC-AGI,alias,version_alias,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,ARC-AGI-2 (Verified),benchmark_arc_agi_2,ARC-AGI-2,alias,version_alias,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-5.4,2026-03-05,2026,CoT controllability,benchmark_cot_control,CoT-Control,alias,legacy_name,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,Artificial Analysis's Coding Index,benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,alias,provider_abbreviation,Others(Artificial Analysis),none,Generative Reasoning,Coding/Engineering,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,Artificial Analysis Intelligence Index,benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,canonical,exact,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,AA-LCR,benchmark_aa_lcr,AA-LCR,canonical,exact,Others(Artificial Analysis),none,Knowledge Retrieval,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,AA-Omniscience,benchmark_aa_omniscience,AA-Omniscience,canonical,exact,Others(Artificial Analysis),none,Knowledge Retrieval,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,CritPt,benchmark_critpt,CritPt,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,GDPval-AA,benchmark_gdpval_aa,GDPval-AA,canonical,exact,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,IFBench,benchmark_ifbench,IFBench,canonical,exact,Academia,none,Constraint Satisfaction,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,SciCode,benchmark_scicode,SciCode,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Terminal-Bench Hard,benchmark_terminal_bench_hard,Terminal-Bench Hard,canonical,exact,"Academia, Others(Artificial Analysis)",none,Agentic,Coding/Engineering,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,SWE-Bench Pro (Public),benchmark_swe_bench_pro,SWE-bench Pro,alias,version_alias,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Expert-SWE (Internal),benchmark_expert_swe_internal,Expert-SWE (Internal),canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,GDPval,benchmark_gdpval,GDPval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,FinanceAgent v1.1,benchmark_financeagent_v1_1,FinanceAgent v1.1,canonical,exact,"Academia, Others(vals.ai)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,Investment Banking Modeling Tasks (Internal),benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),canonical,exact,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,OfficeQA Pro,benchmark_officeqa_pro,OfficeQA Pro,canonical,exact,"Academia, Others(Databricks)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,BigLaw Bench,benchmark_biglaw_bench,BigLaw Bench,canonical,exact,Others(Harvey),none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,OSWorld-Verified,benchmark_osworld_verified,OSWorld-Verified,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,alias,version_alias,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,MCP Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,alias,provider_abbreviation,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,Toolathlon,benchmark_toolathlon,Toolathlon,canonical,exact,"Academia, Others(All Hands AI)",none,Agentic,General/Commonsense,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Tau2-bench Telecom,benchmark_tau_2_bench,TAU-2 bench,alias,version_alias,Academia,none,Agentic,General/Commonsense,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,GeneBench,benchmark_genebench,GeneBench,canonical,exact,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,FrontierMath,benchmark_frontiermath,FrontierMath,canonical,exact,"Others(Epoch AI, backed by Google)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,BixBench,benchmark_bixbench,BixBench,canonical,exact,Others(FutureHouse),none,Agentic,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Humanity's Last Exam,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),alias,legacy_name,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+OpenAI,GPT-5.5,2026-04-23,2026,Capture-the-Flags challenge tasks (Internal),benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,accepted
+OpenAI,GPT-5.5,2026-04-23,2026,CyberGym,benchmark_cybergym,CyberGym,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,Graphwalks,benchmark_graphwalks,GraphWalks,alias,case_variant,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,OpenAI MRCR v2,benchmark_mrcr_v2,MRCR v2,alias,provider_abbreviation,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,ARC-AGI-1 (Verified),benchmark_arc_agi,ARC-AGI,alias,version_alias,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+OpenAI,GPT-5.5,2026-04-23,2026,ARC-AGI-2 (Verified),benchmark_arc_agi_2,ARC-AGI-2,alias,version_alias,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,Big-Bench Hard,benchmark_big_bench_hard,Big-Bench Hard,canonical,exact,Google,Google,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,DROP,benchmark_drop,DROP,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,HellaSwag,benchmark_hellaswag,HellaSwag,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,GSM8K,benchmark_gsm8k,GSM8K,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,Natural2Code,benchmark_natural2code,Natural2Code,canonical,exact,Google,Google; DeepMind,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,VQAv2,benchmark_vqav2,VQAv2,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,TextVQA,benchmark_textvqa,TextVQA,canonical,exact,Meta,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,DocVQA,benchmark_docvqa,DocVQA,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,Infographic VQA,benchmark_infographic_vqa,Infographic VQA,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,VATEX,benchmark_vatex,VATEX,canonical,exact,"Academia, Others(ByteDance)",none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,MCQA,benchmark_mcqa,MCQA,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,CoVoST 2,benchmark_covost_2,CoVoST 2,canonical,exact,Meta,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,gemini 1.0,2023-12-06,2023,FLEURS,benchmark_fleurs,FLEURS,canonical,exact,"Meta, Google",Google,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 1.5,2024-02-15,2024,Needle In A Haystack,benchmark_needle_in_a_haystack,Needle In A Haystack,canonical,exact,"Academia, Others(Microsoft)",none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 1.5,2024-02-15,2024,MTOB benchmark,benchmark_mtob_benchmark,MTOB benchmark,canonical,exact,"Academia, Google",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,Natural2Code,benchmark_natural2code,Natural2Code,canonical,exact,Google,Google; DeepMind,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,Bird-SQL,benchmark_bird_sql,Bird-SQL,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,LiveCodeBench,benchmark_livecodebench,LiveCodeBench,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,FACTS Grounding,benchmark_facts_grounding,FACTS Grounding,canonical,exact,Google,Google; DeepMind,Knowledge Retrieval,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,HiddenMath,benchmark_hiddenmath,HiddenMath,canonical,exact,Google,Google; DeepMind,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,MRCR,benchmark_mrcr,MRCR,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,Vibe-Eval,benchmark_vibe_eval,Vibe-Eval,canonical,exact,Others(Reka AI),none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,CoVoST 2,benchmark_covost_2,CoVoST 2,canonical,exact,Meta,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,EgoSchema,benchmark_egoschema,EgoSchema,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.0,2024-12-11,2024,WebVoyager,benchmark_webvoyager,WebVoyager,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Google,Gemini 2.5,2025-03-25,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,LiveCodeBench,benchmark_livecodebench,LiveCodeBench,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,Aider Polyglot,benchmark_aider_polyglot,Aider Polyglot,canonical,exact,Others(Aider),none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,SimpleQA,benchmark_simpleqa,SimpleQA,canonical,exact,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,Vibe-Eval,benchmark_vibe_eval,Vibe-Eval,canonical,exact,Others(Reka AI),none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 2.5,2025-03-25,2025,MRCR,benchmark_mrcr,MRCR,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Google,Gemini 3.0,2025-11-18,2025,ARC-AGI,benchmark_arc_agi,ARC-AGI,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,MathArena Apex,benchmark_matharena_apex,MathArena Apex,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,ScreenSpot-Pro,benchmark_screenspot_pro,ScreenSpot-Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,CharXiv,benchmark_charxiv,CharXiv,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,OmniDocBench 1.5,benchmark_omnidocbench_1_5,OmniDocBench 1.5,canonical,exact,"Academia, Others(Abaka AI)",none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,Video-MMMU,benchmark_video_mmmu,Video-MMMU,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,LiveCodeBench,benchmark_livecodebench,LiveCodeBench,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Google,Gemini 3.0,2025-11-18,2025,Vending-Bench 2,benchmark_vending_bench_2,Vending-Bench 2,canonical,exact,Others(Andon Labs),none,Agentic,General/Commonsense,accepted
+Google,Gemini 3.0,2025-11-18,2025,FACTS Benchmark suite,benchmark_facts_benchmark_suite,FACTS Benchmark suite,canonical,exact,Google,Google; DeepMind,Knowledge Retrieval,General/Commonsense,accepted
+Google,Gemini 3.0,2025-11-18,2025,SimpleQA,benchmark_simpleqa,SimpleQA,canonical,exact,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,Global PIQA,benchmark_global_piqa,Global PIQA,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,MRCR,benchmark_mrcr,MRCR,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.0,2025-11-18,2025,LMArena,benchmark_lmarena,LMArena,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Google,Gemini 3.1 Pro,2026-02-19,2026,ARC-AGI-2,benchmark_arc_agi_2,ARC-AGI-2,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,SWE-bench Pro,benchmark_swe_bench_pro,SWE-bench Pro,canonical,exact,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,LiveCodeBench Pro,benchmark_livecodebench_pro,LiveCodeBench Pro,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,SciCode,benchmark_scicode,SciCode,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,APEX-Agents,benchmark_apex_agents,APEX-Agents,canonical,exact,Others(Mercor),none,Agentic,Specialized (Law/Bio/Finance),legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,GDPval-AA,benchmark_gdpval_aa,GDPval-AA,canonical,exact,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance),accepted
+Google,Gemini 3.1 Pro,2026-02-19,2026,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Google,Gemini 3.1 Pro,2026-02-19,2026,Scale MCP-Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,canonical,exact,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+Google,Gemini 3.1 Pro,2026-02-19,2026,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Pro,2026-02-19,2026,MRCR v2,benchmark_mrcr_v2,MRCR v2,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,LMArena,benchmark_lmarena,LMArena,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,HLE (Humanity's Last Exam),benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),canonical,exact,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,CharXiv Reasoning,benchmark_charxiv_reasoning,CharXiv Reasoning,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,accepted
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,Video-MMMU,benchmark_video_mmmu,Video-MMMU,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,SimpleQA Verified,benchmark_simpleqa_verified,SimpleQA Verified,canonical,exact,Google,Google; DeepMind,Knowledge Retrieval,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,FACTS Benchmark suite,benchmark_facts_benchmark_suite,FACTS Benchmark suite,canonical,exact,Google,Google; DeepMind,Knowledge Retrieval,General/Commonsense,accepted
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,LiveCodeBench,benchmark_livecodebench,LiveCodeBench,canonical,exact,Academia,none,Generative Reasoning,Coding/Engineering,legacy_seed
+Google,Gemini 3.1 Flash-Lite,2026-03-03,2026,MRCR v2,benchmark_mrcr_v2,MRCR v2,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 2,2023-07-11,2023,Uniform Bar Exam,benchmark_uniform_bar_exam,Uniform Bar Exam,canonical,exact,Academia,none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+Anthropic,Claude 2,2023-07-11,2023,GRE,benchmark_gre,GRE,canonical,exact,"Academia, Others(ETS)",none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 2,2023-07-11,2023,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 2,2023-07-11,2023,GSM8K,benchmark_gsm8k,GSM8K,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,GSM8K,benchmark_gsm8k,GSM8K,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,MGSM,benchmark_mgsm,MGSM,canonical,exact,"Google, Academia",Google,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,DROP,benchmark_drop,DROP,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,Big-Bench Hard,benchmark_big_bench_hard,Big-Bench Hard,canonical,exact,Google,Google,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,ARC-AGI,benchmark_arc_agi,ARC-AGI,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,HellaSwag,benchmark_hellaswag,HellaSwag,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,AI2D,benchmark_ai2d,AI2D,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,Needle In A Haystack,benchmark_needle_in_a_haystack,Needle In A Haystack,canonical,exact,"Academia, Others(Microsoft)",none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,DocVQA,benchmark_docvqa,DocVQA,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3,2024-03-04,2024,ChartQA,benchmark_chartqa,ChartQA,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,GPQA,benchmark_gpqa,GPQA,canonical,exact,"Anthropic, Academia, Cohere",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,GSM8K,benchmark_gsm8k,GSM8K,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,MGSM,benchmark_mgsm,MGSM,canonical,exact,"Google, Academia",Google,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,DROP,benchmark_drop,DROP,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,Big-Bench Hard,benchmark_big_bench_hard,Big-Bench Hard,canonical,exact,Google,Google,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,MathVista,benchmark_mathvista,MathVista,canonical,exact,Academia,Microsoft,Multimodal Perception,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,AI2D,benchmark_ai2d,AI2D,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,DocVQA,benchmark_docvqa,DocVQA,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Sonnet,2024-06-21,2024,ChartQA,benchmark_chartqa,ChartQA,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,MMLU / MMLU-Pro,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,HumanEval,benchmark_humaneval,HumanEval,canonical,exact,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,MATH,benchmark_math,MATH,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 3.5 Haiku,2024-10-23,2024,OSWorld,benchmark_osworld,OSWorld,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,IFEval,benchmark_ifeval,IFEval,canonical,exact,Google,Google,Constraint Satisfaction,General/Commonsense,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,MATH 500,benchmark_math_500,MATH 500,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 3.7 Sonnet,2025-02-25,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,Terminal-bench,benchmark_terminal_bench,Terminal-bench,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4,2025-05-23,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,Terminal-bench,benchmark_terminal_bench,Terminal-bench,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,Tau-bench,benchmark_tau_bench,Tau-bench,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.1 (Opus),2025-08-05,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,Terminal-bench,benchmark_terminal_bench,Terminal-bench,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,OSWorld,benchmark_osworld,OSWorld,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Sonnet),2025-09-30,2025,Finance Agent,benchmark_finance_agent,Finance Agent,canonical,exact,"Academia, Others(vals.ai)",none,Agentic,Specialized (Law/Bio/Finance),legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,Terminal-bench,benchmark_terminal_bench,Terminal-bench,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,OSWorld,benchmark_osworld,OSWorld,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,AIME,benchmark_aime,AIME,canonical,exact,Academia,none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Haiku),2025-10-16,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,Scale MCP-Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,canonical,exact,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,OSWorld,benchmark_osworld,OSWorld,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,ARC-AGI-2,benchmark_arc_agi_2,ARC-AGI-2,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,MMMU / MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,SWE-bench Multilingual,benchmark_swe_bench_multilingual,SWE-bench Multilingual,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,Aider Polyglot,benchmark_aider_polyglot,Aider Polyglot,canonical,exact,Others(Aider),none,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,BrowseComp-Plus,benchmark_browsecomp_plus,BrowseComp-Plus,canonical,exact,Academia,none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4.5 (Opus),2025-11-24,2025,Vending-Bench,benchmark_vending_bench,Vending-Bench,canonical,exact,Others(Andon Labs),none,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,GDPval-AA,benchmark_gdpval_aa,GDPval-AA,canonical,exact,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,Terminal-bench,benchmark_terminal_bench,Terminal-bench,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,SWE-bench verified,benchmark_swe_bench_verified,SWE-bench verified,canonical,exact,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,OSWorld,benchmark_osworld,OSWorld,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,TAU-2 bench,benchmark_tau_2_bench,TAU-2 bench,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,MCP-Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,alias,provider_abbreviation,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,Humanity's Last Exam,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),alias,legacy_name,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,Finance Agent,benchmark_finance_agent,Finance Agent,canonical,exact,"Academia, Others(vals.ai)",none,Agentic,Specialized (Law/Bio/Finance),legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,ARC-AGI-2,benchmark_arc_agi_2,ARC-AGI-2,canonical,exact,Academia,none,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,MMMU Pro,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,alias,version_alias,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,MRCR v2,benchmark_mrcr_v2,MRCR v2,canonical,exact,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,OpenRCA,benchmark_openrca,OpenRCA,canonical,exact,"Academia, Others(Microsoft)",Microsoft,Generative Reasoning,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,BigLaw Bench,benchmark_biglaw_bench,BigLaw Bench,canonical,exact,Others(Harvey),none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,CyberGym,benchmark_cybergym,CyberGym,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,Graphwalks,benchmark_graphwalks,GraphWalks,alias,case_variant,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,SWE-bench Multilingual,benchmark_swe_bench_multilingual,SWE-bench Multilingual,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,Vending-Bench 2,benchmark_vending_bench_2,Vending-Bench 2,canonical,exact,Others(Andon Labs),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.6 (Opus),2026-02-05,2026,BioPipelineBench,benchmark_biopipelinebench,BioPipelineBench,canonical,exact,Anthropic,Anthropic,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,SWE-bench Pro,benchmark_swe_bench_pro,SWE-bench Pro,canonical,exact,Others(Scale AI),none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,SWE-bench Verified,benchmark_swe_bench_verified,SWE-bench verified,alias,case_variant,OpenAI,OpenAI,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Terminal-Bench 2.0,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,canonical,exact,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Humanity's Last Exam,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),alias,legacy_name,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,BrowseComp,benchmark_browsecomp,BrowseComp,canonical,exact,OpenAI,OpenAI,Agentic,General/Commonsense,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,MCP-Atlas,benchmark_scale_mcp_atlas,Scale MCP-Atlas,alias,provider_abbreviation,Others(Scale AI),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,OSWorld-Verified,benchmark_osworld_verified,OSWorld-Verified,canonical,exact,Academia,none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Finance Agent v1.1,benchmark_financeagent_v1_1,FinanceAgent v1.1,alias,case_variant,"Academia, Others(vals.ai)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,CyberGym,benchmark_cybergym,CyberGym,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,GPQA Diamond,benchmark_gpqa_diamond,GPQA Diamond,canonical,exact,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,CharXiv Reasoning,benchmark_charxiv_reasoning,CharXiv Reasoning,canonical,exact,Academia,none,Multimodal Perception,STEM/Math,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,MMMLU,benchmark_mmmlu,MMMLU,canonical,exact,OpenAI,OpenAI,Generative Reasoning,General/Commonsense,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,93-task coding benchmark,benchmark_93_task_coding_benchmark,93-task coding benchmark,canonical,exact,Others(early-access tester),none,Agentic,Coding/Engineering,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,internal research-agent benchmark,benchmark_internal_research_agent_benchmark,internal research-agent benchmark,canonical,exact,Others(early-access tester),none,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,BigLaw Bench,benchmark_biglaw_bench,BigLaw Bench,canonical,exact,Others(Harvey),none,Generative Reasoning,Specialized (Law/Bio/Finance),legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,CursorBench,benchmark_cursorbench,CursorBench,canonical,exact,Others(Cursor),none,Agentic,Coding/Engineering,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,implicit-need tests,benchmark_implicit_need_tests,implicit-need tests,canonical,exact,Others(Notion),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Rakuten-SWE-Bench,benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,canonical,exact,Others(Rakuten),none,Agentic,Coding/Engineering,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Terminal Bench,benchmark_terminal_bench,Terminal-bench,alias,case_variant,Academia,Anthropic,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Qodo's real-world code review benchmark,benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,canonical,exact,Others(Qodo),none,Generative Reasoning,Coding/Engineering,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,OfficeQA Pro,benchmark_officeqa_pro,OfficeQA Pro,canonical,exact,"Academia, Others(Databricks)",none,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,GDPval-AA,benchmark_gdpval_aa,GDPval-AA,canonical,exact,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,GraphWalks,benchmark_graphwalks,GraphWalks,canonical,exact,OpenAI,OpenAI,Generative Reasoning,STEM/Math,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,SWE-bench Multilingual,benchmark_swe_bench_multilingual,SWE-bench Multilingual,canonical,exact,Academia,none,Agentic,Coding/Engineering,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,SWE-bench Multimodal,benchmark_swe_bench_multimodal,SWE-bench Multimodal,canonical,exact,Academia,none,Agentic,Coding/Engineering,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Structural Biology,benchmark_structural_biology,Structural Biology,canonical,exact,Anthropic,Anthropic,Generative Reasoning,Specialized (Law/Bio/Finance),accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Vending-Bench 2,benchmark_vending_bench_2,Vending-Bench 2,canonical,exact,Others(Andon Labs),none,Agentic,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,ScreenSpot-Pro,benchmark_screenspot_pro,ScreenSpot-Pro,canonical,exact,Academia,none,Multimodal Perception,General/Commonsense,legacy_seed
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Misaligned behavior,benchmark_automated_behavioral_audit,automated behavioral audit,alias,legacy_name,Anthropic,Anthropic,Constraint Satisfaction,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,automated behavioral audit,benchmark_automated_behavioral_audit,automated behavioral audit,canonical,exact,Anthropic,Anthropic,Constraint Satisfaction,General/Commonsense,accepted
+Anthropic,Claude 4.7 (Opus),2026-04-16,2026,Anthropic internal autonomous agentic coding evaluation,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,canonical,exact,Anthropic,Anthropic,Agentic,Coding/Engineering,accepted

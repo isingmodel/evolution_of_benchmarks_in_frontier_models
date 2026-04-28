@@ -8,7 +8,7 @@ The key design choice is to avoid asking an LLM to read an arbitrary web page fr
 2. Optionally render the page with Playwright and click benchmark-like tabs/buttons.
 3. Optionally run OCR over benchmark/performance-like images.
 4. Match a canonical benchmark catalog built from `data/benchmarks.csv` and the small, curated `data/benchmark_aliases.csv` seed list.
-5. Optionally ask Gemini to perform source-first extraction: identify raw benchmark mentions from text, rendered content, and OCR source context; accept only exact or explicitly curated catalog mappings; and route uncertain or new names to review fields.
+5. Optionally ask a local OpenAI OAuth proxy to perform source-first extraction: identify raw benchmark mentions from text, rendered content, and OCR source context; accept only exact or explicitly curated catalog mappings; and route uncertain or new names to review fields.
 6. Evaluate extraction quality against the existing `data/models.csv` `benchmarks` column.
 
 The current implementation treats `data/models.csv` as an answer key. That makes it useful for regression tests before applying the scraper to new model release links.
@@ -19,7 +19,7 @@ The scraper deliberately avoids broad generated aliases as the main solution. Al
 
 1. Collect high-coverage source context from static HTML, reader markdown, Playwright-rendered text, image metadata, and OCR.
 2. Use deterministic catalog matching only for exact canonical names and explicitly curated aliases.
-3. Use Gemini, when requested, as a conservative source-grounded extractor rather than as a post-hoc synonym generator.
+3. Use OpenAI OAuth, when requested, as a conservative source-grounded extractor rather than as a post-hoc synonym generator.
 4. Automatically accept only exact canonical names and explicitly curated aliases from `data/benchmark_aliases.csv`.
 5. Put semantic mappings, family/variant rollups, OCR corrections, low-confidence mappings, and catalog-missing names into `review_required_mentions`.
 6. Keep catalog-missing benchmark-like names in `llm_unknown_mentions` as candidates for `data/benchmarks.csv`.
@@ -94,13 +94,13 @@ python scraping/benchmark_scraper.py extract \
   --ocr-images
 ```
 
-Use Gemini as the source-first extractor and conservative catalog mapper:
+Use OpenAI OAuth as the source-first extractor and conservative catalog mapper:
 
 ```bash
-python scraping/benchmark_scraper.py evaluate --rendered --ocr-images --use-gemini --max-pages 3
+python scraping/benchmark_scraper.py evaluate --rendered --ocr-images --use-openai-oauth --max-pages 3
 ```
 
-Gemini uses `secrets/gemini_api_key.txt` by default, matching the existing classification scripts.
+OpenAI OAuth uses the local proxy at `http://127.0.0.1:10531/v1` by default. The scraper can auto-start the sibling checkout at `~/dev/openai-oauth` (or `~/dev/openai_oauth` if present); no project API key file is required.
 
 ## Output
 

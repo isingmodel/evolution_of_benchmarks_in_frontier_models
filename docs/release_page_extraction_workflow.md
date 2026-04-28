@@ -88,7 +88,7 @@ python scraping/benchmark_scraper.py extract \
   --model-name "$MODEL_NAME" \
   --rendered \
   --ocr-images \
-  --use-gemini > scraping/output/new_release_extract.json
+  --use-openai-oauth > scraping/output/new_release_extract.json
 ```
 
 Generate a review packet for subagents or human reviewers:
@@ -111,10 +111,11 @@ AS_OF=YYYY-MM-DD
 
 python scripts/build_normalized_data.py
 python scripts/validate_data.py
-python scripts/generate_visuals.py --as-of "$AS_OF" --strict-resolution
-python scripts/generate_trend_graph_by_main_category.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-python scripts/generate_trend_graph_by_all_category.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-python scripts/generate_facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+python analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
+python analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+python analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
+python analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+python analysis/readme_story/analyze.py --as-of "$AS_OF"
 python scripts/update_readme.py
 python scripts/validate_data.py
 ```

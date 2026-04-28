@@ -1,0 +1,6 @@
+artifact,project_fit_1_to_5,novelty_1_to_5,visual_clarity_1_to_5,data_support_1_to_5,reproducibility_1_to_5,overclaim_risk_1_low_5_high,uncertain_facet_dependency_1_low_5_high,audience_value_1_to_5,readiness_1_to_5,recommended_treatment
+provider_strategy_fingerprints.png/csv,5,4,3,3,4,4,5,5,3,Foreground after redesign as provider framing fingerprints with denominators and sensitivity checks
+domain_interaction_alluvial.png/csv,5,4,2,2,4,3,5,4,2,Use as appendix or replace with a domain-interaction matrix before README foregrounding
+review_leverage_benchmarks.png/csv,5,4,4,4,4,1,5,5,4,Use as methodology caveat and audit roadmap
+benchmark_lifecycle_table.csv,4,4,1,3,4,3,4,4,2,Keep as appendix seed until converted into a lifecycle/adoption chart
+summary_stats.csv,4,2,4,5,5,1,1,3,4,Use as reproducibility footnote or methods box

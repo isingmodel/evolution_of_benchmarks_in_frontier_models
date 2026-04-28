@@ -1,0 +1,7 @@
+provider_group,period,total_mentions,release_weight_total,openai_source_or_affiliated_mentions,openai_source_or_affiliated_share,openai_source_or_affiliated_release_normalized_share,strict_openai_affiliation_mentions,strict_openai_affiliation_share,unique_openai_linked_benchmarks
+Anthropic,2023-2024,42,4.0,8,0.19047619047619047,0.250267094017094,8,0.19047619047619047,GSM8K; HumanEval; SWE-bench verified
+Anthropic,2025-2026,103,7.999999999999999,23,0.22330097087378642,0.23748473748473758,20,0.1941747572815534,BrowseComp; GraphWalks; HLE (Humanity's Last Exam); MMMLU; MRCR v2; SWE-bench verified
+Google,2023-2024,34,3.0000000000000004,3,0.08823529411764706,0.060846560846560836,2,0.058823529411764705,GSM8K; HumanEval; MRCR
+Google,2025-2026,58,4.0,17,0.29310344827586204,0.3058306277056277,9,0.15517241379310345,BrowseComp; HLE (Humanity's Last Exam); MMMLU; MRCR; MRCR v2; SWE-bench verified; SimpleQA
+Anthropic+Google,2023-2024,76,6.999999999999998,11,0.14473684210526316,0.169086865515437,10,0.13157894736842105,GSM8K; HumanEval; MRCR; SWE-bench verified
+Anthropic+Google,2025-2026,161,12.0,40,0.2484472049689441,0.2602667008917009,29,0.18012422360248448,BrowseComp; GraphWalks; HLE (Humanity's Last Exam); MMMLU; MRCR; MRCR v2; SWE-bench verified; SimpleQA

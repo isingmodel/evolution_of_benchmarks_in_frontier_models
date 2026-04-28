@@ -113,6 +113,7 @@ def review_rows(data: Mapping[str, Any]) -> list[list[Any]]:
 def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
     lines: list[str] = []
     title = data.get("title") or data.get("model_name") or "Release Page"
+    used_llm_extraction = data.get("used_openai_oauth", "")
     lines.extend(
         [
             f"# Multi-Agent Benchmark Review Packet: {title}",
@@ -128,7 +129,7 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
             f"- Final URL: {md_escape(data.get('final_url', ''))}",
             f"- Rendered: `{md_escape(data.get('rendered', ''))}`",
             f"- OCR images: `{md_escape(data.get('ocr_images', ''))}`",
-            f"- Used Gemini extraction: `{md_escape(data.get('used_gemini', ''))}`",
+            f"- Used OpenAI OAuth extraction: `{md_escape(used_llm_extraction)}`",
             "",
             "## Accepted By Scraper",
             "",
@@ -185,10 +186,11 @@ def generate_packet(data: Mapping[str, Any], source_path: Path) -> str:
             "",
             "python scripts/build_normalized_data.py",
             "python scripts/validate_data.py",
-            "python scripts/generate_visuals.py --as-of \"$AS_OF\" --strict-resolution",
-            "python scripts/generate_trend_graph_by_main_category.py --as-of \"$AS_OF\" --window-days 180 --strict-resolution",
-            "python scripts/generate_trend_graph_by_all_category.py --as-of \"$AS_OF\" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution",
-            "python scripts/generate_facet_trends.py --as-of \"$AS_OF\" --window-days 180 --strict-resolution",
+            "python analysis/benchmark_evolution/analyze.py --as-of \"$AS_OF\" --strict-resolution",
+            "python analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of \"$AS_OF\" --window-days 180 --strict-resolution",
+            "python analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of \"$AS_OF\" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution",
+            "python analysis/benchmark_taxonomy_trends/facet_trends.py --as-of \"$AS_OF\" --window-days 180 --strict-resolution",
+            "python analysis/readme_story/analyze.py --as-of \"$AS_OF\"",
             "python scripts/update_readme.py",
             "python scripts/validate_data.py",
             "```",
