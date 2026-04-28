@@ -45,12 +45,19 @@ class LegacyTaxonomy:
 class LegacyTaxonomyLookup:
     by_id: dict[str, LegacyTaxonomy]
     resolver: CanonicalResolver
+    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = None
 
     def resolve(self, raw_mention: str) -> Optional[LegacyTaxonomy]:
         resolution = self.resolver.resolve(raw_mention)
-        if not resolution:
-            return None
-        return self.by_id.get(resolution.benchmark_id)
+        if resolution:
+            taxonomy = self.by_id.get(resolution.benchmark_id)
+            if taxonomy:
+                return taxonomy
+
+        if self.fallback_by_exact is not None:
+            return self.fallback_by_exact.get(legacy_lookup_key(raw_mention))
+
+        return None
 
 
 def configure_plot_style() -> None:
@@ -92,24 +99,40 @@ def split_benchmarks(value: object) -> list[str]:
     return split_benchmark_mentions(text)
 
 
+def legacy_lookup_key(value: object) -> str:
+    return str(value).strip().casefold()
+
+
+def legacy_benchmark_aliases(name: str) -> set[str]:
+    key = legacy_lookup_key(name)
+    aliases = {key} if key else set()
+    if "/" in key:
+        aliases.update(part.strip() for part in key.split("/") if part.strip())
+    return aliases
+
+
 def build_legacy_taxonomy_lookup(benchmarks: pd.DataFrame) -> LegacyTaxonomyLookup:
     by_id: dict[str, LegacyTaxonomy] = {}
+    alias_path = ALIAS_PATH if ALIAS_PATH.exists() else None
+    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = {} if alias_path is None else None
+
     for _, row in benchmarks.fillna("").iterrows():
         name = str(row.get("benchmark_name", "")).strip()
         if not name:
             continue
 
         row_benchmark_id = str(row.get("benchmark_id", "")).strip() or benchmark_id(name)
-        by_id[row_benchmark_id] = LegacyTaxonomy(
+        taxonomy = LegacyTaxonomy(
             mode=str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip(),
             domain=str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip(),
         )
+        by_id[row_benchmark_id] = taxonomy
+        if fallback_by_exact is not None:
+            for alias in legacy_benchmark_aliases(name):
+                fallback_by_exact[alias] = taxonomy
 
-    resolver = CanonicalResolver.from_files(
-        BENCHMARKS_PATH,
-        ALIAS_PATH if ALIAS_PATH.exists() else None,
-    )
-    return LegacyTaxonomyLookup(by_id=by_id, resolver=resolver)
+    resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, alias_path)
+    return LegacyTaxonomyLookup(by_id=by_id, resolver=resolver, fallback_by_exact=fallback_by_exact)
 
 
 def unresolved_label(item: object) -> str:
