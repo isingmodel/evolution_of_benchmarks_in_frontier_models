@@ -291,12 +291,21 @@ def validate_facet_frame(
     if invalid_headline:
         report.error(f"{label} has invalid headline_task_mode labels: {invalid_headline}")
 
+    active_facets = facets[facets["review_status"] != "deprecated"].copy()
+    active_headline_rows = active_facets[active_facets["facet_axis"] == "headline_task_mode"]
+    headline_counts = active_headline_rows.groupby(owner_column).size()
+    multi_headline = headline_counts[headline_counts > 1]
+    if not multi_headline.empty:
+        report.error(
+            f"{label} has multiple active headline_task_mode rows for: "
+            f"{multi_headline.head(10).index.tolist()}"
+        )
+
     for axis, allowed_labels in ALLOWED_FACET_LABELS.items():
         invalid_labels = sorted(set(facets[facets["facet_axis"] == axis]["facet_label"]) - allowed_labels - {""})
         if invalid_labels:
             report.error(f"{label} has invalid {axis} labels: {invalid_labels}")
 
-    active_facets = facets[facets["review_status"] != "deprecated"].copy()
     duplicate_facet_rows = active_facets.duplicated(
         subset=[owner_column, "facet_axis", "facet_label"],
         keep=False,

@@ -10,6 +10,8 @@ Use this guide when reviewing `benchmark_facets.csv`, especially rule-seeded row
 
 Do not use this workflow to canonicalize benchmark identities. If the benchmark identity, alias, or source URL is wrong, fix `data/benchmarks.csv` or `data/benchmark_aliases.csv` first, then return to facet review.
 
+`review_status` has table-local meaning. In `data/benchmarks.csv`, `accepted` means the canonical benchmark identity is accepted. In `data/benchmark_facets.csv`, `accepted` means the specific axis label has been reviewed with enough evidence. Do not promote facet rows only because the benchmark identity row is accepted.
+
 ## Review Unit
 
 The review unit is one `benchmark_id`.
@@ -40,6 +42,8 @@ Use `needs_review` when:
 - the complete label set for that axis would be arbitrary,
 - the benchmark format appears to vary across versions or provider implementations,
 - a source suggests the row may be a metric, subset, setting, or chart label rather than a benchmark-level facet.
+
+Provider-created or private benchmarks can have accepted benchmark identities while still having `needs_review` facet rows. Promote those facet rows only when the public source gives enough axis-level evidence, or mark the lifecycle risk with `provider_created_benchmark` or `private_or_opaque_eval` as appropriate.
 
 Use `disputed` when:
 
