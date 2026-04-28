@@ -1,40 +1,45 @@
 import argparse
-import os
-from pathlib import Path
-import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mtick
 import seaborn as sns
 
-SCRIPTS_DIR = Path(__file__).resolve().parent
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+if __package__:
+    from .plot_utils import (
+        DATA_DIR,
+        DOMAIN_ORDER,
+        MODE_ORDER,
+        build_legacy_taxonomy_lookup,
+        build_rolling_share_trend,
+        configure_plot_style,
+        latest_release_date,
+        load_models_and_benchmarks,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        validate_window_days,
+        warn_unresolved,
+    )
+else:
+    from plot_utils import (
+        DATA_DIR,
+        DOMAIN_ORDER,
+        MODE_ORDER,
+        build_legacy_taxonomy_lookup,
+        build_rolling_share_trend,
+        configure_plot_style,
+        latest_release_date,
+        load_models_and_benchmarks,
+        parse_as_of,
+        save_figure,
+        split_benchmarks,
+        validate_window_days,
+        warn_unresolved,
+    )
 
-from taxonomy_utils import CanonicalResolver, benchmark_id as canonical_benchmark_id
 
-sns.set_theme(style="whitegrid")
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
-
-BENCHMARKS_PATH = Path("data/benchmarks.csv")
-ALIAS_PATH = Path("data/benchmark_aliases.csv")
-
-MODE_ORDER = [
-    "Agentic",
-    "Multimodal Perception",
-    "Generative Reasoning",
-    "Constraint Satisfaction",
-    "Knowledge Retrieval",
-]
-
-DOMAIN_ORDER = [
-    "STEM/Math",
-    "Coding/Engineering",
-    "General/Commonsense",
-    "Specialized (Law/Bio/Finance)",
-]
+configure_plot_style()
 
 
 def parse_args():
@@ -70,105 +75,6 @@ def parse_args():
     return parser.parse_args()
 
 
-def load_data():
-    models_df = pd.read_csv("data/models.csv")
-    benchmarks_df = pd.read_csv(BENCHMARKS_PATH)
-    return models_df, benchmarks_df
-
-
-def normalize_name(value):
-    return str(value).strip().casefold()
-
-
-def benchmark_aliases(name):
-    normalized = normalize_name(name)
-    aliases = {normalized} if normalized else set()
-
-    # Current v2 data encodes explicit alternatives as slash-separated names,
-    # e.g. "MMLU / MMLU-Pro". Do not infer substring aliases beyond this.
-    if "/" in normalized:
-        aliases.update(part.strip() for part in normalized.split("/") if part.strip())
-
-    return aliases
-
-
-def build_lookup(benchmarks_df):
-    exact_lookup = {}
-    by_id = {}
-    for _, row in benchmarks_df.iterrows():
-        name = str(row.get("benchmark_name", "")).strip()
-        mode = str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip()
-        domain = str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip()
-        if not name:
-            continue
-
-        benchmark_id = str(row.get("benchmark_id", "")).strip()
-        if not benchmark_id and canonical_benchmark_id is not None:
-            benchmark_id = canonical_benchmark_id(name)
-        if benchmark_id:
-            by_id[benchmark_id] = {"mode": mode, "domain": domain}
-
-        for alias in benchmark_aliases(name):
-            exact_lookup[alias] = {"mode": mode, "domain": domain}
-
-    resolver = None
-    if CanonicalResolver is not None and ALIAS_PATH.exists():
-        resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH)
-
-    return {"by_id": by_id, "exact": exact_lookup, "resolver": resolver}
-
-
-def find_taxonomy(benchmark_name, lookup):
-    resolver = lookup.get("resolver")
-    if resolver is not None:
-        resolution = resolver.resolve(benchmark_name)
-        if not resolution:
-            return None
-        return lookup["by_id"].get(resolution.benchmark_id)
-
-    return lookup["exact"].get(normalize_name(benchmark_name))
-
-
-def split_benchmarks(value):
-    if pd.isna(value):
-        return []
-
-    text = str(value).strip()
-    if not text or text.casefold() == "nan":
-        return []
-
-    return [b.strip() for b in text.split(",") if b.strip()]
-
-
-def parse_as_of(value):
-    if not value:
-        return None
-
-    parsed = pd.to_datetime(value, errors="raise")
-    return parsed.normalize()
-
-
-def validate_window_days(window_days):
-    if window_days <= 0:
-        raise ValueError("--window-days must be a positive integer.")
-    return window_days
-
-
-def warn_unresolved(unresolved, strict_resolution):
-    if not unresolved:
-        return
-
-    sample = ", ".join(sorted({bench for _, bench in unresolved})[:10])
-    message = (
-        f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
-        "Add explicit taxonomy/alias rows to resolve them; fuzzy substring matching is disabled."
-    )
-    if strict_resolution:
-        raise ValueError(message)
-
-    print(f"Warning: {message}")
-
-
 def collect_axis_events(models_df, lookup, as_of):
     mode_events = []
     domain_events = []
@@ -185,48 +91,23 @@ def collect_axis_events(models_df, lookup, as_of):
 
         resolved_mentions = []
         for bench in benchmarks:
-            tx = find_taxonomy(bench, lookup)
-            if not tx:
+            taxonomy = lookup.resolve(bench)
+            if not taxonomy:
                 unresolved.append((str(row.get("Model name", "")), bench))
                 continue
-            resolved_mentions.append(tx)
+            resolved_mentions.append(taxonomy)
 
         if not resolved_mentions:
             continue
 
         base_weight = 1.0 / len(resolved_mentions)
-        for tx in resolved_mentions:
-            if tx["mode"]:
-                mode_events.append({"Date": date, "Category": tx["mode"], "Weight": base_weight})
-            if tx["domain"]:
-                domain_events.append({"Date": date, "Category": tx["domain"], "Weight": base_weight})
+        for taxonomy in resolved_mentions:
+            if taxonomy.mode:
+                mode_events.append({"Date": date, "Category": taxonomy.mode, "Weight": base_weight})
+            if taxonomy.domain:
+                domain_events.append({"Date": date, "Category": taxonomy.domain, "Weight": base_weight})
 
     return pd.DataFrame(mode_events), pd.DataFrame(domain_events), unresolved
-
-
-def build_trend_data(events_df, category_cols, as_of, window_days):
-    if events_df.empty:
-        return pd.DataFrame(columns=category_cols), None
-
-    min_date = events_df["Date"].min()
-    date_range = pd.date_range(start=min_date, end=as_of, freq="D")
-
-    daily_counts = events_df.groupby(["Date", "Category"])["Weight"].sum().unstack(fill_value=0)
-    daily_counts = daily_counts.reindex(date_range, fill_value=0)
-
-    for c in category_cols:
-        if c not in daily_counts.columns:
-            daily_counts[c] = 0
-    daily_counts = daily_counts[category_cols]
-
-    rolling_data = daily_counts.rolling(window=window_days, min_periods=1).sum()
-    trend_data = rolling_data.div(rolling_data.sum(axis=1), axis=0).ffill().fillna(0)
-
-    for col in trend_data.columns:
-        trend_data[col] = trend_data[col].ewm(span=30, adjust=False).mean()
-    trend_data = trend_data.div(trend_data.sum(axis=1), axis=0).fillna(0)
-
-    return trend_data, min_date
 
 
 def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
@@ -251,14 +132,6 @@ def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
     ax.set_ylim(0, 1.0)
 
 
-def save_figure(fig, output_path):
-    output_dir = os.path.dirname(output_path)
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
-    fig.savefig(output_path, dpi=150, bbox_inches="tight")
-    print(f"Graph generated at {output_path}")
-
-
 def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_path):
     fig, ax = plt.subplots(figsize=(16, 9))
     domain_colors = sns.color_palette("Set3", n_colors=len(DOMAIN_ORDER))
@@ -280,8 +153,8 @@ def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_pat
 
 
 def generate_review_debt_graph(output_path):
-    facet_path = "data/benchmark_facets.csv"
-    if not os.path.exists(facet_path):
+    facet_path = DATA_DIR / "benchmark_facets.csv"
+    if not facet_path.exists():
         print("Review-debt graph skipped: data/benchmark_facets.csv not found.")
         return
 
@@ -337,16 +210,16 @@ def generate_trend_graph(
     strict_resolution=False,
 ):
     window_days = validate_window_days(window_days)
-    models_df, benchmarks_df = load_data()
+    models_df, benchmarks_df = load_models_and_benchmarks()
     if as_of is None:
-        as_of = pd.to_datetime(models_df["release date"]).max().normalize()
+        as_of = latest_release_date(models_df)
 
-    lookup = build_lookup(benchmarks_df)
+    lookup = build_legacy_taxonomy_lookup(benchmarks_df)
     mode_events, domain_events, unresolved = collect_axis_events(models_df, lookup, as_of)
     warn_unresolved(unresolved, strict_resolution)
 
-    mode_trend, mode_min_date = build_trend_data(mode_events, MODE_ORDER, as_of, window_days)
-    domain_trend, domain_min_date = build_trend_data(domain_events, DOMAIN_ORDER, as_of, window_days)
+    mode_trend, mode_min_date = build_rolling_share_trend(mode_events, as_of, window_days, MODE_ORDER)
+    domain_trend, domain_min_date = build_rolling_share_trend(domain_events, as_of, window_days, DOMAIN_ORDER)
 
     if mode_trend.empty and domain_trend.empty:
         print("No events found.")

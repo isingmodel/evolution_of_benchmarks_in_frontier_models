@@ -1,5 +1,11 @@
+import argparse
+from pathlib import Path
+
 import pandas as pd
 
+
+DEFAULT_BASE_README = Path("data/base_readme.md")
+DEFAULT_OUTPUT = Path("README.md")
 
 README_BENCHMARK_COLUMNS = [
     "benchmark_name",
@@ -12,8 +18,15 @@ README_BENCHMARK_COLUMNS = [
 ]
 
 
-def load_benchmark_table():
-    benchmarks_df = pd.read_csv("data/benchmarks.csv").fillna("")
+def parse_args():
+    parser = argparse.ArgumentParser(description="Regenerate the top-level README from data/base_readme.md.")
+    parser.add_argument("--base", default=DEFAULT_BASE_README, type=Path, help="README template path.")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT, type=Path, help="Generated README output path.")
+    return parser.parse_args()
+
+
+def load_benchmark_table(benchmarks_path=Path("data/benchmarks.csv")):
+    benchmarks_df = pd.read_csv(benchmarks_path).fillna("")
     return pd.DataFrame(
         {
             "benchmark_name": benchmarks_df["benchmark_name"],
@@ -30,7 +43,7 @@ def load_benchmark_table():
     )
 
 
-def generate_markdown():
+def generate_markdown(base_path=DEFAULT_BASE_README, output_path=DEFAULT_OUTPUT):
     models_df = pd.read_csv("data/models.csv")
     benchmark_table_df = load_benchmark_table()
 
@@ -38,8 +51,7 @@ def generate_markdown():
     models_df = models_df.sort_values("release date", ascending=False)
     models_df["release date"] = models_df["release date"].dt.strftime("%Y-%m-%d")
 
-    with open("data/base_readme.md", "r", encoding="utf-8") as f:
-        md_content = f.read()
+    md_content = base_path.read_text(encoding="utf-8")
 
     models_table = models_df.fillna("").to_markdown(index=False)
     taxonomy_table = benchmark_table_df.fillna("").to_markdown(index=False)
@@ -47,11 +59,11 @@ def generate_markdown():
     md_content = md_content.replace("{{MODELS_TABLE}}", models_table)
     md_content = md_content.replace("{{TAXONOMY_TABLE}}", taxonomy_table)
 
-    with open("README.md", "w", encoding="utf-8") as f:
-        f.write(md_content)
+    output_path.write_text(md_content, encoding="utf-8")
 
-    print("README.md updated.")
+    print(f"{output_path} updated.")
 
 
 if __name__ == "__main__":
-    generate_markdown()
+    args = parse_args()
+    generate_markdown(base_path=args.base, output_path=args.output)

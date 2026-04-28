@@ -236,12 +236,6 @@ REQUIRED_FACET_AXES = {
 }
 
 
-def read_csv_rows(path: Path) -> List[Dict[str, str]]:
-    """Read a CSV into dictionaries with UTF-8 and newline-safe defaults."""
-    with path.open("r", encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
-
-
 def exact_key(value: str) -> str:
     """Return the exact-match key used by the resolver.
 
@@ -274,17 +268,6 @@ def stable_hash(value: str, length: int = 10) -> str:
 def benchmark_id(benchmark_name: str) -> str:
     """Create a deterministic benchmark ID from a canonical benchmark name."""
     return f"benchmark_{slugify(benchmark_name)}"
-
-
-def model_id(provider: str, model_name: str) -> str:
-    """Create a deterministic model ID from provider and model display name."""
-    return f"model_{slugify(provider)}_{slugify(model_name)}"
-
-
-def mention_id(provider: str, model_name: str, release_date: str, mention_index: int, benchmark_id_value: str) -> str:
-    """Create a deterministic mention ID for an exploded release mention."""
-    base = f"{model_id(provider, model_name)}_{exact_key(release_date)}_{int(mention_index):03d}_{benchmark_id_value}"
-    return f"mention_{slugify(base)}"
 
 
 def benchmark_name_column(fieldnames: Optional[Sequence[str]]) -> str:
