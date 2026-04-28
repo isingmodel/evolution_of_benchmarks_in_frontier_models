@@ -1,38 +1,32 @@
 import argparse
+import sys
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mtick
 import seaborn as sns
 
-if __package__:
-    from .plot_utils import (
-        MODE_ORDER,
-        build_legacy_taxonomy_lookup,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        load_models_and_benchmarks,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
-else:
-    from plot_utils import (
-        MODE_ORDER,
-        build_legacy_taxonomy_lookup,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        load_models_and_benchmarks,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = ROOT / "scripts"
+
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from plot_utils import (  # noqa: E402
+    MODE_ORDER,
+    build_legacy_taxonomy_lookup,
+    build_rolling_share_trend,
+    configure_plot_style,
+    latest_release_date,
+    load_models_and_benchmarks,
+    parse_as_of,
+    save_figure,
+    split_benchmarks,
+    validate_window_days,
+    warn_unresolved,
+)
 
 
 configure_plot_style()

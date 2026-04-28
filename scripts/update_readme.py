@@ -66,7 +66,7 @@ def number(value, digits=2):
 
 def table_or_note(path, builder):
     if not path.exists():
-        return f"_Run `.venv/bin/python scripts/generate_story_analyses.py` to generate `{path}`._"
+        return f"_Run `.venv/bin/python analysis/readme_story/analyze.py` to generate `{path}`._"
     data = pd.read_csv(path).fillna("")
     if data.empty:
         return "_No rows generated._"

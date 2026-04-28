@@ -22,13 +22,14 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-if __package__:
-    from .taxonomy_utils import CanonicalResolver, exact_key, split_benchmark_mentions
-else:
-    from taxonomy_utils import CanonicalResolver, exact_key, split_benchmark_mentions
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = ROOT / "scripts"
 
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
 
-ROOT = Path(__file__).resolve().parents[1]
+from taxonomy_utils import CanonicalResolver, exact_key, split_benchmark_mentions  # noqa: E402
+
 DATA_DIR = ROOT / "data"
 DEFAULT_OUTPUT_DIR = ROOT / "analysis" / "readme_story"
 DEFAULT_ASSET_DIR = ROOT / "assets"
