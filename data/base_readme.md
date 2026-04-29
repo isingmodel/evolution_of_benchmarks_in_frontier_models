@@ -6,14 +6,15 @@ The unit of analysis is the public launch page written for a general audience: t
 The charts summarize how providers frame capability claims in public launch material. Benchmark categories are multi-facet in the v3 methodology; any single headline category shown in a chart is a visualization projection, not an exclusive benchmark identity.
 
 ## Evolution Graph
+Release-page pies use a runtime `headline_task_mode` projection derived from `benchmark_facets.csv`. Each release page contributes equal total weight, divided across resolved benchmark mentions and then across multiple labels within the same facet axis.
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the headline task-mode projection over time (rolling 6-month window). This is a readable projection from the taxonomy, not an exclusive benchmark identity.
+The following graph shows the facet-derived headline task-mode projection over time (rolling 6-month window). This is a readable projection from the taxonomy, not an exclusive benchmark identity.
 ![Benchmark Growth](assets/benchmark_growth.png)
 
 ## Separate Axis Trends
-The following graph keeps task mode and domain as separate axes, avoiding a single denominator that mixes unlike taxonomy dimensions.
+The following graph keeps headline task mode and v3 domain facets as separate axes, avoiding a single denominator that mixes unlike taxonomy dimensions. Multi-label domain assignments split the benchmark contribution equally within the domain axis.
 ![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
 
 ## Classification Review Debt
@@ -35,6 +36,8 @@ The strongest new pattern is a shift in public benchmark framing. Earlier releas
 ![Static Exams to Work Simulations](assets/static_to_work_simulation_trend.png)
 
 {{STATIC_WORK_TABLE}}
+
+Under the multi-label projection, shares can sum above 100% because a benchmark can contribute to multiple frames; this rebases the methodology without implying that the underlying release-page data changed.
 
 Top contributors to the work-simulation signal:
 
@@ -71,9 +74,9 @@ The multi-facet taxonomy is intentionally reviewable. The chart below ranks high
 ### Benchmark Analysis Methodology
 This analysis focuses on benchmarks featured prominently on model release pages, rather than every benchmark listed in technical reports, system cards, model cards, or API documentation. Those detailed sources are useful for verification and safety analysis, but they answer a different question: what was evaluated? Here, the question is narrower: which benchmarks did providers choose to emphasize in public launch messaging, and how did that emphasis change over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
 
-Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction.
+Headline category is a visualization projection, not an exclusive benchmark identity. For example, a coding benchmark can retain a `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release-page emphasis is autonomous environment interaction. The canonical facet table is v3-first; scripts derive any single-label headline projection at runtime when a chart needs it.
 
-The current normalized seed includes source-audited multi-facet annotations for `TAU-2 bench`, `Vending-Bench 2`, `GDPval`, `GDPval-AA`, `BrowseComp Long Context`, `FACTS Benchmark suite`, and `BioPipelineBench`. See [benchmark audit notes](docs/benchmark_audit_notes.md) for the source-backed decisions and known open caveats.
+The current normalized facet table was regenerated as a reviewable v3 multi-label table. See [benchmark audit notes](docs/benchmark_audit_notes.md) for source-backed decisions and known open caveats on previously audited high-impact benchmarks.
 
 ## Models Data
 The following table lists the models and their associated benchmarks.
@@ -86,7 +89,7 @@ Classification of various benchmarks by category.
 {{TAXONOMY_TABLE}}
 
 ## Categorization Logic
-The generated taxonomy table currently exposes the normalized source metadata plus the headline fields used by existing scripts:
+The generated taxonomy table currently exposes the normalized source metadata plus legacy headline fields retained for audit and backward compatibility:
 1. **frontier_lab_author_affiliations**: whether benchmark authors include the tracked frontier labs (OpenAI, Anthropic, Google, DeepMind, Microsoft, xAI).
 2. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
 3. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
@@ -110,7 +113,7 @@ $PY scripts/update_readme.py
 $PY scripts/validate_data.py
 ```
 
-The normalized-data build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are integrated into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. The generated README taxonomy table and trend analyses remain headline-compatible while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis. Story-analysis tables are written under `analysis/readme_story/`, and README chart assets are written under `assets/`.
+The normalized-data build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are integrated into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. The generated README taxonomy table and trend analyses remain headline-compatible by deriving any single-label projection at runtime, while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis. Story-analysis tables are written under `analysis/readme_story/`, and README chart assets are written under `assets/`.
 
 ## Release-Page Extraction Workflow
 For new model launches, run the scraper as a source extractor and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.

@@ -79,6 +79,7 @@ class OpenAIOAuthClient:
         self,
         base_url: str = DEFAULT_OPENAI_OAUTH_BASE_URL,
         model: str = DEFAULT_OPENAI_OAUTH_MODEL,
+        reasoning_effort: str | None = None,
         project_dir: str | Path | None = None,
         auto_start: bool = True,
         timeout: float = 120.0,
@@ -86,6 +87,7 @@ class OpenAIOAuthClient:
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.model = model
+        self.reasoning_effort = reasoning_effort
         self.project_dir = resolve_openai_oauth_dir(project_dir)
         self.auto_start = auto_start
         self.timeout = timeout
@@ -157,6 +159,8 @@ class OpenAIOAuthClient:
                 }
             ],
         }
+        if self.reasoning_effort:
+            payload["reasoning"] = {"effort": self.reasoning_effort}
         response = requests.post(f"{self.base_url}/responses", json=payload, timeout=self.timeout)
         if response.status_code >= 400:
             raise RuntimeError(f"OpenAI OAuth request failed {response.status_code}: {response.text[:500]}")

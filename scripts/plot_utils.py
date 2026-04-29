@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
@@ -10,9 +9,23 @@ import pandas as pd
 import seaborn as sns
 
 if __package__:
-    from .taxonomy_utils import CanonicalResolver, benchmark_id, split_benchmark_mentions
+    from .taxonomy_utils import (
+        HEADLINE_PROJECTION_AXES,
+        HEADLINE_TO_LEGACY_TASK_MODE,
+        REVIEW_CONFIDENCE_THRESHOLD,
+        CanonicalResolver,
+        derive_headline_projection,
+        split_benchmark_mentions,
+    )
 else:
-    from taxonomy_utils import CanonicalResolver, benchmark_id, split_benchmark_mentions
+    from taxonomy_utils import (
+        HEADLINE_PROJECTION_AXES,
+        HEADLINE_TO_LEGACY_TASK_MODE,
+        REVIEW_CONFIDENCE_THRESHOLD,
+        CanonicalResolver,
+        derive_headline_projection,
+        split_benchmark_mentions,
+    )
 
 
 DATA_DIR = Path("data")
@@ -34,30 +47,18 @@ DOMAIN_ORDER = [
     "Specialized (Law/Bio/Finance)",
 ]
 
-
-@dataclass(frozen=True)
-class LegacyTaxonomy:
-    mode: str
-    domain: str
-
-
-@dataclass(frozen=True)
-class LegacyTaxonomyLookup:
-    by_id: dict[str, LegacyTaxonomy]
-    resolver: CanonicalResolver
-    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = None
-
-    def resolve(self, raw_mention: str) -> Optional[LegacyTaxonomy]:
-        resolution = self.resolver.resolve(raw_mention)
-        if resolution:
-            taxonomy = self.by_id.get(resolution.benchmark_id)
-            if taxonomy:
-                return taxonomy
-
-        if self.fallback_by_exact is not None:
-            return self.fallback_by_exact.get(legacy_lookup_key(raw_mention))
-
-        return None
+FACET_DOMAIN_ORDER = [
+    "General/Commonsense",
+    "STEM/Math",
+    "Coding/Engineering",
+    "Law",
+    "Bio/Medicine",
+    "Finance",
+    "Cybersecurity",
+    "Multilingual",
+    "Visual/Document",
+    "Other Specialized",
+]
 
 
 def configure_plot_style() -> None:
@@ -68,10 +69,6 @@ def configure_plot_style() -> None:
 
 def load_models() -> pd.DataFrame:
     return pd.read_csv(DATA_DIR / "models.csv")
-
-
-def load_models_and_benchmarks() -> tuple[pd.DataFrame, pd.DataFrame]:
-    return load_models(), pd.read_csv(BENCHMARKS_PATH)
 
 
 def latest_release_date(models: pd.DataFrame) -> pd.Timestamp:
@@ -99,40 +96,171 @@ def split_benchmarks(value: object) -> list[str]:
     return split_benchmark_mentions(text)
 
 
-def legacy_lookup_key(value: object) -> str:
-    return str(value).strip().casefold()
+def add_derived_headline_task_mode(facets: pd.DataFrame) -> pd.DataFrame:
+    """Add runtime headline projection rows derived from v3 facets.
+
+    The canonical `benchmark_facets.csv` can remain v3-only while older
+    exploratory analyses that group by `headline_task_mode` still get a stable
+    chart projection. Existing non-deprecated headline rows are preserved.
+    """
+    if facets.empty:
+        return facets
+
+    output = facets.copy()
+    active = output[
+        (output["review_status"] != "deprecated")
+        & (output["facet_label"].astype(str).str.strip() != "")
+        & (output["facet_axis"].astype(str).str.strip() != "")
+    ].copy()
+    if active.empty:
+        return output
+
+    existing_headline_ids = set(
+        active.loc[active["facet_axis"] == "headline_task_mode", "benchmark_id"]
+    )
+    derived_rows = []
+    for benchmark_id_value, group in active.groupby("benchmark_id"):
+        if benchmark_id_value in existing_headline_ids:
+            continue
+        projection_group = group[group["facet_axis"].isin(HEADLINE_PROJECTION_AXES)].copy()
+        labels_by_axis = {
+            axis: axis_group["facet_label"].astype(str).tolist()
+            for axis, axis_group in projection_group.groupby("facet_axis")
+        }
+        projection = derive_headline_projection(labels_by_axis)
+        legacy_label = HEADLINE_TO_LEGACY_TASK_MODE.get(projection or "")
+        if not legacy_label:
+            continue
+        confidences = pd.to_numeric(projection_group["classification_confidence"], errors="coerce").dropna()
+        confidence = (
+            float(confidences.min())
+            if not confidences.empty
+            else REVIEW_CONFIDENCE_THRESHOLD
+        )
+        derived_rows.append(
+            {
+                "benchmark_id": benchmark_id_value,
+                "facet_axis": "headline_task_mode",
+                "facet_label": legacy_label,
+                "classification_confidence": confidence,
+                "review_status": "needs_review",
+                "rationale": "Runtime headline projection derived from v3 facet labels for chart compatibility.",
+            }
+        )
+
+    if not derived_rows:
+        return output
+    return pd.concat([output, pd.DataFrame(derived_rows)], ignore_index=True)
 
 
-def legacy_benchmark_aliases(name: str) -> set[str]:
-    key = legacy_lookup_key(name)
-    aliases = {key} if key else set()
-    if "/" in key:
-        aliases.update(part.strip() for part in key.split("/") if part.strip())
-    return aliases
+def load_benchmark_facets(add_headline_projection: bool = True) -> pd.DataFrame:
+    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    if add_headline_projection:
+        facets = add_derived_headline_task_mode(facets)
+    return facets
 
 
-def build_legacy_taxonomy_lookup(benchmarks: pd.DataFrame) -> LegacyTaxonomyLookup:
-    by_id: dict[str, LegacyTaxonomy] = {}
-    alias_path = ALIAS_PATH if ALIAS_PATH.exists() else None
-    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = {} if alias_path is None else None
+def active_facets_for_axes(facets: pd.DataFrame, axes: Sequence[str]) -> pd.DataFrame:
+    axes = list(axes)
+    active = facets[
+        (facets["facet_axis"].isin(axes))
+        & (facets["review_status"] != "deprecated")
+        & (facets["facet_label"].astype(str).str.strip() != "")
+    ].copy()
+    return active.drop_duplicates(["benchmark_id", "facet_axis", "facet_label"])
 
-    for _, row in benchmarks.fillna("").iterrows():
-        name = str(row.get("benchmark_name", "")).strip()
-        if not name:
+
+def build_model_facet_events(
+    models: pd.DataFrame,
+    facets: pd.DataFrame,
+    axes: Sequence[str],
+    as_of: pd.Timestamp,
+    resolver: Optional[CanonicalResolver] = None,
+    strict_resolution: bool = False,
+) -> pd.DataFrame:
+    """Build release-normalized, axis-fractional facet events.
+
+    Each release page contributes up to 1.0 total weight per requested axis. The
+    release weight is divided equally across resolved benchmark mentions, then
+    equally across every active label assigned to that benchmark within the axis.
+    Resolved benchmarks without an active label on an axis contribute 0 for that
+    axis, so facet coverage gaps reduce that release-axis total.
+    """
+    axes = list(axes)
+    resolver = resolver or CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH if ALIAS_PATH.exists() else None)
+    active = active_facets_for_axes(facets, axes)
+    labels_by_key = {
+        (benchmark_id_value, facet_axis): axis_group["facet_label"].astype(str).tolist()
+        for (benchmark_id_value, facet_axis), axis_group in active.groupby(["benchmark_id", "facet_axis"])
+    }
+
+    rows = []
+    unresolved = []
+    missing_facets = []
+    for _, model in models.fillna("").iterrows():
+        provider = str(model.get("Provider", "")).strip()
+        model_name = str(model.get("Model name", "")).strip()
+        release_date = pd.to_datetime(model.get("release date", ""), errors="raise")
+        if release_date > as_of:
             continue
 
-        row_benchmark_id = str(row.get("benchmark_id", "")).strip() or benchmark_id(name)
-        taxonomy = LegacyTaxonomy(
-            mode=str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip(),
-            domain=str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip(),
-        )
-        by_id[row_benchmark_id] = taxonomy
-        if fallback_by_exact is not None:
-            for alias in legacy_benchmark_aliases(name):
-                fallback_by_exact[alias] = taxonomy
+        resolved_mentions = []
+        for raw_mention in split_benchmarks(model.get("benchmarks", "")):
+            resolution = resolver.resolve(raw_mention)
+            if resolution:
+                resolved_mentions.append((raw_mention, resolution.benchmark_id))
+            else:
+                unresolved.append((model_name, raw_mention))
 
-    resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, alias_path)
-    return LegacyTaxonomyLookup(by_id=by_id, resolver=resolver, fallback_by_exact=fallback_by_exact)
+        if not resolved_mentions:
+            continue
+
+        resolved_count = len(resolved_mentions)
+        benchmark_weight = 1.0 / resolved_count
+        model_key = "|".join([provider, model_name, str(model.get("release date", "")).strip()])
+        for raw_mention, benchmark_id_value in resolved_mentions:
+            for axis in axes:
+                labels = labels_by_key.get((benchmark_id_value, axis), [])
+                if not labels:
+                    missing_facets.append((model_name, f"{raw_mention} [{axis}]"))
+                    continue
+                label_weight = benchmark_weight / len(labels)
+                for label in labels:
+                    rows.append(
+                        {
+                            "model_key": model_key,
+                            "Model": model_name,
+                            "Provider": provider,
+                            "Date": release_date,
+                            "benchmark_id": benchmark_id_value,
+                            "raw_mention": raw_mention,
+                            "resolved_mentions_on_release": resolved_count,
+                            "facet_axis": axis,
+                            "Category": label,
+                            "Weight": label_weight,
+                        }
+                    )
+
+    warn_unresolved(unresolved, strict_resolution)
+    if missing_facets:
+        sample = ", ".join(sorted({unresolved_label(item) for item in missing_facets})[:10])
+        print(f"Warning: resolved benchmark mentions without requested facet labels skipped ({len(missing_facets)}): {sample}.")
+
+    return pd.DataFrame(
+        rows,
+        columns=[
+            "model_key",
+            "Model",
+            "Provider",
+            "Date",
+            "benchmark_id",
+            "raw_mention",
+            "resolved_mentions_on_release",
+            "facet_axis",
+            "Category",
+            "Weight",
+        ],
+    )
 
 
 def unresolved_label(item: object) -> str:

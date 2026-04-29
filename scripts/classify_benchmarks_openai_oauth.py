@@ -197,6 +197,12 @@ def parse_args() -> argparse.Namespace:
         help="Defaults to jsonl for .jsonl outputs and candidate-facets-csv for .csv outputs",
     )
     p.add_argument("--model", default=DEFAULT_OPENAI_OAUTH_MODEL, help="OpenAI OAuth model name")
+    p.add_argument(
+        "--reasoning-effort",
+        choices=["low", "medium", "high", "xhigh"],
+        default=None,
+        help="Optional Responses reasoning effort to send through openai-oauth.",
+    )
     p.add_argument("--openai-oauth-base-url", default=DEFAULT_OPENAI_OAUTH_BASE_URL)
     p.add_argument("--openai-oauth-dir", default=str(resolve_openai_oauth_dir()))
     p.add_argument(
@@ -769,6 +775,7 @@ def main() -> int:
     client = OpenAIOAuthClient(
         base_url=args.openai_oauth_base_url,
         model=args.model,
+        reasoning_effort=args.reasoning_effort or None,
         project_dir=Path(args.openai_oauth_dir),
         auto_start=not args.no_openai_oauth_start,
         timeout=args.openai_oauth_timeout,

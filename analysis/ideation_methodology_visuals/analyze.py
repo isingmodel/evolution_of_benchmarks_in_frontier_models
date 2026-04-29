@@ -31,6 +31,7 @@ DATA_DIR = ROOT / "data"
 SCRIPTS_DIR = ROOT / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
+from plot_utils import load_benchmark_facets  # noqa: E402
 from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
 
 
@@ -61,15 +62,16 @@ def configure_style() -> None:
     plt.rcParams["figure.dpi"] = 120
 
 
-def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
+def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
     models = pd.read_csv(DATA_DIR / "models.csv").fillna("")
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
-    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    canonical_facets = load_benchmark_facets(add_headline_projection=False)
+    projected_facets = load_benchmark_facets(add_headline_projection=True)
     resolver = CanonicalResolver.from_files(
         DATA_DIR / "benchmarks.csv",
         DATA_DIR / "benchmark_aliases.csv",
     )
-    return models, benchmarks, facets, resolver
+    return models, benchmarks, canonical_facets, projected_facets, resolver
 
 
 def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.DataFrame:
@@ -637,15 +639,15 @@ def write_summary_stats(mentions: pd.DataFrame, facets: pd.DataFrame, latest: pd
 
 def main() -> None:
     configure_style()
-    models, benchmarks, facets, resolver = load_inputs()
+    models, benchmarks, canonical_facets, projected_facets, resolver = load_inputs()
     mentions = build_mentions(models, resolver)
     latest = mentions["release_date"].max().normalize()
 
-    write_summary_stats(mentions, facets, latest)
-    write_provider_strategy_fingerprints(mentions, facets, latest)
-    write_domain_interaction_alluvial(mentions, facets, latest)
-    write_review_leverage(mentions, benchmarks, facets, latest)
-    write_lifecycle_table(mentions, benchmarks, facets)
+    write_summary_stats(mentions, canonical_facets, latest)
+    write_provider_strategy_fingerprints(mentions, projected_facets, latest)
+    write_domain_interaction_alluvial(mentions, canonical_facets, latest)
+    write_review_leverage(mentions, benchmarks, canonical_facets, latest)
+    write_lifecycle_table(mentions, benchmarks, canonical_facets)
 
     print(f"Wrote prototype outputs to {OUT_DIR.relative_to(ROOT)}")
 

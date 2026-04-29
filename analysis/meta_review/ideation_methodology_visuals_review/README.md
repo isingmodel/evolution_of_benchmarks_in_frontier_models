@@ -38,7 +38,7 @@ Current README/publication readiness: **6/10**
 ## Risks
 
 - The recent provider comparison rests on small denominators: `provider_strategy_fingerprints.csv` shows recent axis totals of 5 OpenAI releases, 3 Google releases, and 7 Anthropic releases. This is useful but volatile.
-- Taxonomy dependency is high. `summary_stats.csv` shows 83 accepted facet rows out of 1266 total facet rows, with 999 `needs_review` and 184 `legacy_seed`. Publication figures need accepted-only or accepted-plus-legacy sensitivity views.
+- Taxonomy dependency is high. `summary_stats.csv` shows 29 accepted facet rows out of 2960 analysis facet rows, with 2931 `needs_review` and 0 `legacy_seed`; this includes runtime-derived `headline_task_mode` rows. Publication figures need accepted-only or high-confidence sensitivity views.
 - The biggest flows in `domain_interaction_flow.csv` have low accepted-pair shares: for example, General/Commonsense -> static prompt response is about 22.4% of flow with accepted-pair share about 1.9%; Coding/Engineering -> terminal or codebase interaction is about 20.2% with accepted-pair share about 8.5%; STEM/Math -> static prompt response is about 18.3% with accepted-pair share 0%.
 - The word "alluvial" visually implies movement or causality. Here the figure is a co-classification view across facet axes, not a temporal flow.
 - "Provider strategy fingerprints" is a compelling title, but "strategy" can overstate intent. "Provider framing fingerprints" or "benchmark-emphasis fingerprints" would better match the data.
@@ -60,7 +60,7 @@ Use `summary_stats.csv` as a methods footnote or reproducibility box, not as a m
 ## Needed Improvements
 
 1. Rename public-facing language from "strategy" to "framing" unless the text explicitly says this is inferred from benchmark mentions rather than provider intent.
-2. Add accepted-only and accepted-plus-legacy sensitivity outputs for the provider fingerprint and domain-interaction views. Suggested files: `provider_framing_fingerprints_sensitivity.csv`, `provider_framing_fingerprints_accepted_plus_legacy.png`, and `domain_interaction_matrix_sensitivity.csv`.
+2. Add accepted-only and high-confidence sensitivity outputs for the provider fingerprint and domain-interaction views. Suggested files: `provider_framing_fingerprints_sensitivity.csv`, `provider_framing_fingerprints_high_confidence.png`, and `domain_interaction_matrix_sensitivity.csv`.
 3. Add release/sample denominators directly to figures and captions: recent window, provider release counts, resolved mention count, and unique benchmark count.
 4. Simplify `provider_strategy_fingerprints.png`: fewer panels for the main README, larger labels, and less horizontal crowding.
 5. Replace or supplement `domain_interaction_alluvial.png` with a matrix/table that is easier to read and less likely to imply temporal flow.

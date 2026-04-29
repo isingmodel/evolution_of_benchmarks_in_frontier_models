@@ -2,7 +2,6 @@ import argparse
 import sys
 from pathlib import Path
 
-import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mtick
@@ -16,16 +15,15 @@ if str(SCRIPTS_DIR) not in sys.path:
 
 from plot_utils import (  # noqa: E402
     MODE_ORDER,
-    build_legacy_taxonomy_lookup,
+    build_model_facet_events,
     build_rolling_share_trend,
     configure_plot_style,
     latest_release_date,
-    load_models_and_benchmarks,
+    load_benchmark_facets,
+    load_models,
     parse_as_of,
     save_figure,
-    split_benchmarks,
     validate_window_days,
-    warn_unresolved,
 )
 
 
@@ -59,42 +57,18 @@ def parse_args():
 
 def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchmark_growth.png", strict_resolution=False):
     window_days = validate_window_days(window_days)
-    models_df, benchmarks_df = load_models_and_benchmarks()
+    models_df = load_models()
+    facets_df = load_benchmark_facets(add_headline_projection=True)
     if as_of is None:
         as_of = latest_release_date(models_df)
 
-    taxonomy_lookup = build_legacy_taxonomy_lookup(benchmarks_df)
-
-    events = []
-    unresolved = []
-    for _, row in models_df.iterrows():
-        date = pd.to_datetime(row["release date"])
-        if date > as_of:
-            continue
-
-        benchmarks = split_benchmarks(row.get("benchmarks", ""))
-        if not benchmarks:
-            continue
-
-        resolved_modes = []
-        for bench in benchmarks:
-            taxonomy = taxonomy_lookup.resolve(bench)
-            mode = taxonomy.mode if taxonomy else ""
-            if mode:
-                resolved_modes.append(mode)
-            else:
-                unresolved.append((str(row.get("Model name", "")), bench))
-
-        if not resolved_modes:
-            continue
-
-        weight = 1.0 / len(resolved_modes)
-        for mode in resolved_modes:
-            events.append({"Date": date, "Category": mode, "Weight": weight})
-
-    warn_unresolved(unresolved, strict_resolution)
-
-    events_df = pd.DataFrame(events)
+    events_df = build_model_facet_events(
+        models_df,
+        facets_df,
+        ["headline_task_mode"],
+        as_of,
+        strict_resolution=strict_resolution,
+    )
     if events_df.empty:
         print("No events found.")
         return

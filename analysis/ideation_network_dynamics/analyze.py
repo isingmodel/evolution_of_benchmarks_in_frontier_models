@@ -30,6 +30,7 @@ DATA_DIR = ROOT / "data"
 SCRIPT_DIR = ROOT / "scripts"
 
 sys.path.insert(0, str(SCRIPT_DIR))
+from plot_utils import load_benchmark_facets  # noqa: E402
 from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
 
 
@@ -91,7 +92,7 @@ def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     models = pd.read_csv(DATA_DIR / "models.csv")
     models["release_date"] = pd.to_datetime(models["release date"], errors="raise")
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
-    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    facets = load_benchmark_facets(add_headline_projection=True)
     return models, benchmarks, facets
 
 

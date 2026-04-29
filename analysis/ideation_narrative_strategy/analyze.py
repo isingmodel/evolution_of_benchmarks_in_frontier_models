@@ -31,6 +31,7 @@ SCRIPTS_DIR = ROOT / "scripts"
 if str(SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_DIR))
 
+from plot_utils import load_benchmark_facets  # noqa: E402
 from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
 
 
@@ -133,7 +134,7 @@ def load_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalReso
     )
 
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
-    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    facets = load_benchmark_facets(add_headline_projection=True)
     resolver = CanonicalResolver.from_files(DATA_DIR / "benchmarks.csv", DATA_DIR / "benchmark_aliases.csv")
     return models, benchmarks, facets, resolver
 

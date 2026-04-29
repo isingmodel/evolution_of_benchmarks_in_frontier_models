@@ -1,75 +1,81 @@
 provider,facet_axis,facet_label,weighted_mentions,axis_weight_total,share_of_provider_axis
-Anthropic,benchmark_lifecycle_risk,none_identified,3.8061168222458543,7.0,0.5437309746065506
-Anthropic,benchmark_lifecycle_risk,provider_created_benchmark,2.5087291740517546,7.0,0.3583898820073935
-Anthropic,benchmark_lifecycle_risk,construct_validity_risk,0.23882636181023278,7.0,0.03411805168717611
-Anthropic,benchmark_lifecycle_risk,version_instability,0.22692159990547087,7.0,0.032417371415067266
-Anthropic,benchmark_lifecycle_risk,private_or_opaque_eval,0.16090629800307218,7.0,0.022986614000438884
-Google,benchmark_lifecycle_risk,none_identified,1.463474025974026,3.0,0.4878246753246753
-Google,benchmark_lifecycle_risk,provider_created_benchmark,1.0392316017316017,3.0,0.3464105339105339
-Google,benchmark_lifecycle_risk,construct_validity_risk,0.1211895743145743,3.0,0.04039652477152477
-Google,benchmark_lifecycle_risk,version_instability,0.1211895743145743,3.0,0.04039652477152477
-Google,benchmark_lifecycle_risk,private_or_opaque_eval,0.05025703463203463,3.0,0.016752344877344876
-OpenAI,benchmark_lifecycle_risk,none_identified,2.4552682611506143,5.0,0.4910536522301229
-OpenAI,benchmark_lifecycle_risk,provider_created_benchmark,1.9844295410471882,5.0,0.39688590820943764
-OpenAI,benchmark_lifecycle_risk,private_or_opaque_eval,0.22095992243051066,5.0,0.044191984486102134
-OpenAI,benchmark_lifecycle_risk,construct_validity_risk,0.20944974143503556,5.0,0.04188994828700711
-OpenAI,benchmark_lifecycle_risk,version_instability,0.097539592760181,5.0,0.0195079185520362
-Anthropic,context_pressure,none,6.384354444838316,7.0,0.9120506349769022
-Anthropic,context_pressure,medium,0.40827228327228327,7.0,0.05832461189604047
-Anthropic,context_pressure,long_context_supporting,0.2073732718894009,7.0,0.029624753127057275
-Google,context_pressure,none,2.4402056277056277,3.0,0.8134018759018758
-Google,context_pressure,long_context_supporting,0.4496753246753247,3.0,0.14989177489177488
-Google,context_pressure,medium,0.11011904761904762,3.0,0.03670634920634921
-OpenAI,context_pressure,none,4.33219941822883,5.0,0.8664398836457661
-OpenAI,context_pressure,long_context_supporting,0.40801551389786683,5.0,0.08160310277957336
-OpenAI,context_pressure,medium,0.1803733031674208,5.0,0.03607466063348416
-OpenAI,context_pressure,long_context_primary,0.07941176470588235,5.0,0.01588235294117647
-Anthropic,domain,Coding/Engineering,2.353163771712159,7.0,0.336166253101737
-Anthropic,domain,General/Commonsense,2.334682342746859,7.0,0.333526048963837
-Anthropic,domain,STEM/Math,1.312586159360353,7.0,0.18751230848005043
-Anthropic,domain,Other Specialized,0.5363828823506243,7.0,0.07662612605008919
-Anthropic,domain,Finance,0.27147977470558116,7.0,0.038782824957940165
-Anthropic,domain,Law,0.09585253456221197,7.0,0.01369321922317314
-Google,domain,General/Commonsense,1.4182900432900434,3.0,0.4727633477633478
-Google,domain,Coding/Engineering,0.5587662337662338,3.0,0.18625541125541126
-Google,domain,STEM/Math,0.4824134199134199,3.0,0.1608044733044733
-Google,domain,Other Specialized,0.43376623376623374,3.0,0.14458874458874457
-Google,domain,Finance,0.0125,3.0,0.004166666666666667
-Google,domain,Law,0.0125,3.0,0.004166666666666667
-OpenAI,domain,General/Commonsense,1.664463477698772,5.0,0.33289269553975437
-OpenAI,domain,Coding/Engineering,1.3301195862960569,5.0,0.2660239172592114
-OpenAI,domain,STEM/Math,0.9518665158371041,5.0,0.19037330316742082
-OpenAI,domain,Other Specialized,0.5839334195216548,5.0,0.11678668390433096
-OpenAI,domain,Finance,0.19377504848093086,5.0,0.03875500969618617
-OpenAI,domain,Law,0.12590174531351003,5.0,0.025180349062702008
-Anthropic,headline_task_mode,Agentic,3.74467288983418,7.0,0.5349532699763114
-Anthropic,headline_task_mode,Generative Reasoning,2.479927330733782,7.0,0.3542753329619689
-Anthropic,headline_task_mode,Multimodal Perception,0.7108836503997794,7.0,0.10155480719996848
-Anthropic,headline_task_mode,Constraint Satisfaction,0.06451612903225806,7.0,0.009216589861751152
-Google,headline_task_mode,Generative Reasoning,1.4591450216450217,3.0,0.4863816738816739
-Google,headline_task_mode,Agentic,0.6904761904761905,3.0,0.23015873015873015
-Google,headline_task_mode,Multimodal Perception,0.5733225108225108,3.0,0.19110750360750361
-Google,headline_task_mode,Knowledge Retrieval,0.27705627705627706,3.0,0.09235209235209235
-OpenAI,headline_task_mode,Agentic,2.1339124111182937,5.0,0.4267824822236587
-OpenAI,headline_task_mode,Generative Reasoning,2.008055914673562,5.0,0.4016111829347124
-OpenAI,headline_task_mode,Multimodal Perception,0.4938348416289593,5.0,0.09876696832579186
-OpenAI,headline_task_mode,Constraint Satisfaction,0.19287330316742082,5.0,0.038574660633484165
-OpenAI,headline_task_mode,Knowledge Retrieval,0.1713235294117647,5.0,0.03426470588235294
-Anthropic,interaction_pattern,static_prompt_response,3.207708062546772,7.0,0.45824400893525313
-Anthropic,interaction_pattern,terminal_or_codebase_interaction,1.7733959588798298,7.0,0.2533422798399757
-Anthropic,interaction_pattern,single_turn_tool_use,0.7047934144708338,7.0,0.1006847734958334
-Anthropic,interaction_pattern,computer_control,0.4251693646854937,7.0,0.06073848066935624
-Anthropic,interaction_pattern,environment_interaction,0.40413991623669043,7.0,0.057734273748098634
-Anthropic,interaction_pattern,multi_turn_dialogue,0.16783679283679281,7.0,0.0239766846909704
-Google,interaction_pattern,static_prompt_response,1.991612554112554,3.0,0.6638708513708513
-Google,interaction_pattern,terminal_or_codebase_interaction,0.30357142857142855,3.0,0.10119047619047618
-Google,interaction_pattern,multi_turn_dialogue,0.23773448773448774,3.0,0.07924482924482924
-Google,interaction_pattern,single_turn_tool_use,0.1525974025974026,3.0,0.050865800865800864
-Google,interaction_pattern,environment_interaction,0.14384920634920634,3.0,0.047949735449735444
-Google,interaction_pattern,computer_control,0.047619047619047616,3.0,0.015873015873015872
-OpenAI,interaction_pattern,static_prompt_response,2.7660875888817067,5.0,0.5532175177763413
-OpenAI,interaction_pattern,terminal_or_codebase_interaction,1.04712615815557,5.0,0.20942523163111398
-OpenAI,interaction_pattern,environment_interaction,0.31200980392156863,5.0,0.062401960784313724
-OpenAI,interaction_pattern,computer_control,0.26073044602456363,5.0,0.052146089204912725
-OpenAI,interaction_pattern,single_turn_tool_use,0.2455505279034691,5.0,0.04911010558069382
-OpenAI,interaction_pattern,multi_turn_dialogue,0.1779977375565611,5.0,0.03559954751131222
+Anthropic,benchmark_lifecycle_risk,contamination_risk,2.0960385567240407,7.0,0.2994340795320058
+Anthropic,benchmark_lifecycle_risk,construct_validity_risk,1.9881251887300273,7.0,0.28401788410428963
+Anthropic,benchmark_lifecycle_risk,version_instability,0.7222587373797051,7.0,0.10317981962567216
+Anthropic,benchmark_lifecycle_risk,distribution_shift_risk,0.6464984015387241,7.0,0.092356914505532
+Anthropic,benchmark_lifecycle_risk,provider_created_benchmark,0.587619146086888,7.0,0.08394559229812686
+Google,benchmark_lifecycle_risk,construct_validity_risk,1.0406295093795093,3.0,0.3468765031265031
+Google,benchmark_lifecycle_risk,contamination_risk,0.9583784271284271,3.0,0.3194594757094757
+Google,benchmark_lifecycle_risk,version_instability,0.3002570346320346,3.0,0.10008567821067821
+Google,benchmark_lifecycle_risk,provider_created_benchmark,0.2075441919191919,3.0,0.0691813973063973
+Google,benchmark_lifecycle_risk,distribution_shift_risk,0.1873196248196248,3.0,0.062439874939874934
+OpenAI,benchmark_lifecycle_risk,construct_validity_risk,1.3294461053652231,5.0,0.26588922107304463
+OpenAI,benchmark_lifecycle_risk,contamination_risk,1.219382272139625,5.0,0.243876454427925
+OpenAI,benchmark_lifecycle_risk,provider_created_benchmark,0.5822997468218056,5.0,0.11645994936436113
+OpenAI,benchmark_lifecycle_risk,version_instability,0.3844739819004525,5.0,0.0768947963800905
+OpenAI,benchmark_lifecycle_risk,distribution_shift_risk,0.3192092221503986,5.0,0.06384184443007972
+Anthropic,context_pressure,short,2.903560597108984,7.0,0.41479437101556915
+Anthropic,context_pressure,medium,2.4840777502067826,7.0,0.35486825002954037
+Anthropic,context_pressure,long_context_supporting,1.0919541927606444,7.0,0.1559934561086635
+Anthropic,context_pressure,none,0.3929113001693647,7.0,0.05613018573848067
+Anthropic,context_pressure,long_context_primary,0.12749615975422426,7.0,0.018213737107746323
+Google,context_pressure,short,1.3579545454545454,3.0,0.45265151515151514
+Google,context_pressure,medium,1.0129870129870129,3.0,0.3376623376623376
+Google,context_pressure,long_context_supporting,0.42803030303030304,3.0,0.14267676767676768
+Google,context_pressure,long_context_primary,0.20102813852813853,3.0,0.0670093795093795
+OpenAI,context_pressure,medium,2.024123303167421,5.0,0.40482466063348416
+OpenAI,context_pressure,short,1.5245192307692308,5.0,0.30490384615384614
+OpenAI,context_pressure,long_context_supporting,1.0536199095022625,5.0,0.2107239819004525
+OpenAI,context_pressure,long_context_primary,0.315158371040724,5.0,0.06303167420814479
+OpenAI,context_pressure,none,0.08257918552036199,5.0,0.0165158371040724
+Anthropic,domain,Coding/Engineering,1.5951099229325036,7.0,0.22787284613321482
+Anthropic,domain,Other Specialized,1.4646223922433599,7.0,0.20923177032048
+Anthropic,domain,STEM/Math,1.2240063774337968,7.0,0.17485805391911383
+Anthropic,domain,General/Commonsense,0.9048726810823585,7.0,0.12926752586890836
+Anthropic,domain,Bio/Medicine,0.669922916092271,7.0,0.09570327372746727
+Anthropic,domain,Visual/Document,0.4353249274620242,7.0,0.06218927535171775
+Google,domain,General/Commonsense,0.7546446608946609,3.0,0.25154822029822027
+Google,domain,STEM/Math,0.5712527056277056,3.0,0.19041756854256853
+Google,domain,Other Specialized,0.5264745670995671,3.0,0.17549152236652235
+Google,domain,Coding/Engineering,0.434280303030303,3.0,0.144760101010101
+Google,domain,Bio/Medicine,0.259113455988456,3.0,0.08637115199615199
+Google,domain,Visual/Document,0.2544687950937951,3.0,0.0848229316979317
+OpenAI,domain,Coding/Engineering,1.2625144096099978,5.0,0.25250288192199954
+OpenAI,domain,General/Commonsense,0.9791424262012498,5.0,0.19582848524024996
+OpenAI,domain,STEM/Math,0.8011858974358974,5.0,0.16023717948717947
+OpenAI,domain,Other Specialized,0.7366760935143288,5.0,0.14733521870286576
+OpenAI,domain,Visual/Document,0.3798899752208576,5.0,0.07597799504417152
+OpenAI,domain,Bio/Medicine,0.36469133807369103,5.0,0.0729382676147382
+Anthropic,headline_task_mode,Agentic,3.853854031273386,7.0,0.550550575896198
+Anthropic,headline_task_mode,Generative Reasoning,1.2649671117413053,7.0,0.18070958739161505
+Anthropic,headline_task_mode,Multimodal Perception,0.9951799992122572,7.0,0.14216857131603675
+Anthropic,headline_task_mode,Constraint Satisfaction,0.758502698018827,7.0,0.10835752828840385
+Anthropic,headline_task_mode,Knowledge Retrieval,0.12749615975422426,7.0,0.018213737107746323
+Google,headline_task_mode,Agentic,1.0016233766233766,3.0,0.3338744588744589
+Google,headline_task_mode,Multimodal Perception,0.9753787878787878,3.0,0.3251262626262626
+Google,headline_task_mode,Generative Reasoning,0.4824134199134199,3.0,0.1608044733044733
+Google,headline_task_mode,Knowledge Retrieval,0.33955627705627706,3.0,0.11318542568542568
+Google,headline_task_mode,Constraint Satisfaction,0.20102813852813853,3.0,0.0670093795093795
+OpenAI,headline_task_mode,Agentic,2.7125,5.0,0.5425
+OpenAI,headline_task_mode,Multimodal Perception,0.9072398190045249,5.0,0.18144796380090497
+OpenAI,headline_task_mode,Generative Reasoning,0.7597285067873303,5.0,0.15194570135746605
+OpenAI,headline_task_mode,Knowledge Retrieval,0.315158371040724,5.0,0.06303167420814479
+OpenAI,headline_task_mode,Constraint Satisfaction,0.30537330316742084,5.0,0.06107466063348417
+Anthropic,interaction_pattern,static_prompt_response,3.1945330655008073,7.0,0.45636186650011534
+Anthropic,interaction_pattern,multi_step_planning,1.2104447300011816,7.0,0.17292067571445452
+Anthropic,interaction_pattern,environment_interaction,1.130567617866005,7.0,0.16150965969514355
+Anthropic,interaction_pattern,terminal_or_codebase_interaction,0.66635903672194,7.0,0.09519414810313429
+Anthropic,interaction_pattern,multi_turn_dialogue,0.26106614413066026,7.0,0.03729516344723718
+Anthropic,interaction_pattern,browser_or_web_interaction,0.226846600233697,7.0,0.03240665717624243
+Google,interaction_pattern,static_prompt_response,2.185921717171717,3.0,0.7286405723905723
+Google,interaction_pattern,multi_step_planning,0.2586805555555555,3.0,0.08622685185185185
+Google,interaction_pattern,environment_interaction,0.19618055555555555,3.0,0.06539351851851852
+Google,interaction_pattern,terminal_or_codebase_interaction,0.11631944444444445,3.0,0.03877314814814815
+Google,interaction_pattern,multi_turn_dialogue,0.09478715728715728,3.0,0.031595719095719094
+Google,interaction_pattern,browser_or_web_interaction,0.05357142857142857,3.0,0.017857142857142856
+OpenAI,interaction_pattern,static_prompt_response,2.399982492997199,5.0,0.4799964985994398
+OpenAI,interaction_pattern,multi_step_planning,0.9392911010558069,5.0,0.1878582202111614
+OpenAI,interaction_pattern,environment_interaction,0.7205774617539323,5.0,0.14411549235078647
+OpenAI,interaction_pattern,terminal_or_codebase_interaction,0.4047538246067658,5.0,0.08095076492135315
+OpenAI,interaction_pattern,multi_turn_dialogue,0.15387443438914028,5.0,0.030774886877828055
+OpenAI,interaction_pattern,browser_or_web_interaction,0.15081609566903684,5.0,0.030163219133807366

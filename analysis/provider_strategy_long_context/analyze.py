@@ -31,6 +31,7 @@ OUTPUT_DIR = Path(__file__).resolve().parent
 
 sys.path.insert(0, str(SCRIPT_DIR))
 
+from plot_utils import load_benchmark_facets  # noqa: E402
 from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
 
 
@@ -211,7 +212,7 @@ def load_inputs(as_of: str | None) -> tuple[pd.DataFrame, pd.DataFrame, Canonica
     )
     models["has_benchmarks"] = models["raw_benchmark_count"] > 0
 
-    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    facets = load_benchmark_facets(add_headline_projection=True)
     resolver = CanonicalResolver.from_files(
         DATA_DIR / "benchmarks.csv",
         DATA_DIR / "benchmark_aliases.csv",
@@ -785,7 +786,8 @@ def main() -> None:
         long_context_drivers,
         output_dir / "long_context_benchmark_drivers.csv",
     )
-    write_csv(review_status_summary(facets), output_dir / "facet_review_status_summary.csv")
+    canonical_facets = load_benchmark_facets(add_headline_projection=False)
+    write_csv(review_status_summary(canonical_facets), output_dir / "facet_review_status_summary.csv")
 
     plot_long_context(
         provider_hypothesis_summary,
