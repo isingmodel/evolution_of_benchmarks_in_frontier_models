@@ -31,6 +31,7 @@ OUTPUT_DIR = Path(__file__).resolve().parent
 
 sys.path.insert(0, str(SCRIPT_DIR))
 
+from plot_utils import add_derived_headline_task_mode  # noqa: E402
 from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
 
 
@@ -211,7 +212,7 @@ def load_inputs(as_of: str | None) -> tuple[pd.DataFrame, pd.DataFrame, Canonica
     )
     models["has_benchmarks"] = models["raw_benchmark_count"] > 0
 
-    facets = pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna("")
+    facets = add_derived_headline_task_mode(pd.read_csv(DATA_DIR / "benchmark_facets.csv").fillna(""))
     resolver = CanonicalResolver.from_files(
         DATA_DIR / "benchmarks.csv",
         DATA_DIR / "benchmark_aliases.csv",

@@ -20,7 +20,7 @@ The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `dat
 | `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
 | `summary_stats.csv` | Reproducibility stats for the local data run. |
 
-Local run summary: 422 release-page benchmark mentions resolved to 133 canonical benchmarks. The latest modeled release date is 2026-04-23. In the facet table, 999 rows are `needs_review`, 184 are `legacy_seed`, and 83 are `accepted`, so uncertainty should remain visible in publication charts.
+Local run summary: 422 release-page benchmark mentions resolved to 133 canonical benchmarks. The latest modeled release date is 2026-04-23. In the analysis facet frame, 2,931 rows are `needs_review`, 0 are `legacy_seed`, and 29 are `accepted`; this includes runtime-derived `headline_task_mode` rows. The canonical `data/benchmark_facets.csv` remains v3-first with 2,826 stored rows, so uncertainty should remain visible in publication charts.
 
 ## What The Prototypes Show
 
@@ -79,7 +79,7 @@ Recommendation: include this near the methodology caveats or as a review roadmap
 7. **Novelty and churn index**: per release, show share of first-time benchmark mentions, returning mentions, and deprecated/no-longer-mentioned benchmarks.
 8. **Provider contrast small multiples**: rolling facet shares per provider, not just global rolling trends.
 9. **Timeline annotation layer**: annotate releases where the public framing shifts: long context surge, multimodal plateau, coding-agent expansion, professional-task benchmarks.
-10. **Projection sensitivity bands**: plot headline trends under three inclusion rules: all facets, accepted-only facets, and accepted plus legacy seed. This would show how much the story depends on review debt.
+10. **Projection sensitivity bands**: plot headline trends under three inclusion rules: all active facets, accepted-only facets, and high-confidence facets. This would show how much the story depends on review debt.
 11. **Internal/private benchmark exposure index**: track `private_or_opaque_eval`, internal benchmark naming, and provider-created benchmark mentions over time.
 12. **Co-mention network**: connect benchmarks that appear on the same release page; cluster into "reasoning suite", "coding-agent suite", "multimodal suite", and "professional workflow suite".
 
@@ -102,5 +102,5 @@ Recommendation: include this near the methodology caveats or as a review roadmap
 - A model release with more benchmark mentions is normalized to the same total weight as another release with fewer mentions.
 - Facet labels are fractional when a benchmark has multiple labels on the same axis.
 - The latest-window charts use 365 days ending on 2026-04-23.
-- Many facet rows are still `needs_review` or `legacy_seed`; publication charts should offer accepted-only or uncertainty-aware variants.
+- Many facet rows are still `needs_review`; publication charts should offer accepted-only or uncertainty-aware variants.
 - Source-author labels and lifecycle-risk labels inherit the current local taxonomy and should be audited before strong claims.

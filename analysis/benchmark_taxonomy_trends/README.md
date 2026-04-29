@@ -5,8 +5,8 @@ The scripts here answer related but separate questions about how release-page be
 
 ## Scripts
 
-- `task_mode_trend.py`: rolling task-mode projection used for `assets/benchmark_growth.png`.
-- `separate_axis_trends.py`: separate task-mode and domain projections used for `assets/benchmark_growth_by_all_category.png`, with optional review-debt chart output.
+- `task_mode_trend.py`: rolling facet-derived headline task-mode projection used for `assets/benchmark_growth.png`.
+- `separate_axis_trends.py`: separate headline task-mode and v3 domain facet trends used for `assets/benchmark_growth_by_all_category.png`, with optional review-debt chart output.
 - `facet_trends.py`: rolling trends over the richer multi-facet taxonomy used for `assets/benchmark_facet_trends.png`.
 
 ## Run
@@ -24,4 +24,4 @@ The scripts here answer related but separate questions about how release-page be
 - `assets/benchmark_review_debt.png`
 - `assets/benchmark_facet_trends.png`
 
-All shares are release-page benchmark-framing views. They should not be read as capability measurements.
+All shares are release-page benchmark-framing views. Each release page contributes equal total weight; when a resolved benchmark has multiple labels within the plotted facet axis, that benchmark's contribution is divided equally across those labels. These charts should not be read as capability measurements.

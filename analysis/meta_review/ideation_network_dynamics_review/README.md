@@ -30,7 +30,7 @@ Best use: a compact public-diffusion subsection plus appendix tables. The result
 - The sample has only three providers. Provider-to-provider edges will look more stable than they really are because the graph is tiny.
 - The charts treat every mention equally. A benchmark in a large appendix-style table counts the same as a headline benchmark.
 - The portfolio similarity chart has early spikes driven by small portfolio denominators. It should be interpreted mainly from the more stable 2025-2026 region.
-- Source-author dependency needs audit before foregrounding. In `data/benchmarks.csv`, 92 of 134 benchmark rows are still `legacy_seed`; in `data/benchmark_facets.csv`, 32 of 33 `provider_created_benchmark` lifecycle-risk rows are `needs_review`.
+- Source-author dependency needs audit before foregrounding. In `data/benchmarks.csv`, 92 of 134 benchmark rows are still `legacy_seed`; in `data/benchmark_facets.csv`, 33 of 34 `provider_created_benchmark` lifecycle-risk rows are `needs_review`.
 - `source_author_mix_by_provider.png` uses counts, which partly reflects different total mention volumes by provider. For cross-provider comparison, shares are safer.
 - Running `analyze.py` directly rewrites the result folder, so review and publication workflows should be explicit about when outputs are regenerated.
 

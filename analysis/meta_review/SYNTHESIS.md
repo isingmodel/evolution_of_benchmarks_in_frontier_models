@@ -142,6 +142,6 @@ Needed before README:
 3. Create broad-vs-primary long-context sensitivity chart/table.
 4. Create OpenAI-linked release-normalized shares and strict sensitivity table.
 5. Rename public-facing "strategy" to "framing" or "benchmark emphasis" unless text evidence is added.
-6. Add accepted-only or accepted-plus-legacy sensitivity for provider fingerprints and domain-interaction views.
+6. Add accepted-only or high-confidence sensitivity for provider fingerprints and domain-interaction views.
 7. Replace current domain-interaction alluvial with a matrix.
 8. Audit high-leverage facet/authorship rows before publication-level claims.

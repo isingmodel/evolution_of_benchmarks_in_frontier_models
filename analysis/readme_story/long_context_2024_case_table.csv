@@ -1,4 +1,4 @@
 provider,broad_long_context_share,primary_long_context_share,main_2024_driver,benchmarked_releases
-OpenAI,0.023809523809523808,0.0,EgoSchema (GPT-4o),3
-Google,0.3214285714285714,0.25,Needle In A Haystack (Gemini 1.5),2
-Anthropic,0.020833333333333332,0.020833333333333332,Needle In A Haystack (Claude 3),3
+OpenAI,0.023809523809523808,0.023809523809523808,EgoSchema (GPT-4o),3
+Google,0.3928571428571428,0.3571428571428571,Needle In A Haystack (Gemini 1.5),2
+Anthropic,0.05787037037037037,0.020833333333333332,SWE-bench verified (Claude 3.5 Haiku),3

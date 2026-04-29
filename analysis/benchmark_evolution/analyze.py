@@ -16,14 +16,13 @@ if str(SCRIPTS_DIR) not in sys.path:
 
 from plot_utils import (  # noqa: E402
     MODE_ORDER,
-    build_legacy_taxonomy_lookup,
+    build_model_facet_events,
     configure_plot_style,
     latest_release_date,
-    load_models_and_benchmarks,
+    load_benchmark_facets,
+    load_models,
     parse_as_of,
     save_figure,
-    split_benchmarks,
-    warn_unresolved,
 )
 
 
@@ -49,59 +48,50 @@ def parse_args():
     return parser.parse_args()
 
 
-def process_data(models_df, benchmarks_df, as_of=None, strict_resolution=False):
-    taxonomy_lookup = build_legacy_taxonomy_lookup(benchmarks_df)
+def process_data(models_df, facets_df, as_of=None, strict_resolution=False):
     category_cols = MODE_ORDER
-    unresolved = []
+    events = build_model_facet_events(
+        models_df,
+        facets_df,
+        ["headline_task_mode"],
+        as_of,
+        strict_resolution=strict_resolution,
+    )
+
+    if events.empty:
+        return pd.DataFrame(), category_cols
 
     models_data = []
-    for _, row in models_df.iterrows():
-        model_name = row.get("Model name")
-        if pd.isna(model_name):
-            continue
-
-        provider = row.get("Provider")
-        date_str = row.get("release date")
-        date = pd.to_datetime(date_str)
-        if as_of is not None and date > as_of:
-            continue
-
-        bench_list = split_benchmarks(row.get("benchmarks", ""))
-
-        cat_counts = {c: 0 for c in category_cols}
-        total_hits = 0
-
-        for bench in bench_list:
-            taxonomy = taxonomy_lookup.resolve(bench)
-            mode = taxonomy.mode if taxonomy else ""
-            if mode and mode in cat_counts:
-                cat_counts[mode] += 1
-                total_hits += 1
-            elif bench:
-                unresolved.append((str(model_name), bench))
-
-        ratios = [cat_counts[c] / total_hits for c in category_cols] if total_hits > 0 else [0] * len(category_cols)
-
+    for (_, model_name, provider, date), group in events.groupby(
+        ["model_key", "Model", "Provider", "Date"], sort=False
+    ):
+        category_weights = group.groupby("Category")["Weight"].sum()
+        total_weight = category_weights.sum()
+        ratios = (
+            [category_weights.get(category, 0.0) / total_weight for category in category_cols]
+            if total_weight > 0
+            else [0] * len(category_cols)
+        )
         models_data.append(
             {
                 "Model": model_name,
                 "Provider": provider,
                 "Date": date,
                 "Ratios": ratios,
-                "TotalHits": total_hits,
+                "TotalHits": group["raw_mention"].nunique(),
             }
         )
 
-    warn_unresolved(unresolved, strict_resolution)
     return pd.DataFrame(models_data), category_cols
 
 
 def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", strict_resolution=False):
-    models_df_raw, benchmarks_df = load_models_and_benchmarks()
+    models_df_raw = load_models()
+    facets_df = load_benchmark_facets(add_headline_projection=True)
     if as_of is None:
         as_of = latest_release_date(models_df_raw)
 
-    df, cat_cols = process_data(models_df_raw, benchmarks_df, as_of=as_of, strict_resolution=strict_resolution)
+    df, cat_cols = process_data(models_df_raw, facets_df, as_of=as_of, strict_resolution=strict_resolution)
 
     if df.empty:
         print("No data.")

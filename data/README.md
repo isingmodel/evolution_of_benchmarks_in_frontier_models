@@ -29,7 +29,7 @@ benchmark_facets.csv
 | `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
 | `benchmarks.csv` | ~134 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
 | `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_facets.csv` | ~1,266 | Integrated benchmark-to-facet long table used by multi-facet analyses. |
+| `benchmark_facets.csv` | ~2,826 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
@@ -120,9 +120,9 @@ Notes:
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
 - When multiple labels exist within the same benchmark and facet axis, trend scripts divide that benchmark's contribution equally across the labels at runtime.
-- `headline_task_mode` is a visualization projection; it should not be treated as the benchmark's exclusive identity.
-- `headline_task_mode` must have at most one active row per benchmark because the chart projection is single-label.
-- Rule-seeded rows and human-reviewed rows live together here after review.
+- The table is v3-first and does not persist legacy `headline_task_mode` projection rows.
+- Analysis scripts that need a single headline category derive it at runtime from the v3 facets.
+- Model-generated candidate rows and human-reviewed rows live together here after review.
 - During data updates, reviewers may temporarily create `benchmark_facet_manual.csv` with the same facet columns plus either `benchmark_id` or `benchmark_name`. Running `scripts/build_normalized_data.py` merges those rows into `benchmark_facets.csv` by replacing the touched `benchmark_id + facet_axis` rows. Remove the temporary file after integration; it is intentionally ignored by Git.
 
 ### `base_readme.md`
@@ -175,6 +175,8 @@ Legacy `task_domain` values:
 The v3 taxonomy separates benchmark identity into multiple axes, including:
 
 - `construct_claim`
+- `benchmark_construct_claim`
+- `provider_construct_claim`
 - `task_mechanism`
 - `domain`
 - `modality`
@@ -182,7 +184,6 @@ The v3 taxonomy separates benchmark identity into multiple axes, including:
 - `metric_type`
 - `context_pressure`
 - `benchmark_lifecycle_risk`
-- `headline_task_mode`
 
 Use the facet table when a benchmark spans multiple capabilities or domains. Use headline projections only for readable charting.
 
