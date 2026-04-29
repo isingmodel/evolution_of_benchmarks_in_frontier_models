@@ -10,16 +10,8 @@ Release-page pies use a runtime `headline_task_mode` projection derived from `be
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmark Landscape Growth
-The following graph shows the facet-derived headline task-mode projection over time (rolling 6-month window). This is a readable projection from the taxonomy, not an exclusive benchmark identity.
-![Benchmark Growth](assets/benchmark_growth.png)
-
-## Separate Axis Trends
 The following graph keeps headline task mode and v3 domain facets as separate axes, avoiding a single denominator that mixes unlike taxonomy dimensions. Multi-label domain assignments split the benchmark contribution equally within the domain axis.
 ![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
-
-## Classification Review Debt
-The following graph summarizes low-confidence or review-needed facet rows in the generated normalized data.
-![Benchmark Review Debt](assets/benchmark_review_debt.png)
 
 ## Multi-Facet Trends
 The following graph expands the benchmark list in `models.csv` at runtime and joins it to `benchmark_facets.csv`. When a benchmark has multiple labels within one facet axis, the chart divides that benchmark's contribution equally across those labels at runtime.
@@ -63,14 +55,6 @@ The release pages do not show a simple fading of OpenAI-linked benchmark influen
 
 {{BORROWED_AUTHORITY_TABLE}}
 
-### Uncertainty Roadmap
-
-The multi-facet taxonomy is intentionally reviewable. The chart below ranks high-impact benchmarks by recent release-page mention weight multiplied by the share of active facet rows that are not yet accepted. It is not a benchmark quality score; it is a practical audit roadmap.
-
-![Review Leverage Benchmarks](assets/review_leverage_benchmarks.png)
-
-{{REVIEW_LEVERAGE_TABLE}}
-
 ### Benchmark Analysis Methodology
 This analysis focuses on benchmarks featured prominently on model release pages, rather than every benchmark listed in technical reports, system cards, model cards, or API documentation. Those detailed sources are useful for verification and safety analysis, but they answer a different question: what was evaluated? Here, the question is narrower: which benchmarks did providers choose to emphasize in public launch messaging, and how did that emphasis change over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet classification rules.
 
@@ -79,17 +63,13 @@ Headline category is a visualization projection, not an exclusive benchmark iden
 The current normalized facet table was regenerated as a reviewable v3 multi-label table. See [benchmark audit notes](docs/benchmark_audit_notes.md) for source-backed decisions and known open caveats on previously audited high-impact benchmarks.
 
 ## Models Data
-The following table lists the models and their associated benchmarks.
-
-{{MODELS_TABLE}}
+See [`data/models.csv`](data/models.csv) for the full model-release inventory and benchmark mentions.
 
 ## Benchmark Taxonomy
-Classification of various benchmarks by category.
-
-{{TAXONOMY_TABLE}}
+See [`data/`](data/) for the benchmark catalog, aliases, and normalized multi-facet taxonomy files.
 
 ## Categorization Logic
-The generated taxonomy table currently exposes the normalized source metadata plus legacy headline fields retained for audit and backward compatibility:
+The normalized benchmark files retain source metadata plus legacy headline fields for audit and backward compatibility:
 1. **frontier_lab_author_affiliations**: whether benchmark authors include the tracked frontier labs (OpenAI, Anthropic, Google, DeepMind, Microsoft, xAI).
 2. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
 3. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
@@ -105,15 +85,14 @@ PY=.venv/bin/python       # or python, if your environment is already activated
 $PY scripts/build_normalized_data.py
 $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
 $PY scripts/update_readme.py
 $PY scripts/validate_data.py
 ```
 
-The normalized-data build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are integrated into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. The generated README taxonomy table and trend analyses remain headline-compatible by deriving any single-label projection at runtime, while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis. Story-analysis tables are written under `analysis/readme_story/`, and README chart assets are written under `assets/`.
+The normalized-data build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are integrated into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. Trend analyses remain headline-compatible by deriving any single-label projection at runtime, while the normalized facet table preserves richer multi-facet labels for quantitative and qualitative analysis. Story-analysis tables are written under `analysis/readme_story/`, and README chart assets are written under `assets/`.
 
 ## Release-Page Extraction Workflow
 For new model launches, run the scraper as a source extractor and review the result with independent roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.

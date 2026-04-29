@@ -1,4 +1,5 @@
 import argparse
+import math
 import sys
 from pathlib import Path
 
@@ -53,7 +54,7 @@ def parse_args():
     parser.add_argument(
         "--top-labels",
         type=int,
-        default=10,
+        default=8,
         help="Maximum labels to show per axis before grouping the remainder into Other.",
     )
     parser.add_argument(
@@ -176,7 +177,7 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     colors = sns.color_palette("tab20", n_colors=len(labels))
     ax.stackplot(trend.index, [trend[label] for label in labels], labels=labels, colors=colors, alpha=0.9)
     title = axis.replace("_", " ").title()
-    ax.set_title(f"{title} Trend (facet data, {window_days}-day, as of {as_of.date()})", fontsize=14, weight="bold")
+    ax.set_title(f"{title} Trend ({window_days}-day, as of {as_of.date()})", fontsize=13, weight="bold", pad=10)
     ax.set_ylabel("Share of weighted mentions", fontsize=11)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
@@ -184,7 +185,17 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     ax.grid(False, axis="x")
     ax.xaxis.set_major_locator(mdates.MonthLocator(interval=3))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    ax.legend(loc="upper left", bbox_to_anchor=(1.01, 1), fontsize=8, frameon=False)
+    legend_columns = min(3, max(1, math.ceil(len(labels) / 4)))
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.2),
+        ncol=legend_columns,
+        fontsize=8,
+        frameon=False,
+        borderaxespad=0,
+        columnspacing=1.3,
+        handlelength=1.4,
+    )
 
 
 def generate_facet_trends(
@@ -208,26 +219,43 @@ def generate_facet_trends(
         print("No model benchmark mentions found.")
         return
 
-    fig_height = max(4.5 * len(axes), 7)
-    fig, axs = plt.subplots(len(axes), 1, figsize=(17, fig_height), sharex=True)
-    if len(axes) == 1:
-        axs = [axs]
+    plot_count = len(axes)
+    subplot_cols = 2 if plot_count > 2 else 1
+    subplot_rows = math.ceil(plot_count / subplot_cols)
+    fig_width = 24 if subplot_cols == 2 else 18
+    fig_height = max(7.5 * subplot_rows, 8)
+    fig, axs_grid = plt.subplots(
+        subplot_rows,
+        subplot_cols,
+        figsize=(fig_width, fig_height),
+        sharex=True,
+        squeeze=False,
+    )
+    axs = [ax for row in axs_grid for ax in row]
+    plot_axes = axs[:plot_count]
 
     min_dates = []
-    for ax, axis in zip(axs, axes):
+    for ax, axis in zip(plot_axes, axes):
         events = events_for_axis(mentions, facets, axis, top_labels)
         trend, min_date = build_rolling_share_trend(events, as_of, window_days)
         if min_date is not None:
             min_dates.append(min_date)
         plot_axis(ax, trend, axis, window_days, as_of)
 
+    for ax in axs[plot_count:]:
+        ax.set_visible(False)
+
     if min_dates:
-        for ax in axs:
+        for ax in plot_axes:
             ax.set_xlim(min(min_dates), as_of)
-    axs[-1].set_xlabel("Time", fontsize=12)
-    plt.xticks(rotation=45)
-    fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=18, weight="bold", y=0.995)
-    plt.tight_layout(rect=[0, 0, 1, 0.985])
+    bottom_row_start = (subplot_rows - 1) * subplot_cols
+    for index, ax in enumerate(plot_axes):
+        if index >= bottom_row_start:
+            ax.set_xlabel("Time", fontsize=12)
+        plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
+
+    fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=20, weight="bold", y=0.98)
+    fig.tight_layout(rect=[0, 0.02, 1, 0.95], h_pad=4.5, w_pad=2.2)
     save_figure(fig, output_path)
     plt.close(fig)
 
