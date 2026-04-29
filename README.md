@@ -1,33 +1,33 @@
 # Benchmark Evolution in Frontier Models
-This project tracks how major AI providers (OpenAI, Google, Anthropic) select and position benchmarks on their **frontier model release pages** over time.
 
-Analysis targets are the public launch pages of fronter models — what a provider shows to customers and journalists. A benchmark appearing there signals which capability the provider chose to foreground, not merely that the model was evaluated on it.
+This project tracks how OpenAI, Google, and Anthropic use benchmarks in public frontier-model launch pages.
 
-The charts summarize how providers frame capability claims in launch material. Under the methodology each benchmark carries multiple facets, so any single headline category in a chart is a projection chosen for visualization, not an exclusive label.
+The core finding is that public benchmark framing is changing: frontier labs are moving from static exam-style benchmarks toward work simulations, agentic tasks, long-context evaluations, tool use, codebase interaction, and specialized professional workflows.
 
-## Evolution Graph
-The release-page pies project `headline_task_mode` at runtime from `data/benchmark_facets.csv`. Each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
-![Benchmark Evolution](assets/benchmark_evolution.png)
+The unit of analysis is the release-page frame: the benchmark evidence providers foreground when presenting new models to customers, journalists, and the broader AI ecosystem.
 
-## Benchmarks per Release
-This graph counts the unique resolved benchmark names listed on each model release page, including releases with no benchmark list, and overlays a 90-day moving average to smooth launch cadence.
-![Benchmarks per Model Release](assets/benchmark_count_per_release.png)
+Current data cutoff: 2026-04-23.
 
-## Benchmark Landscape Growth
-This graph keeps headline task mode and v3 domain facets on separate axes, so a single denominator never has to mix unlike taxonomy dimensions. Where a benchmark carries multiple domain labels, its contribution splits equally within the domain axis.
-![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
+## What This Project Shows
 
-## Multi-Facet Trends
-This graph expands `models.csv` at runtime and joins it to `benchmark_facets.csv`. When a benchmark carries multiple labels on a single facet axis, its contribution is split equally across them.
-![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
+This repository shows how benchmark emphasis changes in public model launch pages. It tracks which benchmarks appear in release-page messaging, normalizes aliases into canonical names, and classifies benchmarks with a multi-facet taxonomy rather than one fixed label.
+
+That structure makes it possible to compare how public capability framing changes over time and across providers: which benchmarks become shared vocabulary, which task modes gain prominence, and how release pages increasingly foreground work simulations, agentic tasks, long-context evaluation, tool use, codebase interaction, and professional workflows.
+
+## Key Findings
+
+- Across the tracked release pages, benchmark framing has shifted decisively from static exams toward work simulations.
+- Some benchmarks enter the cross-provider public evaluation vocabulary within days.
+- OpenAI-authored and OpenAI-affiliated benchmarks have become part of the shared competitive vocabulary used by other frontier labs.
+- Google's 2024 Gemini release pages show a distinctive public emphasis on long-context evaluation under the current taxonomy.
 
 ## Story Analyses
 
-These analyses come from `analysis/readme_story/analyze.py`, which reuses the validation pipeline's benchmark resolver: a release-page mention counts only when it matches a canonical name or an explicit alias. In share-based analyses each release page contributes one unit of weight, divided evenly across the benchmarks it lists, so long benchmark tables don't dominate provider-period comparisons.
+These analyses come from `analysis/readme_story/analyze.py`, which reuses the validation pipeline's benchmark resolver: a release-page mention counts only when it matches a canonical name or an explicit alias. In share-based analyses each release page contributes one unit of weight, divided evenly across the benchmarks it lists, so long benchmark tables do not dominate provider-period comparisons.
 
 ### From Static Exams to Work Simulations
 
-The clearest pattern is a shift in public benchmark framing. Earlier release pages leaned on static, exam-style benchmarks; recent ones foreground work simulations across codebases, terminals, browsers, tools, professional workflows, and specialized domains. The claim is about how providers choose to advertise their models, not whether the models can actually do those jobs.
+The strongest signal in the data is a shift from static exams to work simulations. Earlier release pages leaned on static, exam-style benchmarks; recent ones foreground work simulations across codebases, terminals, browsers, tools, professional workflows, and specialized domains. The result should be read as evidence about public capability framing, not as a direct claim about real-world model competence.
 
 ![Static Exams to Work Simulations](assets/static_to_work_simulation_trend.png)
 
@@ -67,7 +67,7 @@ Google's 2024 Gemini release pages show a clear long-context emphasis under the 
 
 ### Public Benchmark Diffusion
 
-Some benchmark names move into shared public evaluation vocabulary quickly. The table below ranks the fastest cross-provider cascades, measured from the first tracked release-page mention to the next provider's first tracked mention. These are not benchmark creation dates, internal adoption dates, or evidence that one provider copied another.
+Some benchmarks enter the cross-provider public evaluation vocabulary within days. The table below ranks the fastest cross-provider cascades, measured from the first tracked release-page mention to the next provider's first tracked mention. These are not benchmark creation dates, internal adoption dates, or evidence that one provider copied another.
 
 | Benchmark          | First tracked public mention   | Next provider          | Lag     |
 |:-------------------|:-------------------------------|:-----------------------|:--------|
@@ -78,9 +78,9 @@ Some benchmark names move into shared public evaluation vocabulary quickly. The 
 | GDPval-AA          | Anthropic (2026-02-05)         | Google (2026-02-19)    | 14 days |
 | Scale MCP-Atlas    | Anthropic (2025-11-24)         | OpenAI (2025-12-11)    | 17 days |
 
-### Borrowed Benchmark Authority
+### Diffusion of OpenAI-Affiliated Benchmarks
 
-The influence of benchmarks created or co-developed by OpenAI remains substantial. On Anthropic and Google release pages, mentions of OpenAI-authored or OpenAI-affiliated benchmarks rise in 2025–2026 under both raw and release-normalized views. The cautious reading: those benchmarks have entered a shared competitive vocabulary, even as neutral academic and vendor benchmarks remain central.
+The influence of benchmarks created or co-developed by OpenAI remains substantial. On Anthropic and Google release pages, mentions of OpenAI-authored or OpenAI-affiliated benchmarks rise in 2025-2026 under both raw and release-normalized views. This supports a clear interpretation: those benchmarks have become part of the shared competitive vocabulary used by other frontier labs, even as neutral academic and vendor benchmarks remain central.
 
 | Provider group   | 2023-2024                           | 2025-2026                           |
 |:-----------------|:------------------------------------|:------------------------------------|
@@ -88,30 +88,65 @@ The influence of benchmarks created or co-developed by OpenAI remains substantia
 | Anthropic        | 19.0% raw; 25.0% release-normalized | 22.3% raw; 23.7% release-normalized |
 | Google           | 8.8% raw; 6.1% release-normalized   | 29.3% raw; 30.6% release-normalized |
 
-### Benchmark Analysis Methodology
-The analysis focuses on benchmarks featured on model release pages, not the full set listed in technical reports, system cards, or API documentation. Those detailed sources answer what was evaluated; the question here is narrower — which benchmarks did providers choose to emphasize in launch messaging, and how did that emphasis shift over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet rules.
+## Charts
+
+These chart assets summarize the same release-page dataset from different angles. Each chart is a visualization projection over the normalized benchmark table, not a separate taxonomy.
+
+### Evolution Graph
+
+This chart shows how headline task-mode framing changes across tracked release pages. The release-page pies project `headline_task_mode` at runtime from `data/benchmark_facets.csv`; each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
+
+![Benchmark Evolution](assets/benchmark_evolution.png)
+
+### Benchmarks per Release
+
+This chart shows how many unique resolved benchmark names appear on each model release page. It includes releases with no benchmark list and overlays a 90-day moving average to smooth launch cadence.
+
+![Benchmarks per Model Release](assets/benchmark_count_per_release.png)
+
+### Benchmark Landscape Growth
+
+This chart separates headline task mode from v3 domain facets, so a single denominator never has to mix unlike taxonomy dimensions. Where a benchmark carries multiple domain labels, its contribution splits equally within the domain axis.
+
+![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
+
+### Multi-Facet Trends
+
+This chart expands `models.csv` at runtime and joins it to `benchmark_facets.csv`. When a benchmark carries multiple labels on a single facet axis, its contribution is split equally across them.
+
+![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
+
+## Methodology
+
+The analysis focuses on benchmarks featured on model release pages, not the full set listed in technical reports, system cards, or API documentation. Those detailed sources answer what was evaluated; the question here is narrower: which benchmarks did providers choose to emphasize in launch messaging, and how did that emphasis shift over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet rules.
 
 The headline category is a visualization projection. A coding benchmark can keep its `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release page emphasizes autonomous environment interaction. The canonical facet table is v3-first, and scripts derive any single-label projection at runtime when a chart needs one.
 
 The normalized facet table has been regenerated as a reviewable v3 multi-label table. See [benchmark audit notes](docs/benchmark_audit_notes.md) for source-backed decisions and the open caveats on high-impact benchmarks already audited.
 
-## Models Data
-See [`data/models.csv`](data/models.csv) for the full model-release inventory and benchmark mentions.
-
-## Benchmark Taxonomy
-See [`data/`](data/) for the benchmark catalog, aliases, and normalized multi-facet taxonomy files.
-
-## Categorization Logic
 The normalized benchmark files keep source metadata alongside legacy headline fields for audit and backward compatibility:
+
 1. **frontier_lab_author_affiliations**: whether benchmark authors include the tracked frontier labs (OpenAI, Anthropic, Google, DeepMind, Microsoft, xAI).
 2. **task_mode**: how the task is solved (Agentic, Generative Reasoning, Knowledge Retrieval, Constraint Satisfaction, Multimodal Perception).
 3. **task_domain**: what subject expertise is required (STEM/Math, Coding/Engineering, General/Commonsense, Specialized).
 
-Under v3, these fields are projections from richer benchmark facets — construct claim, task mechanism, domain, modality, interaction pattern, metric type, context pressure, and lifecycle risk.
+Under v3, these fields are projections from richer benchmark facets: construct claim, task mechanism, domain, modality, interaction pattern, metric type, context pressure, and lifecycle risk.
 
-## Auto-Update
+## Data
+
+- Full model-release inventory and benchmark mentions: [`data/models.csv`](data/models.csv)
+- Benchmark catalog, aliases, and normalized multi-facet taxonomy files: [`data/`](data/)
+- Story-analysis outputs: [`analysis/readme_story/`](analysis/readme_story/)
+
+## Reproducing the Analysis
+
 To regenerate the normalized benchmark data and current chart assets, run:
+
 ```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
 AS_OF=2026-04-23          # latest release date included in data/models.csv
 PY=.venv/bin/python       # or python, if your environment is already activated
 
@@ -128,4 +163,5 @@ $PY scripts/validate_data.py
 The build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are merged into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. Trend analyses stay headline-compatible by projecting a single label at runtime, while the normalized facet table preserves the full multi-facet labels for quantitative and qualitative analysis. Story-analysis tables land under `analysis/readme_story/`, and README chart assets under `assets/`. The top-level README is maintained directly.
 
 ## Release-Page Extraction Workflow
+
 For new model launches, treat the scraper as a source extractor and review its output through separate roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.
