@@ -110,7 +110,7 @@ The normalized benchmark files keep source metadata alongside legacy headline fi
 Under v3, these fields are projections from richer benchmark facets — construct claim, task mechanism, domain, modality, interaction pattern, metric type, context pressure, and lifecycle risk.
 
 ## Auto-Update
-To regenerate the normalized benchmark data, current chart assets, and README, run:
+To regenerate the normalized benchmark data and current chart assets, run:
 ```bash
 AS_OF=2026-04-23          # latest release date included in data/models.csv
 PY=.venv/bin/python       # or python, if your environment is already activated
@@ -122,11 +122,10 @@ $PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --win
 $PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
-$PY scripts/update_readme.py
 $PY scripts/validate_data.py
 ```
 
-The build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are merged into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. Trend analyses stay headline-compatible by projecting a single label at runtime, while the normalized facet table preserves the full multi-facet labels for quantitative and qualitative analysis. Story-analysis tables land under `analysis/readme_story/`, and README chart assets under `assets/`.
+The build keeps `data/benchmark_facets.csv` aligned with the canonical benchmark source. Curated facet corrections are merged into that final table after review; `data/benchmark_facet_manual.csv` is only a temporary staging file during updates. Trend analyses stay headline-compatible by projecting a single label at runtime, while the normalized facet table preserves the full multi-facet labels for quantitative and qualitative analysis. Story-analysis tables land under `analysis/readme_story/`, and README chart assets under `assets/`. The top-level README is maintained directly.
 
 ## Release-Page Extraction Workflow
 For new model launches, treat the scraper as a source extractor and review its output through separate roles: source extraction, false-positive audit, catalog mapping, and data-integrity audit. Generate a handoff packet with `python scraping/review_packet.py scraping/output/new_release_extract.json`, then apply only source-backed CSV edits and rerun the validation pipeline above. See [release-page extraction workflow](docs/release_page_extraction_workflow.md) and [scraping workflow](scraping/README.md) for details.
