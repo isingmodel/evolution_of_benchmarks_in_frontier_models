@@ -112,7 +112,7 @@ This chart separates headline task mode from v3 domain facets, so a single denom
 
 ### Multi-Facet Trends
 
-This chart expands `models.csv` at runtime and joins it to `benchmark_facets.csv`. When a benchmark carries multiple labels on a single facet axis, its contribution is split equally across them.
+This chart expands `models.csv` at runtime and joins it to `benchmark_facets.csv`. It focuses on modality, interaction pattern, and context pressure so the domain trend is not duplicated. When a benchmark carries multiple labels on a single facet axis, its contribution is split equally across them.
 
 ![Benchmark Facet Trends](assets/benchmark_facet_trends.png)
 
@@ -155,7 +155,7 @@ $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
 $PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
 $PY scripts/validate_data.py
 ```
