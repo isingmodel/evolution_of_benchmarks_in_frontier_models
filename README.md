@@ -1,12 +1,12 @@
 # Benchmark Evolution in Frontier Models
-This repository tracks how major AI providers (OpenAI, Google, Anthropic, etc.) select and position benchmarks on their frontier model release pages over time. It is not a measurement of model capability progress.
+This project tracks how major AI providers (OpenAI, Google, Anthropic) select and position benchmarks on their **frontier model release pages** over time.
 
-The unit of analysis is the public launch page — what a provider shows to customers, developers, and journalists. A benchmark appearing there signals which capability the provider chose to foreground, not merely that the model was evaluated on it.
+Analysis targets are the public launch pages of fronter models — what a provider shows to customers and journalists. A benchmark appearing there signals which capability the provider chose to foreground, not merely that the model was evaluated on it.
 
-The charts summarize how providers frame capability claims in launch material. Under the v3 methodology each benchmark carries multiple facets, so any single headline category in a chart is a projection chosen for visualization, not an exclusive label.
+The charts summarize how providers frame capability claims in launch material. Under the methodology each benchmark carries multiple facets, so any single headline category in a chart is a projection chosen for visualization, not an exclusive label.
 
 ## Evolution Graph
-The release-page pies project `headline_task_mode` at runtime from `benchmark_facets.csv`. Each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
+The release-page pies project `headline_task_mode` at runtime from `data/benchmark_facets.csv`. Each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
 ## Benchmarks per Release
@@ -80,7 +80,7 @@ Some benchmark names move into shared public evaluation vocabulary quickly. The 
 
 ### Borrowed Benchmark Authority
 
-OpenAI-linked benchmark influence does not fade from the release pages. On Anthropic and Google pages, mentions of OpenAI-authored or OpenAI-affiliated benchmarks rise in 2025–2026 under both raw and release-normalized views. The cautious reading: those benchmarks have entered a shared competitive vocabulary, even as neutral academic and vendor benchmarks remain central.
+The influence of benchmarks created or co-developed by OpenAI remains substantial. On Anthropic and Google release pages, mentions of OpenAI-authored or OpenAI-affiliated benchmarks rise in 2025–2026 under both raw and release-normalized views. The cautious reading: those benchmarks have entered a shared competitive vocabulary, even as neutral academic and vendor benchmarks remain central.
 
 | Provider group   | 2023-2024                           | 2025-2026                           |
 |:-----------------|:------------------------------------|:------------------------------------|
@@ -91,7 +91,7 @@ OpenAI-linked benchmark influence does not fade from the release pages. On Anthr
 ### Benchmark Analysis Methodology
 The analysis focuses on benchmarks featured on model release pages, not the full set listed in technical reports, system cards, or API documentation. Those detailed sources answer what was evaluated; the question here is narrower — which benchmarks did providers choose to emphasize in launch messaging, and how did that emphasis shift over time? See the [v3 benchmark classification methodology](docs/benchmark_classification_methodology_v3.md) for the multi-facet rules.
 
-The headline category is a visualization projection, not the benchmark's full identity. A coding benchmark can keep its `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release page emphasizes autonomous environment interaction. The canonical facet table is v3-first, and scripts derive any single-label projection at runtime when a chart needs one.
+The headline category is a visualization projection. A coding benchmark can keep its `Coding/Engineering` domain facet while being headline-projected as `Agentic` when the release page emphasizes autonomous environment interaction. The canonical facet table is v3-first, and scripts derive any single-label projection at runtime when a chart needs one.
 
 The normalized facet table has been regenerated as a reviewable v3 multi-label table. See [benchmark audit notes](docs/benchmark_audit_notes.md) for source-backed decisions and the open caveats on high-impact benchmarks already audited.
 
