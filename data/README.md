@@ -183,7 +183,7 @@ $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
 $PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
 $PY scripts/validate_data.py
 ```
