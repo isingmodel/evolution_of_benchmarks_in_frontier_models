@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Classify benchmarks one-by-one with Gemini using the v3 multi-facet contract.
+"""Classify benchmarks one-by-one with OpenAI OAuth using the v3 multi-facet contract.
 
 The safe default writes reviewable JSONL candidates. The script can also emit
 candidate facet CSV rows or, when explicitly requested, a legacy v2-shaped CSV
@@ -19,6 +19,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Sequence, Set, Tuple
 
+from openai_oauth_client import (
+    DEFAULT_OPENAI_OAUTH_BASE_URL,
+    DEFAULT_OPENAI_OAUTH_MODEL,
+    OpenAIOAuthClient,
+    resolve_openai_oauth_dir,
+)
 from taxonomy_utils import (
     ALLOWED_CONSTRUCT_CLAIM,
     ALLOWED_FACET_LABELS,
@@ -190,12 +196,21 @@ def parse_args() -> argparse.Namespace:
         default="",
         help="Defaults to jsonl for .jsonl outputs and candidate-facets-csv for .csv outputs",
     )
-    p.add_argument("--model", default="gemini-3-pro-preview", help="Gemini model name")
+    p.add_argument("--model", default=DEFAULT_OPENAI_OAUTH_MODEL, help="OpenAI OAuth model name")
     p.add_argument(
-        "--api-key-file",
-        default="secrets/gemini_api_key.txt",
-        help="Path to a text file containing Gemini API key",
+        "--reasoning-effort",
+        choices=["low", "medium", "high", "xhigh"],
+        default=None,
+        help="Optional Responses reasoning effort to send through openai-oauth.",
     )
+    p.add_argument("--openai-oauth-base-url", default=DEFAULT_OPENAI_OAUTH_BASE_URL)
+    p.add_argument("--openai-oauth-dir", default=str(resolve_openai_oauth_dir()))
+    p.add_argument(
+        "--no-openai-oauth-start",
+        action="store_true",
+        help="Do not auto-start the local openai-oauth proxy.",
+    )
+    p.add_argument("--openai-oauth-timeout", type=float, default=120.0)
     p.add_argument("--max-rows", type=int, default=0, help="Max rows to process (0 = all pending)")
     p.add_argument("--sleep", type=float, default=1.0, help="Seconds to sleep between API calls")
     p.add_argument("--retries", type=int, default=2, help="Retries per row after failures")
@@ -485,27 +500,13 @@ def validate_and_normalize_v3(parsed: Dict[str, object], original: Mapping[str, 
     return normalized
 
 
-def gemini_generate(api_key: str, model: str, prompt: str) -> str:
-    try:
-        from google import genai
-    except ImportError as e:
-        raise RuntimeError("Missing dependency: google-genai. Install with `pip install google-genai`.") from e
-
-    client = genai.Client(api_key=api_key)
-    response = client.models.generate_content(model=model, contents=prompt)
-    text = (response.text or "").strip()
-    if not text:
-        raise ValueError("Empty text response from Gemini")
-    return text
-
-
-def classify_row(row: Dict[str, str], api_key: str, model: str, retries: int) -> Dict[str, object]:
+def classify_row(row: Dict[str, str], client: OpenAIOAuthClient, retries: int) -> Dict[str, object]:
     prompt = build_prompt(row)
 
     last_error = ""
     for _ in range(retries + 1):
         try:
-            raw = gemini_generate(api_key, model, prompt)
+            raw = client.generate_text(prompt)
             parsed = extract_json(raw)
             return validate_and_normalize_v3(parsed, row)
         except Exception as e:
@@ -769,56 +770,53 @@ def main() -> int:
             return 0
         rows = build_input_rows(read_csv(args.input))
 
-    try:
-        with open(args.api_key_file, "r", encoding="utf-8") as f:
-            api_key = f.read().strip()
-    except FileNotFoundError:
-        print(f"API key file not found: {args.api_key_file}", file=sys.stderr)
-        return 2
-    except OSError as e:
-        print(f"Failed to read API key file {args.api_key_file}: {e}", file=sys.stderr)
-        return 2
-
-    if not api_key:
-        print(f"API key file is empty: {args.api_key_file}", file=sys.stderr)
-        return 2
-
     completed_keys = set() if args.force else existing_candidate_keys(args.output, output_format)
     processed = 0
-    for i, row in enumerate(rows):
-        if output_format == "legacy-csv":
-            is_pending = not row.get("task_mode") or not row.get("task_domain") or not row.get("rationale")
-            if not is_pending and not args.force:
+    client = OpenAIOAuthClient(
+        base_url=args.openai_oauth_base_url,
+        model=args.model,
+        reasoning_effort=args.reasoning_effort or None,
+        project_dir=Path(args.openai_oauth_dir),
+        auto_start=not args.no_openai_oauth_start,
+        timeout=args.openai_oauth_timeout,
+    )
+    try:
+        for i, row in enumerate(rows):
+            if output_format == "legacy-csv":
+                is_pending = not row.get("task_mode") or not row.get("task_domain") or not row.get("rationale")
+                if not is_pending and not args.force:
+                    continue
+            elif candidate_key(row) in completed_keys:
                 continue
-        elif candidate_key(row) in completed_keys:
-            continue
 
-        try:
-            classification = classify_row(row, api_key=api_key, model=args.model, retries=args.retries)
-            if output_format == "jsonl":
-                append_jsonl(args.output, make_candidate_record(row, classification, args.model))
-                headline = classification["headline_projection"]
-            elif output_format == "candidate-facets-csv":
-                append_candidate_csv(args.output, candidate_facet_rows(row, classification, args.model))
-                headline = classification["headline_projection"]
-            else:
-                rows[i] = legacy_row_from_classification(row, classification)
-                write_legacy_csv(args.output, rows)
-                headline = rows[i]["task_mode"]
+            try:
+                classification = classify_row(row, client=client, retries=args.retries)
+                if output_format == "jsonl":
+                    append_jsonl(args.output, make_candidate_record(row, classification, args.model))
+                    headline = classification["headline_projection"]
+                elif output_format == "candidate-facets-csv":
+                    append_candidate_csv(args.output, candidate_facet_rows(row, classification, args.model))
+                    headline = classification["headline_projection"]
+                else:
+                    rows[i] = legacy_row_from_classification(row, classification)
+                    write_legacy_csv(args.output, rows)
+                    headline = rows[i]["task_mode"]
 
-            print(f"[{processed + 1}] {row['benchmark_name']} -> done ({headline})")
-            if output_format != "legacy-csv":
-                completed_keys.add(candidate_key(row))
-        except RuntimeError as e:
-            print(f"[{processed + 1}] {row['benchmark_name']} -> error: {e}", file=sys.stderr)
-        except ValueError as e:
-            print(f"[{processed + 1}] {row['benchmark_name']} -> invalid response: {e}", file=sys.stderr)
+                print(f"[{processed + 1}] {row['benchmark_name']} -> done ({headline})")
+                if output_format != "legacy-csv":
+                    completed_keys.add(candidate_key(row))
+            except RuntimeError as e:
+                print(f"[{processed + 1}] {row['benchmark_name']} -> error: {e}", file=sys.stderr)
+            except ValueError as e:
+                print(f"[{processed + 1}] {row['benchmark_name']} -> invalid response: {e}", file=sys.stderr)
 
-        processed += 1
+            processed += 1
 
-        if args.max_rows > 0 and processed >= args.max_rows:
-            break
-        time.sleep(max(args.sleep, 0.0))
+            if args.max_rows > 0 and processed >= args.max_rows:
+                break
+            time.sleep(max(args.sleep, 0.0))
+    finally:
+        client.close()
 
     print(f"Done. processed={processed}, output={args.output}")
     return 0

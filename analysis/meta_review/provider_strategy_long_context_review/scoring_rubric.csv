@@ -1,0 +1,9 @@
+criterion,score_10,assessment
+Project fit,9,"Directly tests provider benchmark-showcase strategy on public release pages."
+Novelty,7,"Turns the existing Gemini 1.5 narrative into a quantified case study, though the idea is already present in the project README."
+Data support,7,"Reproducible and transparent, but Google 2024 has only 2 benchmarked releases and one dominant driver."
+Reproducibility,9,"Script, inputs, exact-resolution behavior, output CSVs, and chart files are clearly documented."
+Risk of overclaiming,5,"High if presented as capability or intent; manageable if framed as release-page benchmark emphasis."
+Taxonomy dependency,4,"Long-context evidence relies heavily on context_pressure rows that are still needs_review."
+Audience value,8,"A clear, memorable case study that helps readers understand provider positioning."
+Presentation readiness,7,"Good enough for a README callout after caption and wording edits; needs sensitivity outputs for publication."

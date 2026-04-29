@@ -1,0 +1,24 @@
+metric,value,detail
+resolved_mentions,422.0,
+unique_benchmarks_mentioned,133.0,
+cross_provider_cascades,49.0,benchmarks adopted by more providers than their first-provider set
+single_provider_benchmarks,84.0,
+fastest_cascade,2.0,MMMLU: Anthropic -> OpenAI
+fastest_cascade,6.0,Terminal-Bench 2.0: Google -> Anthropic
+fastest_cascade,7.0,OfficeQA Pro: Anthropic -> OpenAI
+fastest_cascade,14.0,GDPval-AA: Anthropic -> Google
+fastest_cascade,14.0,APEX-Agents: Google -> OpenAI
+slowest_cascade,624.0,ARC-AGI: Anthropic -> Google
+slowest_cascade,484.0,GPQA Diamond: Anthropic -> Google
+slowest_cascade,297.0,GraphWalks: OpenAI -> Anthropic
+slowest_cascade,295.0,BrowseComp: OpenAI -> Anthropic
+slowest_cascade,218.0,CharXiv: OpenAI -> Google
+provider_net_export_balance,-1.0,Google
+provider_net_export_balance,-6.0,Anthropic
+provider_net_export_balance,-18.0,OpenAI
+latest_portfolio_similarity,0.333,Anthropic - OpenAI
+latest_portfolio_similarity,0.33,Anthropic - Google
+latest_portfolio_similarity,0.283,Google - OpenAI
+self_affiliated_mention_share,0.25,OpenAI
+self_affiliated_mention_share,0.207,Google
+self_affiliated_mention_share,0.178,Anthropic

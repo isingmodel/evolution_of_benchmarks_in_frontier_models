@@ -1,42 +1,34 @@
 import argparse
+import sys
+from pathlib import Path
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import matplotlib.ticker as mtick
 import seaborn as sns
 
-if __package__:
-    from .plot_utils import (
-        DATA_DIR,
-        DOMAIN_ORDER,
-        MODE_ORDER,
-        build_legacy_taxonomy_lookup,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        load_models_and_benchmarks,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
-else:
-    from plot_utils import (
-        DATA_DIR,
-        DOMAIN_ORDER,
-        MODE_ORDER,
-        build_legacy_taxonomy_lookup,
-        build_rolling_share_trend,
-        configure_plot_style,
-        latest_release_date,
-        load_models_and_benchmarks,
-        parse_as_of,
-        save_figure,
-        split_benchmarks,
-        validate_window_days,
-        warn_unresolved,
-    )
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = ROOT / "scripts"
+
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from plot_utils import (  # noqa: E402
+    DATA_DIR,
+    FACET_DOMAIN_ORDER,
+    MODE_ORDER,
+    build_model_facet_events,
+    build_rolling_share_trend,
+    configure_plot_style,
+    latest_release_date,
+    load_benchmark_facets,
+    load_models,
+    parse_as_of,
+    save_figure,
+    validate_window_days,
+)
+from taxonomy_utils import REVIEW_CONFIDENCE_THRESHOLD  # noqa: E402
 
 
 configure_plot_style()
@@ -75,41 +67,6 @@ def parse_args():
     return parser.parse_args()
 
 
-def collect_axis_events(models_df, lookup, as_of):
-    mode_events = []
-    domain_events = []
-    unresolved = []
-
-    for _, row in models_df.iterrows():
-        date = pd.to_datetime(row["release date"])
-        if date > as_of:
-            continue
-
-        benchmarks = split_benchmarks(row.get("benchmarks", ""))
-        if not benchmarks:
-            continue
-
-        resolved_mentions = []
-        for bench in benchmarks:
-            taxonomy = lookup.resolve(bench)
-            if not taxonomy:
-                unresolved.append((str(row.get("Model name", "")), bench))
-                continue
-            resolved_mentions.append(taxonomy)
-
-        if not resolved_mentions:
-            continue
-
-        base_weight = 1.0 / len(resolved_mentions)
-        for taxonomy in resolved_mentions:
-            if taxonomy.mode:
-                mode_events.append({"Date": date, "Category": taxonomy.mode, "Weight": base_weight})
-            if taxonomy.domain:
-                domain_events.append({"Date": date, "Category": taxonomy.domain, "Weight": base_weight})
-
-    return pd.DataFrame(mode_events), pd.DataFrame(domain_events), unresolved
-
-
 def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
     if trend_data.empty:
         ax.text(0.5, 0.5, "No events found", transform=ax.transAxes, ha="center", va="center", fontsize=12)
@@ -132,13 +89,13 @@ def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
     ax.set_ylim(0, 1.0)
 
 
-def generate_domain_graph(domain_trend, min_date, as_of, window_days, output_path):
+def generate_domain_graph(domain_trend, domain_cols, min_date, as_of, window_days, output_path):
     fig, ax = plt.subplots(figsize=(16, 9))
-    domain_colors = sns.color_palette("Set3", n_colors=len(DOMAIN_ORDER))
+    domain_colors = sns.color_palette("tab20", n_colors=len(domain_cols))
     plot_axis_trend(
         ax,
         domain_trend,
-        DOMAIN_ORDER,
+        domain_cols,
         domain_colors,
         f"Benchmark Domain Trend (Rolling {window_days}-day, as of {as_of.date()})",
         "Domain",
@@ -174,7 +131,9 @@ def generate_review_debt_graph(output_path):
         summary_rows.append(
             {
                 "facet_axis": facet_axis,
-                "low_confidence_share": (group["classification_confidence"] < 0.7).mean(),
+                "low_confidence_share": (
+                    group["classification_confidence"] < REVIEW_CONFIDENCE_THRESHOLD
+                ).mean(),
                 "needs_review_or_disputed_share": group["review_status"].isin(review_statuses).mean(),
             }
         )
@@ -192,7 +151,10 @@ def generate_review_debt_graph(output_path):
     ax.set_ylabel("Share of Labels", fontsize=12)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
-    ax.legend(["Low confidence (<0.7)", "Needs review or disputed"], frameon=False)
+    ax.legend(
+        [f"Low confidence (<{REVIEW_CONFIDENCE_THRESHOLD:g})", "Needs review or disputed"],
+        frameon=False,
+    )
     ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.5)
     ax.grid(False, axis="x")
     plt.xticks(rotation=30, ha="right")
@@ -210,16 +172,23 @@ def generate_trend_graph(
     strict_resolution=False,
 ):
     window_days = validate_window_days(window_days)
-    models_df, benchmarks_df = load_models_and_benchmarks()
+    models_df = load_models()
+    facets_df = load_benchmark_facets(add_headline_projection=True)
     if as_of is None:
         as_of = latest_release_date(models_df)
 
-    lookup = build_legacy_taxonomy_lookup(benchmarks_df)
-    mode_events, domain_events, unresolved = collect_axis_events(models_df, lookup, as_of)
-    warn_unresolved(unresolved, strict_resolution)
+    events = build_model_facet_events(
+        models_df,
+        facets_df,
+        ["headline_task_mode", "domain"],
+        as_of,
+        strict_resolution=strict_resolution,
+    )
+    mode_events = events[events["facet_axis"] == "headline_task_mode"].copy()
+    domain_events = events[events["facet_axis"] == "domain"].copy()
 
     mode_trend, mode_min_date = build_rolling_share_trend(mode_events, as_of, window_days, MODE_ORDER)
-    domain_trend, domain_min_date = build_rolling_share_trend(domain_events, as_of, window_days, DOMAIN_ORDER)
+    domain_trend, domain_min_date = build_rolling_share_trend(domain_events, as_of, window_days, FACET_DOMAIN_ORDER)
 
     if mode_trend.empty and domain_trend.empty:
         print("No events found.")
@@ -227,7 +196,7 @@ def generate_trend_graph(
 
     fig, axes = plt.subplots(2, 1, figsize=(16, 13), sharex=True)
     mode_colors = sns.color_palette("Set2", n_colors=len(MODE_ORDER))
-    domain_colors = sns.color_palette("Set3", n_colors=len(DOMAIN_ORDER))
+    domain_colors = sns.color_palette("tab20", n_colors=len(FACET_DOMAIN_ORDER))
 
     plot_axis_trend(
         axes[0],
@@ -240,7 +209,7 @@ def generate_trend_graph(
     plot_axis_trend(
         axes[1],
         domain_trend,
-        DOMAIN_ORDER,
+        FACET_DOMAIN_ORDER,
         domain_colors,
         f"Domain Trend (Rolling {window_days}-day, as of {as_of.date()})",
         "Domain",
@@ -263,7 +232,7 @@ def generate_trend_graph(
     plt.close(fig)
 
     if domain_output_path:
-        generate_domain_graph(domain_trend, domain_min_date, as_of, window_days, domain_output_path)
+        generate_domain_graph(domain_trend, FACET_DOMAIN_ORDER, domain_min_date, as_of, window_days, domain_output_path)
 
     if review_debt_output_path:
         generate_review_debt_graph(review_debt_output_path)

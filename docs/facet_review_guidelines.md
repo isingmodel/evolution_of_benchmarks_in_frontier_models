@@ -164,7 +164,11 @@ Use `none_identified` only after a real review. Do not preserve rule-seeded `non
 
 This is a visualization projection, not a benchmark identity.
 
-Current CSV rows use the legacy labels expected by the chart scripts:
+The canonical `benchmark_facets.csv` no longer stores `headline_task_mode`
+rows. Chart scripts derive a single-label projection at runtime from the
+reviewed v3 axes when they need a readable headline category.
+
+Runtime projections use the legacy chart labels:
 
 - `Agentic`
 - `Multimodal Perception`
@@ -172,7 +176,7 @@ Current CSV rows use the legacy labels expected by the chart scripts:
 - `Generative Reasoning`
 - `Knowledge Retrieval`
 
-Derive this projection after reviewing the other axes. Use the priority from the main methodology:
+Derive this projection only after reviewing the other axes. Use the priority from the main methodology:
 
 1. long-context projection, represented in this CSV as `Knowledge Retrieval`, only when `context_pressure=long_context_primary`,
 2. `Agentic`,
@@ -181,7 +185,8 @@ Derive this projection after reviewing the other axes. Use the priority from the
 5. `Generative Reasoning`,
 6. `Knowledge Retrieval`.
 
-If the projection feels wrong, revisit the underlying facets first.
+If the projection feels wrong, revisit the underlying facets first rather than
+adding a permanent headline row.
 
 ## Editing Workflow
 

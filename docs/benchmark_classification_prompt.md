@@ -8,7 +8,7 @@ Use this prompt when classifying one benchmark at a time with input:
 - optional `release_page_url`
 - optional `release_page_context`
 
-This prompt follows the [v3 benchmark classification methodology](benchmark_classification_methodology_v3.md). The machine-readable label vocabulary lives in `scripts/taxonomy_utils.py`, and `scripts/classify_benchmarks_gemini.py` injects that shared contract into live model prompts. It is intentionally multi-facet; the classifier writes reviewable v3 candidate outputs by default instead of overwriting canonical facet data.
+This prompt follows the [v3 benchmark classification methodology](benchmark_classification_methodology_v3.md). The machine-readable label vocabulary lives in `scripts/taxonomy_utils.py`, and `scripts/classify_benchmarks_openai_oauth.py` injects that shared contract into live model prompts. It is intentionally multi-facet; the classifier writes reviewable v3 candidate outputs by default instead of overwriting canonical facet data.
 
 ```text
 You are classifying one AI benchmark using Benchmark Classification Methodology v3.

@@ -2,7 +2,6 @@ pandas==2.3.3
 matplotlib==3.10.6
 seaborn==0.13.2
 tabulate==0.9.0
-google-genai==1.60.0
 requests==2.32.5
 beautifulsoup4==4.13.5
 playwright==1.58.0

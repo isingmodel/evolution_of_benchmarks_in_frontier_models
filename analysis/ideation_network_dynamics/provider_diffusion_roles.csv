@@ -1,0 +1,4 @@
+provider,total_mentions,unique_benchmarks_mentioned,first_mover_benchmarks,exported_benchmarks_later_adopted,follower_adoptions_created,imported_benchmarks,avg_import_lag_days,median_import_lag_days,net_export_balance,first_mover_share_of_portfolio
+Anthropic,146,62,38,18,27,24,111.2,89.0,-6,0.6129032258064516
+Google,92,59,40,18,29,19,190.8,148.0,-1,0.6779661016949152
+OpenAI,184,86,55,13,18,31,131.8,77.0,-18,0.6395348837209303
