@@ -9,6 +9,10 @@ The charts summarize how providers frame capability claims in launch material. U
 The release-page pies project `headline_task_mode` at runtime from `benchmark_facets.csv`. Each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
+## Benchmarks per Release
+This graph counts the unique resolved benchmark names listed on each model release page, including releases with no benchmark list, and overlays a 90-day moving average to smooth launch cadence.
+![Benchmarks per Model Release](assets/benchmark_count_per_release.png)
+
 ## Benchmark Landscape Growth
 This graph keeps headline task mode and v3 domain facets on separate axes, so a single denominator never has to mix unlike taxonomy dimensions. Where a benchmark carries multiple domain labels, its contribution splits equally within the domain axis.
 ![Benchmark Growth by Separate Axes](assets/benchmark_growth_by_all_category.png)
@@ -114,6 +118,7 @@ PY=.venv/bin/python       # or python, if your environment is already activated
 $PY scripts/build_normalized_data.py
 $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
+$PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
