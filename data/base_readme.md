@@ -37,6 +37,8 @@ The strongest new pattern is a shift in public benchmark framing. Earlier releas
 
 {{STATIC_WORK_TABLE}}
 
+Under the multi-label projection, shares can sum above 100% because a benchmark can contribute to multiple frames; this rebases the methodology without implying that the underlying release-page data changed.
+
 Top contributors to the work-simulation signal:
 
 {{WORK_SIMULATION_CONTRIBUTORS_TABLE}}

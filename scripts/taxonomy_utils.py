@@ -47,6 +47,8 @@ ALLOWED_REVIEW_STATUS = {
     "deprecated",
 }
 
+REVIEW_CONFIDENCE_THRESHOLD = 0.7
+
 ALLOWED_FACET_AXIS = {
     "construct_claim",
     "benchmark_construct_claim",
@@ -234,6 +236,16 @@ REQUIRED_FACET_AXES = {
     "interaction_pattern",
     "metric_type",
 }
+
+HEADLINE_PROJECTION_AXES = (
+    "construct_claim",
+    "benchmark_construct_claim",
+    "provider_construct_claim",
+    "task_mechanism",
+    "modality",
+    "interaction_pattern",
+    "context_pressure",
+)
 
 
 def exact_key(value: str) -> str:

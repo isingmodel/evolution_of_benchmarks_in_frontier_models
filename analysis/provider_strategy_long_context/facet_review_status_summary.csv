@@ -9,7 +9,6 @@ context_pressure,accepted,2,0.0136986301369863
 context_pressure,needs_review,144,0.9863013698630136
 domain,accepted,2,0.008130081300813009
 domain,needs_review,244,0.991869918699187
-headline_task_mode,needs_review,134,1.0
 interaction_pattern,accepted,2,0.008333333333333333
 interaction_pattern,needs_review,238,0.9916666666666667
 metric_type,accepted,4,0.015748031496062992

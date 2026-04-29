@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
@@ -11,17 +10,19 @@ import seaborn as sns
 
 if __package__:
     from .taxonomy_utils import (
+        HEADLINE_PROJECTION_AXES,
         HEADLINE_TO_LEGACY_TASK_MODE,
+        REVIEW_CONFIDENCE_THRESHOLD,
         CanonicalResolver,
-        benchmark_id,
         derive_headline_projection,
         split_benchmark_mentions,
     )
 else:
     from taxonomy_utils import (
+        HEADLINE_PROJECTION_AXES,
         HEADLINE_TO_LEGACY_TASK_MODE,
+        REVIEW_CONFIDENCE_THRESHOLD,
         CanonicalResolver,
-        benchmark_id,
         derive_headline_projection,
         split_benchmark_mentions,
     )
@@ -60,31 +61,6 @@ FACET_DOMAIN_ORDER = [
 ]
 
 
-@dataclass(frozen=True)
-class LegacyTaxonomy:
-    mode: str
-    domain: str
-
-
-@dataclass(frozen=True)
-class LegacyTaxonomyLookup:
-    by_id: dict[str, LegacyTaxonomy]
-    resolver: CanonicalResolver
-    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = None
-
-    def resolve(self, raw_mention: str) -> Optional[LegacyTaxonomy]:
-        resolution = self.resolver.resolve(raw_mention)
-        if resolution:
-            taxonomy = self.by_id.get(resolution.benchmark_id)
-            if taxonomy:
-                return taxonomy
-
-        if self.fallback_by_exact is not None:
-            return self.fallback_by_exact.get(legacy_lookup_key(raw_mention))
-
-        return None
-
-
 def configure_plot_style() -> None:
     sns.set_theme(style="whitegrid")
     plt.rcParams["font.family"] = "sans-serif"
@@ -93,10 +69,6 @@ def configure_plot_style() -> None:
 
 def load_models() -> pd.DataFrame:
     return pd.read_csv(DATA_DIR / "models.csv")
-
-
-def load_models_and_benchmarks() -> tuple[pd.DataFrame, pd.DataFrame]:
-    return load_models(), pd.read_csv(BENCHMARKS_PATH)
 
 
 def latest_release_date(models: pd.DataFrame) -> pd.Timestamp:
@@ -122,42 +94,6 @@ def split_benchmarks(value: object) -> list[str]:
     if not text or text.casefold() == "nan":
         return []
     return split_benchmark_mentions(text)
-
-
-def legacy_lookup_key(value: object) -> str:
-    return str(value).strip().casefold()
-
-
-def legacy_benchmark_aliases(name: str) -> set[str]:
-    key = legacy_lookup_key(name)
-    aliases = {key} if key else set()
-    if "/" in key:
-        aliases.update(part.strip() for part in key.split("/") if part.strip())
-    return aliases
-
-
-def build_legacy_taxonomy_lookup(benchmarks: pd.DataFrame) -> LegacyTaxonomyLookup:
-    by_id: dict[str, LegacyTaxonomy] = {}
-    alias_path = ALIAS_PATH if ALIAS_PATH.exists() else None
-    fallback_by_exact: Optional[dict[str, LegacyTaxonomy]] = {} if alias_path is None else None
-
-    for _, row in benchmarks.fillna("").iterrows():
-        name = str(row.get("benchmark_name", "")).strip()
-        if not name:
-            continue
-
-        row_benchmark_id = str(row.get("benchmark_id", "")).strip() or benchmark_id(name)
-        taxonomy = LegacyTaxonomy(
-            mode=str(row.get("legacy_task_mode", "") or row.get("task_mode", "")).strip(),
-            domain=str(row.get("legacy_task_domain", "") or row.get("task_domain", "")).strip(),
-        )
-        by_id[row_benchmark_id] = taxonomy
-        if fallback_by_exact is not None:
-            for alias in legacy_benchmark_aliases(name):
-                fallback_by_exact[alias] = taxonomy
-
-    resolver = CanonicalResolver.from_files(BENCHMARKS_PATH, alias_path)
-    return LegacyTaxonomyLookup(by_id=by_id, resolver=resolver, fallback_by_exact=fallback_by_exact)
 
 
 def add_derived_headline_task_mode(facets: pd.DataFrame) -> pd.DataFrame:
@@ -186,16 +122,21 @@ def add_derived_headline_task_mode(facets: pd.DataFrame) -> pd.DataFrame:
     for benchmark_id_value, group in active.groupby("benchmark_id"):
         if benchmark_id_value in existing_headline_ids:
             continue
+        projection_group = group[group["facet_axis"].isin(HEADLINE_PROJECTION_AXES)].copy()
         labels_by_axis = {
             axis: axis_group["facet_label"].astype(str).tolist()
-            for axis, axis_group in group.groupby("facet_axis")
+            for axis, axis_group in projection_group.groupby("facet_axis")
         }
         projection = derive_headline_projection(labels_by_axis)
         legacy_label = HEADLINE_TO_LEGACY_TASK_MODE.get(projection or "")
         if not legacy_label:
             continue
-        confidences = pd.to_numeric(group["classification_confidence"], errors="coerce").dropna()
-        confidence = float(confidences.min()) if not confidences.empty else 0.7
+        confidences = pd.to_numeric(projection_group["classification_confidence"], errors="coerce").dropna()
+        confidence = (
+            float(confidences.min())
+            if not confidences.empty
+            else REVIEW_CONFIDENCE_THRESHOLD
+        )
         derived_rows.append(
             {
                 "benchmark_id": benchmark_id_value,
@@ -239,9 +180,11 @@ def build_model_facet_events(
 ) -> pd.DataFrame:
     """Build release-normalized, axis-fractional facet events.
 
-    Each release page contributes 1.0 total weight per axis. That release weight
-    is divided equally across resolved benchmark mentions, then equally across
-    every active label assigned to that benchmark within the requested axis.
+    Each release page contributes up to 1.0 total weight per requested axis. The
+    release weight is divided equally across resolved benchmark mentions, then
+    equally across every active label assigned to that benchmark within the axis.
+    Resolved benchmarks without an active label on an axis contribute 0 for that
+    axis, so facet coverage gaps reduce that release-axis total.
     """
     axes = list(axes)
     resolver = resolver or CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH if ALIAS_PATH.exists() else None)
@@ -272,7 +215,8 @@ def build_model_facet_events(
         if not resolved_mentions:
             continue
 
-        benchmark_weight = 1.0 / len(resolved_mentions)
+        resolved_count = len(resolved_mentions)
+        benchmark_weight = 1.0 / resolved_count
         model_key = "|".join([provider, model_name, str(model.get("release date", "")).strip()])
         for raw_mention, benchmark_id_value in resolved_mentions:
             for axis in axes:
@@ -290,6 +234,7 @@ def build_model_facet_events(
                             "Date": release_date,
                             "benchmark_id": benchmark_id_value,
                             "raw_mention": raw_mention,
+                            "resolved_mentions_on_release": resolved_count,
                             "facet_axis": axis,
                             "Category": label,
                             "Weight": label_weight,
@@ -310,6 +255,7 @@ def build_model_facet_events(
             "Date",
             "benchmark_id",
             "raw_mention",
+            "resolved_mentions_on_release",
             "facet_axis",
             "Category",
             "Weight",

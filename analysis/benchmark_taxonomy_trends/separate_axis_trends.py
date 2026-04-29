@@ -28,6 +28,7 @@ from plot_utils import (  # noqa: E402
     save_figure,
     validate_window_days,
 )
+from taxonomy_utils import REVIEW_CONFIDENCE_THRESHOLD  # noqa: E402
 
 
 configure_plot_style()
@@ -130,7 +131,9 @@ def generate_review_debt_graph(output_path):
         summary_rows.append(
             {
                 "facet_axis": facet_axis,
-                "low_confidence_share": (group["classification_confidence"] < 0.7).mean(),
+                "low_confidence_share": (
+                    group["classification_confidence"] < REVIEW_CONFIDENCE_THRESHOLD
+                ).mean(),
                 "needs_review_or_disputed_share": group["review_status"].isin(review_statuses).mean(),
             }
         )
@@ -148,7 +151,10 @@ def generate_review_debt_graph(output_path):
     ax.set_ylabel("Share of Labels", fontsize=12)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
-    ax.legend(["Low confidence (<0.7)", "Needs review or disputed"], frameon=False)
+    ax.legend(
+        [f"Low confidence (<{REVIEW_CONFIDENCE_THRESHOLD:g})", "Needs review or disputed"],
+        frameon=False,
+    )
     ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.5)
     ax.grid(False, axis="x")
     plt.xticks(rotation=30, ha="right")

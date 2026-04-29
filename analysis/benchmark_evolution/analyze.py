@@ -78,7 +78,9 @@ def process_data(models_df, facets_df, as_of=None, strict_resolution=False):
                 "Provider": provider,
                 "Date": date,
                 "Ratios": ratios,
-                "TotalHits": group["raw_mention"].nunique(),
+                # Pie size reflects resolved release-page benchmarks, not only
+                # the subset that has a headline projection row.
+                "TotalHits": int(group["resolved_mentions_on_release"].max()),
             }
         )
 

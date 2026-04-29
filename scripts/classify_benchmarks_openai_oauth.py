@@ -200,7 +200,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "--reasoning-effort",
         choices=["low", "medium", "high", "xhigh"],
-        default="",
+        default=None,
         help="Optional Responses reasoning effort to send through openai-oauth.",
     )
     p.add_argument("--openai-oauth-base-url", default=DEFAULT_OPENAI_OAUTH_BASE_URL)

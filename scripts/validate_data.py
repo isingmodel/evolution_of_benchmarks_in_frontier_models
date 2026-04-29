@@ -14,6 +14,7 @@ from taxonomy_utils import (
     ALLOWED_TASK_DOMAIN,
     ALLOWED_TASK_MODE,
     REQUIRED_FACET_AXES,
+    REVIEW_CONFIDENCE_THRESHOLD,
     CanonicalResolver,
     benchmark_id,
     derive_headline_projection,
@@ -279,7 +280,10 @@ def validate_facet_frame(
             report.error(f"{label} references missing {owner_column} values: {missing_owners}")
 
     low_conf_bad_status = facets[
-        (pd.to_numeric(facets["classification_confidence"], errors="coerce") < 0.7)
+        (
+            pd.to_numeric(facets["classification_confidence"], errors="coerce")
+            < REVIEW_CONFIDENCE_THRESHOLD
+        )
         & (~facets["review_status"].isin(["needs_review", "disputed"]))
     ]
     if not low_conf_bad_status.empty:
