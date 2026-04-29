@@ -103,20 +103,19 @@ def smooth_counts(counts_df, as_of, window_days):
     )
     rolling_totals = daily["total_benchmarks"].rolling(window_days, min_periods=1).sum()
     rolling_releases = daily["release_count"].rolling(window_days, min_periods=1).sum()
-    rolling_average = (rolling_totals / rolling_releases.where(rolling_releases > 0)).ffill()
-    smoothed = rolling_average.ewm(span=30, adjust=False).mean()
+    moving_average = rolling_totals / rolling_releases.where(rolling_releases > 0)
 
     return pd.DataFrame(
         {
             "Date": daily_index,
-            "SmoothedBenchmarkCount": smoothed.fillna(0).to_numpy(),
+            "SmoothedBenchmarkCount": moving_average.ffill().fillna(0).to_numpy(),
         }
     )
 
 
 def generate_graph(
     as_of=None,
-    window_days=180,
+    window_days=90,
     output_path="assets/benchmark_count_per_release.png",
     strict_resolution=False,
 ):

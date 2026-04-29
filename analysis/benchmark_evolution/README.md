@@ -14,4 +14,4 @@ This analysis generates the top-level benchmark evolution timeline and benchmark
 - `assets/benchmark_evolution.png`
 - `assets/benchmark_count_per_release.png`
 
-The charts visualize benchmark framing on public release pages, not direct model capability.
+The charts visualize benchmark framing on public release pages, not a direct measurement of model capability.
