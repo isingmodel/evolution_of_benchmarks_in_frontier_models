@@ -4,7 +4,7 @@ This project tracks how OpenAI, Google, and Anthropic use benchmarks in public f
 
 The core finding is that public benchmark framing is changing: frontier labs are moving from static exam-style benchmarks toward work simulations, agentic tasks, long-context evaluations, tool use, codebase interaction, and specialized professional workflows.
 
-The unit of analysis is the release-page frame: the benchmark evidence providers foreground when presenting new models to customers, journalists, and the broader AI ecosystem.
+The unit of analysis is the release-page benchmark frame: the benchmark evidence providers choose to foreground when presenting new models to customers, journalists, and the broader AI ecosystem.
 
 Current data cutoff: 2026-04-23.
 
@@ -12,14 +12,14 @@ Current data cutoff: 2026-04-23.
 
 This repository shows how benchmark emphasis changes in public model launch pages. It tracks which benchmarks appear in release-page messaging, normalizes aliases into canonical names, and classifies benchmarks with a multi-facet taxonomy rather than one fixed label.
 
-That structure makes it possible to compare how public capability framing changes over time and across providers: which benchmarks become shared vocabulary, which task modes gain prominence, and how release pages increasingly foreground work simulations, agentic tasks, long-context evaluation, tool use, codebase interaction, and professional workflows.
+That structure makes it possible to compare public capability framing over time and across providers: which benchmarks become shared vocabulary, which task modes gain prominence, and which forms of evaluation move to the foreground.
 
 ## Key Findings
 
 - Across the tracked release pages, benchmark framing has shifted decisively from static exams toward work simulations.
 - Some benchmarks enter the cross-provider public evaluation vocabulary within days.
 - OpenAI-authored and OpenAI-affiliated benchmarks have become part of the shared competitive vocabulary used by other frontier labs.
-- Google's 2024 Gemini release pages show a distinctive public emphasis on long-context evaluation under the current taxonomy.
+- In 2024, Gemini release pages show the strongest long-context emphasis among the tracked providers under the current taxonomy.
 
 ## Story Analyses
 
@@ -80,7 +80,7 @@ Some benchmarks enter the cross-provider public evaluation vocabulary within day
 
 ### Diffusion of OpenAI-Affiliated Benchmarks
 
-The influence of benchmarks created or co-developed by OpenAI remains substantial. On Anthropic and Google release pages, mentions of OpenAI-authored or OpenAI-affiliated benchmarks rise in 2025-2026 under both raw and release-normalized views. This supports a clear interpretation: those benchmarks have become part of the shared competitive vocabulary used by other frontier labs, even as neutral academic and vendor benchmarks remain central.
+OpenAI-authored and OpenAI-affiliated benchmarks have a substantial cross-provider footprint in the tracked release pages. On Anthropic and Google release pages, their mentions rise in 2025-2026 under both raw and release-normalized views. This supports a clear interpretation: those benchmarks have become part of the shared competitive vocabulary used by other frontier labs, even as neutral academic and vendor benchmarks remain central.
 
 | Provider group   | 2023-2024                           | 2025-2026                           |
 |:-----------------|:------------------------------------|:------------------------------------|
@@ -90,11 +90,11 @@ The influence of benchmarks created or co-developed by OpenAI remains substantia
 
 ## Charts
 
-These chart assets summarize the same release-page dataset from different angles. Each chart is a visualization projection over the normalized benchmark table, not a separate taxonomy.
+These chart assets summarize the same release-page dataset from different angles. Each chart projects the normalized benchmark table for a specific comparison; the underlying taxonomy remains multi-facet.
 
 ### Evolution Graph
 
-This chart shows how headline task-mode framing changes across tracked release pages. The release-page pies project `headline_task_mode` at runtime from `data/benchmark_facets.csv`; each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
+This chart shows how headline task-mode framing changes across tracked release pages. It projects `headline_task_mode` at runtime from `data/benchmark_facets.csv`. Each release page contributes equal total weight, split across its resolved benchmark mentions and then across multiple labels on the same facet axis.
 
 ![Benchmark Evolution](assets/benchmark_evolution.png)
 
