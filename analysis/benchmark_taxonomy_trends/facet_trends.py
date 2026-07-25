@@ -31,7 +31,7 @@ from taxonomy_utils import CanonicalResolver  # noqa: E402
 
 configure_plot_style()
 
-DEFAULT_AXES = ["domain", "modality", "interaction_pattern", "context_pressure"]
+DEFAULT_AXES = ["modality", "interaction_pattern", "context_pressure"]
 
 
 def parse_args():
@@ -185,15 +185,13 @@ def plot_axis(ax, trend, axis, window_days, as_of):
     ax.grid(False, axis="x")
     ax.xaxis.set_major_locator(mdates.MonthLocator(interval=3))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    legend_columns = min(3, max(1, math.ceil(len(labels) / 4)))
     ax.legend(
-        loc="upper center",
-        bbox_to_anchor=(0.5, -0.2),
-        ncol=legend_columns,
+        loc="center left",
+        bbox_to_anchor=(1.01, 0.5),
+        ncol=1,
         fontsize=8,
         frameon=False,
         borderaxespad=0,
-        columnspacing=1.3,
         handlelength=1.4,
     )
 
@@ -220,10 +218,10 @@ def generate_facet_trends(
         return
 
     plot_count = len(axes)
-    subplot_cols = 2 if plot_count > 2 else 1
+    subplot_cols = 1
     subplot_rows = math.ceil(plot_count / subplot_cols)
     fig_width = 24 if subplot_cols == 2 else 18
-    fig_height = max(7.5 * subplot_rows, 8)
+    fig_height = max(5.8 * subplot_rows, 8)
     fig, axs_grid = plt.subplots(
         subplot_rows,
         subplot_cols,
@@ -255,7 +253,7 @@ def generate_facet_trends(
         plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
 
     fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=20, weight="bold", y=0.98)
-    fig.tight_layout(rect=[0, 0.02, 1, 0.95], h_pad=4.5, w_pad=2.2)
+    fig.tight_layout(rect=[0, 0.02, 1, 0.95], h_pad=3.0, w_pad=2.2)
     save_figure(fig, output_path)
     plt.close(fig)
 

@@ -125,6 +125,12 @@ Each pie represents one benchmark-bearing release page. The chart uses a runtime
 
 ![Benchmark evolution by model release](assets/benchmark_evolution.png)
 
+### Benchmarks per release
+
+This chart counts unique resolved benchmark names for every tracked model release, including releases with no benchmark list, and overlays a 90-day moving average. It measures launch-page evaluation volume—not benchmark breadth or model quality.
+
+![Benchmarks per model release](assets/benchmark_count_per_release.png)
+
 ### Task mode and domain over time
 
 Task mode and domain are plotted as separate axes so unlike taxonomy dimensions do not share a denominator. Multi-label assignments split a benchmark's contribution equally within each axis.
@@ -195,21 +201,24 @@ See the [classification methodology](docs/benchmark_classification_methodology_v
 Run the pipeline from the repository root:
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
 AS_OF=2026-07-24          # latest release date in data/models.csv
 PY=.venv/bin/python       # or python, with project dependencies installed
 
 $PY scripts/build_normalized_data.py
 $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
+$PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
-$PY scripts/update_readme.py
 $PY scripts/validate_data.py
 ```
 
-The normalized-data build preserves reviewed facet assignments for existing benchmark IDs, seeds facets for new IDs, removes facets for deleted IDs, and integrates temporary manual corrections. Story tables are generated under `analysis/readme_story/`; chart assets are written to `assets/`.
+The normalized-data build preserves reviewed facet assignments for existing benchmark IDs, seeds facets for new IDs, removes facets for deleted IDs, and integrates temporary manual corrections. Story tables are generated under `analysis/readme_story/`; chart assets are written to `assets/`. The top-level README is maintained directly.
 
 ## Adding a model release
 
