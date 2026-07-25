@@ -2,14 +2,26 @@ benchmark_id,benchmark_name,first_tracked_public_mention,first_tracked_providers
 benchmark_mmmlu,MMMLU,2025-02-25,Anthropic,OpenAI,2025-02-27,2,Anthropic (2025-02-25) -> OpenAI (2025-02-27) -> Google (2025-11-18),OpenAI
 benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2025-11-18,Google,Anthropic,2025-11-24,6,Google (2025-11-18) -> Anthropic (2025-11-24) -> OpenAI (2026-02-05),Academia
 benchmark_officeqa_pro,OfficeQA Pro,2026-04-16,Anthropic,OpenAI,2026-04-23,7,Anthropic (2026-04-16) -> OpenAI (2026-04-23),"Academia, Others(Databricks)"
+benchmark_finance_agent_v2,Finance Agent v2,2026-05-19,Google,Anthropic,2026-05-28,9,Google (2026-05-19) -> Anthropic (2026-05-28),Others(vals.ai)
+benchmark_gdpval_aa_v2,GDPval-AA v2,2026-06-30,Anthropic,OpenAI,2026-07-09,9,Anthropic (2026-06-30) -> OpenAI (2026-07-09) -> Google (2026-07-21),Others(Artificial Analysis)
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,2026-05-19,Google,Anthropic,2026-05-28,9,Google (2026-05-19) -> Anthropic (2026-05-28) -> OpenAI (2026-07-09),Academia
+benchmark_deepswe_v1_1,DeepSWE v1.1,2026-07-09,OpenAI,Google,2026-07-21,12,OpenAI (2026-07-09) -> Google (2026-07-21) -> Anthropic (2026-07-24),Others(DataCurve)
 benchmark_apex_agents,APEX-Agents,2026-02-19,Google,OpenAI,2026-03-05,14,Google (2026-02-19) -> OpenAI (2026-03-05),Others(Mercor)
 benchmark_gdpval_aa,GDPval-AA,2026-02-05,Anthropic,Google,2026-02-19,14,Anthropic (2026-02-05) -> Google (2026-02-19) -> OpenAI (2026-04-23),Others(Artificial Analysis)
+benchmark_arc_agi_3,ARC-AGI-3,2026-07-09,OpenAI,Anthropic,2026-07-24,15,OpenAI (2026-07-09) -> Anthropic (2026-07-24),Others(ARC Prize)
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,2026-07-09,OpenAI,Anthropic,2026-07-24,15,OpenAI (2026-07-09) -> Anthropic (2026-07-24),Others(Artificial Analysis)
+benchmark_osworld_2_0,OSWorld 2.0,2026-07-09,OpenAI,Anthropic,2026-07-24,15,OpenAI (2026-07-09) -> Anthropic (2026-07-24),Academia
 benchmark_scale_mcp_atlas,Scale MCP-Atlas,2025-11-24,Anthropic,OpenAI,2025-12-11,17,Anthropic (2025-11-24) -> OpenAI (2025-12-11) -> Google (2026-02-19),Others(Scale AI)
 benchmark_needle_in_a_haystack,Needle In A Haystack,2024-02-15,Google,Anthropic,2024-03-04,18,Google (2024-02-15) -> Anthropic (2024-03-04) -> OpenAI (2025-04-14),"Academia, Others(Microsoft)"
 benchmark_aider_polyglot,Aider Polyglot,2025-03-25,Google,OpenAI,2025-04-14,20,Google (2025-03-25) -> OpenAI (2025-04-14) -> Anthropic (2025-11-24),Others(Aider)
+benchmark_blueprint_bench_2,Blueprint-Bench 2,2026-05-19,Google,Anthropic,2026-06-09,21,Google (2026-05-19) -> Anthropic (2026-06-09),Others(Andon Labs)
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),2025-03-25,Google,OpenAI,2025-04-16,22,Google (2025-03-25) -> OpenAI (2025-04-16) -> Anthropic (2026-02-05),"Academia, Others(CAIS; Scale AI)"
 benchmark_screenspot_pro,ScreenSpot-Pro,2025-11-18,Google,OpenAI,2025-12-11,23,Google (2025-11-18) -> OpenAI (2025-12-11) -> Anthropic (2026-04-16),Academia
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,2026-04-23,OpenAI,Google,2026-05-19,26,OpenAI (2026-04-23) -> Google (2026-05-19),Others(Artificial Analysis)
 benchmark_biglaw_bench,BigLaw Bench,2026-02-05,Anthropic,OpenAI,2026-03-05,28,Anthropic (2026-02-05) -> OpenAI (2026-03-05),Others(Harvey)
+benchmark_automationbench,AutomationBench,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),"Academia, Others(Zapier)"
+benchmark_healthbench_professional,HealthBench Professional,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),OpenAI
+benchmark_gdp_pdf,gdp.pdf,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),Others(Surge AI)
 benchmark_aime,AIME,2024-09-12,OpenAI,Anthropic,2024-10-23,41,OpenAI (2024-09-12) -> Anthropic (2024-10-23) -> Google (2025-03-25),Academia
 benchmark_financeagent_v1_1,FinanceAgent v1.1,2026-03-05,OpenAI,Anthropic,2026-04-16,42,OpenAI (2026-03-05) -> Anthropic (2026-04-16),"Academia, Others(vals.ai)"
 benchmark_charxiv_reasoning,CharXiv Reasoning,2026-03-03,Google,Anthropic,2026-04-16,44,Google (2026-03-03) -> Anthropic (2026-04-16),Academia
@@ -22,10 +34,12 @@ benchmark_ai2d,AI2D,2024-03-04,Anthropic,OpenAI,2024-05-13,70,Anthropic (2024-03
 benchmark_chartqa,ChartQA,2024-03-04,Anthropic,OpenAI,2024-05-13,70,Anthropic (2024-03-04) -> OpenAI (2024-05-13),Academia
 benchmark_gpqa,GPQA,2024-03-04,Anthropic,OpenAI,2024-05-13,70,Anthropic (2024-03-04) -> OpenAI (2024-05-13) -> Google (2024-12-11),"Anthropic, Academia, Cohere"
 benchmark_mgsm,MGSM,2024-03-04,Anthropic,OpenAI,2024-05-13,70,Anthropic (2024-03-04) -> OpenAI (2024-05-13),"Google, Academia"
-benchmark_osworld_verified,OSWorld-Verified,2026-02-05,OpenAI,Anthropic,2026-04-16,70,OpenAI (2026-02-05) -> Anthropic (2026-04-16),Academia
+benchmark_osworld_verified,OSWorld-Verified,2026-02-05,OpenAI,Anthropic,2026-04-16,70,OpenAI (2026-02-05) -> Anthropic (2026-04-16) -> Google (2026-05-19),Academia
 benchmark_swe_bench_pro,SWE-bench Pro,2025-12-11,OpenAI,Google,2026-02-19,70,OpenAI (2025-12-11) -> Google (2026-02-19) -> Anthropic (2026-04-16),Others(Scale AI)
-benchmark_cybergym,CyberGym,2026-02-05,Anthropic,OpenAI,2026-04-23,77,Anthropic (2026-02-05) -> OpenAI (2026-04-23),Academia
+benchmark_cybergym,CyberGym,2026-02-05,Anthropic,OpenAI,2026-04-23,77,Anthropic (2026-02-05) -> OpenAI (2026-04-23) -> Google (2026-07-21),Academia
 benchmark_vending_bench_2,Vending-Bench 2,2025-11-18,Google,Anthropic,2026-02-05,79,Google (2025-11-18) -> Anthropic (2026-02-05),Others(Andon Labs)
+benchmark_cursorbench,CursorBench,2026-04-16,Anthropic,OpenAI,2026-07-09,84,Anthropic (2026-04-16) -> OpenAI (2026-07-09),Others(Cursor)
+benchmark_online_mind2web,Online-Mind2Web,2026-03-05,OpenAI,Anthropic,2026-05-28,84,OpenAI (2026-03-05) -> Anthropic (2026-05-28),Academia
 benchmark_arc_agi_2,ARC-AGI-2,2025-11-24,Anthropic,Google,2026-02-19,87,Anthropic (2025-11-24) -> Google (2026-02-19) -> OpenAI (2026-03-05),Academia
 benchmark_big_bench_hard,Big-Bench Hard,2023-12-06,Google,Anthropic,2024-03-04,89,Google (2023-12-06) -> Anthropic (2024-03-04),Google
 benchmark_drop,DROP,2023-12-06,Google,Anthropic,2024-03-04,89,Google (2023-12-06) -> Anthropic (2024-03-04) -> OpenAI (2024-05-13),Academia
@@ -41,6 +55,7 @@ benchmark_uniform_bar_exam,Uniform Bar Exam,2023-03-14,OpenAI,Anthropic,2023-07-
 benchmark_mrcr,MRCR,2024-12-11,Google,OpenAI,2025-04-14,124,Google (2024-12-11) -> OpenAI (2025-04-14),OpenAI
 benchmark_gsm8k,GSM8K,2023-07-11,Anthropic,Google,2023-12-06,148,Anthropic (2023-07-11) -> Google (2023-12-06),OpenAI
 benchmark_humaneval,HumanEval,2023-07-11,Anthropic,Google,2023-12-06,148,Anthropic (2023-07-11) -> Google (2023-12-06) -> OpenAI (2024-05-13),OpenAI
+benchmark_toolathlon,Toolathlon,2025-12-11,OpenAI,Google,2026-05-19,159,OpenAI (2025-12-11) -> Google (2026-05-19),"Academia, Others(All Hands AI)"
 benchmark_tau_bench,Tau-bench,2024-10-23,Anthropic,OpenAI,2025-04-14,173,Anthropic (2024-10-23) -> OpenAI (2025-04-14),Academia
 benchmark_egoschema,EgoSchema,2024-05-13,OpenAI,Google,2024-12-11,212,OpenAI (2024-05-13) -> Google (2024-12-11),Academia
 benchmark_charxiv,CharXiv,2025-04-14,OpenAI,Google,2025-11-18,218,OpenAI (2025-04-14) -> Google (2025-11-18),Academia

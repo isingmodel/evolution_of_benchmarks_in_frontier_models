@@ -12,8 +12,8 @@ The scripts here answer related but separate questions about how release-page be
 ## Run
 
 ```bash
-.venv/bin/python analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of 2026-04-23 --window-days 180 --strict-resolution
-.venv/bin/python analysis/benchmark_taxonomy_trends/facet_trends.py --as-of 2026-04-23 --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
+.venv/bin/python analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of 2026-07-24 --window-days 180 --strict-resolution
+.venv/bin/python analysis/benchmark_taxonomy_trends/facet_trends.py --as-of 2026-07-24 --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
 ```
 
 ## Outputs

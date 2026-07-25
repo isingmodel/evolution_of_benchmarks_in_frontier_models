@@ -2,8 +2,8 @@ benchmark_id,benchmark_name,first_tracked_public_mention,first_tracked_providers
 benchmark_mmmlu,MMMLU,2025-02-25,Anthropic,OpenAI,2025-02-27,2,Anthropic (2025-02-25) -> OpenAI (2025-02-27) -> Google (2025-11-18),OpenAI
 benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2025-11-18,Google,Anthropic,2025-11-24,6,Google (2025-11-18) -> Anthropic (2025-11-24) -> OpenAI (2026-02-05),Academia
 benchmark_officeqa_pro,OfficeQA Pro,2026-04-16,Anthropic,OpenAI,2026-04-23,7,Anthropic (2026-04-16) -> OpenAI (2026-04-23),"Academia, Others(Databricks)"
+benchmark_finance_agent_v2,Finance Agent v2,2026-05-19,Google,Anthropic,2026-05-28,9,Google (2026-05-19) -> Anthropic (2026-05-28),Others(vals.ai)
+benchmark_gdpval_aa_v2,GDPval-AA v2,2026-06-30,Anthropic,OpenAI,2026-07-09,9,Anthropic (2026-06-30) -> OpenAI (2026-07-09) -> Google (2026-07-21),Others(Artificial Analysis)
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,2026-05-19,Google,Anthropic,2026-05-28,9,Google (2026-05-19) -> Anthropic (2026-05-28) -> OpenAI (2026-07-09),Academia
+benchmark_deepswe_v1_1,DeepSWE v1.1,2026-07-09,OpenAI,Google,2026-07-21,12,OpenAI (2026-07-09) -> Google (2026-07-21) -> Anthropic (2026-07-24),Others(DataCurve)
 benchmark_apex_agents,APEX-Agents,2026-02-19,Google,OpenAI,2026-03-05,14,Google (2026-02-19) -> OpenAI (2026-03-05),Others(Mercor)
-benchmark_gdpval_aa,GDPval-AA,2026-02-05,Anthropic,Google,2026-02-19,14,Anthropic (2026-02-05) -> Google (2026-02-19) -> OpenAI (2026-04-23),Others(Artificial Analysis)
-benchmark_scale_mcp_atlas,Scale MCP-Atlas,2025-11-24,Anthropic,OpenAI,2025-12-11,17,Anthropic (2025-11-24) -> OpenAI (2025-12-11) -> Google (2026-02-19),Others(Scale AI)
-benchmark_needle_in_a_haystack,Needle In A Haystack,2024-02-15,Google,Anthropic,2024-03-04,18,Google (2024-02-15) -> Anthropic (2024-03-04) -> OpenAI (2025-04-14),"Academia, Others(Microsoft)"
-benchmark_aider_polyglot,Aider Polyglot,2025-03-25,Google,OpenAI,2025-04-14,20,Google (2025-03-25) -> OpenAI (2025-04-14) -> Anthropic (2025-11-24),Others(Aider)

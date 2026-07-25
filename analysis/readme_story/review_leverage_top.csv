@@ -1,11 +1,11 @@
-benchmark_id,benchmark_name,recent_weighted_mentions,recent_raw_mentions,providers,last_seen,accepted,needs_review,legacy_seed,disputed,facet_rows_total,nonaccepted_share,review_leverage
-benchmark_swe_bench_verified,SWE-bench verified,1.0451770451770452,12,Anthropic; Google; OpenAI,2026-04-16,0,23,0,0,23,1.0,1.0451770451770452
-benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,1.0277689630630806,13,Anthropic; Google; OpenAI,2026-04-23,0,28,0,0,28,1.0,1.0277689630630806
-benchmark_mmmlu,MMMLU,0.9307289932289933,11,Anthropic; Google; OpenAI,2026-04-16,0,26,0,0,26,1.0,0.9307289932289933
-benchmark_gpqa_diamond,GPQA Diamond,0.9009832487773665,11,Anthropic; Google; OpenAI,2026-04-23,0,17,0,0,17,1.0,0.9009832487773665
-benchmark_tau_2_bench,TAU-2 bench,0.6511455864397041,10,Anthropic; Google; OpenAI,2026-04-23,0,21,0,0,21,1.0,0.6511455864397041
-benchmark_aime,AIME,0.6319444444444444,6,Anthropic; Google; OpenAI,2025-11-18,0,14,0,0,14,1.0,0.6319444444444444
-benchmark_terminal_bench,Terminal-bench,0.6027777777777777,6,Anthropic,2026-04-16,0,31,0,0,31,1.0,0.6027777777777777
-benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),0.4623538226479403,9,Anthropic; Google; OpenAI,2026-04-23,0,30,0,0,30,1.0,0.4623538226479403
-benchmark_terminal_bench_2_0,Terminal-Bench 2.0,0.43110590390002157,7,Anthropic; Google; OpenAI,2026-04-23,0,29,0,0,29,1.0,0.43110590390002157
-benchmark_osworld,OSWorld,0.36065323565323565,4,Anthropic,2026-02-05,0,33,0,0,33,1.0,0.36065323565323565
+benchmark_id,benchmark_name,recent_weighted_mentions,recent_raw_mentions,providers,last_seen,accepted,legacy_seed,needs_review,disputed,facet_rows_total,nonaccepted_share,review_leverage
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,0.9801499154440331,14,Anthropic; Google; OpenAI,2026-07-09,0,0,28,0,28,1.0,0.9801499154440331
+benchmark_osworld_verified,OSWorld-Verified,0.9575125528066705,10,Anthropic; Google; OpenAI,2026-07-21,0,0,36,0,36,1.0,0.9575125528066705
+benchmark_swe_bench_verified,SWE-bench verified,0.9023199023199023,11,Anthropic; Google; OpenAI,2026-04-16,0,0,23,0,23,1.0,0.9023199023199023
+benchmark_swe_bench_pro,SWE-bench Pro,0.8938220766161943,12,Anthropic; Google; OpenAI,2026-07-21,0,0,24,0,24,1.0,0.8938220766161943
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),0.8234216437157613,14,Anthropic; Google; OpenAI,2026-07-24,0,0,30,0,30,1.0,0.8234216437157613
+benchmark_mmmlu,MMMLU,0.7878718503718504,10,Anthropic; Google; OpenAI,2026-04-16,0,0,26,0,26,1.0,0.7878718503718504
+benchmark_gpqa_diamond,GPQA Diamond,0.7819356297297474,11,Anthropic; Google; OpenAI,2026-07-09,0,0,17,0,17,1.0,0.7819356297297474
+benchmark_tau_2_bench,TAU-2 bench,0.6511455864397041,10,Anthropic; Google; OpenAI,2026-04-23,0,0,21,0,21,1.0,0.6511455864397041
+benchmark_mrcr_v2,MRCR v2,0.6141395369336546,9,Anthropic; Google; OpenAI,2026-07-21,0,0,18,0,18,1.0,0.6141395369336546
+benchmark_gdpval_aa_v2,GDPval-AA v2,0.5825396825396826,5,Anthropic; Google; OpenAI,2026-07-24,0,2,7,0,9,1.0,0.5825396825396826
