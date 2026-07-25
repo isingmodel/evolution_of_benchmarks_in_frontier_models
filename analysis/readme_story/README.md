@@ -8,7 +8,7 @@ Each benchmark-bearing release page contributes one unit of weight in share-base
 ## Run
 
 ```bash
-.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-04-23
+.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-07-24
 ```
 
 ## Outputs

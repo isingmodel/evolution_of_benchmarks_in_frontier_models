@@ -7,6 +7,8 @@ import pandas as pd
 DEFAULT_BASE_README = Path("data/base_readme.md")
 DEFAULT_OUTPUT = Path("README.md")
 DEFAULT_STORY_DIR = Path("analysis/readme_story")
+DEFAULT_MODELS = Path("data/models.csv")
+DEFAULT_BENCHMARKS = Path("data/benchmarks.csv")
 
 
 def parse_args():
@@ -43,6 +45,66 @@ def table_or_note(path, builder):
     if data.empty:
         return "_No rows generated._"
     return builder(data).to_markdown(index=False)
+
+
+def split_mentions(value):
+    if pd.isna(value):
+        return []
+    return [mention.strip() for mention in str(value).split(",") if mention.strip()]
+
+
+def project_snapshot(
+    models_path=DEFAULT_MODELS,
+    benchmarks_path=DEFAULT_BENCHMARKS,
+):
+    models = pd.read_csv(models_path)
+    benchmarks = pd.read_csv(benchmarks_path)
+    mention_count = models["benchmarks"].map(split_mentions).map(len).sum()
+    latest_date = pd.to_datetime(models["release date"]).max().strftime("%Y-%m-%d")
+
+    cells = [
+        (len(models["Provider"].dropna().unique()), "providers"),
+        (len(models), "model releases"),
+        (len(benchmarks), "canonical benchmarks"),
+        (int(mention_count), "release-page mentions"),
+        (latest_date, "latest tracked launch"),
+    ]
+
+    rendered_cells = "\n".join(
+        f'    <td align="center"><strong>{value}</strong><br><sub>{label}</sub></td>'
+        for value, label in cells
+    )
+    return f"""<table>
+  <tr>
+{rendered_cells}
+  </tr>
+</table>"""
+
+
+def provider_coverage_table(models_path=DEFAULT_MODELS):
+    models = pd.read_csv(models_path)
+    rows = []
+    preferred_order = {"OpenAI": 0, "Google": 1, "Anthropic": 2}
+
+    for provider, group in models.groupby("Provider"):
+        latest_date = group["release date"].max()
+        latest_models = sorted(group.loc[group["release date"] == latest_date, "Model name"].tolist())
+        rows.append(
+            {
+                "Provider": provider,
+                "Tracked releases": len(group),
+                "Coverage begins": group["release date"].min(),
+                "Latest tracked launch": f"{', '.join(latest_models)} — {latest_date}",
+                "_order": preferred_order.get(provider, len(preferred_order)),
+            }
+        )
+
+    return (
+        pd.DataFrame(rows)
+        .sort_values(["_order", "Provider"])
+        .drop(columns="_order")
+        .to_markdown(index=False)
+    )
 
 
 def static_work_table(story_dir=DEFAULT_STORY_DIR):
@@ -134,6 +196,8 @@ def diffusion_table(story_dir=DEFAULT_STORY_DIR):
 def generate_markdown(base_path=DEFAULT_BASE_README, output_path=DEFAULT_OUTPUT, story_dir=DEFAULT_STORY_DIR):
     md_content = base_path.read_text(encoding="utf-8")
 
+    md_content = md_content.replace("{{PROJECT_SNAPSHOT}}", project_snapshot())
+    md_content = md_content.replace("{{PROVIDER_COVERAGE_TABLE}}", provider_coverage_table())
     md_content = md_content.replace("{{STATIC_WORK_TABLE}}", static_work_table(story_dir))
     md_content = md_content.replace("{{WORK_SIMULATION_CONTRIBUTORS_TABLE}}", work_contributor_table(story_dir))
     md_content = md_content.replace("{{LONG_CONTEXT_TABLE}}", long_context_table(story_dir))

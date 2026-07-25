@@ -46,3 +46,7 @@ SWE-bench Multimodal (internal implementation),benchmark_swe_bench_multimodal,ve
 Qodo’s real-world code review benchmark,benchmark_qodo_s_real_world_code_review_benchmark,case_variant,Curly-apostrophe variant used on the Anthropic Claude Opus 4.7 release page
 internal agentic coding evaluation,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,provider_abbreviation,Caption shorthand for Anthropic's internal autonomous agentic coding evaluation
 Misaligned behavior,benchmark_automated_behavioral_audit,legacy_name,Claude Opus 4.7 release-page surface label treated as part of the automated behavioral audit rather than a standalone benchmark.
+Capture-the-Flag Challenges,benchmark_capture_the_flags_challenge_tasks_internal,provider_abbreviation,GPT-5.6 table wording for OpenAI's internal capture-the-flag challenge suite.
+GDM-MRCR v2,benchmark_mrcr_v2,provider_abbreviation,Google DeepMind prefix for the MRCR v2 long-context evaluation.
+AA Coding Agent Index,benchmark_artificial_analysis_coding_agent_index_v1_1,provider_abbreviation,Short label used for the current Artificial Analysis Coding Agent Index on the Claude Opus 5 release page.
+GDP.pdf,benchmark_gdp_pdf,case_variant,Capitalized spelling used on the Claude Fable 5 and Mythos 5 release page.

@@ -6,7 +6,7 @@ It resolves release-page benchmark mentions through the shared canonical benchma
 ## Run
 
 ```bash
-.venv/bin/python analysis/benchmark_evolution/analyze.py --as-of 2026-04-23 --strict-resolution
+.venv/bin/python analysis/benchmark_evolution/analyze.py --as-of 2026-07-24 --strict-resolution
 ```
 
 ## Outputs

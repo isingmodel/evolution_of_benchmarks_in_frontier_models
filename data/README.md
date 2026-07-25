@@ -26,10 +26,10 @@ benchmark_facets.csv
 
 | File | Current rows | Role |
 | --- | ---: | --- |
-| `models.csv` | ~37 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | ~134 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
-| `benchmark_aliases.csv` | ~46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_facets.csv` | ~2,826 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| `models.csv` | 45 | Source list of model release pages and benchmark names mentioned on them. |
+| `benchmarks.csv` | 196 | Canonical benchmark table used by README, scraping catalog matching, and facet generation. |
+| `benchmark_aliases.csv` | 51 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_facets.csv` | 3,384 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 | `base_readme.md` | n/a | README template used by `scripts/update_readme.py`. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
@@ -192,7 +192,7 @@ Use the facet table when a benchmark spans multiple capabilities or domains. Use
 Run the standard pipeline from the repository root:
 
 ```bash
-AS_OF=2026-04-23
+AS_OF=2026-07-24
 PY=.venv/bin/python
 
 $PY scripts/build_normalized_data.py
@@ -200,7 +200,7 @@ $PY scripts/validate_data.py
 $PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of "$AS_OF" --window-days 180 --strict-resolution
 $PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --review-debt-output assets/benchmark_review_debt.png --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
+$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --top-labels 8 --strict-resolution
 $PY analysis/readme_story/analyze.py --as-of "$AS_OF"
 $PY scripts/update_readme.py
 $PY scripts/validate_data.py
