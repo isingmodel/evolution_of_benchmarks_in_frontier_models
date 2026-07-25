@@ -505,12 +505,19 @@ def write_review_leverage(
         review[f"{status}_share"] = review[f"{status}_share"].fillna(0)
     review["nonaccepted_share"] = 1.0 - review["accepted_share"]
     review["review_leverage"] = review["recent_weighted_mentions"] * review["nonaccepted_share"]
-    review.sort_values("review_leverage", ascending=False).to_csv(
-        OUT_DIR / "review_leverage_benchmarks.csv", index=False
+    ranked_review = review.sort_values(
+        ["review_leverage", "recent_weighted_mentions", "benchmark_name"],
+        ascending=[False, False, True],
+        kind="mergesort",
     )
+    ranked_review.to_csv(OUT_DIR / "review_leverage_benchmarks.csv", index=False)
 
-    plot_df = review.sort_values("review_leverage", ascending=False).head(top_n).copy()
-    plot_df = plot_df.sort_values("review_leverage", ascending=True)
+    plot_df = ranked_review.head(top_n).copy()
+    plot_df = plot_df.sort_values(
+        ["review_leverage", "recent_weighted_mentions", "benchmark_name"],
+        ascending=[True, True, False],
+        kind="mergesort",
+    )
 
     fig, ax = plt.subplots(figsize=(13, 9))
     left = np.zeros(len(plot_df))
