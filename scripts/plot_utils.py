@@ -90,9 +90,9 @@ def split_benchmarks(value: object) -> list[str]:
 def add_derived_headline_task_mode(facets: pd.DataFrame) -> pd.DataFrame:
     """Add runtime headline projection rows derived from v3 facets.
 
-    The canonical `benchmark_facets.csv` can remain v3-only while older
+    The canonical `benchmark_facets.csv` remains v3-only while older
     exploratory analyses that group by `headline_task_mode` still get a stable
-    chart projection. Existing non-deprecated headline rows are preserved.
+    chart projection.
     """
     if facets.empty:
         return facets
@@ -171,11 +171,12 @@ def build_model_facet_events(
 ) -> pd.DataFrame:
     """Build release-normalized, axis-fractional facet events.
 
-    Each release page contributes up to 1.0 total weight per requested axis. The
-    release weight is divided equally across resolved benchmark mentions, then
-    equally across every active label assigned to that benchmark within the axis.
-    Resolved benchmarks without an active label on an axis contribute 0 for that
-    axis, so facet coverage gaps reduce that release-axis total.
+    Each benchmark-bearing model-release row contributes up to 1.0 total weight
+    per requested axis. The release-row weight is divided equally across
+    resolved benchmark mentions, then equally across every active label assigned
+    to that benchmark within the axis. Resolved benchmarks without an active
+    label on an axis contribute 0 for that axis, so facet coverage gaps reduce
+    that release-axis total.
     """
     axes = list(axes)
     resolver = resolver or CanonicalResolver.from_files(BENCHMARKS_PATH, ALIAS_PATH if ALIAS_PATH.exists() else None)

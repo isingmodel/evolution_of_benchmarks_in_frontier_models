@@ -74,7 +74,7 @@ DOMAIN_ORDER = [
     "Specialized (Law/Bio/Finance)",
 ]
 VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS)
-VALID_FACET_AXES = set(ALLOWED_FACET_AXIS) | {"headline_task_mode"}
+VALID_FACET_AXES = set(ALLOWED_FACET_AXIS)
 ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
     "OpenAI",
     "Anthropic",
@@ -435,6 +435,17 @@ def validate_facet_frame(
     require_required_facets=False,
     check_projection=False,
 ):
+    core_columns = [owner_column, "facet_axis", "facet_label", "review_status"]
+    for column in core_columns:
+        blank_rows = facets[
+            facets[column].astype(str).str.strip() == ""
+        ].index.tolist()
+        if blank_rows:
+            report.error(
+                f"{label} has blank {column} values on rows "
+                f"{[index + 2 for index in blank_rows[:20]]}"
+            )
+
     for column in ["classification_confidence"]:
         values = pd.to_numeric(facets[column], errors="coerce")
         if values.isna().any() or ((values < 0) | (values > 1)).any():
@@ -498,13 +509,30 @@ def validate_facet_frame(
             f"{examples.to_dict(orient='records')}"
         )
 
-    reviewed = facets[facets["review_status"].isin(["accepted", "disputed"])]
-    if require_required_facets and not reviewed.empty:
-        axes_by_owner = reviewed.groupby(owner_column)["facet_axis"].apply(lambda values: set(values))
-        for owner_id, axes in axes_by_owner.items():
-            missing = sorted(REQUIRED_FACET_AXES - axes)
-            if missing:
-                report.error(f"{label} {owner_id} missing required reviewed facets: {missing}")
+    if require_required_facets:
+        axes_by_owner = (
+            active_facets.groupby(owner_column)["facet_axis"]
+            .apply(lambda values: set(values))
+            .to_dict()
+        )
+        owners_to_check = (
+            set(known_owner_ids)
+            if known_owner_ids is not None
+            else set(active_facets[owner_column])
+        )
+        missing_by_owner = {
+            owner_id: sorted(
+                REQUIRED_FACET_AXES - axes_by_owner.get(owner_id, set())
+            )
+            for owner_id in sorted(owners_to_check)
+            if REQUIRED_FACET_AXES - axes_by_owner.get(owner_id, set())
+        }
+        if missing_by_owner:
+            preview = dict(list(missing_by_owner.items())[:20])
+            report.error(
+                f"{label} is missing required active facets for "
+                f"{len(missing_by_owner)} {owner_column} value(s): {preview}"
+            )
 
     if check_projection:
         for owner_id, group in active_facets.groupby(owner_column):

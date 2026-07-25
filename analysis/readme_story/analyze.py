@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[2]
 from scripts.analysis_utils import build_resolved_mentions, create_analysis_parser
 from scripts.taxonomy_utils import (
     ALLOWED_BENCHMARK_LIFECYCLE_RISK,
+    REVIEW_CONFIDENCE_THRESHOLD,
     CanonicalResolver,
     exact_key,
 )
@@ -62,6 +63,11 @@ WORK_CLAIMS = {
     "computer_use",
     "software_engineering",
 }
+WORK_CLASSIFICATION_AXES = (
+    "construct_claim",
+    "task_mechanism",
+    "interaction_pattern",
+)
 STATIC_MECHANISMS = {
     "multiple_choice_qa",
     "short_answer_qa",
@@ -234,6 +240,8 @@ def add_metadata_and_flags(
     flag_defaults = {
         "is_static_exam": False,
         "is_work_simulation": False,
+        "work_classification_axes_covered": 0,
+        "work_classification_complete": False,
         "is_specialized_domain": False,
         "is_long_context_broad": False,
         "is_long_context_primary": False,
@@ -268,6 +276,14 @@ def add_metadata_and_flags(
             {
                 "is_static_exam": is_static,
                 "is_work_simulation": is_work,
+                "work_classification_axes_covered": sum(
+                    bool(labels.get(axis, set()))
+                    for axis in WORK_CLASSIFICATION_AXES
+                ),
+                "work_classification_complete": all(
+                    labels.get(axis, set())
+                    for axis in WORK_CLASSIFICATION_AXES
+                ),
                 "is_specialized_domain": is_specialized,
                 "is_long_context_broad": bool(context & LONG_CONTEXT_BROAD),
                 "is_long_context_primary": bool(context & LONG_CONTEXT_PRIMARY),
@@ -313,10 +329,14 @@ def filter_mentions(
             )
         )
 
-    filtered = enriched.loc[keep].copy()
+    return renormalize_release_weights(enriched.loc[keep])
+
+
+def renormalize_release_weights(enriched: pd.DataFrame) -> pd.DataFrame:
+    """Give every surviving benchmark-bearing model-release row one unit."""
+    filtered = enriched.copy()
     if filtered.empty:
         return filtered
-
     surviving_counts = filtered.groupby("model_key")["benchmark_id"].transform("size")
     filtered["release_weight"] = 1.0 / surviving_counts
     filtered["resolved_benchmark_count_for_release"] = surviving_counts
@@ -335,6 +355,14 @@ def build_static_work_frames(
                 "is_work_simulation",
                 lambda s: float((s * enriched.loc[s.index, "release_weight"]).sum()),
             ),
+            work_classification_coverage_share=(
+                "work_classification_complete",
+                lambda s: float((s * enriched.loc[s.index, "release_weight"]).sum()),
+            ),
+            work_classification_covered_mentions=(
+                "work_classification_complete",
+                "sum",
+            ),
             specialized_domain_share=(
                 "is_specialized_domain",
                 lambda s: float((s * enriched.loc[s.index, "release_weight"]).sum()),
@@ -348,8 +376,17 @@ def build_static_work_frames(
         .agg(
             static_exam_share=("static_exam_share", "mean"),
             work_simulation_share=("work_simulation_share", "mean"),
+            work_classification_coverage_share=(
+                "work_classification_coverage_share",
+                "mean",
+            ),
+            work_classification_covered_mentions=(
+                "work_classification_covered_mentions",
+                "sum",
+            ),
+            canonical_release_mentions=("resolved_benchmark_mentions", "sum"),
             specialized_domain_share=("specialized_domain_share", "mean"),
-            benchmarked_release_pages=("model_key", "nunique"),
+            benchmarked_release_rows=("model_key", "nunique"),
         )
         .reset_index()
     )
@@ -360,12 +397,13 @@ def build_static_work_frames(
 
 def write_static_work_sensitivity(
     enriched: pd.DataFrame,
+    high_confidence_enriched: pd.DataFrame,
     facet_map: dict[str, dict[str, set[str]]],
     output_dir: Path,
     cutoff: pd.Timestamp,
 ) -> None:
     variants = [
-        ("as published", set(), 1),
+        ("all active facets", set(), 1),
         ("excl. private/opaque", {"private_or_opaque_eval"}, 1),
         ("excl. single-mention", set(), 2),
         ("excl. both", {"private_or_opaque_eval"}, 2),
@@ -385,10 +423,69 @@ def write_static_work_sensitivity(
                     "variant": variant,
                     "excluded_lifecycle_risks": "; ".join(sorted(excluded_risks)),
                     "min_mentions": min_mentions,
+                    "minimum_facet_confidence": "",
+                    "coverage_conditioning": "none",
                     "release_year": row.release_year,
                     "year_label": row.year_label,
                     "work_simulation_share": row.work_simulation_share,
-                    "benchmarked_release_pages": row.benchmarked_release_pages,
+                    "work_classification_coverage_share": (
+                        row.work_classification_coverage_share
+                    ),
+                    "work_classification_covered_mentions": (
+                        int(row.work_classification_covered_mentions)
+                    ),
+                    "canonical_release_mentions": int(
+                        row.canonical_release_mentions
+                    ),
+                    "benchmarked_release_rows": row.benchmarked_release_rows,
+                }
+            )
+
+    _, high_confidence_annual = build_static_work_frames(
+        high_confidence_enriched,
+        cutoff,
+    )
+    coverage_by_year = high_confidence_annual.set_index("release_year")
+    high_confidence_variants = [
+        (
+            "confidence >= 0.7 lower bound",
+            high_confidence_enriched,
+            "none",
+        ),
+        (
+            "confidence >= 0.7, complete work axes",
+            renormalize_release_weights(
+                high_confidence_enriched[
+                    high_confidence_enriched["work_classification_complete"]
+                ]
+            ),
+            "all_three_work_axes",
+        ),
+    ]
+    for variant, variant_enriched, conditioning in high_confidence_variants:
+        _, annual = build_static_work_frames(variant_enriched, cutoff)
+        for row in annual.itertuples(index=False):
+            coverage = coverage_by_year.loc[row.release_year]
+            rows.append(
+                {
+                    "variant": variant,
+                    "excluded_lifecycle_risks": "",
+                    "min_mentions": 1,
+                    "minimum_facet_confidence": 0.7,
+                    "coverage_conditioning": conditioning,
+                    "release_year": row.release_year,
+                    "year_label": row.year_label,
+                    "work_simulation_share": row.work_simulation_share,
+                    "work_classification_coverage_share": (
+                        coverage.work_classification_coverage_share
+                    ),
+                    "work_classification_covered_mentions": int(
+                        coverage.work_classification_covered_mentions
+                    ),
+                    "canonical_release_mentions": int(
+                        coverage.canonical_release_mentions
+                    ),
+                    "benchmarked_release_rows": row.benchmarked_release_rows,
                 }
             )
     pd.DataFrame(rows).to_csv(output_dir / "static_work_sensitivity.csv", index=False)
@@ -403,7 +500,7 @@ def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_di
         enriched[enriched["is_work_simulation"]]
         .groupby("benchmark_name")
         .agg(
-            raw_mentions=("benchmark_id", "size"),
+            raw_mentions=("raw_weight", "sum"),
             release_weighted_mentions=("release_weight", "sum"),
             first_seen=("release_date", "min"),
             providers=("provider", lambda s: "; ".join(sorted(set(s)))),
@@ -427,15 +524,15 @@ def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_di
         for idx, value in enumerate(annual[column]):
             ax.annotate(pct(value), (idx, value), textcoords="offset points", xytext=(0, 8), ha="center", fontsize=8)
     labels = [
-        f"{row.year_label}\nn={int(row.benchmarked_release_pages)}"
+        f"{row.year_label}\nn={int(row.benchmarked_release_rows)}"
         for row in annual.itertuples(index=False)
     ]
     ax.set_xticks(list(x))
     ax.set_xticklabels(labels)
     ax.set_ylim(0, max(0.65, annual[["static_exam_share", "work_simulation_share"]].max().max() + 0.08))
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
-    ax.set_title("Release-Page Benchmark Framing: Static Exams to Work Simulations", fontsize=15, weight="bold")
-    ax.set_ylabel("Mean share of benchmark mentions per benchmarked release page")
+    ax.set_title("Model-Release Benchmark Framing: Static Exams to Work Simulations", fontsize=15, weight="bold")
+    ax.set_ylabel("Mean share of benchmark mentions per benchmarked release row")
     ax.set_xlabel("Release year")
     ax.legend(frameon=False, loc="upper left")
     ax.grid(True, axis="y", linestyle="--", alpha=0.45)
@@ -462,7 +559,7 @@ def write_long_context_outputs(enriched: pd.DataFrame, output_dir: Path, asset_d
         scoped.groupby(["provider", "period"])
         .agg(
             release_weight_total=("release_weight", "sum"),
-            raw_mentions=("benchmark_id", "size"),
+            raw_mentions=("raw_weight", "sum"),
             broad_long_context_weight=(
                 "is_long_context_broad",
                 lambda s: float((s * scoped.loc[s.index, "release_weight"]).sum()),
@@ -488,7 +585,7 @@ def write_long_context_outputs(enriched: pd.DataFrame, output_dir: Path, asset_d
         .groupby(["provider", "period", "benchmark_name"])
         .agg(
             release_weighted_mentions=("release_weight", "sum"),
-            raw_mentions=("benchmark_id", "size"),
+            raw_mentions=("raw_weight", "sum"),
             models=("model_name", lambda s: "; ".join(sorted(set(s)))),
             context_pressure_labels=("context_pressure_labels", "first"),
         )
@@ -598,23 +695,33 @@ def write_borrowed_authority_outputs(enriched: pd.DataFrame, output_dir: Path) -
     for group_label, providers in groups.items():
         for period in ["2023-2024", "2025-2026"]:
             group = scoped[(scoped["provider"].isin(providers)) & (scoped["period"] == period)]
-            total_mentions = len(group)
+            total_mentions = float(group["raw_weight"].sum())
             release_weight_total = group["release_weight"].sum()
             openai_group = group[group["openai_source_or_affiliated"]]
             strict_group = group[group["openai_strict_affiliation_only"]]
+            openai_mentions = float(openai_group["raw_weight"].sum())
+            strict_mentions = float(strict_group["raw_weight"].sum())
             rows.append(
                 {
                     "provider_group": group_label,
                     "period": period,
                     "total_mentions": total_mentions,
                     "release_weight_total": release_weight_total,
-                    "openai_source_or_affiliated_mentions": len(openai_group),
-                    "openai_source_or_affiliated_share": len(openai_group) / total_mentions if total_mentions else 0.0,
+                    "openai_source_or_affiliated_mentions": openai_mentions,
+                    "openai_source_or_affiliated_share": (
+                        openai_mentions / total_mentions
+                        if total_mentions
+                        else 0.0
+                    ),
                     "openai_source_or_affiliated_release_normalized_share": (
                         openai_group["release_weight"].sum() / release_weight_total if release_weight_total else 0.0
                     ),
-                    "strict_openai_affiliation_mentions": len(strict_group),
-                    "strict_openai_affiliation_share": len(strict_group) / total_mentions if total_mentions else 0.0,
+                    "strict_openai_affiliation_mentions": strict_mentions,
+                    "strict_openai_affiliation_share": (
+                        strict_mentions / total_mentions
+                        if total_mentions
+                        else 0.0
+                    ),
                     "unique_openai_linked_benchmarks": "; ".join(sorted(openai_group["benchmark_name"].unique())),
                 }
             )
@@ -677,7 +784,7 @@ def write_review_leverage_outputs(
         recent.groupby(["benchmark_id", "benchmark_name"])
         .agg(
             recent_weighted_mentions=("release_weight", "sum"),
-            recent_raw_mentions=("benchmark_id", "size"),
+            recent_raw_mentions=("raw_weight", "sum"),
             providers=("provider", lambda s: "; ".join(sorted(set(s)))),
             last_seen=("release_date", "max"),
         )
@@ -733,7 +840,26 @@ def generate_story_analyses(
     mentions = build_mentions(models, resolver)
     facet_map, status_counts = build_facet_maps(facets)
     all_enriched = add_metadata_and_flags(mentions, benchmarks, facet_map)
-    write_static_work_sensitivity(all_enriched, facet_map, output_dir, cutoff)
+    high_confidence_facets = facets[
+        (facets["review_status"] != "deprecated")
+        & pd.to_numeric(
+            facets["classification_confidence"],
+            errors="coerce",
+        ).ge(REVIEW_CONFIDENCE_THRESHOLD)
+    ].copy()
+    high_confidence_facet_map, _ = build_facet_maps(high_confidence_facets)
+    high_confidence_enriched = add_metadata_and_flags(
+        mentions,
+        benchmarks,
+        high_confidence_facet_map,
+    )
+    write_static_work_sensitivity(
+        all_enriched,
+        high_confidence_enriched,
+        facet_map,
+        output_dir,
+        cutoff,
+    )
     enriched = filter_mentions(
         all_enriched,
         facet_map,

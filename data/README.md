@@ -28,10 +28,10 @@ benchmark_facets.csv
 | File | Current rows | Role |
 | --- | ---: | --- |
 | `models.csv` | 45 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 196 | Canonical benchmark table used by scraping catalog matching and facet generation. |
-| `benchmark_aliases.csv` | 51 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_distinctness.csv` | 12 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
-| `benchmark_facets.csv` | 3,384 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| `benchmarks.csv` | 197 | Canonical benchmark table used by scraping catalog matching and facet generation. |
+| `benchmark_aliases.csv` | 46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_distinctness.csv` | 13 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
+| `benchmark_facets.csv` | 3,330 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
 
@@ -137,7 +137,7 @@ Columns:
 
 Notes:
 
-- Validation compares casefolded canonical names after stripping non-alphanumeric characters and warns when `difflib.SequenceMatcher` has a ratio above 0.92.
+- Validation compares casefolded canonical names after stripping non-alphanumeric characters and warns when `difflib.SequenceMatcher` has a ratio above 0.92. It also warns when a canonical name of at least seven alphanumeric characters appears as consecutive whole tokens inside another canonical name.
 - A reviewed pair in this file silences that warning; it does not create an alias or merge any data.
 - Add a row only after making the research judgment that the pair is distinct. Unresolved questions belong in `docs/benchmark_audit_notes.md`.
 

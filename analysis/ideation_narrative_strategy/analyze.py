@@ -2,7 +2,7 @@
 """Prototype narrative-strategy analyses for benchmark release-page data.
 
 The project studies which benchmarks are named on public model release pages.
-This script treats each release page as a rhetorical portfolio: a page with 30
+This script treats each model-release row as a rhetorical portfolio: a row with 30
 benchmarks should not automatically count as 3x a page with 10 benchmarks when
 estimating strategic emphasis, so most shares use per-release normalized
 mention weights. Raw mention counts are still emitted for density analyses.

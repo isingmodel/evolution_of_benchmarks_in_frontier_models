@@ -33,7 +33,7 @@ The result aligns well with provider narrative strategy, benchmark evolution, la
 
 ## Best Presentation
 
-Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked release page; 2026 is year-to-date through 2026-07-24." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-page count.
+Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked model-release row; 2026 is year-to-date through 2026-07-24." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-row count, plus the confidence-coverage sensitivity.
 
 Use `provider_signature_lift.csv` as a compact supporting table, not as a standalone major chart. Recommended table columns: `Provider`, `highest-lift task mode`, `share`, `lift_vs_global`, and `raw_mentions`. This is more README-friendly than the full heatmap.
 

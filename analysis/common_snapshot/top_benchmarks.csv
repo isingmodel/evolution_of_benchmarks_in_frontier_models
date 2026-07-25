@@ -1,5 +1,5 @@
 benchmark_name,mention_count,provider_count,first_seen,latest_seen,source_author,frontier_lab_author_affiliations
-MMMU / MMMU Pro,27,3,2023-12-06,2026-07-09,Academia,none
+MMMU / MMMU Pro,22,3,2023-12-06,2026-03-03,Academia,none
 SWE-bench verified,18,3,2024-10-23,2026-04-16,OpenAI,OpenAI
 HLE (Humanity's Last Exam),16,3,2025-03-25,2026-07-24,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft
 AIME,15,3,2024-09-12,2025-11-18,Academia,none
@@ -28,6 +28,7 @@ ARC-AGI,5,3,2024-03-04,2026-04-23,Academia,none
 Aider Polyglot,5,3,2025-03-25,2025-11-24,Others(Aider),none
 CyberGym,5,3,2026-02-05,2026-07-21,Academia,none
 GDPval-AA v2,5,3,2026-06-30,2026-07-24,Others(Artificial Analysis),none
+MMMU Pro,5,3,2026-02-05,2026-07-09,Academia,none
 CharXiv,5,2,2025-04-14,2025-12-11,Academia,none
 Toolathlon,5,2,2025-12-11,2026-07-09,"Academia, Others(All Hands AI)",none
 OSWorld,5,1,2024-10-23,2026-02-05,Academia,none

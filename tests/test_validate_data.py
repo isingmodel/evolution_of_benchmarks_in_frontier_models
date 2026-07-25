@@ -6,7 +6,8 @@ from pathlib import Path
 
 import pandas as pd
 
-from scripts.validate_data import Report, validate_legacy
+from scripts.taxonomy_utils import ALLOWED_FACET_LABELS, REQUIRED_FACET_AXES
+from scripts.validate_data import Report, validate_facet_frame, validate_legacy
 
 
 BENCHMARK_COLUMNS = [
@@ -171,6 +172,68 @@ class ValidateDataIdentityTests(unittest.TestCase):
             "'Firefox 147 exploit evaluation' "
             "(benchmark_firefox_147_exploit_evaluation)",
             warning,
+        )
+
+
+class ValidateFacetFrameTests(unittest.TestCase):
+    def test_blank_core_facet_fields_are_errors(self) -> None:
+        facets = pd.DataFrame(
+            [
+                {
+                    "benchmark_id": "",
+                    "facet_axis": "",
+                    "facet_label": "",
+                    "classification_confidence": 0.8,
+                    "review_status": "",
+                    "rationale": "Malformed fixture.",
+                }
+            ]
+        )
+        report = Report()
+
+        validate_facet_frame(
+            report,
+            facets,
+            "fixture facets",
+            "benchmark_id",
+            known_owner_ids={"benchmark_alpha"},
+        )
+
+        for column in ["benchmark_id", "facet_axis", "facet_label", "review_status"]:
+            self.assertTrue(
+                any(f"blank {column}" in error for error in report.errors),
+                report.errors,
+            )
+
+    def test_provisional_rows_still_require_complete_axis_coverage(self) -> None:
+        axis = sorted(REQUIRED_FACET_AXES)[0]
+        label = sorted(ALLOWED_FACET_LABELS[axis])[0]
+        facets = pd.DataFrame(
+            [
+                {
+                    "benchmark_id": "benchmark_alpha",
+                    "facet_axis": axis,
+                    "facet_label": label,
+                    "classification_confidence": 0.8,
+                    "review_status": "needs_review",
+                    "rationale": "Partial fixture.",
+                }
+            ]
+        )
+        report = Report()
+
+        validate_facet_frame(
+            report,
+            facets,
+            "fixture facets",
+            "benchmark_id",
+            known_owner_ids={"benchmark_alpha"},
+            require_required_facets=True,
+        )
+
+        self.assertTrue(
+            any("missing required active facets" in error for error in report.errors),
+            report.errors,
         )
 
 

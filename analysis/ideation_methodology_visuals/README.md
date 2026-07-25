@@ -20,7 +20,7 @@ The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `dat
 | `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
 | `summary_stats.csv` | Reproducibility stats for the local data run. |
 
-Local run summary: 557 release-page benchmark mentions resolved to 195 canonical benchmarks. The latest modeled release date is 2026-07-24. The canonical facet frame contains 3,291 rows marked `needs_review`, 64 `legacy_seed` rows, and 29 `accepted` rows out of 3,384, so uncertainty should remain visible in publication charts.
+Local run summary: 557 release-page benchmark mentions resolved to 196 canonical benchmarks. The latest modeled release date is 2026-07-24. The canonical facet frame contains 3,268 rows marked `needs_review`, 33 `legacy_seed` rows, and 29 `accepted` rows out of 3,330, so uncertainty should remain visible in publication charts.
 
 ## What The Prototypes Show
 

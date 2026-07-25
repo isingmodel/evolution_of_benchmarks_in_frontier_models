@@ -5,6 +5,7 @@ benchmark_arc_agi_2,benchmark_arc_agi_3,ARC-AGI-2 and ARC-AGI-3 are separately n
 benchmark_artificial_analysis_intelligence_index,benchmark_artificial_analysis_intelligence_index_v4_1,The v4.1 label identifies an explicit version that the release page distinguishes from the unversioned index.
 benchmark_exploitbench,benchmark_exploitbench_2,ExploitBench 2 is an explicitly named successor rather than a spelling alias for ExploitBench.
 benchmark_finance_agent,benchmark_finance_agent_v2,Finance Agent v2 is explicitly versioned and named separately on release pages.
+benchmark_mmmu_mmmu_pro,benchmark_mmmu_pro,The combined MMMU / MMMU Pro presentation row preserves pages that report the family jointly; standalone MMMU Pro labels resolve to the separately released Pro benchmark.
 benchmark_omnidocbench,benchmark_omnidocbench_1_5,OmniDocBench 1.5 is explicitly versioned and named separately on release pages.
 benchmark_tau_bench,benchmark_tau_2_bench,TAU-2 is a separately released successor evaluation rather than a surface-form alias for Tau-bench.
 benchmark_terminal_bench,benchmark_terminal_bench_2_0,Terminal-Bench 2.0 is an explicitly named version kept distinct under the version policy.

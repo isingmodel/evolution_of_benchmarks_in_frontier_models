@@ -44,19 +44,19 @@ Outputs:
 
 Headline results from the current local CSVs:
 
-- 557 benchmark mentions resolve exactly to 195 canonical benchmarks.
-- 64 benchmarks show cross-provider cascades; 131 remain single-provider in the observed pages.
+- 557 benchmark mentions resolve exactly to 196 canonical benchmarks.
+- 65 benchmarks show cross-provider cascades; 131 remain single-provider in the observed pages.
 - Fastest second-provider cascades:
   - `MMMLU`: Anthropic to OpenAI in 2 days.
   - `Terminal-Bench 2.0`: Google to Anthropic in 6 days.
   - `OfficeQA Pro`: Anthropic to OpenAI in 7 days.
   - `Finance Agent v2`: Google to Anthropic in 9 days.
-  - `Terminal-Bench 2.1`: Google to Anthropic in 9 days.
+  - `GDPval-AA v2`: Anthropic to OpenAI in 9 days.
 - Slow cross-provider cascades include `ARC-AGI` at 624 days to second provider and `GPQA Diamond` at 484 days.
 - Role balance by provider:
-  - Anthropic: 67 first-tracked benchmarks, 23 later adopted, 32 imported, net export balance -9.
-  - Google: 46 first-tracked benchmarks, 21 later adopted, 25 imported, net export balance -4.
-  - OpenAI: 82 first-tracked benchmarks, 20 later adopted, 37 imported, net export balance -17.
+  - Anthropic: 68 first-tracked benchmarks, 24 later adopted, 32 imported, net export balance -8.
+  - Google: 46 first-tracked benchmarks, 21 later adopted, 26 imported, net export balance -5.
+  - OpenAI: 82 first-tracked benchmarks, 20 later adopted, 38 imported, net export balance -18.
 
 Interpretation: OpenAI has the largest unique benchmark vocabulary in these
 pages, but many of its first mentions remain provider-specific in the observed

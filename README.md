@@ -16,9 +16,9 @@
   <tr>
     <td align="center"><strong>3</strong><br><sub>providers</sub></td>
     <td align="center"><strong>45</strong><br><sub>model releases</sub></td>
-    <td align="center"><strong>196</strong><br><sub>canonical benchmarks</sub></td>
+    <td align="center"><strong>197</strong><br><sub>canonical benchmarks</sub></td>
     <td align="center"><strong>557</strong><br><sub>release-page mentions</sub></td>
-    <td align="center"><strong>29 / 3,384</strong><br><sub>human-accepted facet rows</sub></td>
+    <td align="center"><strong>29 / 3,330</strong><br><sub>human-accepted facet rows</sub></td>
     <td align="center"><strong>2026-07-24</strong><br><sub>latest tracked launch</sub></td>
   </tr>
 </table>
@@ -51,13 +51,13 @@ Benchmark papers and official benchmark websites may be used to verify metadata 
 | Google     |                 11 | 2023-12-06        | Gemini 3.5 Flash Cyber, Gemini 3.5 Flash-Lite, Gemini 3.6 Flash — 2026-07-21 |
 | Anthropic  |                 18 | 2023-03-14        | Claude 5 (Opus) — 2026-07-24                                                 |
 
-The source unit is a **public release page**. When one page introduces several named model variants, the dataset may record separate model-release rows tied to that page. Each benchmark-bearing release row contributes equal total weight in share-based analyses, divided across its resolved benchmark mentions. This prevents launches with very long evaluation tables from dominating the trends.
+The evidence source is a **public release page**; the weighted analysis unit is a **model-release row**. When one page introduces several named variants, the dataset may record several rows tied to that page, and each benchmark-bearing row contributes one unit divided across its resolved benchmark mentions. This prevents long evaluation tables from dominating the trends, but a multi-model launch page can contribute more than one unit.
 
 ## What the data shows
 
-### 1. Public evaluation framing is moving from exams toward work
+### 1. A provisional shift from exams toward work
 
-Earlier launch pages leaned heavily on static, exam-style tests. Recent launches foreground codebases, terminals, browsers, tools, professional workflows, and specialized work simulations. This is a shift in public benchmark selection—not evidence that models can fully perform the corresponding jobs.
+Earlier launch pages leaned heavily on static, exam-style tests. Under the full active taxonomy, recent launches foreground codebases, terminals, browsers, tools, professional workflows, and specialized work simulations. This is a provisional signal about public benchmark selection—not evidence that models can fully perform the corresponding jobs.
 
 ![Static exams to work simulations](assets/static_to_work_simulation_trend.png)
 
@@ -70,14 +70,25 @@ Earlier launch pages leaned heavily on static, exam-style tests. Recent launches
 
 > Multi-label shares can sum above 100% because a benchmark may represent more than one analytical frame.
 
-The work-simulation trend survives filters for the strongest extraction-granularity concerns. Each variant renormalizes the remaining benchmark weights within every release page.
+The directional pattern survives filters for the strongest extraction-granularity concerns. Each variant renormalizes the remaining benchmark weights within every model-release row.
 
 | Filter | 2023 | 2024 | 2025 | 2026 YTD |
 | --- | ---: | ---: | ---: | ---: |
-| As published | 12.0% | 18.0% | 39.1% | 73.2% |
+| All active facets | 12.0% | 18.0% | 39.1% | 73.2% |
 | Exclude private/opaque evaluations | 20.4% | 17.5% | 37.6% | 69.6% |
 | Exclude single-mention benchmarks | 16.7% | 18.0% | 37.7% | 72.3% |
 | Exclude both | 33.3% | 16.8% | 36.3% | 67.3% |
+
+Taxonomy confidence is the larger uncertainty. The fixed-denominator series below treats a mention with no confidence-`>=0.7` work label as non-work, so it is a conservative lower bound. The conditioned series keeps only mentions with confidence-`>=0.7` labels on all three work-classification axes, then renormalizes each model-release row; its coverage column shows how much original release weight remains classifiable.
+
+| Year | All active facets | Confidence `>=0.7` lower bound | Confidence `>=0.7`, conditioned | Complete-axis coverage |
+| --- | ---: | ---: | ---: | ---: |
+| 2023 | 12.0% | 12.0% | 12.0% | 100.0% |
+| 2024 | 18.0% | 18.0% | 18.1% | 99.1% |
+| 2025 | 39.1% | 38.6% | 37.9% | 97.9% |
+| 2026 YTD | 73.2% | 37.7% | 60.1% | 56.6% |
+
+Because high-confidence 2026 work-axis coverage is only 56.6%, the 73.2% all-facet value should not be treated as a robust point estimate. The defensible conclusion is narrower: work-simulation framing is prominent in recent launch pages, while its exact share remains taxonomy-sensitive.
 
 Top contributors to the work-simulation signal:
 
@@ -123,8 +134,8 @@ OpenAI-authored or OpenAI-affiliated benchmarks remain visible on Anthropic and 
 
 | Provider group   | 2023-2024                           | 2025-2026                           |
 |:-----------------|:------------------------------------|:------------------------------------|
-| Anthropic+Google | 14.5% raw; 16.9% release-normalized | 20.9% raw; 21.2% release-normalized |
-| Anthropic        | 19.0% raw; 25.0% release-normalized | 18.9% raw; 20.6% release-normalized |
+| Anthropic+Google | 14.5% raw; 16.9% release-normalized | 20.8% raw; 21.2% release-normalized |
+| Anthropic        | 19.0% raw; 25.0% release-normalized | 18.8% raw; 20.6% release-normalized |
 | Google           | 8.8% raw; 6.1% release-normalized   | 24.7% raw; 22.1% release-normalized |
 
 ## Visual atlas
@@ -205,7 +216,7 @@ Charts that need one compact headline derive a projection at runtime. That proje
 
 ### Review debt
 
-The analytical taxonomy is predominantly awaiting human review. Of 3,384 rows in `data/benchmark_facets.csv`, 3,291 are marked `needs_review`, 64 retain `legacy_seed` status, and only 29 are human-accepted. A further 1,485 rows fall below the project's 0.7 classification-confidence review threshold. In the canonical catalog, 92 of 196 benchmarks still have `legacy_seed` status. Headline findings therefore depend substantially on provisional labels and should be read with the published robustness checks and review status in view.
+The analytical taxonomy is predominantly awaiting human review. Of 3,330 rows in `data/benchmark_facets.csv`, 3,268 are marked `needs_review`, 33 retain `legacy_seed` status, and only 29 are human-accepted. A further 1,462 rows fall below the project's 0.7 classification-confidence review threshold. In the canonical catalog, 92 of 197 benchmarks still have `legacy_seed` status. Headline findings therefore depend substantially on provisional labels and should be read with the published robustness checks and review status in view.
 
 ![Benchmark taxonomy review debt](assets/benchmark_review_debt.png)
 
@@ -216,6 +227,7 @@ The review-leverage view prioritizes provisional benchmark facets that also carr
 ### Identity and review policy
 
 - Explicit versions remain distinct when the release page distinguishes them.
+- Exact combined labels such as `MMLU / MMLU-Pro` remain family-level rows when a page reports them jointly; they are not interpreted as either version alone. Standalone version labels receive their own identity when observed, as with `MMMU Pro`.
 - Run settings are deduplicated when they are only configurations of the same benchmark.
 - Internal and partner evaluations are included when named, but opaque identities are marked `needs_review`.
 - Every raw launch-page mention must resolve by exact canonical name or explicit alias.
@@ -236,6 +248,8 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s tests
 scripts/run_pipeline.sh
 ```
+
+The editable install is an import shim for analyses run from this repository checkout, not a standalone wheel: scripts intentionally read the committed `data/` and write repository-local outputs.
 
 The supported and CI-tested Python range is 3.10 through 3.14; Python 3.10 is the declared minimum and no upper bound is imposed. `scripts/run_pipeline.sh` defaults `AS_OF` to the maximum release date in `data/models.csv`; override it when reproducing an earlier snapshot, for example `AS_OF=2025-12-31 scripts/run_pipeline.sh`. The entrypoint builds normalized data, validates it, runs every analysis (including `analysis/benchmark_taxonomy_trends/task_mode_trend.py`), and validates again.
 

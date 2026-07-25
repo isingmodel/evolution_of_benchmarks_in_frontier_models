@@ -163,6 +163,10 @@ The near-duplicate validator also finds the following unresolved benchmark-famil
 - `SimpleQA` / `SimpleQA Verified`
 - `Terminal-Bench Hard` / `Terminal-bench`
 
+### Combined family labels versus standalone versions (reviewed)
+
+Some historical release pages present one joint chart label, such as `MMLU / MMLU-Pro` or `MMMU / MMMU Pro`. Those exact joint surface forms remain family-level canonical rows because the extraction does not support assigning the displayed result to only one version. Standalone `MMMU Pro` and `MMMU-Pro` mentions now resolve to `benchmark_mmmu_pro`, which is distinct from the joint family row. Unused aliases that previously mapped standalone MMLU or MMMU versions into combined family rows were removed so future standalone labels fail validation until explicitly canonicalized.
+
 ## Open Caveats
 
 The main known caveats are represented directly in `benchmarks.csv` review statuses and the generated facet rows:

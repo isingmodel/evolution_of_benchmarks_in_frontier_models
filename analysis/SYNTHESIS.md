@@ -13,7 +13,7 @@ All analysis scripts were rerun from the repository root with `.venv/bin/python`
 Current baseline:
 
 - 557 resolved benchmark mentions
-- 195 canonical benchmarks mentioned at least once
+- 196 canonical benchmarks mentioned at least once
 - 3 providers: OpenAI, Google, Anthropic
 - Latest modeled release date: 2026-07-24
 
@@ -81,7 +81,7 @@ Primary folder: `analysis/ideation_methodology_visuals/`.
 
 The network-dynamics prototype found:
 
-- 64 cross-provider benchmark cascades.
+- 65 cross-provider benchmark cascades.
 - 131 benchmarks remain single-provider in observed release pages.
 - Latest cumulative portfolio similarity is highest for Anthropic-OpenAI at 0.282, followed by Anthropic-Google at 0.278 and Google-OpenAI at 0.258.
 - Fast cascades include `MMMLU` (Anthropic to OpenAI in 2 days), `Terminal-Bench 2.0` (Google to Anthropic in 6 days), and `OfficeQA Pro` (Anthropic to OpenAI in 7 days).

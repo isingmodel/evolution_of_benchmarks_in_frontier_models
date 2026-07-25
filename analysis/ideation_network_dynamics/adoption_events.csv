@@ -145,6 +145,7 @@ benchmark_cybergym,CyberGym,Anthropic,2026-02-05,Claude 4.6 (Opus),CyberGym,1,0,
 benchmark_gdpval_aa,GDPval-AA,Anthropic,2026-02-05,Claude 4.6 (Opus),GDPval-AA,1,0,True,Anthropic,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
 benchmark_graphwalks,GraphWalks,Anthropic,2026-02-05,Claude 4.6 (Opus),Graphwalks,2,297,False,OpenAI,OpenAI,OpenAI,Generative Reasoning,STEM/Math
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),Anthropic,2026-02-05,Claude 4.6 (Opus),Humanity's Last Exam,3,317,False,Google,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_mmmu_pro,MMMU Pro,Anthropic,2026-02-05,Claude 4.6 (Opus),MMMU Pro,1,0,True,Anthropic,Academia,none,Multimodal Perception,General/Commonsense
 benchmark_mrcr_v2,MRCR v2,Anthropic,2026-02-05,Claude 4.6 (Opus),MRCR v2,2,56,False,OpenAI,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense
 benchmark_osworld_verified,OSWorld-Verified,OpenAI,2026-02-05,GPT-5.3-Codex,OSWorld-Verified,1,0,True,OpenAI,Academia,none,Agentic,General/Commonsense
 benchmark_openrca,OpenRCA,Anthropic,2026-02-05,Claude 4.6 (Opus),OpenRCA,1,0,True,Anthropic,"Academia, Others(Microsoft)",Microsoft,Generative Reasoning,Coding/Engineering
@@ -171,6 +172,7 @@ benchmark_financeagent_v1_1,FinanceAgent v1.1,OpenAI,2026-03-05,GPT-5.4,FinanceA
 benchmark_frontier_science_research,Frontier Science Research,OpenAI,2026-03-05,GPT-5.4,Frontier Science Research,1,0,True,OpenAI,OpenAI,OpenAI,Generative Reasoning,STEM/Math
 benchmark_gpqa_diamond,GPQA Diamond,OpenAI,2026-03-05,GPT-5.4,GPQA Diamond,3,498,False,Anthropic,"Anthropic, Academia, Others(Cohere)",none,Generative Reasoning,STEM/Math
 benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),OpenAI,2026-03-05,GPT-5.4,Investment Banking Modeling Tasks (Internal),1,0,True,OpenAI,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_mmmu_pro,MMMU Pro,OpenAI,2026-03-05,GPT-5.4,MMMU Pro,2,28,False,Anthropic,Academia,none,Multimodal Perception,General/Commonsense
 benchmark_officeqa,OfficeQA,OpenAI,2026-03-05,GPT-5.4,OfficeQA,1,0,True,OpenAI,"Academia, Others(Databricks)",none,Agentic,Specialized (Law/Bio/Finance)
 benchmark_omnidocbench,OmniDocBench,OpenAI,2026-03-05,GPT-5.4,OmniDocBench,1,0,True,OpenAI,"Academia, Others(OpenGVLab)",none,Multimodal Perception,General/Commonsense
 benchmark_online_mind2web,Online-Mind2Web,OpenAI,2026-03-05,GPT-5.4,Online-Mind2Web,1,0,True,OpenAI,Academia,none,Agentic,General/Commonsense
@@ -209,6 +211,7 @@ benchmark_terminal_bench_hard,Terminal-Bench Hard,OpenAI,2026-04-23,GPT-5.5,Term
 benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,Google,2026-05-19,Gemini 3.5 Flash,Artificial Analysis Intelligence Index,2,26,False,OpenAI,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
 benchmark_blueprint_bench_2,Blueprint-Bench 2,Google,2026-05-19,Gemini 3.5 Flash,Blueprint-Bench 2,1,0,True,Google,Others(Andon Labs),none,Agentic,General/Commonsense
 benchmark_finance_agent_v2,Finance Agent v2,Google,2026-05-19,Gemini 3.5 Flash,Finance Agent v2,1,0,True,Google,Others(vals.ai),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_mmmu_pro,MMMU Pro,Google,2026-05-19,Gemini 3.5 Flash,MMMU-Pro,3,103,False,Anthropic,Academia,none,Multimodal Perception,General/Commonsense
 benchmark_osworld_verified,OSWorld-Verified,Google,2026-05-19,Gemini 3.5 Flash,OSWorld-Verified,3,103,False,OpenAI,Academia,none,Agentic,General/Commonsense
 benchmark_terminal_bench_2_1,Terminal-Bench 2.1,Google,2026-05-19,Gemini 3.5 Flash,Terminal-Bench 2.1,1,0,True,Google,Academia,Anthropic,Agentic,Coding/Engineering
 benchmark_toolathlon,Toolathlon,Google,2026-05-19,Gemini 3.5 Flash,Toolathlon,2,159,False,OpenAI,"Academia, Others(All Hands AI)",none,Agentic,General/Commonsense

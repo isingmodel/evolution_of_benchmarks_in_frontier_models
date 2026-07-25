@@ -1,5 +1,5 @@
 total_release_page_mentions: 557
-unique_benchmarks_mentioned: 195
+unique_benchmarks_mentioned: 196
 models_with_mentions: 41
 providers: OpenAI; Google; Anthropic
 periods: 2023-2024; 2025-2026

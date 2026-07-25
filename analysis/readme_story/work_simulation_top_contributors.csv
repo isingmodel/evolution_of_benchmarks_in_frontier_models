@@ -1,109 +1,109 @@
 benchmark_name,raw_mentions,release_weighted_mentions,first_seen,providers,interaction_patterns,task_mechanisms
-SWE-bench verified,18,1.6017519030676926,2024-10-23,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; unit_test_passing
-OSWorld-Verified,10,0.9575125528066705,2026-02-05,Anthropic; Google; OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; visual_grounding
-SWE-bench Pro,12,0.8938220766161943,2025-12-11,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
-HumanEval,7,0.752518315018315,2023-07-11,Anthropic; Google; OpenAI,static_prompt_response,code_generation; unit_test_passing
-Tau-bench,6,0.6513800526958422,2024-10-23,Anthropic; OpenAI,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
-TAU-2 bench,10,0.6511455864397041,2025-08-07,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
-Terminal-bench,6,0.6027777777777777,2025-05-23,Anthropic,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; terminal_operation; tool_calling; unit_test_passing
-GDPval-AA v2,5,0.5825396825396826,2026-06-30,Anthropic; Google; OpenAI,environment_interaction,free_form_generation
-Terminal-Bench 2.1,6,0.5372582972582973,2026-05-19,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,terminal_operation
-BrowseComp,10,0.5332884435825612,2025-04-16,Anthropic; Google; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; short_answer_qa; tool_calling
-CyberGym,5,0.48369747899159665,2026-02-05,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation; tool_calling
-OSWorld,5,0.47176434676434675,2024-10-23,Anthropic,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,browser_navigation; computer_control_task; terminal_operation; visual_grounding
-Terminal-Bench 2.0,7,0.43110590390002157,2025-11-18,Anthropic; Google; OpenAI,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; terminal_operation; tool_calling; unit_test_passing
-Codeforces,4,0.4178321678321678,2024-09-12,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; math_problem_solving; unit_test_passing
-Scale MCP-Atlas,8,0.4096773324714501,2025-11-24,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use,tool_calling
-GDPval-AA,7,0.3752018079959256,2026-02-05,Anthropic; Google; OpenAI,multi_step_planning; static_prompt_response,document_parsing; free_form_generation; human_preference_comparison
-Aider Polyglot,5,0.3689777327935223,2025-03-25,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; terminal_operation; unit_test_passing
-Big Sleep Evaluation,1,0.3333333333333333,2026-07-21,Google,environment_interaction,code_generation
-Chrome Production Commit Scanning Pipeline,1,0.3333333333333333,2026-07-21,Google,environment_interaction,code_generation
-LiveCodeBench,4,0.30995670995671,2024-12-11,Google,static_prompt_response,code_generation; code_repair; short_answer_qa; unit_test_passing
-Artificial Analysis Intelligence Index,3,0.3008403361344538,2026-04-23,Google; OpenAI,static_prompt_response,code_generation; math_problem_solving; multiple_choice_qa; short_answer_qa; unit_test_passing
-automated behavioral audit,4,0.282972582972583,2026-04-16,Anthropic,environment_interaction; multi_step_planning,free_form_generation; tool_calling
-GraphWalks,7,0.275266786876694,2025-04-14,Anthropic; OpenAI,multi_step_planning; static_prompt_response,long_context_retrieval; short_answer_qa
-DeepSWE v1.1,3,0.27142857142857146,2026-07-09,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,code_generation
-Cybersecurity CTFs,2,0.26785714285714285,2024-09-12,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation
-GDPval,4,0.26073044602456363,2025-12-11,OpenAI,multi_step_planning; static_prompt_response,document_parsing; free_form_generation; human_preference_comparison
-Toolathlon,5,0.21311139840551604,2025-12-11,Google; OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use,tool_calling
-MLE-Bench,1,0.2,2026-07-21,Google,environment_interaction,code_generation
-CursorBench,4,0.18805194805194805,2026-04-16,Anthropic; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution
-SWE-Lancer,3,0.17955465587044533,2025-04-14,OpenAI,environment_interaction; multi_step_planning; static_prompt_response; terminal_or_codebase_interaction,code_generation; code_repair; human_preference_comparison; multiple_choice_qa; repository_issue_resolution; terminal_operation; unit_test_passing
-Legal Agent Benchmark,3,0.17852813852813854,2026-05-28,Anthropic,environment_interaction,free_form_generation
-SWE-bench,1,0.16666666666666666,2025-02-27,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
-Finance Agent v2,2,0.16233766233766234,2026-05-19,Anthropic; Google,single_turn_tool_use,tool_calling
-Finance Agent,2,0.15873015873015872,2025-09-30,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; document_parsing; free_form_generation; short_answer_qa; tool_calling
-SWE-bench Multilingual,3,0.15787545787545787,2025-11-24,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
-SWE-Lancer IC Diamond,1,0.14285714285714285,2026-02-05,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
-LMArena,2,0.13852813852813853,2025-11-18,Google,human_in_the_loop; multi_turn_dialogue; static_prompt_response,free_form_generation; human_preference_comparison
-ScreenSpot-Pro,3,0.13095238095238096,2025-11-18,Anthropic; Google; OpenAI,static_prompt_response,format_constrained_output; visual_grounding
-Online-Mind2Web,2,0.12937062937062938,2026-03-05,Anthropic; OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; visual_grounding
-Vending-Bench 2,3,0.12857142857142856,2025-11-18,Anthropic; Google,browser_or_web_interaction; environment_interaction; multi_step_planning; multi_turn_dialogue,browser_navigation; free_form_generation; tool_calling
-Natural2Code,2,0.12698412698412698,2023-12-06,Google,static_prompt_response,code_generation; unit_test_passing
-AutomationBench,3,0.11142857142857143,2026-06-09,Anthropic; OpenAI,environment_interaction,free_form_generation
-Blueprint-Bench 2,2,0.11142857142857143,2026-05-19,Anthropic; Google,environment_interaction,free_form_generation
-Eve's plaintiff-law tasks,1,0.1111111111111111,2026-06-30,Anthropic,environment_interaction,free_form_generation
-Firefox 147 exploit evaluation,1,0.1111111111111111,2026-06-30,Anthropic,environment_interaction,code_generation
-FinanceAgent v1.1,3,0.10120663650075415,2026-03-05,Anthropic; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; document_parsing; math_problem_solving; short_answer_qa; tool_calling
-APEX-Agents,2,0.10096153846153846,2026-02-19,Google; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; free_form_generation; tool_calling
-SciCode,2,0.09191176470588236,2026-02-19,Google; OpenAI,multi_step_planning; static_prompt_response,code_generation; unit_test_passing
-LiveBench Coding,1,0.09090909090909091,2025-01-31,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
-Super-Agent benchmark,1,0.09090909090909091,2026-05-28,Anthropic,environment_interaction,free_form_generation
-OSS-Fuzz,2,0.08761904761904762,2026-06-09,Anthropic,environment_interaction,code_generation
-BrowseComp-Plus,1,0.07692307692307693,2025-11-24,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; short_answer_qa; tool_calling
-Vending-Bench,1,0.07692307692307693,2025-11-24,Anthropic,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
-Artificial Analysis Coding Agent Index v1.1,2,0.07142857142857142,2026-07-09,Anthropic; OpenAI,environment_interaction,code_generation
-OSWorld 2.0,2,0.07142857142857142,2026-07-09,Anthropic; OpenAI,computer_control,computer_control_task
-Bird-SQL,1,0.07142857142857142,2024-12-11,Google,static_prompt_response,sql_generation
-WebVoyager,1,0.07142857142857142,2024-12-11,Google,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; tool_calling; visual_grounding
-ERQA,1,0.0625,2025-08-07,OpenAI,environment_interaction; multi_step_planning; static_prompt_response,short_answer_qa; video_question_answering; visual_grounding; visual_question_answering
-LiveCodeBench Pro,1,0.0625,2026-02-19,Google,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
-Capture-the-Flags challenge tasks (Internal),2,0.05322128851540616,2026-04-23,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation; tool_calling
-ComplexFunc Bench,1,0.05263157894736842,2025-04-14,OpenAI,multi_step_planning; single_turn_tool_use; static_prompt_response,format_constrained_output; tool_calling
-BioPipelineBench,1,0.047619047619047616,2026-02-05,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; terminal_operation; tool_calling
-CursorBench 3.2,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
-DeepSearchQA,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,free_form_generation
-Frontier-Bench v0.1,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
-FrontierCode v1.1,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
-Lovable internal evals,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
-OpenRCA,1,0.047619047619047616,2026-02-05,Anthropic,static_prompt_response,format_constrained_output; short_answer_qa
-frontend benchmark,1,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
-CyScenarioBench,1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-ExploitBench,1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-Firefox,1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-FrontierBench,1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-FrontierCode (Diamond),1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-ViBench,1,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
-core analytics benchmark,1,0.04,2026-06-09,Anthropic,environment_interaction,free_form_generation
-everyday spreadsheet suite,1,0.04,2026-06-09,Anthropic,environment_interaction,free_form_generation
-OfficeQA,1,0.038461538461538464,2026-03-05,OpenAI,computer_control; environment_interaction; multi_step_planning,computer_control_task; document_parsing; short_answer_qa; visual_question_answering
-WebArena-Verified,1,0.038461538461538464,2026-03-05,OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; tool_calling
-93-task coding benchmark,1,0.03333333333333333,2026-04-16,Anthropic,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
-Anthropic internal autonomous agentic coding evaluation,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; tool_calling; unit_test_passing
-Qodo's real-world code review benchmark,1,0.03333333333333333,2026-04-16,Anthropic,static_prompt_response,free_form_generation
-Rakuten-SWE-Bench,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
-SWE-bench Multimodal,1,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; unit_test_passing; visual_grounding
-internal research-agent benchmark,1,0.03333333333333333,2026-04-16,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; free_form_generation; tool_calling
-Artificial Analysis Coding Index,1,0.029411764705882353,2026-04-23,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; code_repair; unit_test_passing
-BixBench,1,0.029411764705882353,2026-04-23,OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use; static_prompt_response,code_generation; free_form_generation; short_answer_qa; sql_generation; tool_calling
-Expert-SWE (Internal),1,0.029411764705882353,2026-04-23,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_repair; repository_issue_resolution; unit_test_passing
-Terminal-Bench Hard,1,0.029411764705882353,2026-04-23,OpenAI,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; computer_control_task; terminal_operation; unit_test_passing
-Agents' Last Exam,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-BenchCAD,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-Big Finance Bench,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-ExploitBench 2,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-ExploitGym 3,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-GeneBench Pro,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-Internal Research Debugging Evaluation,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-KernelGen 1P,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-Legora's internal eval harness,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-LifeSciBench,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-Management Consulting Tasks (Internal),1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-Model ML's FinBench,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-NanoGPT,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-PostTrainBench Lite,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-RSI Index,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-SEC-Bench Pro,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-agentic code-review tests,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
-combined evaluation suite,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
-internal and external PR benchmarks,1,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+SWE-bench verified,18.0,1.6017519030676926,2024-10-23,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; unit_test_passing
+OSWorld-Verified,10.0,0.9575125528066705,2026-02-05,Anthropic; Google; OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; visual_grounding
+SWE-bench Pro,12.0,0.8938220766161943,2025-12-11,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
+HumanEval,7.0,0.752518315018315,2023-07-11,Anthropic; Google; OpenAI,static_prompt_response,code_generation; unit_test_passing
+Tau-bench,6.0,0.6513800526958422,2024-10-23,Anthropic; OpenAI,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
+TAU-2 bench,10.0,0.6511455864397041,2025-08-07,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
+Terminal-bench,6.0,0.6027777777777777,2025-05-23,Anthropic,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; terminal_operation; tool_calling; unit_test_passing
+GDPval-AA v2,5.0,0.5825396825396826,2026-06-30,Anthropic; Google; OpenAI,environment_interaction,free_form_generation
+Terminal-Bench 2.1,6.0,0.5372582972582973,2026-05-19,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,terminal_operation
+BrowseComp,10.0,0.5332884435825612,2025-04-16,Anthropic; Google; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; short_answer_qa; tool_calling
+CyberGym,5.0,0.48369747899159665,2026-02-05,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation; tool_calling
+OSWorld,5.0,0.47176434676434675,2024-10-23,Anthropic,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,browser_navigation; computer_control_task; terminal_operation; visual_grounding
+Terminal-Bench 2.0,7.0,0.43110590390002157,2025-11-18,Anthropic; Google; OpenAI,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; terminal_operation; tool_calling; unit_test_passing
+Codeforces,4.0,0.4178321678321678,2024-09-12,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; math_problem_solving; unit_test_passing
+Scale MCP-Atlas,8.0,0.4096773324714501,2025-11-24,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use,tool_calling
+GDPval-AA,7.0,0.3752018079959256,2026-02-05,Anthropic; Google; OpenAI,multi_step_planning; static_prompt_response,document_parsing; free_form_generation; human_preference_comparison
+Aider Polyglot,5.0,0.3689777327935223,2025-03-25,Anthropic; Google; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; terminal_operation; unit_test_passing
+Big Sleep Evaluation,1.0,0.3333333333333333,2026-07-21,Google,environment_interaction,code_generation
+Chrome Production Commit Scanning Pipeline,1.0,0.3333333333333333,2026-07-21,Google,environment_interaction,code_generation
+LiveCodeBench,4.0,0.30995670995671,2024-12-11,Google,static_prompt_response,code_generation; code_repair; short_answer_qa; unit_test_passing
+Artificial Analysis Intelligence Index,3.0,0.3008403361344538,2026-04-23,Google; OpenAI,static_prompt_response,code_generation; math_problem_solving; multiple_choice_qa; short_answer_qa; unit_test_passing
+automated behavioral audit,5.0,0.282972582972583,2026-04-16,Anthropic,environment_interaction; multi_step_planning,free_form_generation; tool_calling
+GraphWalks,7.0,0.275266786876694,2025-04-14,Anthropic; OpenAI,multi_step_planning; static_prompt_response,long_context_retrieval; short_answer_qa
+DeepSWE v1.1,3.0,0.27142857142857146,2026-07-09,Anthropic; Google; OpenAI,terminal_or_codebase_interaction,code_generation
+Cybersecurity CTFs,2.0,0.26785714285714285,2024-09-12,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation
+GDPval,4.0,0.26073044602456363,2025-12-11,OpenAI,multi_step_planning; static_prompt_response,document_parsing; free_form_generation; human_preference_comparison
+Toolathlon,5.0,0.21311139840551604,2025-12-11,Google; OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use,tool_calling
+MLE-Bench,1.0,0.2,2026-07-21,Google,environment_interaction,code_generation
+CursorBench,4.0,0.18805194805194805,2026-04-16,Anthropic; OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution
+SWE-Lancer,3.0,0.17955465587044533,2025-04-14,OpenAI,environment_interaction; multi_step_planning; static_prompt_response; terminal_or_codebase_interaction,code_generation; code_repair; human_preference_comparison; multiple_choice_qa; repository_issue_resolution; terminal_operation; unit_test_passing
+Legal Agent Benchmark,3.0,0.17852813852813854,2026-05-28,Anthropic,environment_interaction,free_form_generation
+SWE-bench,1.0,0.16666666666666666,2025-02-27,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
+Finance Agent v2,2.0,0.16233766233766234,2026-05-19,Anthropic; Google,single_turn_tool_use,tool_calling
+Finance Agent,2.0,0.15873015873015872,2025-09-30,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; document_parsing; free_form_generation; short_answer_qa; tool_calling
+SWE-bench Multilingual,3.0,0.15787545787545787,2025-11-24,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
+SWE-Lancer IC Diamond,1.0,0.14285714285714285,2026-02-05,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
+LMArena,2.0,0.13852813852813853,2025-11-18,Google,human_in_the_loop; multi_turn_dialogue; static_prompt_response,free_form_generation; human_preference_comparison
+ScreenSpot-Pro,3.0,0.13095238095238096,2025-11-18,Anthropic; Google; OpenAI,static_prompt_response,format_constrained_output; visual_grounding
+Online-Mind2Web,2.0,0.12937062937062938,2026-03-05,Anthropic; OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; visual_grounding
+Vending-Bench 2,3.0,0.12857142857142856,2025-11-18,Anthropic; Google,browser_or_web_interaction; environment_interaction; multi_step_planning; multi_turn_dialogue,browser_navigation; free_form_generation; tool_calling
+Natural2Code,2.0,0.12698412698412698,2023-12-06,Google,static_prompt_response,code_generation; unit_test_passing
+AutomationBench,3.0,0.11142857142857143,2026-06-09,Anthropic; OpenAI,environment_interaction,free_form_generation
+Blueprint-Bench 2,2.0,0.11142857142857143,2026-05-19,Anthropic; Google,environment_interaction,free_form_generation
+Eve's plaintiff-law tasks,1.0,0.1111111111111111,2026-06-30,Anthropic,environment_interaction,free_form_generation
+Firefox 147 exploit evaluation,1.0,0.1111111111111111,2026-06-30,Anthropic,environment_interaction,code_generation
+FinanceAgent v1.1,3.0,0.10120663650075415,2026-03-05,Anthropic; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; document_parsing; math_problem_solving; short_answer_qa; tool_calling
+APEX-Agents,2.0,0.10096153846153846,2026-02-19,Google; OpenAI,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; free_form_generation; tool_calling
+SciCode,2.0,0.09191176470588236,2026-02-19,Google; OpenAI,multi_step_planning; static_prompt_response,code_generation; unit_test_passing
+LiveBench Coding,1.0,0.09090909090909091,2025-01-31,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
+Super-Agent benchmark,1.0,0.09090909090909091,2026-05-28,Anthropic,environment_interaction,free_form_generation
+OSS-Fuzz,2.0,0.08761904761904762,2026-06-09,Anthropic,environment_interaction,code_generation
+BrowseComp-Plus,1.0,0.07692307692307693,2025-11-24,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; short_answer_qa; tool_calling
+Vending-Bench,1.0,0.07692307692307693,2025-11-24,Anthropic,environment_interaction; multi_step_planning; multi_turn_dialogue,free_form_generation; tool_calling
+Artificial Analysis Coding Agent Index v1.1,2.0,0.07142857142857142,2026-07-09,Anthropic; OpenAI,environment_interaction,code_generation
+OSWorld 2.0,2.0,0.07142857142857142,2026-07-09,Anthropic; OpenAI,computer_control,computer_control_task
+Bird-SQL,1.0,0.07142857142857142,2024-12-11,Google,static_prompt_response,sql_generation
+WebVoyager,1.0,0.07142857142857142,2024-12-11,Google,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; tool_calling; visual_grounding
+ERQA,1.0,0.0625,2025-08-07,OpenAI,environment_interaction; multi_step_planning; static_prompt_response,short_answer_qa; video_question_answering; visual_grounding; visual_question_answering
+LiveCodeBench Pro,1.0,0.0625,2026-02-19,Google,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
+Capture-the-Flags challenge tasks (Internal),2.0,0.05322128851540616,2026-04-23,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; security_challenge_solving; terminal_operation; tool_calling
+ComplexFunc Bench,1.0,0.05263157894736842,2025-04-14,OpenAI,multi_step_planning; single_turn_tool_use; static_prompt_response,format_constrained_output; tool_calling
+BioPipelineBench,1.0,0.047619047619047616,2026-02-05,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; terminal_operation; tool_calling
+CursorBench 3.2,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
+DeepSearchQA,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,free_form_generation
+Frontier-Bench v0.1,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
+FrontierCode v1.1,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
+Lovable internal evals,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
+OpenRCA,1.0,0.047619047619047616,2026-02-05,Anthropic,static_prompt_response,format_constrained_output; short_answer_qa
+frontend benchmark,1.0,0.047619047619047616,2026-07-24,Anthropic,environment_interaction,code_generation
+CyScenarioBench,1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+ExploitBench,1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+Firefox,1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+FrontierBench,1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+FrontierCode (Diamond),1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+ViBench,1.0,0.04,2026-06-09,Anthropic,environment_interaction,code_generation
+core analytics benchmark,1.0,0.04,2026-06-09,Anthropic,environment_interaction,free_form_generation
+everyday spreadsheet suite,1.0,0.04,2026-06-09,Anthropic,environment_interaction,free_form_generation
+OfficeQA,1.0,0.038461538461538464,2026-03-05,OpenAI,computer_control; environment_interaction; multi_step_planning,computer_control_task; document_parsing; short_answer_qa; visual_question_answering
+WebArena-Verified,1.0,0.038461538461538464,2026-03-05,OpenAI,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,browser_navigation; computer_control_task; tool_calling
+93-task coding benchmark,1.0,0.03333333333333333,2026-04-16,Anthropic,static_prompt_response; terminal_or_codebase_interaction,code_generation; unit_test_passing
+Anthropic internal autonomous agentic coding evaluation,1.0,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; tool_calling; unit_test_passing
+Qodo's real-world code review benchmark,1.0,0.03333333333333333,2026-04-16,Anthropic,static_prompt_response,free_form_generation
+Rakuten-SWE-Bench,1.0,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; terminal_operation; unit_test_passing
+SWE-bench Multimodal,1.0,0.03333333333333333,2026-04-16,Anthropic,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; repository_issue_resolution; unit_test_passing; visual_grounding
+internal research-agent benchmark,1.0,0.03333333333333333,2026-04-16,Anthropic,browser_or_web_interaction; environment_interaction; multi_step_planning,browser_navigation; free_form_generation; tool_calling
+Artificial Analysis Coding Index,1.0,0.029411764705882353,2026-04-23,OpenAI,static_prompt_response; terminal_or_codebase_interaction,code_generation; code_repair; unit_test_passing
+BixBench,1.0,0.029411764705882353,2026-04-23,OpenAI,environment_interaction; multi_step_planning; single_turn_tool_use; static_prompt_response,code_generation; free_form_generation; short_answer_qa; sql_generation; tool_calling
+Expert-SWE (Internal),1.0,0.029411764705882353,2026-04-23,OpenAI,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_repair; repository_issue_resolution; unit_test_passing
+Terminal-Bench Hard,1.0,0.029411764705882353,2026-04-23,OpenAI,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,code_generation; code_repair; computer_control_task; terminal_operation; unit_test_passing
+Agents' Last Exam,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+BenchCAD,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+Big Finance Bench,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+ExploitBench 2,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+ExploitGym 3,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+GeneBench Pro,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+Internal Research Debugging Evaluation,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+KernelGen 1P,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+Legora's internal eval harness,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+LifeSciBench,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+Management Consulting Tasks (Internal),1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+Model ML's FinBench,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+NanoGPT,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+PostTrainBench Lite,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+RSI Index,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+SEC-Bench Pro,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+agentic code-review tests,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation
+combined evaluation suite,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,free_form_generation
+internal and external PR benchmarks,1.0,0.023809523809523808,2026-07-09,OpenAI,environment_interaction,code_generation

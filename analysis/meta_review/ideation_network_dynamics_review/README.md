@@ -17,8 +17,8 @@ Best use: a compact public-diffusion subsection plus appendix tables. The result
 - The analysis matches core project themes: benchmark diffusion, provider strategy, competitive dynamics, benchmark evolution, multi-facet taxonomy, and review debt.
 - The unit is mostly correct: the script treats benchmark mentions as public attention/adoption signals, not model capability.
 - The reproducible surface is good: `analysis/ideation_network_dynamics/analyze.py` emits a manifest, normalized mention table, cascade table, provider role table, similarity table, source-author table, and charts.
-- `cascade_metrics.csv` is especially useful. It shows 557 resolved mentions, 195 canonical benchmarks, 64 cross-provider public cascades, and 131 single-provider benchmarks.
-- `provider_similarity_timeseries.csv` and `provider_similarity_latest.csv` offer a clear convergence lens: latest cumulative Jaccard similarities are 0.282 for Anthropic-OpenAI, 0.278 for Anthropic-Google, and 0.258 for Google-OpenAI.
+- `cascade_metrics.csv` is especially useful. It shows 557 resolved mentions, 196 canonical benchmarks, 65 cross-provider public cascades, and 131 single-provider benchmarks.
+- `provider_similarity_timeseries.csv` and `provider_similarity_latest.csv` offer a clear convergence lens: latest cumulative Jaccard similarities are 0.287 for Anthropic-OpenAI, 0.284 for Anthropic-Google, and 0.263 for Google-OpenAI.
 - `release_strategy_metrics.csv` may be the most underused output. It directly separates globally new mentions, new-to-provider mentions, self-repeats, and already-used-by-other-provider mentions at the release level.
 - The source-author dependency prototype is conceptually important because it connects benchmark attention to evaluation supply chains rather than capability.
 
@@ -30,7 +30,7 @@ Best use: a compact public-diffusion subsection plus appendix tables. The result
 - The sample has only three providers. Provider-to-provider edges will look more stable than they really are because the graph is tiny.
 - The charts treat every mention equally. A benchmark in a large appendix-style table counts the same as a headline benchmark.
 - The portfolio similarity chart has early spikes driven by small portfolio denominators. It should be interpreted mainly from the more stable 2025-2026 region.
-- Source-author dependency needs audit before foregrounding. In `data/benchmarks.csv`, 92 of 196 benchmark rows are still `legacy_seed`; in `data/benchmark_facets.csv`, 50 of 51 `provider_created_benchmark` lifecycle-risk rows are `needs_review`.
+- Source-author dependency needs audit before foregrounding. In `data/benchmarks.csv`, 92 of 197 benchmark rows are still `legacy_seed`; provider-created lifecycle-risk labels also remain predominantly provisional.
 - `source_author_mix_by_provider.png` uses counts, which partly reflects different total mention volumes by provider. For cross-provider comparison, shares are safer.
 - Running `analyze.py` directly rewrites the result folder, so review and publication workflows should be explicit about when outputs are regenerated.
 

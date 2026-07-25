@@ -15,7 +15,7 @@ The numbers are derived only from local CSVs and use exact canonical benchmark r
 
 | Mentions | Benchmark |
 | ---: | --- |
-| 27 | MMMU / MMMU Pro |
+| 22 | MMMU / MMMU Pro |
 | 18 | SWE-bench verified |
 | 16 | HLE (Humanity's Last Exam) |
 | 15 | AIME |

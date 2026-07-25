@@ -38,7 +38,7 @@ Current README/publication readiness: **6/10**
 ## Risks
 
 - The recent provider comparison rests on small denominators: `provider_strategy_fingerprints.csv` shows recent axis totals of 5 OpenAI releases, 3 Google releases, and 7 Anthropic releases. This is useful but volatile.
-- Taxonomy dependency is high. `summary_stats.csv` shows 29 accepted facet rows out of 3,384 canonical facet rows, with 3,291 `needs_review` and 64 `legacy_seed`. Publication figures need accepted-only or high-confidence sensitivity views.
+- Taxonomy dependency is high. `summary_stats.csv` shows 29 accepted facet rows out of 3,330 canonical facet rows, with 3,268 `needs_review` and 33 `legacy_seed`. Publication figures need accepted-only or high-confidence sensitivity views.
 - The biggest flows in `domain_interaction_flow.csv` have low accepted-pair shares: for example, General/Commonsense -> static prompt response is about 22.4% of flow with accepted-pair share about 1.9%; Coding/Engineering -> terminal or codebase interaction is about 20.2% with accepted-pair share about 8.5%; STEM/Math -> static prompt response is about 18.3% with accepted-pair share 0%.
 - The word "alluvial" visually implies movement or causality. Here the figure is a co-classification view across facet axes, not a temporal flow.
 - "Provider strategy fingerprints" is a compelling title, but "strategy" can overstate intent. "Provider framing fingerprints" or "benchmark-emphasis fingerprints" would better match the data.
