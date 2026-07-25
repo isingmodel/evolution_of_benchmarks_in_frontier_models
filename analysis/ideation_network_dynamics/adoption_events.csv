@@ -206,3 +206,85 @@ benchmark_ifbench,IFBench,OpenAI,2026-04-23,GPT-5.5,IFBench,1,0,True,OpenAI,Acad
 benchmark_officeqa_pro,OfficeQA Pro,OpenAI,2026-04-23,GPT-5.5,OfficeQA Pro,2,7,False,Anthropic,"Academia, Others(Databricks)",none,Agentic,Specialized (Law/Bio/Finance)
 benchmark_scicode,SciCode,OpenAI,2026-04-23,GPT-5.5,SciCode,2,63,False,Google,Academia,none,Generative Reasoning,Coding/Engineering
 benchmark_terminal_bench_hard,Terminal-Bench Hard,OpenAI,2026-04-23,GPT-5.5,Terminal-Bench Hard,1,0,True,OpenAI,"Academia, Others(Artificial Analysis)",none,Agentic,Coding/Engineering
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,Google,2026-05-19,Gemini 3.5 Flash,Artificial Analysis Intelligence Index,2,26,False,OpenAI,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
+benchmark_blueprint_bench_2,Blueprint-Bench 2,Google,2026-05-19,Gemini 3.5 Flash,Blueprint-Bench 2,1,0,True,Google,Others(Andon Labs),none,Agentic,General/Commonsense
+benchmark_finance_agent_v2,Finance Agent v2,Google,2026-05-19,Gemini 3.5 Flash,Finance Agent v2,1,0,True,Google,Others(vals.ai),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_osworld_verified,OSWorld-Verified,Google,2026-05-19,Gemini 3.5 Flash,OSWorld-Verified,3,103,False,OpenAI,Academia,none,Agentic,General/Commonsense
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,Google,2026-05-19,Gemini 3.5 Flash,Terminal-Bench 2.1,1,0,True,Google,Academia,Anthropic,Agentic,Coding/Engineering
+benchmark_toolathlon,Toolathlon,Google,2026-05-19,Gemini 3.5 Flash,Toolathlon,2,159,False,OpenAI,"Academia, Others(All Hands AI)",none,Agentic,General/Commonsense
+benchmark_finance_agent_v2,Finance Agent v2,Anthropic,2026-05-28,Claude 4.8 (Opus),Finance Agent v2,2,9,False,Google,Others(vals.ai),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,Anthropic,2026-05-28,Claude 4.8 (Opus),Legal Agent Benchmark,1,0,True,Anthropic,Others(Harvey),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_online_mind2web,Online-Mind2Web,Anthropic,2026-05-28,Claude 4.8 (Opus),Online-Mind2Web,2,84,False,OpenAI,Academia,none,Agentic,General/Commonsense
+benchmark_super_agent_benchmark,Super-Agent benchmark,Anthropic,2026-05-28,Claude 4.8 (Opus),Super-Agent benchmark,1,0,True,Anthropic,Others(early-access tester),none,Agentic,General/Commonsense
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,Anthropic,2026-05-28,Claude 4.8 (Opus),Terminal-Bench 2.1,2,9,False,Google,Academia,Anthropic,Agentic,Coding/Engineering
+benchmark_automationbench,AutomationBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),AutomationBench,1,0,True,Anthropic,"Academia, Others(Zapier)",none,Agentic,General/Commonsense
+benchmark_biomysterybench,BioMysteryBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),BioMysteryBench,1,0,True,Anthropic,Anthropic,Anthropic,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_blueprint_bench_2,Blueprint-Bench 2,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),Blueprint-Bench 2,2,21,False,Google,Others(Andon Labs),none,Agentic,General/Commonsense
+benchmark_cyscenariobench,CyScenarioBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),CyScenarioBench,1,0,True,Anthropic,Others(Irregular),none,Agentic,Coding/Engineering
+benchmark_exploitbench,ExploitBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),ExploitBench,1,0,True,Anthropic,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_firefox,Firefox,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),Firefox,1,0,True,Anthropic,"Anthropic, Others(Mozilla)",Anthropic,Agentic,Coding/Engineering
+benchmark_frontierbench,FrontierBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),FrontierBench,1,0,True,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_frontiercode_diamond,FrontierCode (Diamond),Anthropic,2026-06-09,Claude 5 (Fable/Mythos),FrontierCode (Diamond),1,0,True,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_healthbench_professional,HealthBench Professional,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),HealthBench Professional,1,0,True,Anthropic,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),Hebbia's Finance Benchmark,1,0,True,Anthropic,Others(Hebbia),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),IMC trading-analysis evaluations,1,0,True,Anthropic,Others(IMC),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_oss_fuzz,OSS-Fuzz,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),OSS-Fuzz,1,0,True,Anthropic,Anthropic,Anthropic,Agentic,Coding/Engineering
+benchmark_vibench,ViBench,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),ViBench,1,0,True,Anthropic,Others(early-access tester),none,Agentic,Coding/Engineering
+benchmark_automated_alignment_assessment,automated alignment assessment,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),automated alignment assessment,1,0,True,Anthropic,Anthropic,Anthropic,Constraint Satisfaction,General/Commonsense
+benchmark_core_analytics_benchmark,core analytics benchmark,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),core analytics benchmark,1,0,True,Anthropic,Others(early-access tester),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),everyday spreadsheet suite,1,0,True,Anthropic,Others(early-access tester),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_gdp_pdf,gdp.pdf,Anthropic,2026-06-09,Claude 5 (Fable/Mythos),GDP.pdf,1,0,True,Anthropic,Others(Surge AI),none,Multimodal Perception,Specialized (Law/Bio/Finance)
+benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,Anthropic,2026-06-30,Claude 5 (Sonnet),Eve's plaintiff-law tasks,1,0,True,Anthropic,Others(Eve),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,Anthropic,2026-06-30,Claude 5 (Sonnet),Firefox 147 exploit evaluation,1,0,True,Anthropic,"Anthropic, Others(Mozilla)",Anthropic,Agentic,Coding/Engineering
+benchmark_gdpval_aa_v2,GDPval-AA v2,Anthropic,2026-06-30,Claude 5 (Sonnet),GDPval-AA v2,1,0,True,Anthropic,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_arc_agi_3,ARC-AGI-3,OpenAI,2026-07-09,GPT-5.6,ARC-AGI-3,1,0,True,OpenAI,Others(ARC Prize),none,Generative Reasoning,General/Commonsense
+benchmark_agents_last_exam,Agents' Last Exam,OpenAI,2026-07-09,GPT-5.6,Agents' Last Exam,1,0,True,OpenAI,"Academia, Others(Berkeley RDI; RDI Foundation)",none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,OpenAI,2026-07-09,GPT-5.6,Artificial Analysis Coding Agent Index v1.1,1,0,True,OpenAI,Others(Artificial Analysis),none,Agentic,Coding/Engineering
+benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,OpenAI,2026-07-09,GPT-5.6,Artificial Analysis Intelligence Index v4.1,1,0,True,OpenAI,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
+benchmark_automationbench,AutomationBench,OpenAI,2026-07-09,GPT-5.6,AutomationBench,2,30,False,Anthropic,"Academia, Others(Zapier)",none,Agentic,General/Commonsense
+benchmark_benchcad,BenchCAD,OpenAI,2026-07-09,GPT-5.6,BenchCAD,1,0,True,OpenAI,Others(BenchCAD),none,Agentic,Coding/Engineering
+benchmark_big_finance_bench,Big Finance Bench,OpenAI,2026-07-09,GPT-5.6,Big Finance Bench,1,0,True,OpenAI,Others(Rogo),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_cursorbench,CursorBench,OpenAI,2026-07-09,GPT-5.6,CursorBench,2,84,False,Anthropic,Others(Cursor),none,Agentic,Coding/Engineering
+benchmark_deepswe_v1_1,DeepSWE v1.1,OpenAI,2026-07-09,GPT-5.6,DeepSWE v1.1,1,0,True,OpenAI,Others(DataCurve),none,Agentic,Coding/Engineering
+benchmark_exploitbench_2,ExploitBench 2,OpenAI,2026-07-09,GPT-5.6,ExploitBench 2,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_exploitgym_3,ExploitGym 3,OpenAI,2026-07-09,GPT-5.6,ExploitGym 3,1,0,True,OpenAI,"Academia, OpenAI",OpenAI,Agentic,Coding/Engineering
+benchmark_gdpval_aa_v2,GDPval-AA v2,OpenAI,2026-07-09,GPT-5.6,GDPval-AA v2,2,9,False,Anthropic,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_genebench_pro,GeneBench Pro,OpenAI,2026-07-09,GPT-5.6,GeneBench Pro,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance)
+benchmark_healthbench_professional,HealthBench Professional,OpenAI,2026-07-09,GPT-5.6,HealthBench Professional,2,30,False,Anthropic,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,OpenAI,2026-07-09,GPT-5.6,Internal Research Debugging Evaluation,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_kernelgen_1p,KernelGen 1P,OpenAI,2026-07-09,GPT-5.6,KernelGen 1P,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,OpenAI,2026-07-09,GPT-5.6,Legora's internal eval harness,1,0,True,OpenAI,Others(Legora),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_lifescibench,LifeSciBench,OpenAI,2026-07-09,GPT-5.6,LifeSciBench,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance)
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),OpenAI,2026-07-09,GPT-5.6,Management Consulting Tasks (Internal),1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance)
+benchmark_medchembench_internal,MedChemBench (Internal),OpenAI,2026-07-09,GPT-5.6,MedChemBench (Internal),1,0,True,OpenAI,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_model_ml_s_finbench,Model ML's FinBench,OpenAI,2026-07-09,GPT-5.6,Model ML's FinBench,1,0,True,OpenAI,Others(Model ML),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_nanogpt,NanoGPT,OpenAI,2026-07-09,GPT-5.6,NanoGPT,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_osworld_2_0,OSWorld 2.0,OpenAI,2026-07-09,GPT-5.6,OSWorld 2.0,1,0,True,OpenAI,Academia,none,Agentic,General/Commonsense
+benchmark_posttrainbench_lite,PostTrainBench Lite,OpenAI,2026-07-09,GPT-5.6,PostTrainBench Lite,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_rsi_index,RSI Index,OpenAI,2026-07-09,GPT-5.6,RSI Index,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_sec_bench_pro,SEC-Bench Pro,OpenAI,2026-07-09,GPT-5.6,SEC-Bench Pro,1,0,True,OpenAI,Academia,none,Agentic,Coding/Engineering
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,OpenAI,2026-07-09,GPT-5.6,Terminal-Bench 2.1,3,51,False,Google,Academia,Anthropic,Agentic,Coding/Engineering
+benchmark_agentic_code_review_tests,agentic code-review tests,OpenAI,2026-07-09,GPT-5.6,agentic code-review tests,1,0,True,OpenAI,Others(Qodo),none,Agentic,Coding/Engineering
+benchmark_combined_evaluation_suite,combined evaluation suite,OpenAI,2026-07-09,GPT-5.6,combined evaluation suite,1,0,True,OpenAI,Others(Clio),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_early_design_evals,early design evals,OpenAI,2026-07-09,GPT-5.6,early design evals,1,0,True,OpenAI,Others(Canva),none,Generative Reasoning,General/Commonsense
+benchmark_gdp_pdf,gdp.pdf,OpenAI,2026-07-09,GPT-5.6,gdp.pdf,2,30,False,Anthropic,Others(Surge AI),none,Multimodal Perception,Specialized (Law/Bio/Finance)
+benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,OpenAI,2026-07-09,GPT-5.6,internal and external PR benchmarks,1,0,True,OpenAI,Others(Qodo),none,Agentic,Coding/Engineering
+benchmark_seven_task_benchmark,seven-task benchmark,OpenAI,2026-07-09,GPT-5.6,seven-task benchmark,1,0,True,OpenAI,Others(Triple Whale),none,Generative Reasoning,Coding/Engineering
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,Google,2026-07-21,Gemini 3.5 Flash Cyber,Big Sleep Evaluation,1,0,True,Google,Google DeepMind,Google; DeepMind,Agentic,Coding/Engineering
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,Google,2026-07-21,Gemini 3.5 Flash Cyber,Chrome Production Commit Scanning Pipeline,1,0,True,Google,Google,Google,Agentic,Coding/Engineering
+benchmark_cybergym,CyberGym,Google,2026-07-21,Gemini 3.5 Flash Cyber,CyberGym,3,166,False,Anthropic,Academia,none,Agentic,Coding/Engineering
+benchmark_deepswe_v1_1,DeepSWE v1.1,Google,2026-07-21,Gemini 3.6 Flash,DeepSWE v1.1,2,12,False,OpenAI,Others(DataCurve),none,Agentic,Coding/Engineering
+benchmark_gdpval_aa_v2,GDPval-AA v2,Google,2026-07-21,Gemini 3.5 Flash-Lite,GDPval-AA v2,3,21,False,Anthropic,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_mle_bench,MLE-Bench,Google,2026-07-21,Gemini 3.6 Flash,MLE-Bench,1,0,True,Google,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_arc_agi_3,ARC-AGI-3,Anthropic,2026-07-24,Claude 5 (Opus),ARC-AGI-3,2,15,False,OpenAI,Others(ARC Prize),none,Generative Reasoning,General/Commonsense
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,Anthropic,2026-07-24,Claude 5 (Opus),AA Coding Agent Index,2,15,False,OpenAI,Others(Artificial Analysis),none,Agentic,Coding/Engineering
+benchmark_cursorbench_3_2,CursorBench 3.2,Anthropic,2026-07-24,Claude 5 (Opus),CursorBench 3.2,1,0,True,Anthropic,Others(Cursor),none,Agentic,Coding/Engineering
+benchmark_deepswe_v1_1,DeepSWE v1.1,Anthropic,2026-07-24,Claude 5 (Opus),DeepSWE v1.1,3,15,False,OpenAI,Others(DataCurve),none,Agentic,Coding/Engineering
+benchmark_deepsearchqa,DeepSearchQA,Anthropic,2026-07-24,Claude 5 (Opus),DeepSearchQA,1,0,True,Anthropic,"Academia, Google DeepMind",Google; DeepMind,Agentic,General/Commonsense
+benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,Anthropic,2026-07-24,Claude 5 (Opus),Frontier-Bench v0.1,1,0,True,Anthropic,"Academia, Others(Harbor; Laude Institute)",none,Agentic,Coding/Engineering
+benchmark_frontiercode_v1_1,FrontierCode v1.1,Anthropic,2026-07-24,Claude 5 (Opus),FrontierCode v1.1,1,0,True,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_lovable_internal_evals,Lovable internal evals,Anthropic,2026-07-24,Claude 5 (Opus),Lovable internal evals,1,0,True,Anthropic,Others(Lovable),none,Agentic,Coding/Engineering
+benchmark_osworld_2_0,OSWorld 2.0,Anthropic,2026-07-24,Claude 5 (Opus),OSWorld 2.0,2,15,False,OpenAI,Academia,none,Agentic,General/Commonsense
+benchmark_frontend_benchmark,frontend benchmark,Anthropic,2026-07-24,Claude 5 (Opus),frontend benchmark,1,0,True,Anthropic,Others(Triple Whale),none,Agentic,Coding/Engineering
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,Anthropic,2026-07-24,Claude 5 (Opus),internal organic chemistry benchmark,1,0,True,Anthropic,Anthropic,Anthropic,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_trading_benchmark,trading benchmark,Anthropic,2026-07-24,Claude 5 (Opus),trading benchmark,1,0,True,Anthropic,Others(early-access tester),none,Generative Reasoning,Specialized (Law/Bio/Finance)

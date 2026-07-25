@@ -1,6 +1,4 @@
-import argparse
-import sys
-from pathlib import Path
+from __future__ import annotations
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,13 +6,8 @@ import matplotlib.dates as mdates
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import seaborn as sns
 
-ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
-
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from plot_utils import (  # noqa: E402
+from scripts.analysis_utils import create_analysis_parser
+from scripts.plot_utils import (
     MODE_ORDER,
     build_model_facet_events,
     configure_plot_style,
@@ -28,24 +21,11 @@ from plot_utils import (  # noqa: E402
 
 configure_plot_style()
 
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Generate the benchmark evolution timeline.")
-    parser.add_argument(
-        "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to the latest release date in data/models.csv.",
-    )
-    parser.add_argument(
-        "--output",
-        default="assets/benchmark_evolution.png",
-        help="Output image path.",
-    )
-    parser.add_argument(
-        "--strict-resolution",
-        action="store_true",
-        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(
+    "Generate the benchmark evolution timeline.",
+    output="assets/benchmark_evolution.png",
+    strict_resolution=True,
+)
 
 
 def process_data(models_df, facets_df, as_of=None, strict_resolution=False):
@@ -128,8 +108,8 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
     plt.xticks(rotation=45, fontsize=10)
 
-    min_date = df["Date"].min() - pd.Timedelta(days=60)
-    max_date = max(df["Date"].max(), as_of) + pd.Timedelta(days=60)
+    min_date = df["Date"].min() - pd.to_timedelta(60, unit="D")
+    max_date = max(df["Date"].max(), as_of) + pd.to_timedelta(60, unit="D")
     ax.set_xlim(min_date, max_date)
     ax.set_ylim(-0.8, len(providers) - 0.2)
 
@@ -199,7 +179,7 @@ def generate_graph(as_of=None, output_path="assets/benchmark_evolution.png", str
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    args = PARSER.parse_args()
     generate_graph(
         as_of=parse_as_of(args.as_of),
         output_path=args.output,

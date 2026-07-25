@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evolution-of-benchmarks-in-frontier-models"
+version = "0.1.0"
+description = "Research data and analyses of benchmark mentions on frontier-model release pages"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+include = ["analysis*", "scripts*"]
+namespaces = true

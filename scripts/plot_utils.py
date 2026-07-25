@@ -8,24 +8,15 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-if __package__:
-    from .taxonomy_utils import (
-        HEADLINE_PROJECTION_AXES,
-        HEADLINE_TO_LEGACY_TASK_MODE,
-        REVIEW_CONFIDENCE_THRESHOLD,
-        CanonicalResolver,
-        derive_headline_projection,
-        split_benchmark_mentions,
-    )
-else:
-    from taxonomy_utils import (
-        HEADLINE_PROJECTION_AXES,
-        HEADLINE_TO_LEGACY_TASK_MODE,
-        REVIEW_CONFIDENCE_THRESHOLD,
-        CanonicalResolver,
-        derive_headline_projection,
-        split_benchmark_mentions,
-    )
+from scripts.analysis_utils import build_resolved_mentions
+from scripts.taxonomy_utils import (
+    HEADLINE_PROJECTION_AXES,
+    HEADLINE_TO_LEGACY_TASK_MODE,
+    REVIEW_CONFIDENCE_THRESHOLD,
+    CanonicalResolver,
+    derive_headline_projection,
+    split_benchmark_mentions,
+)
 
 
 DATA_DIR = Path("data")
@@ -195,51 +186,45 @@ def build_model_facet_events(
     }
 
     rows = []
-    unresolved = []
     missing_facets = []
-    for _, model in models.fillna("").iterrows():
-        provider = str(model.get("Provider", "")).strip()
-        model_name = str(model.get("Model name", "")).strip()
-        release_date = pd.to_datetime(model.get("release date", ""), errors="raise")
-        if release_date > as_of:
-            continue
-
-        resolved_mentions = []
-        for raw_mention in split_benchmarks(model.get("benchmarks", "")):
-            resolution = resolver.resolve(raw_mention)
-            if resolution:
-                resolved_mentions.append((raw_mention, resolution.benchmark_id))
-            else:
-                unresolved.append((model_name, raw_mention))
-
-        if not resolved_mentions:
-            continue
-
-        resolved_count = len(resolved_mentions)
-        benchmark_weight = 1.0 / resolved_count
-        model_key = "|".join([provider, model_name, str(model.get("release date", "")).strip()])
-        for raw_mention, benchmark_id_value in resolved_mentions:
-            for axis in axes:
-                labels = labels_by_key.get((benchmark_id_value, axis), [])
-                if not labels:
-                    missing_facets.append((model_name, f"{raw_mention} [{axis}]"))
-                    continue
-                label_weight = benchmark_weight / len(labels)
-                for label in labels:
-                    rows.append(
-                        {
-                            "model_key": model_key,
-                            "Model": model_name,
-                            "Provider": provider,
-                            "Date": release_date,
-                            "benchmark_id": benchmark_id_value,
-                            "raw_mention": raw_mention,
-                            "resolved_mentions_on_release": resolved_count,
-                            "facet_axis": axis,
-                            "Category": label,
-                            "Weight": label_weight,
-                        }
-                    )
+    release_dates = pd.to_datetime(models["release date"], errors="raise")
+    scoped_models = models.loc[release_dates <= as_of].copy()
+    mentions, unresolved_frame = build_resolved_mentions(
+        scoped_models,
+        resolver,
+        unresolved_policy="collect",
+    )
+    unresolved = [
+        (row.model_name, row.raw_mention)
+        for row in unresolved_frame.itertuples(index=False)
+    ]
+    for mention in mentions.itertuples(index=False):
+        benchmark_weight = mention.release_weight
+        for axis in axes:
+            labels = labels_by_key.get((mention.benchmark_id, axis), [])
+            if not labels:
+                missing_facets.append(
+                    (mention.model_name, f"{mention.raw_mention} [{axis}]")
+                )
+                continue
+            label_weight = benchmark_weight / len(labels)
+            for label in labels:
+                rows.append(
+                    {
+                        "model_key": mention.model_key,
+                        "Model": mention.model_name,
+                        "Provider": mention.provider,
+                        "Date": mention.release_date,
+                        "benchmark_id": mention.benchmark_id,
+                        "raw_mention": mention.raw_mention,
+                        "resolved_mentions_on_release": (
+                            mention.resolved_benchmark_count_for_release
+                        ),
+                        "facet_axis": axis,
+                        "Category": label,
+                        "Weight": label_weight,
+                    }
+                )
 
     warn_unresolved(unresolved, strict_resolution)
     if missing_facets:

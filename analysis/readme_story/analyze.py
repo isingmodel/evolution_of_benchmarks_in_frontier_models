@@ -7,9 +7,7 @@ not be read as model capability measurements or as complete evaluation records.
 
 from __future__ import annotations
 
-import argparse
 import re
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -23,12 +21,13 @@ import pandas as pd
 import seaborn as sns
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from taxonomy_utils import CanonicalResolver, exact_key, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import build_resolved_mentions, create_analysis_parser
+from scripts.taxonomy_utils import (
+    ALLOWED_BENCHMARK_LIFECYCLE_RISK,
+    CanonicalResolver,
+    exact_key,
+)
 
 DATA_DIR = ROOT / "data"
 DEFAULT_OUTPUT_DIR = ROOT / "analysis" / "readme_story"
@@ -106,25 +105,38 @@ DIFFUSION_CASCADE_COLUMNS = [
 ]
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest models.csv date.",
-    )
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=DEFAULT_OUTPUT_DIR,
-        help="Directory for generated CSV outputs.",
-    )
-    parser.add_argument(
-        "--asset-dir",
-        type=Path,
-        default=DEFAULT_ASSET_DIR,
-        help="Directory for generated README chart assets.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(__doc__ or "Generate README story analyses.")
+PARSER.add_argument(
+    "--output-dir",
+    type=Path,
+    default=DEFAULT_OUTPUT_DIR,
+    help="Directory for generated CSV outputs.",
+)
+PARSER.add_argument(
+    "--asset-dir",
+    type=Path,
+    default=DEFAULT_ASSET_DIR,
+    help="Directory for generated README chart assets.",
+)
+PARSER.add_argument(
+    "--exclude-lifecycle-risk",
+    action="append",
+    default=[],
+    choices=sorted(ALLOWED_BENCHMARK_LIFECYCLE_RISK),
+    help=(
+        "Exclude benchmarks carrying this lifecycle-risk label. Repeat for "
+        "multiple labels; release weights are renormalized after filtering."
+    ),
+)
+PARSER.add_argument(
+    "--min-mentions",
+    type=int,
+    default=1,
+    help=(
+        "Keep benchmarks with at least this many mentions in the scoped "
+        "dataset; release weights are renormalized after filtering."
+    ),
+)
 
 
 def configure_style() -> None:
@@ -154,58 +166,13 @@ def load_inputs(as_of: str | None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataF
 
 
 def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.DataFrame:
-    rows = []
-    unresolved = []
-    for _, model in models.iterrows():
-        raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
-        resolved: dict[str, dict[str, object]] = {}
-        model_unresolved = []
-        for raw_mention in raw_mentions:
-            resolution = resolver.resolve(raw_mention)
-            if not resolution:
-                model_unresolved.append(f"{model['Provider']} / {model['Model name']} / {raw_mention}")
-                continue
-            entry = resolved.setdefault(
-                resolution.benchmark_id,
-                {
-                    "raw_mentions": [],
-                    "resolution": resolution,
-                },
-            )
-            entry["raw_mentions"].append(raw_mention)
-
-        if model_unresolved:
-            unresolved.extend(model_unresolved)
-            continue
-        if not resolved:
-            continue
-
-        release_weight = 1.0 / len(resolved)
-        for entry in resolved.values():
-            raw_mentions_for_benchmark = entry["raw_mentions"]
-            resolution = entry["resolution"]
-            rows.append(
-                {
-                    "provider": model["Provider"],
-                    "model_name": model["Model name"],
-                    "link": model["link"],
-                    "release_date": model["release_date"],
-                    "release_year": int(model["release_year"]),
-                    "model_key": model["model_key"],
-                    "raw_mention": "; ".join(raw_mentions_for_benchmark),
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "release_weight": release_weight,
-                    "raw_weight": float(len(raw_mentions_for_benchmark)),
-                    "resolved_benchmark_count_for_release": len(resolved),
-                }
-            )
-
-    if unresolved:
-        sample = "; ".join(unresolved[:10])
-        raise ValueError(f"Unresolved benchmark mentions found: {sample}")
-
-    return pd.DataFrame(rows, columns=MENTION_COLUMNS)
+    mentions, _ = build_resolved_mentions(
+        models,
+        resolver,
+        deduplicate_within_release=True,
+        unresolved_policy="error",
+    )
+    return mentions[MENTION_COLUMNS].copy()
 
 
 def display_path(path: Path) -> str:
@@ -319,7 +286,47 @@ def pct(value: float) -> str:
     return f"{value:.1%}"
 
 
-def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_dir: Path, cutoff: pd.Timestamp) -> None:
+def filter_mentions(
+    enriched: pd.DataFrame,
+    facet_map: dict[str, dict[str, set[str]]],
+    exclude_lifecycle_risks: set[str] | None = None,
+    min_mentions: int = 1,
+) -> pd.DataFrame:
+    """Filter benchmark mentions without letting longer surviving lists dominate.
+
+    Lifecycle and frequency sensitivity checks change the number of eligible
+    mentions on a release page. Recomputing the weights after filtering keeps
+    every release page at one unit of influence whenever it retains a mention.
+    """
+    if min_mentions < 1:
+        raise ValueError("min_mentions must be at least 1")
+
+    excluded = set(exclude_lifecycle_risks or ())
+    mention_counts = enriched.groupby("benchmark_id")["benchmark_id"].size()
+    keep = enriched["benchmark_id"].map(mention_counts).fillna(0).ge(min_mentions)
+    if excluded:
+        keep &= ~enriched["benchmark_id"].map(
+            lambda benchmark_id: bool(
+                facet_map.get(benchmark_id, {})
+                .get("benchmark_lifecycle_risk", set())
+                .intersection(excluded)
+            )
+        )
+
+    filtered = enriched.loc[keep].copy()
+    if filtered.empty:
+        return filtered
+
+    surviving_counts = filtered.groupby("model_key")["benchmark_id"].transform("size")
+    filtered["release_weight"] = 1.0 / surviving_counts
+    filtered["resolved_benchmark_count_for_release"] = surviving_counts
+    return filtered
+
+
+def build_static_work_frames(
+    enriched: pd.DataFrame,
+    cutoff: pd.Timestamp,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     release_frame = (
         enriched.groupby(["model_key", "provider", "model_name", "release_year"])
         .agg(
@@ -348,6 +355,47 @@ def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_di
     )
     annual["year_label"] = annual["release_year"].astype(str)
     annual.loc[annual["release_year"] == cutoff.year, "year_label"] = f"{cutoff.year} YTD"
+    return release_frame, annual
+
+
+def write_static_work_sensitivity(
+    enriched: pd.DataFrame,
+    facet_map: dict[str, dict[str, set[str]]],
+    output_dir: Path,
+    cutoff: pd.Timestamp,
+) -> None:
+    variants = [
+        ("as published", set(), 1),
+        ("excl. private/opaque", {"private_or_opaque_eval"}, 1),
+        ("excl. single-mention", set(), 2),
+        ("excl. both", {"private_or_opaque_eval"}, 2),
+    ]
+    rows = []
+    for variant, excluded_risks, min_mentions in variants:
+        filtered = filter_mentions(
+            enriched,
+            facet_map,
+            exclude_lifecycle_risks=excluded_risks,
+            min_mentions=min_mentions,
+        )
+        _, annual = build_static_work_frames(filtered, cutoff)
+        for row in annual.itertuples(index=False):
+            rows.append(
+                {
+                    "variant": variant,
+                    "excluded_lifecycle_risks": "; ".join(sorted(excluded_risks)),
+                    "min_mentions": min_mentions,
+                    "release_year": row.release_year,
+                    "year_label": row.year_label,
+                    "work_simulation_share": row.work_simulation_share,
+                    "benchmarked_release_pages": row.benchmarked_release_pages,
+                }
+            )
+    pd.DataFrame(rows).to_csv(output_dir / "static_work_sensitivity.csv", index=False)
+
+
+def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_dir: Path, cutoff: pd.Timestamp) -> None:
+    release_frame, annual = build_static_work_frames(enriched, cutoff)
     annual.to_csv(output_dir / "static_work_annual.csv", index=False)
     release_frame.to_csv(output_dir / "static_work_release_frames.csv", index=False)
 
@@ -623,7 +671,7 @@ def write_review_leverage_outputs(
     asset_dir: Path,
     cutoff: pd.Timestamp,
 ) -> None:
-    recent_start = cutoff - pd.Timedelta(days=365)
+    recent_start = cutoff - pd.to_timedelta(365, unit="D")
     recent = enriched[enriched["release_date"] >= recent_start].copy()
     weighted = (
         recent.groupby(["benchmark_id", "benchmark_name"])
@@ -669,7 +717,13 @@ def write_run_summary(enriched: pd.DataFrame, output_dir: Path, cutoff: pd.Times
     summary.to_csv(output_dir / "story_analysis_summary.csv", index=False)
 
 
-def generate_story_analyses(as_of: str | None, output_dir: Path, asset_dir: Path) -> None:
+def generate_story_analyses(
+    as_of: str | None,
+    output_dir: Path,
+    asset_dir: Path,
+    exclude_lifecycle_risks: set[str] | None = None,
+    min_mentions: int = 1,
+) -> None:
     configure_style()
     output_dir = output_dir.resolve()
     asset_dir = asset_dir.resolve()
@@ -678,7 +732,14 @@ def generate_story_analyses(as_of: str | None, output_dir: Path, asset_dir: Path
     models, benchmarks, facets, resolver, cutoff = load_inputs(as_of)
     mentions = build_mentions(models, resolver)
     facet_map, status_counts = build_facet_maps(facets)
-    enriched = add_metadata_and_flags(mentions, benchmarks, facet_map)
+    all_enriched = add_metadata_and_flags(mentions, benchmarks, facet_map)
+    write_static_work_sensitivity(all_enriched, facet_map, output_dir, cutoff)
+    enriched = filter_mentions(
+        all_enriched,
+        facet_map,
+        exclude_lifecycle_risks=exclude_lifecycle_risks,
+        min_mentions=min_mentions,
+    )
     enriched.to_csv(output_dir / "story_mentions_enriched.csv", index=False)
 
     write_static_work_outputs(enriched, output_dir, asset_dir, cutoff)
@@ -692,8 +753,16 @@ def generate_story_analyses(as_of: str | None, output_dir: Path, asset_dir: Path
 
 
 def main() -> None:
-    args = parse_args()
-    generate_story_analyses(args.as_of, args.output_dir, args.asset_dir)
+    args = PARSER.parse_args()
+    if args.min_mentions < 1:
+        raise SystemExit("--min-mentions must be at least 1")
+    generate_story_analyses(
+        args.as_of,
+        args.output_dir,
+        args.asset_dir,
+        exclude_lifecycle_risks=set(args.exclude_lifecycle_risk),
+        min_mentions=args.min_mentions,
+    )
 
 
 if __name__ == "__main__":

@@ -8,7 +8,6 @@ CanonicalResolver, and writes prototype charts/tables back to this folder.
 
 from __future__ import annotations
 
-import sys
 import textwrap
 from pathlib import Path
 
@@ -28,11 +27,14 @@ import seaborn as sns
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
-SCRIPTS_DIR = ROOT / "scripts"
-sys.path.insert(0, str(SCRIPTS_DIR))
 
-from plot_utils import load_benchmark_facets  # noqa: E402
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import (
+    build_resolved_mentions,
+    create_analysis_parser,
+    scope_models_as_of,
+)
+from scripts.plot_utils import load_benchmark_facets
+from scripts.taxonomy_utils import CanonicalResolver
 
 
 MODE_ORDER = [
@@ -53,6 +55,8 @@ STATUS_COLORS = {
 
 PROVIDER_ORDER = ["OpenAI", "Google", "Anthropic"]
 
+PARSER = create_analysis_parser(__doc__ or "Generate methodology visuals.")
+
 
 def configure_style() -> None:
     sns.set_theme(style="whitegrid")
@@ -62,8 +66,11 @@ def configure_style() -> None:
     plt.rcParams["figure.dpi"] = 120
 
 
-def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
+def load_inputs(
+    as_of: str | None,
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
     models = pd.read_csv(DATA_DIR / "models.csv").fillna("")
+    models, _ = scope_models_as_of(models, as_of)
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
     canonical_facets = load_benchmark_facets(add_headline_projection=False)
     projected_facets = load_benchmark_facets(add_headline_projection=True)
@@ -75,53 +82,26 @@ def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFram
 
 
 def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> pd.DataFrame:
-    rows: list[dict[str, object]] = []
-    unresolved: list[str] = []
-    mention_id = 0
-
-    for _, model in models.iterrows():
-        provider = str(model.get("Provider", "")).strip()
-        model_name = str(model.get("Model name", "")).strip()
-        release_date = pd.to_datetime(str(model.get("release date", "")).strip(), errors="raise")
-        model_key = "|".join([provider, model_name, release_date.strftime("%Y-%m-%d")])
-        raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
-        if not raw_mentions:
-            continue
-
-        for raw_mention in raw_mentions:
-            resolution = resolver.resolve(raw_mention)
-            if resolution is None:
-                unresolved.append(f"{provider} / {model_name} / {raw_mention}")
-                continue
-            rows.append(
-                {
-                    "mention_row_id": mention_id,
-                    "provider": provider,
-                    "model_name": model_name,
-                    "model_key": model_key,
-                    "release_date": release_date,
-                    "raw_mention": raw_mention,
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "match_source": resolution.match_source,
-                    "match_type": resolution.match_type,
-                }
-            )
-            mention_id += 1
-
-    if unresolved:
-        sample = "; ".join(unresolved[:10])
-        raise ValueError(
-            f"Unresolved benchmark mentions skipped ({len(unresolved)}): {sample}. "
-            "Add canonical benchmark rows or explicit aliases; fuzzy matching is disabled."
-        )
-
-    mentions = pd.DataFrame(rows)
-    if mentions.empty:
-        return mentions
-
-    mention_counts = mentions.groupby("model_key")["mention_row_id"].transform("count")
-    mentions["model_normalized_weight"] = 1.0 / mention_counts
+    resolved, _ = build_resolved_mentions(
+        models,
+        resolver,
+        unresolved_policy="error",
+    )
+    mentions = resolved[
+        [
+            "mention_id",
+            "provider",
+            "model_name",
+            "model_key",
+            "release_date",
+            "raw_mention",
+            "benchmark_id",
+            "benchmark_name",
+            "match_source",
+            "match_type",
+        ]
+    ].rename(columns={"mention_id": "mention_row_id"})
+    mentions["model_normalized_weight"] = resolved["release_weight"].to_numpy()
     return mentions
 
 
@@ -139,7 +119,7 @@ def active_facets(facets: pd.DataFrame, axis: str | None = None) -> pd.DataFrame
 
 
 def window_mentions(mentions: pd.DataFrame, latest: pd.Timestamp, days: int) -> pd.DataFrame:
-    start = latest - pd.Timedelta(days=days)
+    start = latest - pd.to_timedelta(days, unit="D")
     return mentions[mentions["release_date"] >= start].copy()
 
 
@@ -255,7 +235,7 @@ def write_provider_strategy_fingerprints(
         if i > 0:
             ax.set_yticklabels([])
 
-    start = latest - pd.Timedelta(days=window_days)
+    start = latest - pd.to_timedelta(window_days, unit="D")
     fig.suptitle(
         "Provider Strategy Fingerprints From Release-Page Benchmark Mentions",
         fontsize=17,
@@ -449,7 +429,7 @@ def write_domain_interaction_alluvial(
         ax.text(0.94, (y0 + y1) / 2, wrap_label(label, 22), ha="left", va="center", fontsize=10)
         ax.text(0.845, (y0 + y1) / 2, format_share(target_totals[label]), ha="right", va="center", fontsize=9)
 
-    start = latest - pd.Timedelta(days=window_days)
+    start = latest - pd.to_timedelta(window_days, unit="D")
     ax.text(0.115, 1.02, "Domain Facets", ha="center", va="bottom", fontsize=12, weight="bold")
     ax.text(0.885, 1.02, "Interaction Pattern Facets", ha="center", va="bottom", fontsize=12, weight="bold")
     fig.suptitle(
@@ -569,7 +549,7 @@ def write_review_leverage(
             color="#4b5563",
         )
 
-    start = latest - pd.Timedelta(days=window_days)
+    start = latest - pd.to_timedelta(window_days, unit="D")
     ax.set_title("Review Leverage: High-Impact Benchmark Facets Still Driving Uncertainty", fontsize=16, pad=14)
     fig.text(
         0.5,
@@ -638,8 +618,11 @@ def write_summary_stats(mentions: pd.DataFrame, facets: pd.DataFrame, latest: pd
 
 
 def main() -> None:
+    args = PARSER.parse_args()
     configure_style()
-    models, benchmarks, canonical_facets, projected_facets, resolver = load_inputs()
+    models, benchmarks, canonical_facets, projected_facets, resolver = load_inputs(
+        args.as_of
+    )
     mentions = build_mentions(models, resolver)
     latest = mentions["release_date"].max().normalize()
 

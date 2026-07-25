@@ -1,0 +1,17 @@
+variant,excluded_lifecycle_risks,min_mentions,release_year,year_label,work_simulation_share,benchmarked_release_pages
+as published,,1,2023,2023,0.12037037037037036,3
+as published,,1,2024,2024,0.1801262973137973,8
+as published,,1,2025,2025,0.390540093782575,14
+as published,,1,2026,2026 YTD,0.7323325714318362,16
+excl. private/opaque,private_or_opaque_eval,1,2023,2023,0.20370370370370372,3
+excl. private/opaque,private_or_opaque_eval,1,2024,2024,0.17491796398046397,8
+excl. private/opaque,private_or_opaque_eval,1,2025,2025,0.37607870899556,14
+excl. private/opaque,private_or_opaque_eval,1,2026,2026 YTD,0.696294999243588,16
+excl. single-mention,,2,2023,2023,0.16666666666666666,3
+excl. single-mention,,2,2024,2024,0.17982867826617827,8
+excl. single-mention,,2,2025,2025,0.3770946002618935,14
+excl. single-mention,,2,2026,2026 YTD,0.7230282875019717,16
+excl. both,private_or_opaque_eval,2,2023,2023,0.3333333333333333,2
+excl. both,private_or_opaque_eval,2,2024,2024,0.16792391636141635,8
+excl. both,private_or_opaque_eval,2,2025,2025,0.36260958929026155,14
+excl. both,private_or_opaque_eval,2,2026,2026 YTD,0.6728189345376846,16

@@ -10,7 +10,6 @@ mention weights. Raw mention counts are still emitted for density analyses.
 
 from __future__ import annotations
 
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -26,13 +25,14 @@ import seaborn as sns
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 DATA_DIR = ROOT / "data"
-SCRIPTS_DIR = ROOT / "scripts"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from plot_utils import load_benchmark_facets  # noqa: E402
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import (
+    build_resolved_mentions,
+    create_analysis_parser,
+    scope_models_as_of,
+)
+from scripts.plot_utils import load_benchmark_facets
+from scripts.taxonomy_utils import CanonicalResolver, split_benchmark_mentions
 
 
 OUTPUTS = {
@@ -114,6 +114,8 @@ PROVIDER_CREATED_OR_PRIVATE_RISKS = {
     "provider_created_benchmark",
 }
 
+PARSER = create_analysis_parser(__doc__ or "Analyze release-page narrative strategy.")
+
 
 def configure_style() -> None:
     sns.set_theme(style="whitegrid")
@@ -121,8 +123,9 @@ def configure_style() -> None:
     plt.rcParams["font.sans-serif"] = ["Verdana", "Arial", "DejaVu Sans"]
 
 
-def load_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
+def load_data(as_of: str | None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalResolver]:
     models = pd.read_csv(DATA_DIR / "models.csv").fillna("")
+    models, _ = scope_models_as_of(models, as_of)
     models["release_date"] = pd.to_datetime(models["release date"], errors="raise")
     models["release_year"] = models["release_date"].dt.year
     models["model_key"] = (
@@ -140,64 +143,37 @@ def load_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, CanonicalReso
 
 
 def build_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> tuple[pd.DataFrame, pd.DataFrame]:
-    rows = []
-    unresolved = []
-    for _, model in models.iterrows():
-        raw_mentions = split_benchmark_mentions(model["benchmarks"])
-        for raw_mention in raw_mentions:
-            resolution = resolver.resolve(raw_mention)
-            if not resolution:
-                unresolved.append(
-                    {
-                        "Provider": model["Provider"],
-                        "Model name": model["Model name"],
-                        "release_date": model["release_date"].date().isoformat(),
-                        "raw_mention": raw_mention,
-                    }
-                )
-                continue
-
-            rows.append(
-                {
-                    "Provider": model["Provider"],
-                    "Model name": model["Model name"],
-                    "link": model["link"],
-                    "release_date": model["release_date"],
-                    "release_year": int(model["release_year"]),
-                    "model_key": model["model_key"],
-                    "raw_mention": raw_mention,
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "match_source": resolution.match_source,
-                    "match_type": resolution.match_type,
-                }
-            )
-
-    mentions = pd.DataFrame(rows)
-    if mentions.empty:
-        mentions = pd.DataFrame(
-            columns=[
-                "Provider",
-                "Model name",
-                "link",
-                "release_date",
-                "release_year",
-                "model_key",
-                "raw_mention",
-                "benchmark_id",
-                "benchmark_name",
-                "match_source",
-                "match_type",
-            ]
-        )
-    else:
-        mention_counts = mentions.groupby("model_key")["benchmark_id"].transform("count")
-        mentions["resolved_mentions_on_release"] = mention_counts
-        mentions["release_normalized_weight"] = 1.0 / mention_counts
-
-    unresolved_df = pd.DataFrame(
-        unresolved,
-        columns=["Provider", "Model name", "release_date", "raw_mention"],
+    resolved, unresolved = build_resolved_mentions(
+        models,
+        resolver,
+        unresolved_policy="collect",
+    )
+    mentions = resolved[
+        [
+            "provider",
+            "model_name",
+            "link",
+            "release_date",
+            "release_year",
+            "model_key",
+            "raw_mention",
+            "benchmark_id",
+            "benchmark_name",
+            "match_source",
+            "match_type",
+            "resolved_benchmark_count_for_release",
+            "release_weight",
+        ]
+    ].rename(
+        columns={
+            "provider": "Provider",
+            "model_name": "Model name",
+            "resolved_benchmark_count_for_release": "resolved_mentions_on_release",
+            "release_weight": "release_normalized_weight",
+        }
+    )
+    unresolved_df = unresolved.rename(
+        columns={"provider": "Provider", "model_name": "Model name"}
     )
     return mentions, unresolved_df
 
@@ -578,10 +554,11 @@ def plot_risk_escalation(by_release: pd.DataFrame) -> None:
 
 
 def main() -> None:
+    args = PARSER.parse_args()
     configure_style()
     HERE.mkdir(parents=True, exist_ok=True)
 
-    models, benchmarks, facets, resolver = load_data()
+    models, benchmarks, facets, resolver = load_data(args.as_of)
     mentions, unresolved = build_mentions(models, resolver)
     mentions = mentions.merge(
         benchmarks[

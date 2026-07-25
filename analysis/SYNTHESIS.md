@@ -12,10 +12,10 @@ All analysis scripts were rerun from the repository root with `.venv/bin/python`
 
 Current baseline:
 
-- 422 resolved benchmark mentions
-- 133 canonical benchmarks mentioned at least once
+- 557 resolved benchmark mentions
+- 195 canonical benchmarks mentioned at least once
 - 3 providers: OpenAI, Google, Anthropic
-- Latest modeled release date: 2026-04-23
+- Latest modeled release date: 2026-07-24
 
 ## Main Findings
 
@@ -25,9 +25,9 @@ The first hypothesis was framed as: if OpenAI's early benchmark hegemony weakene
 
 The current data shows the opposite:
 
-- Anthropic+Google OpenAI-authored-or-affiliated mentions rose from 11/76 in 2023-2024 (14.5%) to 40/162 in 2025-2026 (24.7%).
-- Google drove most of the increase, from 8.8% to 29.3%.
-- Anthropic stayed steadier, from 19.0% to 22.1%.
+- Anthropic+Google OpenAI-authored-or-affiliated mentions rose from 11/76 in 2023-2024 (14.5%) to 53/255 in 2025-2026 (20.8%).
+- Google drove most of the increase, from 8.8% to 24.7%.
+- Anthropic stayed nearly flat, from 19.0% to 18.8%.
 
 Better interpretation: OpenAI's benchmark vocabulary became more shared competitive currency even as the field grew more competitive. The more nuanced hegemony story is not "less OpenAI influence"; it is "more shared use of OpenAI-linked benchmarks alongside more self-authored/private/provider-created benchmarks."
 
@@ -37,19 +37,19 @@ Primary folder: `analysis/frontier_lab_benchmark_hegemony/`.
 
 The second hypothesis is supported descriptively. Using release-normalized benchmark shares:
 
-- Google 2024 broad long-context share: 32.1%.
+- Google 2024 broad long-context share: 39.3%.
 - OpenAI 2024 broad long-context share: 2.4%.
-- Anthropic 2024 broad long-context share: 2.1%.
+- Anthropic 2024 broad long-context share: 5.8%.
 
 The signal is mostly Gemini 1.5 and `Needle In A Haystack`, with smaller 2024 support from Gemini 2.0 benchmarks such as `MRCR` and `EgoSchema`.
 
 In 2025-2026, the long-context gap narrows:
 
-- Google: 13.7%.
-- OpenAI: 6.6%.
-- Anthropic: 2.6%.
+- Google: 18.0%.
+- OpenAI: 23.3%.
+- Anthropic: 13.5%.
 
-The later competition axis shifts more toward agentic/coding showcases. Anthropic has the strongest 2025-2026 agentic share at 50.3%, while OpenAI rises sharply in 2026.
+The later competition axis shifts more toward agentic/coding showcases. Anthropic has the strongest 2025-2026 agentic share at 61.8%, followed by Google at 54.7%.
 
 Primary folder: `analysis/provider_strategy_long_context/`.
 
@@ -57,9 +57,9 @@ Primary folder: `analysis/provider_strategy_long_context/`.
 
 The narrative-strategy prototype found a major shift from static benchmark exams toward work simulations:
 
-- Mean static-exam share peaks at 43.4% in 2024, then falls to 16.2% in 2026.
-- Mean work-simulation share rises from 0.0% in 2023 to 7.5% in 2024, 32.0% in 2025, and 51.1% in 2026.
-- Specialized-domain share rises to 24.4% in 2026.
+- Mean static-exam share falls from 82.4% in 2023 to 18.7% in 2026 YTD.
+- Mean work-simulation share rises from 12.0% in 2023 to 18.0% in 2024, 39.1% in 2025, and 73.3% in 2026 YTD.
+- Specialized-domain share is 46.2% in 2026 YTD.
 
 This gives the project a strong broader thesis: frontier release-page benchmarking is moving from "can pass canonical exams" toward "can operate inside work environments."
 
@@ -81,9 +81,9 @@ Primary folder: `analysis/ideation_methodology_visuals/`.
 
 The network-dynamics prototype found:
 
-- 49 cross-provider benchmark cascades.
-- 84 benchmarks remain single-provider in observed release pages.
-- Latest cumulative portfolio similarity is highest for Anthropic-OpenAI at 0.333, followed by Anthropic-Google at 0.330 and Google-OpenAI at 0.283.
+- 64 cross-provider benchmark cascades.
+- 131 benchmarks remain single-provider in observed release pages.
+- Latest cumulative portfolio similarity is highest for Anthropic-OpenAI at 0.282, followed by Anthropic-Google at 0.278 and Google-OpenAI at 0.258.
 - Fast cascades include `MMMLU` (Anthropic to OpenAI in 2 days), `Terminal-Bench 2.0` (Google to Anthropic in 6 days), and `OfficeQA Pro` (Anthropic to OpenAI in 7 days).
 
 This can support a "benchmark vocabulary diffusion" section, especially once benchmark publication dates are added.

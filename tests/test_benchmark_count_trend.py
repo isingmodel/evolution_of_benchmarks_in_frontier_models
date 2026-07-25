@@ -1,17 +1,14 @@
 from __future__ import annotations
 
-import sys
 import unittest
-from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "analysis" / "benchmark_evolution"))
-sys.path.insert(0, str(ROOT / "scripts"))
-
-from benchmark_count_trend import build_release_counts, smooth_counts  # noqa: E402
-from taxonomy_utils import CanonicalBenchmark, CanonicalResolver  # noqa: E402
+from analysis.benchmark_evolution.benchmark_count_trend import (
+    build_release_counts,
+    smooth_counts,
+)
+from scripts.taxonomy_utils import CanonicalBenchmark, CanonicalResolver
 
 
 class BenchmarkCountTrendTests(unittest.TestCase):

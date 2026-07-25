@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import csv
-import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -13,13 +12,17 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
-SCRIPTS_DIR = ROOT / "scripts"
 OUTPUT_DIR = Path(__file__).resolve().parent
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+from scripts.analysis_utils import (
+    build_resolved_mentions,
+    create_analysis_parser,
+    default_resolver,
+    scope_models_as_of,
+)
 
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
+
+PARSER = create_analysis_parser(__doc__ or "Build the common analysis snapshot.")
 
 
 def read_csv_dicts(path: Path) -> list[dict[str, str]]:
@@ -27,51 +30,50 @@ def read_csv_dicts(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
-def load_mentions() -> pd.DataFrame:
-    models = read_csv_dicts(DATA_DIR / "models.csv")
+def load_mentions(as_of: str | None) -> pd.DataFrame:
+    models = pd.read_csv(DATA_DIR / "models.csv").fillna("")
+    models, _ = scope_models_as_of(models, as_of)
     benchmarks = {
         row["benchmark_id"]: row
         for row in read_csv_dicts(DATA_DIR / "benchmarks.csv")
     }
-    resolver = CanonicalResolver.from_files(
-        DATA_DIR / "benchmarks.csv",
-        DATA_DIR / "benchmark_aliases.csv",
+    resolved, unresolved = build_resolved_mentions(
+        models,
+        default_resolver(),
+        unresolved_policy="collect",
     )
 
     rows: list[dict[str, object]] = []
-    unresolved: list[str] = []
-    for model in models:
-        raw_mentions = split_benchmark_mentions(model.get("benchmarks", ""))
-        for raw in raw_mentions:
-            resolution = resolver.resolve(raw)
-            if not resolution:
-                unresolved.append(f"{model.get('Provider')} / {model.get('Model name')} / {raw}")
-                continue
-            benchmark = benchmarks[resolution.benchmark_id]
-            rows.append(
-                {
-                    "provider": model["Provider"],
-                    "model_name": model["Model name"],
-                    "release_date": model["release date"],
-                    "release_year": model["release date"][:4],
-                    "raw_mention": raw,
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "match_source": resolution.match_source,
-                    "match_type": resolution.match_type,
-                    "source_author": benchmark["source_author"],
-                    "frontier_lab_author_affiliations": benchmark[
-                        "frontier_lab_author_affiliations"
-                    ],
-                    "legacy_task_mode": benchmark["legacy_task_mode"],
-                    "legacy_task_domain": benchmark["legacy_task_domain"],
-                    "benchmark_review_status": benchmark["review_status"],
-                }
-            )
+    for mention in resolved.itertuples(index=False):
+        benchmark = benchmarks[mention.benchmark_id]
+        rows.append(
+            {
+                "provider": mention.provider,
+                "model_name": mention.model_name,
+                "release_date": mention.release_date_text,
+                "release_year": str(mention.release_year),
+                "raw_mention": mention.raw_mention,
+                "benchmark_id": mention.benchmark_id,
+                "benchmark_name": mention.benchmark_name,
+                "match_source": mention.match_source,
+                "match_type": mention.match_type,
+                "source_author": benchmark["source_author"],
+                "frontier_lab_author_affiliations": benchmark[
+                    "frontier_lab_author_affiliations"
+                ],
+                "legacy_task_mode": benchmark["legacy_task_mode"],
+                "legacy_task_domain": benchmark["legacy_task_domain"],
+                "benchmark_review_status": benchmark["review_status"],
+            }
+        )
 
-    if unresolved:
+    if not unresolved.empty:
         unresolved_path = OUTPUT_DIR / "unresolved_mentions.txt"
-        unresolved_path.write_text("\n".join(unresolved) + "\n", encoding="utf-8")
+        lines = [
+            f"{row.provider} / {row.model_name} / {row.raw_mention}"
+            for row in unresolved.itertuples(index=False)
+        ]
+        unresolved_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     return pd.DataFrame(rows)
 
@@ -194,8 +196,9 @@ def write_markdown(mentions: pd.DataFrame, paths: dict[str, Path]) -> None:
 
 
 def main() -> None:
+    args = PARSER.parse_args()
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    mentions = load_mentions()
+    mentions = load_mentions(args.as_of)
     mentions_path = OUTPUT_DIR / "resolved_mentions.csv"
     mentions.to_csv(mentions_path, index=False)
     paths = {"resolved_mentions": mentions_path}

@@ -19,7 +19,6 @@ import csv
 import json
 import re
 import shutil
-import sys
 import time
 import unicodedata
 from dataclasses import dataclass, field
@@ -32,17 +31,14 @@ from urllib.parse import urljoin
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPTS_DIR = ROOT / "scripts"
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
 
-from openai_oauth_client import (  # noqa: E402
+from scripts.openai_oauth_client import (
     DEFAULT_OPENAI_OAUTH_BASE_URL,
     DEFAULT_OPENAI_OAUTH_MODEL,
     OpenAIOAuthClient,
     resolve_openai_oauth_dir,
 )
-from taxonomy_utils import exact_key, identity_key, split_benchmark_mentions  # noqa: E402
+from scripts.taxonomy_utils import exact_key, identity_key, split_benchmark_mentions
 
 
 DEFAULT_USER_AGENT = (

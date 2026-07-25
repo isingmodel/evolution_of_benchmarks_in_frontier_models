@@ -1,32 +1,53 @@
 benchmark_id,benchmark_name,source_author,frontier_lab_author_affiliations,owner_providers_in_dataset,first_any_provider,first_any_model,first_any_date,first_owner_provider,first_owner_model,first_owner_date,first_competitor_provider,first_competitor_model,first_competitor_date,release_page_lag_days,competitor_preceded_owner_release_page_mention
 benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,Anthropic,Anthropic,Anthropic,Anthropic,Claude 4.7 (Opus),2026-04-16,Anthropic,Claude 4.7 (Opus),2026-04-16,,,,,
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,Google DeepMind,Google; DeepMind,Google,Google,Gemini 3.5 Flash Cyber,2026-07-21,Google,Gemini 3.5 Flash Cyber,2026-07-21,,,,,
 benchmark_big_bench_hard,Big-Bench Hard,Google,Google,Google,Google,gemini 1.0,2023-12-06,Google,gemini 1.0,2023-12-06,Anthropic,Claude 3,2024-03-04,89,False
+benchmark_biomysterybench,BioMysteryBench,Anthropic,Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,,
 benchmark_biopipelinebench,BioPipelineBench,Anthropic,Anthropic,Anthropic,Anthropic,Claude 4.6 (Opus),2026-02-05,Anthropic,Claude 4.6 (Opus),2026-02-05,,,,,
 benchmark_browsecomp,BrowseComp,OpenAI,OpenAI,OpenAI,OpenAI,o3,2025-04-16,OpenAI,o3,2025-04-16,Anthropic,Claude 4.6 (Opus),2026-02-05,295,False
 benchmark_browsecomp_long_context,BrowseComp Long Context,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.2,2025-12-11,OpenAI,GPT-5.2,2025-12-11,,,,,
 benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,Google,Google,Google,Google,Gemini 3.5 Flash Cyber,2026-07-21,Google,Gemini 3.5 Flash Cyber,2026-07-21,,,,,
 benchmark_cot_control,CoT-Control,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
+benchmark_deepsearchqa,DeepSearchQA,"Academia, Google DeepMind",Google; DeepMind,Google,Anthropic,Claude 5 (Opus),2026-07-24,,,,Anthropic,Claude 5 (Opus),2026-07-24,,
 benchmark_erqa,ERQA,Google,Google; DeepMind,Google,OpenAI,GPT-5,2025-08-07,,,,OpenAI,GPT-5,2025-08-07,,
 benchmark_expert_swe_internal,Expert-SWE (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,
+benchmark_exploitbench,ExploitBench,OpenAI,OpenAI,OpenAI,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,
+benchmark_exploitbench_2,ExploitBench 2,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
+benchmark_exploitgym_3,ExploitGym 3,"Academia, OpenAI",OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_facts_benchmark_suite,FACTS Benchmark suite,Google,Google; DeepMind,Google,Google,Gemini 3.0,2025-11-18,Google,Gemini 3.0,2025-11-18,,,,,
 benchmark_facts_grounding,FACTS Grounding,Google,Google; DeepMind,Google,Google,Gemini 2.0,2024-12-11,Google,Gemini 2.0,2024-12-11,,,,,
 benchmark_fleurs,FLEURS,"Meta, Google",Google,Google,Google,gemini 1.0,2023-12-06,Google,gemini 1.0,2023-12-06,,,,,
+benchmark_firefox,Firefox,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,,
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthropic,Claude 5 (Sonnet),2026-06-30,Anthropic,Claude 5 (Sonnet),2026-06-30,,,,,
 benchmark_frontier_science_research,Frontier Science Research,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
 benchmark_gdpval,GDPval,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.2,2025-12-11,OpenAI,GPT-5.2,2025-12-11,,,,,
 benchmark_gsm8k,GSM8K,OpenAI,OpenAI,OpenAI,Anthropic,Claude 2,2023-07-11,,,,Anthropic,Claude 2,2023-07-11,,
 benchmark_genebench,GeneBench,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,
+benchmark_genebench_pro,GeneBench Pro,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_graphwalks,GraphWalks,OpenAI,OpenAI,OpenAI,OpenAI,GPT-4.1,2025-04-14,OpenAI,GPT-4.1,2025-04-14,Anthropic,Claude 4.6 (Opus),2026-02-05,297,False
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft,OpenAI; Google; Anthropic,Google,Gemini 2.5,2025-03-25,Google,Gemini 2.5,2025-03-25,,,,,
+benchmark_healthbench_professional,HealthBench Professional,OpenAI,OpenAI,OpenAI,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,OpenAI,GPT-5.6,2026-07-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,-30,True
 benchmark_healthbench,Healthbench,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5,2025-08-07,OpenAI,GPT-5,2025-08-07,,,,,
 benchmark_hiddenmath,HiddenMath,Google,Google; DeepMind,Google,Google,Gemini 2.0,2024-12-11,Google,Gemini 2.0,2024-12-11,,,,,
 benchmark_humaneval,HumanEval,OpenAI,OpenAI,OpenAI,Anthropic,Claude 2,2023-07-11,OpenAI,GPT-4o,2024-05-13,Anthropic,Claude 2,2023-07-11,-307,True
 benchmark_ifeval,IFEval,Google,Google,Google,Anthropic,Claude 3.7 Sonnet,2025-02-25,,,,Anthropic,Claude 3.7 Sonnet,2025-02-25,,
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
+benchmark_kernelgen_1p,KernelGen 1P,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
+benchmark_lifescibench,LifeSciBench,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_mgsm,MGSM,"Google, Academia",Google,Google,Anthropic,Claude 3,2024-03-04,,,,Anthropic,Claude 3,2024-03-04,,
+benchmark_mle_bench,MLE-Bench,OpenAI,OpenAI,OpenAI,Google,Gemini 3.6 Flash,2026-07-21,,,,Google,Gemini 3.6 Flash,2026-07-21,,
 benchmark_mmmlu,MMMLU,OpenAI,OpenAI,OpenAI,Anthropic,Claude 3.7 Sonnet,2025-02-25,OpenAI,GPT-4.5,2025-02-27,Anthropic,Claude 3.7 Sonnet,2025-02-25,-2,True
 benchmark_mrcr,MRCR,OpenAI,Google; DeepMind,Google,Google,Gemini 2.0,2024-12-11,Google,Gemini 2.0,2024-12-11,OpenAI,GPT-4.1,2025-04-14,124,False
 benchmark_mrcr_v2,MRCR v2,OpenAI,Google; DeepMind,Google,OpenAI,GPT-5.2,2025-12-11,Google,Gemini 3.1 Pro,2026-02-19,OpenAI,GPT-5.2,2025-12-11,-70,True
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
+benchmark_medchembench_internal,MedChemBench (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
+benchmark_nanogpt,NanoGPT,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_natural2code,Natural2Code,Google,Google; DeepMind,Google,Google,gemini 1.0,2023-12-06,Google,gemini 1.0,2023-12-06,,,,,
+benchmark_oss_fuzz,OSS-Fuzz,Anthropic,Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,,
+benchmark_posttrainbench_lite,PostTrainBench Lite,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
+benchmark_rsi_index,RSI Index,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_swe_lancer,SWE-Lancer,OpenAI,OpenAI,OpenAI,OpenAI,GPT-4.1,2025-04-14,OpenAI,GPT-4.1,2025-04-14,,,,,
 benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.3-Codex,2026-02-05,OpenAI,GPT-5.3-Codex,2026-02-05,,,,,
 benchmark_swe_bench_verified,SWE-bench verified,OpenAI,OpenAI,OpenAI,Anthropic,Claude 3.5 Haiku,2024-10-23,OpenAI,o3-mini,2025-01-31,Anthropic,Claude 3.5 Haiku,2024-10-23,-100,True
@@ -34,5 +55,8 @@ benchmark_simpleqa,SimpleQA,OpenAI,OpenAI,OpenAI,OpenAI,o3-mini,2025-01-31,OpenA
 benchmark_simpleqa_verified,SimpleQA Verified,Google,Google; DeepMind,Google,Google,Gemini 3.1 Flash-Lite,2026-03-03,Google,Gemini 3.1 Flash-Lite,2026-03-03,,,,,
 benchmark_structural_biology,Structural Biology,Anthropic,Anthropic,Anthropic,Anthropic,Claude 4.7 (Opus),2026-04-16,Anthropic,Claude 4.7 (Opus),2026-04-16,,,,,
 benchmark_terminal_bench_2_0,Terminal-Bench 2.0,Academia,Anthropic,Anthropic,Google,Gemini 3.0,2025-11-18,Anthropic,Claude 4.5 (Opus),2025-11-24,Google,Gemini 3.0,2025-11-18,-6,True
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,Academia,Anthropic,Anthropic,Google,Gemini 3.5 Flash,2026-05-19,Anthropic,Claude 4.8 (Opus),2026-05-28,Google,Gemini 3.5 Flash,2026-05-19,-9,True
 benchmark_terminal_bench,Terminal-bench,Academia,Anthropic,Anthropic,Anthropic,Claude 4,2025-05-23,Anthropic,Claude 4,2025-05-23,,,,,
+benchmark_automated_alignment_assessment,automated alignment assessment,Anthropic,Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,,
 benchmark_automated_behavioral_audit,automated behavioral audit,Anthropic,Anthropic,Anthropic,Anthropic,Claude 4.7 (Opus),2026-04-16,Anthropic,Claude 4.7 (Opus),2026-04-16,,,,,
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,Anthropic,Anthropic,Anthropic,Anthropic,Claude 5 (Opus),2026-07-24,Anthropic,Claude 5 (Opus),2026-07-24,,,,,

@@ -18,13 +18,13 @@ The result aligns well with provider narrative strategy, benchmark evolution, la
 - `annual_strategy_frames.csv` has a readable denominator: release-normalized shares averaged across benchmarked release pages. The explicit counts by year are useful: 3 benchmarked pages in 2023, 8 in 2024, 14 in 2025, and 7 in 2026.
 - `provider_headline_portfolio.csv` and `provider_signature_lift.csv` give a compact provider-positioning lens: Anthropic over-indexes on agentic benchmarks, Google on multimodal/knowledge retrieval, and OpenAI on broad reasoning with a small constraint/control signal.
 - `launch_benchmark_density.csv` is useful because it includes zero-benchmark pages as well as dense benchmark-list pages. That makes it a good support file for the "benchmark density as launch-page packaging" theme.
-- The script is reproducible and scoped: `analyze.py` uses the canonical resolver, emits all CSVs and PNGs, and reports 422 resolved mentions across 32 benchmarked release pages with 0 unresolved mentions.
+- The script is reproducible and scoped: `analyze.py` uses the canonical resolver, emits all CSVs and PNGs, and reports 557 resolved mentions across 41 benchmarked release pages with 0 unresolved mentions.
 - The README's caveats are unusually helpful. It already says provider-created does not mean same-provider or private, and it preserves the project boundary that this is not a model capability analysis.
 
 ## Risks
 
 - **Overclaiming narrative intent:** The current outputs infer positioning from benchmark selection. They do not observe actual rhetoric, page prominence, headline placement, caveats, or score framing. Use "benchmark-selection framing" unless a text/HTML extraction layer is added.
-- **2026 is year-to-date:** The trend chart shows 2026 as a normal annual point, but the data only runs through the latest listed release, GPT-5.5 on 2026-04-23. The chart should label this as `2026 YTD` and show `n=7` benchmarked release pages.
+- **2026 is year-to-date:** The trend chart shows 2026 as a normal annual point, but the data only runs through the latest listed release, Claude 5 Opus on 2026-07-24. The chart should label this as `2026 YTD` and show `n=16` benchmarked release pages.
 - **Provider-created/private is too blended:** `provider_created_or_private_escalation.png` combines public frontier-lab-created benchmarks with private/opaque evaluations. This can look like an opacity claim even though much of the signal is provider-authored but public benchmark authority.
 - **Small provider samples:** Provider signatures are based on 12 Anthropic, 7 Google, and 13 OpenAI benchmarked release pages. This is enough for an exploratory portfolio cut, not enough for a strong provider-identity claim.
 - **Release mix affects year trends:** Later years have more releases and more benchmark-dense pages. The release-normalized method is reasonable, but a provider-balanced sensitivity view would make the trend more defensible.
@@ -33,7 +33,7 @@ The result aligns well with provider narrative strategy, benchmark evolution, la
 
 ## Best Presentation
 
-Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked release page; 2026 is year-to-date through 2026-04-23." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-page count.
+Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked release page; 2026 is year-to-date through 2026-07-24." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-page count.
 
 Use `provider_signature_lift.csv` as a compact supporting table, not as a standalone major chart. Recommended table columns: `Provider`, `highest-lift task mode`, `share`, `lift_vs_global`, and `raw_mentions`. This is more README-friendly than the full heatmap.
 

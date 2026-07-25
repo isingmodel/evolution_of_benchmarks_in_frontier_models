@@ -8,7 +8,7 @@ Run with:
 .venv/bin/python analysis/ideation_narrative_strategy/analyze.py
 ```
 
-The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact canonicalization. It does not fuzzy match. Current run: 422 resolved benchmark mentions across 32 benchmarked release pages, with 0 unresolved mentions.
+The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact canonicalization. It does not fuzzy match. Current run: 557 resolved benchmark mentions across 41 benchmarked release pages, with 0 unresolved mentions.
 
 ## Outputs
 
@@ -45,11 +45,11 @@ The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact cano
 
 ### 1. Provider Signature Portfolios
 
-All providers still center generative reasoning in their benchmark portfolios, but the signatures differ:
+Provider portfolios now lean more agentic under the runtime headline projection, but the signatures differ:
 
-- Anthropic: 48.7% generative reasoning, 36.1% agentic. Agentic is 1.42x the global share.
-- Google: 59.0% generative reasoning, 22.3% multimodal perception. Multimodal is 1.39x the global share; knowledge retrieval is 2.34x, but from a small 6.4% share.
-- OpenAI: 54.9% generative reasoning, 22.4% agentic, 14.8% multimodal. Constraint/safety/control is small at 4.7%, but 1.87x global share.
+- Anthropic: 47.9% agentic and 27.4% generative reasoning. Agentic is 1.15x the global share.
+- Google: 40.4% agentic and 26.4% multimodal perception. Knowledge retrieval is 2.22x the global share, from a 13.9% share.
+- OpenAI: 35.5% agentic, 31.0% generative reasoning, and 21.2% multimodal. Generative reasoning is 1.21x the global share.
 
 Interpretation: a reasonable first narrative cut is Anthropic as agentic/workflow-heavy, Google as multimodal/knowledge-heavy, and OpenAI as broad reasoning with a small but distinctive constraint/control signal.
 
@@ -57,11 +57,11 @@ Interpretation: a reasonable first narrative cut is Anthropic as agentic/workflo
 
 The release-page benchmark mix shows a clear shift toward work simulations:
 
-- Mean static-exam share peaks at 43.4% in 2024, then falls to 16.2% in 2026.
-- Mean work-simulation share rises from 0.0% in 2023 to 7.5% in 2024, 32.0% in 2025, and 51.1% in 2026.
-- Specialized-domain share rises to 24.4% in 2026.
+- Mean static-exam share falls from 82.4% in 2023 to 70.7% in 2024, 54.4% in 2025, and 18.7% in 2026 YTD.
+- Mean work-simulation share rises from 12.0% in 2023 to 18.0% in 2024, 39.1% in 2025, and 73.3% in 2026 YTD.
+- Specialized-domain share is 46.2% in 2026 YTD.
 
-Top work-simulation-heavy releases include GPT-5.3-Codex at 85.7%, Claude 4.7 Opus at 64.5%, Claude 4.6 Opus at 61.9%, and Claude 4.5 Opus at 61.5%.
+Top work-simulation-heavy releases include Gemini 3.6 Flash, Gemini 3.5 Flash Cyber, and GPT-5.3-Codex at 100%, followed by Claude 4.8 Opus at 90.9% and Claude 5 Sonnet at 88.9%.
 
 Interpretation: benchmark rhetoric appears to be moving from "can pass the exam" toward "can operate in work environments," especially coding, tools, terminal, browser, finance, legal, bio, and office-like workflows.
 
@@ -69,11 +69,11 @@ Interpretation: benchmark rhetoric appears to be moving from "can pass the exam"
 
 Provider-created or private/opaque benchmark share is high and similar across providers:
 
-- Anthropic: 39.9% provider-created/private share; 2.1% private/opaque only; 0.5% explicitly internal-named.
-- Google: 39.6% provider-created/private share; 3.9% private/opaque only; 0.0% explicitly internal-named.
-- OpenAI: 35.5% provider-created/private share; 3.2% private/opaque only; 1.0% explicitly internal-named.
+- Anthropic: 34.6% provider-created/private share; 14.6% private/opaque only; 1.0% explicitly internal-named.
+- Google: 25.2% provider-created/private share; 9.0% private/opaque only; 0.0% explicitly internal-named.
+- OpenAI: 36.3% provider-created/private share; 20.3% private/opaque only; 1.9% explicitly internal-named.
 
-Recent releases show stronger opaque/internal signals. GPT-5.3-Codex has 57.1% provider-created/private share; Gemini 3.1 Pro has 50.0%; Claude 4.7 Opus has 45.2%; GPT-5.5 has 38.2%. Explicit internal-named benchmarks appear only in the most recent releases here: GPT-5.4, Claude 4.7 Opus, and GPT-5.5.
+Recent releases show stronger opaque/internal signals. GPT-5.3-Codex has 71.4% provider-created/private share; Gemini 3.5 Flash Cyber has 66.7%; Claude 4.7 Opus has 61.3%; and GPT-5.4 has 50.0%. Explicit internal-named benchmarks appear on several recent pages, including GPT-5.4, Claude 4.7 Opus, GPT-5.5, and GPT-5.6.
 
 Interpretation: the strongest signal is not many explicitly private benchmarks, but a growing reliance on frontier-lab/provider-created benchmark authority. This should be framed carefully because `provider_created_benchmark` does not necessarily mean same-provider or private.
 
@@ -83,9 +83,9 @@ Benchmark density also looks like a strategic signal:
 
 - 2024 benchmarked releases average 10.5 resolved benchmark mentions.
 - 2025 benchmarked releases average 11.2.
-- 2026 benchmarked releases average 20.9.
+- 2026 benchmarked releases average 17.6.
 
-The densest pages are GPT-5.5 with 34 mentions, Claude 4.7 Opus with 31, GPT-5.4 with 26, Gemini 3.0 and Claude 4.6 Opus with 21 each, and GPT-5.2 with 20.
+The densest pages are GPT-5.6 with 42 mentions, GPT-5.5 with 34, Claude 4.7 Opus with 31, GPT-5.4 with 26, and Claude 5 Fable/Mythos with 25.
 
 Interpretation: later releases increasingly package capability claims as broad benchmark portfolios rather than a few canonical scores.
 

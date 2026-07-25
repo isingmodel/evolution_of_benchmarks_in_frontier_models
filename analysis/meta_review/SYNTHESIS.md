@@ -44,9 +44,9 @@ Needed before README:
 
 The Gemini 1.5 long-context result is ideal as a bounded case study:
 
-- Google 2024 broad long-context share: 32.1%.
+- Google 2024 broad long-context share: 39.3%.
 - OpenAI 2024: 2.4%.
-- Anthropic 2024: 2.1%.
+- Anthropic 2024: 5.8%.
 
 Use:
 
@@ -109,7 +109,7 @@ Recommended title:
 
 Do not use as a headline "hegemony" claim yet. The result is best as a short counterintuitive callout:
 
-> Anthropic and Google did not move away from OpenAI-linked benchmarks in this dataset; OpenAI-authored-or-affiliated mentions rose from 14.5% in 2023-2024 to 24.7% in 2025-2026.
+> Anthropic and Google did not move away from OpenAI-linked benchmarks in this dataset; OpenAI-authored-or-affiliated mentions rose from 14.5% in 2023-2024 to 20.8% in 2025-2026.
 
 Needed before README:
 

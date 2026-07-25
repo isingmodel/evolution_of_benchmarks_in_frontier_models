@@ -18,6 +18,7 @@
     <td align="center"><strong>45</strong><br><sub>model releases</sub></td>
     <td align="center"><strong>196</strong><br><sub>canonical benchmarks</sub></td>
     <td align="center"><strong>557</strong><br><sub>release-page mentions</sub></td>
+    <td align="center"><strong>29 / 3,384</strong><br><sub>human-accepted facet rows</sub></td>
     <td align="center"><strong>2026-07-24</strong><br><sub>latest tracked launch</sub></td>
   </tr>
 </table>
@@ -68,6 +69,15 @@ Earlier launch pages leaned heavily on static, exam-style tests. Recent launches
 | 2026 YTD | 18.8%               | 73.2%             | 46.1%                 |                     16 |
 
 > Multi-label shares can sum above 100% because a benchmark may represent more than one analytical frame.
+
+The work-simulation trend survives filters for the strongest extraction-granularity concerns. Each variant renormalizes the remaining benchmark weights within every release page.
+
+| Filter | 2023 | 2024 | 2025 | 2026 YTD |
+| --- | ---: | ---: | ---: | ---: |
+| As published | 12.0% | 18.0% | 39.1% | 73.2% |
+| Exclude private/opaque evaluations | 20.4% | 17.5% | 37.6% | 69.6% |
+| Exclude single-mention benchmarks | 16.7% | 18.0% | 37.7% | 72.3% |
+| Exclude both | 33.3% | 16.8% | 36.3% | 67.3% |
 
 Top contributors to the work-simulation signal:
 
@@ -125,6 +135,12 @@ Each pie represents one benchmark-bearing release page. The chart uses a runtime
 
 ![Benchmark evolution by model release](assets/benchmark_evolution.png)
 
+### Rolling headline task-mode trend
+
+This release-normalized view shows the rolling mix of the same headline projection. It is retained as a compact companion to the separate-axis and multi-facet charts below.
+
+![Rolling benchmark task-mode trend](assets/benchmark_growth.png)
+
 ### Benchmarks per release
 
 This chart counts unique resolved benchmark names for every tracked model release, including releases with no benchmark list, and overlays a 90-day moving average. It measures launch-page evaluation volume—not benchmark breadth or model quality.
@@ -166,6 +182,7 @@ The resolver does not silently fuzzy-match unresolved names. Surface forms must 
 | [`data/models.csv`](data/models.csv) | Model release pages and the benchmark labels found on them |
 | [`data/benchmarks.csv`](data/benchmarks.csv) | Canonical benchmark identities, references, provenance, and review status |
 | [`data/benchmark_aliases.csv`](data/benchmark_aliases.csv) | Narrow, source-backed mappings from page wording to canonical IDs |
+| [`data/benchmark_distinctness.csv`](data/benchmark_distinctness.csv) | Reviewed decisions that similarly named canonical benchmarks remain distinct |
 | [`data/benchmark_facets.csv`](data/benchmark_facets.csv) | Integrated multi-label taxonomy used by the analyses |
 | [`analysis/readme_story/`](analysis/readme_story/) | Generated tables behind the narrative findings |
 | [`assets/`](assets/) | Generated charts used in this README |
@@ -186,6 +203,16 @@ A benchmark can belong to several analytical facets at once. The v3 taxonomy rec
 
 Charts that need one compact headline derive a projection at runtime. That projection is not the benchmark's exclusive identity. For example, a coding benchmark can retain a `Coding/Engineering` domain while being projected as `Agentic` when it requires autonomous environment interaction.
 
+### Review debt
+
+The analytical taxonomy is predominantly awaiting human review. Of 3,384 rows in `data/benchmark_facets.csv`, 3,291 are marked `needs_review`, 64 retain `legacy_seed` status, and only 29 are human-accepted. A further 1,485 rows fall below the project's 0.7 classification-confidence review threshold. In the canonical catalog, 92 of 196 benchmarks still have `legacy_seed` status. Headline findings therefore depend substantially on provisional labels and should be read with the published robustness checks and review status in view.
+
+![Benchmark taxonomy review debt](assets/benchmark_review_debt.png)
+
+The review-leverage view prioritizes provisional benchmark facets that also carry the most recent release-page weight.
+
+![High-leverage facet review targets](assets/review_leverage_benchmarks.png)
+
 ### Identity and review policy
 
 - Explicit versions remain distinct when the release page distinguishes them.
@@ -200,23 +227,17 @@ See the [classification methodology](docs/benchmark_classification_methodology_v
 
 Run the pipeline from the repository root:
 
+Facet classification is a maintainer-only step with an unpublished local dependency and is not run here. The reproducible pipeline consumes the committed `data/benchmark_facets.csv`; see the [classification prompt contract](docs/benchmark_classification_prompt.md) when reimplementing classification with another provider.
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-
-AS_OF=2026-07-24          # latest release date in data/models.csv
-PY=.venv/bin/python       # or python, with project dependencies installed
-
-$PY scripts/build_normalized_data.py
-$PY scripts/validate_data.py
-$PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
-$PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
-$PY analysis/readme_story/analyze.py --as-of "$AS_OF"
-$PY scripts/validate_data.py
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m pip install -e .
+.venv/bin/python -m unittest discover -s tests
+scripts/run_pipeline.sh
 ```
+
+The supported and CI-tested Python range is 3.10 through 3.14; Python 3.10 is the declared minimum and no upper bound is imposed. `scripts/run_pipeline.sh` defaults `AS_OF` to the maximum release date in `data/models.csv`; override it when reproducing an earlier snapshot, for example `AS_OF=2025-12-31 scripts/run_pipeline.sh`. The entrypoint builds normalized data, validates it, runs every analysis (including `analysis/benchmark_taxonomy_trends/task_mode_trend.py`), and validates again.
 
 The normalized-data build preserves reviewed facet assignments for existing benchmark IDs, seeds facets for new IDs, removes facets for deleted IDs, and integrates temporary manual corrections. Story tables are generated under `analysis/readme_story/`; chart assets are written to `assets/`. The top-level README is maintained directly.
 

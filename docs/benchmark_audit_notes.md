@@ -135,6 +135,34 @@ Rationale:
 
 Anthropic's system card describes bioinformatics workflow execution with bash, code execution, and package-manager access. That supports an agentic workflow interpretation, but public scoring details remain limited.
 
+### Firefox identity (open)
+
+`benchmark_firefox` (“Firefox”) and `benchmark_firefox_147_exploit_evaluation` (“Firefox 147 exploit evaluation”) may refer to the same Mozilla exploit-evaluation track. The former remains `needs_review`; the latter is `accepted`, and both are attributed to Anthropic/Others(Mozilla). They have not been merged because changing canonical identity changes mention and benchmark counts. The pair is intentionally absent from `data/benchmark_distinctness.csv` until a maintainer reviews the source material and decides whether these are distinct evaluations or one track named at different granularity.
+
+### Canonical-name containment review queue (open)
+
+The near-duplicate validator also finds the following unresolved benchmark-family relationships by whole-token name containment. A warning does not imply that the rows should be merged: each pair needs source review and either a canonical-identity change or a documented distinctness decision.
+
+- `BrowseComp` / `BrowseComp Long Context`
+- `BrowseComp` / `BrowseComp-Plus`
+- `CharXiv` / `CharXiv Reasoning`
+- `CursorBench` / `CursorBench 3.2`
+- `GDPval-AA` / `GDPval-AA v2`
+- `GeneBench` / `GeneBench Pro`
+- `Healthbench` / `HealthBench Professional`
+- `LiveCodeBench` / `LiveCodeBench Pro`
+- `OSWorld` / `OSWorld-Verified`
+- `OSWorld` / `OSWorld 2.0`
+- `OfficeQA` / `OfficeQA Pro`
+- `Rakuten-SWE-Bench` / `SWE-bench`
+- `SWE-Lancer` / `SWE-Lancer IC Diamond`
+- `SWE-bench` / `SWE-bench Multilingual`
+- `SWE-bench` / `SWE-bench Multimodal`
+- `SWE-bench` / `SWE-bench Pro`
+- `SWE-bench` / `SWE-bench verified`
+- `SimpleQA` / `SimpleQA Verified`
+- `Terminal-Bench Hard` / `Terminal-bench`
+
 ## Open Caveats
 
 The main known caveats are represented directly in `benchmarks.csv` review statuses and the generated facet rows:
@@ -143,3 +171,5 @@ The main known caveats are represented directly in `benchmarks.csv` review statu
 - `Humanity's Last Exam`: confirm whether canonical display name should remain `HLE (Humanity's Last Exam)`.
 - `FACTS Benchmark suite`: decide whether to split into subbenchmark rows.
 - `BioPipelineBench`: wait for public benchmark documentation or create a fuller BenchmarkCard from provider material.
+- `Firefox` / `Firefox 147 exploit evaluation`: decide whether the two canonical rows identify one Mozilla evaluation track.
+- Canonical-name containment pairs listed above: review whether each pair is one identity, related but distinct variants, or unrelated despite the shared tokens.

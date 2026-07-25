@@ -42,6 +42,7 @@ ALLOWED_ALIAS_MATCH_TYPE = {
 
 ALLOWED_REVIEW_STATUS = {
     "accepted",
+    "legacy_seed",
     "needs_review",
     "disputed",
     "deprecated",

@@ -5,26 +5,26 @@ The numbers are derived only from local CSVs and use exact canonical benchmark r
 
 ## Baseline Counts
 
-- Resolved benchmark mentions: 422
-- Providers: Anthropic=146, Google=92, OpenAI=184
-- Years: 2023=24, 2024=84, 2025=168, 2026=146
-- Legacy task-mode mentions: Generative Reasoning=199, Agentic=126, Multimodal Perception=72, Constraint Satisfaction=13, Knowledge Retrieval=12
-- Legacy domain mentions: General/Commonsense=182, STEM/Math=102, Coding/Engineering=94, Specialized (Law/Bio/Finance)=44
+- Resolved benchmark mentions: 557
+- Providers: Anthropic=212, Google=119, OpenAI=226
+- Years: 2023=24, 2024=84, 2025=168, 2026=281
+- Legacy task-mode mentions: Generative Reasoning=228, Agentic=223, Multimodal Perception=77, Constraint Satisfaction=17, Knowledge Retrieval=12
+- Legacy domain mentions: General/Commonsense=220, Coding/Engineering=146, STEM/Math=106, Specialized (Law/Bio/Finance)=85
 
 ## Top Benchmarks
 
 | Mentions | Benchmark |
 | ---: | --- |
-| 25 | MMMU / MMMU Pro |
+| 27 | MMMU / MMMU Pro |
 | 18 | SWE-bench verified |
+| 16 | HLE (Humanity's Last Exam) |
 | 15 | AIME |
 | 14 | GPQA |
+| 14 | GPQA Diamond |
 | 13 | MMMLU |
-| 13 | GPQA Diamond |
-| 11 | HLE (Humanity's Last Exam) |
+| 12 | SWE-bench Pro |
 | 10 | MMLU / MMLU-Pro |
-| 10 | TAU-2 bench |
-| 9 | MATH |
+| 10 | BrowseComp |
 
 ## Output Tables
 

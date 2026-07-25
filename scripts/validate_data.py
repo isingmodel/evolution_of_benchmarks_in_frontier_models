@@ -1,12 +1,16 @@
+from __future__ import annotations
+
 import argparse
 import re
 import sys
 from collections import Counter
+from difflib import SequenceMatcher
+from itertools import combinations
 from pathlib import Path
 
 import pandas as pd
 
-from taxonomy_utils import (
+from scripts.taxonomy_utils import (
     ALLOWED_ALIAS_MATCH_TYPE,
     ALLOWED_FACET_AXIS,
     ALLOWED_FACET_LABELS,
@@ -29,6 +33,7 @@ DATA_DIR = ROOT / "data"
 
 REQUIRED_MODEL_COLUMNS = {"Provider", "Model name", "link", "release date", "benchmarks"}
 REQUIRED_ALIAS_COLUMNS = {"alias", "benchmark_id", "match_type", "notes"}
+REQUIRED_DISTINCTNESS_COLUMNS = {"benchmark_id_a", "benchmark_id_b", "note"}
 REQUIRED_BENCHMARK_COLUMNS = {
     "benchmark_id",
     "benchmark_name",
@@ -68,7 +73,7 @@ DOMAIN_ORDER = [
     "General/Commonsense",
     "Specialized (Law/Bio/Finance)",
 ]
-VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS) | {"legacy_seed"}
+VALID_FACET_STATUSES = set(ALLOWED_REVIEW_STATUS)
 VALID_FACET_AXES = set(ALLOWED_FACET_AXIS) | {"headline_task_mode"}
 ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
     "OpenAI",
@@ -78,6 +83,8 @@ ALLOWED_FRONTIER_LAB_AUTHOR_AFFILIATIONS = {
     "Microsoft",
     "xAI",
 }
+NEAR_DUPLICATE_RATIO_THRESHOLD = 0.92
+NEAR_DUPLICATE_CONTAINMENT_MIN_LENGTH = 7
 
 
 class Report:
@@ -138,6 +145,134 @@ def normalize_benchmark_frame(report, benchmarks, label):
     return benchmarks
 
 
+def normalized_edit_name(value: str) -> str:
+    """Normalize names only for duplicate detection, never for resolution."""
+    return re.sub(r"[^a-z0-9]+", "", str(value).casefold())
+
+
+def normalized_name_tokens(value: str) -> tuple[str, ...]:
+    """Split a canonical name at punctuation and whitespace boundaries."""
+    return tuple(re.findall(r"[a-z0-9]+", str(value).casefold()))
+
+
+def has_name_containment(left_name: str, right_name: str) -> bool:
+    """Return whether the shorter name occurs as whole consecutive tokens."""
+    left_tokens = normalized_name_tokens(left_name)
+    right_tokens = normalized_name_tokens(right_name)
+    if not left_tokens or not right_tokens or left_tokens == right_tokens:
+        return False
+
+    if len(normalized_edit_name(left_name)) <= len(normalized_edit_name(right_name)):
+        shorter, longer = left_tokens, right_tokens
+    else:
+        shorter, longer = right_tokens, left_tokens
+
+    # Seven characters admits "Firefox" while excluding terse benchmark
+    # acronyms such as ARC, HLE, GPQA, and MMLU that would create noisy matches.
+    if len("".join(shorter)) < NEAR_DUPLICATE_CONTAINMENT_MIN_LENGTH:
+        return False
+
+    width = len(shorter)
+    return any(
+        longer[index : index + width] == shorter
+        for index in range(len(longer) - width + 1)
+    )
+
+
+def find_near_duplicate_benchmarks(
+    benchmarks: pd.DataFrame,
+    threshold: float = NEAR_DUPLICATE_RATIO_THRESHOLD,
+) -> list[tuple[str, str, str, str, float]]:
+    """Return suspicious identities while leaving every research row intact."""
+    rows = benchmarks[["benchmark_id", "benchmark_name"]].to_dict(orient="records")
+    near_duplicates = []
+    for left, right in combinations(rows, 2):
+        left_name = normalized_edit_name(left["benchmark_name"])
+        right_name = normalized_edit_name(right["benchmark_name"])
+        if not left_name or not right_name:
+            continue
+        ratio = SequenceMatcher(None, left_name, right_name).ratio()
+        if ratio > threshold or has_name_containment(
+            left["benchmark_name"],
+            right["benchmark_name"],
+        ):
+            near_duplicates.append(
+                (
+                    str(left["benchmark_id"]),
+                    str(left["benchmark_name"]),
+                    str(right["benchmark_id"]),
+                    str(right["benchmark_name"]),
+                    ratio,
+                )
+            )
+    return near_duplicates
+
+
+def validate_benchmark_distinctness(
+    report: Report,
+    benchmarks: pd.DataFrame,
+    distinctness_path: Path,
+) -> None:
+    """Warn on unresolved near-duplicates and validate explicit decisions."""
+    reviewed_pairs: set[frozenset[str]] = set()
+    if distinctness_path.exists():
+        distinctness = load_csv(distinctness_path)
+        report.require_columns(
+            distinctness,
+            REQUIRED_DISTINCTNESS_COLUMNS,
+            str(distinctness_path),
+        )
+        if REQUIRED_DISTINCTNESS_COLUMNS.issubset(distinctness.columns):
+            canonical_ids = set(benchmarks["benchmark_id"])
+            seen_pairs: set[frozenset[str]] = set()
+            for index, row in distinctness.iterrows():
+                left = exact_key(row["benchmark_id_a"])
+                right = exact_key(row["benchmark_id_b"])
+                note = exact_key(row["note"])
+                pair = frozenset({left, right})
+                line_number = index + 2
+                if not left or not right or left == right:
+                    report.error(
+                        f"{distinctness_path} line {line_number} must name two distinct benchmark IDs"
+                    )
+                    continue
+                missing = sorted({left, right} - canonical_ids)
+                if missing:
+                    report.error(
+                        f"{distinctness_path} line {line_number} references missing benchmark IDs: {missing}"
+                    )
+                    continue
+                if not note:
+                    report.error(
+                        f"{distinctness_path} line {line_number} needs a review justification"
+                    )
+                if pair in seen_pairs:
+                    report.error(
+                        f"{distinctness_path} has a duplicate reviewed pair at line {line_number}"
+                    )
+                    continue
+                seen_pairs.add(pair)
+                reviewed_pairs.add(pair)
+
+    unresolved = []
+    for left_id, left_name, right_id, right_name, ratio in find_near_duplicate_benchmarks(
+        benchmarks
+    ):
+        if frozenset({left_id, right_id}) in reviewed_pairs:
+            continue
+        unresolved.append(
+            f"{left_name!r} ({left_id}) / {right_name!r} ({right_id}), ratio={ratio:.3f}"
+        )
+    if unresolved:
+        report.warning(
+            "Near-duplicate canonical benchmark identities need an explicit "
+            "distinctness decision "
+            f"(ratio > {NEAR_DUPLICATE_RATIO_THRESHOLD:.2f} or whole-token containment "
+            f"with shorter name >= {NEAR_DUPLICATE_CONTAINMENT_MIN_LENGTH} characters): "
+            + "; ".join(unresolved)
+        )
+
+
 def iter_legacy_mentions(models):
     for _, row in models.fillna("").iterrows():
         provider = exact_key(row.get("Provider", ""))
@@ -158,10 +293,21 @@ def iter_legacy_mentions(models):
             }
 
 
-def validate_legacy(report, models_path=None, benchmarks_path=None, alias_path=None):
+def validate_legacy(
+    report,
+    models_path=None,
+    benchmarks_path=None,
+    alias_path=None,
+    distinctness_path=None,
+):
     models_path = Path(models_path) if models_path else DATA_DIR / "models.csv"
     benchmarks_path = Path(benchmarks_path) if benchmarks_path else DATA_DIR / "benchmarks.csv"
     alias_path = Path(alias_path) if alias_path else DATA_DIR / "benchmark_aliases.csv"
+    distinctness_path = (
+        Path(distinctness_path)
+        if distinctness_path
+        else benchmarks_path.parent / "benchmark_distinctness.csv"
+    )
 
     models = load_csv(models_path)
     benchmarks = load_csv(benchmarks_path)
@@ -186,6 +332,8 @@ def validate_legacy(report, models_path=None, benchmarks_path=None, alias_path=N
             names = benchmarks[benchmarks["benchmark_name"].map(identity_key) == key]["benchmark_name"].tolist()
             examples.append(f"{key}: {names}")
         report.error(f"Duplicate canonical benchmark names after normalization: {examples}")
+
+    validate_benchmark_distinctness(report, benchmarks, distinctness_path)
 
     invalid_modes = sorted(set(benchmarks["legacy_task_mode"]) - ALLOWED_TASK_MODE - {""})
     if invalid_modes:
@@ -239,8 +387,10 @@ def validate_legacy(report, models_path=None, benchmarks_path=None, alias_path=N
 
     unresolved = []
     mention_count = 0
+    raw_mention_keys = set()
     for mention in iter_legacy_mentions(models):
         mention_count += 1
+        raw_mention_keys.add(exact_key(mention["raw_mention"]))
         if not resolver.resolve(mention["raw_mention"]):
             unresolved.append(f"{mention['provider']} / {mention['model_name']} / {mention['raw_mention']}")
 
@@ -248,6 +398,30 @@ def validate_legacy(report, models_path=None, benchmarks_path=None, alias_path=N
         report.error(f"Unresolved benchmark mentions without fuzzy matching: {unresolved}")
     else:
         print(f"Resolved {mention_count}/{mention_count} benchmark mentions by exact canonical name or explicit alias.")
+
+    if alias_path.exists():
+        unused_aliases = sorted(
+            str(alias).strip()
+            for alias in aliases["alias"]
+            if exact_key(alias) not in raw_mention_keys
+        )
+        if unused_aliases:
+            report.warning(
+                f"Alias rows never used by models.csv mentions ({len(unused_aliases)}/{len(aliases)}): "
+                + "; ".join(unused_aliases)
+            )
+
+    unused_canonical_names = sorted(
+        str(name).strip()
+        for name in benchmarks["benchmark_name"]
+        if exact_key(name) not in raw_mention_keys
+    )
+    if unused_canonical_names:
+        report.warning(
+            "Canonical benchmark names never mentioned directly in models.csv "
+            f"({len(unused_canonical_names)}; an alias may still reach the same ID): "
+            + "; ".join(unused_canonical_names)
+        )
 
     return models, benchmarks, aliases, resolver
 
@@ -545,11 +719,22 @@ def main():
     parser.add_argument("--models", default=str(DATA_DIR / "models.csv"), help="Path to models CSV")
     parser.add_argument("--benchmarks", default=str(DATA_DIR / "benchmarks.csv"), help="Path to benchmarks CSV")
     parser.add_argument("--aliases", default=str(DATA_DIR / "benchmark_aliases.csv"), help="Path to benchmark aliases CSV")
+    parser.add_argument(
+        "--distinctness",
+        default=str(DATA_DIR / "benchmark_distinctness.csv"),
+        help="Path to reviewed near-duplicate identity decisions",
+    )
     parser.add_argument("--data-dir", default=str(DATA_DIR), help="Directory containing optional normalized CSVs")
     args = parser.parse_args()
 
     report = Report()
-    models, _, _, resolver = validate_legacy(report, args.models, args.benchmarks, args.aliases)
+    models, _, _, resolver = validate_legacy(
+        report,
+        args.models,
+        args.benchmarks,
+        args.aliases,
+        args.distinctness,
+    )
     validate_normalized_data(report, models, resolver, args.data_dir)
     report.print()
     if report.errors:
