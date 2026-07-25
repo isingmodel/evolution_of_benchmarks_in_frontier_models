@@ -1,64 +1,83 @@
 benchmark_name,mention_count,provider_count,first_seen,latest_seen,source_author,frontier_lab_author_affiliations
-MMMU / MMMU Pro,25,3,2023-12-06,2026-04-23,Academia,none
+MMMU / MMMU Pro,22,3,2023-12-06,2026-03-03,Academia,none
 SWE-bench verified,18,3,2024-10-23,2026-04-16,OpenAI,OpenAI
+HLE (Humanity's Last Exam),16,3,2025-03-25,2026-07-24,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft
 AIME,15,3,2024-09-12,2025-11-18,Academia,none
 GPQA,14,3,2024-03-04,2025-12-11,"Anthropic, Academia, Cohere",none
-GPQA Diamond,13,3,2024-10-23,2026-04-23,"Anthropic, Academia, Others(Cohere)",none
+GPQA Diamond,14,3,2024-10-23,2026-07-09,"Anthropic, Academia, Others(Cohere)",none
 MMMLU,13,3,2025-02-25,2026-04-16,OpenAI,OpenAI
-HLE (Humanity's Last Exam),11,3,2025-03-25,2026-04-23,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft
+SWE-bench Pro,12,3,2025-12-11,2026-07-21,Others(Scale AI),none
+BrowseComp,10,3,2025-04-16,2026-07-24,OpenAI,OpenAI
 MMLU / MMLU-Pro,10,3,2023-12-06,2025-04-14,Academia,none
+OSWorld-Verified,10,3,2026-02-05,2026-07-21,Academia,none
 TAU-2 bench,10,3,2025-08-07,2026-04-23,Academia,none
 MATH,9,3,2023-12-06,2025-01-31,Academia,none
-BrowseComp,7,3,2025-04-16,2026-04-23,OpenAI,OpenAI
+MRCR v2,9,3,2025-12-11,2026-07-21,OpenAI,Google; DeepMind
+Scale MCP-Atlas,8,3,2025-11-24,2026-05-19,Others(Scale AI),none
+GDPval-AA,7,3,2026-02-05,2026-06-09,Others(Artificial Analysis),none
 HumanEval,7,3,2023-07-11,2024-10-23,OpenAI,OpenAI
 MathVista,7,3,2023-12-06,2025-04-16,Academia,Microsoft
-Scale MCP-Atlas,7,3,2025-11-24,2026-04-23,Others(Scale AI),none
 Terminal-Bench 2.0,7,3,2025-11-18,2026-04-23,Academia,Anthropic
-MRCR v2,6,3,2025-12-11,2026-04-23,OpenAI,Google; DeepMind
-SWE-bench Pro,6,3,2025-12-11,2026-04-23,Others(Scale AI),none
-GraphWalks,6,2,2025-04-14,2026-04-23,OpenAI,OpenAI
+GraphWalks,7,2,2025-04-14,2026-07-09,OpenAI,OpenAI
+ARC-AGI-2,6,3,2025-11-24,2026-05-19,Academia,none
+Terminal-Bench 2.1,6,3,2026-05-19,2026-07-21,Academia,Anthropic
 Tau-bench,6,2,2024-10-23,2025-08-05,Academia,none
+FrontierMath,6,1,2025-01-31,2026-07-09,"Others(Epoch AI, backed by Google)",none
 Terminal-bench,6,1,2025-05-23,2026-04-16,Academia,Anthropic
 ARC-AGI,5,3,2024-03-04,2026-04-23,Academia,none
-ARC-AGI-2,5,3,2025-11-24,2026-04-23,Academia,none
 Aider Polyglot,5,3,2025-03-25,2025-11-24,Others(Aider),none
+CyberGym,5,3,2026-02-05,2026-07-21,Academia,none
+GDPval-AA v2,5,3,2026-06-30,2026-07-24,Others(Artificial Analysis),none
+MMMU Pro,5,3,2026-02-05,2026-07-09,Academia,none
 CharXiv,5,2,2025-04-14,2025-12-11,Academia,none
-FrontierMath,5,1,2025-01-31,2026-04-23,"Others(Epoch AI, backed by Google)",none
+Toolathlon,5,2,2025-12-11,2026-07-09,"Academia, Others(All Hands AI)",none
 OSWorld,5,1,2024-10-23,2026-02-05,Academia,none
+automated behavioral audit,5,1,2026-04-16,2026-07-24,Anthropic,Anthropic
 DROP,4,3,2023-12-06,2024-06-21,Academia,none
 DocVQA,4,3,2023-12-06,2024-06-21,Academia,none
-GDPval-AA,4,3,2026-02-05,2026-04-23,Others(Artificial Analysis),none
 BigLaw Bench,4,2,2026-02-05,2026-04-23,Others(Harvey),none
+CursorBench,4,2,2026-04-16,2026-07-09,Others(Cursor),none
 GSM8K,4,2,2023-07-11,2024-06-21,OpenAI,OpenAI
 MGSM,4,2,2024-03-04,2025-01-31,"Google, Academia",Google
 MRCR,4,2,2024-12-11,2025-11-18,OpenAI,Google; DeepMind
-OSWorld-Verified,4,2,2026-02-05,2026-04-23,Academia,none
 SimpleQA,4,2,2025-01-31,2025-11-18,OpenAI,OpenAI
 Video-MMMU,4,2,2025-08-07,2026-03-03,Academia,none
 Codeforces,4,1,2024-09-12,2025-04-16,Others(Codeforces platform),none
 GDPval,4,1,2025-12-11,2026-04-23,OpenAI,OpenAI
 LiveCodeBench,4,1,2024-12-11,2026-03-03,Academia,none
+DeepSWE v1.1,3,3,2026-07-09,2026-07-24,Others(DataCurve),none
 Needle In A Haystack,3,3,2024-02-15,2025-04-14,"Academia, Others(Microsoft)",none
 ScreenSpot-Pro,3,3,2025-11-18,2026-04-16,Academia,none
 AI2D,3,2,2024-03-04,2024-06-21,Academia,none
+Artificial Analysis Intelligence Index,3,2,2026-04-23,2026-07-21,Others(Artificial Analysis),none
+AutomationBench,3,2,2026-06-09,2026-07-24,"Academia, Others(Zapier)",none
 Big-Bench Hard,3,2,2023-12-06,2024-06-21,Google,Google
+CharXiv Reasoning,3,2,2026-03-03,2026-05-19,Academia,none
 ChartQA,3,2,2024-03-04,2024-06-21,Academia,none
-CyberGym,3,2,2026-02-05,2026-04-23,Academia,none
 FinanceAgent v1.1,3,2,2026-03-05,2026-04-23,"Academia, Others(vals.ai)",none
+HealthBench Professional,3,2,2026-06-09,2026-07-24,OpenAI,OpenAI
 Vending-Bench 2,3,2,2025-11-18,2026-04-16,Others(Andon Labs),none
+Legal Agent Benchmark,3,1,2026-05-28,2026-07-24,Others(Harvey),none
 MultiChallenge,3,1,2025-04-14,2025-08-07,Others(Scale AI),none
 SWE-Lancer,3,1,2025-04-14,2025-12-11,OpenAI,OpenAI
 SWE-bench Multilingual,3,1,2025-11-24,2026-04-16,Academia,none
-Toolathlon,3,1,2025-12-11,2026-04-23,"Academia, Others(All Hands AI)",none
 APEX-Agents,2,2,2026-02-19,2026-03-05,Others(Mercor),none
-CharXiv Reasoning,2,2,2026-03-03,2026-04-16,Academia,none
+ARC-AGI-3,2,2,2026-07-09,2026-07-24,Others(ARC Prize),none
+Artificial Analysis Coding Agent Index v1.1,2,2,2026-07-09,2026-07-24,Others(Artificial Analysis),none
+Blueprint-Bench 2,2,2,2026-05-19,2026-06-09,Others(Andon Labs),none
 EgoSchema,2,2,2024-05-13,2024-12-11,Academia,none
+Finance Agent v2,2,2,2026-05-19,2026-05-28,Others(vals.ai),none
 HellaSwag,2,2,2023-12-06,2024-03-04,Academia,none
 IFEval,2,2,2025-02-25,2025-04-14,Google,Google
+OSWorld 2.0,2,2,2026-07-09,2026-07-24,Academia,none
 OfficeQA Pro,2,2,2026-04-16,2026-04-23,"Academia, Others(Databricks)",none
+Online-Mind2Web,2,2,2026-03-05,2026-05-28,Academia,none
 SciCode,2,2,2026-02-19,2026-04-23,Academia,none
 Uniform Bar Exam,2,2,2023-03-14,2023-07-11,Academia,none
+gdp.pdf,2,2,2026-06-09,2026-07-09,Others(Surge AI),none
+BioMysteryBench,2,1,2026-06-09,2026-07-24,Anthropic,Anthropic
 COLLIE,2,1,2025-04-14,2025-08-07,Academia,none
+Capture-the-Flags challenge tasks (Internal),2,1,2026-04-23,2026-07-09,OpenAI,OpenAI
 CoVoST 2,2,1,2023-12-06,2024-12-11,Meta,none
 Cybersecurity CTFs,2,1,2024-09-12,2026-02-05,Academia,none
 FACTS Benchmark suite,2,1,2025-11-18,2026-03-03,Google,Google; DeepMind
@@ -67,68 +86,112 @@ HMMT,2,1,2025-08-07,2025-12-11,Academia,none
 Investment Banking Modeling Tasks (Internal),2,1,2026-03-05,2026-04-23,OpenAI,OpenAI
 LMArena,2,1,2025-11-18,2026-03-03,Academia,none
 Natural2Code,2,1,2023-12-06,2024-12-11,Google,Google; DeepMind
+OSS-Fuzz,2,1,2026-06-09,2026-07-24,Anthropic,Anthropic
 Vibe-Eval,2,1,2024-12-11,2025-03-25,Others(Reka AI),none
-automated behavioral audit,2,1,2026-04-16,2026-04-16,Anthropic,Anthropic
 93-task coding benchmark,1,1,2026-04-16,2026-04-16,Others(early-access tester),none
 AA-LCR,1,1,2026-04-23,2026-04-23,Others(Artificial Analysis),none
 AA-Omniscience,1,1,2026-04-23,2026-04-23,Others(Artificial Analysis),none
 ActivityNet,1,1,2024-05-13,2024-05-13,Academia,none
+Agents' Last Exam,1,1,2026-07-09,2026-07-09,"Academia, Others(Berkeley RDI; RDI Foundation)",none
 Anthropic internal autonomous agentic coding evaluation,1,1,2026-04-16,2026-04-16,Anthropic,Anthropic
 Artificial Analysis Coding Index,1,1,2026-04-23,2026-04-23,Others(Artificial Analysis),none
-Artificial Analysis Intelligence Index,1,1,2026-04-23,2026-04-23,Others(Artificial Analysis),none
+Artificial Analysis Intelligence Index v4.1,1,1,2026-07-09,2026-07-09,Others(Artificial Analysis),none
+BenchCAD,1,1,2026-07-09,2026-07-09,Others(BenchCAD),none
+Big Finance Bench,1,1,2026-07-09,2026-07-09,Others(Rogo),none
+Big Sleep Evaluation,1,1,2026-07-21,2026-07-21,Google DeepMind,Google; DeepMind
 BioPipelineBench,1,1,2026-02-05,2026-02-05,Anthropic,Anthropic
 Biology Olympiad,1,1,2023-03-14,2023-03-14,Academia,none
 Bird-SQL,1,1,2024-12-11,2024-12-11,Academia,none
 BixBench,1,1,2026-04-23,2026-04-23,Others(FutureHouse),none
 BrowseComp Long Context,1,1,2025-12-11,2025-12-11,OpenAI,OpenAI
 BrowseComp-Plus,1,1,2025-11-24,2025-11-24,Academia,none
-Capture-the-Flags challenge tasks (Internal),1,1,2026-04-23,2026-04-23,OpenAI,OpenAI
+Chrome Production Commit Scanning Pipeline,1,1,2026-07-21,2026-07-21,Google,Google
 CoT-Control,1,1,2026-03-05,2026-03-05,OpenAI,OpenAI
 ComplexFunc Bench,1,1,2025-04-14,2025-04-14,Academia,none
 CritPt,1,1,2026-04-23,2026-04-23,Academia,none
-CursorBench,1,1,2026-04-16,2026-04-16,Others(Cursor),none
+CursorBench 3.2,1,1,2026-07-24,2026-07-24,Others(Cursor),none
+CyScenarioBench,1,1,2026-06-09,2026-06-09,Others(Irregular),none
+DeepSearchQA,1,1,2026-07-24,2026-07-24,"Academia, Google DeepMind",Google; DeepMind
 ERQA,1,1,2025-08-07,2025-08-07,Google,Google; DeepMind
+Eve's plaintiff-law tasks,1,1,2026-06-30,2026-06-30,Others(Eve),none
 Expert-SWE (Internal),1,1,2026-04-23,2026-04-23,OpenAI,OpenAI
+ExploitBench,1,1,2026-06-09,2026-06-09,OpenAI,OpenAI
+ExploitBench 2,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
+ExploitGym 3,1,1,2026-07-09,2026-07-09,"Academia, OpenAI",OpenAI
 FACTS Grounding,1,1,2024-12-11,2024-12-11,Google,Google; DeepMind
 FLEURS,1,1,2023-12-06,2023-12-06,"Meta, Google",Google
+Firefox,1,1,2026-06-09,2026-06-09,"Anthropic, Others(Mozilla)",Anthropic
+Firefox 147 exploit evaluation,1,1,2026-06-30,2026-06-30,"Anthropic, Others(Mozilla)",Anthropic
 Frontier Science Research,1,1,2026-03-05,2026-03-05,OpenAI,OpenAI
+Frontier-Bench v0.1,1,1,2026-07-24,2026-07-24,"Academia, Others(Harbor; Laude Institute)",none
+FrontierBench,1,1,2026-06-09,2026-06-09,Others(Cognition),none
+FrontierCode (Diamond),1,1,2026-06-09,2026-06-09,Others(Cognition),none
+FrontierCode v1.1,1,1,2026-07-24,2026-07-24,Others(Cognition),none
 GRE,1,1,2023-07-11,2023-07-11,"Academia, Others(ETS)",none
 GeneBench,1,1,2026-04-23,2026-04-23,OpenAI,OpenAI
+GeneBench Pro,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Global PIQA,1,1,2025-11-18,2025-11-18,Academia,none
 Healthbench,1,1,2025-08-07,2025-08-07,OpenAI,OpenAI
+Hebbia's Finance Benchmark,1,1,2026-06-09,2026-06-09,Others(Hebbia),none
 HiddenMath,1,1,2024-12-11,2024-12-11,Google,Google; DeepMind
 IFBench,1,1,2026-04-23,2026-04-23,Academia,none
+IMC trading-analysis evaluations,1,1,2026-06-09,2026-06-09,Others(IMC),none
 IMO,1,1,2024-09-12,2024-09-12,Academia,none
 Infographic VQA,1,1,2023-12-06,2023-12-06,Academia,none
+Internal Research Debugging Evaluation,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Jailbreak Eval,1,1,2024-09-12,2024-09-12,Academia,none
+KernelGen 1P,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
+Legora's internal eval harness,1,1,2026-07-09,2026-07-09,Others(Legora),none
+LifeSciBench,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 LiveBench Coding,1,1,2025-01-31,2025-01-31,"Academia, Others(Nvidia etc)",none
 LiveCodeBench Pro,1,1,2026-02-19,2026-02-19,Academia,none
+Lovable internal evals,1,1,2026-07-24,2026-07-24,Others(Lovable),none
 M3Exam,1,1,2024-05-13,2024-05-13,"Academia, Others(Alibaba etc)",none
 MATH 500,1,1,2025-02-25,2025-02-25,Academia,none
 MCQA,1,1,2023-12-06,2023-12-06,Academia,none
+MLE-Bench,1,1,2026-07-21,2026-07-21,OpenAI,OpenAI
 MTOB benchmark,1,1,2024-02-15,2024-02-15,"Academia, Google",none
+Management Consulting Tasks (Internal),1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 MathArena Apex,1,1,2025-11-18,2025-11-18,Academia,none
+MedChemBench (Internal),1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
+Model ML's FinBench,1,1,2026-07-09,2026-07-09,Others(Model ML),none
 Multi-IF,1,1,2025-04-14,2025-04-14,Meta,none
+NanoGPT,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 OfficeQA,1,1,2026-03-05,2026-03-05,"Academia, Others(Databricks)",none
 OmniDocBench,1,1,2026-03-05,2026-03-05,"Academia, Others(OpenGVLab)",none
 OmniDocBench 1.5,1,1,2025-11-18,2025-11-18,"Academia, Others(Abaka AI)",none
-Online-Mind2Web,1,1,2026-03-05,2026-03-05,Academia,none
 OpenRCA,1,1,2026-02-05,2026-02-05,"Academia, Others(Microsoft)",Microsoft
+PostTrainBench Lite,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Qodo's real-world code review benchmark,1,1,2026-04-16,2026-04-16,Others(Qodo),none
+RSI Index,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Rakuten-SWE-Bench,1,1,2026-04-16,2026-04-16,Others(Rakuten),none
+SEC-Bench Pro,1,1,2026-07-09,2026-07-09,Academia,none
 STEM,1,1,2025-01-31,2025-01-31,Academia,none
 SWE-Lancer IC Diamond,1,1,2026-02-05,2026-02-05,OpenAI,OpenAI
 SWE-bench,1,1,2025-02-27,2025-02-27,Academia,none
 SWE-bench Multimodal,1,1,2026-04-16,2026-04-16,Academia,none
 SimpleQA Verified,1,1,2026-03-03,2026-03-03,Google,Google; DeepMind
 Structural Biology,1,1,2026-04-16,2026-04-16,Anthropic,Anthropic
+Super-Agent benchmark,1,1,2026-05-28,2026-05-28,Others(early-access tester),none
 Terminal-Bench Hard,1,1,2026-04-23,2026-04-23,"Academia, Others(Artificial Analysis)",none
 TextVQA,1,1,2023-12-06,2023-12-06,Meta,none
 VATEX,1,1,2023-12-06,2023-12-06,"Academia, Others(ByteDance)",none
 VQAv2,1,1,2023-12-06,2023-12-06,Academia,none
 Vending-Bench,1,1,2025-11-24,2025-11-24,Others(Andon Labs),none
+ViBench,1,1,2026-06-09,2026-06-09,Others(early-access tester),none
 Video-MME,1,1,2025-04-14,2025-04-14,Academia,none
 WebArena-Verified,1,1,2026-03-05,2026-03-05,"Academia, Others(ServiceNow)",none
 WebVoyager,1,1,2024-12-11,2024-12-11,Academia,none
+agentic code-review tests,1,1,2026-07-09,2026-07-09,Others(Qodo),none
+automated alignment assessment,1,1,2026-06-09,2026-06-09,Anthropic,Anthropic
+combined evaluation suite,1,1,2026-07-09,2026-07-09,Others(Clio),none
+core analytics benchmark,1,1,2026-06-09,2026-06-09,Others(early-access tester),none
+early design evals,1,1,2026-07-09,2026-07-09,Others(Canva),none
+everyday spreadsheet suite,1,1,2026-06-09,2026-06-09,Others(early-access tester),none
+frontend benchmark,1,1,2026-07-24,2026-07-24,Others(Triple Whale),none
 implicit-need tests,1,1,2026-04-16,2026-04-16,Others(Notion),none
+internal and external PR benchmarks,1,1,2026-07-09,2026-07-09,Others(Qodo),none
+internal organic chemistry benchmark,1,1,2026-07-24,2026-07-24,Anthropic,Anthropic
 internal research-agent benchmark,1,1,2026-04-16,2026-04-16,Others(early-access tester),none
+seven-task benchmark,1,1,2026-07-09,2026-07-09,Others(Triple Whale),none
+trading benchmark,1,1,2026-07-24,2026-07-24,Others(early-access tester),none

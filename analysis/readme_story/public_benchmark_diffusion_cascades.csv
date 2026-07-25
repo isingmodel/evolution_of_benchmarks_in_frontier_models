@@ -19,6 +19,7 @@ benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),2025-03-25,Google,
 benchmark_screenspot_pro,ScreenSpot-Pro,2025-11-18,Google,OpenAI,2025-12-11,23,Google (2025-11-18) -> OpenAI (2025-12-11) -> Anthropic (2026-04-16),Academia
 benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,2026-04-23,OpenAI,Google,2026-05-19,26,OpenAI (2026-04-23) -> Google (2026-05-19),Others(Artificial Analysis)
 benchmark_biglaw_bench,BigLaw Bench,2026-02-05,Anthropic,OpenAI,2026-03-05,28,Anthropic (2026-02-05) -> OpenAI (2026-03-05),Others(Harvey)
+benchmark_mmmu_pro,MMMU Pro,2026-02-05,Anthropic,OpenAI,2026-03-05,28,Anthropic (2026-02-05) -> OpenAI (2026-03-05) -> Google (2026-05-19),Academia
 benchmark_automationbench,AutomationBench,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),"Academia, Others(Zapier)"
 benchmark_healthbench_professional,HealthBench Professional,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),OpenAI
 benchmark_gdp_pdf,gdp.pdf,2026-06-09,Anthropic,OpenAI,2026-07-09,30,Anthropic (2026-06-09) -> OpenAI (2026-07-09),Others(Surge AI)

@@ -11,7 +11,6 @@ from __future__ import annotations
 import itertools
 import json
 import math
-import sys
 from pathlib import Path
 
 import matplotlib
@@ -27,11 +26,14 @@ import seaborn as sns
 ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = Path(__file__).resolve().parent
 DATA_DIR = ROOT / "data"
-SCRIPT_DIR = ROOT / "scripts"
 
-sys.path.insert(0, str(SCRIPT_DIR))
-from plot_utils import load_benchmark_facets  # noqa: E402
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import (
+    build_resolved_mentions,
+    create_analysis_parser,
+    default_resolver,
+    scope_models_as_of,
+)
+from scripts.plot_utils import load_benchmark_facets
 
 
 SOURCE_GROUP_ORDER = [
@@ -42,18 +44,13 @@ SOURCE_GROUP_ORDER = [
     "Unknown",
 ]
 
+PARSER = create_analysis_parser(__doc__ or "Analyze benchmark network dynamics.")
+
 
 def clean_text(value: object) -> str:
     if value is None or pd.isna(value):
         return ""
     return str(value).strip()
-
-
-def split_mentions(value: object) -> list[str]:
-    text = clean_text(value)
-    if not text or text.casefold() == "nan":
-        return []
-    return split_benchmark_mentions(text)
 
 
 def parse_lab_affiliations(value: object) -> set[str]:
@@ -88,8 +85,9 @@ def source_author_group(provider: str, source_author: object, lab_affiliations: 
     return "Independent/industry"
 
 
-def load_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def load_inputs(as_of: str | None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     models = pd.read_csv(DATA_DIR / "models.csv")
+    models, _ = scope_models_as_of(models, as_of)
     models["release_date"] = pd.to_datetime(models["release date"], errors="raise")
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
     facets = load_benchmark_facets(add_headline_projection=True)
@@ -112,61 +110,53 @@ def build_mentions(
     benchmarks: pd.DataFrame,
     facets: pd.DataFrame,
 ) -> pd.DataFrame:
-    resolver = CanonicalResolver.from_files(DATA_DIR / "benchmarks.csv", DATA_DIR / "benchmark_aliases.csv")
     benchmarks_by_id = benchmarks.set_index("benchmark_id", drop=False).to_dict("index")
     headline_by_id = facet_label_lookup(facets, "headline_task_mode")
     risk_by_id = facet_label_lookup(facets, "benchmark_lifecycle_risk")
     construct_by_id = facet_label_lookup(facets, "construct_claim")
     domain_by_id = facet_label_lookup(facets, "domain")
 
-    rows: list[dict[str, object]] = []
-    unresolved: list[tuple[str, str, str]] = []
-
     models_sorted = models.sort_values(["release_date", "Provider", "Model name"]).reset_index(drop=True)
-    for release_sequence, (_, model_row) in enumerate(models_sorted.iterrows(), start=1):
-        provider = clean_text(model_row["Provider"])
-        model = clean_text(model_row["Model name"])
-        release_date = model_row["release_date"]
+    resolved, _ = build_resolved_mentions(
+        models_sorted,
+        default_resolver(),
+        unresolved_policy="error",
+    )
+    rows: list[dict[str, object]] = []
+    for mention in resolved.itertuples(index=False):
+        release_sequence = int(mention.model_row_id) + 1
+        provider = clean_text(mention.provider)
+        model = clean_text(mention.model_name)
+        release_date = mention.release_date
         release_key = f"{provider}::{model}::{release_date.date()}"
-
-        for mention_position, raw_mention in enumerate(split_mentions(model_row.get("benchmarks", "")), start=1):
-            resolution = resolver.resolve(raw_mention)
-            if not resolution:
-                unresolved.append((provider, model, raw_mention))
-                continue
-
-            meta = benchmarks_by_id[resolution.benchmark_id]
-            lab_affiliations = clean_text(meta.get("frontier_lab_author_affiliations", ""))
-            source_author = clean_text(meta.get("source_author", ""))
-            rows.append(
-                {
-                    "release_sequence": release_sequence,
-                    "release_key": release_key,
-                    "provider": provider,
-                    "model": model,
-                    "release_date": release_date,
-                    "mention_position": mention_position,
-                    "raw_mention": raw_mention,
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "match_source": resolution.match_source,
-                    "match_type": resolution.match_type,
-                    "source_author": source_author,
-                    "frontier_lab_author_affiliations": lab_affiliations,
-                    "source_author_group": source_author_group(provider, source_author, lab_affiliations),
-                    "self_affiliated_source": has_self_affiliation(provider, lab_affiliations, source_author),
-                    "legacy_task_mode": clean_text(meta.get("legacy_task_mode", "")),
-                    "legacy_task_domain": clean_text(meta.get("legacy_task_domain", "")),
-                    "headline_task_mode": headline_by_id.get(resolution.benchmark_id, ""),
-                    "facet_domain": domain_by_id.get(resolution.benchmark_id, ""),
-                    "construct_claim": construct_by_id.get(resolution.benchmark_id, ""),
-                    "benchmark_lifecycle_risk": risk_by_id.get(resolution.benchmark_id, ""),
-                }
-            )
-
-    if unresolved:
-        sample = "; ".join(f"{provider}/{model}: {raw}" for provider, model, raw in unresolved[:10])
-        raise ValueError(f"Unresolved mentions encountered despite exact resolver: {sample}")
+        meta = benchmarks_by_id[mention.benchmark_id]
+        lab_affiliations = clean_text(meta.get("frontier_lab_author_affiliations", ""))
+        source_author = clean_text(meta.get("source_author", ""))
+        rows.append(
+            {
+                "release_sequence": release_sequence,
+                "release_key": release_key,
+                "provider": provider,
+                "model": model,
+                "release_date": release_date,
+                "mention_position": mention.mention_position,
+                "raw_mention": mention.raw_mention,
+                "benchmark_id": mention.benchmark_id,
+                "benchmark_name": mention.benchmark_name,
+                "match_source": mention.match_source,
+                "match_type": mention.match_type,
+                "source_author": source_author,
+                "frontier_lab_author_affiliations": lab_affiliations,
+                "source_author_group": source_author_group(provider, source_author, lab_affiliations),
+                "self_affiliated_source": has_self_affiliation(provider, lab_affiliations, source_author),
+                "legacy_task_mode": clean_text(meta.get("legacy_task_mode", "")),
+                "legacy_task_domain": clean_text(meta.get("legacy_task_domain", "")),
+                "headline_task_mode": headline_by_id.get(mention.benchmark_id, ""),
+                "facet_domain": domain_by_id.get(mention.benchmark_id, ""),
+                "construct_claim": construct_by_id.get(mention.benchmark_id, ""),
+                "benchmark_lifecycle_risk": risk_by_id.get(mention.benchmark_id, ""),
+            }
+        )
 
     mentions = pd.DataFrame(rows)
     if mentions.empty:
@@ -705,9 +695,9 @@ def build_summary_metrics(
     return pd.DataFrame(rows)
 
 
-def write_outputs() -> dict[str, object]:
+def write_outputs(as_of: str | None) -> dict[str, object]:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    models, benchmarks, facets = load_inputs()
+    models, benchmarks, facets = load_inputs(as_of)
 
     mentions = build_mentions(models, benchmarks, facets)
     cascade, adoption_events, provider_roles = build_cascade_tables(mentions, models, benchmarks)
@@ -759,8 +749,9 @@ def write_outputs() -> dict[str, object]:
 
 
 def main() -> None:
+    args = PARSER.parse_args()
     sns.set_theme(style="whitegrid", context="notebook")
-    manifest = write_outputs()
+    manifest = write_outputs(args.as_of)
     print(json.dumps(manifest, indent=2))
 
 

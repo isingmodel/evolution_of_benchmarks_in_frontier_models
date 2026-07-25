@@ -20,33 +20,33 @@ This document integrates the five result reviews. The goal is to decide which ex
 
 The most project-fit and reader-friendly story is:
 
-> Public frontier-model release pages are shifting from static exam-style benchmarks toward work-simulation benchmarks.
+> Recent public frontier-model release pages prominently frame evaluations as work simulations, but the exact share remains sensitive to provisional taxonomy labels.
 
 Why this should lead:
 
 - It directly answers the project's benchmark-evolution question.
 - It is easy to understand without assuming provider intent.
 - It extends the existing README beyond task-mode trend charts.
-- It can be shown with one chart and one small table.
+- It can be shown with one chart, one small table, and explicit confidence-coverage sensitivity.
 
 Use:
 
 - `analysis/ideation_narrative_strategy/static_to_work_simulation_trend.png`, after relabeling `2026` as `2026 YTD` and adding `n=` release counts.
-- `analysis/ideation_narrative_strategy/annual_strategy_frames.csv`, reduced to static exam share, work simulation share, specialized domain share, and release-page count.
+- `analysis/ideation_narrative_strategy/annual_strategy_frames.csv`, reduced to static exam share, work simulation share, specialized domain share, and model-release-row count.
 
 Needed before README:
 
 - Add top-contributor table for the work-simulation rise.
-- Add provider-balanced sensitivity or at least a note about provider/release mix.
+- Report high-confidence work-axis coverage and the fixed-denominator lower bound alongside extraction-granularity sensitivity.
 - Caption every chart as benchmark mentions on public release pages, not capability.
 
 ## Best Case Study
 
 The Gemini 1.5 long-context result is ideal as a bounded case study:
 
-- Google 2024 broad long-context share: 32.1%.
+- Google 2024 broad long-context share: 39.3%.
 - OpenAI 2024: 2.4%.
-- Anthropic 2024: 2.1%.
+- Anthropic 2024: 5.8%.
 
 Use:
 
@@ -109,7 +109,7 @@ Recommended title:
 
 Do not use as a headline "hegemony" claim yet. The result is best as a short counterintuitive callout:
 
-> Anthropic and Google did not move away from OpenAI-linked benchmarks in this dataset; OpenAI-authored-or-affiliated mentions rose from 14.5% in 2023-2024 to 24.7% in 2025-2026.
+> Anthropic and Google did not move away from OpenAI-linked benchmarks in this dataset; OpenAI-authored-or-affiliated mentions rose from 14.5% in 2023-2024 to 20.8% in 2025-2026.
 
 Needed before README:
 

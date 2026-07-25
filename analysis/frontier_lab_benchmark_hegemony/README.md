@@ -44,17 +44,17 @@ Measured concepts:
 
 ## Findings
 
-OpenAI-authored-or-affiliated mentions by non-OpenAI labs rose, rather than fell. Anthropic+Google went from 11/76 mentions in 2023-2024 (14.5%) to 40/162 in 2025-2026 (24.7%). Using only `frontier_lab_author_affiliations`, the share rose from 10/76 (13.2%) to 35/162 (21.6%).
+OpenAI-authored-or-affiliated mentions by non-OpenAI labs rose, rather than fell. Anthropic+Google went from 11/76 mentions in 2023-2024 (14.5%) to 53/255 in 2025-2026 (20.8%). Using only `frontier_lab_author_affiliations`, the share rose from 10/76 (13.2%) to 46/255 (18.0%).
 
-Google changed the most: OpenAI-authored-or-affiliated mentions rose from 3/34 (8.8%) in 2023-2024 to 17/58 (29.3%) in 2025-2026. Anthropic was steadier, from 8/42 (19.0%) to 23/104 (22.1%).
+Google changed the most: OpenAI-authored-or-affiliated mentions rose from 3/34 (8.8%) in 2023-2024 to 21/85 (24.7%) in 2025-2026. Anthropic was nearly flat, from 8/42 (19.0%) to 32/170 (18.8%).
 
-Own-lab benchmark visibility increased, especially for OpenAI. OpenAI's own-only plus mixed own/competitor share rose from 2/32 mentions (6.3%) to 40/152 (26.3%). Anthropic rose from 0/42 to 15/104 (14.4%). Google stayed roughly similar, 7/34 (20.6%) to 11/58 (19.0%).
+Own-lab benchmark visibility increased, especially for OpenAI. OpenAI's own-only plus mixed own/competitor share rose from 2/32 mentions (6.3%) to 55/194 (28.4%). Anthropic rose from 0/42 to 33/170 (19.4%). Google stayed roughly similar, 7/34 (20.6%) to 16/85 (18.8%).
 
-Neutral / academic / vendor benchmarks remain the majority in every provider-period cell. In 2025-2026, neutral shares were OpenAI 100/152 (65.8%), Anthropic 66/104 (63.5%), and Google 36/58 (62.1%).
+Neutral / academic / vendor benchmarks remain the majority in every provider-period cell. In 2025-2026, neutral shares were OpenAI 125/194 (64.4%), Anthropic 108/170 (63.5%), and Google 55/85 (64.7%).
 
-Competitor-lab adoption is asymmetric. In 2025-2026, Anthropic mentions OpenAI-affiliated benchmarks 22 times and Google/DeepMind-affiliated benchmarks 4 times. Google mentions OpenAI-affiliated benchmarks 13 times and Anthropic-affiliated benchmarks 6 times. OpenAI mentions Google/DeepMind-affiliated benchmarks 12 times and Anthropic-affiliated benchmarks 8 times.
+Competitor-lab adoption is asymmetric. In 2025-2026, Anthropic mentions OpenAI-affiliated benchmarks 31 times and Google/DeepMind-affiliated benchmarks 9 times. Google mentions OpenAI-affiliated benchmarks 15 times and Anthropic-affiliated benchmarks 9 times. OpenAI mentions Google/DeepMind-affiliated benchmarks 13 times and Anthropic-affiliated benchmarks 9 times.
 
-Provider-created or private/opaque lifecycle mentions became more common. The combined lifecycle share rose from 18.8% to 42.8% for OpenAI, 35.7% to 41.3% for Anthropic, and 32.4% to 39.7% for Google. This supports the weaker claim that frontier release pages increasingly mix public neutral benchmarks with lab-shaped or less transparent evaluation surfaces.
+Provider-created or private/opaque lifecycle mentions became more common. The combined lifecycle share rose from 12.5% to 43.3% for OpenAI, 16.7% to 41.2% for Anthropic, and 8.8% to 30.6% for Google. This supports the weaker claim that frontier release pages increasingly mix public neutral benchmarks with lab-shaped or less transparent evaluation surfaces.
 
 ## High-Signal Examples
 

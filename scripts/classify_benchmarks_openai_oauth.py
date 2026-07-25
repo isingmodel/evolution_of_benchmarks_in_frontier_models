@@ -19,13 +19,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Sequence, Set, Tuple
 
-from openai_oauth_client import (
+from scripts.openai_oauth_client import (
     DEFAULT_OPENAI_OAUTH_BASE_URL,
     DEFAULT_OPENAI_OAUTH_MODEL,
     OpenAIOAuthClient,
     resolve_openai_oauth_dir,
 )
-from taxonomy_utils import (
+from scripts.taxonomy_utils import (
     ALLOWED_CONSTRUCT_CLAIM,
     ALLOWED_FACET_LABELS,
     ALLOWED_HEADLINE_PROJECTION,

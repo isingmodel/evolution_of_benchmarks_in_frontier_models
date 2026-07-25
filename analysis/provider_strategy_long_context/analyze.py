@@ -10,8 +10,6 @@ automatically dominate the shares.
 
 from __future__ import annotations
 
-import argparse
-import sys
 from pathlib import Path
 
 import matplotlib
@@ -26,13 +24,11 @@ import seaborn as sns
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
-SCRIPT_DIR = ROOT / "scripts"
 OUTPUT_DIR = Path(__file__).resolve().parent
 
-sys.path.insert(0, str(SCRIPT_DIR))
-
-from plot_utils import load_benchmark_facets  # noqa: E402
-from taxonomy_utils import CanonicalResolver, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import build_resolved_mentions, create_analysis_parser
+from scripts.plot_utils import load_benchmark_facets
+from scripts.taxonomy_utils import CanonicalResolver, split_benchmark_mentions
 
 
 PROVIDER_ORDER = ["OpenAI", "Google", "Anthropic"]
@@ -138,28 +134,19 @@ BENCHMARK_DRIVER_COLUMNS = [
 ]
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Compare provider benchmark showcase strategies over time."
-    )
-    parser.add_argument(
-        "--as-of",
-        help=(
-            "Include model releases on or before this date (YYYY-MM-DD). "
-            "Defaults to latest release date in data/models.csv."
-        ),
-    )
-    parser.add_argument(
-        "--output-dir",
-        default=str(OUTPUT_DIR),
-        help="Directory for generated CSV and PNG outputs.",
-    )
-    parser.add_argument(
-        "--allow-unresolved",
-        action="store_true",
-        help="Skip unresolved benchmark mentions instead of failing.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(
+    "Compare provider benchmark showcase strategies over time."
+)
+PARSER.add_argument(
+    "--output-dir",
+    default=str(OUTPUT_DIR),
+    help="Directory for generated CSV and PNG outputs.",
+)
+PARSER.add_argument(
+    "--allow-unresolved",
+    action="store_true",
+    help="Skip unresolved benchmark mentions instead of failing.",
+)
 
 
 def non_overlapping_period(date: pd.Timestamp) -> str:
@@ -225,69 +212,24 @@ def build_mentions(
     resolver: CanonicalResolver,
     allow_unresolved: bool,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    rows = []
-    unresolved_rows = []
-    mention_id = 0
-
-    for model_row_id, model in models.reset_index(drop=True).iterrows():
-        raw_mentions = split_benchmark_mentions(model["benchmarks"])
-        if not raw_mentions:
-            continue
-
-        resolved_for_release = []
-        for raw_mention in raw_mentions:
-            resolution = resolver.resolve(raw_mention)
-            if resolution is None:
-                unresolved_rows.append(
-                    {
-                        "provider": model["Provider"],
-                        "model_name": model["Model name"],
-                        "release_date": model["release date"],
-                        "raw_mention": raw_mention,
-                    }
-                )
-                continue
-            resolved_for_release.append((raw_mention, resolution))
-
-        if unresolved_rows and not allow_unresolved:
-            continue
-
-        release_count = len(resolved_for_release)
-        if release_count == 0:
-            continue
-
-        for raw_mention, resolution in resolved_for_release:
-            rows.append(
-                {
-                    "mention_id": mention_id,
-                    "model_row_id": model_row_id,
-                    "provider": model["Provider"],
-                    "model_name": model["Model name"],
-                    "release_date": model["release_date"],
-                    "release_date_text": model["release date"],
-                    "period": model["period"],
-                    "hypothesis_period": model["hypothesis_period"],
-                    "raw_mention": raw_mention,
-                    "benchmark_id": resolution.benchmark_id,
-                    "benchmark_name": resolution.benchmark_name,
-                    "match_source": resolution.match_source,
-                    "match_type": resolution.match_type,
-                    "raw_weight": 1.0,
-                    "release_weight": 1.0 / release_count,
-                    "resolved_benchmark_count_for_release": release_count,
-                }
-            )
-            mention_id += 1
-
-    unresolved = pd.DataFrame(unresolved_rows, columns=UNRESOLVED_COLUMNS)
+    resolved, unresolved = build_resolved_mentions(
+        models,
+        resolver,
+        unresolved_policy="collect" if allow_unresolved else "error",
+    )
+    model_metadata = models.reset_index(drop=True)[["period", "hypothesis_period"]]
+    resolved["period"] = resolved["model_row_id"].map(model_metadata["period"])
+    resolved["hypothesis_period"] = resolved["model_row_id"].map(
+        model_metadata["hypothesis_period"]
+    )
+    mentions = resolved[MENTION_COLUMNS].copy()
+    unresolved = unresolved[UNRESOLVED_COLUMNS].copy()
     if not unresolved.empty and not allow_unresolved:
         sample = unresolved.head(20).to_dict("records")
         raise ValueError(
             "Unresolved benchmark mentions found. Add explicit aliases or "
             f"canonical rows before trusting this analysis. Sample: {sample}"
         )
-
-    mentions = pd.DataFrame(rows, columns=MENTION_COLUMNS)
     return mentions, unresolved
 
 
@@ -712,7 +654,7 @@ def write_strategy_heatmap_placeholder(output_path: Path) -> None:
 
 
 def main() -> None:
-    args = parse_args()
+    args = PARSER.parse_args()
     output_dir = Path(args.output_dir)
     if not output_dir.is_absolute():
         output_dir = ROOT / output_dir

@@ -1,6 +1,4 @@
-import argparse
-import sys
-from pathlib import Path
+from __future__ import annotations
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,13 +6,8 @@ import matplotlib.dates as mdates
 import matplotlib.ticker as mtick
 import seaborn as sns
 
-ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
-
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from plot_utils import (  # noqa: E402
+from scripts.analysis_utils import create_analysis_parser
+from scripts.plot_utils import (
     DATA_DIR,
     FACET_DOMAIN_ORDER,
     MODE_ORDER,
@@ -28,43 +21,25 @@ from plot_utils import (  # noqa: E402
     save_figure,
     validate_window_days,
 )
-from taxonomy_utils import REVIEW_CONFIDENCE_THRESHOLD  # noqa: E402
+from scripts.taxonomy_utils import REVIEW_CONFIDENCE_THRESHOLD
 
 
 configure_plot_style()
 
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Generate separate rolling benchmark trend charts by taxonomy axis.")
-    parser.add_argument(
-        "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to the latest release date in data/models.csv.",
-    )
-    parser.add_argument(
-        "--window-days",
-        type=int,
-        default=180,
-        help="Rolling window size in days.",
-    )
-    parser.add_argument(
-        "--output",
-        default="assets/benchmark_growth_by_all_category.png",
-        help="Output image path for the combined separate-axis chart.",
-    )
-    parser.add_argument(
-        "--domain-output",
-        help="Optional output image path for a standalone domain trend chart.",
-    )
-    parser.add_argument(
-        "--review-debt-output",
-        help="Optional output image path for review-debt metrics when v3 facet data exists.",
-    )
-    parser.add_argument(
-        "--strict-resolution",
-        action="store_true",
-        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(
+    "Generate separate rolling benchmark trend charts by taxonomy axis.",
+    window_days=180,
+    output="assets/benchmark_growth_by_all_category.png",
+    strict_resolution=True,
+)
+PARSER.add_argument(
+    "--domain-output",
+    help="Optional output image path for a standalone domain trend chart.",
+)
+PARSER.add_argument(
+    "--review-debt-output",
+    help="Optional output image path for review-debt metrics when v3 facet data exists.",
+)
 
 
 def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
@@ -239,7 +214,7 @@ def generate_trend_graph(
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    args = PARSER.parse_args()
     generate_trend_graph(
         as_of=parse_as_of(args.as_of),
         window_days=args.window_days,

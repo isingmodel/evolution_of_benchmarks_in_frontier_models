@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import csv
 import re
-import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -27,12 +26,13 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 OUT_DIR = Path(__file__).resolve().parent
-SCRIPTS_DIR = ROOT / "scripts"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from taxonomy_utils import CanonicalResolver, exact_key, split_benchmark_mentions  # noqa: E402
+from scripts.analysis_utils import (
+    build_resolved_mentions,
+    create_analysis_parser,
+    scope_models_as_of,
+)
+from scripts.taxonomy_utils import CanonicalResolver, exact_key
 
 
 CURRENT_PROVIDERS = ["OpenAI", "Google", "Anthropic"]
@@ -60,6 +60,8 @@ AUTHOR_POSITION_LABELS = {
     "neutral_or_non_frontier": "Neutral / academic / vendor",
 }
 LIFECYCLE_PROVIDER_OR_OPAQUE = {"provider_created_benchmark", "private_or_opaque_eval"}
+
+PARSER = create_analysis_parser(__doc__ or "Analyze frontier-lab benchmark authorship.")
 
 
 @dataclass(frozen=True)
@@ -147,45 +149,37 @@ def load_facets(path: Path) -> pd.DataFrame:
 
 
 def iter_mentions(models: pd.DataFrame, resolver: CanonicalResolver) -> Iterable[Mention]:
-    unresolved: list[dict[str, str]] = []
-    for _, row in models.fillna("").iterrows():
-        provider = exact_key(row["Provider"])
-        model_name = exact_key(row["Model name"])
-        release_date = exact_key(row["release date"])
+    resolved, unresolved = build_resolved_mentions(
+        models,
+        resolver,
+        unresolved_policy="collect",
+    )
+    if not unresolved.empty:
+        path = OUT_DIR / "unresolved_mentions.csv"
+        unresolved.to_csv(path, index=False)
+        raise SystemExit(f"Unresolved benchmark mentions: {len(unresolved)}. See {path}")
+
+    for mention in resolved.itertuples(index=False):
+        provider = mention.provider
+        model_name = mention.model_name
+        release_date = mention.release_date_text
         release_ts = pd.Timestamp(release_date)
         model_id = stable_id("model", provider, model_name, release_date)
-        for mention_index, raw_mention in enumerate(split_benchmark_mentions(row.get("benchmarks", "")), start=1):
-            resolution = resolver.resolve(raw_mention)
-            if not resolution:
-                unresolved.append(
-                    {
-                        "provider": provider,
-                        "model_name": model_name,
-                        "release_date": release_date,
-                        "raw_mention": raw_mention,
-                    }
-                )
-                continue
-            yield Mention(
-                mention_id=stable_id("mention", model_id, f"{mention_index:03d}"),
-                provider=provider,
-                model_name=model_name,
-                release_date=release_date,
-                release_year=int(release_ts.year),
-                period=period_for_date(release_ts),
-                source_url=exact_key(row["link"]),
-                mention_index=mention_index,
-                raw_mention=raw_mention,
-                benchmark_id=resolution.benchmark_id,
-                benchmark_name=resolution.benchmark_name,
-                match_source=resolution.match_source,
-                match_type=resolution.match_type,
-            )
-
-    if unresolved:
-        path = OUT_DIR / "unresolved_mentions.csv"
-        pd.DataFrame(unresolved).to_csv(path, index=False)
-        raise SystemExit(f"Unresolved benchmark mentions: {len(unresolved)}. See {path}")
+        yield Mention(
+            mention_id=stable_id("mention", model_id, f"{mention.mention_position:03d}"),
+            provider=provider,
+            model_name=model_name,
+            release_date=release_date,
+            release_year=int(release_ts.year),
+            period=period_for_date(release_ts),
+            source_url=mention.link,
+            mention_index=int(mention.mention_position),
+            raw_mention=mention.raw_mention,
+            benchmark_id=mention.benchmark_id,
+            benchmark_name=mention.benchmark_name,
+            match_source=mention.match_source,
+            match_type=mention.match_type,
+        )
 
 
 def add_provenance_columns(mentions: pd.DataFrame, benchmarks: pd.DataFrame, lifecycle: pd.DataFrame) -> pd.DataFrame:
@@ -604,9 +598,11 @@ def write_methodology_summary(
 
 
 def main() -> None:
+    args = PARSER.parse_args()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     resolver = CanonicalResolver.from_files(DATA_DIR / "benchmarks.csv", DATA_DIR / "benchmark_aliases.csv")
     models = pd.read_csv(DATA_DIR / "models.csv").fillna("")
+    models, _ = scope_models_as_of(models, args.as_of)
     benchmarks = pd.read_csv(DATA_DIR / "benchmarks.csv").fillna("")
     lifecycle = load_facets(DATA_DIR / "benchmark_facets.csv")
 

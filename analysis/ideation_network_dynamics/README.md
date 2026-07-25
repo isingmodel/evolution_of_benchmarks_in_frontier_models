@@ -12,7 +12,7 @@ Run from the repository root:
 
 The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` for exact
 canonical names plus explicit aliases. It does not fuzzy match benchmark names.
-Latest local release date in this run: `2026-04-23`.
+Latest local release date in this run: `2026-07-24`.
 
 ## Ideation Catalog
 
@@ -44,19 +44,19 @@ Outputs:
 
 Headline results from the current local CSVs:
 
-- 422 benchmark mentions resolve exactly to 133 canonical benchmarks.
-- 49 benchmarks show cross-provider cascades; 84 remain single-provider in the observed pages.
+- 557 benchmark mentions resolve exactly to 196 canonical benchmarks.
+- 65 benchmarks show cross-provider cascades; 131 remain single-provider in the observed pages.
 - Fastest second-provider cascades:
   - `MMMLU`: Anthropic to OpenAI in 2 days.
   - `Terminal-Bench 2.0`: Google to Anthropic in 6 days.
   - `OfficeQA Pro`: Anthropic to OpenAI in 7 days.
-  - `GDPval-AA`: Anthropic to Google in 14 days.
-  - `APEX-Agents`: Google to OpenAI in 14 days.
+  - `Finance Agent v2`: Google to Anthropic in 9 days.
+  - `GDPval-AA v2`: Anthropic to OpenAI in 9 days.
 - Slow cross-provider cascades include `ARC-AGI` at 624 days to second provider and `GPQA Diamond` at 484 days.
 - Role balance by provider:
-  - Anthropic: 38 first-mover benchmarks, 18 later adopted, 24 imported, net export balance -6.
-  - Google: 40 first-mover benchmarks, 18 later adopted, 19 imported, net export balance -1.
-  - OpenAI: 55 first-mover benchmarks, 13 later adopted, 31 imported, net export balance -18.
+  - Anthropic: 68 first-tracked benchmarks, 24 later adopted, 32 imported, net export balance -8.
+  - Google: 46 first-tracked benchmarks, 21 later adopted, 26 imported, net export balance -5.
+  - OpenAI: 82 first-tracked benchmarks, 20 later adopted, 38 imported, net export balance -18.
 
 Interpretation: OpenAI has the largest unique benchmark vocabulary in these
 pages, but many of its first mentions remain provider-specific in the observed
@@ -79,16 +79,15 @@ Outputs:
 
 Latest cumulative benchmark-portfolio Jaccard similarities:
 
-- Anthropic - OpenAI: 0.333
-- Anthropic - Google: 0.330
-- Google - OpenAI: 0.283
+- Anthropic - OpenAI: 0.282
+- Anthropic - Google: 0.278
+- Google - OpenAI: 0.258
 
 The time series shows early spikes from small portfolio sizes, then a more
 stable 2025-2026 band around 0.28-0.35. The `release_strategy_metrics.csv`
 table also surfaces high-novelty releases: Google `gemini 1.0` introduced 16
-globally new mentions out of 18, while OpenAI `GPT-5.5` and Anthropic
-`Claude 4.7 (Opus)` each introduced 11 globally new mentions in large 2026
-release pages.
+globally new mentions out of 18, while OpenAI `GPT-5.6` introduced 27 of 42
+and Anthropic `Claude 5 (Fable/Mythos)` introduced 16 of 25 in 2026.
 
 To make this publishable, annotate major releases directly on the convergence
 line chart and add a second panel showing novelty/follower shares per release.
@@ -106,17 +105,17 @@ Outputs:
 Mention-share results:
 
 - Self-affiliated frontier-lab source share:
-  - OpenAI: 25.0%
-  - Google: 20.7%
-  - Anthropic: 17.8%
+  - OpenAI: 27.4%
+  - Anthropic: 20.8%
+  - Google: 20.2%
 - Academia-sourced share:
-  - Google: 52.2%
-  - OpenAI: 51.6%
-  - Anthropic: 44.5%
+  - Google: 47.1%
+  - OpenAI: 45.1%
+  - Anthropic: 34.9%
 - Provider-created lifecycle-risk mention share:
-  - OpenAI: 35.9%
-  - Anthropic: 35.6%
-  - Google: 32.6%
+  - Anthropic: 28.3%
+  - OpenAI: 27.4%
+  - Google: 19.3%
 
 Interpretation: all providers still rely heavily on academic benchmarks, but a
 substantial minority of public benchmark attention now flows through

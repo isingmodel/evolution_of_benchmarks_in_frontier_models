@@ -8,6 +8,7 @@ This directory contains the source tables and integrated benchmark facet table f
 models.csv
 benchmarks.csv
 benchmark_aliases.csv
+benchmark_distinctness.csv
 benchmark_facets.csv
 benchmark_facet_manual.csv   # temporary, optional
         |
@@ -27,9 +28,10 @@ benchmark_facets.csv
 | File | Current rows | Role |
 | --- | ---: | --- |
 | `models.csv` | 45 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 196 | Canonical benchmark table used by scraping catalog matching and facet generation. |
-| `benchmark_aliases.csv` | 51 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_facets.csv` | 3,384 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| `benchmarks.csv` | 197 | Canonical benchmark table used by scraping catalog matching and facet generation. |
+| `benchmark_aliases.csv` | 46 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_distinctness.csv` | 13 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
+| `benchmark_facets.csv` | 3,330 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
 
@@ -124,6 +126,21 @@ Notes:
 - Model-generated candidate rows and human-reviewed rows live together here after review.
 - During data updates, reviewers may temporarily create `benchmark_facet_manual.csv` with the same facet columns plus either `benchmark_id` or `benchmark_name`. Running `scripts/build_normalized_data.py` merges those rows into `benchmark_facets.csv` by replacing the touched `benchmark_id + facet_axis` rows. Remove the temporary file after integration; it is intentionally ignored by Git.
 
+### `benchmark_distinctness.csv`
+
+Records explicit decisions that similarly named canonical rows represent distinct evaluations.
+
+Columns:
+
+- `benchmark_id_a` and `benchmark_id_b`: The reviewed canonical pair.
+- `note`: The source-based or policy-based reason to keep the identities distinct.
+
+Notes:
+
+- Validation compares casefolded canonical names after stripping non-alphanumeric characters and warns when `difflib.SequenceMatcher` has a ratio above 0.92. It also warns when a canonical name of at least seven alphanumeric characters appears as consecutive whole tokens inside another canonical name.
+- A reviewed pair in this file silences that warning; it does not create an alias or merge any data.
+- Add a row only after making the research judgment that the pair is distinct. Unresolved questions belong in `docs/benchmark_audit_notes.md`.
+
 ## Common Conventions
 
 ### Review Status
@@ -175,17 +192,7 @@ Use the facet table when a benchmark spans multiple capabilities or domains. Use
 Run the standard pipeline from the repository root:
 
 ```bash
-AS_OF=2026-07-24
-PY=.venv/bin/python
-
-$PY scripts/build_normalized_data.py
-$PY scripts/validate_data.py
-$PY analysis/benchmark_evolution/analyze.py --as-of "$AS_OF" --strict-resolution
-$PY analysis/benchmark_evolution/benchmark_count_trend.py --as-of "$AS_OF" --window-days 90 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "$AS_OF" --window-days 180 --strict-resolution
-$PY analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "$AS_OF" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
-$PY analysis/readme_story/analyze.py --as-of "$AS_OF"
-$PY scripts/validate_data.py
+scripts/run_pipeline.sh
 ```
 
-After adding new model releases or benchmark classifications, run validation before trusting the generated charts or analysis tables. The top-level `README.md` is maintained directly rather than generated from a data-directory template.
+The entrypoint defaults to the maximum release date in `models.csv`; set `AS_OF=YYYY-MM-DD` to override it. After adding new model releases or benchmark classifications, run the full pipeline before trusting the generated charts or analysis tables. The top-level `README.md` is maintained directly rather than generated from a data-directory template.

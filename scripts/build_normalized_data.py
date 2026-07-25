@@ -499,7 +499,6 @@ def build_seed_facets(benchmarks_df):
     rows = []
     for _, row in benchmarks_df.iterrows():
         projected_seed_labels = {
-            "headline_task_mode": str(row["legacy_task_mode"]).strip(),
             "domain": infer_domain(row),
         }
         for axis, label in projected_seed_labels.items():
@@ -592,6 +591,17 @@ def manual_facets_to_final(manual_facets_df, benchmarks_df, canonical_lookup):
 def merge_facet_tables(benchmarks_df, existing_facets_df, manual_facets_df, canonical_lookup):
     benchmark_ids = set(benchmarks_df["benchmark_id"])
     existing_facets_df = normalize_facet_frame(existing_facets_df)
+    persisted_headline_rows = (
+        existing_facets_df["facet_axis"] == "headline_task_mode"
+    )
+    if persisted_headline_rows.any():
+        print(
+            "Dropped "
+            f"{int(persisted_headline_rows.sum())} persisted headline_task_mode "
+            "rows; charts derive that projection at runtime."
+        )
+        existing_facets_df = existing_facets_df[~persisted_headline_rows].copy()
+
     stale_benchmark_ids = sorted(set(existing_facets_df["benchmark_id"]) - benchmark_ids - {""})
     if stale_benchmark_ids:
         stale_rows = existing_facets_df[existing_facets_df["benchmark_id"].isin(stale_benchmark_ids)]

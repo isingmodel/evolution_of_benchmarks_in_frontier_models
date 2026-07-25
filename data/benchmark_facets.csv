@@ -62,7 +62,6 @@ benchmark_agentic_code_review_tests,benchmark_lifecycle_risk,none_identified,0.6
 benchmark_agentic_code_review_tests,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_agentic_code_review_tests,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_agentic_code_review_tests,domain,Coding/Engineering,0.6,needs_review,Qodo reports tests of agents performing real code-review work on the GPT-5.6 launch page.
-benchmark_agentic_code_review_tests,headline_task_mode,Agentic,0.6,needs_review,Qodo reports tests of agents performing real code-review work on the GPT-5.6 launch page.
 benchmark_agentic_code_review_tests,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_agentic_code_review_tests,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_agentic_code_review_tests,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -71,7 +70,6 @@ benchmark_agents_last_exam,benchmark_lifecycle_risk,none_identified,0.6,needs_re
 benchmark_agents_last_exam,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_agents_last_exam,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_agents_last_exam,domain,Other Specialized,0.7,legacy_seed,Agents' Last Exam evaluates long-running professional workflows across many fields.
-benchmark_agents_last_exam,headline_task_mode,Agentic,0.7,legacy_seed,Agents' Last Exam evaluates long-running professional workflows across many fields.
 benchmark_agents_last_exam,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_agents_last_exam,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_agents_last_exam,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -240,7 +238,6 @@ benchmark_arc_agi_3,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"R
 benchmark_arc_agi_3,construct_claim,reasoning,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_arc_agi_3,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_arc_agi_3,domain,General/Commonsense,0.7,legacy_seed,ARC-AGI-3 is a distinct version of the abstract-reasoning benchmark for novel problems.
-benchmark_arc_agi_3,headline_task_mode,Generative Reasoning,0.7,legacy_seed,ARC-AGI-3 is a distinct version of the abstract-reasoning benchmark for novel problems.
 benchmark_arc_agi_3,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_arc_agi_3,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_arc_agi_3,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -249,7 +246,6 @@ benchmark_artificial_analysis_coding_agent_index_v1_1,benchmark_lifecycle_risk,n
 benchmark_artificial_analysis_coding_agent_index_v1_1,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_coding_agent_index_v1_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_coding_agent_index_v1_1,domain,Coding/Engineering,0.7,legacy_seed,"Version 1.1 aggregates coding-agent performance across implementation, terminal use, and real codebases."
-benchmark_artificial_analysis_coding_agent_index_v1_1,headline_task_mode,Agentic,0.7,legacy_seed,"Version 1.1 aggregates coding-agent performance across implementation, terminal use, and real codebases."
 benchmark_artificial_analysis_coding_agent_index_v1_1,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_coding_agent_index_v1_1,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_coding_agent_index_v1_1,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -313,7 +309,6 @@ benchmark_artificial_analysis_intelligence_index_v4_1,benchmark_lifecycle_risk,n
 benchmark_artificial_analysis_intelligence_index_v4_1,construct_claim,reasoning,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_intelligence_index_v4_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_intelligence_index_v4_1,domain,General/Commonsense,0.7,legacy_seed,"Version 4.1 is a versioned aggregate index spanning agentic work, coding, scientific reasoning, and general capabilities."
-benchmark_artificial_analysis_intelligence_index_v4_1,headline_task_mode,Generative Reasoning,0.7,legacy_seed,"Version 4.1 is a versioned aggregate index spanning agentic work, coding, scientific reasoning, and general capabilities."
 benchmark_artificial_analysis_intelligence_index_v4_1,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_intelligence_index_v4_1,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_artificial_analysis_intelligence_index_v4_1,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -322,7 +317,6 @@ benchmark_automated_alignment_assessment,benchmark_lifecycle_risk,provider_creat
 benchmark_automated_alignment_assessment,construct_claim,instruction_following,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Constraint Satisfaction', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automated_alignment_assessment,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Constraint Satisfaction', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automated_alignment_assessment,domain,General/Commonsense,0.6,needs_review,Anthropic reports an automated alignment assessment measuring misaligned model behavior.
-benchmark_automated_alignment_assessment,headline_task_mode,Constraint Satisfaction,0.6,needs_review,Anthropic reports an automated alignment assessment measuring misaligned model behavior.
 benchmark_automated_alignment_assessment,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Constraint Satisfaction', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automated_alignment_assessment,metric_type,exact_match,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Constraint Satisfaction', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automated_alignment_assessment,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Constraint Satisfaction', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -353,7 +347,6 @@ benchmark_automationbench,benchmark_lifecycle_risk,none_identified,0.6,needs_rev
 benchmark_automationbench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automationbench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automationbench,domain,General/Commonsense,0.7,legacy_seed,AutomationBench evaluates whether agents can complete business automation tasks from start to finish.
-benchmark_automationbench,headline_task_mode,Agentic,0.7,legacy_seed,AutomationBench evaluates whether agents can complete business automation tasks from start to finish.
 benchmark_automationbench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automationbench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_automationbench,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -362,7 +355,6 @@ benchmark_benchcad,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"Ru
 benchmark_benchcad,construct_claim,computer_use,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_benchcad,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_benchcad,domain,Coding/Engineering,0.7,legacy_seed,"BenchCAD evaluates agents on computer-aided design tasks, with tool settings treated as runs of one benchmark."
-benchmark_benchcad,headline_task_mode,Agentic,0.7,legacy_seed,"BenchCAD evaluates agents on computer-aided design tasks, with tool settings treated as runs of one benchmark."
 benchmark_benchcad,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_benchcad,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_benchcad,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -388,7 +380,6 @@ benchmark_big_finance_bench,benchmark_lifecycle_risk,none_identified,0.6,needs_r
 benchmark_big_finance_bench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_big_finance_bench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_big_finance_bench,domain,Finance,0.7,legacy_seed,Rogo's evaluation measures model performance on complex financial-research work.
-benchmark_big_finance_bench,headline_task_mode,Agentic,0.7,legacy_seed,Rogo's evaluation measures model performance on complex financial-research work.
 benchmark_big_finance_bench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_big_finance_bench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_big_finance_bench,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -397,7 +388,6 @@ benchmark_big_sleep_evaluation,benchmark_lifecycle_risk,provider_created_benchma
 benchmark_big_sleep_evaluation,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_big_sleep_evaluation,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_big_sleep_evaluation,domain,Coding/Engineering,0.7,legacy_seed,Google's Big Sleep evaluation measures discovery of critical hard-to-find vulnerabilities in complex codebases.
-benchmark_big_sleep_evaluation,headline_task_mode,Agentic,0.7,legacy_seed,Google's Big Sleep evaluation measures discovery of critical hard-to-find vulnerabilities in complex codebases.
 benchmark_big_sleep_evaluation,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_big_sleep_evaluation,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_big_sleep_evaluation,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -447,7 +437,6 @@ benchmark_biomysterybench,benchmark_lifecycle_risk,provider_created_benchmark,0.
 benchmark_biomysterybench,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_biomysterybench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_biomysterybench,domain,Bio/Medicine,0.7,legacy_seed,BioMysteryBench evaluates complex open-ended bioinformatics research problems.
-benchmark_biomysterybench,headline_task_mode,Generative Reasoning,0.7,legacy_seed,BioMysteryBench evaluates complex open-ended bioinformatics research problems.
 benchmark_biomysterybench,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_biomysterybench,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_biomysterybench,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -530,7 +519,6 @@ benchmark_blueprint_bench_2,benchmark_lifecycle_risk,none_identified,0.6,needs_r
 benchmark_blueprint_bench_2,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_blueprint_bench_2,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_blueprint_bench_2,domain,General/Commonsense,0.7,legacy_seed,Blueprint-Bench 2 is an agent-only evaluation with cross-task memory and improved scoring.
-benchmark_blueprint_bench_2,headline_task_mode,Agentic,0.7,legacy_seed,Blueprint-Bench 2 is an agent-only evaluation with cross-task memory and improved scoring.
 benchmark_blueprint_bench_2,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_blueprint_bench_2,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_blueprint_bench_2,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -701,7 +689,6 @@ benchmark_chrome_production_commit_scanning_pipeline,benchmark_lifecycle_risk,pr
 benchmark_chrome_production_commit_scanning_pipeline,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_chrome_production_commit_scanning_pipeline,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_chrome_production_commit_scanning_pipeline,domain,Coding/Engineering,0.6,needs_review,Google evaluates cyber models on Chrome's production commit-scanning pipeline using undisclosed vulnerabilities.
-benchmark_chrome_production_commit_scanning_pipeline,headline_task_mode,Agentic,0.6,needs_review,Google evaluates cyber models on Chrome's production commit-scanning pipeline using undisclosed vulnerabilities.
 benchmark_chrome_production_commit_scanning_pipeline,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_chrome_production_commit_scanning_pipeline,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_chrome_production_commit_scanning_pipeline,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -746,7 +733,6 @@ benchmark_combined_evaluation_suite,benchmark_lifecycle_risk,none_identified,0.6
 benchmark_combined_evaluation_suite,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_combined_evaluation_suite,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_combined_evaluation_suite,domain,Other Specialized,0.6,needs_review,"Clio reports a combined evaluation suite covering legal research, document workflows, and transactional-law use cases."
-benchmark_combined_evaluation_suite,headline_task_mode,Agentic,0.6,needs_review,"Clio reports a combined evaluation suite covering legal research, document workflows, and transactional-law use cases."
 benchmark_combined_evaluation_suite,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_combined_evaluation_suite,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_combined_evaluation_suite,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -776,7 +762,6 @@ benchmark_core_analytics_benchmark,benchmark_lifecycle_risk,none_identified,0.6,
 benchmark_core_analytics_benchmark,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_core_analytics_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_core_analytics_benchmark,domain,Other Specialized,0.6,needs_review,An early-access tester reports a core analytics benchmark of complex long-running analytical tasks.
-benchmark_core_analytics_benchmark,headline_task_mode,Agentic,0.6,needs_review,An early-access tester reports a core analytics benchmark of complex long-running analytical tasks.
 benchmark_core_analytics_benchmark,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_core_analytics_benchmark,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_core_analytics_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -853,7 +838,6 @@ benchmark_cursorbench_3_2,benchmark_lifecycle_risk,none_identified,0.6,needs_rev
 benchmark_cursorbench_3_2,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cursorbench_3_2,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cursorbench_3_2,domain,Coding/Engineering,0.7,legacy_seed,CursorBench 3.2 is a versioned evaluation of coding-agent task performance.
-benchmark_cursorbench_3_2,headline_task_mode,Agentic,0.7,legacy_seed,CursorBench 3.2 is a versioned evaluation of coding-agent task performance.
 benchmark_cursorbench_3_2,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cursorbench_3_2,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cursorbench_3_2,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -918,7 +902,6 @@ benchmark_cyscenariobench,benchmark_lifecycle_risk,none_identified,0.6,needs_rev
 benchmark_cyscenariobench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cyscenariobench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cyscenariobench,domain,Coding/Engineering,0.7,legacy_seed,CyScenarioBench evaluates model performance on realistic cybersecurity scenarios.
-benchmark_cyscenariobench,headline_task_mode,Agentic,0.7,legacy_seed,CyScenarioBench evaluates model performance on realistic cybersecurity scenarios.
 benchmark_cyscenariobench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cyscenariobench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_cyscenariobench,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -927,7 +910,6 @@ benchmark_deepsearchqa,benchmark_lifecycle_risk,provider_created_benchmark,0.6,n
 benchmark_deepsearchqa,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_deepsearchqa,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_deepsearchqa,domain,General/Commonsense,0.7,legacy_seed,DeepSearchQA evaluates deep-research agents on multi-step information seeking and exhaustive web retrieval.
-benchmark_deepsearchqa,headline_task_mode,Agentic,0.7,legacy_seed,DeepSearchQA evaluates deep-research agents on multi-step information seeking and exhaustive web retrieval.
 benchmark_deepsearchqa,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_deepsearchqa,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_deepsearchqa,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -936,7 +918,6 @@ benchmark_deepswe_v1_1,benchmark_lifecycle_risk,none_identified,0.6,needs_review
 benchmark_deepswe_v1_1,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_deepswe_v1_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_deepswe_v1_1,domain,Coding/Engineering,0.7,legacy_seed,DeepSWE v1.1 evaluates long-horizon software-engineering work in real codebases.
-benchmark_deepswe_v1_1,headline_task_mode,Agentic,0.7,legacy_seed,DeepSWE v1.1 evaluates long-horizon software-engineering work in real codebases.
 benchmark_deepswe_v1_1,interaction_pattern,terminal_or_codebase_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_deepswe_v1_1,metric_type,unit_test_pass_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_deepswe_v1_1,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -980,7 +961,6 @@ benchmark_early_design_evals,benchmark_lifecycle_risk,none_identified,0.6,needs_
 benchmark_early_design_evals,construct_claim,reasoning,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_early_design_evals,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_early_design_evals,domain,General/Commonsense,0.6,needs_review,Canva reports early design evaluations for slide creation on the GPT-5.6 launch page.
-benchmark_early_design_evals,headline_task_mode,Generative Reasoning,0.6,needs_review,Canva reports early design evaluations for slide creation on the GPT-5.6 launch page.
 benchmark_early_design_evals,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_early_design_evals,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_early_design_evals,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -1033,7 +1013,6 @@ benchmark_eve_s_plaintiff_law_tasks,benchmark_lifecycle_risk,none_identified,0.6
 benchmark_eve_s_plaintiff_law_tasks,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_eve_s_plaintiff_law_tasks,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_eve_s_plaintiff_law_tasks,domain,Law,0.6,needs_review,Eve reports a task set evaluating plaintiff-side legal research and analysis.
-benchmark_eve_s_plaintiff_law_tasks,headline_task_mode,Agentic,0.6,needs_review,Eve reports a task set evaluating plaintiff-side legal research and analysis.
 benchmark_eve_s_plaintiff_law_tasks,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_eve_s_plaintiff_law_tasks,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_eve_s_plaintiff_law_tasks,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1042,7 +1021,6 @@ benchmark_everyday_spreadsheet_suite,benchmark_lifecycle_risk,none_identified,0.
 benchmark_everyday_spreadsheet_suite,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_everyday_spreadsheet_suite,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_everyday_spreadsheet_suite,domain,Other Specialized,0.6,needs_review,An early-access tester reports a spreadsheet suite evaluated across model effort levels.
-benchmark_everyday_spreadsheet_suite,headline_task_mode,Agentic,0.6,needs_review,An early-access tester reports a spreadsheet suite evaluated across model effort levels.
 benchmark_everyday_spreadsheet_suite,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_everyday_spreadsheet_suite,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_everyday_spreadsheet_suite,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1073,7 +1051,6 @@ benchmark_exploitbench,benchmark_lifecycle_risk,provider_created_benchmark,0.6,n
 benchmark_exploitbench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench,domain,Coding/Engineering,0.6,needs_review,The unversioned ExploitBench release-page label is retained separately from the later explicitly versioned ExploitBench 2.
-benchmark_exploitbench,headline_task_mode,Agentic,0.6,needs_review,The unversioned ExploitBench release-page label is retained separately from the later explicitly versioned ExploitBench 2.
 benchmark_exploitbench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1082,7 +1059,6 @@ benchmark_exploitbench_2,benchmark_lifecycle_risk,provider_created_benchmark,0.6
 benchmark_exploitbench_2,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench_2,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench_2,domain,Coding/Engineering,0.7,legacy_seed,ExploitBench 2 measures progress from reaching vulnerable code through arbitrary code execution.
-benchmark_exploitbench_2,headline_task_mode,Agentic,0.7,legacy_seed,ExploitBench 2 measures progress from reaching vulnerable code through arbitrary code execution.
 benchmark_exploitbench_2,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench_2,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitbench_2,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1091,7 +1067,6 @@ benchmark_exploitgym_3,benchmark_lifecycle_risk,provider_created_benchmark,0.6,n
 benchmark_exploitgym_3,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitgym_3,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitgym_3,domain,Coding/Engineering,0.7,legacy_seed,ExploitGym 3 evaluates agents turning real-world vulnerabilities into working exploits.
-benchmark_exploitgym_3,headline_task_mode,Agentic,0.7,legacy_seed,ExploitGym 3 evaluates agents turning real-world vulnerabilities into working exploits.
 benchmark_exploitgym_3,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitgym_3,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_exploitgym_3,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1174,7 +1149,6 @@ benchmark_finance_agent_v2,benchmark_lifecycle_risk,none_identified,0.6,needs_re
 benchmark_finance_agent_v2,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_finance_agent_v2,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_finance_agent_v2,domain,Finance,0.7,legacy_seed,Finance Agent v2 is a versioned evaluation of autonomous financial-research workflows.
-benchmark_finance_agent_v2,headline_task_mode,Agentic,0.7,legacy_seed,Finance Agent v2 is a versioned evaluation of autonomous financial-research workflows.
 benchmark_finance_agent_v2,interaction_pattern,single_turn_tool_use,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_finance_agent_v2,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_finance_agent_v2,modality,tool_api,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1218,7 +1192,6 @@ benchmark_firefox,benchmark_lifecycle_risk,provider_created_benchmark,0.6,needs_
 benchmark_firefox,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox,domain,Coding/Engineering,0.6,needs_review,The Fable/Mythos launch page presents Firefox as a scored cybersecurity evaluation track.
-benchmark_firefox,headline_task_mode,Agentic,0.6,needs_review,The Fable/Mythos launch page presents Firefox as a scored cybersecurity evaluation track.
 benchmark_firefox,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1227,7 +1200,6 @@ benchmark_firefox_147_exploit_evaluation,benchmark_lifecycle_risk,provider_creat
 benchmark_firefox_147_exploit_evaluation,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox_147_exploit_evaluation,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox_147_exploit_evaluation,domain,Coding/Engineering,0.7,legacy_seed,This evaluation measures model success at developing exploits for patched Firefox 147 vulnerabilities.
-benchmark_firefox_147_exploit_evaluation,headline_task_mode,Agentic,0.7,legacy_seed,This evaluation measures model success at developing exploits for patched Firefox 147 vulnerabilities.
 benchmark_firefox_147_exploit_evaluation,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox_147_exploit_evaluation,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_firefox_147_exploit_evaluation,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1249,7 +1221,6 @@ benchmark_frontend_benchmark,benchmark_lifecycle_risk,none_identified,0.6,needs_
 benchmark_frontend_benchmark,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontend_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontend_benchmark,domain,Coding/Engineering,0.6,needs_review,Triple Whale reports a benchmark in which the model inspects and repairs responsive frontend pages.
-benchmark_frontend_benchmark,headline_task_mode,Agentic,0.6,needs_review,Triple Whale reports a benchmark in which the model inspects and repairs responsive frontend pages.
 benchmark_frontend_benchmark,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontend_benchmark,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontend_benchmark,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1258,7 +1229,6 @@ benchmark_frontier_bench_v0_1,benchmark_lifecycle_risk,none_identified,0.6,needs
 benchmark_frontier_bench_v0_1,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontier_bench_v0_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontier_bench_v0_1,domain,Coding/Engineering,0.7,legacy_seed,Frontier-Bench v0.1 evaluates agentic terminal coding tasks and is retained as an explicit versioned release-page label.
-benchmark_frontier_bench_v0_1,headline_task_mode,Agentic,0.7,legacy_seed,Frontier-Bench v0.1 evaluates agentic terminal coding tasks and is retained as an explicit versioned release-page label.
 benchmark_frontier_bench_v0_1,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontier_bench_v0_1,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontier_bench_v0_1,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1289,7 +1259,6 @@ benchmark_frontierbench,benchmark_lifecycle_risk,none_identified,0.6,needs_revie
 benchmark_frontierbench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontierbench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontierbench,domain,Coding/Engineering,0.6,needs_review,Cognition describes FrontierBench as its frontier coding evaluation.
-benchmark_frontierbench,headline_task_mode,Agentic,0.6,needs_review,Cognition describes FrontierBench as its frontier coding evaluation.
 benchmark_frontierbench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontierbench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontierbench,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1298,7 +1267,6 @@ benchmark_frontiercode_diamond,benchmark_lifecycle_risk,none_identified,0.6,need
 benchmark_frontiercode_diamond,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_diamond,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_diamond,domain,Coding/Engineering,0.7,legacy_seed,The Diamond track of FrontierCode evaluates difficult production-quality coding tasks.
-benchmark_frontiercode_diamond,headline_task_mode,Agentic,0.7,legacy_seed,The Diamond track of FrontierCode evaluates difficult production-quality coding tasks.
 benchmark_frontiercode_diamond,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_diamond,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_diamond,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1307,7 +1275,6 @@ benchmark_frontiercode_v1_1,benchmark_lifecycle_risk,none_identified,0.6,needs_r
 benchmark_frontiercode_v1_1,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_v1_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_v1_1,domain,Coding/Engineering,0.7,legacy_seed,FrontierCode v1.1 is a versioned evaluation of production-quality agentic coding.
-benchmark_frontiercode_v1_1,headline_task_mode,Agentic,0.7,legacy_seed,FrontierCode v1.1 is a versioned evaluation of production-quality agentic coding.
 benchmark_frontiercode_v1_1,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_v1_1,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_frontiercode_v1_1,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1331,7 +1298,6 @@ benchmark_gdp_pdf,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"Rul
 benchmark_gdp_pdf,construct_claim,multimodal_understanding,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdp_pdf,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdp_pdf,domain,Other Specialized,0.7,legacy_seed,GDP.pdf evaluates grounded multimodal reasoning over professional PDF documents.
-benchmark_gdp_pdf,headline_task_mode,Multimodal Perception,0.7,legacy_seed,GDP.pdf evaluates grounded multimodal reasoning over professional PDF documents.
 benchmark_gdp_pdf,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdp_pdf,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdp_pdf,modality,image,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1396,7 +1362,6 @@ benchmark_gdpval_aa_v2,benchmark_lifecycle_risk,none_identified,0.6,needs_review
 benchmark_gdpval_aa_v2,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdpval_aa_v2,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdpval_aa_v2,domain,Other Specialized,0.7,legacy_seed,GDPval-AA v2 is a versioned Artificial Analysis evaluation of economically valuable knowledge work.
-benchmark_gdpval_aa_v2,headline_task_mode,Agentic,0.7,legacy_seed,GDPval-AA v2 is a versioned Artificial Analysis evaluation of economically valuable knowledge work.
 benchmark_gdpval_aa_v2,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdpval_aa_v2,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_gdpval_aa_v2,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1422,7 +1387,6 @@ benchmark_genebench_pro,benchmark_lifecycle_risk,provider_created_benchmark,0.6,
 benchmark_genebench_pro,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_genebench_pro,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_genebench_pro,domain,Other Specialized,0.7,legacy_seed,GeneBench Pro evaluates long-horizon genomics and quantitative-biology analyses.
-benchmark_genebench_pro,headline_task_mode,Agentic,0.7,legacy_seed,GeneBench Pro evaluates long-horizon genomics and quantitative-biology analyses.
 benchmark_genebench_pro,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_genebench_pro,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_genebench_pro,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1552,7 +1516,6 @@ benchmark_healthbench_professional,benchmark_lifecycle_risk,provider_created_ben
 benchmark_healthbench_professional,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_healthbench_professional,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_healthbench_professional,domain,Bio/Medicine,0.7,legacy_seed,HealthBench Professional evaluates performance on challenging professional health tasks.
-benchmark_healthbench_professional,headline_task_mode,Generative Reasoning,0.7,legacy_seed,HealthBench Professional evaluates performance on challenging professional health tasks.
 benchmark_healthbench_professional,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_healthbench_professional,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_healthbench_professional,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1561,7 +1524,6 @@ benchmark_hebbia_s_finance_benchmark,benchmark_lifecycle_risk,none_identified,0.
 benchmark_hebbia_s_finance_benchmark,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_hebbia_s_finance_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_hebbia_s_finance_benchmark,domain,Finance,0.6,needs_review,"Hebbia's Finance Benchmark measures senior-level document reasoning, chart interpretation, and finance problem solving."
-benchmark_hebbia_s_finance_benchmark,headline_task_mode,Generative Reasoning,0.6,needs_review,"Hebbia's Finance Benchmark measures senior-level document reasoning, chart interpretation, and finance problem solving."
 benchmark_hebbia_s_finance_benchmark,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_hebbia_s_finance_benchmark,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_hebbia_s_finance_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1687,7 +1649,6 @@ benchmark_imc_trading_analysis_evaluations,benchmark_lifecycle_risk,none_identif
 benchmark_imc_trading_analysis_evaluations,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_imc_trading_analysis_evaluations,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_imc_trading_analysis_evaluations,domain,Other Specialized,0.6,needs_review,"IMC reports evaluations spanning factual lookup, conceptual reasoning, root-cause analysis, and expected-value analysis."
-benchmark_imc_trading_analysis_evaluations,headline_task_mode,Generative Reasoning,0.6,needs_review,"IMC reports evaluations spanning factual lookup, conceptual reasoning, root-cause analysis, and expected-value analysis."
 benchmark_imc_trading_analysis_evaluations,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_imc_trading_analysis_evaluations,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_imc_trading_analysis_evaluations,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1746,7 +1707,6 @@ benchmark_internal_and_external_pr_benchmarks,benchmark_lifecycle_risk,private_o
 benchmark_internal_and_external_pr_benchmarks,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_and_external_pr_benchmarks,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_and_external_pr_benchmarks,domain,Coding/Engineering,0.6,needs_review,Qodo reports internal and external pull-request benchmarks used for an apples-to-apples model comparison.
-benchmark_internal_and_external_pr_benchmarks,headline_task_mode,Agentic,0.6,needs_review,Qodo reports internal and external pull-request benchmarks used for an apples-to-apples model comparison.
 benchmark_internal_and_external_pr_benchmarks,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_and_external_pr_benchmarks,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_and_external_pr_benchmarks,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1755,7 +1715,6 @@ benchmark_internal_organic_chemistry_benchmark,benchmark_lifecycle_risk,private_
 benchmark_internal_organic_chemistry_benchmark,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_internal_organic_chemistry_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_internal_organic_chemistry_benchmark,domain,Other Specialized,0.6,needs_review,Anthropic reports an internal benchmark for inferring molecular structures from spectroscopy data.
-benchmark_internal_organic_chemistry_benchmark,headline_task_mode,Generative Reasoning,0.6,needs_review,Anthropic reports an internal benchmark for inferring molecular structures from spectroscopy data.
 benchmark_internal_organic_chemistry_benchmark,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_internal_organic_chemistry_benchmark,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_internal_organic_chemistry_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1792,7 +1751,6 @@ benchmark_internal_research_debugging_evaluation,benchmark_lifecycle_risk,privat
 benchmark_internal_research_debugging_evaluation,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_research_debugging_evaluation,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_research_debugging_evaluation,domain,Coding/Engineering,0.6,needs_review,OpenAI's internal evaluation measures debugging of AI-research systems.
-benchmark_internal_research_debugging_evaluation,headline_task_mode,Agentic,0.6,needs_review,OpenAI's internal evaluation measures debugging of AI-research systems.
 benchmark_internal_research_debugging_evaluation,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_research_debugging_evaluation,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_internal_research_debugging_evaluation,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1835,7 +1793,6 @@ benchmark_kernelgen_1p,benchmark_lifecycle_risk,private_or_opaque_eval,0.6,needs
 benchmark_kernelgen_1p,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_kernelgen_1p,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_kernelgen_1p,domain,Coding/Engineering,0.6,needs_review,KernelGen 1P is reported as an internal evaluation of kernel optimization in AI-research workflows.
-benchmark_kernelgen_1p,headline_task_mode,Agentic,0.6,needs_review,KernelGen 1P is reported as an internal evaluation of kernel optimization in AI-research workflows.
 benchmark_kernelgen_1p,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_kernelgen_1p,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_kernelgen_1p,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1844,7 +1801,6 @@ benchmark_legal_agent_benchmark,benchmark_lifecycle_risk,none_identified,0.6,nee
 benchmark_legal_agent_benchmark,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legal_agent_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legal_agent_benchmark,domain,Other Specialized,0.7,legacy_seed,The Legal Agent Benchmark evaluates substantive legal work with a strict all-pass standard.
-benchmark_legal_agent_benchmark,headline_task_mode,Agentic,0.7,legacy_seed,The Legal Agent Benchmark evaluates substantive legal work with a strict all-pass standard.
 benchmark_legal_agent_benchmark,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legal_agent_benchmark,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legal_agent_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1853,7 +1809,6 @@ benchmark_legora_s_internal_eval_harness,benchmark_lifecycle_risk,private_or_opa
 benchmark_legora_s_internal_eval_harness,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legora_s_internal_eval_harness,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legora_s_internal_eval_harness,domain,Other Specialized,0.6,needs_review,Legora reports an internal evaluation harness covering structured drafting and precedent review.
-benchmark_legora_s_internal_eval_harness,headline_task_mode,Agentic,0.6,needs_review,Legora reports an internal evaluation harness covering structured drafting and precedent review.
 benchmark_legora_s_internal_eval_harness,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legora_s_internal_eval_harness,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_legora_s_internal_eval_harness,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1862,7 +1817,6 @@ benchmark_lifescibench,benchmark_lifecycle_risk,provider_created_benchmark,0.6,n
 benchmark_lifescibench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_lifescibench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_lifescibench,domain,Other Specialized,0.7,legacy_seed,LifeSciBench evaluates realistic life-science research workflows.
-benchmark_lifescibench,headline_task_mode,Agentic,0.7,legacy_seed,LifeSciBench evaluates realistic life-science research workflows.
 benchmark_lifescibench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_lifescibench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_lifescibench,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -1956,7 +1910,6 @@ benchmark_lovable_internal_evals,benchmark_lifecycle_risk,private_or_opaque_eval
 benchmark_lovable_internal_evals,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_lovable_internal_evals,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_lovable_internal_evals,domain,Coding/Engineering,0.6,needs_review,Lovable reports internal evaluations covering difficult agentic coding work.
-benchmark_lovable_internal_evals,headline_task_mode,Agentic,0.6,needs_review,Lovable reports internal evaluations covering difficult agentic coding work.
 benchmark_lovable_internal_evals,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_lovable_internal_evals,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_lovable_internal_evals,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -1990,7 +1943,6 @@ benchmark_management_consulting_tasks_internal,benchmark_lifecycle_risk,private_
 benchmark_management_consulting_tasks_internal,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_management_consulting_tasks_internal,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_management_consulting_tasks_internal,domain,Other Specialized,0.6,needs_review,OpenAI reports an internal evaluation of management-consulting work tasks.
-benchmark_management_consulting_tasks_internal,headline_task_mode,Agentic,0.6,needs_review,OpenAI reports an internal evaluation of management-consulting work tasks.
 benchmark_management_consulting_tasks_internal,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_management_consulting_tasks_internal,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_management_consulting_tasks_internal,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -2084,7 +2036,6 @@ benchmark_medchembench_internal,benchmark_lifecycle_risk,private_or_opaque_eval,
 benchmark_medchembench_internal,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_medchembench_internal,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_medchembench_internal,domain,Other Specialized,0.6,needs_review,OpenAI reports an internal medicinal-chemistry evaluation.
-benchmark_medchembench_internal,headline_task_mode,Generative Reasoning,0.6,needs_review,OpenAI reports an internal medicinal-chemistry evaluation.
 benchmark_medchembench_internal,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_medchembench_internal,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_medchembench_internal,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -2108,7 +2059,6 @@ benchmark_mle_bench,benchmark_lifecycle_risk,provider_created_benchmark,0.6,need
 benchmark_mle_bench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_mle_bench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_mle_bench,domain,Coding/Engineering,0.7,legacy_seed,MLE-Bench evaluates agents on machine-learning engineering competitions.
-benchmark_mle_bench,headline_task_mode,Agentic,0.7,legacy_seed,MLE-Bench evaluates agents on machine-learning engineering competitions.
 benchmark_mle_bench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_mle_bench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_mle_bench,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2193,11 +2143,18 @@ benchmark_mmmu_mmmu_pro,modality,text,0.95,needs_review,"Evidence: Each problem 
 benchmark_mmmu_mmmu_pro,task_mechanism,multiple_choice_qa,0.9,needs_review,"Evidence: MMMU and especially MMMU Pro use multiple-choice question answering, with MMMU Pro expanding candidate options for robustness. Classification note: MMMU/MMMU Pro is a static multimodal academic QA benchmark emphasizing visual-language understanding, domain knowledge, and reasoning across many expert subject areas."
 benchmark_mmmu_mmmu_pro,task_mechanism,short_answer_qa,0.65,needs_review,"Evidence: Original MMMU includes open-ended/short-answer style examples in addition to multiple-choice questions. Classification note: MMMU/MMMU Pro is a static multimodal academic QA benchmark emphasizing visual-language understanding, domain knowledge, and reasoning across many expert subject areas."
 benchmark_mmmu_mmmu_pro,task_mechanism,visual_question_answering,0.95,needs_review,"Evidence: Tasks ask models to answer questions grounded in diagrams, plots, tables, images, and other visual inputs. Classification note: MMMU/MMMU Pro is a static multimodal academic QA benchmark emphasizing visual-language understanding, domain knowledge, and reasoning across many expert subject areas."
+benchmark_mmmu_pro,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,construct_claim,multimodal_understanding,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,domain,General/Commonsense,0.7,legacy_seed,"MMMU Pro is a separately released, more robust version of MMMU with filtered and augmented multimodal questions intended to reduce shortcut-based answering."
+benchmark_mmmu_pro,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,modality,image,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
+benchmark_mmmu_pro,task_mechanism,visual_question_answering,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Multimodal Perception', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,domain,Other Specialized,0.6,needs_review,Model ML reports FinBench as a suite of demanding presentation and financial-workflow tasks.
-benchmark_model_ml_s_finbench,headline_task_mode,Agentic,0.6,needs_review,Model ML reports FinBench as a suite of demanding presentation and financial-workflow tasks.
 benchmark_model_ml_s_finbench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_model_ml_s_finbench,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -2283,7 +2240,6 @@ benchmark_nanogpt,benchmark_lifecycle_risk,private_or_opaque_eval,0.6,needs_revi
 benchmark_nanogpt,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_nanogpt,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_nanogpt,domain,Coding/Engineering,0.6,needs_review,NanoGPT is reported as an internal machine-learning experimentation evaluation.
-benchmark_nanogpt,headline_task_mode,Agentic,0.6,needs_review,NanoGPT is reported as an internal machine-learning experimentation evaluation.
 benchmark_nanogpt,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_nanogpt,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_nanogpt,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2448,7 +2404,6 @@ benchmark_oss_fuzz,benchmark_lifecycle_risk,provider_created_benchmark,0.6,needs
 benchmark_oss_fuzz,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_oss_fuzz,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_oss_fuzz,domain,Coding/Engineering,0.7,legacy_seed,Anthropic describes OSS-Fuzz as its evaluation of agents finding and exploiting software vulnerabilities.
-benchmark_oss_fuzz,headline_task_mode,Agentic,0.7,legacy_seed,Anthropic describes OSS-Fuzz as its evaluation of agents finding and exploiting software vulnerabilities.
 benchmark_oss_fuzz,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_oss_fuzz,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_oss_fuzz,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2490,7 +2445,6 @@ benchmark_osworld_2_0,benchmark_lifecycle_risk,none_identified,0.6,needs_review,
 benchmark_osworld_2_0,construct_claim,computer_use,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_osworld_2_0,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_osworld_2_0,domain,General/Commonsense,0.7,legacy_seed,OSWorld 2.0 is a versioned computer-use benchmark for agents operating desktop environments.
-benchmark_osworld_2_0,headline_task_mode,Agentic,0.7,legacy_seed,OSWorld 2.0 is a versioned computer-use benchmark for agents operating desktop environments.
 benchmark_osworld_2_0,interaction_pattern,computer_control,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_osworld_2_0,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_osworld_2_0,modality,desktop_ui,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -2535,7 +2489,6 @@ benchmark_posttrainbench_lite,benchmark_lifecycle_risk,provider_created_benchmar
 benchmark_posttrainbench_lite,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_posttrainbench_lite,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_posttrainbench_lite,domain,Coding/Engineering,0.6,needs_review,PostTrainBench Lite evaluates agentic post-training work in OpenAI's self-improvement suite.
-benchmark_posttrainbench_lite,headline_task_mode,Agentic,0.6,needs_review,PostTrainBench Lite evaluates agentic post-training work in OpenAI's self-improvement suite.
 benchmark_posttrainbench_lite,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_posttrainbench_lite,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_posttrainbench_lite,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2584,7 +2537,6 @@ benchmark_rsi_index,benchmark_lifecycle_risk,provider_created_benchmark,0.6,need
 benchmark_rsi_index,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_rsi_index,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_rsi_index,domain,Coding/Engineering,0.6,needs_review,The RSI Index aggregates evaluations intended to measure progress toward recursive self-improvement.
-benchmark_rsi_index,headline_task_mode,Agentic,0.6,needs_review,The RSI Index aggregates evaluations intended to measure progress toward recursive self-improvement.
 benchmark_rsi_index,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_rsi_index,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_rsi_index,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2653,7 +2605,6 @@ benchmark_sec_bench_pro,benchmark_lifecycle_risk,none_identified,0.6,needs_revie
 benchmark_sec_bench_pro,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_sec_bench_pro,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_sec_bench_pro,domain,Coding/Engineering,0.7,legacy_seed,SEC-Bench Pro evaluates proof-of-concept generation on complex software vulnerabilities.
-benchmark_sec_bench_pro,headline_task_mode,Agentic,0.7,legacy_seed,SEC-Bench Pro evaluates proof-of-concept generation on complex software vulnerabilities.
 benchmark_sec_bench_pro,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_sec_bench_pro,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_sec_bench_pro,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2662,7 +2613,6 @@ benchmark_seven_task_benchmark,benchmark_lifecycle_risk,none_identified,0.6,need
 benchmark_seven_task_benchmark,construct_claim,coding,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_seven_task_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_seven_task_benchmark,domain,Coding/Engineering,0.6,needs_review,Triple Whale reports a seven-task frontend benchmark on the GPT-5.6 launch page.
-benchmark_seven_task_benchmark,headline_task_mode,Generative Reasoning,0.6,needs_review,Triple Whale reports a seven-task frontend benchmark on the GPT-5.6 launch page.
 benchmark_seven_task_benchmark,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_seven_task_benchmark,metric_type,pass_at_k,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_seven_task_benchmark,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -2736,7 +2686,6 @@ benchmark_super_agent_benchmark,benchmark_lifecycle_risk,none_identified,0.6,nee
 benchmark_super_agent_benchmark,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_super_agent_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_super_agent_benchmark,domain,General/Commonsense,0.6,needs_review,"An early-access tester reports an end-to-end Super-Agent benchmark spanning translation, research, slide-building, and analysis."
-benchmark_super_agent_benchmark,headline_task_mode,Agentic,0.6,needs_review,"An early-access tester reports an end-to-end Super-Agent benchmark spanning translation, research, slide-building, and analysis."
 benchmark_super_agent_benchmark,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_super_agent_benchmark,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
 benchmark_super_agent_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='General/Commonsense', benchmark name, and legacy rationale."
@@ -3038,7 +2987,6 @@ benchmark_terminal_bench_2_1,benchmark_lifecycle_risk,none_identified,0.6,needs_
 benchmark_terminal_bench_2_1,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_terminal_bench_2_1,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_terminal_bench_2_1,domain,Coding/Engineering,0.7,legacy_seed,Terminal-Bench 2.1 is a versioned evaluation of agents completing tasks in terminal environments.
-benchmark_terminal_bench_2_1,headline_task_mode,Agentic,0.7,legacy_seed,Terminal-Bench 2.1 is a versioned evaluation of agents completing tasks in terminal environments.
 benchmark_terminal_bench_2_1,interaction_pattern,terminal_or_codebase_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_terminal_bench_2_1,metric_type,unit_test_pass_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_terminal_bench_2_1,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
@@ -3112,7 +3060,6 @@ benchmark_trading_benchmark,benchmark_lifecycle_risk,none_identified,0.6,needs_r
 benchmark_trading_benchmark,construct_claim,domain_expertise,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_trading_benchmark,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_trading_benchmark,domain,Other Specialized,0.6,needs_review,An early-access tester reports a trading benchmark used to compare model quality and efficiency.
-benchmark_trading_benchmark,headline_task_mode,Generative Reasoning,0.6,needs_review,An early-access tester reports a trading benchmark used to compare model quality and efficiency.
 benchmark_trading_benchmark,interaction_pattern,static_prompt_response,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_trading_benchmark,metric_type,accuracy,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
 benchmark_trading_benchmark,modality,text,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Generative Reasoning', task_domain='Specialized (Law/Bio/Finance)', benchmark name, and legacy rationale."
@@ -3234,7 +3181,6 @@ benchmark_vibench,benchmark_lifecycle_risk,none_identified,0.6,needs_review,"Rul
 benchmark_vibench,construct_claim,agentic_task_completion,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_vibench,context_pressure,none,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_vibench,domain,Coding/Engineering,0.6,needs_review,ViBench is described as an end-to-end vibe-coding benchmark for building applications.
-benchmark_vibench,headline_task_mode,Agentic,0.6,needs_review,ViBench is described as an end-to-end vibe-coding benchmark for building applications.
 benchmark_vibench,interaction_pattern,environment_interaction,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_vibench,metric_type,completion_rate,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."
 benchmark_vibench,modality,code,0.6,needs_review,"Rule-based multi-facet seed inferred from legacy task_mode='Agentic', task_domain='Coding/Engineering', benchmark name, and legacy rationale."

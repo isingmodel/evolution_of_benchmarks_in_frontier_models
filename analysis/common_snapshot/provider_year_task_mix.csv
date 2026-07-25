@@ -7,10 +7,10 @@ Anthropic,2025,Agentic,25,0.4807692307692308
 Anthropic,2025,Constraint Satisfaction,1,0.019230769230769232
 Anthropic,2025,Generative Reasoning,20,0.38461538461538464
 Anthropic,2025,Multimodal Perception,6,0.11538461538461539
-Anthropic,2026,Agentic,32,0.6153846153846154
-Anthropic,2026,Constraint Satisfaction,2,0.038461538461538464
-Anthropic,2026,Generative Reasoning,15,0.28846153846153844
-Anthropic,2026,Multimodal Perception,3,0.057692307692307696
+Anthropic,2026,Agentic,80,0.6779661016949152
+Anthropic,2026,Constraint Satisfaction,6,0.05084745762711865
+Anthropic,2026,Generative Reasoning,28,0.23728813559322035
+Anthropic,2026,Multimodal Perception,4,0.03389830508474576
 Google,2023,Generative Reasoning,9,0.5
 Google,2023,Multimodal Perception,9,0.5
 Google,2024,Agentic,1,0.0625
@@ -21,10 +21,10 @@ Google,2025,Agentic,5,0.16129032258064516
 Google,2025,Generative Reasoning,16,0.5161290322580645
 Google,2025,Knowledge Retrieval,3,0.0967741935483871
 Google,2025,Multimodal Perception,7,0.22580645161290322
-Google,2026,Agentic,8,0.2962962962962963
-Google,2026,Generative Reasoning,13,0.48148148148148145
-Google,2026,Knowledge Retrieval,2,0.07407407407407407
-Google,2026,Multimodal Perception,4,0.14814814814814814
+Google,2026,Agentic,27,0.5
+Google,2026,Generative Reasoning,19,0.35185185185185186
+Google,2026,Knowledge Retrieval,2,0.037037037037037035
+Google,2026,Multimodal Perception,6,0.1111111111111111
 OpenAI,2023,Generative Reasoning,2,1.0
 OpenAI,2024,Constraint Satisfaction,1,0.03333333333333333
 OpenAI,2024,Generative Reasoning,19,0.6333333333333333
@@ -34,8 +34,8 @@ OpenAI,2025,Constraint Satisfaction,7,0.08235294117647059
 OpenAI,2025,Generative Reasoning,40,0.47058823529411764
 OpenAI,2025,Knowledge Retrieval,4,0.047058823529411764
 OpenAI,2025,Multimodal Perception,15,0.17647058823529413
-OpenAI,2026,Agentic,33,0.4925373134328358
-OpenAI,2026,Constraint Satisfaction,2,0.029850746268656716
-OpenAI,2026,Generative Reasoning,27,0.40298507462686567
-OpenAI,2026,Knowledge Retrieval,2,0.029850746268656716
-OpenAI,2026,Multimodal Perception,3,0.04477611940298507
+OpenAI,2026,Agentic,63,0.5779816513761468
+OpenAI,2026,Constraint Satisfaction,2,0.01834862385321101
+OpenAI,2026,Generative Reasoning,37,0.3394495412844037
+OpenAI,2026,Knowledge Retrieval,2,0.01834862385321101
+OpenAI,2026,Multimodal Perception,5,0.045871559633027525

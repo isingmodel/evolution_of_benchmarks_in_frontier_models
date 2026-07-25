@@ -1,6 +1,4 @@
-import argparse
-import sys
-from pathlib import Path
+from __future__ import annotations
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -8,13 +6,8 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
-
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from plot_utils import (  # noqa: E402
+from scripts.analysis_utils import create_analysis_parser
+from scripts.plot_utils import (
     ALIAS_PATH,
     BENCHMARKS_PATH,
     configure_plot_style,
@@ -26,30 +19,17 @@ from plot_utils import (  # noqa: E402
     validate_window_days,
     warn_unresolved,
 )
-from taxonomy_utils import CanonicalResolver  # noqa: E402
+from scripts.taxonomy_utils import CanonicalResolver
 
 
 configure_plot_style()
 
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Generate a smoothed trend of benchmark counts per model release.")
-    parser.add_argument(
-        "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to the latest release date in data/models.csv.",
-    )
-    parser.add_argument("--window-days", type=int, default=90, help="Moving-average smoothing window size in days.")
-    parser.add_argument(
-        "--output",
-        default="assets/benchmark_count_per_release.png",
-        help="Output image path.",
-    )
-    parser.add_argument(
-        "--strict-resolution",
-        action="store_true",
-        help="Fail if any non-empty benchmark mention does not resolve by exact name or explicit alias.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(
+    "Generate a smoothed trend of benchmark counts per model release.",
+    window_days=90,
+    output="assets/benchmark_count_per_release.png",
+    strict_resolution=True,
+)
 
 
 def build_release_counts(models_df, as_of, resolver=None, strict_resolution=False):
@@ -173,8 +153,8 @@ def generate_graph(
     ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.45)
     ax.grid(False, axis="x")
 
-    min_date = counts["Date"].min() - pd.Timedelta(days=45)
-    max_date = max(counts["Date"].max(), as_of) + pd.Timedelta(days=45)
+    min_date = counts["Date"].min() - pd.to_timedelta(45, unit="D")
+    max_date = max(counts["Date"].max(), as_of) + pd.to_timedelta(45, unit="D")
     ax.set_xlim(min_date, max_date)
     ax.set_ylim(bottom=0)
     plt.xticks(rotation=45, ha="right")
@@ -186,7 +166,7 @@ def generate_graph(
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    args = PARSER.parse_args()
     generate_graph(
         as_of=parse_as_of(args.as_of),
         window_days=args.window_days,

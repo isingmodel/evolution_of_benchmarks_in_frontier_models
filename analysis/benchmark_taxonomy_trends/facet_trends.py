@@ -1,7 +1,6 @@
-import argparse
+from __future__ import annotations
+
 import math
-import sys
-from pathlib import Path
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -9,60 +8,41 @@ import matplotlib.ticker as mtick
 import pandas as pd
 import seaborn as sns
 
-ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS_DIR = ROOT / "scripts"
-
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-
-from plot_utils import (  # noqa: E402
+from scripts.analysis_utils import build_resolved_mentions, create_analysis_parser
+from scripts.plot_utils import (
     DATA_DIR,
     build_rolling_share_trend,
     configure_plot_style,
     latest_release_date,
     parse_as_of,
     save_figure,
-    split_benchmarks,
     validate_window_days,
     warn_unresolved,
 )
-from taxonomy_utils import CanonicalResolver  # noqa: E402
+from scripts.taxonomy_utils import CanonicalResolver
 
 
 configure_plot_style()
 
 DEFAULT_AXES = ["modality", "interaction_pattern", "context_pressure"]
 
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Generate rolling trends from benchmark facets.")
-    parser.add_argument(
-        "--as-of",
-        help="Include model releases on or before this date (YYYY-MM-DD). Defaults to latest models.csv release date.",
-    )
-    parser.add_argument("--window-days", type=int, default=180, help="Rolling window size in days.")
-    parser.add_argument(
-        "--axes",
-        default=",".join(DEFAULT_AXES),
-        help="Comma-separated facet axes to plot.",
-    )
-    parser.add_argument(
-        "--output",
-        default="assets/benchmark_facet_trends.png",
-        help="Output image path.",
-    )
-    parser.add_argument(
-        "--top-labels",
-        type=int,
-        default=8,
-        help="Maximum labels to show per axis before grouping the remainder into Other.",
-    )
-    parser.add_argument(
-        "--strict-resolution",
-        action="store_true",
-        help="Fail if any benchmark mention does not resolve by exact name or explicit alias.",
-    )
-    return parser.parse_args()
+PARSER = create_analysis_parser(
+    "Generate rolling trends from benchmark facets.",
+    window_days=180,
+    output="assets/benchmark_facet_trends.png",
+    strict_resolution=True,
+)
+PARSER.add_argument(
+    "--axes",
+    default=",".join(DEFAULT_AXES),
+    help="Comma-separated facet axes to plot.",
+)
+PARSER.add_argument(
+    "--top-labels",
+    type=int,
+    default=8,
+    help="Maximum labels to show per axis before grouping the remainder into Other.",
+)
 
 
 def split_axes(value):
@@ -87,29 +67,15 @@ def load_inputs():
 
 
 def build_model_mentions(models, resolver, strict_resolution=False):
-    rows = []
-    unresolved = []
-    for _, model in models.fillna("").iterrows():
-        provider = str(model.get("Provider", "")).strip()
-        model_name = str(model.get("Model name", "")).strip()
-        release_date = str(model.get("release date", "")).strip()
-        model_key = "|".join([provider, model_name, release_date])
-        raw_mentions = split_benchmarks(model.get("benchmarks", ""))
-
-        for raw_mention in raw_mentions:
-            resolution = resolver.resolve(raw_mention)
-            if not resolution:
-                unresolved.append(f"{provider} / {model_name} / {raw_mention}")
-                continue
-            rows.append(
-                {
-                    "model_key": model_key,
-                    "release_date": release_date,
-                    "benchmark_id": resolution.benchmark_id,
-                    "raw_mention": raw_mention,
-                    "raw_weight": 1.0,
-                }
-            )
+    resolved, unresolved_frame = build_resolved_mentions(
+        models,
+        resolver,
+        unresolved_policy="collect",
+    )
+    unresolved = [
+        (row.model_name, row.raw_mention)
+        for row in unresolved_frame.itertuples(index=False)
+    ]
 
     warn_unresolved(
         unresolved,
@@ -118,10 +84,9 @@ def build_model_mentions(models, resolver, strict_resolution=False):
         sample_separator="; ",
     )
 
-    return pd.DataFrame(
-        rows,
-        columns=["model_key", "release_date", "benchmark_id", "raw_mention", "raw_weight"],
-    )
+    output = resolved[["model_key", "benchmark_id", "raw_mention", "raw_weight"]].copy()
+    output.insert(1, "release_date", resolved["release_date_text"])
+    return output
 
 
 def normalize_mentions(mentions, as_of):
@@ -259,7 +224,7 @@ def generate_facet_trends(
 
 
 if __name__ == "__main__":
-    args = parse_args()
+    args = PARSER.parse_args()
     generate_facet_trends(
         as_of=parse_as_of(args.as_of),
         window_days=args.window_days,

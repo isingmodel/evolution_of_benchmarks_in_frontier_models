@@ -13,7 +13,7 @@ Run from the repo root:
 .venv/bin/python analysis/provider_strategy_long_context/analyze.py
 ```
 
-The current run uses local data through `2026-04-23`, resolves 422 benchmark
+The current run uses local data through `2026-07-24`, resolves 557 benchmark
 mentions, and has 0 unresolved mentions.
 
 ## Metrics
@@ -44,18 +44,17 @@ Anthropic in 2024:
 
 | Provider | Period | Long-context share | Agentic share | Coding share | Multimodal share |
 | --- | --- | ---: | ---: | ---: | ---: |
-| OpenAI | 2024 | 2.4% | 0.0% | 19.0% | 27.4% |
-| Google | 2024 | 32.1% | 3.6% | 10.7% | 17.9% |
-| Anthropic | 2024 | 2.1% | 11.1% | 15.8% | 30.6% |
-| OpenAI | 2025-2026 | 6.6% | 32.9% | 28.3% | 20.1% |
-| Google | 2025-2026 | 13.7% | 24.4% | 22.7% | 25.9% |
-| Anthropic | 2025-2026 | 2.6% | 50.3% | 32.4% | 18.7% |
+| OpenAI | 2024 | 2.4% | 12.5% | 33.9% | 27.4% |
+| Google | 2024 | 39.3% | 3.6% | 14.3% | 42.9% |
+| Anthropic | 2024 | 5.8% | 11.1% | 24.1% | 32.7% |
+| OpenAI | 2025-2026 | 23.3% | 47.9% | 38.6% | 26.6% |
+| Google | 2025-2026 | 18.0% | 54.7% | 50.5% | 28.1% |
+| Anthropic | 2025-2026 | 13.5% | 61.8% | 38.2% | 25.3% |
 
-The gap narrows after 2024. Google remains highest on the combined 2025-2026
-long-context share, but the signal is no longer as singular: OpenAI rises from
-2.4% in 2024 to 11.2% in 2026 YTD, and Anthropic rises from 0.0% in 2025 to
-10.4% in 2026 YTD. The broader 2025-2026 story shifts toward agentic and coding
-showcases, especially Anthropic and later OpenAI.
+The gap narrows after 2024 and OpenAI has the highest combined 2025-2026
+long-context share. In 2026 YTD the broad shares are 27.0% for OpenAI, 16.7%
+for Google, and 13.6% for Anthropic. The broader 2025-2026 story shifts toward
+agentic and coding showcases across all three providers.
 
 The main 2024 Google long-context driver is `Needle In A Haystack` on Gemini
 1.5, which alone contributes 25.0% of Google's release-normalized 2024
@@ -63,11 +62,13 @@ benchmark emphasis. Gemini 2.0 adds smaller supporting signals through `MRCR`
 and `EgoSchema`. OpenAI's 2024 long-context signal is only `EgoSchema` on
 GPT-4o, and Anthropic's is only `Needle In A Haystack` on Claude 3.
 
-In 2025-2026, Google's long-context drivers shift to `MRCR v2`, `MRCR`, `FACTS
-Benchmark suite`, `GDPval-AA`, and `Vending-Bench 2`. OpenAI's long-context
-drivers include `GDPval`, `MRCR v2`, `Needle In A Haystack`, `BrowseComp Long
-Context`, `AA-LCR`, and `GDPval-AA`. `BrowseComp Long Context` is present as an
-OpenAI 2025-2026 driver in the current local data, not a Google driver.
+In 2025-2026, Google's largest broad long-context drivers include `MRCR v2`,
+`SWE-bench Pro`, `SWE-bench verified`, `MRCR`, and `FACTS Benchmark suite`.
+OpenAI's include `SWE-bench verified`, `SWE-bench Pro`, `GDPval`,
+`GraphWalks`, and `SWE-Lancer`. Anthropic's are led by `SWE-bench verified`,
+`SWE-bench Pro`, and `SWE-bench Multilingual`. This broad operationalization
+therefore captures supporting-context work benchmarks as well as pure
+long-context retrieval.
 
 The coding/agentic transition is visible in the period summaries and drivers.
 In 2025-2026, Anthropic is the most agentic provider by benchmark-showcase
@@ -103,8 +104,8 @@ Google highlighted long context or whether one model was objectively better.
 Provider intent and competitive differentiation would need page prose, launch
 context, and external positioning evidence.
 
-Facet review debt is material. For `context_pressure`, 129 of 134 facet rows are
-`needs_review`; only 5 are `accepted`. Domain and headline task mode also mix
+Facet review debt is material. For `context_pressure`, 206 of 208 facet rows are
+`needs_review`; only 2 are `accepted`. Domain and headline task mode also mix
 accepted rows with legacy seeds. Treat the shares as operationalized indicators
 from the current taxonomy, not final ground truth.
 

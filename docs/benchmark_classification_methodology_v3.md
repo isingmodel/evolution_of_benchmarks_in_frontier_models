@@ -92,9 +92,16 @@ Ambiguous benchmarks should not be forced into a single label. The uncertainty i
 Possible status values are:
 
 - `accepted`: the evidence is sufficient and the classification is not substantially contested.
+- `legacy_seed`: the row was inherited from the pre-v3 taxonomy and has not completed v3 review.
 - `needs_review`: the evidence is incomplete or the label is unstable.
 - `disputed`: reviewers disagree materially, or the benchmark's construct is inherently ambiguous.
 - `deprecated`: an earlier classification was wrong or is no longer used.
+
+### 4.6 Classification Reproducibility Boundary
+
+Facet classification is currently a maintainer-only authoring step. `scripts/classify_benchmarks_openai_oauth.py` routes through `scripts/openai_oauth_client.py`, which requires an unpublished local sibling checkout at `~/dev/openai-oauth`. Outside contributors therefore cannot use that script to re-derive or extend the taxonomy as-is.
+
+Classification is deliberately not part of the reproducible analysis pipeline. The pipeline consumes the committed `data/benchmark_facets.csv` as an input, validates it, and regenerates downstream tables and charts. Anyone reimplementing classification against another model provider should use [`benchmark_classification_prompt.md`](benchmark_classification_prompt.md) as the public prompt and output contract, retain evidence and review statuses, and compare generated rows before replacing committed data.
 
 ## 5. Facet Definitions
 

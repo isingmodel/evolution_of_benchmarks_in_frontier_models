@@ -1,16 +1,11 @@
 from __future__ import annotations
 
-import sys
 import unittest
-from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-
-from plot_utils import add_derived_headline_task_mode, build_model_facet_events  # noqa: E402
-from taxonomy_utils import (  # noqa: E402
+from scripts.plot_utils import add_derived_headline_task_mode, build_model_facet_events
+from scripts.taxonomy_utils import (
     CanonicalBenchmark,
     CanonicalResolver,
     REVIEW_CONFIDENCE_THRESHOLD,
