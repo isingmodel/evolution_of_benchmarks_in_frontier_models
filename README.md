@@ -119,17 +119,57 @@ its earlier level.
 
 ## Other charts
 
-The repository includes several views of the same release-page history:
+The repository includes several complementary views of the same release-page
+history.
 
-| View | Chart |
-| --- | --- |
-| Category mix by release | [`benchmark_evolution.png`](assets/benchmark_evolution.png) |
-| Rolling category trend | [`benchmark_growth.png`](assets/benchmark_growth.png) |
-| Benchmark count per release | [`benchmark_count_per_release.png`](assets/benchmark_count_per_release.png) |
-| Category trends on separate axes | [`benchmark_growth_by_all_category.png`](assets/benchmark_growth_by_all_category.png) |
-| Multi-facet taxonomy trend | [`benchmark_facet_trends.png`](assets/benchmark_facet_trends.png) |
-| Review debt by facet | [`benchmark_review_debt.png`](assets/benchmark_review_debt.png) |
-| Benchmarks with the highest review leverage | [`review_leverage_benchmarks.png`](assets/review_leverage_benchmarks.png) |
+### Category mix by release
+
+The release-level view shows how the benchmark portfolio changes from one model
+launch to the next.
+
+![Benchmark category mix by model release](assets/benchmark_evolution.png)
+
+### Rolling category trend
+
+A rolling window makes the longer-term shift in headline benchmark categories
+easier to see.
+
+![Rolling trend in benchmark categories](assets/benchmark_growth.png)
+
+### Benchmark count per release
+
+The number of benchmark mentions on each launch page varies substantially across
+providers and releases.
+
+![Benchmark count per model release](assets/benchmark_count_per_release.png)
+
+### Category trends on separate axes
+
+Separating the category series avoids compressing smaller but still meaningful
+trends.
+
+![Benchmark category trends shown on separate axes](assets/benchmark_growth_by_all_category.png)
+
+### Multi-facet taxonomy trend
+
+The facet view follows labels across interaction pattern, task mechanism,
+construct claim, and context rather than reducing each benchmark to one class.
+
+![Trends across the multi-facet benchmark taxonomy](assets/benchmark_facet_trends.png)
+
+### Review debt by facet
+
+Taxonomy coverage is uneven, so this view makes the remaining review workload
+visible alongside the substantive trends.
+
+![Taxonomy review debt by benchmark facet](assets/benchmark_review_debt.png)
+
+### Benchmarks with the highest review leverage
+
+These benchmarks affect the most release-page evidence and therefore offer the
+largest payoff from manual taxonomy review.
+
+![Benchmarks with the highest taxonomy review leverage](assets/review_leverage_benchmarks.png)
 
 ## Method
 
