@@ -45,3 +45,12 @@ Capture-the-Flag Challenges,benchmark_capture_the_flags_challenge_tasks_internal
 GDM-MRCR v2,benchmark_mrcr_v2,provider_abbreviation,Google DeepMind prefix for the MRCR v2 long-context evaluation.
 AA Coding Agent Index,benchmark_artificial_analysis_coding_agent_index_v1_1,provider_abbreviation,Short label used for the current Artificial Analysis Coding Agent Index on the Claude Opus 5 release page.
 GDP.pdf,benchmark_gdp_pdf,case_variant,Capitalized spelling used on the Claude Fable 5 and Mythos 5 release page.
+FrontierCode 1.1 Main,benchmark_frontiercode_v1_1,version_alias,Main-track wording used for FrontierCode v1.1 on the Gemini 3.7 Flash release page.
+Code Arena,benchmark_webdev_arena,legacy_name,Chart shorthand for Arena.ai's WebDev Arena on the Gemini 3.7 Flash release page.
+Terminal-bench 2.1,benchmark_terminal_bench_2_1,case_variant,Lowercase bench styling used on the Gemini 3.7 Flash release page.
+Terminal-bench 3.0,benchmark_terminal_bench_3_0,case_variant,Lowercase bench styling used on the Gemini 3.7 Flash release page.
+GDPVal-AA v2,benchmark_gdpval_aa_v2,case_variant,Capital-V styling used on the Gemini 3.7 Flash release-page chart.
+GDM-MRCR v2 (8-needle),benchmark_mrcr_v2,version_alias,Google DeepMind prefix and 8-needle setting used on the Gemini 3.7 Flash release page.
+OSWorld-2.0,benchmark_osworld_2_0,case_variant,Hyphenated styling used on the Gemini 3.7 Flash release page.
+Agent's Last Exam,benchmark_agents_last_exam,legacy_name,Singular possessive wording used on the Gemini 3.7 Flash release page.
+Legal Agent Bench,benchmark_legal_agent_benchmark,legacy_name,Short testimonial wording for Harvey's Legal Agent Benchmark on the Gemini 3.7 Flash release page.

@@ -21,10 +21,10 @@ Google,2025,Agentic,5,0.16129032258064516
 Google,2025,Generative Reasoning,16,0.5161290322580645
 Google,2025,Knowledge Retrieval,3,0.0967741935483871
 Google,2025,Multimodal Perception,7,0.22580645161290322
-Google,2026,Agentic,27,0.5
-Google,2026,Generative Reasoning,19,0.35185185185185186
-Google,2026,Knowledge Retrieval,2,0.037037037037037035
-Google,2026,Multimodal Perception,6,0.1111111111111111
+Google,2026,Agentic,39,0.527027027027027
+Google,2026,Generative Reasoning,24,0.32432432432432434
+Google,2026,Knowledge Retrieval,2,0.02702702702702703
+Google,2026,Multimodal Perception,9,0.12162162162162163
 OpenAI,2023,Generative Reasoning,2,1.0
 OpenAI,2024,Constraint Satisfaction,1,0.03333333333333333
 OpenAI,2024,Generative Reasoning,19,0.6333333333333333
@@ -34,8 +34,8 @@ OpenAI,2025,Constraint Satisfaction,7,0.08235294117647059
 OpenAI,2025,Generative Reasoning,40,0.47058823529411764
 OpenAI,2025,Knowledge Retrieval,4,0.047058823529411764
 OpenAI,2025,Multimodal Perception,15,0.17647058823529413
-OpenAI,2026,Agentic,63,0.5779816513761468
-OpenAI,2026,Constraint Satisfaction,2,0.01834862385321101
-OpenAI,2026,Generative Reasoning,37,0.3394495412844037
-OpenAI,2026,Knowledge Retrieval,2,0.01834862385321101
-OpenAI,2026,Multimodal Perception,5,0.045871559633027525
+OpenAI,2026,Agentic,67,0.5877192982456141
+OpenAI,2026,Constraint Satisfaction,3,0.02631578947368421
+OpenAI,2026,Generative Reasoning,37,0.32456140350877194
+OpenAI,2026,Knowledge Retrieval,2,0.017543859649122806
+OpenAI,2026,Multimodal Perception,5,0.043859649122807015

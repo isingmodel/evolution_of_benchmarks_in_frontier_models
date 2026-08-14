@@ -12,10 +12,10 @@ Google,2023-2024,Google/DeepMind,7,6
 Google,2023-2024,Microsoft,1,1
 Google,2023-2024,Neutral/no frontier lab,24,20
 Google,2023-2024,OpenAI,2,2
-Google,2025-2026,Anthropic,9,3
-Google,2025-2026,Google/DeepMind,16,7
+Google,2025-2026,Anthropic,11,4
+Google,2025-2026,Google/DeepMind,17,7
 Google,2025-2026,Microsoft,5,1
-Google,2025-2026,Neutral/no frontier lab,55,34
+Google,2025-2026,Neutral/no frontier lab,72,47
 Google,2025-2026,OpenAI,15,6
 OpenAI,2023-2024,Google/DeepMind,1,1
 OpenAI,2023-2024,Microsoft,2,1
@@ -25,4 +25,4 @@ OpenAI,2025-2026,Anthropic,9,3
 OpenAI,2025-2026,Google/DeepMind,13,6
 OpenAI,2025-2026,Microsoft,7,2
 OpenAI,2025-2026,Neutral/no frontier lab,125,71
-OpenAI,2025-2026,OpenAI,55,29
+OpenAI,2025-2026,OpenAI,60,34

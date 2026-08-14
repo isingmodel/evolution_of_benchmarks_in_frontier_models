@@ -4,11 +4,15 @@ benchmark_arc_agi,benchmark_arc_agi_3,Explicit ARC-AGI version labels are kept d
 benchmark_arc_agi_2,benchmark_arc_agi_3,ARC-AGI-2 and ARC-AGI-3 are separately named benchmark versions on release pages.
 benchmark_artificial_analysis_intelligence_index,benchmark_artificial_analysis_intelligence_index_v4_1,The v4.1 label identifies an explicit version that the release page distinguishes from the unversioned index.
 benchmark_exploitbench,benchmark_exploitbench_2,ExploitBench 2 is an explicitly named successor rather than a spelling alias for ExploitBench.
+benchmark_exploitgym,benchmark_exploitgym_3,ExploitGym 3 is an explicitly versioned release-page label while GPT-5.6-Cyber reports unversioned ExploitGym; retain both pending source-backed identity confirmation.
 benchmark_finance_agent,benchmark_finance_agent_v2,Finance Agent v2 is explicitly versioned and named separately on release pages.
 benchmark_mmmu_mmmu_pro,benchmark_mmmu_pro,The combined MMMU / MMMU Pro presentation row preserves pages that report the family jointly; standalone MMMU Pro labels resolve to the separately released Pro benchmark.
 benchmark_omnidocbench,benchmark_omnidocbench_1_5,OmniDocBench 1.5 is explicitly versioned and named separately on release pages.
 benchmark_tau_bench,benchmark_tau_2_bench,TAU-2 is a separately released successor evaluation rather than a surface-form alias for Tau-bench.
 benchmark_terminal_bench,benchmark_terminal_bench_2_0,Terminal-Bench 2.0 is an explicitly named version kept distinct under the version policy.
 benchmark_terminal_bench,benchmark_terminal_bench_2_1,Terminal-Bench 2.1 is an explicitly named version kept distinct under the version policy.
+benchmark_terminal_bench,benchmark_terminal_bench_3_0,Terminal-Bench 3.0 is an explicitly named successor kept distinct under the version policy.
 benchmark_terminal_bench_2_0,benchmark_terminal_bench_2_1,Terminal-Bench 2.0 and 2.1 are separately named versions on release pages.
+benchmark_terminal_bench_2_0,benchmark_terminal_bench_3_0,Terminal-Bench 2.0 and 3.0 are separately named versions on release pages.
+benchmark_terminal_bench_2_1,benchmark_terminal_bench_3_0,Terminal-Bench 2.1 and 3.0 are separately named versions on release pages.
 benchmark_vending_bench,benchmark_vending_bench_2,Vending-Bench 2 is an explicitly named successor rather than a spelling alias for Vending-Bench.

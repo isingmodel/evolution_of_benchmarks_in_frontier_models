@@ -5,11 +5,11 @@ The numbers are derived only from local CSVs and use exact canonical benchmark r
 
 ## Baseline Counts
 
-- Resolved benchmark mentions: 557
-- Providers: Anthropic=212, Google=119, OpenAI=226
-- Years: 2023=24, 2024=84, 2025=168, 2026=281
-- Legacy task-mode mentions: Generative Reasoning=228, Agentic=223, Multimodal Perception=77, Constraint Satisfaction=17, Knowledge Retrieval=12
-- Legacy domain mentions: General/Commonsense=220, Coding/Engineering=146, STEM/Math=106, Specialized (Law/Bio/Finance)=85
+- Resolved benchmark mentions: 582
+- Providers: Anthropic=212, Google=139, OpenAI=231
+- Years: 2023=24, 2024=84, 2025=168, 2026=306
+- Legacy task-mode mentions: Agentic=239, Generative Reasoning=233, Multimodal Perception=80, Constraint Satisfaction=18, Knowledge Retrieval=12
+- Legacy domain mentions: General/Commonsense=227, Coding/Engineering=155, STEM/Math=107, Specialized (Law/Bio/Finance)=93
 
 ## Top Benchmarks
 

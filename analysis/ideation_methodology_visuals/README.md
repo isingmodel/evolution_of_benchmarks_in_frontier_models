@@ -20,21 +20,21 @@ The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `dat
 | `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
 | `summary_stats.csv` | Reproducibility stats for the local data run. |
 
-Local run summary: 557 release-page benchmark mentions resolved to 196 canonical benchmarks. The latest modeled release date is 2026-07-24. The canonical facet frame contains 3,268 rows marked `needs_review`, 33 `legacy_seed` rows, and 29 `accepted` rows out of 3,330, so uncertainty should remain visible in publication charts.
+Local run summary: 582 release-page benchmark mentions resolved to 207 canonical benchmarks. The latest modeled release date is 2026-08-13. The canonical facet frame contains 3,339 rows marked `needs_review`, 42 `legacy_seed` rows, and 29 `accepted` rows out of 3,410, so uncertainty should remain visible in publication charts.
 
 ## What The Prototypes Show
 
 ### Provider Strategy Fingerprints
 
-`provider_strategy_fingerprints.png` uses the latest 365-day window, 2025-07-24 through 2026-07-24. Each model release receives equal total weight; multi-label facet axes split a benchmark mention equally across labels.
+`provider_strategy_fingerprints.png` uses the latest 365-day window, 2025-08-13 through 2026-08-13. Each model release receives equal total weight; multi-label facet axes split a benchmark mention equally across labels.
 
 Useful readouts:
 
-- Anthropic is most agentic-coded in headline projection at 67%.
+- Anthropic is most agentic-coded in headline projection at 69%.
 - Google is 60% Agentic and 18% Multimodal Perception in this window.
-- OpenAI is 57% Agentic, with Generative Reasoning and Multimodal Perception each near 16%.
-- Coding/Engineering is highest for Google at 35%, followed by Anthropic at 29% and OpenAI at 28%.
-- Terminal/codebase interaction is 11% for Google, 10% for Anthropic, and 8% for OpenAI; environment interaction is the larger work-like differentiator.
+- OpenAI is 65% Agentic, with Generative Reasoning and Multimodal Perception each near 12%.
+- Coding/Engineering is highest for OpenAI at 43%, followed by Google at 33% and Anthropic at 30%.
+- Terminal/codebase interaction is 12% for Google, 10% for Anthropic, and 7% for OpenAI; environment interaction is the larger work-like differentiator.
 
 Recommendation: use this as the main "provider strategy" panel after the global trend charts. It turns the dataset into a market-positioning comparison without claiming model ability.
 
@@ -44,10 +44,10 @@ Recommendation: use this as the main "provider strategy" panel after the global 
 
 Top recent flows:
 
-- Coding/Engineering -> environment interaction: 13.2%.
-- STEM/Math -> static prompt response: 10.8%.
+- Coding/Engineering -> environment interaction: 16.5%.
+- General/Commonsense -> static prompt response: 9.1%.
 - Coding/Engineering -> terminal or codebase interaction: 8.4%.
-- General/Commonsense -> static prompt response: 8.1%.
+- STEM/Math -> static prompt response: 8.2%.
 
 Recommendation: place this immediately after any headline projection chart. It visually teaches the reader that headline categories are views over a multi-facet table, not exclusive benchmark identities.
 
@@ -57,14 +57,14 @@ Recommendation: place this immediately after any headline projection chart. It v
 
 Top review targets:
 
-- `MMMU / MMMU Pro`
 - `OSWorld-Verified`
-- `SWE-bench verified`
 - `SWE-bench Pro`
 - `HLE (Humanity's Last Exam)`
+- `SWE-bench verified`
+- `MRCR v2`
 - `MMMLU`
 - `GPQA Diamond`
-- `TAU-2 bench`
+- `GDPval-AA v2`
 
 Recommendation: include this near the methodology caveats or as a review roadmap. It makes uncertainty actionable: reviewers should not audit randomly; they should focus on high-leverage benchmarks that shape current claims.
 
@@ -101,6 +101,6 @@ Recommendation: include this near the methodology caveats or as a review roadmap
 - The charts analyze public release-page mentions, not benchmark scores, model capability, or scientific validity.
 - A model release with more benchmark mentions is normalized to the same total weight as another release with fewer mentions.
 - Facet labels are fractional when a benchmark has multiple labels on the same axis.
-- The latest-window charts use 365 days ending on 2026-07-24.
+- The latest-window charts use 365 days ending on 2026-08-13.
 - Many facet rows are still `needs_review`; publication charts should offer accepted-only or uncertainty-aware variants.
 - Source-author labels and lifecycle-risk labels inherit the current local taxonomy and should be audited before strong claims.
