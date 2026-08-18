@@ -8,7 +8,7 @@ The evidence source is a public release page, while the weighted analysis unit i
 ## Run
 
 ```bash
-.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-07-24
+.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-08-13
 ```
 
 ## Outputs

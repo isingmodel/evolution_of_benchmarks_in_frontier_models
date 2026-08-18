@@ -13,7 +13,7 @@ Run from the repo root:
 .venv/bin/python analysis/provider_strategy_long_context/analyze.py
 ```
 
-The current run uses local data through `2026-07-24`, resolves 557 benchmark
+The current run uses local data through `2026-08-13`, resolves 582 benchmark
 mentions, and has 0 unresolved mentions.
 
 ## Metrics
@@ -47,12 +47,12 @@ Anthropic in 2024:
 | OpenAI | 2024 | 2.4% | 12.5% | 33.9% | 27.4% |
 | Google | 2024 | 39.3% | 3.6% | 14.3% | 42.9% |
 | Anthropic | 2024 | 5.8% | 11.1% | 24.1% | 32.7% |
-| OpenAI | 2025-2026 | 23.3% | 47.9% | 38.6% | 26.6% |
-| Google | 2025-2026 | 18.0% | 54.7% | 50.5% | 28.1% |
+| OpenAI | 2025-2026 | 21.2% | 50.8% | 44.2% | 24.2% |
+| Google | 2025-2026 | 16.6% | 55.8% | 48.3% | 27.8% |
 | Anthropic | 2025-2026 | 13.5% | 61.8% | 38.2% | 25.3% |
 
 The gap narrows after 2024 and OpenAI has the highest combined 2025-2026
-long-context share. In 2026 YTD the broad shares are 27.0% for OpenAI, 16.7%
+long-context share. In 2026 YTD the broad shares are 21.6% for OpenAI, 15.0%
 for Google, and 13.6% for Anthropic. The broader 2025-2026 story shifts toward
 agentic and coding showcases across all three providers.
 
@@ -104,7 +104,7 @@ Google highlighted long context or whether one model was objectively better.
 Provider intent and competitive differentiation would need page prose, launch
 context, and external positioning evidence.
 
-Facet review debt is material. For `context_pressure`, 206 of 208 facet rows are
+Facet review debt is material. For `context_pressure`, 217 of 219 facet rows are
 `needs_review`; only 2 are `accepted`. Domain and headline task mode also mix
 accepted rows with legacy seeds. Treat the shares as operationalized indicators
 from the current taxonomy, not final ground truth.

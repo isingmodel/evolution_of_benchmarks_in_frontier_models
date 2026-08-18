@@ -17,7 +17,7 @@ Anthropic,2025-2026,MRCR v2,0.047619047619047616,1.0,Claude 4.6 (Opus),long_cont
 Anthropic,2025-2026,FinanceAgent v1.1,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting; medium
 Anthropic,2025-2026,Rakuten-SWE-Bench,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting
 Anthropic,2025-2026,SWE-bench Multimodal,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting; medium
-Google,2025-2026,MRCR v2,0.42483766233766235,4.0,Gemini 3.1 Flash-Lite; Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite,long_context_primary
+Google,2025-2026,MRCR v2,0.47483766233766234,5.0,Gemini 3.1 Flash-Lite; Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite; Gemini 3.7 Flash,long_context_primary
 Google,2025-2026,SWE-bench Pro,0.33392857142857146,3.0,Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite,long_context_supporting
 Google,2025-2026,SWE-bench verified,0.21011904761904762,3.0,Gemini 2.5; Gemini 3.0; Gemini 3.1 Pro,long_context_supporting
 Google,2025-2026,MRCR,0.14761904761904762,2.0,Gemini 2.5; Gemini 3.0,long_context_primary

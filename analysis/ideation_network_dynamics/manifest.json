@@ -1,13 +1,13 @@
 {
   "output_dir": "analysis/ideation_network_dynamics",
-  "resolved_mentions": 557,
-  "unique_benchmarks_mentioned": 196,
+  "resolved_mentions": 582,
+  "unique_benchmarks_mentioned": 207,
   "providers": [
     "Anthropic",
     "Google",
     "OpenAI"
   ],
-  "latest_release_date": "2026-07-24",
+  "latest_release_date": "2026-08-13",
   "csv_outputs": [
     "adoption_events.csv",
     "cascade_metrics.csv",

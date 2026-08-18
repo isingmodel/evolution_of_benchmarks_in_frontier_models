@@ -1,24 +1,24 @@
 metric,value,detail
-resolved_mentions,557.0,
-unique_benchmarks_mentioned,196.0,
-cross_provider_cascades,65.0,benchmarks adopted by more providers than their first-provider set
-single_provider_benchmarks,131.0,
+resolved_mentions,582.0,
+unique_benchmarks_mentioned,207.0,
+cross_provider_cascades,70.0,benchmarks adopted by more providers than their first-provider set
+single_provider_benchmarks,137.0,
 fastest_cascade,2.0,MMMLU: Anthropic -> OpenAI
 fastest_cascade,6.0,Terminal-Bench 2.0: Google -> Anthropic
 fastest_cascade,7.0,OfficeQA Pro: Anthropic -> OpenAI
+fastest_cascade,9.0,Terminal-Bench 2.1: Google -> Anthropic
 fastest_cascade,9.0,Finance Agent v2: Google -> Anthropic
-fastest_cascade,9.0,GDPval-AA v2: Anthropic -> OpenAI
 slowest_cascade,624.0,ARC-AGI: Anthropic -> Google
 slowest_cascade,484.0,GPQA Diamond: Anthropic -> Google
 slowest_cascade,297.0,GraphWalks: OpenAI -> Anthropic
 slowest_cascade,295.0,BrowseComp: OpenAI -> Anthropic
 slowest_cascade,218.0,CharXiv: OpenAI -> Google
-provider_net_export_balance,-5.0,Google
-provider_net_export_balance,-8.0,Anthropic
+provider_net_export_balance,-4.0,Anthropic
+provider_net_export_balance,-12.0,Google
 provider_net_export_balance,-18.0,OpenAI
-latest_portfolio_similarity,0.287,Anthropic - OpenAI
-latest_portfolio_similarity,0.284,Anthropic - Google
+latest_portfolio_similarity,0.31,Anthropic - Google
+latest_portfolio_similarity,0.286,Anthropic - OpenAI
 latest_portfolio_similarity,0.263,Google - OpenAI
-self_affiliated_mention_share,0.274,OpenAI
+self_affiliated_mention_share,0.29,OpenAI
 self_affiliated_mention_share,0.208,Anthropic
-self_affiliated_mention_share,0.202,Google
+self_affiliated_mention_share,0.18,Google

@@ -291,3 +291,22 @@ benchmark_osworld_2_0,OSWorld 2.0,Anthropic,2026-07-24,Claude 5 (Opus),OSWorld 2
 benchmark_frontend_benchmark,frontend benchmark,Anthropic,2026-07-24,Claude 5 (Opus),frontend benchmark,1,0,True,Anthropic,Others(Triple Whale),none,Agentic,Coding/Engineering
 benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,Anthropic,2026-07-24,Claude 5 (Opus),internal organic chemistry benchmark,1,0,True,Anthropic,Anthropic,Anthropic,Generative Reasoning,Specialized (Law/Bio/Finance)
 benchmark_trading_benchmark,trading benchmark,Anthropic,2026-07-24,Claude 5 (Opus),trading benchmark,1,0,True,Anthropic,Others(early-access tester),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,OpenAI,2026-08-10,GPT-5.6-Cyber,Advanced Cybersecurity Completion Rate,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,Coding/Engineering
+benchmark_exploitbench,ExploitBench,OpenAI,2026-08-10,GPT-5.6-Cyber,ExploitBench,2,62,False,Anthropic,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_exploitgym,ExploitGym,OpenAI,2026-08-10,GPT-5.6-Cyber,ExploitGym,1,0,True,OpenAI,"Academia, OpenAI",OpenAI,Agentic,Coding/Engineering
+benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,OpenAI,2026-08-10,GPT-5.6-Cyber,Vulnerability Discovery and Report Writing,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,OpenAI,2026-08-10,GPT-5.6-Cyber,Zero-Day Discovery Eval,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_agents_last_exam,Agents' Last Exam,Google,2026-08-13,Gemini 3.7 Flash,Agent's Last Exam,2,35,False,OpenAI,"Academia, Others(Berkeley RDI; RDI Foundation)",none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_automationbench,AutomationBench,Google,2026-08-13,Gemini 3.7 Flash,AutomationBench,3,65,False,Anthropic,"Academia, Others(Zapier)",none,Agentic,General/Commonsense
+benchmark_biomysterybench,BioMysteryBench,Google,2026-08-13,Gemini 3.7 Flash,BioMysteryBench,2,65,False,Anthropic,Anthropic,Anthropic,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_frontiercode_v1_1,FrontierCode v1.1,Google,2026-08-13,Gemini 3.7 Flash,FrontierCode 1.1 Main,2,20,False,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_hle_verified,HLE-Verified,Google,2026-08-13,Gemini 3.7 Flash,HLE-Verified,1,0,True,Google,"Academia, Others(Alibaba)",none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_harbor_index,Harbor-Index,Google,2026-08-13,Gemini 3.7 Flash,Harbor-Index,1,0,True,Google,Others(Harbor),none,Agentic,General/Commonsense
+benchmark_harvey_lab_aa,Harvey LAB-AA,Google,2026-08-13,Gemini 3.7 Flash,Harvey LAB-AA,1,0,True,Google,Others(Artificial Analysis; Harvey),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_labbench2,LABBench2,Google,2026-08-13,Gemini 3.7 Flash,LABBench2,1,0,True,Google,"Academia, Others(Edison Scientific; FutureHouse)",none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_lvbench,LVBench,Google,2026-08-13,Gemini 3.7 Flash,LVBench,1,0,True,Google,Academia,none,Multimodal Perception,General/Commonsense
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,Google,2026-08-13,Gemini 3.7 Flash,Legal Agent Bench,2,77,False,Anthropic,Others(Harvey),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_osworld_2_0,OSWorld 2.0,Google,2026-08-13,Gemini 3.7 Flash,OSWorld-2.0,3,35,False,OpenAI,Academia,none,Agentic,General/Commonsense
+benchmark_terminal_bench_3_0,Terminal-Bench 3.0,Google,2026-08-13,Gemini 3.7 Flash,Terminal-bench 3.0,1,0,True,Google,"Academia, Others(Harbor; Laude Institute)",none,Agentic,General/Commonsense
+benchmark_webdev_arena,WebDev Arena,Google,2026-08-13,Gemini 3.7 Flash,Code Arena,1,0,True,Google,Others(Epoch AI),none,Generative Reasoning,Coding/Engineering
+benchmark_gdp_pdf,gdp.pdf,Google,2026-08-13,Gemini 3.7 Flash,GDP.pdf,3,65,False,Anthropic,Others(Surge AI),none,Multimodal Perception,Specialized (Law/Bio/Finance)
