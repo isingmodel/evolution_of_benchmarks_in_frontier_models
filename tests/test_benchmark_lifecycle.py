@@ -6,9 +6,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from urllib.parse import unquote
 
 import pandas as pd
 
+from analysis.benchmark_lifecycle.analyze import plot_timeline
 from analysis.benchmark_lifecycle.lifecycle import build_lifecycle_tables
 from scripts.taxonomy_utils import (
     AliasEntry,
@@ -474,6 +477,91 @@ class BenchmarkLifecycleTests(unittest.TestCase):
         self.assertEqual(len(launches), 1)
         self.assertEqual(len(mentions), 1)
 
+    def test_meaningful_unicode_source_urls_remain_distinct(self):
+        _, _, launches, _, _ = self.build(
+            models(
+                ("A", "Width", "2026-01-01", "https://a.example/Ａ", "Alpha"),
+                ("A", "ASCII", "2026-01-01", "https://a.example/A", "Alpha"),
+                ("A", "Circled", "2026-01-01", "https://a.example/page?edition=①", "Alpha"),
+                ("A", "Digit", "2026-01-01", "https://a.example/page?edition=1", "Alpha"),
+                ("A", "Encoded", "2026-01-01", "https://a.example/page?edition=%E2%91%A0", "Alpha"),
+            ),
+            "Alpha",
+        )
+
+        self.assertEqual(len(launches), 4)
+        counts = launches.set_index("source_url")["model_row_count"].to_dict()
+        self.assertEqual(counts["https://a.example/Ａ"], 1)
+        self.assertEqual(counts["https://a.example/A"], 1)
+        self.assertEqual(counts["https://a.example/page?edition=1"], 1)
+        self.assertEqual(counts["https://a.example/page?edition=%E2%91%A0"], 2)
+
+    def test_canonical_display_labels_preserve_catalog_unicode(self):
+        name = "τ³-Banking Leaderboard"
+        lifecycles, providers, _, mentions, _ = self.build(
+            models(("A", "A1", "2026-01-01", "https://a.example/one", name)),
+            name,
+        )
+
+        for table in [lifecycles, providers, mentions]:
+            self.assertEqual(table["benchmark_name"].tolist(), [name])
+
+    def test_undated_inventory_rows_cannot_disappear_during_scoping(self):
+        for missing_date in ["", None, pd.NaT]:
+            with self.subTest(date=missing_date), self.assertRaisesRegex(ValueError, "valid release date"):
+                self.build(
+                    models(
+                        ("A", "Known", "2026-01-01", "https://a.example/known", "Alpha"),
+                        ("A", "Undated", missing_date, "https://a.example/undated", "Unknown"),
+                    ),
+                    "Alpha",
+                )
+
+    def test_scoped_launches_require_a_provider_and_absolute_source_url(self):
+        for provider in ["", None]:
+            with self.subTest(provider=provider), self.assertRaisesRegex(ValueError, "nonempty Provider"):
+                self.build(
+                    models((provider, "A1", "2026-01-01", "https://a.example/one", "Alpha")),
+                    "Alpha",
+                )
+        for url in ["", None, "#chart", "/relative", "ftp://a.example/page"]:
+            with self.subTest(url=url), self.assertRaisesRegex(ValueError, r"HTTP\(S\) source URL"):
+                self.build(models(("A", "A1", "2026-01-01", url, "Alpha")), "Alpha")
+
+    def test_excluded_future_identifiers_do_not_create_an_empty_provider(self):
+        _, providers, launches, mentions, _ = self.build(
+            models(
+                ("A", "Known", "2026-01-01", "https://a.example/known", "Alpha"),
+                ("", "Future", "2026-02-01", "", "Unknown"),
+            ),
+            "Alpha", as_of="2026-01-01",
+        )
+
+        self.assertEqual(providers["provider"].tolist(), ["A"])
+        self.assertEqual(len(launches), 1)
+        self.assertEqual(len(mentions), 1)
+
+    def test_chart_counts_same_provider_date_pages_without_shifting_dates(self):
+        lifecycles, _, _, mentions, cutoff = self.build(
+            models(
+                ("OpenAI", "O1", "2026-01-01", "https://o.example/one", "GSM8K"),
+                ("OpenAI", "O2", "2026-01-01", "https://o.example/two", "GSM8K"),
+                ("Google", "G1", "2026-01-01", "https://g.example/one", "GSM8K"),
+            ),
+            "GSM8K",
+        )
+
+        with patch("analysis.benchmark_lifecycle.analyze.save_figure") as save:
+            selected = plot_timeline(lifecycles, mentions, cutoff, Path("unused.png"))
+        self.assertEqual(selected, [benchmark_id("GSM8K")])
+        figure = save.call_args.args[0]
+        axes = figure.axes[0]
+        counts = [text for text in axes.texts if text.get_text().startswith("×")]
+        self.assertEqual([text.get_text() for text in counts], ["×2"])
+        self.assertEqual(counts[0].xy[0], pd.Timestamp("2026-01-01"))
+        self.assertEqual(sum(len(collection.get_offsets()) for collection in axes.collections), 2)
+        self.assertIn("×N = distinct pages", " ".join(text.get_text() for text in figure.texts))
+
     def test_cli_before_the_first_release_exports_complete_unobserved_catalog(self):
         root = Path(__file__).resolve().parents[1]
         source_catalog = pd.read_csv(root / "data/benchmarks.csv", keep_default_na=False)
@@ -537,6 +625,11 @@ class BenchmarkLifecycleTests(unittest.TestCase):
             report = (output / "report.md").read_text(encoding="utf-8")
             self.assertIn("2020-01-01", report)
             self.assertIn("not retirement", report)
+            methodology_link = report.split("[methodology](", 1)[1].split(")", 1)[0]
+            self.assertEqual(
+                (output / unquote(methodology_link)).resolve(),
+                root / "analysis/benchmark_lifecycle/README.md",
+            )
 
 
 if __name__ == "__main__":

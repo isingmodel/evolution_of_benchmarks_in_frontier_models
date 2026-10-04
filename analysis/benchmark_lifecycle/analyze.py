@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.parse import quote
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -70,12 +72,20 @@ def plot_timeline(
         subset = launch_mentions[launch_mentions["benchmark_id"].isin(selected)]
         for provider, (color, marker, offset) in PROVIDER_STYLE.items():
             points = subset[subset["provider"] == provider]
+            points = points.groupby(["benchmark_id", "release_date"], sort=True).size().reset_index(name="announcement_count")
             ax.scatter(
                 pd.to_datetime(points["release_date"]),
                 points["benchmark_id"].map(positions) + offset,
                 color=color, marker=marker, s=31, linewidths=0.4,
                 edgecolors="white", zorder=3,
             )
+            for point in points.itertuples(index=False):
+                if point.announcement_count > 1:
+                    ax.annotate(
+                        f"×{point.announcement_count}",
+                        (pd.Timestamp(point.release_date), positions[point.benchmark_id] + offset),
+                        xytext=(5, 3), textcoords="offset points", fontsize=8, color=color,
+                    )
         ax.set_yticks(range(len(selected)), [indexed.loc[key, "benchmark_name"] for key in selected])
         ax.set_ylim(len(selected) - 0.5, -0.55)
         first_year = pd.to_datetime(indexed.loc[selected, "first_seen"]).min().year
@@ -103,7 +113,8 @@ def plot_timeline(
     ax.legend(handles=handles, ncol=3, frameon=False, loc="upper left", bbox_to_anchor=(0, 1.095))
     fig.suptitle("Benchmark reporting life cycles", fontsize=18, fontweight="bold", y=0.995)
     fig.text(0.01, 0.015,
-             "Dots = distinct announcements. Grey spans = first to last observed mention; gaps are allowed.\n"
+             "Dots = announcement observations; ×N = distinct pages from one provider on the same date.\n"
+             "Grey spans = first to last observed mention; gaps are allowed. "
              "Selected examples; the report covers the full catalog. Last mention does not establish retirement.",
              fontsize=10, color="#555555")
     fig.subplots_adjust(left=0.31, right=0.985, top=0.86, bottom=0.13)
@@ -149,6 +160,7 @@ def markdown_table(frame: pd.DataFrame) -> str:
 
 
 def write_report(lifecycles: pd.DataFrame, summary: dict[str, object], output: Path) -> None:
+    methodology_link = quote(Path(os.path.relpath(OUTPUT_DIR / "README.md", output.parent.resolve())).as_posix())
     diffusion = lifecycles[lifecycles["provider_count"] > 1].sort_values(
         ["second_provider_lag_days", "first_seen", "benchmark_name"], kind="stable",
     ).head(10)
@@ -203,7 +215,7 @@ Recent counts cover the last {summary['recent_window_days']} calendar days inclu
 Version and track identities follow the catalog. This analysis infers no family,
 successor or replacement relationships. Existing combined historical identities
 and provisional private-suite mappings affect the results; identity review status
-is retained in the full table. See [methodology](README.md).
+is retained in the full table. See [methodology]({methodology_link}).
 
 ## Fast observed cross-provider diffusion
 

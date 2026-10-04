@@ -2,9 +2,9 @@ benchmark_id,benchmark_name,review_status,provider,first_seen,last_seen,observed
 benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,needs_review,Anthropic,2026-09-01,2026-09-01,0,1,1,2,0,0.0,2,29,0
 benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,needs_review,Google,,,,0,0,,,,,,
 benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,needs_review,OpenAI,,,,0,0,,,,,,
-benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,needs_review,Anthropic,,,,0,0,,,,,,
-benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,needs_review,Google,2026-09-15,2026-09-15,0,1,2,1,0,0.0,1,15,0
-benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,needs_review,OpenAI,,,,0,0,,,,,,
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,needs_review,Anthropic,,,,0,0,,,,,,
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,needs_review,Google,2026-09-15,2026-09-15,0,1,2,1,0,0.0,1,15,0
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,needs_review,OpenAI,,,,0,0,,,,,,
 benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,Anthropic,2026-04-16,2026-04-16,0,1,1,7,0,0.0,7,167,0
 benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,Google,,,,0,0,,,,,,
 benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,OpenAI,,,,0,0,,,,,,

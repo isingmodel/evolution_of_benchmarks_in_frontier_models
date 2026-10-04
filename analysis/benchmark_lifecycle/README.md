@@ -16,6 +16,9 @@ the recent-count window (default 180); `--output-dir` and `--asset-dir` allow
 isolated runs. Every included raw mention must resolve to a canonical identity
 or explicit alias. Future rows are excluded before resolution. The standard
 pipeline regenerates this analysis along with the other outputs.
+Every inventory row requires a valid release date before cutoff filtering.
+Included rows also require a provider and an absolute HTTP(S) source URL, so
+missing identifiers cannot silently remove observations or merge unrelated pages.
 
 ## Outputs
 
@@ -41,6 +44,8 @@ event. Different URLs on the same date remain different events. URL fragments,
 trailing slashes and `utm_*`, `gclid` and `fbclid` tracking parameters are ignored;
 other query parameters remain meaningful. Redirect-equivalent URLs are not
 automatically inferred to be one source.
+Unicode path and query values retain their meaning; benchmark-name matching
+normalization is not applied to URLs or canonical display labels.
 
 Canonical aliases are deduplicated within each model row, then within each launch.
 `launch_count` measures announcements. `model_row_count` separately counts the
@@ -109,7 +114,9 @@ review status does not imply that every taxonomy facet has been audited.
 
 The chart's 15 editorial examples are listed in `TIMELINE_IDS` in `analyze.py`.
 Only observed examples appear at a given cutoff. Provider dots are actual launch
-observations; grey lines connect first and last mention and can contain gaps.
+observations; a `×N` label counts distinct pages from the same provider on the
+same date that would otherwise overlap. Grey lines connect first and last
+mention and can contain gaps.
 The line stops at the last observation without asserting the benchmark's death.
 The generated report and CSVs cover the full catalog rather than just the chart.
 

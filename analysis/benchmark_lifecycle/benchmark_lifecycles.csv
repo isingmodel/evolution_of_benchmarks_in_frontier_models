@@ -1,6 +1,6 @@
 benchmark_id,benchmark_name,review_status,reporting_pattern,first_seen,last_seen,observed_span_days,days_since_last_seen,launch_count,model_row_count,provider_count,first_providers,second_provider_date,second_provider_lag_days,third_provider_date,third_provider_lag_days,recent_launch_count,adopter_followup_launches,adopter_followup_mention_launches,followup_mention_share,adopter_launches_after_last_seen,largest_within_provider_gap_launches
 benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,needs_review,single_launch,2026-09-01,2026-09-01,0,29,1,1,1,Anthropic,,,,,1,2,0,0.0,2,0
-benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,needs_review,single_launch,2026-09-15,2026-09-15,0,15,1,2,1,Google,,,,,1,1,0,0.0,1,0
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,needs_review,single_launch,2026-09-15,2026-09-15,0,15,1,2,1,Google,,,,,1,1,0,0.0,1,0
 benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,single_launch,2026-04-16,2026-04-16,0,167,1,1,1,Anthropic,,,,,1,7,0,0.0,7,0
 benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,needs_review,single_launch,2026-09-28,2026-09-28,0,2,1,1,1,Anthropic,,,,,1,0,0,,0,0
 benchmark_aa_lcr,AA-LCR,accepted,single_launch,2026-04-23,2026-04-23,0,160,1,1,1,OpenAI,,,,,1,5,0,0.0,5,0

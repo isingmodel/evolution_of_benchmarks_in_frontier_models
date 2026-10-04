@@ -70,7 +70,7 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Benchmark | First observed | Last observed | Span (days) | Launches | Providers | Reporting pattern | Identity review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 30-day simulated run-a-business eval | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
-| τ3-Banking Leaderboard | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | needs_review |
+| τ³-Banking Leaderboard | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | needs_review |
 | 93-task coding benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
 | AA-Briefcase v1.1 | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
 | AA-LCR | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |

@@ -65,7 +65,9 @@ def normalize_source_url(value: object) -> str:
     query values remain significant; fragments, trailing slashes, and common
     tracking parameters do not distinguish a launch.
     """
-    url = exact_key(value)
+    # Taxonomy matching uses Unicode compatibility normalization, which is not
+    # valid for URLs: e.g. /Ａ and /A can identify different source pages.
+    url = "" if value is None or pd.isna(value) else str(value).strip()
     parts = urlsplit(url)
     query = [
         (key, val) for key, val in parse_qsl(parts.query, keep_blank_values=True)
@@ -162,7 +164,10 @@ def build_lifecycle_tables(
         for column in ["Provider", "Model name", "link", "release date", "benchmarks"]:
             if column not in inventory:
                 inventory[column] = pd.Series(dtype="object")
-    providers = sorted({exact_key(value) for value in inventory["Provider"].fillna("")})
+    inventory_dates = pd.to_datetime(inventory["release date"], errors="raise")
+    if inventory_dates.isna().any():
+        raise ValueError("Every model row must have a valid release date before cutoff filtering")
+    providers = sorted({exact_key(value) for value in inventory["Provider"].fillna("")} - {""})
     scoped, cutoff = scope_models_as_of(inventory, as_of)
     if pd.isna(cutoff):
         raise ValueError("Cannot determine a cutoff from models; provide an explicit as_of date")
@@ -177,7 +182,11 @@ def build_lifecycle_tables(
     )
 
     catalog = benchmarks.reindex(columns=["benchmark_id", "benchmark_name", "review_status"])
-    catalog = catalog.fillna("").map(exact_key)
+    catalog = catalog.fillna("")
+    for column in ["benchmark_id", "review_status"]:
+        catalog[column] = catalog[column].map(exact_key)
+    # Keep canonical display labels faithful to the catalog, including τ³.
+    catalog["benchmark_name"] = catalog["benchmark_name"].map(lambda value: str(value).strip())
     if catalog["benchmark_id"].duplicated().any():
         raise ValueError("The benchmark catalog must have unique benchmark_id values")
     if (catalog["benchmark_id"] == "").any() or (catalog["benchmark_name"] == "").any():
@@ -191,10 +200,17 @@ def build_lifecycle_tables(
     events_by_key: dict[tuple[str, str, str], dict] = {}
     row_keys: dict[int, tuple[str, str, str]] = {}
     for row_id, model in scoped.iterrows():
+        provider = exact_key(model["Provider"])
+        source_url = normalize_source_url(model.get("link", ""))
+        if not provider:
+            raise ValueError("Every scoped model row requires a nonempty Provider")
+        source_parts = urlsplit(source_url)
+        if source_parts.scheme not in {"http", "https"} or not source_parts.hostname:
+            raise ValueError("Every scoped model row requires an absolute HTTP(S) source URL")
         key = (
-            exact_key(model["Provider"]),
+            provider,
             model["release_date"].strftime("%Y-%m-%d"),
-            normalize_source_url(model.get("link", "")),
+            source_url,
         )
         row_keys[row_id] = key
         event = events_by_key.setdefault(key, {
