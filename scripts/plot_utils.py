@@ -279,6 +279,12 @@ def build_rolling_share_trend(
     window_days: int,
     category_cols: Optional[Sequence[str]] = None,
 ) -> tuple[pd.DataFrame, Optional[pd.Timestamp]]:
+    """Return composition of covered event weight in each trailing calendar window.
+
+    A window includes its endpoint and the preceding ``window_days - 1`` days.
+    Shares are undefined when that window contains no covered event weight;
+    neither a previous composition nor an additional smoother fills that gap.
+    """
     category_cols = list(category_cols) if category_cols is not None else None
     if events.empty:
         return pd.DataFrame(columns=category_cols or []), None
@@ -296,10 +302,8 @@ def build_rolling_share_trend(
         daily = daily[category_cols]
 
     rolling = daily.rolling(window=window_days, min_periods=1).sum()
-    trend = rolling.div(rolling.sum(axis=1), axis=0).ffill().fillna(0)
-    for col in trend.columns:
-        trend[col] = trend[col].ewm(span=30, adjust=False).mean()
-    trend = trend.div(trend.sum(axis=1), axis=0).fillna(0)
+    covered_weight = rolling.sum(axis=1)
+    trend = rolling.div(covered_weight.where(covered_weight > 0), axis=0)
 
     return trend, min_date
 

@@ -37,7 +37,7 @@ echo "Running full pipeline as of ${AS_OF}"
 "${PYTHON_PATH}" analysis/ideation_methodology_visuals/analyze.py --as-of "${AS_OF}"
 "${PYTHON_PATH}" analysis/benchmark_lifecycle/analyze.py --as-of "${AS_OF}"
 
-"${PYTHON_PATH}" analysis/benchmark_evolution/analyze.py --as-of "${AS_OF}" --strict-resolution
+"${PYTHON_PATH}" analysis/benchmark_evolution/analyze.py --as-of "${AS_OF}" --strict-resolution --detail-output assets/benchmark_evolution_detail.png
 "${PYTHON_PATH}" analysis/benchmark_evolution/benchmark_count_trend.py --as-of "${AS_OF}" --window-days 90 --strict-resolution
 "${PYTHON_PATH}" analysis/benchmark_taxonomy_trends/task_mode_trend.py --as-of "${AS_OF}" --window-days 180 --strict-resolution
 "${PYTHON_PATH}" analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "${AS_OF}" --window-days 180 --strict-resolution

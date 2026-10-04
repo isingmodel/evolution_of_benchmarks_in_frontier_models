@@ -28,9 +28,20 @@ This project does not directly measure model performance. It analyzes benchmark 
 
 ## 3. Unit of Observation
 
-The basic unit for quantitative analysis is not the `benchmark` itself, but the `release_mention`.
+The taxonomy is attached to canonical benchmarks; quantitative analyses expand
+their appearances into observations. The older model-row views use
+`release_mention`, while the overview and lifecycle use distinct announcements.
+These units answer different questions and must be named alongside each result.
 
 A `release_mention` is an event in which a specific benchmark is mentioned on a specific model release page from a specific provider.
+
+Named variants on one page remain separate model rows in the release/type and
+rolling-category charts. The [overview](../analysis/project_overview/README.md)
+and [lifecycle](../analysis/benchmark_lifecycle/README.md) union canonical
+identities within each provider/date/normalized-URL announcement. Those analyses
+also preserve missing classifications and empty-page opportunity counts under
+their documented rules. Presence alone does not measure prominence or intent;
+the narrative questions below are research aims that require additional evidence.
 
 This choice matters for several reasons.
 
@@ -480,7 +491,14 @@ Possible metrics:
 
 ### 9.4 Equal-Weight Mention Analysis
 
-The current methodology counts every benchmark mention listed for a model release equally. This keeps the analysis reproducible and avoids implying precision that the source data does not currently support.
+Counting and composition use distinct denominators. Raw appearance counts give
+each recorded mention one count. Model-row composition divides one unit across
+the row's resolved mentions; announcement composition divides one unit across
+the event's canonical benchmark set. Facet-composition plots split a benchmark's
+weight across its labels on an axis, while the overview's strict interaction
+measure tests set membership and reports retained-label coverage separately.
+No scheme weights scores or prominence. See the linked module methods before
+comparing results.
 
 A future weighting method should be introduced only if mention-level evidence is reviewed and materially improves the analysis.
 

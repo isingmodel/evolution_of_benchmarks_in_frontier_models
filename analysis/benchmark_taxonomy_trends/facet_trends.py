@@ -133,17 +133,17 @@ def events_for_axis(mentions, facets, axis, top_labels):
 
 
 def plot_axis(ax, trend, axis, window_days, as_of):
+    title = axis.replace("_", " ").title()
+    ax.set_title(f"{title} Composition (Trailing {window_days}-day, as of {as_of.date()})", fontsize=13, weight="bold", pad=10)
     if trend.empty:
-        ax.text(0.5, 0.5, f"No {axis} events", transform=ax.transAxes, ha="center", va="center")
+        ax.text(0.5, 0.5, f"No covered {title.lower()} mentions at this cutoff", transform=ax.transAxes, ha="center", va="center")
         ax.set_axis_off()
         return
 
     labels = list(trend.columns)
     colors = sns.color_palette("tab20", n_colors=len(labels))
     ax.stackplot(trend.index, [trend[label] for label in labels], labels=labels, colors=colors, alpha=0.9)
-    title = axis.replace("_", " ").title()
-    ax.set_title(f"{title} Trend ({window_days}-day, as of {as_of.date()})", fontsize=13, weight="bold", pad=10)
-    ax.set_ylabel("Share of weighted mentions", fontsize=11)
+    ax.set_ylabel("Share of covered model-row weight", fontsize=11)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
     ax.grid(True, which="major", axis="y", linestyle="--", alpha=0.5)
@@ -178,10 +178,6 @@ def generate_facet_trends(
 
     mentions = build_model_mentions(models, resolver, strict_resolution=strict_resolution)
     mentions = normalize_mentions(mentions, as_of)
-    if mentions.empty:
-        print("No model benchmark mentions found.")
-        return
-
     plot_count = len(axes)
     subplot_cols = 1
     subplot_rows = math.ceil(plot_count / subplot_cols)
@@ -217,8 +213,15 @@ def generate_facet_trends(
             ax.set_xlabel("Time", fontsize=12)
         plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
 
-    fig.suptitle("Benchmark Trends by Multi-Facet Taxonomy", fontsize=20, weight="bold", y=0.98)
-    fig.tight_layout(rect=[0, 0.02, 1, 0.95], h_pad=3.0, w_pad=2.2)
+    fig.suptitle("Observed Benchmark Composition by Facet", fontsize=20, weight="bold", y=0.98)
+    fig.text(
+        0.01, 0.005,
+        "Each benchmark-bearing model row has one unit split across recorded mentions and then labels within each axis; repeat appearances count. Joint variants contribute separately.\n"
+        "Shares normalize covered axis weight within each trailing window. Empty windows remain gaps; no extra smoothing. Active labels include provisional annotations.\n"
+        "Axes describe separate facets; Other groups labels outside the selected top labels, not unclassified mentions.",
+        fontsize=9, color="#555555",
+    )
+    fig.tight_layout(rect=[0, 0.055, 1, 0.95], h_pad=3.0, w_pad=2.2)
     save_figure(fig, output_path)
     plt.close(fig)
 

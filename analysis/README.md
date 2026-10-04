@@ -12,7 +12,7 @@ Generated CSVs are the source for numeric findings at each selected cutoff.
 | --- | --- |
 | [project_overview](project_overview/README.md) | Preface counts, shared-core concentration, complete-window cross-provider sightings, and strict interaction-label sensitivity |
 | [benchmark_lifecycle](benchmark_lifecycle/README.md) | Complete catalog reporting histories, source-linked announcement observations, recurrence, and provider-cadence gaps |
-| [benchmark_evolution](benchmark_evolution/README.md) | Benchmark appearance timeline |
+| [benchmark_evolution](benchmark_evolution/README.md) | Model-release dates and benchmark task-mode composition; benchmark-count view |
 | [benchmark_taxonomy_trends](benchmark_taxonomy_trends/README.md) | Rolling taxonomy composition and annotation-review context |
 
 The overview and lifecycle use a provider/date/normalized-URL announcement unit,
@@ -32,6 +32,19 @@ and lifecycle opportunity counts, but contribute no benchmark-composition unit.
 | [ideation_narrative_strategy](ideation_narrative_strategy/README.md) | Exploratory framing proxies and presentation ideas |
 | [ideation_methodology_visuals](ideation_methodology_visuals/README.md) | Taxonomy views and review-priority proposals |
 | [meta_review](meta_review/README.md) | Historical qualitative reviews and editorial proposals, not current numeric evidence |
+
+The README selects four complementary views: release/type orientation, rolling
+type composition, shared-identity concentration, and individual reporting histories.
+The interaction sensitivity plot and annual values remain in an expandable
+section. Additional charts remain useful for specific questions:
+
+| Question | Chart and interpretation |
+| --- | --- |
+| Which model is each point in the release overview? | [Fully labeled timeline](../assets/benchmark_evolution_detail.png); all inventory rows at their actual dates |
+| Which subject domains change alongside task types? | [Task-mode and domain panels](../assets/benchmark_growth_by_all_category.png); model-row-weighted taxonomy composition |
+| What does the five-category projection hide? | [Multi-facet trends](../assets/benchmark_facet_trends.png); modality, interaction, and context axes |
+| How much reporting does each release contain? | [Benchmark counts](../assets/benchmark_count_per_release.png); mention counts, not evaluation quality |
+| Where would source review have the most effect? | [Review-leverage table](readme_story/review_leverage_top.csv); prioritization using exposure and unaccepted labels |
 
 Weighting differs between modules. Some exploratory outputs count raw labels
 within model rows; others divide one unit across each benchmark-bearing model
