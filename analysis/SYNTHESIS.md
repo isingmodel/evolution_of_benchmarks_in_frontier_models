@@ -13,6 +13,20 @@ judgments and hypotheses, rather than current findings.
 
 ## Evidence priorities
 
+### A visual map of the sample
+
+The [release/type timeline](benchmark_evolution/README.md) answers which model
+row reported each task mix, and the [rolling category view](benchmark_taxonomy_trends/README.md)
+summarizes changes over time. These views belong near the beginning of the
+project preface because they orient the reader before the narrower findings.
+Both retain named model rows and use a provisional headline projection; they
+are descriptive context rather than proof of a change in model capability.
+The five-category Agentic projection is broader than strict interaction tags.
+
+These views complement the announcement-based concentration and lifecycle
+analyses. Domain, multi-facet, count, attribution, and provider-network views
+remain supporting analyses instead of a second undifferentiated chart gallery.
+
 ### Shared identities and a long tail
 
 The most direct result compares how many canonical identities appear across

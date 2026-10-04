@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import pandas as pd
 import seaborn as sns
 
@@ -279,6 +280,12 @@ def build_rolling_share_trend(
     window_days: int,
     category_cols: Optional[Sequence[str]] = None,
 ) -> tuple[pd.DataFrame, Optional[pd.Timestamp]]:
+    """Return composition of covered event weight in each trailing calendar window.
+
+    A window includes its endpoint and the preceding ``window_days - 1`` days.
+    Shares are undefined when that window contains no covered event weight;
+    neither a previous composition nor an additional smoother fills that gap.
+    """
     category_cols = list(category_cols) if category_cols is not None else None
     if events.empty:
         return pd.DataFrame(columns=category_cols or []), None
@@ -296,12 +303,53 @@ def build_rolling_share_trend(
         daily = daily[category_cols]
 
     rolling = daily.rolling(window=window_days, min_periods=1).sum()
-    trend = rolling.div(rolling.sum(axis=1), axis=0).ffill().fillna(0)
-    for col in trend.columns:
-        trend[col] = trend[col].ewm(span=30, adjust=False).mean()
-    trend = trend.div(trend.sum(axis=1), axis=0).fillna(0)
+    covered_weight = rolling.sum(axis=1)
+    trend = rolling.div(covered_weight.where(covered_weight > 0), axis=0)
 
     return trend, min_date
+
+
+def draw_rolling_composition(ax, trend, categories, colors):
+    """Draw covered-window areas and visible glyphs for isolated covered dates.
+
+    A one-date run has no area. Its stacked vertical glyph stays centered on the
+    actual date; glyph width is cosmetic and adds no observed calendar interval.
+    """
+    ax.stackplot(trend.index, [trend[column] for column in categories],
+                 labels=categories, colors=colors, alpha=0.9)
+    covered = trend[categories].notna().any(axis=1)
+    isolated = covered & ~covered.shift(1, fill_value=False) & ~covered.shift(-1, fill_value=False)
+    snapshot_dates = trend.index[isolated]
+    midpoint = trend.index[0] + (trend.index[-1] - trend.index[0]) / 2
+    for date in snapshot_dates:
+        bottom = 0.0
+        for category, color in zip(categories, colors):
+            share = float(trend.loc[date, category])
+            if share > 0:
+                ax.vlines(date, bottom, bottom + share, colors=[color], linewidth=10,
+                          alpha=0.9, zorder=3)
+            bottom += share
+        if len(snapshot_dates) <= 6:
+            right = date <= midpoint
+            ax.annotate(f"Snapshot · {date.date()}", (date, 0.97),
+                        xytext=(9 if right else -9, -3),
+                        textcoords="offset points", ha="left" if right else "right", va="top", fontsize=8,
+                        bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.9},
+                        zorder=4)
+    return snapshot_dates
+
+
+def set_rolling_date_limits(ax, start, end):
+    """Keep the selected date range, with display padding for a one-date scope."""
+    start, end = pd.Timestamp(start), pd.Timestamp(end)
+    if start == end:
+        start -= pd.Timedelta(days=1)
+        end += pd.Timedelta(days=1)
+    ax.set_xlim(start, end)
+    if (end - start).days <= 31:
+        locator = mdates.AutoDateLocator(minticks=3, maxticks=7, interval_multiples=False)
+        ax.xaxis.set_major_locator(locator)
+        ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(locator))
 
 
 def save_figure(fig, output_path: str) -> None:

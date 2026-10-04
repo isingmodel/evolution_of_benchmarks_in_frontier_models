@@ -220,6 +220,22 @@ def readme_values(tables: dict[str, pd.DataFrame], summary: dict) -> dict[str, s
         if "announcement" in latest.index and latest.loc["announcement", "benchmark_bearing_units"] > 0 else
         "No benchmark-bearing announcements occur in the latest tracked release year; its unit comparison is undefined."
     )
+    latest_variants = scoped[scoped["release_year"].eq(latest_year)].set_index("variant")
+    if not latest_variants.empty:
+        rated = latest_variants.loc["confidence_ge_0_7"]
+        accepted = latest_variants.loc["accepted"]
+        values["INTERACTION_SENSITIVITY_FINDING"] = (
+            f"With equal weight per benchmark-bearing announcement in **{values['LATEST_YEAR']}**, "
+            f"**{values['LATEST_ANNOUNCEMENT_INTERACTION_SHARE']}** of portfolio weight carries a tool or environment interaction label. "
+            f"Filtering to labels rated ≥0.70 gives **{percent(rated['positive_share'])}**. "
+            f"Under that filter, **{percent(rated['coverage_share'])}** of portfolio weight has any annotation on the interaction axis; "
+            f"accepted interaction annotations cover **{percent(accepted['coverage_share'])}**."
+        )
+    else:
+        values["INTERACTION_SENSITIVITY_FINDING"] = (
+            "The latest tracked release year has no benchmark-bearing announcements, "
+            "so its interaction shares and annotation coverage are undefined."
+        )
 
     examples = tables["lifecycles"].set_index("benchmark_id").reindex([
         "benchmark_gsm8k", "benchmark_humaneval", "benchmark_swe_bench_verified",

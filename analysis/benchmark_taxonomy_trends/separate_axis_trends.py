@@ -14,11 +14,13 @@ from scripts.plot_utils import (
     build_model_facet_events,
     build_rolling_share_trend,
     configure_plot_style,
+    draw_rolling_composition,
     latest_release_date,
     load_benchmark_facets,
     load_models,
     parse_as_of,
     save_figure,
+    set_rolling_date_limits,
     validate_window_days,
 )
 from scripts.taxonomy_utils import REVIEW_CONFIDENCE_THRESHOLD
@@ -43,17 +45,15 @@ PARSER.add_argument(
 
 
 def plot_axis_trend(ax, trend_data, category_cols, colors, title, legend_title):
+    ax.set_title(title, fontsize=16, weight="bold", pad=12)
     if trend_data.empty:
-        ax.text(0.5, 0.5, "No events found", transform=ax.transAxes, ha="center", va="center", fontsize=12)
+        ax.text(0.5, 0.5, "No covered mentions at this cutoff", transform=ax.transAxes, ha="center", va="center", fontsize=12)
         ax.set_axis_off()
         return
 
-    x = trend_data.index
-    y = [trend_data[col] for col in category_cols]
-    ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
+    draw_rolling_composition(ax, trend_data, category_cols, colors)
 
-    ax.set_title(title, fontsize=16, weight="bold", pad=12)
-    ax.set_ylabel("Proportion of New Benchmarks", fontsize=14, labelpad=10)
+    ax.set_ylabel("Share of covered model-row weight", fontsize=14, labelpad=10)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     handles, labels = ax.get_legend_handles_labels()
     ax.legend(handles[::-1], labels[::-1], loc="upper left", fontsize=10, title=legend_title, bbox_to_anchor=(1.02, 1))
@@ -72,14 +72,21 @@ def generate_domain_graph(domain_trend, domain_cols, min_date, as_of, window_day
         domain_trend,
         domain_cols,
         domain_colors,
-        f"Benchmark Domain Trend (Rolling {window_days}-day, as of {as_of.date()})",
+        f"Benchmark Domain Composition (Trailing {window_days}-day, as of {as_of.date()})",
         "Domain",
     )
     if min_date is not None:
-        ax.set_xlim(min_date, as_of)
+        set_rolling_date_limits(ax, min_date, as_of)
     ax.set_xlabel("Time", fontsize=14, labelpad=10)
     plt.xticks(rotation=45)
-    plt.tight_layout()
+    fig.text(
+        0.01, 0.005,
+        "Each benchmark-bearing model row has one unit split across recorded mentions and then labels within the axis; repeat appearances count.\n"
+        "Shares normalize covered axis weight within each trailing window. Empty windows remain gaps; no extra smoothing. Vertical snapshot glyphs mark isolated covered dates.\n"
+        "Active labels include provisional annotations.",
+        fontsize=9, color="#555555",
+    )
+    plt.tight_layout(rect=[0, 0.06, 1, 1])
     save_figure(fig, output_path)
     plt.close(fig)
 
@@ -165,10 +172,6 @@ def generate_trend_graph(
     mode_trend, mode_min_date = build_rolling_share_trend(mode_events, as_of, window_days, MODE_ORDER)
     domain_trend, domain_min_date = build_rolling_share_trend(domain_events, as_of, window_days, FACET_DOMAIN_ORDER)
 
-    if mode_trend.empty and domain_trend.empty:
-        print("No events found.")
-        return
-
     fig, axes = plt.subplots(2, 1, figsize=(16, 13), sharex=True)
     mode_colors = sns.color_palette("Set2", n_colors=len(MODE_ORDER))
     domain_colors = sns.color_palette("tab20", n_colors=len(FACET_DOMAIN_ORDER))
@@ -178,31 +181,38 @@ def generate_trend_graph(
         mode_trend,
         MODE_ORDER,
         mode_colors,
-        f"Task Mode Trend (Rolling {window_days}-day, as of {as_of.date()})",
-        "Task Mode",
+        f"Task-Mode Projection (Trailing {window_days}-day, as of {as_of.date()})",
+        "Task-mode projection",
     )
     plot_axis_trend(
         axes[1],
         domain_trend,
         FACET_DOMAIN_ORDER,
         domain_colors,
-        f"Domain Trend (Rolling {window_days}-day, as of {as_of.date()})",
+        f"Domain Composition (Trailing {window_days}-day, as of {as_of.date()})",
         "Domain",
     )
 
     min_dates = [d for d in [mode_min_date, domain_min_date] if d is not None]
     if min_dates:
-        axes[0].set_xlim(min(min_dates), as_of)
-        axes[1].set_xlim(min(min_dates), as_of)
+        set_rolling_date_limits(axes[0], min(min_dates), as_of)
+        set_rolling_date_limits(axes[1], min(min_dates), as_of)
     axes[1].set_xlabel("Time", fontsize=14, labelpad=10)
     fig.suptitle(
-        "Benchmark Taxonomy Trends by Separate Axes",
+        "Observed Benchmark Composition by Taxonomy Axis",
         fontsize=20,
         weight="bold",
         y=0.99,
     )
     plt.xticks(rotation=45)
-    plt.tight_layout(rect=[0, 0, 1, 0.97])
+    fig.text(
+        0.01, 0.005,
+        "Each benchmark-bearing model row has one unit split across recorded mentions and then labels within each axis; repeat appearances count. Joint variants contribute separately.\n"
+        "Shares normalize covered axis weight within each trailing window. Empty windows remain gaps; no extra smoothing. Active labels include provisional annotations.\n"
+        "Task mode is a priority projection, not the strict interaction-tag measure; task mode and domain describe different axes. Vertical snapshot glyphs mark isolated covered dates.",
+        fontsize=9, color="#555555",
+    )
+    plt.tight_layout(rect=[0, 0.06, 1, 0.97])
     save_figure(fig, output_path)
     plt.close(fig)
 
