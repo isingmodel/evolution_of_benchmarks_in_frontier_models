@@ -36,11 +36,19 @@ def number(value: object) -> str:
     return "—" if value is None or pd.isna(value) else f"{int(value):,}"
 
 
+def sharing_title(summary: dict) -> str:
+    observed = summary["observed_benchmarks"]
+    if (observed and summary["shared_benchmarks"] / observed < 0.5
+            and summary["shared_mention_share"] > 0.5):
+        return "A small shared set accounts for most reporting"
+    return "Benchmark sharing across providers"
+
+
 def plot_sharing(sharing: pd.DataFrame, summary: dict, path: Path) -> None:
     configure_plot_style()
     fig, ax = plt.subplots(figsize=(12, 4.8))
     labels = [
-        f"Catalog identities\nn = {summary['observed_benchmarks']:,}",
+        f"Observed identities\nn = {summary['observed_benchmarks']:,}",
         f"Benchmark–announcement observations\nn = {summary['launch_mentions']:,}",
         f"Equal weight per announcement\nn = {summary['benchmark_bearing_launches']:,}",
     ]
@@ -64,7 +72,7 @@ def plot_sharing(sharing: pd.DataFrame, summary: dict, path: Path) -> None:
     ax.set_xlabel("Share of the observed sample")
     ax.grid(False, axis="y")
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.23), ncol=max(1, len(sharing)), frameon=False)
-    fig.suptitle("A shared core accounts for most benchmark reporting", weight="bold", fontsize=17, y=1.02)
+    fig.suptitle(sharing_title(summary), weight="bold", fontsize=17, y=1.02)
     fig.text(0.015, 0.005,
              f"Through {summary['as_of']}. Shared status uses the full sample at this cutoff. "
              "Each canonical identity counts once per announcement.\n"
@@ -111,7 +119,7 @@ def plot_interaction(trends: pd.DataFrame, summary: dict, path: Path) -> None:
     axes[0].set_title("Tool / environment interaction labels", loc="left", weight="bold")
     axes[0].set_ylabel("Share of the announcement-weighted portfolio")
     axes[1].set_title("Interaction-label coverage", loc="left", weight="bold")
-    fig.suptitle("The apparent shift depends on annotation quality", fontsize=17, weight="bold", y=0.99)
+    fig.suptitle("Interaction labels and annotation coverage", fontsize=17, weight="bold", y=0.99)
     fig.text(0.015, 0.005,
              "The rating threshold is a sensitivity filter, not manual approval. Missing labels remain in the denominator.\n"
              "A tool/environment label is required; code generation, unit-test scoring, or planning alone do not qualify.",
@@ -124,6 +132,7 @@ def plot_interaction(trends: pd.DataFrame, summary: dict, path: Path) -> None:
 def readme_values(tables: dict[str, pd.DataFrame], summary: dict) -> dict[str, str]:
     values = {key.upper(): number(value) for key, value in summary.items() if isinstance(value, (int, float)) and not isinstance(value, bool)}
     values["AS_OF"] = summary["as_of"]
+    values["DIFFUSION_FOLLOWUP_END"] = summary["diffusion_followup_end"] or "—"
     values["SNAPSHOT_BADGE"] = summary["as_of"].replace("-", "--")
     latest_year = summary["latest_release_year"]
     values["LATEST_YEAR"] = str(latest_year) if latest_year is not None else "—"
@@ -131,8 +140,33 @@ def readme_values(tables: dict[str, pd.DataFrame], summary: dict) -> dict[str, s
     values["SHARED_BENCHMARK_SHARE"] = percent(summary["shared_benchmarks"] / summary["observed_benchmarks"] if summary["observed_benchmarks"] else None)
     values["SHARED_MENTION_SHARE"] = percent(summary["shared_mention_share"])
     values["SHARED_ANNOUNCEMENT_SHARE"] = percent(summary["shared_announcement_weight_share"])
+    values["SHARING_TITLE"] = sharing_title(summary)
+    values["SHARING_FINDING"] = (
+        f"**{values['SHARED_BENCHMARK_SHARE']} of observed benchmark identities appear across providers**. "
+        f"These identities account for **{values['SHARED_MENTION_SHARE']} of benchmark–announcement observations**."
+        if summary["observed_benchmarks"] else
+        "No benchmark observations fall within this cutoff; sharing proportions are undefined."
+    )
+    values["SHARING_WEIGHTING_INTERPRETATION"] = (
+        "The shared majority persists under equal announcement weighting. "
+        "Long tables and jointly announced variants therefore do not explain it by themselves."
+        if summary["shared_mention_share"] is not None and summary["shared_mention_share"] > 0.5
+        and summary["shared_announcement_weight_share"] > 0.5 else
+        "This weighting limits the influence of long tables and jointly announced model variants."
+    )
     median = summary["shared_conditional_median_lag_days"]
     values["CONDITIONAL_MEDIAN_LAG"] = "—" if median is None or pd.isna(median) else f"{median:g}"
+    values["DIFFUSION_MEDIAN_FINDING"] = (
+        "No identity appears across providers at this cutoff, so the conditional median lag is undefined."
+        if median is None else
+        f"Among shared identities, the median gap between first and second provider sightings is **{median:g} days**."
+    )
+    values["SINGLETON_FINDING"] = (
+        f"**{values['SINGLE_LAUNCH_BENCHMARKS']} identities appear on one announcement.** Of these,\n"
+        f"**{values['SINGLE_LAUNCH_FIRST_SEEN_LATEST_YEAR']} first enter the sample in {values['LATEST_YEAR']}**."
+        if summary["observed_benchmarks"] else
+        "There are no observed reporting histories at this cutoff."
+    )
 
     coverage = tables["coverage_by_provider"][["provider", "model_rows", "launch_events", "benchmark_bearing_launches", "first_release", "last_release"]].copy()
     coverage.columns = ["Provider", "Model rows", "Announcements", "With benchmarks", "First tracked", "Latest tracked"]
@@ -147,6 +181,23 @@ def readme_values(tables: dict[str, pd.DataFrame], summary: dict) -> dict[str, s
 
     trends = tables["interaction_trends"]
     scoped = trends[(trends["unit"] == "announcement") & (trends["benchmark_bearing_units"] > 0)]
+    active = scoped[scoped["variant"].eq("all_active")].sort_values("release_year")
+    if len(active) >= 2:
+        first, last = active.iloc[0], active.iloc[-1]
+        direction = "rises" if last["positive_share"] > first["positive_share"] else "falls"
+        if abs(last["positive_share"] - first["positive_share"]) < 1e-12:
+            comparison = f"is unchanged at **{percent(first['positive_share'])}** between **{int(first['release_year'])}** and **{int(last['release_year'])}**"
+        else:
+            comparison = (f"{direction} from **{percent(first['positive_share'])} in {int(first['release_year'])}** "
+                          f"to **{percent(last['positive_share'])} in {int(last['release_year'])}**")
+        values["INTERACTION_FINDING"] = f"The annual share carrying tool or environment interaction labels {comparison}, using all active labels."
+    elif len(active) == 1:
+        values["INTERACTION_FINDING"] = (
+            f"Only **{int(active.iloc[0]['release_year'])}** has benchmark-bearing announcements at this cutoff; "
+            "a trend across years cannot be assessed."
+        )
+    else:
+        values["INTERACTION_FINDING"] = "No benchmark-bearing announcements fall within this cutoff; annual interaction shares are undefined."
     annual_rows = []
     for year, group in scoped.groupby("release_year", sort=True):
         indexed = group.set_index("variant")
@@ -162,6 +213,13 @@ def readme_values(tables: dict[str, pd.DataFrame], summary: dict) -> dict[str, s
     latest = trends[trends["release_year"].eq(latest_year) & trends["variant"].eq("all_active")].set_index("unit")
     values["LATEST_ANNOUNCEMENT_INTERACTION_SHARE"] = percent(latest.loc["announcement", "positive_share"] if "announcement" in latest.index else None)
     values["LATEST_MODEL_INTERACTION_SHARE"] = percent(latest.loc["model_row", "positive_share"] if "model_row" in latest.index else None)
+    values["UNIT_SENSITIVITY_FINDING"] = (
+        "Changing the unit from announcements to model rows gives\n"
+        f"**{values['LATEST_ANNOUNCEMENT_INTERACTION_SHARE']} versus {values['LATEST_MODEL_INTERACTION_SHARE']}** "
+        f"for the {values['LATEST_YEAR']} all-active estimate."
+        if "announcement" in latest.index and latest.loc["announcement", "benchmark_bearing_units"] > 0 else
+        "No benchmark-bearing announcements occur in the latest tracked release year; its unit comparison is undefined."
+    )
 
     examples = tables["lifecycles"].set_index("benchmark_id").reindex([
         "benchmark_gsm8k", "benchmark_humaneval", "benchmark_swe_bench_verified",

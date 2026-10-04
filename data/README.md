@@ -1,6 +1,6 @@
 # Data Directory Guide
 
-This directory contains the source tables and integrated benchmark facet table for the benchmark evolution analysis. The project studies which benchmarks frontier model providers emphasize on public release pages. It does not claim to measure model capability directly.
+This directory contains the source tables and integrated benchmark facet table for the benchmark evolution analysis. The project studies which benchmarks frontier model providers name on public release pages. It does not claim to measure model capability directly.
 
 ## Data Flow
 
@@ -123,7 +123,7 @@ Notes:
 
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
-- When multiple labels exist within the same benchmark and facet axis, trend scripts divide that benchmark's contribution equally across the labels at runtime.
+- Facet-composition plots divide a benchmark's contribution equally across labels on the same axis. The overview's strict interaction measure instead flags whether any retained label matches its documented interaction set.
 - The table is v3-first and does not persist legacy `headline_task_mode` projection rows.
 - Analysis scripts that need a single headline category derive it at runtime from the v3 facets.
 - Model-generated candidate rows and human-reviewed rows live together here after review.

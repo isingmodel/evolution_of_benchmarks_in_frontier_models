@@ -50,7 +50,11 @@ inferred.
 
 ### Diffusion with complete calendar follow-up
 
-For horizon H days, an identity is eligible when `first_seen <= cutoff - H`.
+For horizon H days, an identity is eligible when `first_seen <= followup_end - H`.
+`followup_end` is the earlier of the selected cutoff and the latest release date
+in the full source inventory; it is recorded in `summary.json`. Extending a cutoff
+beyond the known series cannot create observed follow-up. This cap is conservative:
+any later no-launch discovery coverage is not currently stored as structured data.
 It counts as shared within the window when its second provider's first sighting
 is on or before `first_seen + H`. Both boundaries are inclusive. Same-day
 first-provider ties have lag zero. Recent identities are excluded, rather than
@@ -99,3 +103,6 @@ silently reclassify source facets or promote confidence ratings to accepted rows
 Independent fixtures check joint announcements, weighting, follow-up boundaries,
 same-day ties, unknown labels, accepted-versus-rated labels and empty cutoffs.
 CI regenerates both evidence tables and the root README to catch numerical drift.
+The shared-core headline and annual interaction comparison are derived from the
+selected snapshot as well: earlier, empty, flat, or declining series cannot
+inherit conclusions from the latest committed cutoff.

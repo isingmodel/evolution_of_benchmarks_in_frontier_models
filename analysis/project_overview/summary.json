@@ -2,6 +2,7 @@
   "as_of": "2026-09-30",
   "model_rows": 59,
   "launch_events": 55,
+  "diffusion_followup_end": "2026-09-30",
   "benchmark_bearing_launches": 51,
   "catalog_benchmarks": 288,
   "observed_benchmarks": 286,

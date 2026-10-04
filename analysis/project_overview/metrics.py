@@ -140,7 +140,8 @@ def build_overview_tables(
 
     Sharing bins cover observed identities; unobserved identities remain in the
     full catalog tables and summary. Diffusion horizons include every observed
-    identity with the complete calendar horizon available, including identities
+    identity with the complete calendar horizon available within the source
+    series, including identities
     that never appear at another provider. First-day provider ties count as lag
     zero. Separate horizons have different eligible cohorts.
     """
@@ -154,6 +155,9 @@ def build_overview_tables(
                 inventory[column] = pd.Series(dtype="object")
     scoped, _ = scope_models_as_of(inventory, cutoff.date().isoformat())
     scoped = scoped.fillna("").reset_index(drop=True)
+    # The validated source date governs both units, even when callers pass an
+    # enriched frame containing a stale derived release_date column.
+    scoped["release_date"] = pd.to_datetime(scoped["release date"]).dt.normalize()
     canonical, _ = build_resolved_mentions(
         scoped, resolver, deduplicate_within_release=True, unresolved_policy="error",
     )
@@ -209,9 +213,17 @@ def build_overview_tables(
         floats=["benchmark_share", "mention_share", "announcement_weight", "announcement_weight_share"],
     )
 
+    # Moving AS_OF beyond the recorded series cannot create observed follow-up.
+    # Use all input dates here: later rows establish coverage for a historical
+    # cutoff even though their mentions are correctly excluded from that slice.
+    source_end = pd.to_datetime(inventory["release date"]).max()
+    followup_end = min(cutoff, source_end.normalize()) if not pd.isna(source_end) else None
     diffusion_rows = []
     for horizon in [30, 90, 180]:
-        eligible = observed[observed["first_seen"].le((cutoff.date() - timedelta(days=horizon)).isoformat())]
+        eligible = (
+            observed[observed["first_seen"].le((followup_end.date() - timedelta(days=horizon)).isoformat())]
+            if followup_end is not None else observed.iloc[:0]
+        )
         diffused = int(eligible["second_provider_lag_days"].le(horizon).fillna(False).sum())
         diffusion_rows.append({
             "horizon_days": horizon, "eligible_benchmarks": len(eligible),
@@ -240,6 +252,7 @@ def build_overview_tables(
     latest_year = max(years) if years else None
     summary = {
         "as_of": cutoff.date().isoformat(), "model_rows": len(scoped), "launch_events": len(events),
+        "diffusion_followup_end": followup_end.date().isoformat() if followup_end is not None else None,
         "benchmark_bearing_launches": bearing_events, "catalog_benchmarks": len(lifecycles),
         "observed_benchmarks": len(observed), "raw_model_mentions": len(raw),
         "canonical_model_mentions": len(canonical), "launch_mentions": len(mentions),

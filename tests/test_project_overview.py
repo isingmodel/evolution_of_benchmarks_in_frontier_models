@@ -7,7 +7,7 @@ import unittest
 import pandas as pd
 
 from analysis.project_overview.metrics import build_overview_tables
-from analysis.project_overview.analyze import readme_values, render_readme
+from analysis.project_overview.analyze import readme_values, render_readme, sharing_title
 from scripts.taxonomy_utils import AliasEntry, CanonicalBenchmark, CanonicalResolver, benchmark_id
 
 
@@ -256,6 +256,34 @@ class ProjectOverviewTests(unittest.TestCase):
                 ["Alpha"],
             )
 
+    def test_source_date_overrides_stale_derived_dates_for_both_observation_units(self):
+        model_rows = models(("A", "Tool", "2026-01-01", "https://a.example/tool", "Tool"))
+        model_rows["release_date"] = pd.to_datetime(["2027-01-01"])
+        tables, summary = self.build(model_rows, ["Tool"], [
+            ("Tool", "interaction_pattern", "single_turn_tool_use", .9, "accepted"),
+        ], as_of="2026-01-31")
+        for unit in ["announcement", "model_row"]:
+            row = self.trend(tables, unit=unit)
+            self.assertEqual(row["benchmark_bearing_units"], 1)
+            self.assertEqual(row["positive_share"], 1)
+        self.assertEqual(set(tables["canonical_model_mentions"]["release_year"]), {2026})
+        self.assertEqual(summary["canonical_model_mentions"], 1)
+        self.assertEqual(summary["raw_model_mentions"], 1)
+
+    def test_future_cutoff_cannot_create_followup_beyond_the_source_series(self):
+        model_rows = models(
+            ("A", "First", "2025-12-01", "https://a.example/first", "Alpha"),
+            ("B", "Empty", "2026-01-15", "https://b.example/empty", ""),
+        )
+        current, current_summary = self.build(model_rows, ["Alpha"], as_of="2026-01-15")
+        future, future_summary = self.build(model_rows, ["Alpha"], as_of="2027-01-01")
+        self.assertEqual(current_summary["diffusion_followup_end"], "2026-01-15")
+        self.assertEqual(future_summary["diffusion_followup_end"], "2026-01-15")
+        pd.testing.assert_frame_equal(current["diffusion_horizons"], future["diffusion_horizons"])
+        self.assertEqual(current["diffusion_horizons"]["eligible_benchmarks"].tolist(), [1, 0, 0])
+        _, past_summary = self.build(model_rows, ["Alpha"], as_of="2025-12-15")
+        self.assertEqual(past_summary["diffusion_followup_end"], "2025-12-15")
+
     def test_readme_keeps_the_observation_year_when_cutoff_moves_forward(self):
         tables, summary = self.build(
             models(("A", "Old", "2026-01-01", "https://a.example/old", "Alpha")),
@@ -276,8 +304,48 @@ class ProjectOverviewTests(unittest.TestCase):
         values = readme_values(tables, summary)
         self.assertEqual(values["SHARED_MENTION_SHARE"], "—")
         self.assertEqual(values["CONDITIONAL_MEDIAN_LAG"], "—")
+        self.assertIn("undefined", values["SHARING_FINDING"])
+        self.assertIn("undefined", values["INTERACTION_FINDING"])
+        self.assertNotIn("most reporting", sharing_title(summary))
         with self.assertRaisesRegex(ValueError, "Missing README value"):
             render_readme("{{UNDEFINED_METRIC}}", values)
+
+    def test_early_cutoff_does_not_inherit_later_majority_or_interaction_trend_claims(self):
+        model_rows = models(
+            ("A", "First", "2023-01-01", "https://a.example/first", "Shared, Own1, Own2, Own3"),
+            ("B", "Second", "2023-07-01", "https://b.example/second", "Shared, Other1, Other2, Other3"),
+            ("B", "Future", "2026-01-01", "https://b.example/future", "Own1, Own2, Own3"),
+        )
+        tables, summary = self.build(model_rows, ["Shared", "Own1", "Own2", "Own3", "Other1", "Other2", "Other3"], as_of="2024-01-01")
+        self.assertAlmostEqual(summary["shared_mention_share"], .25)
+        values = readme_values(tables, summary)
+        template = (Path(__file__).resolve().parents[1] / "analysis/project_overview/README.template.md").read_text()
+        rendered = render_readme(template, values)
+        self.assertNotIn("most reporting", rendered)
+        self.assertNotIn("majority", rendered)
+        self.assertNotIn("rises", rendered)
+        self.assertIn("a trend across years cannot be assessed", rendered)
+        self.assertNotIn("most reporting", sharing_title(summary))
+        _, later_summary = self.build(model_rows, ["Shared", "Own1", "Own2", "Own3", "Other1", "Other2", "Other3"])
+        # The later snapshot crosses a reporting majority, but most identities
+        # are now shared: it must not call that set a minority either.
+        self.assertGreater(later_summary["shared_mention_share"], .5)
+        self.assertNotIn("small shared set", sharing_title(later_summary))
+
+    def test_interaction_narrative_follows_decreasing_and_flat_annual_shares(self):
+        model_rows = models(
+            ("A", "Tool", "2024-01-01", "https://a.example/tool", "Tool"),
+            ("A", "Static", "2025-01-01", "https://a.example/static", "Static"),
+        )
+        for first_label, expected in [("single_turn_tool_use", "falls"), ("static_prompt_response", "unchanged")]:
+            with self.subTest(first_label=first_label):
+                tables, summary = self.build(model_rows, ["Tool", "Static"], [
+                    ("Tool", "interaction_pattern", first_label, .9, "accepted"),
+                    ("Static", "interaction_pattern", "static_prompt_response", .9, "accepted"),
+                ])
+                finding = readme_values(tables, summary)["INTERACTION_FINDING"]
+                self.assertIn(expected, finding)
+                self.assertNotIn("rises", finding)
 
 
 if __name__ == "__main__":

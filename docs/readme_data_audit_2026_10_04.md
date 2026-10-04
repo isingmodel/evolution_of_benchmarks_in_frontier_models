@@ -54,4 +54,4 @@ A spot check of the stored [Gemini 1.0 announcement](https://blog.google/innovat
 
 The audit initially found `analysis/SYNTHESIS.md` presenting an earlier July snapshot as current. That finding is resolved: the [current synthesis](../analysis/SYNTHESIS.md) now points to generated evidence without duplicating changing headline numbers, and the [historical meta-review](../analysis/meta_review/README.md) explicitly archives earlier numerical quotations and editorial judgments. Regenerated CSVs, with their documented denominators and sensitivity checks, supply current README claims.
 
-The full pipeline was regenerated after these corrections; all 793 raw mentions resolve, and all 60 tests pass. Current counts, tables, and figures use the corrected inputs.
+The full pipeline was regenerated after these corrections; all 793 raw mentions resolve. Current counts, tables, and figures use the corrected inputs. Regression tests cover announcement weighting, follow-up windows, unknown metadata, missing facets, and cutoff-dependent README interpretations.

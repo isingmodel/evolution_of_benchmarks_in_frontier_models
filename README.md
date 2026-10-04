@@ -12,11 +12,9 @@ how does the mix of tasks represented by those evaluations change? This project 
 through public launch pages, with a canonical catalog, source-linked reporting
 histories, and reproducible analyses.
 
-The clearest result is **concentration inside a diverse catalog**: only
-**25.9% of observed benchmark identities appear across providers**, yet
-they account for **62.1% of benchmark–announcement observations**.
-The taxonomy also suggests a shift toward tool and environment interaction,
-but incomplete annotation review limits how precisely that shift can be measured.
+**25.9% of observed benchmark identities appear across providers**. These identities account for **62.1% of benchmark–announcement observations**.
+Taxonomy-based interaction trends are reported alongside annotation coverage,
+because incomplete review limits their interpretation.
 
 **59 model rows · 55 distinct announcements · 745 canonical announcement observations · 286 observed identities**
 
@@ -32,15 +30,14 @@ page, or use during training.
 ## 1. A small shared set accounts for most reporting
 
 **74 of 286 observed identities** appear on announcements from at least two
-providers; **38** appear across all three. Most identities remain specific
-to one provider in this sample, while shared benchmarks recur much more often.
+providers; **38** appear across all three. The figure compares
+provider coverage with reporting frequency.
 
-![Shared benchmark identities contribute a majority of observed reporting](assets/benchmark_shared_core.png)
+![Benchmark identities and reporting weight grouped by provider coverage](assets/benchmark_shared_core.png)
 
-The result survives a change in weighting. Giving each benchmark-bearing
-announcement one unit, divided across its benchmark set, shared identities still
-contribute **63.3%** of the average portfolio. Long tables and jointly
-announced model variants therefore do not explain the shared core by themselves.
+Giving each benchmark-bearing announcement one unit, divided across its benchmark
+set, shared identities contribute **63.3%** of the average portfolio.
+The shared majority persists under equal announcement weighting. Long tables and jointly announced variants therefore do not explain it by themselves.
 
 This is an identity-level result at the current cutoff. Explicit versions remain
 separate, while some older catalog rows combine historical variants. It does not
@@ -48,12 +45,11 @@ estimate benchmark-family concentration or establish comparable scoring protocol
 
 Evidence: [sharing counts and both weightings](analysis/project_overview/sharing_summary.csv).
 
-## 2. Only a minority appears at another provider within each window
+## 2. Cross-provider reporting within 30, 90 and 180 days
 
 Showing only benchmarks that eventually reach a second provider selects the
-successful cases. Among those shared identities, the median gap between first
-and second provider sightings is **59.5 days**. To include identities that
-remain provider-specific, the table below admits a benchmark only when its first
+successful cases. Among shared identities, the median gap between first and second provider sightings is **59.5 days**.
+To include identities that remain provider-specific, the table below admits a benchmark only when its first
 sighting is old enough to allow the entire follow-up window.
 
 | Follow-up window | Eligible identities | Seen at a second provider within window | Share |
@@ -61,6 +57,10 @@ sighting is old enough to allow the entire follow-up window.
 | 30 days | 209 | 26 | 12.4% |
 | 90 days | 160 | 50 | 31.2% |
 | 180 days | 113 | 45 | 39.8% |
+
+Calendar follow-up ends at **2026-09-30**, capped at the latest
+release date in the source inventory. A later requested cutoff cannot add
+observation time beyond the recorded series.
 
 Each row has a different eligible cohort; these are not points on a common
 survival curve. The clock starts at the **first mention in this dataset**, rather
@@ -98,10 +98,10 @@ The [complete catalog report](analysis/benchmark_lifecycle/report.md) includes
 all **288 identities**, including **2** without an observation by this
 cutoff. Missing dates and undefined follow-up shares remain missing.
 
-## 4. Interaction labels rise; evidence quality remains uneven
+## 4. Interaction trends depend on annotation coverage
 
-The current taxonomy assigns more of recent launch portfolios to **tool or
-environment interaction**. This measure requires an explicit interaction label:
+The annual share carrying tool or environment interaction labels rises from **0.0% in 2023** to **64.0% in 2026**, using all active labels.
+This measure requires an explicit interaction label:
 tool use, an environment, a browser, a terminal/codebase, or computer control.
 Static code generation, unit-test scoring, and planning alone do not qualify.
 
@@ -125,7 +125,7 @@ Changing the unit from announcements to model rows gives
 **64.0% versus 64.4%** for the 2026 all-active estimate.
 The [provider-level table](analysis/project_overview/provider_interaction_trends.csv)
 lets readers check changes within each lab separately. Classification quality
-remains the larger unresolved issue. The older “work simulation” proxy included
+remains an unresolved issue. The older “work simulation” proxy included
 static coding tests such as HumanEval; its broader definition remains in the
 [exploratory appendix](analysis/readme_story/README.md).
 
