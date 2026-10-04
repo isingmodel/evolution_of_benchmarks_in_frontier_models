@@ -1,0 +1,744 @@
+benchmark_id,benchmark_name,launch_id,provider,release_date,source_url,model_names,model_row_count
+benchmark_biology_olympiad,Biology Olympiad,launch_63d2a703b68189ddfeb2,OpenAI,2023-03-14,https://openai.com/ko-KR/index/gpt-4,GPT-4,1
+benchmark_uniform_bar_exam,Uniform Bar Exam,launch_63d2a703b68189ddfeb2,OpenAI,2023-03-14,https://openai.com/ko-KR/index/gpt-4,GPT-4,1
+benchmark_gre,GRE,launch_a836d35f9e4f815db822,Anthropic,2023-07-11,https://www.anthropic.com/news/claude-2,Claude 2,1
+benchmark_gsm8k,GSM8K,launch_a836d35f9e4f815db822,Anthropic,2023-07-11,https://www.anthropic.com/news/claude-2,Claude 2,1
+benchmark_humaneval,HumanEval,launch_a836d35f9e4f815db822,Anthropic,2023-07-11,https://www.anthropic.com/news/claude-2,Claude 2,1
+benchmark_uniform_bar_exam,Uniform Bar Exam,launch_a836d35f9e4f815db822,Anthropic,2023-07-11,https://www.anthropic.com/news/claude-2,Claude 2,1
+benchmark_big_bench_hard,Big-Bench Hard,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_covost_2,CoVoST 2,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_docvqa,DocVQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_drop,DROP,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_fleurs,FLEURS,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_gsm8k,GSM8K,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_hellaswag,HellaSwag,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_humaneval,HumanEval,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_infographic_vqa,Infographic VQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_math,MATH,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_mathvista,MathVista,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_mcqa,MCQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_natural2code,Natural2Code,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_textvqa,TextVQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_vatex,VATEX,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_vqav2,VQAv2,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_mtob_benchmark,MTOB benchmark,launch_0bdf5ecbb5b8b919fd09,Google,2024-02-15,https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024,Gemini 1.5,1
+benchmark_needle_in_a_haystack,Needle In A Haystack,launch_0bdf5ecbb5b8b919fd09,Google,2024-02-15,https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024,Gemini 1.5,1
+benchmark_ai2d,AI2D,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_arc_agi,ARC-AGI,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_big_bench_hard,Big-Bench Hard,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_chartqa,ChartQA,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_docvqa,DocVQA,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_drop,DROP,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_gpqa,GPQA,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_gsm8k,GSM8K,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_hellaswag,HellaSwag,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_humaneval,HumanEval,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_math,MATH,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_mathvista,MathVista,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_mgsm,MGSM,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_needle_in_a_haystack,Needle In A Haystack,launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1
+benchmark_activitynet,ActivityNet,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_ai2d,AI2D,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_chartqa,ChartQA,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_docvqa,DocVQA,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_drop,DROP,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_egoschema,EgoSchema,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_gpqa,GPQA,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_humaneval,HumanEval,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_m3exam,M3Exam,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_math,MATH,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_mathvista,MathVista,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_mgsm,MGSM,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1
+benchmark_ai2d,AI2D,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_big_bench_hard,Big-Bench Hard,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_chartqa,ChartQA,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_docvqa,DocVQA,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_drop,DROP,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_gpqa,GPQA,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_gsm8k,GSM8K,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_humaneval,HumanEval,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_math,MATH,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_mathvista,MathVista,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_mgsm,MGSM,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_39336569a33b4dd4deba,Anthropic,2024-06-21,https://www.anthropic.com/news/claude-3-5-sonnet,Claude 3.5 Sonnet,1
+benchmark_aime,AIME,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_codeforces,Codeforces,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_cybersecurity_ctfs,Cybersecurity CTFs,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_gpqa,GPQA,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_humaneval,HumanEval,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_jailbreak_eval,Jailbreak Eval,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_math,MATH,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_3d854fe344efc7992795,OpenAI,2024-09-12,https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning,o1-mini,1
+benchmark_aime,AIME,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_codeforces,Codeforces,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_gpqa,GPQA,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_imo,IMO,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_math,MATH,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_mathvista,MathVista,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_ca29f7c7b7887587dfa6,OpenAI,2024-09-12,https://openai.com/ko-KR/index/learning-to-reason-with-llms,o1,1
+benchmark_aime,AIME,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_humaneval,HumanEval,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_math,MATH,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_osworld,OSWorld,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_tau_bench,Tau-bench,launch_bc678bef0ecf112c3afd,Anthropic,2024-10-23,https://www.anthropic.com/news/3-5-models-and-computer-use,Claude 3.5 Haiku,1
+benchmark_bird_sql,Bird-SQL,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_covost_2,CoVoST 2,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_egoschema,EgoSchema,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_facts_grounding,FACTS Grounding,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_gpqa,GPQA,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_hiddenmath,HiddenMath,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_livecodebench,LiveCodeBench,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_math,MATH,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_mrcr,MRCR,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_natural2code,Natural2Code,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_vibe_eval,Vibe-Eval,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_webvoyager,WebVoyager,launch_f12a85a181941c0c66fd,Google,2024-12-11,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024,Gemini 2.0,1
+benchmark_aime,AIME,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_codeforces,Codeforces,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_frontiermath,FrontierMath,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_gpqa,GPQA,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_livebench_coding,LiveBench Coding,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_math,MATH,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_mgsm,MGSM,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_simpleqa,SimpleQA,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_stem,STEM,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_9063b882dbda24328ab7,OpenAI,2025-01-31,https://openai.com/ko-KR/index/openai-o3-mini,o3-mini,1
+benchmark_aime,AIME,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_ifeval,IFEval,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_math_500,MATH 500,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_mmmlu,MMMLU,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_tau_bench,Tau-bench,launch_24849e686556d57693e9,Anthropic,2025-02-25,https://www.anthropic.com/news/claude-3-7-sonnet,Claude 3.7 Sonnet,1
+benchmark_aime,AIME,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_gpqa,GPQA,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_mmmlu,MMMLU,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_simpleqa,SimpleQA,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_swe_bench,SWE-bench,launch_1067a29c4dcd3b56d86a,OpenAI,2025-02-27,https://openai.com/ko-KR/index/introducing-gpt-4-5,GPT-4.5,1
+benchmark_aider_polyglot,Aider Polyglot,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_aime,AIME,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_gpqa,GPQA,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_livecodebench,LiveCodeBench,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_mrcr,MRCR,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_simpleqa,SimpleQA,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_vibe_eval,Vibe-Eval,launch_7419a68ac537d4cf94a6,Google,2025-03-25,https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025,Gemini 2.5,1
+benchmark_aider_polyglot,Aider Polyglot,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_aime,AIME,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_charxiv,CharXiv,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_collie,COLLIE,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_complexfunc_bench,ComplexFunc Bench,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_gpqa,GPQA,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_graphwalks,GraphWalks,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_ifeval,IFEval,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_mathvista,MathVista,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_mrcr,MRCR,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_multi_if,Multi-IF,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_multichallenge,MultiChallenge,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_needle_in_a_haystack,Needle In A Haystack,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_swe_lancer,SWE-Lancer,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_tau_bench,Tau-bench,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_video_mme,Video-MME,launch_b424f3514d23a5679236,OpenAI,2025-04-14,https://openai.com/index/gpt-4-1,GPT-4.1,1
+benchmark_aider_polyglot,Aider Polyglot,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_aime,AIME,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_browsecomp,BrowseComp,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_charxiv,CharXiv,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_codeforces,Codeforces,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_gpqa,GPQA,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_mathvista,MathVista,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_multichallenge,MultiChallenge,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_swe_lancer,SWE-Lancer,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_tau_bench,Tau-bench,launch_d3167bebef21aea5a465,OpenAI,2025-04-16,https://openai.com/ko-KR/index/introducing-o3-and-o4-mini,o3,1
+benchmark_aime,AIME,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_mmmlu,MMMLU,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_tau_bench,Tau-bench,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_terminal_bench,Terminal-bench,launch_0939af82bf30ba393a67,Anthropic,2025-05-23,https://www.anthropic.com/news/claude-4,Claude 4,1
+benchmark_aime,AIME,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_mmmlu,MMMLU,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_tau_bench,Tau-bench,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_terminal_bench,Terminal-bench,launch_ab89d39869e27f759d7d,Anthropic,2025-08-05,https://www.anthropic.com/news/claude-opus-4-1,Claude 4.1 (Opus),1
+benchmark_aider_polyglot,Aider Polyglot,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_aime,AIME,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_browsecomp,BrowseComp,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_charxiv,CharXiv,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_collie,COLLIE,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_erqa,ERQA,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_frontiermath,FrontierMath,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_gpqa,GPQA,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_healthbench,Healthbench,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_hmmt,HMMT,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_multichallenge,MultiChallenge,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_tau_2_bench,TAU-2 bench,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_video_mmmu,Video-MMMU,launch_d5072a47a2e6b13043e6,OpenAI,2025-08-07,https://openai.com/ko-KR/index/introducing-gpt-5,GPT-5,1
+benchmark_aime,AIME,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_finance_agent,Finance Agent,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_mmmlu,MMMLU,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_osworld,OSWorld,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_tau_2_bench,TAU-2 bench,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_terminal_bench,Terminal-bench,launch_af8ca4848f8e50e6ca6b,Anthropic,2025-09-30,https://www.anthropic.com/news/claude-sonnet-4-5,Claude 4.5 (Sonnet),1
+benchmark_aime,AIME,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_mmmlu,MMMLU,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_osworld,OSWorld,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_tau_2_bench,TAU-2 bench,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_terminal_bench,Terminal-bench,launch_0f94095722c91e123b66,Anthropic,2025-10-16,https://www.anthropic.com/news/claude-haiku-4-5,Claude 4.5 (Haiku),1
+benchmark_aime,AIME,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_arc_agi,ARC-AGI,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_charxiv,CharXiv,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_facts_benchmark_suite,FACTS Benchmark suite,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_global_piqa,Global PIQA,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_gpqa,GPQA,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_livecodebench,LiveCodeBench,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_lmarena,LMArena,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_matharena_apex,MathArena Apex,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_mmmlu,MMMLU,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_mrcr,MRCR,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_omnidocbench_1_5,OmniDocBench 1.5,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_screenspot_pro,ScreenSpot-Pro,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_simpleqa,SimpleQA,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_tau_2_bench,TAU-2 bench,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_vending_bench_2,Vending-Bench 2,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_video_mmmu,Video-MMMU,launch_f9e003f1a6c0eaad7240,Google,2025-11-18,https://blog.google/products-and-platforms/products/gemini/gemini-3,Gemini 3.0,1
+benchmark_aider_polyglot,Aider Polyglot,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_arc_agi_2,ARC-AGI-2,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_browsecomp_plus,BrowseComp-Plus,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_mmmlu,MMMLU,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_osworld,OSWorld,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_tau_2_bench,TAU-2 bench,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_vending_bench,Vending-Bench,launch_cd10dd39e5e3550c3c26,Anthropic,2025-11-24,https://www.anthropic.com/news/claude-opus-4-5,Claude 4.5 (Opus),1
+benchmark_arc_agi,ARC-AGI,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_browsecomp_long_context,BrowseComp Long Context,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_charxiv,CharXiv,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_frontiermath,FrontierMath,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_gdpval,GDPval,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_gpqa,GPQA,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_graphwalks,GraphWalks,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_hmmt,HMMT,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_mmmlu,MMMLU,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_mrcr_v2,MRCR v2,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_screenspot_pro,ScreenSpot-Pro,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_swe_lancer,SWE-Lancer,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_tau_2_bench,TAU-2 bench,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_toolathlon,Toolathlon,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_video_mmmu,Video-MMMU,launch_21e6ffc3c79d02349800,OpenAI,2025-12-11,https://openai.com/ko-KR/index/introducing-gpt-5-2,GPT-5.2,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_biglaw_bench,BigLaw Bench,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_biopipelinebench,BioPipelineBench,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_browsecomp,BrowseComp,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_cybergym,CyberGym,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_finance_agent,Finance Agent,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_gdpval_aa,GDPval-AA,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_graphwalks,GraphWalks,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_mmmlu,MMMLU,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_mmmu_pro,MMMU Pro,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_mrcr_v2,MRCR v2,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_openrca,OpenRCA,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_osworld,OSWorld,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_tau_2_bench,TAU-2 bench,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_terminal_bench,Terminal-bench,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_vending_bench_2,Vending-Bench 2,launch_6b56cbb899cb6be87fcd,Anthropic,2026-02-05,https://www.anthropic.com/news/claude-opus-4-6,Claude 4.6 (Opus),1
+benchmark_cybersecurity_ctfs,Cybersecurity CTFs,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_gdpval,GDPval,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_osworld_verified,OSWorld-Verified,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/introducing-gpt-5-3-codex,GPT-5.3-Codex,1
+benchmark_apex_agents,APEX-Agents,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_browsecomp,BrowseComp,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_gdpval_aa,GDPval-AA,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_livecodebench_pro,LiveCodeBench Pro,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_mmmlu,MMMLU,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_mrcr_v2,MRCR v2,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_scicode,SciCode,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_swe_bench_verified,SWE-bench verified,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_tau_2_bench,TAU-2 bench,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1
+benchmark_charxiv_reasoning,CharXiv Reasoning,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_facts_benchmark_suite,FACTS Benchmark suite,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_livecodebench,LiveCodeBench,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_lmarena,LMArena,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_mmmlu,MMMLU,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_mrcr_v2,MRCR v2,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_simpleqa_verified,SimpleQA Verified,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_video_mmmu,Video-MMMU,launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1
+benchmark_apex_agents,APEX-Agents,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_arc_agi,ARC-AGI,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_biglaw_bench,BigLaw Bench,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_browsecomp,BrowseComp,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_cot_control,CoT-Control,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_financeagent_v1_1,FinanceAgent v1.1,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_frontier_science_research,Frontier Science Research,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_frontiermath,FrontierMath,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_gdpval,GDPval,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_graphwalks,GraphWalks,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_mmmu_pro,MMMU Pro,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_mrcr_v2,MRCR v2,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_officeqa,OfficeQA,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_omnidocbench,OmniDocBench,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_online_mind2web,Online-Mind2Web,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_osworld_verified,OSWorld-Verified,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_tau_2_bench,TAU-2 bench,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_toolathlon,Toolathlon,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_webarena_verified,WebArena-Verified,launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1
+benchmark_93_task_coding_benchmark,93-task coding benchmark,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_biglaw_bench,BigLaw Bench,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_browsecomp,BrowseComp,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_charxiv_reasoning,CharXiv Reasoning,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_cursorbench,CursorBench,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_cybergym,CyberGym,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_financeagent_v1_1,FinanceAgent v1.1,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_gdpval_aa,GDPval-AA,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_gpqa_diamond,GPQA Diamond,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_graphwalks,GraphWalks,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_implicit_need_tests,implicit-need tests,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_internal_research_agent_benchmark,internal research-agent benchmark,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_mmmlu,MMMLU,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_officeqa_pro,OfficeQA Pro,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_osworld_verified,OSWorld-Verified,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_screenspot_pro,ScreenSpot-Pro,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_structural_biology,Structural Biology,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_swe_bench_multimodal,SWE-bench Multimodal,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_swe_bench_verified,SWE-bench verified,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_terminal_bench,Terminal-bench,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_vending_bench_2,Vending-Bench 2,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_aa_lcr,AA-LCR,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_aa_omniscience,AA-Omniscience,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_arc_agi,ARC-AGI,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_biglaw_bench,BigLaw Bench,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_bixbench,BixBench,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_browsecomp,BrowseComp,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_critpt,CritPt,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_cybergym,CyberGym,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_expert_swe_internal,Expert-SWE (Internal),launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_financeagent_v1_1,FinanceAgent v1.1,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_frontiermath,FrontierMath,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_gdpval,GDPval,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_gdpval_aa,GDPval-AA,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_genebench,GeneBench,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_graphwalks,GraphWalks,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_ifbench,IFBench,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_mmmu_pro,MMMU Pro,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_mrcr_v2,MRCR v2,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_officeqa_pro,OfficeQA Pro,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_osworld_verified,OSWorld-Verified,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_scicode,SciCode,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_tau_2_bench,TAU-2 bench,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_terminal_bench_hard,Terminal-Bench Hard,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_toolathlon,Toolathlon,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_blueprint_bench_2,Blueprint-Bench 2,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_charxiv_reasoning,CharXiv Reasoning,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_finance_agent_v2,Finance Agent v2,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_gdpval_aa,GDPval-AA,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_mmmu_pro,MMMU Pro,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_mrcr_v2,MRCR v2,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_osworld_verified,OSWorld-Verified,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_toolathlon,Toolathlon,launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_cursorbench,CursorBench,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_finance_agent_v2,Finance Agent v2,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_gdpval_aa,GDPval-AA,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_online_mind2web,Online-Mind2Web,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_osworld_verified,OSWorld-Verified,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_super_agent_benchmark,Super-Agent benchmark,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1
+benchmark_automated_alignment_assessment,automated alignment assessment,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_automationbench,AutomationBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_biomysterybench,BioMysteryBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_blueprint_bench_2,Blueprint-Bench 2,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_core_analytics_benchmark,core analytics benchmark,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_cursorbench,CursorBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_cybergym,CyberGym,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_cyscenariobench,CyScenarioBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_exploitbench,ExploitBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_firefox,Firefox,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_frontierbench,FrontierBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_frontiercode_diamond,FrontierCode (Diamond),launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_gdp_pdf,gdp.pdf,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_gdpval_aa,GDPval-AA,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_healthbench_professional,HealthBench Professional,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_oss_fuzz,OSS-Fuzz,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_osworld_verified,OSWorld-Verified,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_vibench,ViBench,launch_1e4a8080ae7468ea970e,Anthropic,2026-06-09,https://www.anthropic.com/news/claude-fable-5-mythos-5,Claude 5 (Fable/Mythos),1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_browsecomp,BrowseComp,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_osworld_verified,OSWorld-Verified,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_41fa8ac024f42a252839,Anthropic,2026-06-30,https://www.anthropic.com/news/claude-sonnet-5,Claude 5 (Sonnet),1
+benchmark_agentic_code_review_tests,agentic code-review tests,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_agents_last_exam,Agents' Last Exam,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_arc_agi_3,ARC-AGI-3,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_automationbench,AutomationBench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_benchcad,BenchCAD,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_big_finance_bench,Big Finance Bench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_browsecomp,BrowseComp,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_combined_evaluation_suite,combined evaluation suite,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_cursorbench,CursorBench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_early_design_evals,early design evals,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_exploitbench,ExploitBench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_exploitgym,ExploitGym,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_frontiermath_v2,FrontierMath v2,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_gdp_pdf,gdp.pdf,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_genebench_pro,GeneBench Pro,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_graphwalks,GraphWalks,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_healthbench_professional,HealthBench Professional,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_kernelgen_1p,KernelGen 1P,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_lifescibench,LifeSciBench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_medchembench_internal,MedChemBench (Internal),launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_mmmu_pro,MMMU Pro,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_model_ml_s_finbench,Model ML's FinBench,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_mrcr_v2,MRCR v2,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_nanogpt,NanoGPT,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_osworld_2_0,OSWorld 2.0,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_posttrainbench_lite,PostTrainBench Lite,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_rsi_index,RSI Index,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_sec_bench_pro,SEC-Bench Pro,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_seven_task_benchmark,seven-task benchmark,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_swe_bench_pro,SWE-bench Pro,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_toolathlon,Toolathlon,launch_c6fdd461b91349366eea,OpenAI,2026-07-09,https://openai.com/index/gpt-5-6,GPT-5.6,1
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_cybergym,CyberGym,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_mle_bench,MLE-Bench,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_mrcr_v2,MRCR v2,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_osworld_verified,OSWorld-Verified,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_receipt_extraction_benchmark,receipt extraction benchmark,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_swe_bench_pro,SWE-bench Pro,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_8c3a8f604a1054a4e039,Google,2026-07-21,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber,Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,2
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,launch_bf05708f65d1d5376829,Google,2026-07-21,https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber,Gemini 3.5 Flash Cyber,1
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,launch_bf05708f65d1d5376829,Google,2026-07-21,https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber,Gemini 3.5 Flash Cyber,1
+benchmark_cybergym,CyberGym,launch_bf05708f65d1d5376829,Google,2026-07-21,https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber,Gemini 3.5 Flash Cyber,1
+benchmark_arc_agi_3,ARC-AGI-3,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_automationbench,AutomationBench,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_biomysterybench,BioMysteryBench,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_browsecomp,BrowseComp,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_cursorbench_3_2,CursorBench 3.2,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_deepsearchqa,DeepSearchQA,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_frontend_benchmark,frontend benchmark,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_healthbench_professional,HealthBench Professional,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_lovable_internal_evals,Lovable internal evals,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_oss_fuzz,OSS-Fuzz,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_osworld_2_0,OSWorld 2.0,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_trading_benchmark,trading benchmark,launch_80a79921c11c04b3238a,Anthropic,2026-07-24,https://www.anthropic.com/news/claude-opus-5,Claude 5 (Opus),1
+benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,launch_44f9108ecead8b831a95,OpenAI,2026-08-10,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows,GPT-5.6-Cyber,1
+benchmark_exploitbench,ExploitBench,launch_44f9108ecead8b831a95,OpenAI,2026-08-10,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows,GPT-5.6-Cyber,1
+benchmark_exploitgym,ExploitGym,launch_44f9108ecead8b831a95,OpenAI,2026-08-10,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows,GPT-5.6-Cyber,1
+benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,launch_44f9108ecead8b831a95,OpenAI,2026-08-10,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows,GPT-5.6-Cyber,1
+benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,launch_44f9108ecead8b831a95,OpenAI,2026-08-10,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows,GPT-5.6-Cyber,1
+benchmark_agents_last_exam,Agents' Last Exam,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_automationbench,AutomationBench,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_biomysterybench,BioMysteryBench,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_charxiv_reasoning,CharXiv Reasoning,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_gdp_pdf,gdp.pdf,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_harbor_index,Harbor-Index,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_harvey_lab_aa,Harvey LAB-AA,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_hle_verified,HLE-Verified,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_labbench2,LABBench2,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_lvbench,LVBench,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_mrcr_v2,MRCR v2,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_osworld_2_0,OSWorld 2.0,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_terminal_bench_3_0,Terminal-Bench 3.0,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_webdev_arena,WebDev Arena,launch_3828c958f36e8a591f2d,Google,2026-08-13,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash,Gemini 3.7 Flash,1
+benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design competitions,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_automationbench,AutomationBench,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_browser_agent_benchmark,browser-agent benchmark,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_citations_eval,Citations eval,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_cursorbench_3_2,CursorBench 3.2,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_frontierfinance,FrontierFinance,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_imc_research_suite,IMC research suite,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_incident_investigation_evals,incident investigation evals,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_internal_finance_benchmark,internal Finance benchmark,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_osworld_2_0,OSWorld 2.0,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_powerpoint_eval,PowerPoint eval,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_prompt_injection_benchmark,prompt injection benchmark,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_redlinebench,RedlineBench,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,launch_18fd4fb46ec55e3138e1,Anthropic,2026-09-01,https://www.anthropic.com/claude-fable-and-mythos-5-1,Claude 5.1 (Fable/Mythos),1
+benchmark_biomysterybench,BioMysteryBench,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_charxiv_reasoning,CharXiv Reasoning,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_cwe_bench,CWE-Bench,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_cybergym,CyberGym,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_finance_agent_v2,Finance Agent v2,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_gdp_pdf,gdp.pdf,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_gdpval_aa_v2,GDPval-AA v2,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_hle_verified,HLE-Verified,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_labbench2,LABBench2,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_lvbench,LVBench,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_osworld_2_0,OSWorld 2.0,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_staticbench,StaticBench,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,launch_ca987db1469573dbfd4e,Google,2026-09-02,https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber,Gemini 3.8 Flash; Gemini 3.8 Flash Cyber,2
+benchmark_agents_last_exam,Agents' Last Exam,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_arc_agi,ARC-AGI,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_arc_agi_2,ARC-AGI-2,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_arc_agi_3,ARC-AGI-3,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_artificial_analysis_coding_agent_index_v1_4,Artificial Analysis Coding Agent Index v1.4,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_automationbench,AutomationBench,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_benchcad,BenchCAD,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_browsecomp,BrowseComp,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_data_science_tasks_internal,Data Science Tasks (Internal),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_design_tasks_internal,Design Tasks (Internal),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_exploitbench,ExploitBench,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_exploitbench_juneaugust_2026,ExploitBench (June–August 2026),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_exploitgym,ExploitGym,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_exploitgym_honeypot,ExploitGym honeypot,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_first_generation_evals,first-generation evals,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_frontiercode_v1_1_extended,FrontierCode v1.1 (Extended),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_frontiermath_v2,FrontierMath v2,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_genebench_pro_v13,GeneBench Pro v13,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_gpqa_diamond,GPQA Diamond,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_healthbench_professional,HealthBench Professional,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_internal_coding_benchmarks,internal coding benchmarks,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_internal_testing_benchmark,internal testing benchmark,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_medchembench_internal,MedChemBench (Internal),launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_mind2web,Mind2Web,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_mrcr_v2,MRCR v2,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_openscore_string_quartets,OpenScore String Quartets,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_osworld_2_0,OSWorld 2.0,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_screenspot_pro,ScreenSpot-Pro,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_sec_bench_pro,SEC-Bench Pro,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_sre_bench,SRE-Bench,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_trading_intuition_evaluations,trading intuition evaluations,launch_6a147a496908d5b2a450,OpenAI,2026-09-03,https://openai.com/index/gpt-6-astra,GPT-6 Astra,1
+benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_big_bench_audio,Big Bench Audio,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_eva_bench,EVA-Bench,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_speech_agent_arena,Speech Agent Arena,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_voice,τ-Voice,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_voice_banking,τ-Voice-banking,launch_002cd42942ed4dcc08bd,Google,2026-09-15,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking,Gemini 3.8 Live; Gemini 3.8 Live Extended Thinking,2
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_automationbench,AutomationBench,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_big_finance_bench,Big Finance Bench,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_chartography,Chartography,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_containment_boundary_evaluation,containment-boundary evaluation,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_cursorbench_4_0,CursorBench 4.0,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_databench,DataBench,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_gray_swan_prompt_injection_benchmark,Gray Swan prompt injection benchmark,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_long_horizon_molecular_prediction_and_design_evaluation,long-horizon molecular prediction and design evaluation,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_osworld_2_1,OSWorld 2.1,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_trading_support_suite,trading-support suite,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_wandr,WANDR,launch_fc08e594fcbe4b496052,Anthropic,2026-09-22,https://www.anthropic.com/claude-opus-5-5,Claude 5.5 (Opus),1
+benchmark_agents_last_exam_v1,Agents' Last Exam V1,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_automationbench_1_0_6,AutomationBench 1.0.6,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_broken_search,Broken search,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_coding_deception,Coding deception,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_internal_factuality_evaluation,internal factuality evaluation,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_osworld_2_0,OSWorld 2.0,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_reviewer_bypass,Reviewer bypass,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_unauthorized_interaction,Unauthorized interaction,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_warning_circumvention,Warning circumvention,launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introducing-gpt-6-sol-and-luna,GPT-6 Luna; GPT-6 Sol,2
+benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_automated_behavioral_audit,automated behavioral audit,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_chartography,Chartography,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_coding_evals,coding evals,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_containment_evaluations,containment evaluations,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_cursorbench_4_0,CursorBench 4.0,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_frontiercode_v1_1,FrontierCode v1.1,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_offline_slackbot_evals,offline Slackbot evals,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_osworld_2_1,OSWorld 2.1,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_pokemon_red,Pokémon Red,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1
+benchmark_automationbench_1_0_6,AutomationBench 1.0.6,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_broken_search,Broken search,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_gdp_pdf,gdp.pdf,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_internal_factuality_evaluation,internal factuality evaluation,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_osworld_2_0,OSWorld 2.0,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_reviewer_bypass,Reviewer bypass,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_warning_circumvention,Warning circumvention,launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1
+benchmark_agents_last_exam,Agents' Last Exam,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_automationbench,AutomationBench,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_chartography,Chartography,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_cwe_bench_v0,CWE-bench v0,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_cwe_bench_v1,CWE-bench v1,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_deepswe_v1_1,DeepSWE v1.1,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_finance_agent_v2,Finance Agent v2,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_frontierswe_v2,FrontierSWE v2,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_graphwalks,GraphWalks,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_labbench2,LABBench2,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_lvbench,LVBench,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_osworld_2_0,OSWorld 2.0,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_posttrainbench,PostTrainBench,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_riemannbench,RiemannBench,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_vals_index,Vals Index,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_vibe_code_bench,Vibe Code Bench,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1
+benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1

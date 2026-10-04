@@ -93,6 +93,35 @@ days of their first observed use in this dataset.
 
 These dates measure adoption on the release pages covered here.
 
+### Each benchmark has an observed reporting life cycle
+
+Of the 284 observed canonical identities, 167 appear on one announcement and
+117 recur across announcements; 74 appear across multiple providers. The
+lifecycle analysis counts the 59 model rows as 55 distinct announcements, so a
+shared launch page cannot create repeat use by itself.
+
+![Benchmark reporting life cycles](assets/benchmark_lifecycle.png)
+
+| Benchmark | First observed | Last observed | Announcements | Providers |
+| --- | --- | --- | ---: | ---: |
+| GSM8K | 2023-07-11 | 2024-06-21 | 4 | 2 |
+| HumanEval | 2023-07-11 | 2024-10-23 | 7 | 3 |
+| SWE-bench verified | 2024-10-23 | 2026-04-16 | 18 | 3 |
+| Terminal-Bench 3.0 | 2026-08-13 | 2026-08-13 | 1 | 1 |
+| Terminal-Bench 4.0 | 2026-09-01 | 2026-09-30 | 6 | 3 |
+| Terminal-Bench Science 0.1 | 2026-09-01 | 2026-09-30 | 5 | 3 |
+
+First and last appearance bound an observed reporting span. A last mention does
+not establish retirement, and version-specific patterns do not establish
+replacement. Follow-up reporting shares and gaps expose each adopting provider's
+later launch opportunities, including pages with no recorded benchmarks.
+
+The [complete lifecycle report](analysis/benchmark_lifecycle/report.md) covers all
+286 catalog entries, including two with no observed mention by the cutoff.
+[Per-benchmark measures](analysis/benchmark_lifecycle/benchmark_lifecycles.csv)
+and [provider-specific denominators](analysis/benchmark_lifecycle/provider_lifecycles.csv)
+make each history inspectable.
+
 ### Gemini made long context part of the launch narrative
 
 Long-context evaluations formed 39.3% of Google's weighted benchmark portfolio

@@ -8,6 +8,7 @@ Each subfolder should be reproducible from local CSVs and should preserve the co
 
 - `SYNTHESIS.md`: integrated findings and recommended story structure from the exploratory analyses.
 - `benchmark_evolution/`: README-facing benchmark evolution timeline analysis.
+- `benchmark_lifecycle/`: complete canonical reporting histories, announcement-level recurrence, diffusion and provider-cadence gaps.
 - `benchmark_taxonomy_trends/`: README-facing rolling taxonomy trend and review-debt analyses.
 - `common_snapshot/`: baseline resolved mention tables and review-debt context shared by the exploratory analyses.
 - `frontier_lab_benchmark_hegemony/`: tests cross-lab benchmark adoption and frontier-lab benchmark influence.
