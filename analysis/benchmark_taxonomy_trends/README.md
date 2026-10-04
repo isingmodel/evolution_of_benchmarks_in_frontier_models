@@ -48,6 +48,8 @@ days. Values change when recorded rows enter or leave that window. There is no
 additional smoothing. When a window contains no covered weight, its shares stay
 undefined and the plot leaves a gap; it does not carry earlier composition forward.
 The early part of the series has only the observed history available so far.
+Isolated covered dates use stacked vertical snapshot glyphs; padding around a
+one-date display changes only the axis limits and does not add observations.
 If no covered mentions precede the selected cutoff, each command writes an
 explicit empty-state figure, replacing any image from a previous run.
 

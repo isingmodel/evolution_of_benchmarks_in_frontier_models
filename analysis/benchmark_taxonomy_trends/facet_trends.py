@@ -13,9 +13,11 @@ from scripts.plot_utils import (
     DATA_DIR,
     build_rolling_share_trend,
     configure_plot_style,
+    draw_rolling_composition,
     latest_release_date,
     parse_as_of,
     save_figure,
+    set_rolling_date_limits,
     validate_window_days,
     warn_unresolved,
 )
@@ -84,7 +86,7 @@ def build_model_mentions(models, resolver, strict_resolution=False):
         sample_separator="; ",
     )
 
-    output = resolved[["model_key", "benchmark_id", "raw_mention", "raw_weight"]].copy()
+    output = resolved[["model_row_id", "model_key", "benchmark_id", "raw_mention", "raw_weight"]].copy()
     output.insert(1, "release_date", resolved["release_date_text"])
     return output
 
@@ -97,7 +99,7 @@ def normalize_mentions(mentions, as_of):
     if mentions.empty:
         return mentions
 
-    model_totals = mentions.groupby("model_key")["raw_weight"].transform("sum")
+    model_totals = mentions.groupby("model_row_id")["raw_weight"].transform("sum")
     mentions["normalized_model_weight"] = mentions["raw_weight"] / model_totals.where(model_totals > 0, 1.0)
     return mentions
 
@@ -142,7 +144,7 @@ def plot_axis(ax, trend, axis, window_days, as_of):
 
     labels = list(trend.columns)
     colors = sns.color_palette("tab20", n_colors=len(labels))
-    ax.stackplot(trend.index, [trend[label] for label in labels], labels=labels, colors=colors, alpha=0.9)
+    draw_rolling_composition(ax, trend, labels, colors)
     ax.set_ylabel("Share of covered model-row weight", fontsize=11)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     ax.set_ylim(0, 1.0)
@@ -175,7 +177,10 @@ def generate_facet_trends(
     models, facets, resolver = load_inputs()
     if as_of is None:
         as_of = latest_release_date(models)
-
+    as_of = pd.Timestamp(as_of).normalize()
+    models = models.copy()
+    models["release_date"] = pd.to_datetime(models["release date"], errors="raise").dt.normalize()
+    models = models.loc[models["release_date"] <= as_of].copy()
     mentions = build_model_mentions(models, resolver, strict_resolution=strict_resolution)
     mentions = normalize_mentions(mentions, as_of)
     plot_count = len(axes)
@@ -206,7 +211,7 @@ def generate_facet_trends(
 
     if min_dates:
         for ax in plot_axes:
-            ax.set_xlim(min(min_dates), as_of)
+            set_rolling_date_limits(ax, min(min_dates), as_of)
     bottom_row_start = (subplot_rows - 1) * subplot_cols
     for index, ax in enumerate(plot_axes):
         if index >= bottom_row_start:
@@ -218,7 +223,7 @@ def generate_facet_trends(
         0.01, 0.005,
         "Each benchmark-bearing model row has one unit split across recorded mentions and then labels within each axis; repeat appearances count. Joint variants contribute separately.\n"
         "Shares normalize covered axis weight within each trailing window. Empty windows remain gaps; no extra smoothing. Active labels include provisional annotations.\n"
-        "Axes describe separate facets; Other groups labels outside the selected top labels, not unclassified mentions.",
+        "Axes describe separate facets; Other groups known labels, not unclassified mentions. Vertical snapshot glyphs mark isolated covered dates.",
         fontsize=9, color="#555555",
     )
     fig.tight_layout(rect=[0, 0.055, 1, 0.95], h_pad=3.0, w_pad=2.2)

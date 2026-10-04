@@ -11,11 +11,13 @@ from scripts.plot_utils import (
     build_model_facet_events,
     build_rolling_share_trend,
     configure_plot_style,
+    draw_rolling_composition,
     latest_release_date,
     load_benchmark_facets,
     load_models,
     parse_as_of,
     save_figure,
+    set_rolling_date_limits,
     validate_window_days,
 )
 
@@ -61,9 +63,7 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
                 transform=ax.transAxes, ha="center", va="center", fontsize=14)
         ax.set_axis_off()
     else:
-        x = trend_data.index
-        y = [trend_data[col] for col in category_cols]
-        ax.stackplot(x, y, labels=category_cols, colors=colors, alpha=0.9)
+        draw_rolling_composition(ax, trend_data, category_cols, colors)
         ax.set_ylabel("Share of covered model-row weight", fontsize=14, labelpad=10)
         ax.set_xlabel("Time", fontsize=14, labelpad=10)
 
@@ -78,19 +78,18 @@ def generate_trend_graph(as_of=None, window_days=180, output_path="assets/benchm
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
         plt.xticks(rotation=45)
 
-        ax.set_xlim(min_date, as_of)
+        set_rolling_date_limits(ax, min_date, as_of)
         ax.set_ylim(0, 1.0)
     fig.text(
         0.01, 0.005,
         "Each benchmark-bearing model row has one unit split across recorded mentions; repeat appearances count. Joint variants contribute separately.\n"
         "Shares normalize covered label weight within each trailing window. Empty windows remain gaps; no extra smoothing. Active labels include provisional annotations.\n"
-        "Task mode is a priority projection, not the strict interaction-tag measure.",
+        "Task mode is a priority projection, not the strict interaction-tag measure. Vertical snapshot glyphs mark isolated covered dates.",
         fontsize=9, color="#555555",
     )
     plt.tight_layout(rect=[0, 0.08, 1, 1])
 
     save_figure(fig, output_path)
-    plt.close(fig)
     plt.close(fig)
 
 
