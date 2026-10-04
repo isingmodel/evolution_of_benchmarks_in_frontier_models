@@ -8,7 +8,7 @@ The quantitative unit is a benchmark mention on a public model release page in `
 
 If OpenAI had early benchmark hegemony that weakened as competition became more even, then Anthropic and Google release pages should show a higher share of OpenAI-authored or OpenAI-affiliated benchmark mentions in 2023-2024 than in 2025-2026.
 
-The data does not support that specific fading-hegemony version. In this release-page dataset, Anthropic and Google mention OpenAI-authored-or-affiliated benchmarks more often in 2025-2026 than in 2023-2024.
+Through `2026-09-30`, the combined OpenAI-source-or-affiliated share for Anthropic and Google is nearly flat across the two periods. Provider-specific patterns and the affiliation-only measure differ, so the data does not establish a single fading or rising hegemony story.
 
 ## Methodology
 
@@ -44,17 +44,17 @@ Measured concepts:
 
 ## Findings
 
-OpenAI-authored-or-affiliated mentions by non-OpenAI labs rose, rather than fell. Anthropic+Google went from 11/76 mentions in 2023-2024 (14.5%) to 54/275 in 2025-2026 (19.6%). Using only `frontier_lab_author_affiliations`, the share rose from 10/76 (13.2%) to 46/275 (16.7%).
+Current raw-mention comparison from `openai_adoption_period_comparison.csv`, through `2026-09-30`:
 
-Google changed the most: OpenAI-authored-or-affiliated mentions rose from 3/34 (8.8%) in 2023-2024 to 22/105 (21.0%) in 2025-2026. Anthropic was nearly flat, from 8/42 (19.0%) to 32/170 (18.8%).
+| Provider group | OpenAI source/affiliated 2023-2024 | OpenAI source/affiliated 2025-2026 |
+| --- | ---: | ---: |
+| Anthropic+Google | 11/76 (14.5%) | 60/410 (14.6%) |
+| Anthropic | 8/42 (19.0%) | 35/221 (15.8%) |
+| Google | 3/34 (8.8%) | 25/189 (13.2%) |
 
-Own-lab benchmark visibility increased, especially for OpenAI. OpenAI's own-only plus mixed own/competitor share rose from 2/32 mentions (6.3%) to 60/199 (30.2%). Anthropic rose from 0/42 to 33/170 (19.4%). Google declined from 7/34 (20.6%) to 17/105 (16.2%).
+The combined inclusive share is nearly flat. Anthropic's share falls while Google's rises. Counting only frontier-lab affiliation gives a different combined comparison: 10/76 (13.2%) versus 51/410 (12.4%). These are raw mention shares; pages with long lists and shared model rows can affect the denominator.
 
-Neutral / academic / vendor benchmarks remain the majority in every provider-period cell. In 2025-2026, neutral shares were OpenAI 125/199 (62.8%), Anthropic 108/170 (63.5%), and Google 72/105 (68.6%).
-
-Competitor-lab adoption is asymmetric. In 2025-2026, Anthropic mentions OpenAI-affiliated benchmarks 31 times and Google/DeepMind-affiliated benchmarks 9 times. Google mentions OpenAI-affiliated benchmarks 15 times and Anthropic-affiliated benchmarks 11 times. OpenAI mentions Google/DeepMind-affiliated benchmarks 13 times and Anthropic-affiliated benchmarks 9 times.
-
-Provider-created or private/opaque lifecycle mentions became more common. The combined lifecycle share rose from 12.5% to 44.7% for OpenAI, 16.7% to 41.2% for Anthropic, and 8.8% to 26.7% for Google. This supports the weaker claim that frontier release pages increasingly mix public neutral benchmarks with lab-shaped or less transparent evaluation surfaces.
+Neutral / academic / vendor benchmarks remain the majority by the affiliation classification in every provider-period cell. Current own-lab and competitor shares are in `provider_period_author_shares.csv` and `cross_lab_adoption_matrix.csv`; the latter is non-exclusive for multi-affiliated benchmarks. Provider-created and private/opaque flags are reported separately in `provider_period_lifecycle_shares.csv` and should remain provisional until their facet review debt is reduced.
 
 ## High-Signal Examples
 

@@ -3,7 +3,7 @@
 **A release-page dataset of the benchmarks used to introduce frontier AI models.**
 
 [![Providers](https://img.shields.io/badge/providers-OpenAI%20%C2%B7%20Google%20%C2%B7%20Anthropic-2f6f8f)](#dataset)
-[![Snapshot](https://img.shields.io/badge/snapshot-2026--08--13-555)](#dataset)
+[![Snapshot](https://img.shields.io/badge/snapshot-2026--09--30-555)](#dataset)
 [![License](https://img.shields.io/badge/license-Apache--2.0-3b7d44)](LICENSE)
 
 This project tracks benchmark and evaluation names published on the launch pages
@@ -12,7 +12,10 @@ benchmark portfolios have changed over time: from academic tests and static
 question sets toward coding environments, tool use, computer interaction, and
 other work-like tasks.
 
-**47 tracked releases · 43 benchmark-bearing rows · 582 raw mentions · 207 catalog entries**
+**59 tracked releases · 55 benchmark-bearing rows · 791 raw mentions · 286 catalog entries**
+
+Release discovery and source checks were refreshed through October 4, 2026.
+[Source and identity audit](docs/data_refresh_2026_10_04.md).
 
 ## Dataset
 
@@ -23,11 +26,11 @@ such as authorship, aliases, and task design.
 
 | Provider | Releases | First release | Latest release |
 | --- | ---: | --- | --- |
-| OpenAI | 17 | 2022-11-30 | GPT-5.6-Cyber — 2026-08-10 |
-| Google | 12 | 2023-12-06 | Gemini 3.7 Flash — 2026-08-13 |
-| Anthropic | 18 | 2023-03-14 | Claude 5 Opus — 2026-07-24 |
+| OpenAI | 21 | 2022-11-30 | GPT-6.1 Sol — 2026-09-29 |
+| Google | 17 | 2023-12-06 | Gemini 4 Argon — 2026-09-30 |
+| Anthropic | 21 | 2023-03-14 | Claude 5.5 Sonnet — 2026-09-28 |
 
-Every model-release row carries the same total weight. If a launch page lists
+Every benchmark-bearing model-release row carries the same total weight. If a launch page lists
 ten resolved benchmarks, each receives one tenth of that release's weight. This
 keeps releases with long benchmark tables from dominating the time series.
 
@@ -46,7 +49,7 @@ The main files are:
 ### Release pages are moving from exams toward work simulations
 
 Static question answering still appears frequently, but the mix changed sharply
-after 2024. The active taxonomy assigns 73.4% of the weighted 2026 YTD portfolio
+after 2024. The active taxonomy assigns 69.9% of the weighted 2026 YTD portfolio
 to work-simulation characteristics, up from 12.0% in 2023.
 
 ![Weighted shift from static evaluation to work simulation](assets/static_to_work_simulation_trend.png)
@@ -56,10 +59,10 @@ to work-simulation characteristics, up from 12.0% in 2023.
 | 2023 | 82.4% | 12.0% | 53.7% | 3 |
 | 2024 | 70.7% | 18.0% | 28.0% | 8 |
 | 2025 | 54.4% | 39.1% | 48.7% | 14 |
-| 2026 YTD | 16.1% | 73.4% | 42.3% | 18 |
+| 2026 YTD | 12.2% | 69.9% | 37.1% | 30 |
 
-The 2026 estimate is sensitive to taxonomy review coverage. It is 73.4% across
-all active labels, 33.8% under a fixed-denominator lower bound, and 58.0% among
+The 2026 estimate is sensitive to taxonomy review coverage. It is 69.9% across
+all active labels, 20.9% under a fixed-denominator lower bound, and 51.2% among
 mentions with complete high-confidence coverage.
 
 | Release year | All active labels | Fixed-denominator lower bound | Fully covered mentions | High-confidence coverage |
@@ -67,7 +70,7 @@ mentions with complete high-confidence coverage.
 | 2023 | 12.0% | 12.0% | 12.0% | 100.0% |
 | 2024 | 18.0% | 18.0% | 18.1% | 99.1% |
 | 2025 | 39.1% | 38.6% | 37.9% | 97.9% |
-| 2026 YTD | 73.4% | 33.8% | 58.0% | 51.4% |
+| 2026 YTD | 69.9% | 20.9% | 51.2% | 32.8% |
 
 SWE-bench Verified, OSWorld-Verified, SWE-bench Pro, HumanEval, and the TAU
 family account for much of the work-simulation signal. Full sensitivity tables
@@ -106,16 +109,16 @@ Needle In A Haystack was Google's main driver in this period.
 
 ### OpenAI-linked benchmarks have become shared reference points
 
-On Google's release pages, the release-normalized share of OpenAI-authored or
-OpenAI-affiliated benchmarks rose from 6.1% to 20.2%. The combined
-Anthropic–Google share rose from 16.9% to 20.4%, while Anthropic stayed close to
-its earlier level.
+OpenAI-authored or OpenAI-affiliated benchmarks appear across all three labs'
+release pages. Google's release-normalized share rose from 6.1% to 13.3% between
+2023–24 and 2025–26. Anthropic's share fell from 25.0% to 17.7%, and the combined
+Anthropic–Google share fell from 16.9% to 15.6%.
 
 | Portfolio | 2023–24 raw | 2023–24 normalized | 2025–26 raw | 2025–26 normalized |
 | --- | ---: | ---: | ---: | ---: |
-| Anthropic + Google | 14.5% | 16.9% | 19.6% | 20.4% |
-| Anthropic | 19.0% | 25.0% | 18.8% | 20.6% |
-| Google | 8.8% | 6.1% | 21.0% | 20.2% |
+| Anthropic + Google | 14.5% | 16.9% | 14.6% | 15.6% |
+| Anthropic | 19.0% | 25.0% | 15.8% | 17.7% |
+| Google | 8.8% | 6.1% | 13.2% | 13.3% |
 
 ## Other charts
 
@@ -182,8 +185,8 @@ largest payoff from manual taxonomy review.
 | Review | Store confidence, provenance, and review status with each facet assignment |
 
 The charts use a concise headline projection built from the multi-label taxonomy.
-The facet table currently contains 3,410 rows: 29 accepted, 3,339 awaiting
-review, and 42 legacy rows. Of these, 1,533 have confidence below 0.70. Review
+The facet table currently contains 4,042 rows: 29 accepted, 3,953 awaiting
+review, and 60 legacy rows. Of these, 2,147 have confidence below 0.70. Review
 priority is driven by both uncertainty and the number of release-page mentions
 affected by a benchmark.
 

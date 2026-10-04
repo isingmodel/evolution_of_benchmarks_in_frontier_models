@@ -5,6 +5,8 @@ This folder evaluates the exploratory analysis outputs for two questions:
 1. How well does each result fit the project?
 2. How should each result be shown most effectively?
 
+The folder reviews preserve methodological advice. Current numeric results come from the regenerated analysis CSVs through `2026-09-30`; review scores are qualitative judgments, not new data measurements.
+
 The project boundary is non-negotiable: all results describe benchmark mentions on public frontier-model release pages, not model capability.
 
 ## Shared Evaluation Criteria

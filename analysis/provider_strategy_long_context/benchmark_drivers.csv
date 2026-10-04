@@ -55,261 +55,346 @@ Anthropic,2024,benchmark_tau_bench,Tau-bench,1,0.1111111111111111,Claude 3.5 Hai
 Anthropic,2024,benchmark_arc_agi,ARC-AGI,1,0.0625,Claude 3,2024-03-04,2024-03-04,False,False,False,True,False,False,False,3.0,0.020833333333333332
 Anthropic,2024,benchmark_hellaswag,HellaSwag,1,0.0625,Claude 3,2024-03-04,2024-03-04,False,False,False,False,False,False,False,3.0,0.020833333333333332
 Anthropic,2024,benchmark_needle_in_a_haystack,Needle In A Haystack,1,0.0625,Claude 3,2024-03-04,2024-03-04,True,True,False,False,False,False,False,3.0,0.020833333333333332
-OpenAI,2025-2026,benchmark_gpqa,GPQA,6,0.4996304134462029,GPT-4.1 | GPT-4.5 | GPT-5 | GPT-5.2 | o3 | o3-mini,2025-01-31,2025-12-11,False,False,False,False,False,False,False,11.0,0.04542094667692754
-OpenAI,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,6,0.4758208896366791,GPT-4.1 | GPT-5 | GPT-5.2 | GPT-5.3-Codex | o3 | o3-mini,2025-01-31,2026-02-05,False,True,True,False,True,True,True,11.0,0.04325644451242538
-OpenAI,2025-2026,benchmark_aime,AIME,5,0.4496304134462029,GPT-4.1 | GPT-4.5 | GPT-5 | o3 | o3-mini,2025-01-31,2025-08-07,False,False,False,False,False,False,False,11.0,0.04087549213147299
-OpenAI,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,5,0.408721322537112,GPT-4.1 | GPT-4.5 | GPT-5 | GPT-5.2 | o3,2025-02-27,2025-12-11,False,False,False,True,False,False,False,11.0,0.03715648386701018
-OpenAI,2025-2026,benchmark_frontiermath,FrontierMath,6,0.29509191788603556,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6 | o3-mini,2025-01-31,2026-07-09,False,False,False,False,False,False,False,11.0,0.026826537989639597
-OpenAI,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,5,0.28453996983408747,GPT-5.2 | GPT-5.3-Codex | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,True,True,False,True,True,True,11.0,0.025867269984917042
-OpenAI,2025-2026,benchmark_gdpval,GDPval,4,0.26073044602456363,GPT-5.2 | GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,True,True,True,True,True,True,11.0,0.023702767820414875
-OpenAI,2025-2026,benchmark_simpleqa,SimpleQA,2,0.25757575757575757,GPT-4.5 | o3-mini,2025-01-31,2025-02-27,False,False,False,False,False,False,False,11.0,0.023415977961432508
-OpenAI,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),5,0.25729638009049777,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5 | o3,2025-04-16,2026-04-23,False,False,False,True,True,True,False,11.0,0.02339058000822707
-OpenAI,2025-2026,benchmark_charxiv,CharXiv,4,0.24205465587044533,GPT-4.1 | GPT-5 | GPT-5.2 | o3,2025-04-14,2025-12-11,False,False,False,True,False,False,False,11.0,0.02200496871549503
-OpenAI,2025-2026,benchmark_browsecomp,BrowseComp,5,0.23110590390002156,GPT-5 | GPT-5.4 | GPT-5.5 | GPT-5.6 | o3,2025-04-16,2026-07-09,False,False,True,True,False,True,False,11.0,0.021009627627274687
-OpenAI,2025-2026,benchmark_mmmlu,MMMLU,2,0.21666666666666667,GPT-4.5 | GPT-5.2,2025-02-27,2025-12-11,False,False,False,False,False,False,False,11.0,0.0196969696969697
-OpenAI,2025-2026,benchmark_osworld_verified,OSWorld-Verified,3,0.21073044602456367,GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2026-02-05,2026-04-23,False,False,True,True,True,True,True,11.0,0.019157313274960334
-OpenAI,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,3,0.21073044602456367,GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2026-02-05,2026-04-23,False,False,True,False,True,True,True,11.0,0.019157313274960334
-OpenAI,2025-2026,benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,False,False,True,True,False,11.0,0.018181818181818184
-OpenAI,2025-2026,benchmark_exploitbench,ExploitBench,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,11.0,0.018181818181818184
-OpenAI,2025-2026,benchmark_exploitgym,ExploitGym,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,11.0,0.018181818181818184
-OpenAI,2025-2026,benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,11.0,0.018181818181818184
-OpenAI,2025-2026,benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,11.0,0.018181818181818184
-OpenAI,2025-2026,benchmark_graphwalks,GraphWalks,5,0.19431440592431304,GPT-4.1 | GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-04-14,2026-07-09,True,True,True,False,False,True,False,11.0,0.017664945993119366
-OpenAI,2025-2026,benchmark_aider_polyglot,Aider Polyglot,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,True,False,True,True,True,11.0,0.017459514170040488
-OpenAI,2025-2026,benchmark_multichallenge,MultiChallenge,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,False,False,False,False,False,11.0,0.017459514170040488
-OpenAI,2025-2026,benchmark_tau_2_bench,TAU-2 bench,4,0.1803733031674208,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5,2025-08-07,2026-04-23,False,False,True,False,False,True,False,11.0,0.016397573015220074
-OpenAI,2025-2026,benchmark_swe_lancer,SWE-Lancer,3,0.17955465587044533,GPT-4.1 | GPT-5.2 | o3,2025-04-14,2025-12-11,False,True,True,False,True,True,True,11.0,0.016323150533676847
-OpenAI,2025-2026,benchmark_codeforces,Codeforces,2,0.16783216783216784,o3 | o3-mini,2025-01-31,2025-04-16,False,False,True,False,True,True,True,11.0,0.01525746980292435
-OpenAI,2025-2026,benchmark_swe_bench,SWE-bench,1,0.16666666666666666,GPT-4.5,2025-02-27,2025-02-27,False,True,True,False,True,True,True,11.0,0.01515151515151515
-OpenAI,2025-2026,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,2,0.14354066985645933,GPT-4.1 | o3-mini,2025-01-31,2025-04-14,False,False,False,False,True,True,False,11.0,0.013049151805132666
-OpenAI,2025-2026,benchmark_cybersecurity_ctfs,Cybersecurity CTFs,1,0.14285714285714285,GPT-5.3-Codex,2026-02-05,2026-02-05,False,False,True,False,True,True,True,11.0,0.012987012987012986
-OpenAI,2025-2026,benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,1,0.14285714285714285,GPT-5.3-Codex,2026-02-05,2026-02-05,False,True,True,False,True,True,True,11.0,0.012987012987012986
-OpenAI,2025-2026,benchmark_mrcr_v2,MRCR v2,4,0.14168282697694462,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,True,True,False,False,False,False,False,11.0,0.012880256997904056
-OpenAI,2025-2026,benchmark_toolathlon,Toolathlon,4,0.14168282697694462,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,False,True,False,False,True,False,11.0,0.012880256997904056
-OpenAI,2025-2026,benchmark_mathvista,MathVista,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,False,True,False,False,False,11.0,0.011777695988222304
-OpenAI,2025-2026,benchmark_tau_bench,Tau-bench,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,True,False,False,True,False,11.0,0.011777695988222304
-OpenAI,2025-2026,benchmark_arc_agi,ARC-AGI,3,0.11787330316742081,GPT-5.2 | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,False,False,True,False,False,False,11.0,0.010715754833401892
-OpenAI,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,3,0.11787330316742081,GPT-5.2 | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,False,True,False,False,True,False,11.0,0.010715754833401892
-OpenAI,2025-2026,benchmark_collie,COLLIE,2,0.11513157894736842,GPT-4.1 | GPT-5,2025-04-14,2025-08-07,False,False,False,False,False,False,False,11.0,0.010466507177033492
-OpenAI,2025-2026,benchmark_hmmt,HMMT,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,False,False,False,False,False,False,11.0,0.010227272727272727
-OpenAI,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,True,False,True,True,True,False,11.0,0.010227272727272727
-OpenAI,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-5.6,2026-03-05,2026-07-09,False,False,False,False,False,False,False,11.0,0.008334802452449512
-OpenAI,2025-2026,benchmark_mmmu_pro,MMMU Pro,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-5.6,2026-03-05,2026-07-09,False,False,False,True,False,False,False,11.0,0.008334802452449512
-OpenAI,2025-2026,benchmark_livebench_coding,LiveBench Coding,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,True,False,True,True,True,11.0,0.008264462809917356
-OpenAI,2025-2026,benchmark_math,MATH,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,False,False,False,11.0,0.008264462809917356
-OpenAI,2025-2026,benchmark_mgsm,MGSM,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,False,False,False,11.0,0.008264462809917356
-OpenAI,2025-2026,benchmark_stem,STEM,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,True,True,False,11.0,0.008264462809917356
-OpenAI,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,False,False,True,False,False,False,11.0,0.0061703002879473475
-OpenAI,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,True,False,False,False,False,False,11.0,0.0061703002879473475
-OpenAI,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,True,True,True,False,True,False,11.0,0.0061703002879473475
-OpenAI,2025-2026,benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,False,False,False,False,False,False,11.0,0.0061703002879473475
-OpenAI,2025-2026,benchmark_erqa,ERQA,1,0.0625,GPT-5,2025-08-07,2025-08-07,False,False,True,True,False,True,False,11.0,0.005681818181818182
-OpenAI,2025-2026,benchmark_healthbench,Healthbench,1,0.0625,GPT-5,2025-08-07,2025-08-07,False,False,False,False,False,False,False,11.0,0.005681818181818182
-OpenAI,2025-2026,benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),2,0.05322128851540616,GPT-5.5 | GPT-5.6,2026-04-23,2026-07-09,False,False,True,False,True,True,True,11.0,0.004838298955946015
-OpenAI,2025-2026,benchmark_complexfunc_bench,ComplexFunc Bench,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,True,False,True,True,True,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_ifeval,IFEval,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,False,False,False,False,False,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_mrcr,MRCR,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,True,True,False,False,False,False,False,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_multi_if,Multi-IF,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,False,False,False,False,False,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_needle_in_a_haystack,Needle In A Haystack,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,True,True,False,False,False,False,False,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_video_mme,Video-MME,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,True,False,True,False,False,False,11.0,0.004784688995215311
-OpenAI,2025-2026,benchmark_browsecomp_long_context,BrowseComp Long Context,1,0.05,GPT-5.2,2025-12-11,2025-12-11,True,True,False,False,False,False,False,11.0,0.004545454545454546
-OpenAI,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,1,0.05,GPT-5.2,2025-12-11,2025-12-11,False,False,True,True,False,True,False,11.0,0.004545454545454546
-OpenAI,2025-2026,benchmark_apex_agents,APEX-Agents,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_cot_control,CoT-Control,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,False,False,False,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_frontier_science_research,Frontier Science Research,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,False,False,False,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_officeqa,OfficeQA,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_omnidocbench,OmniDocBench,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,True,False,False,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_online_mind2web,Online-Mind2Web,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_webarena_verified,WebArena-Verified,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,True,True,True,11.0,0.0034965034965034965
-OpenAI,2025-2026,benchmark_aa_lcr,AA-LCR,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,True,True,False,False,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_aa_omniscience,AA-Omniscience,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,True,True,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_bixbench,BixBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_critpt,CritPt,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_cybergym,CyberGym,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_expert_swe_internal,Expert-SWE (Internal),1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_gdpval_aa,GDPval-AA,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,True,False,True,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_genebench,GeneBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_ifbench,IFBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_officeqa_pro,OfficeQA Pro,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,True,False,False,False,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_scicode,SciCode,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_terminal_bench_hard,Terminal-Bench Hard,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,11.0,0.00267379679144385
-OpenAI,2025-2026,benchmark_arc_agi_3,ARC-AGI-3,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_agents_last_exam,Agents' Last Exam,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_automationbench,AutomationBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_benchcad,BenchCAD,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_big_finance_bench,Big Finance Bench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_cursorbench,CursorBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_exploitbench_2,ExploitBench 2,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_exploitgym_3,ExploitGym 3,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_genebench_pro,GeneBench Pro,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_healthbench_professional,HealthBench Professional,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_kernelgen_1p,KernelGen 1P,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_lifescibench,LifeSciBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_medchembench_internal,MedChemBench (Internal),1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_model_ml_s_finbench,Model ML's FinBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_nanogpt,NanoGPT,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,True,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_posttrainbench_lite,PostTrainBench Lite,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_rsi_index,RSI Index,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_sec_bench_pro,SEC-Bench Pro,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_agentic_code_review_tests,agentic code-review tests,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_combined_evaluation_suite,combined evaluation suite,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_early_design_evals,early design evals,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_gdp_pdf,gdp.pdf,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,True,False,False,False,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,11.0,0.0021645021645021645
-OpenAI,2025-2026,benchmark_seven_task_benchmark,seven-task benchmark,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,True,True,False,11.0,0.0021645021645021645
-Google,2025-2026,benchmark_mrcr_v2,MRCR v2,5,0.47483766233766234,Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.7 Flash,2026-02-19,2026-08-13,True,True,False,False,False,False,False,9.0,0.052759740259740256
-Google,2025-2026,benchmark_osworld_verified,OSWorld-Verified,3,0.4714285714285714,Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash,2026-05-19,2026-07-21,False,False,True,True,True,True,True,9.0,0.05238095238095238
-Google,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,3,0.45,Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash,2026-07-21,2026-08-13,False,False,True,False,False,True,False,9.0,0.05
-Google,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),5,0.37245670995671,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | Gemini 3.5 Flash,2025-03-25,2026-05-19,False,False,False,True,True,True,False,9.0,0.041384078884078884
-Google,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,3,0.33392857142857146,Gemini 3.1 Pro | Gemini 3.5 Flash | Gemini 3.5 Flash-Lite,2026-02-19,2026-07-21,False,True,True,False,True,True,True,9.0,0.03710317460317461
-Google,2025-2026,benchmark_big_sleep_evaluation,Big Sleep Evaluation,1,0.3333333333333333,Gemini 3.5 Flash Cyber,2026-07-21,2026-07-21,False,False,True,False,True,True,True,9.0,0.037037037037037035
-Google,2025-2026,benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,1,0.3333333333333333,Gemini 3.5 Flash Cyber,2026-07-21,2026-07-21,False,False,True,False,True,True,True,9.0,0.037037037037037035
-Google,2025-2026,benchmark_cybergym,CyberGym,1,0.3333333333333333,Gemini 3.5 Flash Cyber,2026-07-21,2026-07-21,False,False,True,False,True,True,True,9.0,0.037037037037037035
-Google,2025-2026,benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,3,0.32142857142857145,Gemini 3.5 Flash | Gemini 3.6 Flash | Gemini 3.7 Flash,2026-05-19,2026-08-13,False,False,False,False,True,True,False,9.0,0.03571428571428572
-Google,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,3,0.32142857142857145,Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.7 Flash,2026-05-19,2026-08-13,False,False,True,False,True,True,True,9.0,0.03571428571428572
-Google,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,4,0.30102813852813853,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2025-03-25,2026-03-03,False,False,False,True,False,False,False,9.0,0.03344757094757095
-Google,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,2,0.25,Gemini 3.6 Flash | Gemini 3.7 Flash,2026-07-21,2026-08-13,False,False,True,False,True,True,True,9.0,0.027777777777777776
-Google,2025-2026,benchmark_livecodebench,LiveCodeBench,3,0.23852813852813853,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-03-25,2026-03-03,False,False,False,False,True,True,False,9.0,0.026503126503126504
-Google,2025-2026,benchmark_charxiv_reasoning,CharXiv Reasoning,3,0.21233766233766233,Gemini 3.1 Flash-Lite | Gemini 3.5 Flash | Gemini 3.7 Flash,2026-03-03,2026-08-13,False,False,False,True,False,False,False,9.0,0.023593073593073593
-Google,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,3,0.21011904761904762,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Pro,2025-03-25,2026-02-19,False,True,True,False,True,True,True,9.0,0.023346560846560848
-Google,2025-2026,benchmark_mmmlu,MMMLU,3,0.20102813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2025-11-18,2026-03-03,False,False,False,False,False,False,False,9.0,0.022336459836459835
-Google,2025-2026,benchmark_mle_bench,MLE-Bench,1,0.2,Gemini 3.6 Flash,2026-07-21,2026-07-21,False,False,True,False,True,True,True,9.0,0.022222222222222223
-Google,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,2,0.1534090909090909,Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2026-02-19,2026-03-03,False,False,False,False,False,False,False,9.0,0.017045454545454544
-Google,2025-2026,benchmark_aime,AIME,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,9.0,0.016402116402116404
-Google,2025-2026,benchmark_gpqa,GPQA,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,9.0,0.016402116402116404
-Google,2025-2026,benchmark_mrcr,MRCR,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,True,True,False,False,False,False,False,9.0,0.016402116402116404
-Google,2025-2026,benchmark_simpleqa,SimpleQA,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,9.0,0.016402116402116404
-Google,2025-2026,benchmark_facts_benchmark_suite,FACTS Benchmark suite,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,True,False,False,False,False,False,9.0,0.015392015392015393
-Google,2025-2026,benchmark_lmarena,LMArena,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,False,True,False,False,True,False,9.0,0.015392015392015393
-Google,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,True,False,True,True,True,False,9.0,0.015392015392015393
-Google,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,False,True,False,False,False,9.0,0.01488095238095238
-Google,2025-2026,benchmark_gdpval_aa,GDPval-AA,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,True,True,False,True,False,9.0,0.01488095238095238
-Google,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,True,False,False,True,False,9.0,0.01488095238095238
-Google,2025-2026,benchmark_tau_2_bench,TAU-2 bench,2,0.11011904761904762,Gemini 3.0 | Gemini 3.1 Pro,2025-11-18,2026-02-19,False,False,True,False,False,True,False,9.0,0.012235449735449735
-Google,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2,0.11011904761904762,Gemini 3.0 | Gemini 3.1 Pro,2025-11-18,2026-02-19,False,False,True,False,True,True,True,9.0,0.012235449735449735
-Google,2025-2026,benchmark_aider_polyglot,Aider Polyglot,1,0.1,Gemini 2.5,2025-03-25,2025-03-25,False,False,True,False,True,True,True,9.0,0.011111111111111112
-Google,2025-2026,benchmark_vibe_eval,Vibe-Eval,1,0.1,Gemini 2.5,2025-03-25,2025-03-25,False,False,False,True,False,False,False,9.0,0.011111111111111112
-Google,2025-2026,benchmark_simpleqa_verified,SimpleQA Verified,1,0.09090909090909091,Gemini 3.1 Flash-Lite,2026-03-03,2026-03-03,False,False,False,False,False,False,False,9.0,0.010101010101010102
-Google,2025-2026,benchmark_blueprint_bench_2,Blueprint-Bench 2,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,True,False,False,True,False,9.0,0.007936507936507936
-Google,2025-2026,benchmark_finance_agent_v2,Finance Agent v2,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,True,False,False,True,False,9.0,0.007936507936507936
-Google,2025-2026,benchmark_mmmu_pro,MMMU Pro,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,False,True,False,False,False,9.0,0.007936507936507936
-Google,2025-2026,benchmark_toolathlon,Toolathlon,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,True,False,False,True,False,9.0,0.007936507936507936
-Google,2025-2026,benchmark_apex_agents,APEX-Agents,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,True,False,True,False,9.0,0.006944444444444444
-Google,2025-2026,benchmark_browsecomp,BrowseComp,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,True,False,True,False,9.0,0.006944444444444444
-Google,2025-2026,benchmark_livecodebench_pro,LiveCodeBench Pro,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,False,True,True,True,9.0,0.006944444444444444
-Google,2025-2026,benchmark_scicode,SciCode,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,False,True,True,True,9.0,0.006944444444444444
-Google,2025-2026,benchmark_agents_last_exam,Agents' Last Exam,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_automationbench,AutomationBench,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_biomysterybench,BioMysteryBench,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,False,False,False,False,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_frontiercode_v1_1,FrontierCode v1.1,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,True,True,True,9.0,0.005555555555555556
-Google,2025-2026,benchmark_hle_verified,HLE-Verified,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,False,False,False,False,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_harbor_index,Harbor-Index,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_harvey_lab_aa,Harvey LAB-AA,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_labbench2,LABBench2,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_lvbench,LVBench,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,False,True,False,False,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_legal_agent_benchmark,Legal Agent Benchmark,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,True,False,True,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_terminal_bench_3_0,Terminal-Bench 3.0,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,True,True,True,9.0,0.005555555555555556
-Google,2025-2026,benchmark_webdev_arena,WebDev Arena,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,True,True,True,True,9.0,0.005555555555555556
-Google,2025-2026,benchmark_gdp_pdf,gdp.pdf,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,False,True,False,False,False,9.0,0.005555555555555556
-Google,2025-2026,benchmark_arc_agi,ARC-AGI,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_charxiv,CharXiv,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_global_piqa,Global PIQA,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,False,False,False,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_matharena_apex,MathArena Apex,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,False,False,False,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_omnidocbench_1_5,OmniDocBench 1.5,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,True,True,False,True,False,9.0,0.005291005291005291
-Google,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,True,True,True,False,True,False,9.0,0.005291005291005291
-Anthropic,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,False,False,False,False,False,False,12.0,0.06696879882363753
-Anthropic,2025-2026,benchmark_mmmlu,MMMLU,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,False,False,False,False,False,False,12.0,0.06696879882363753
-Anthropic,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,True,True,False,True,True,True,12.0,0.06696879882363753
-Anthropic,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,6,0.7237484737484737,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet),2025-02-25,2025-11-24,False,False,False,True,False,False,False,12.0,0.06031237281237281
-Anthropic,2025-2026,benchmark_aime,AIME,5,0.6468253968253967,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Sonnet),2025-02-25,2025-10-16,False,False,False,False,False,False,False,12.0,0.053902116402116396
-Anthropic,2025-2026,benchmark_terminal_bench,Terminal-bench,6,0.6017025089605734,Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-05-23,2026-04-16,False,False,True,False,True,True,True,12.0,0.05014187574671445
-Anthropic,2025-2026,benchmark_tau_bench,Tau-bench,3,0.4107142857142857,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus),2025-02-25,2025-08-05,False,False,True,False,False,True,False,12.0,0.03422619047619047
-Anthropic,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),6,0.36951636177442626,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Opus) | Claude 5 (Sonnet),2026-02-05,2026-07-24,False,False,False,True,True,True,False,12.0,0.030793030147868855
-Anthropic,2025-2026,benchmark_osworld,OSWorld,4,0.36065323565323565,Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,True,True,True,True,12.0,0.030054436304436303
-Anthropic,2025-2026,benchmark_tau_2_bench,TAU-2 bench,4,0.36065323565323565,Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,False,False,True,False,12.0,0.030054436304436303
-Anthropic,2025-2026,benchmark_automated_behavioral_audit,automated behavioral audit,5,0.31415537867150767,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Opus) | Claude 5 (Sonnet),2026-04-16,2026-07-24,False,False,True,False,False,True,False,12.0,0.026179614889292307
-Anthropic,2025-2026,benchmark_osworld_verified,OSWorld-Verified,4,0.27427826653633103,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,False,True,True,True,True,True,12.0,0.02285652221136092
-Anthropic,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,4,0.27427826653633103,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,True,True,False,True,True,True,12.0,0.02285652221136092
-Anthropic,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,3,0.24202020202020202,Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-05-28,2026-06-30,False,False,True,False,True,True,True,12.0,0.02016835016835017
-Anthropic,2025-2026,benchmark_browsecomp,BrowseComp,4,0.23860727086533537,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 5 (Opus) | Claude 5 (Sonnet),2026-02-05,2026-07-24,False,False,True,True,False,True,False,12.0,0.01988393923877795
-Anthropic,2025-2026,benchmark_gdpval_aa,GDPval-AA,4,0.21078620304426757,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos),2026-02-05,2026-06-09,False,False,True,True,False,True,False,12.0,0.017565516920355632
-Anthropic,2025-2026,benchmark_legal_agent_benchmark,Legal Agent Benchmark,3,0.17852813852813854,Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-05-28,2026-07-24,False,False,True,False,False,True,False,12.0,0.014877344877344878
-Anthropic,2025-2026,benchmark_cursorbench,CursorBench,3,0.16316715542521995,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos),2026-04-16,2026-06-09,False,False,True,False,True,True,True,12.0,0.013597262952101662
-Anthropic,2025-2026,benchmark_finance_agent,Finance Agent,2,0.15873015873015872,Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,True,False,True,False,12.0,0.013227513227513227
-Anthropic,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,2,0.15873015873015872,Claude 5 (Opus) | Claude 5 (Sonnet),2026-06-30,2026-07-24,False,False,True,False,False,True,False,12.0,0.013227513227513227
-Anthropic,2025-2026,benchmark_swe_bench_multilingual,SWE-bench Multilingual,3,0.15680018905825358,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,True,True,False,True,True,True,12.0,0.013066682421521132
-Anthropic,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,3,0.15680018905825358,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,False,True,False,False,True,False,12.0,0.013066682421521132
-Anthropic,2025-2026,benchmark_ifeval,IFEval,1,0.125,Claude 3.7 Sonnet,2025-02-25,2025-02-25,False,False,False,False,False,False,False,12.0,0.010416666666666666
-Anthropic,2025-2026,benchmark_math_500,MATH 500,1,0.125,Claude 3.7 Sonnet,2025-02-25,2025-02-25,False,False,False,False,False,False,False,12.0,0.010416666666666666
-Anthropic,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,2,0.12454212454212454,Claude 4.5 (Opus) | Claude 4.6 (Opus),2025-11-24,2026-02-05,False,False,False,True,False,False,False,12.0,0.010378510378510378
-Anthropic,2025-2026,benchmark_cybergym,CyberGym,3,0.11987711213517666,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 5 (Fable/Mythos),2026-02-05,2026-06-09,False,False,True,False,True,True,True,12.0,0.009989759344598054
-Anthropic,2025-2026,benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,1,0.1111111111111111,Claude 5 (Sonnet),2026-06-30,2026-06-30,False,False,True,False,False,True,False,12.0,0.009259259259259259
-Anthropic,2025-2026,benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,1,0.1111111111111111,Claude 5 (Sonnet),2026-06-30,2026-06-30,False,False,True,False,True,True,True,12.0,0.009259259259259259
-Anthropic,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2,0.10918114143920596,Claude 4.5 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,False,True,False,True,True,True,12.0,0.009098428453267164
-Anthropic,2025-2026,benchmark_finance_agent_v2,Finance Agent v2,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,False,False,True,False,12.0,0.007575757575757576
-Anthropic,2025-2026,benchmark_online_mind2web,Online-Mind2Web,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,True,False,True,False,12.0,0.007575757575757576
-Anthropic,2025-2026,benchmark_super_agent_benchmark,Super-Agent benchmark,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,False,False,True,False,12.0,0.007575757575757576
-Anthropic,2025-2026,benchmark_automationbench,AutomationBench,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,True,False,False,True,False,12.0,0.007301587301587302
-Anthropic,2025-2026,benchmark_biomysterybench,BioMysteryBench,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,False,False,False,False,False,12.0,0.007301587301587302
-Anthropic,2025-2026,benchmark_healthbench_professional,HealthBench Professional,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,False,False,False,False,False,12.0,0.007301587301587302
-Anthropic,2025-2026,benchmark_oss_fuzz,OSS-Fuzz,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,True,False,True,True,True,12.0,0.007301587301587302
-Anthropic,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,False,False,False,False,False,12.0,0.006656426011264721
-Anthropic,2025-2026,benchmark_graphwalks,GraphWalks,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,True,True,True,False,False,True,False,12.0,0.006656426011264721
-Anthropic,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,True,True,False,True,False,12.0,0.006656426011264721
-Anthropic,2025-2026,benchmark_aider_polyglot,Aider Polyglot,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,False,True,True,True,12.0,0.006410256410256411
-Anthropic,2025-2026,benchmark_browsecomp_plus,BrowseComp-Plus,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,True,False,True,False,12.0,0.006410256410256411
-Anthropic,2025-2026,benchmark_vending_bench,Vending-Bench,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,False,False,True,False,12.0,0.006410256410256411
-Anthropic,2025-2026,benchmark_arc_agi_3,ARC-AGI-3,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_biopipelinebench,BioPipelineBench,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_cursorbench_3_2,CursorBench 3.2,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_deepsearchqa,DeepSearchQA,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,False,True,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_frontiercode_v1_1,FrontierCode v1.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_lovable_internal_evals,Lovable internal evals,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_mmmu_pro,MMMU Pro,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,False,True,False,False,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_mrcr_v2,MRCR v2,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,True,True,False,False,False,False,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,True,False,True,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_openrca,OpenRCA,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,False,False,True,True,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_frontend_benchmark,frontend benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_trading_benchmark,trading benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,12.0,0.003968253968253968
-Anthropic,2025-2026,benchmark_blueprint_bench_2,Blueprint-Bench 2,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_cyscenariobench,CyScenarioBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_exploitbench,ExploitBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_firefox,Firefox,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_frontierbench,FrontierBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_frontiercode_diamond,FrontierCode (Diamond),1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_vibench,ViBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_automated_alignment_assessment,automated alignment assessment,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_core_analytics_benchmark,core analytics benchmark,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_gdp_pdf,gdp.pdf,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,True,False,False,False,12.0,0.0033333333333333335
-Anthropic,2025-2026,benchmark_93_task_coding_benchmark,93-task coding benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,False,True,True,True,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,False,True,True,True,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_charxiv_reasoning,CharXiv Reasoning,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,True,False,False,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,False,True,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_officeqa_pro,OfficeQA Pro,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,True,False,False,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,True,True,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,False,True,True,True,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_swe_bench_multimodal,SWE-bench Multimodal,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,True,True,True,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,True,False,True,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_structural_biology,Structural Biology,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,False,False,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_implicit_need_tests,implicit-need tests,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,False,False,False,12.0,0.0026881720430107525
-Anthropic,2025-2026,benchmark_internal_research_agent_benchmark,internal research-agent benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,True,False,True,False,12.0,0.0026881720430107525
+OpenAI,2025-2026,benchmark_gpqa,GPQA,6,0.4996304134462029,GPT-4.1 | GPT-4.5 | GPT-5 | GPT-5.2 | o3 | o3-mini,2025-01-31,2025-12-11,False,False,False,False,False,False,False,15.0,0.03330869422974686
+OpenAI,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,6,0.4758208896366791,GPT-4.1 | GPT-5 | GPT-5.2 | GPT-5.3-Codex | o3 | o3-mini,2025-01-31,2026-02-05,False,True,True,False,True,True,True,15.0,0.03172139264244527
+OpenAI,2025-2026,benchmark_aime,AIME,5,0.4496304134462029,GPT-4.1 | GPT-4.5 | GPT-5 | o3 | o3-mini,2025-01-31,2025-08-07,False,False,False,False,False,False,False,15.0,0.029975360896413526
+OpenAI,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,5,0.408721322537112,GPT-4.1 | GPT-4.5 | GPT-5 | GPT-5.2 | o3,2025-02-27,2025-12-11,False,False,False,True,False,False,False,15.0,0.027248088169140802
+OpenAI,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,5,0.3294372294372294,GPT-5.6 | GPT-6 Astra | GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-07-09,2026-09-29,False,False,True,False,True,True,True,15.0,0.02196248196248196
+OpenAI,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,5,0.3294372294372294,GPT-5.6 | GPT-6 Astra | GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-07-09,2026-09-29,False,False,True,True,False,True,False,15.0,0.02196248196248196
+OpenAI,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,5,0.28453996983408747,GPT-5.2 | GPT-5.3-Codex | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,True,True,False,True,True,True,15.0,0.0189693313222725
+OpenAI,2025-2026,benchmark_automationbench_1_0_6,AutomationBench 1.0.6,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,True,False,False,True,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_broken_search,Broken search,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_reviewer_bypass,Reviewer bypass,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_warning_circumvention,Warning circumvention,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_internal_factuality_evaluation,internal factuality evaluation,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),6,0.28110590390002155,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-6 Astra | o3,2025-04-16,2026-09-03,False,False,False,True,True,True,False,15.0,0.01874039359333477
+OpenAI,2025-2026,benchmark_frontiermath,FrontierMath,5,0.2712823940765117,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5 | o3-mini,2025-01-31,2026-04-23,False,False,False,False,False,False,False,15.0,0.018085492938434113
+OpenAI,2025-2026,benchmark_gdpval,GDPval,4,0.26073044602456363,GPT-5.2 | GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,True,True,True,True,True,True,15.0,0.017382029734970907
+OpenAI,2025-2026,benchmark_simpleqa,SimpleQA,2,0.25757575757575757,GPT-4.5 | o3-mini,2025-01-31,2025-02-27,False,False,False,False,False,False,False,15.0,0.01717171717171717
+OpenAI,2025-2026,benchmark_browsecomp,BrowseComp,6,0.25491542770954534,GPT-5 | GPT-5.4 | GPT-5.5 | GPT-5.6 | GPT-6 Astra | o3,2025-04-16,2026-09-03,False,False,True,True,False,True,False,15.0,0.016994361847303022
+OpenAI,2025-2026,benchmark_exploitbench,ExploitBench,3,0.24761904761904763,GPT-5.6 | GPT-5.6-Cyber | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,True,True,True,15.0,0.01650793650793651
+OpenAI,2025-2026,benchmark_exploitgym,ExploitGym,3,0.24761904761904763,GPT-5.6 | GPT-5.6-Cyber | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,True,True,True,15.0,0.01650793650793651
+OpenAI,2025-2026,benchmark_charxiv,CharXiv,4,0.24205465587044533,GPT-4.1 | GPT-5 | GPT-5.2 | o3,2025-04-14,2025-12-11,False,False,False,True,False,False,False,15.0,0.01613697705802969
+OpenAI,2025-2026,benchmark_mmmlu,MMMLU,2,0.21666666666666667,GPT-4.5 | GPT-5.2,2025-02-27,2025-12-11,False,False,False,False,False,False,False,15.0,0.014444444444444446
+OpenAI,2025-2026,benchmark_osworld_verified,OSWorld-Verified,3,0.21073044602456367,GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2026-02-05,2026-04-23,False,False,True,True,True,True,True,15.0,0.014048696401637579
+OpenAI,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,3,0.21073044602456367,GPT-5.3-Codex | GPT-5.4 | GPT-5.5,2026-02-05,2026-04-23,False,False,True,False,True,True,True,15.0,0.014048696401637579
+OpenAI,2025-2026,benchmark_frontiercode_v1_1,FrontierCode v1.1,3,0.20562770562770563,GPT-6 Astra | GPT-6 Luna | GPT-6 Sol,2026-09-03,2026-09-22,False,False,True,False,True,True,True,15.0,0.013708513708513708
+OpenAI,2025-2026,benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,False,False,True,True,False,15.0,0.013333333333333334
+OpenAI,2025-2026,benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,15.0,0.013333333333333334
+OpenAI,2025-2026,benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,1,0.2,GPT-5.6-Cyber,2026-08-10,2026-08-10,False,False,True,False,True,True,True,15.0,0.013333333333333334
+OpenAI,2025-2026,benchmark_graphwalks,GraphWalks,5,0.19431440592431304,GPT-4.1 | GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-04-14,2026-07-09,True,True,True,False,False,True,False,15.0,0.012954293728287537
+OpenAI,2025-2026,benchmark_aider_polyglot,Aider Polyglot,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,True,False,True,True,True,15.0,0.012803643724696357
+OpenAI,2025-2026,benchmark_multichallenge,MultiChallenge,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,False,False,False,False,False,15.0,0.012803643724696357
+OpenAI,2025-2026,benchmark_agents_last_exam_v1,Agents' Last Exam V1,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,True,False,False,True,False,15.0,0.012121212121212121
+OpenAI,2025-2026,benchmark_coding_deception,Coding deception,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,False,False,True,True,False,15.0,0.012121212121212121
+OpenAI,2025-2026,benchmark_unauthorized_interaction,Unauthorized interaction,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.012121212121212121
+OpenAI,2025-2026,benchmark_tau_2_bench,TAU-2 bench,4,0.1803733031674208,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5,2025-08-07,2026-04-23,False,False,True,False,False,True,False,15.0,0.012024886877828054
+OpenAI,2025-2026,benchmark_swe_lancer,SWE-Lancer,3,0.17955465587044533,GPT-4.1 | GPT-5.2 | o3,2025-04-14,2025-12-11,False,True,True,False,True,True,True,15.0,0.011970310391363021
+OpenAI,2025-2026,benchmark_codeforces,Codeforces,2,0.16783216783216784,o3 | o3-mini,2025-01-31,2025-04-16,False,False,True,False,True,True,True,15.0,0.011188811188811189
+OpenAI,2025-2026,benchmark_swe_bench,SWE-bench,1,0.16666666666666666,GPT-4.5,2025-02-27,2025-02-27,False,True,True,False,True,True,True,15.0,0.01111111111111111
+OpenAI,2025-2026,benchmark_mrcr_v2,MRCR v2,5,0.16549235078646843,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6 | GPT-6 Astra,2025-12-11,2026-09-03,True,True,False,False,False,False,False,15.0,0.011032823385764562
+OpenAI,2025-2026,benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,2,0.14354066985645933,GPT-4.1 | o3-mini,2025-01-31,2025-04-14,False,False,False,False,True,True,False,15.0,0.009569377990430622
+OpenAI,2025-2026,benchmark_cybersecurity_ctfs,Cybersecurity CTFs,1,0.14285714285714285,GPT-5.3-Codex,2026-02-05,2026-02-05,False,False,True,False,True,True,True,15.0,0.009523809523809523
+OpenAI,2025-2026,benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,1,0.14285714285714285,GPT-5.3-Codex,2026-02-05,2026-02-05,False,True,True,False,True,True,True,15.0,0.009523809523809523
+OpenAI,2025-2026,benchmark_arc_agi,ARC-AGI,4,0.14168282697694462,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-6 Astra,2025-12-11,2026-09-03,False,False,False,True,False,False,False,15.0,0.009445521798462975
+OpenAI,2025-2026,benchmark_toolathlon,Toolathlon,4,0.14168282697694462,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,False,True,False,False,True,False,15.0,0.009445521798462975
+OpenAI,2025-2026,benchmark_mathvista,MathVista,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,False,True,False,False,False,15.0,0.00863697705802969
+OpenAI,2025-2026,benchmark_tau_bench,Tau-bench,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,True,False,False,True,False,15.0,0.00863697705802969
+OpenAI,2025-2026,benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,2,0.12380952380952381,GPT-6 Astra | GPT-6.1 Sol,2026-09-03,2026-09-29,False,False,False,False,False,False,False,15.0,0.008253968253968255
+OpenAI,2025-2026,benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,2,0.12380952380952381,GPT-6 Astra | GPT-6.1 Sol,2026-09-03,2026-09-29,False,False,True,False,True,True,True,15.0,0.008253968253968255
+OpenAI,2025-2026,benchmark_gdp_pdf,gdp.pdf,2,0.12380952380952381,GPT-5.6 | GPT-6.1 Sol,2026-07-09,2026-09-29,False,False,False,True,False,False,False,15.0,0.008253968253968255
+OpenAI,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,3,0.11787330316742081,GPT-5.2 | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,False,True,False,False,True,False,15.0,0.007858220211161388
+OpenAI,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,4,0.11549235078646844,GPT-5.4 | GPT-5.5 | GPT-5.6 | GPT-6 Astra,2026-03-05,2026-09-03,False,False,False,False,False,False,False,15.0,0.007699490052431229
+OpenAI,2025-2026,benchmark_collie,COLLIE,2,0.11513157894736842,GPT-4.1 | GPT-5,2025-04-14,2025-08-07,False,False,False,False,False,False,False,15.0,0.007675438596491228
+OpenAI,2025-2026,benchmark_hmmt,HMMT,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,False,False,False,False,False,False,15.0,0.007500000000000001
+OpenAI,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,True,False,True,True,True,False,15.0,0.007500000000000001
+OpenAI,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-6 Astra,2026-03-05,2026-09-03,False,False,False,True,False,False,False,15.0,0.0061121884651296424
+OpenAI,2025-2026,benchmark_mmmu_pro,MMMU Pro,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-5.6,2026-03-05,2026-07-09,False,False,False,True,False,False,False,15.0,0.0061121884651296424
+OpenAI,2025-2026,benchmark_livebench_coding,LiveBench Coding,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,True,False,True,True,True,15.0,0.006060606060606061
+OpenAI,2025-2026,benchmark_math,MATH,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,False,False,False,15.0,0.006060606060606061
+OpenAI,2025-2026,benchmark_mgsm,MGSM,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,False,False,False,15.0,0.006060606060606061
+OpenAI,2025-2026,benchmark_stem,STEM,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,False,False,True,True,False,15.0,0.006060606060606061
+OpenAI,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,2,0.07380952380952381,GPT-5.2 | GPT-6 Astra,2025-12-11,2026-09-03,False,False,True,True,False,True,False,15.0,0.004920634920634921
+OpenAI,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,True,False,False,False,False,False,15.0,0.004524886877828055
+OpenAI,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,True,True,True,False,True,False,15.0,0.004524886877828055
+OpenAI,2025-2026,benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),2,0.06787330316742082,GPT-5.4 | GPT-5.5,2026-03-05,2026-04-23,False,False,False,False,False,False,False,15.0,0.004524886877828055
+OpenAI,2025-2026,benchmark_erqa,ERQA,1,0.0625,GPT-5,2025-08-07,2025-08-07,False,False,True,True,False,True,False,15.0,0.004166666666666667
+OpenAI,2025-2026,benchmark_healthbench,Healthbench,1,0.0625,GPT-5,2025-08-07,2025-08-07,False,False,False,False,False,False,False,15.0,0.004166666666666667
+OpenAI,2025-2026,benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),2,0.05322128851540616,GPT-5.5 | GPT-5.6,2026-04-23,2026-07-09,False,False,True,False,True,True,True,15.0,0.0035480859010270775
+OpenAI,2025-2026,benchmark_complexfunc_bench,ComplexFunc Bench,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,True,False,True,True,True,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_ifeval,IFEval,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,False,False,False,False,False,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_mrcr,MRCR,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,True,True,False,False,False,False,False,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_multi_if,Multi-IF,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,False,False,False,False,False,False,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_needle_in_a_haystack,Needle In A Haystack,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,True,True,False,False,False,False,False,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_video_mme,Video-MME,1,0.05263157894736842,GPT-4.1,2025-04-14,2025-04-14,False,True,False,True,False,False,False,15.0,0.003508771929824561
+OpenAI,2025-2026,benchmark_browsecomp_long_context,BrowseComp Long Context,1,0.05,GPT-5.2,2025-12-11,2025-12-11,True,True,False,False,False,False,False,15.0,0.0033333333333333335
+OpenAI,2025-2026,benchmark_arc_agi_3,ARC-AGI-3,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_agents_last_exam,Agents' Last Exam,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,False,True,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_automationbench,AutomationBench,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,False,True,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_benchcad,BenchCAD,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_frontiermath_v2,FrontierMath v2,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_healthbench_professional,HealthBench Professional,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_medchembench_internal,MedChemBench (Internal),2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_sec_bench_pro,SEC-Bench Pro,2,0.047619047619047616,GPT-5.6 | GPT-6 Astra,2026-07-09,2026-09-03,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+OpenAI,2025-2026,benchmark_apex_agents,APEX-Agents,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_cot_control,CoT-Control,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,False,False,False,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_frontier_science_research,Frontier Science Research,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,False,False,False,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_officeqa,OfficeQA,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_omnidocbench,OmniDocBench,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,False,True,False,False,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_online_mind2web,Online-Mind2Web,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,False,True,False,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_webarena_verified,WebArena-Verified,1,0.038461538461538464,GPT-5.4,2026-03-05,2026-03-05,False,False,True,True,True,True,True,15.0,0.002564102564102564
+OpenAI,2025-2026,benchmark_aa_lcr,AA-LCR,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,True,True,False,False,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_aa_omniscience,AA-Omniscience,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,True,True,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_bixbench,BixBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_critpt,CritPt,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_cybergym,CyberGym,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_expert_swe_internal,Expert-SWE (Internal),1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_gdpval_aa,GDPval-AA,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,True,False,True,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_genebench,GeneBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_ifbench,IFBench,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,False,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_officeqa_pro,OfficeQA Pro,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,False,True,False,False,False,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_scicode,SciCode,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_terminal_bench_hard,Terminal-Bench Hard,1,0.029411764705882353,GPT-5.5,2026-04-23,2026-04-23,False,False,True,False,True,True,True,15.0,0.00196078431372549
+OpenAI,2025-2026,benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_artificial_analysis_coding_agent_index_v1_4,Artificial Analysis Coding Agent Index v1.4,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_big_finance_bench,Big Finance Bench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_cursorbench,CursorBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_data_science_tasks_internal,Data Science Tasks (Internal),1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_design_tasks_internal,Design Tasks (Internal),1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_exploitbench_juneaugust_2026,ExploitBench (June–August 2026),1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_exploitgym_honeypot,ExploitGym honeypot,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_frontiercode_v1_1_extended,FrontierCode v1.1 (Extended),1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_genebench_pro,GeneBench Pro,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_genebench_pro_v13,GeneBench Pro v13,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_kernelgen_1p,KernelGen 1P,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_lifescibench,LifeSciBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_mind2web,Mind2Web,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_model_ml_s_finbench,Model ML's FinBench,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_nanogpt,NanoGPT,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_openscore_string_quartets,OpenScore String Quartets,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,True,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_posttrainbench_lite,PostTrainBench Lite,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_rsi_index,RSI Index,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_sre_bench,SRE-Bench,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_terminal_bench_4_0,Terminal-Bench 4.0,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_agentic_code_review_tests,agentic code-review tests,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_combined_evaluation_suite,combined evaluation suite,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_early_design_evals,early design evals,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_first_generation_evals,first-generation evals,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_coding_benchmarks,internal coding benchmarks,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_internal_testing_benchmark,internal testing benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,True,True,True,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_seven_task_benchmark,seven-task benchmark,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,False,False,True,True,False,15.0,0.0015873015873015873
+OpenAI,2025-2026,benchmark_trading_intuition_evaluations,trading intuition evaluations,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
+Google,2025-2026,benchmark_cybergym,CyberGym,5,0.6385964912280702,Gemini 3.5 Flash Cyber | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-07-21,2026-09-02,False,False,True,False,True,True,True,14.0,0.045614035087719294
+Google,2025-2026,benchmark_mrcr_v2,MRCR v2,6,0.47483766233766234,Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash,2026-02-19,2026-08-13,True,True,False,False,False,False,False,14.0,0.03391697588126159
+Google,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,6,0.4266917293233083,Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-05-19,2026-09-02,False,False,True,False,True,True,True,14.0,0.03047798066595059
+Google,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,6,0.4007177033492823,Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-07-21,2026-09-30,False,False,True,False,True,True,True,14.0,0.028622693096377307
+Google,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),5,0.37245670995671,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro | Gemini 3.5 Flash,2025-03-25,2026-05-19,False,False,False,True,True,True,False,14.0,0.02660405071119357
+Google,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,5,0.35526315789473684,Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-07-21,2026-09-02,False,False,True,False,False,True,False,14.0,0.02537593984962406
+Google,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,4,0.33392857142857146,Gemini 3.1 Pro | Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash,2026-02-19,2026-07-21,False,True,True,False,True,True,True,14.0,0.023852040816326532
+Google,2025-2026,benchmark_big_sleep_evaluation,Big Sleep Evaluation,1,0.3333333333333333,Gemini 3.5 Flash Cyber,2026-07-21,2026-07-21,False,False,True,False,True,True,True,14.0,0.023809523809523808
+Google,2025-2026,benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,1,0.3333333333333333,Gemini 3.5 Flash Cyber,2026-07-21,2026-07-21,False,False,True,False,True,True,True,14.0,0.023809523809523808
+Google,2025-2026,benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,4,0.32142857142857145,Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash | Gemini 3.7 Flash,2026-05-19,2026-08-13,False,False,False,False,True,True,False,14.0,0.02295918367346939
+Google,2025-2026,benchmark_charxiv_reasoning,CharXiv Reasoning,5,0.31760082023239916,Gemini 3.1 Flash-Lite | Gemini 3.5 Flash | Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-03-03,2026-09-02,False,False,False,True,False,False,False,14.0,0.022685772873742797
+Google,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,4,0.30102813852813853,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2025-03-25,2026-03-03,False,False,False,True,False,False,False,14.0,0.021502009894867037
+Google,2025-2026,benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_big_bench_audio,Big Bench Audio,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,False,False,False,False,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_eva_bench,EVA-Bench,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_speech_agent_arena,Speech Agent Arena,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_voice,τ-Voice,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_voice_banking,τ-Voice-banking,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_3_banking_leaderboard,τ3-Banking Leaderboard,2,0.2857142857142857,Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking,2026-09-15,2026-09-15,False,False,True,False,False,True,False,14.0,0.02040816326530612
+Google,2025-2026,benchmark_osworld_verified,OSWorld-Verified,3,0.27142857142857146,Gemini 3.5 Flash | Gemini 3.5 Flash-Lite | Gemini 3.6 Flash,2026-05-19,2026-07-21,False,False,True,True,True,True,True,14.0,0.01938775510204082
+Google,2025-2026,benchmark_livecodebench,LiveCodeBench,3,0.23852813852813853,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-03-25,2026-03-03,False,False,False,False,True,True,False,14.0,0.017037724180581325
+Google,2025-2026,benchmark_finance_agent_v2,Finance Agent v2,4,0.2221462747778537,Gemini 3.5 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-05-19,2026-09-30,False,False,True,False,False,True,False,14.0,0.01586759105556098
+Google,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,3,0.21011904761904762,Gemini 2.5 | Gemini 3.0 | Gemini 3.1 Pro,2025-03-25,2026-02-19,False,True,True,False,True,True,True,14.0,0.015008503401360545
+Google,2025-2026,benchmark_mmmlu,MMMLU,3,0.20102813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2025-11-18,2026-03-03,False,False,False,False,False,False,False,14.0,0.014359152752009895
+Google,2025-2026,benchmark_labbench2,LABBench2,4,0.2007177033492823,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,True,False,False,True,False,14.0,0.014336978810663021
+Google,2025-2026,benchmark_lvbench,LVBench,4,0.2007177033492823,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,False,True,False,False,False,14.0,0.014336978810663021
+Google,2025-2026,benchmark_legal_agent_benchmark,Legal Agent Benchmark,4,0.2007177033492823,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,True,False,False,True,False,14.0,0.014336978810663021
+Google,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,4,0.2007177033492823,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,True,True,False,True,False,14.0,0.014336978810663021
+Google,2025-2026,benchmark_mle_bench,MLE-Bench,2,0.2,Gemini 3.5 Flash-Lite | Gemini 3.6 Flash,2026-07-21,2026-07-21,False,False,True,False,True,True,True,14.0,0.014285714285714287
+Google,2025-2026,benchmark_receipt_extraction_benchmark,receipt extraction benchmark,2,0.2,Gemini 3.5 Flash-Lite | Gemini 3.6 Flash,2026-07-21,2026-07-21,False,False,False,True,False,False,False,14.0,0.014285714285714287
+Google,2025-2026,benchmark_biomysterybench,BioMysteryBench,3,0.15526315789473683,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-08-13,2026-09-02,False,False,False,False,False,False,False,14.0,0.011090225563909773
+Google,2025-2026,benchmark_hle_verified,HLE-Verified,3,0.15526315789473683,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-08-13,2026-09-02,False,False,False,False,False,False,False,14.0,0.011090225563909773
+Google,2025-2026,benchmark_gdp_pdf,gdp.pdf,3,0.15526315789473683,Gemini 3.7 Flash | Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-08-13,2026-09-02,False,False,False,True,False,False,False,14.0,0.011090225563909773
+Google,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,2,0.1534090909090909,Gemini 3.1 Flash-Lite | Gemini 3.1 Pro,2026-02-19,2026-03-03,False,False,False,False,False,False,False,14.0,0.010957792207792208
+Google,2025-2026,benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,3,0.1507177033492823,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-09-02,2026-09-30,False,False,False,False,False,False,False,14.0,0.01076555023923445
+Google,2025-2026,benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,3,0.1507177033492823,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-09-02,2026-09-30,False,False,True,False,True,True,True,14.0,0.01076555023923445
+Google,2025-2026,benchmark_terminal_bench_4_0,Terminal-Bench 4.0,3,0.1507177033492823,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-09-02,2026-09-30,False,False,True,False,True,True,True,14.0,0.01076555023923445
+Google,2025-2026,benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,3,0.1507177033492823,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber | Gemini 4 Argon,2026-09-02,2026-09-30,False,False,True,False,True,True,True,14.0,0.01076555023923445
+Google,2025-2026,benchmark_aime,AIME,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,14.0,0.010544217687074831
+Google,2025-2026,benchmark_gpqa,GPQA,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,14.0,0.010544217687074831
+Google,2025-2026,benchmark_mrcr,MRCR,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,True,True,False,False,False,False,False,14.0,0.010544217687074831
+Google,2025-2026,benchmark_simpleqa,SimpleQA,2,0.14761904761904762,Gemini 2.5 | Gemini 3.0,2025-03-25,2025-11-18,False,False,False,False,False,False,False,14.0,0.010544217687074831
+Google,2025-2026,benchmark_facts_benchmark_suite,FACTS Benchmark suite,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,True,False,False,False,False,False,14.0,0.009894867037724181
+Google,2025-2026,benchmark_lmarena,LMArena,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,False,True,False,False,True,False,14.0,0.009894867037724181
+Google,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,True,False,True,True,True,False,14.0,0.009894867037724181
+Google,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,False,True,False,False,False,14.0,0.009566326530612245
+Google,2025-2026,benchmark_gdpval_aa,GDPval-AA,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,True,True,False,True,False,14.0,0.009566326530612245
+Google,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,2,0.13392857142857142,Gemini 3.1 Pro | Gemini 3.5 Flash,2026-02-19,2026-05-19,False,False,True,False,False,True,False,14.0,0.009566326530612245
+Google,2025-2026,benchmark_tau_2_bench,TAU-2 bench,2,0.11011904761904762,Gemini 3.0 | Gemini 3.1 Pro,2025-11-18,2026-02-19,False,False,True,False,False,True,False,14.0,0.007865646258503401
+Google,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2,0.11011904761904762,Gemini 3.0 | Gemini 3.1 Pro,2025-11-18,2026-02-19,False,False,True,False,True,True,True,14.0,0.007865646258503401
+Google,2025-2026,benchmark_cwe_bench,CWE-Bench,2,0.10526315789473684,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-09-02,2026-09-02,False,False,True,False,True,True,True,14.0,0.007518796992481203
+Google,2025-2026,benchmark_staticbench,StaticBench,2,0.10526315789473684,Gemini 3.8 Flash | Gemini 3.8 Flash Cyber,2026-09-02,2026-09-02,False,False,True,False,True,True,True,14.0,0.007518796992481203
+Google,2025-2026,benchmark_aider_polyglot,Aider Polyglot,1,0.1,Gemini 2.5,2025-03-25,2025-03-25,False,False,True,False,True,True,True,14.0,0.0071428571428571435
+Google,2025-2026,benchmark_vibe_eval,Vibe-Eval,1,0.1,Gemini 2.5,2025-03-25,2025-03-25,False,False,False,True,False,False,False,14.0,0.0071428571428571435
+Google,2025-2026,benchmark_agents_last_exam,Agents' Last Exam,2,0.09545454545454546,Gemini 3.7 Flash | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,True,False,False,True,False,14.0,0.006818181818181819
+Google,2025-2026,benchmark_automationbench,AutomationBench,2,0.09545454545454546,Gemini 3.7 Flash | Gemini 4 Argon,2026-08-13,2026-09-30,False,False,True,False,False,True,False,14.0,0.006818181818181819
+Google,2025-2026,benchmark_simpleqa_verified,SimpleQA Verified,1,0.09090909090909091,Gemini 3.1 Flash-Lite,2026-03-03,2026-03-03,False,False,False,False,False,False,False,14.0,0.006493506493506494
+Google,2025-2026,benchmark_blueprint_bench_2,Blueprint-Bench 2,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,True,False,False,True,False,14.0,0.00510204081632653
+Google,2025-2026,benchmark_mmmu_pro,MMMU Pro,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,False,True,False,False,False,14.0,0.00510204081632653
+Google,2025-2026,benchmark_toolathlon,Toolathlon,1,0.07142857142857142,Gemini 3.5 Flash,2026-05-19,2026-05-19,False,False,True,False,False,True,False,14.0,0.00510204081632653
+Google,2025-2026,benchmark_apex_agents,APEX-Agents,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,True,False,True,False,14.0,0.004464285714285714
+Google,2025-2026,benchmark_browsecomp,BrowseComp,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,True,False,True,False,14.0,0.004464285714285714
+Google,2025-2026,benchmark_livecodebench_pro,LiveCodeBench Pro,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,False,True,True,True,14.0,0.004464285714285714
+Google,2025-2026,benchmark_scicode,SciCode,1,0.0625,Gemini 3.1 Pro,2026-02-19,2026-02-19,False,False,True,False,True,True,True,14.0,0.004464285714285714
+Google,2025-2026,benchmark_frontiercode_v1_1,FrontierCode v1.1,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,True,True,True,14.0,0.0035714285714285718
+Google,2025-2026,benchmark_harbor_index,Harbor-Index,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,14.0,0.0035714285714285718
+Google,2025-2026,benchmark_harvey_lab_aa,Harvey LAB-AA,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,False,True,False,14.0,0.0035714285714285718
+Google,2025-2026,benchmark_terminal_bench_3_0,Terminal-Bench 3.0,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,False,True,True,True,14.0,0.0035714285714285718
+Google,2025-2026,benchmark_webdev_arena,WebDev Arena,1,0.05,Gemini 3.7 Flash,2026-08-13,2026-08-13,False,False,True,True,True,True,True,14.0,0.0035714285714285718
+Google,2025-2026,benchmark_arc_agi,ARC-AGI,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_charxiv,CharXiv,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_global_piqa,Global PIQA,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,False,False,False,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_matharena_apex,MathArena Apex,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,False,False,False,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_omnidocbench_1_5,OmniDocBench 1.5,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,False,True,False,False,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,False,True,True,False,True,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,True,True,True,False,True,False,14.0,0.003401360544217687
+Google,2025-2026,benchmark_cwe_bench_v0,CWE-bench v0,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Google,2025-2026,benchmark_cwe_bench_v1,CWE-bench v1,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Google,2025-2026,benchmark_chartography,Chartography,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,False,True,False,False,False,14.0,0.003246753246753247
+Google,2025-2026,benchmark_frontierswe_v2,FrontierSWE v2,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Google,2025-2026,benchmark_graphwalks,GraphWalks,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,True,True,True,False,False,True,False,14.0,0.003246753246753247
+Google,2025-2026,benchmark_posttrainbench,PostTrainBench,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Google,2025-2026,benchmark_riemannbench,RiemannBench,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,False,False,False,False,False,14.0,0.003246753246753247
+Google,2025-2026,benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Google,2025-2026,benchmark_vals_index,Vals Index,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,False,True,False,14.0,0.003246753246753247
+Google,2025-2026,benchmark_vibe_code_bench,Vibe Code Bench,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,False,False,True,False,True,True,True,14.0,0.003246753246753247
+Anthropic,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,False,False,False,False,False,False,15.0,0.05357503905891003
+Anthropic,2025-2026,benchmark_mmmlu,MMMLU,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,False,False,False,False,False,False,15.0,0.05357503905891003
+Anthropic,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,True,True,False,True,True,True,15.0,0.05357503905891003
+Anthropic,2025-2026,benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,6,0.7237484737484737,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet),2025-02-25,2025-11-24,False,False,False,True,False,False,False,15.0,0.04824989824989825
+Anthropic,2025-2026,benchmark_aime,AIME,5,0.6468253968253967,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Sonnet),2025-02-25,2025-10-16,False,False,False,False,False,False,False,15.0,0.043121693121693117
+Anthropic,2025-2026,benchmark_terminal_bench,Terminal-bench,6,0.6017025089605734,Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-05-23,2026-04-16,False,False,True,False,True,True,True,15.0,0.04011350059737156
+Anthropic,2025-2026,benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),9,0.5476381368002261,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Opus) | Claude 5 (Sonnet) | Claude 5.1 (Fable/Mythos) | Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-02-05,2026-09-28,False,False,False,True,True,True,False,15.0,0.036509209120015075
+Anthropic,2025-2026,benchmark_automated_behavioral_audit,automated behavioral audit,8,0.4922771536973075,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Opus) | Claude 5 (Sonnet) | Claude 5.1 (Fable/Mythos) | Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-04-16,2026-09-28,False,False,True,False,False,True,False,15.0,0.032818476913153836
+Anthropic,2025-2026,benchmark_tau_bench,Tau-bench,3,0.4107142857142857,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus),2025-02-25,2025-08-05,False,False,True,False,False,True,False,15.0,0.02738095238095238
+Anthropic,2025-2026,benchmark_osworld,OSWorld,4,0.36065323565323565,Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,True,True,True,True,15.0,0.024043549043549044
+Anthropic,2025-2026,benchmark_tau_2_bench,TAU-2 bench,4,0.36065323565323565,Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,False,False,True,False,15.0,0.024043549043549044
+Anthropic,2025-2026,benchmark_osworld_verified,OSWorld-Verified,4,0.27427826653633103,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,False,True,True,True,True,True,15.0,0.018285217769088737
+Anthropic,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,4,0.27427826653633103,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,True,True,False,True,True,True,15.0,0.018285217769088737
+Anthropic,2025-2026,benchmark_terminal_bench_2_1,Terminal-Bench 2.1,3,0.24202020202020202,Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-05-28,2026-06-30,False,False,True,False,True,True,True,15.0,0.016134680134680134
+Anthropic,2025-2026,benchmark_browsecomp,BrowseComp,4,0.23860727086533537,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 5 (Opus) | Claude 5 (Sonnet),2026-02-05,2026-07-24,False,False,True,True,False,True,False,15.0,0.015907151391022358
+Anthropic,2025-2026,benchmark_gdpval_aa_v2,GDPval-AA v2,3,0.21136173767752714,Claude 5 (Opus) | Claude 5 (Sonnet) | Claude 5.1 (Fable/Mythos),2026-06-30,2026-09-01,False,False,True,False,False,True,False,15.0,0.014090782511835143
+Anthropic,2025-2026,benchmark_gdpval_aa,GDPval-AA,4,0.21078620304426757,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos),2026-02-05,2026-06-09,False,False,True,True,False,True,False,15.0,0.014052413536284504
+Anthropic,2025-2026,benchmark_automationbench,AutomationBench,4,0.19907415597818073,Claude 5 (Fable/Mythos) | Claude 5 (Opus) | Claude 5.1 (Fable/Mythos) | Claude 5.5 (Opus),2026-06-09,2026-09-22,False,False,True,False,False,True,False,15.0,0.013271610398545382
+Anthropic,2025-2026,benchmark_legal_agent_benchmark,Legal Agent Benchmark,3,0.17852813852813854,Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-05-28,2026-07-24,False,False,True,False,False,True,False,15.0,0.011901875901875903
+Anthropic,2025-2026,benchmark_terminal_bench_4_0,Terminal-Bench 4.0,3,0.1781217750257998,Claude 5.1 (Fable/Mythos) | Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-09-01,2026-09-28,False,False,True,False,True,True,True,15.0,0.011874785001719986
+Anthropic,2025-2026,benchmark_frontiercode_v1_1,FrontierCode v1.1,3,0.173109243697479,Claude 5 (Opus) | Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-07-24,2026-09-28,False,False,True,False,True,True,True,15.0,0.0115406162464986
+Anthropic,2025-2026,benchmark_cursorbench,CursorBench,3,0.16316715542521995,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos),2026-04-16,2026-06-09,False,False,True,False,True,True,True,15.0,0.01087781036168133
+Anthropic,2025-2026,benchmark_finance_agent,Finance Agent,2,0.15873015873015872,Claude 4.5 (Sonnet) | Claude 4.6 (Opus),2025-09-30,2026-02-05,False,False,True,True,False,True,False,15.0,0.010582010582010581
+Anthropic,2025-2026,benchmark_swe_bench_multilingual,SWE-bench Multilingual,3,0.15680018905825358,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,True,True,False,True,True,True,15.0,0.010453345937216906
+Anthropic,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,3,0.15680018905825358,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,False,True,False,False,True,False,15.0,0.010453345937216906
+Anthropic,2025-2026,benchmark_chartography,Chartography,2,0.12549019607843137,Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-09-22,2026-09-28,False,False,False,True,False,False,False,15.0,0.008366013071895424
+Anthropic,2025-2026,benchmark_cursorbench_4_0,CursorBench 4.0,2,0.12549019607843137,Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-09-22,2026-09-28,False,False,True,False,True,True,True,15.0,0.008366013071895424
+Anthropic,2025-2026,benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,2,0.12549019607843137,Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-09-22,2026-09-28,False,False,True,False,False,True,False,15.0,0.008366013071895424
+Anthropic,2025-2026,benchmark_osworld_2_1,OSWorld 2.1,2,0.12549019607843137,Claude 5.5 (Opus) | Claude 5.5 (Sonnet),2026-09-22,2026-09-28,False,False,True,True,False,True,False,15.0,0.008366013071895424
+Anthropic,2025-2026,benchmark_ifeval,IFEval,1,0.125,Claude 3.7 Sonnet,2025-02-25,2025-02-25,False,False,False,False,False,False,False,15.0,0.008333333333333333
+Anthropic,2025-2026,benchmark_math_500,MATH 500,1,0.125,Claude 3.7 Sonnet,2025-02-25,2025-02-25,False,False,False,False,False,False,False,15.0,0.008333333333333333
+Anthropic,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,2,0.12454212454212454,Claude 4.5 (Opus) | Claude 4.6 (Opus),2025-11-24,2026-02-05,False,False,False,True,False,False,False,15.0,0.008302808302808303
+Anthropic,2025-2026,benchmark_cybergym,CyberGym,3,0.11987711213517666,Claude 4.6 (Opus) | Claude 4.7 (Opus) | Claude 5 (Fable/Mythos),2026-02-05,2026-06-09,False,False,True,False,True,True,True,15.0,0.007991807475678443
+Anthropic,2025-2026,benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,2,0.11145510835913312,Claude 5.1 (Fable/Mythos) | Claude 5.5 (Opus),2026-09-01,2026-09-22,False,False,True,False,True,True,True,15.0,0.007430340557275541
+Anthropic,2025-2026,benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,1,0.1111111111111111,Claude 5 (Sonnet),2026-06-30,2026-06-30,False,False,True,False,False,True,False,15.0,0.007407407407407407
+Anthropic,2025-2026,benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,1,0.1111111111111111,Claude 5 (Sonnet),2026-06-30,2026-06-30,False,False,True,False,True,True,True,15.0,0.007407407407407407
+Anthropic,2025-2026,benchmark_terminal_bench_2_0,Terminal-Bench 2.0,2,0.10918114143920596,Claude 4.5 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,False,True,False,True,True,True,15.0,0.00727874276261373
+Anthropic,2025-2026,benchmark_cursorbench_3_2,CursorBench 3.2,2,0.10025062656641603,Claude 5 (Opus) | Claude 5.1 (Fable/Mythos),2026-07-24,2026-09-01,False,False,True,False,True,True,True,15.0,0.006683375104427736
+Anthropic,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,2,0.10025062656641603,Claude 5 (Opus) | Claude 5.1 (Fable/Mythos),2026-07-24,2026-09-01,False,False,True,True,False,True,False,15.0,0.006683375104427736
+Anthropic,2025-2026,benchmark_finance_agent_v2,Finance Agent v2,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,False,False,True,False,15.0,0.006060606060606061
+Anthropic,2025-2026,benchmark_online_mind2web,Online-Mind2Web,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,True,False,True,False,15.0,0.006060606060606061
+Anthropic,2025-2026,benchmark_super_agent_benchmark,Super-Agent benchmark,1,0.09090909090909091,Claude 4.8 (Opus),2026-05-28,2026-05-28,False,False,True,False,False,True,False,15.0,0.006060606060606061
+Anthropic,2025-2026,benchmark_biomysterybench,BioMysteryBench,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,False,False,False,False,False,15.0,0.005841269841269842
+Anthropic,2025-2026,benchmark_healthbench_professional,HealthBench Professional,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,False,False,False,False,False,15.0,0.005841269841269842
+Anthropic,2025-2026,benchmark_oss_fuzz,OSS-Fuzz,2,0.08761904761904762,Claude 5 (Fable/Mythos) | Claude 5 (Opus),2026-06-09,2026-07-24,False,False,True,False,True,True,True,15.0,0.005841269841269842
+Anthropic,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,False,False,False,False,False,15.0,0.005325140809011777
+Anthropic,2025-2026,benchmark_graphwalks,GraphWalks,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,True,True,True,False,False,True,False,15.0,0.005325140809011777
+Anthropic,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,True,True,False,True,False,15.0,0.005325140809011777
+Anthropic,2025-2026,benchmark_aider_polyglot,Aider Polyglot,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,False,True,True,True,15.0,0.005128205128205128
+Anthropic,2025-2026,benchmark_browsecomp_plus,BrowseComp-Plus,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,True,False,True,False,15.0,0.005128205128205128
+Anthropic,2025-2026,benchmark_vending_bench,Vending-Bench,1,0.07692307692307693,Claude 4.5 (Opus),2025-11-24,2025-11-24,False,False,True,False,False,True,False,15.0,0.005128205128205128
+Anthropic,2025-2026,benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,True,False,False,True,False,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_pokemon_red,Pokémon Red,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,True,False,False,True,False,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_coding_evals,coding evals,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,True,False,True,True,True,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_containment_evaluations,containment evaluations,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,False,False,False,False,False,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,True,False,True,True,True,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_offline_slackbot_evals,offline Slackbot evals,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,True,False,False,True,False,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,1,0.06666666666666667,Claude 5.5 (Sonnet),2026-09-28,2026-09-28,False,False,False,False,False,False,False,15.0,0.0044444444444444444
+Anthropic,2025-2026,benchmark_big_finance_bench,Big Finance Bench,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,True,False,False,True,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_databench,DataBench,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_gray_swan_prompt_injection_benchmark,Gray Swan prompt injection benchmark,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_wandr,WANDR,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,True,False,False,True,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_containment_boundary_evaluation,containment-boundary evaluation,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_long_horizon_molecular_prediction_and_design_evaluation,long-horizon molecular prediction and design evaluation,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,True,False,False,True,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_trading_support_suite,trading-support suite,1,0.058823529411764705,Claude 5.5 (Opus),2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.00392156862745098
+Anthropic,2025-2026,benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design competitions,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_citations_eval,Citations eval,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,False,False,False,False,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_frontierfinance,FrontierFinance,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_imc_research_suite,IMC research suite,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,False,False,False,False,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_powerpoint_eval,PowerPoint eval,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_redlinebench,RedlineBench,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_browser_agent_benchmark,browser-agent benchmark,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,True,False,True,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_incident_investigation_evals,incident investigation evals,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,True,False,True,True,True,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_internal_finance_benchmark,internal Finance benchmark,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,False,False,False,False,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_prompt_injection_benchmark,prompt injection benchmark,1,0.05263157894736842,Claude 5.1 (Fable/Mythos),2026-09-01,2026-09-01,False,False,False,False,False,False,False,15.0,0.003508771929824561
+Anthropic,2025-2026,benchmark_arc_agi_3,ARC-AGI-3,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_biopipelinebench,BioPipelineBench,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_deepsearchqa,DeepSearchQA,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,False,True,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_lovable_internal_evals,Lovable internal evals,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_mmmu_pro,MMMU Pro,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,False,True,False,False,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_mrcr_v2,MRCR v2,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,True,True,False,False,False,False,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_openrca,OpenRCA,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,False,False,False,False,True,True,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_frontend_benchmark,frontend benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,True,False,True,True,True,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_trading_benchmark,trading benchmark,1,0.047619047619047616,Claude 5 (Opus),2026-07-24,2026-07-24,False,False,False,False,False,False,False,15.0,0.0031746031746031746
+Anthropic,2025-2026,benchmark_blueprint_bench_2,Blueprint-Bench 2,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_cyscenariobench,CyScenarioBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_exploitbench,ExploitBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_firefox,Firefox,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_frontierbench,FrontierBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_frontiercode_diamond,FrontierCode (Diamond),1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_vibench,ViBench,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,True,True,True,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_automated_alignment_assessment,automated alignment assessment,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,False,False,False,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_core_analytics_benchmark,core analytics benchmark,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,True,False,False,True,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_gdp_pdf,gdp.pdf,1,0.04,Claude 5 (Fable/Mythos),2026-06-09,2026-06-09,False,False,False,True,False,False,False,15.0,0.0026666666666666666
+Anthropic,2025-2026,benchmark_93_task_coding_benchmark,93-task coding benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,False,True,True,True,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,False,True,True,True,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_charxiv_reasoning,CharXiv Reasoning,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,True,False,False,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,False,True,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_officeqa_pro,OfficeQA Pro,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,True,False,False,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,True,True,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,False,True,True,True,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_swe_bench_multimodal,SWE-bench Multimodal,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,True,True,True,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_screenspot_pro,ScreenSpot-Pro,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,True,False,True,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_structural_biology,Structural Biology,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,False,False,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_implicit_need_tests,implicit-need tests,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,False,False,False,False,False,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_internal_research_agent_benchmark,internal research-agent benchmark,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,False,True,True,False,True,False,15.0,0.002150537634408602

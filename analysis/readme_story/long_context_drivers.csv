@@ -17,21 +17,22 @@ Anthropic,2025-2026,MRCR v2,0.047619047619047616,1.0,Claude 4.6 (Opus),long_cont
 Anthropic,2025-2026,FinanceAgent v1.1,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting; medium
 Anthropic,2025-2026,Rakuten-SWE-Bench,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting
 Anthropic,2025-2026,SWE-bench Multimodal,0.03333333333333333,1.0,Claude 4.7 (Opus),long_context_supporting; medium
-Google,2025-2026,MRCR v2,0.47483766233766234,5.0,Gemini 3.1 Flash-Lite; Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite; Gemini 3.7 Flash,long_context_primary
-Google,2025-2026,SWE-bench Pro,0.33392857142857146,3.0,Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite,long_context_supporting
+Google,2025-2026,MRCR v2,0.47483766233766234,6.0,Gemini 3.1 Flash-Lite; Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite; Gemini 3.6 Flash; Gemini 3.7 Flash,long_context_primary
+Google,2025-2026,SWE-bench Pro,0.33392857142857146,4.0,Gemini 3.1 Pro; Gemini 3.5 Flash; Gemini 3.5 Flash-Lite; Gemini 3.6 Flash,long_context_supporting
 Google,2025-2026,SWE-bench verified,0.21011904761904762,3.0,Gemini 2.5; Gemini 3.0; Gemini 3.1 Pro,long_context_supporting
 Google,2025-2026,MRCR,0.14761904761904762,2.0,Gemini 2.5; Gemini 3.0,long_context_primary
 Google,2025-2026,FACTS Benchmark suite,0.13852813852813853,2.0,Gemini 3.0; Gemini 3.1 Flash-Lite,long_context_supporting; medium
 Google,2025-2026,Video-MMMU,0.13852813852813853,2.0,Gemini 3.0; Gemini 3.1 Flash-Lite,long_context_supporting
 Google,2025-2026,Vending-Bench 2,0.047619047619047616,1.0,Gemini 3.0,long_context_supporting
+Google,2025-2026,GraphWalks,0.045454545454545456,1.0,Gemini 4 Argon,long_context_primary
 OpenAI,2025-2026,SWE-bench verified,0.4758208896366791,6.0,GPT-4.1; GPT-5; GPT-5.2; GPT-5.3-Codex; o3; o3-mini,long_context_supporting
 OpenAI,2025-2026,SWE-bench Pro,0.28453996983408747,5.0,GPT-5.2; GPT-5.3-Codex; GPT-5.4; GPT-5.5; GPT-5.6,long_context_supporting
 OpenAI,2025-2026,GDPval,0.26073044602456363,4.0,GPT-5.2; GPT-5.3-Codex; GPT-5.4; GPT-5.5,long_context_supporting; medium
 OpenAI,2025-2026,GraphWalks,0.19431440592431304,5.0,GPT-4.1; GPT-5.2; GPT-5.4; GPT-5.5; GPT-5.6,long_context_primary
 OpenAI,2025-2026,SWE-Lancer,0.17955465587044533,3.0,GPT-4.1; GPT-5.2; o3,long_context_supporting
 OpenAI,2025-2026,SWE-bench,0.16666666666666666,1.0,GPT-4.5,long_context_supporting
+OpenAI,2025-2026,MRCR v2,0.16549235078646843,5.0,GPT-5.2; GPT-5.4; GPT-5.5; GPT-5.6; GPT-6 Astra,long_context_primary
 OpenAI,2025-2026,SWE-Lancer IC Diamond,0.14285714285714285,1.0,GPT-5.3-Codex,long_context_supporting
-OpenAI,2025-2026,MRCR v2,0.14168282697694462,4.0,GPT-5.2; GPT-5.4; GPT-5.5; GPT-5.6,long_context_primary
 OpenAI,2025-2026,Video-MMMU,0.1125,2.0,GPT-5; GPT-5.2,long_context_supporting
 OpenAI,2025-2026,BigLaw Bench,0.06787330316742082,2.0,GPT-5.4; GPT-5.5,long_context_supporting
 OpenAI,2025-2026,FinanceAgent v1.1,0.06787330316742082,2.0,GPT-5.4; GPT-5.5,long_context_supporting; medium

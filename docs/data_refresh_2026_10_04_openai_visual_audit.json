@@ -1,0 +1,602 @@
+{
+  "as_of": "2026-10-04",
+  "counts": {
+    "astra_source_chart_states": 32,
+    "sol_luna_native_chart_states": 11,
+    "sol61_source_chart_states": 10,
+    "total_states": 53
+  },
+  "coverage": "Every listed chart state has two independent visual passes. Official source prose, tables, tab labels, captions and footnotes were also read. Non-benchmark product demos excluded.",
+  "render_limitations": "Astra and remaining Sol 6.1 views use official embedded Vega-Lite specs rendered locally because isolated Chrome official script requests returned 403 and hydration failed. These are derivative source views, not pixel replicas. Layout/font/palette and chart-width bindings were adapted; exact source specs retained. Some Astra left-aligned titles/model legends clip in source render; complete exact titles and captions were separately inspected. Evaluation identities unchanged.",
+  "panels": [
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Terminal-Bench Science 0.1",
+      "candidate_evaluation_names": [
+        "Terminal-Bench Science 0.1"
+      ],
+      "screenshot_basename": "astra-e8-terminal-bench-science-0-1.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ExploitGym honeypot (lower is better)",
+      "candidate_evaluation_names": [
+        "ExploitGym honeypot (lower is better)"
+      ],
+      "screenshot_basename": "astra-ea-exploitgym-honeypot-lower-is-better.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Agents\u2019 Last Exam",
+      "candidate_evaluation_names": [
+        "Agents\u2019 Last Exam"
+      ],
+      "screenshot_basename": "astra-ed-agents-last-exam.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ScreenSpot-Pro",
+      "candidate_evaluation_names": [
+        "ScreenSpot-Pro"
+      ],
+      "screenshot_basename": "astra-ef-screenspot-pro.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "OSWorld 2.0 \u00b7 Offline",
+      "candidate_evaluation_names": [
+        "OSWorld 2.0 \u00b7 Offline"
+      ],
+      "screenshot_basename": "astra-f0-osworld-2-0-offline.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "BenchCAD (python tool)",
+      "candidate_evaluation_names": [
+        "BenchCAD (python tool)"
+      ],
+      "screenshot_basename": "astra-f5-benchcad-python-tool.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "BrowseComp",
+      "candidate_evaluation_names": [
+        "BrowseComp"
+      ],
+      "screenshot_basename": "astra-f7-browsecomp.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "OpenScore String Quartets (Legato camera subset)",
+      "candidate_evaluation_names": [
+        "OpenScore String Quartets (Legato camera subset)"
+      ],
+      "screenshot_basename": "astra-f8-openscore-string-quartets-legato-camera-subset.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Design Tasks (Internal)",
+      "candidate_evaluation_names": [
+        "Design Tasks (Internal)"
+      ],
+      "screenshot_basename": "astra-f9-design-tasks-internal.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Data Science Tasks (Internal)",
+      "candidate_evaluation_names": [
+        "Data Science Tasks (Internal)"
+      ],
+      "screenshot_basename": "astra-fa-data-science-tasks-internal.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Terminal-Bench 4.0",
+      "candidate_evaluation_names": [
+        "Terminal-Bench 4.0"
+      ],
+      "screenshot_basename": "astra-ff-terminal-bench-4-0.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "GPQA Diamond",
+      "candidate_evaluation_names": [
+        "GPQA Diamond"
+      ],
+      "screenshot_basename": "astra-104-gpqa-diamond.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ExploitBench",
+      "candidate_evaluation_names": [
+        "ExploitBench"
+      ],
+      "screenshot_basename": "astra-107-exploitbench.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Computer-use safety stress test (lower is better)",
+      "candidate_evaluation_names": [
+        "Computer-use safety stress test (lower is better)"
+      ],
+      "screenshot_basename": "astra-109-computer-use-safety-stress-test-lower-is-better.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Circumventing auto-review (lower is better)",
+      "candidate_evaluation_names": [
+        "Circumventing auto-review (lower is better)"
+      ],
+      "screenshot_basename": "astra-10b-circumventing-auto-review-lower-is-better.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Capability Hallucination Rate (lower is better)",
+      "candidate_evaluation_names": [
+        "Capability Hallucination Rate (lower is better)"
+      ],
+      "screenshot_basename": "astra-10c-capability-hallucination-rate-lower-is-better.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ARC-AGI-3",
+      "candidate_evaluation_names": [
+        "ARC-AGI-3"
+      ],
+      "screenshot_basename": "astra-137-arc-agi-3.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "FrontierMath Tier 4 (v2)",
+      "candidate_evaluation_names": [
+        "FrontierMath Tier 4 (v2)"
+      ],
+      "screenshot_basename": "astra-138-frontiermath-tier-4-v2.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Terminal-Bench 4.0",
+      "candidate_evaluation_names": [
+        "Terminal-Bench 4.0"
+      ],
+      "screenshot_basename": "astra-139-terminal-bench-4-0.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "AutomationBench",
+      "candidate_evaluation_names": [
+        "AutomationBench"
+      ],
+      "screenshot_basename": "astra-13a-automationbench.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "FrontierCode 1.1 Extended",
+      "candidate_evaluation_names": [
+        "FrontierCode 1.1 Extended"
+      ],
+      "screenshot_basename": "astra-185-frontiercode-1-1-extended.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "DeepSWE v1.1",
+      "candidate_evaluation_names": [
+        "DeepSWE v1.1"
+      ],
+      "screenshot_basename": "astra-186-deepswe-v1-1.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Artificial Analysis Coding Agent Index v1.4",
+      "candidate_evaluation_names": [
+        "Artificial Analysis Coding Agent Index v1.4"
+      ],
+      "screenshot_basename": "astra-187-artificial-analysis-coding-agent-index-v1-4.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "Database Migration Tasks (Internal)",
+      "candidate_evaluation_names": [
+        "Database Migration Tasks (Internal)"
+      ],
+      "screenshot_basename": "astra-188-database-migration-tasks-internal.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "HealthBench Professional",
+      "candidate_evaluation_names": [
+        "HealthBench Professional"
+      ],
+      "screenshot_basename": "astra-197-healthbench-professional.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "LifeSciBench",
+      "candidate_evaluation_names": [
+        "LifeSciBench",
+        "LifeSciBench Gold v1",
+        "GeneBench Pro v13"
+      ],
+      "screenshot_basename": "astra-198-lifescibench.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "GeneBench Pro",
+      "candidate_evaluation_names": [
+        "GeneBench Pro",
+        "LifeSciBench Gold v1",
+        "GeneBench Pro v13"
+      ],
+      "screenshot_basename": "astra-199-genebench-pro.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "MedChemBench",
+      "candidate_evaluation_names": [
+        "MedChemBench",
+        "LifeSciBench Gold v1",
+        "GeneBench Pro v13"
+      ],
+      "screenshot_basename": "astra-19a-medchembench.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ExploitGym",
+      "candidate_evaluation_names": [
+        "ExploitGym"
+      ],
+      "screenshot_basename": "astra-19d-exploitgym.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ExploitBench - Internal Port (June\u2013August 2026)",
+      "candidate_evaluation_names": [
+        "ExploitBench - Internal Port (June\u2013August 2026)"
+      ],
+      "screenshot_basename": "astra-19e-exploitbench-internal-port-june-august-2026.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "SRE-Bench",
+      "candidate_evaluation_names": [
+        "SRE-Bench"
+      ],
+      "screenshot_basename": "astra-19f-sre-bench.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/gpt-6-astra/",
+      "state_label": "ExploitGym honeypot (lower is better)",
+      "candidate_evaluation_names": [
+        "ExploitGym honeypot (lower is better)"
+      ],
+      "screenshot_basename": "astra-1a4-exploitgym-honeypot-lower-is-better.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, rendered chart and exact source labels/captions",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all individual rendered charts plus exact source labels/captions",
+      "render_method": "Official embedded Vega-Lite specification; rendered locally with vl-convert, fixed layout, readable fonts, resolved chart-width signal and Flight currency escaping. Evaluation names unchanged."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "AutomationBench",
+      "candidate_evaluation_names": [
+        "AutomationBench 1.0.6"
+      ],
+      "screenshot_basename": "sol-luna-automationbench-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Agents\u2019 Last Exam",
+      "candidate_evaluation_names": [
+        "Agents' Last Exam V1"
+      ],
+      "screenshot_basename": "sol-luna-agents-last-exam-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Factual error rate on difficult prompts",
+      "candidate_evaluation_names": [
+        "internal factuality evaluation"
+      ],
+      "screenshot_basename": "sol-luna-factuality-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "FrontierCode",
+      "candidate_evaluation_names": [
+        "FrontierCode 1.1 Main"
+      ],
+      "screenshot_basename": "sol-luna-frontiercode-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "DeepSWE",
+      "candidate_evaluation_names": [
+        "DeepSWE v1.1"
+      ],
+      "screenshot_basename": "sol-luna-deepswe-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "OSWorld 2.0, offline set",
+      "candidate_evaluation_names": [
+        "OSWorld 2.0"
+      ],
+      "screenshot_basename": "sol-luna-osworld-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Coding deception",
+      "candidate_evaluation_names": [
+        "Coding deception"
+      ],
+      "screenshot_basename": "sol-luna-coding-deception-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Failure to disclose a broken search tool",
+      "candidate_evaluation_names": [
+        "Broken search"
+      ],
+      "screenshot_basename": "sol-luna-broken-search-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Reviewer bypass attempts",
+      "candidate_evaluation_names": [
+        "Reviewer bypass"
+      ],
+      "screenshot_basename": "sol-luna-reviewer-bypass-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Warning circumvention",
+      "candidate_evaluation_names": [
+        "Warning circumvention"
+      ],
+      "screenshot_basename": "sol-luna-warning-circumvention-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "state_label": "Unauthorized agent interaction",
+      "candidate_evaluation_names": [
+        "Unauthorized interaction"
+      ],
+      "screenshot_basename": "sol-luna-unauthorized-interaction-crop.png",
+      "first_reviewer_status": "complete: /root/lifecycle_review, all eleven native charts",
+      "second_reviewer_status": "complete: /root/anthropic_refresh, all eleven native charts",
+      "render_method": "Native Chrome screenshot, whitespace crop only."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "DeepSWE",
+      "candidate_evaluation_names": [
+        "DeepSWE"
+      ],
+      "screenshot_basename": "sol61-render-0.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "GDP.pdf",
+      "candidate_evaluation_names": [
+        "GDP.pdf"
+      ],
+      "screenshot_basename": "sol61-render-1.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "AutomationBench",
+      "candidate_evaluation_names": [
+        "AutomationBench"
+      ],
+      "screenshot_basename": "sol61-render-2.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "OSWorld 2.0, offline set",
+      "candidate_evaluation_names": [
+        "OSWorld 2.0, offline set"
+      ],
+      "screenshot_basename": "sol61-render-3.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Terminal-Bench Science 0.1",
+      "candidate_evaluation_names": [
+        "Terminal-Bench Science 0.1"
+      ],
+      "screenshot_basename": "sol61-render-4.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Factual error rate on difficult prompts (lower is better)",
+      "candidate_evaluation_names": [
+        "Factual error rate on difficult prompts (lower is better)"
+      ],
+      "screenshot_basename": "sol61-render-5.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Failure to disclose a broken search tool (lower is better)",
+      "candidate_evaluation_names": [
+        "Failure to disclose a broken search tool (lower is better)"
+      ],
+      "screenshot_basename": "sol61-render-6.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Reviewer bypass attempts (lower is better)",
+      "candidate_evaluation_names": [
+        "Reviewer bypass attempts (lower is better)"
+      ],
+      "screenshot_basename": "sol61-render-7.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Warning circumvention (lower is better)",
+      "candidate_evaluation_names": [
+        "Warning circumvention (lower is better)"
+      ],
+      "screenshot_basename": "sol61-render-8.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    },
+    {
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "state_label": "Computer-use safety stress test (lower is better)",
+      "candidate_evaluation_names": [
+        "Computer-use safety stress test (lower is better)"
+      ],
+      "screenshot_basename": "sol61-render-9.png",
+      "first_reviewer_status": "complete: /root/anthropic_refresh, source render and exact caption",
+      "second_reviewer_status": "complete: /root/lifecycle_review, all ten source renders and exact captions",
+      "render_method": "Exact official Vega-Lite specs decoded from React Flight and rendered by vl_convert. Flight literal-dollar escaping and referenced strings decoded; responsive dimensions fixed to 900x500; symbolic theme colors assigned a legible audit palette. Benchmark labels, data, captions and evaluation variants unchanged. These are source renders, not native browser screenshots."
+    }
+  ]
+}

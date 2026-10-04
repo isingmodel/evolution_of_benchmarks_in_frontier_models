@@ -4,6 +4,11 @@ from pathlib import Path
 
 import pandas as pd
 
+try:
+    from scripts.taxonomy_utils import benchmark_id as canonical_benchmark_id
+except ModuleNotFoundError:
+    from taxonomy_utils import benchmark_id as canonical_benchmark_id
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
@@ -92,6 +97,8 @@ def read_manual_facets(path):
 
 
 def stable_id(prefix, *parts):
+    if prefix == "benchmark" and len(parts) == 1:
+        return canonical_benchmark_id(str(parts[0]))
     raw = " ".join(str(part) for part in parts if str(part).strip())
     slug = re.sub(r"[^a-z0-9]+", "_", raw.casefold()).strip("_")
     slug = re.sub(r"_+", "_", slug)

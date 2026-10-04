@@ -12,7 +12,7 @@ Run from the repository root:
 
 The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` for exact
 canonical names plus explicit aliases. It does not fuzzy match benchmark names.
-Latest local release date in this run: `2026-08-13`.
+Latest local release date in this run: `2026-09-30`.
 
 ## Ideation Catalog
 
@@ -33,104 +33,49 @@ Latest local release date in this run: `2026-08-13`.
 
 ## Prototype A: Cascades and First-Mover Roles
 
-Outputs:
+Outputs: `normalized_mentions.csv`, `cascade_metrics.csv`, `adoption_events.csv`, `provider_diffusion_roles.csv`, `provider_role_balance.png`, and `release_strategy_metrics.csv`.
 
-- `normalized_mentions.csv`
-- `cascade_metrics.csv`
-- `adoption_events.csv`
-- `provider_diffusion_roles.csv`
-- `provider_role_balance.png`
-- `release_strategy_metrics.csv`
+The refreshed local outputs resolve 791 raw mentions to 284 canonical benchmarks. They identify 74 cross-provider cascades and 210 single-provider benchmarks.
 
-Headline results from the current local CSVs:
+Fastest observed second-provider mentions:
 
-- 582 benchmark mentions resolve exactly to 207 canonical benchmarks.
-- 70 benchmarks show cross-provider cascades; 137 remain single-provider in the observed pages.
-- Fastest second-provider cascades:
-  - `MMMLU`: Anthropic to OpenAI in 2 days.
-  - `Terminal-Bench 2.0`: Google to Anthropic in 6 days.
-  - `OfficeQA Pro`: Anthropic to OpenAI in 7 days.
-  - `Terminal-Bench 2.1`: Google to Anthropic in 9 days.
-  - `Finance Agent v2`: Google to Anthropic in 9 days.
-- Slow cross-provider cascades include `ARC-AGI` at 624 days to second provider and `GPQA Diamond` at 484 days.
-- Role balance by provider:
-  - Anthropic: 68 first-tracked benchmarks, 28 later adopted, 32 imported, net export balance -4.
-  - Google: 53 first-tracked benchmarks, 21 later adopted, 33 imported, net export balance -12.
-  - OpenAI: 86 first-tracked benchmarks, 21 later adopted, 39 imported, net export balance -18.
+| Benchmark path | Days |
+| --- | ---: |
+| Terminal-Bench 4.0: Anthropic -> Google | 1 |
+| MMMLU: Anthropic -> OpenAI | 2 |
+| Terminal-Bench Science 0.1: Anthropic -> OpenAI | 2 |
+| Terminal-Bench 2.0: Google -> Anthropic | 6 |
+| OfficeQA Pro: Anthropic -> OpenAI | 7 |
 
-Interpretation: OpenAI has the largest unique benchmark vocabulary in these
-pages, but many of its first mentions remain provider-specific in the observed
-window. Anthropic now looks closest to balanced between public benchmark export
-and import. Google and OpenAI both import a larger shared evaluation vocabulary
-than their first-tracked benchmarks later export in the observed window.
-
-To make this persuasive, the strongest next step is to pair the lag table with
-manual release-page screenshots or citations for the top cascades, then separate
-public benchmark creation date from first release-page mention date.
+These are first tracked public mentions, not benchmark creation or private adoption dates. Use `provider_diffusion_roles.csv` for current provider role counts and `release_strategy_metrics.csv` for novelty and reuse. Pair any diffusion claim with source-page evidence and benchmark publication dates.
 
 ## Prototype B: Portfolio Similarity and Strategic Convergence
 
-Outputs:
+Outputs: `provider_similarity_timeseries.csv`, `provider_similarity_latest.csv`, `portfolio_similarity_over_time.png`, and `release_strategy_metrics.csv`.
 
-- `provider_similarity_timeseries.csv`
-- `provider_similarity_latest.csv`
-- `portfolio_similarity_over_time.png`
-- `release_strategy_metrics.csv`
+Cumulative portfolio overlap at `2026-09-30`:
 
-Latest cumulative benchmark-portfolio Jaccard similarities:
+| Provider pair | Jaccard similarity |
+| --- | ---: |
+| Anthropic - Google | 0.249 |
+| Anthropic - OpenAI | 0.233 |
+| Google - OpenAI | 0.221 |
 
-- Anthropic - Google: 0.310
-- Anthropic - OpenAI: 0.286
-- Google - OpenAI: 0.263
-
-The time series shows early spikes from small portfolio sizes, then a more
-stable 2025-2026 band around 0.26-0.35. The `release_strategy_metrics.csv`
-table also surfaces high-novelty releases: Google `gemini 1.0` introduced 16
-globally new mentions out of 18, while OpenAI `GPT-5.6` introduced 27 of 42
-and Anthropic `Claude 5 (Fable/Mythos)` introduced 16 of 25 in 2026. Google
-`Gemini 3.7 Flash` introduced 7 of its 20 benchmark names globally, while 14
-were new to Google's tracked release-page portfolio. OpenAI `GPT-5.6-Cyber`
-introduced 4 of its 5 benchmark names globally, and all 5 were new to OpenAI's
-tracked portfolio.
-
-To make this publishable, annotate major releases directly on the convergence
-line chart and add a second panel showing novelty/follower shares per release.
-The main caveat is that all mentions are unweighted: a benchmark in a large
-appendix table counts the same as a headline benchmark.
+The time series can fluctuate when portfolios are small. Similarity describes shared benchmark vocabulary and does not establish copying, provider intent, or capability. Use the release-level strategy CSV for current novelty counts rather than inferring them from the overlap chart. Annotate major releases and portfolio sizes before foregrounding the chart.
 
 ## Prototype C: Source-Author Dependency
 
-Outputs:
+Outputs: `source_author_dependency_by_provider.csv`, `release_source_author_mix.csv`, and `source_author_mix_by_provider.png`.
 
-- `source_author_dependency_by_provider.csv`
-- `release_source_author_mix.csv`
-- `source_author_mix_by_provider.png`
+Current raw-mention shares:
 
-Mention-share results:
+| Provider | Self-affiliated | Academia-sourced | Provider-created risk |
+| --- | ---: | ---: | ---: |
+| Anthropic | 20.2% | 31.9% | 25.1% |
+| Google | 13.0% | 39.9% | 13.0% |
+| OpenAI | 33.1% | 40.7% | 22.6% |
 
-- Self-affiliated frontier-lab source share:
-  - OpenAI: 29.0%
-  - Anthropic: 20.8%
-  - Google: 18.0%
-- Academia-sourced share:
-  - Google: 46.0%
-  - OpenAI: 44.2%
-  - Anthropic: 34.9%
-- Provider-created lifecycle-risk mention share:
-  - Anthropic: 28.3%
-  - OpenAI: 27.3%
-  - Google: 17.3%
-
-Interpretation: all providers still rely heavily on academic benchmarks, but a
-substantial minority of public benchmark attention now flows through
-frontier-lab-affiliated or provider-created evaluations. Anthropic's mentions
-show the largest share of other-frontier-lab-affiliated benchmark sources in
-this run.
-
-To make this persuasive, the source-author labels should get a focused audit,
-especially for composite authors and vendor-backed benchmarks. A publishable
-section could frame this as an evaluation supply-chain analysis rather than as
-a claim about benchmark quality.
+These flags are non-exclusive and inherit the taxonomy's source and affiliation annotations. Authorship does not establish benchmark control, and provider-created does not imply private. Audit composite authors and provisional lifecycle-risk labels before making evaluation-supply-chain claims.
 
 ## Generated Files
 

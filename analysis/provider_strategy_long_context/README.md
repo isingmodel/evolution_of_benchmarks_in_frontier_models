@@ -13,12 +13,12 @@ Run from the repo root:
 .venv/bin/python analysis/provider_strategy_long_context/analyze.py
 ```
 
-The current run uses local data through `2026-08-13`, resolves 582 benchmark
-mentions, and has 0 unresolved mentions.
+The current run uses local data through `2026-09-30`, resolves 791 raw benchmark
+mentions, and has 0 unresolved mentions. The weighted unit is a benchmark-bearing model-release row; a shared launch URL can supply several rows.
 
 ## Metrics
 
-Primary shares are release-normalized: each benchmark-bearing release page
+Primary shares are release-normalized: each benchmark-bearing model-release row
 contributes 1.0 total weight, divided evenly across the resolved benchmarks on
 that page. This keeps long benchmark tables from dominating the provider-period
 comparison. Raw mention counts and raw long-context shares are also written to
@@ -36,45 +36,22 @@ the CSVs.
 - Axis tables split a benchmark's weight evenly when a benchmark has multiple
   active labels within the same facet axis.
 
-## Strongest Findings
+## Current Findings
 
-The 2024 data strongly supports the descriptive part of the hypothesis.
-Google/Gemini has a much larger long-context benchmark share than OpenAI or
-Anthropic in 2024:
+Release-normalized shares through `2026-09-30`, from `provider_hypothesis_period_summary.csv`:
 
 | Provider | Period | Long-context share | Agentic share | Coding share | Multimodal share |
 | --- | --- | ---: | ---: | ---: | ---: |
 | OpenAI | 2024 | 2.4% | 12.5% | 33.9% | 27.4% |
 | Google | 2024 | 39.3% | 3.6% | 14.3% | 42.9% |
 | Anthropic | 2024 | 5.8% | 11.1% | 24.1% | 32.7% |
-| OpenAI | 2025-2026 | 21.2% | 50.8% | 44.2% | 24.2% |
-| Google | 2025-2026 | 16.6% | 55.8% | 48.3% | 27.8% |
-| Anthropic | 2025-2026 | 13.5% | 61.8% | 38.2% | 25.3% |
+| OpenAI | 2025-2026 | 15.7% | 50.1% | 40.1% | 21.4% |
+| Google | 2025-2026 | 11.0% | 62.3% | 40.3% | 21.8% |
+| Anthropic | 2025-2026 | 10.8% | 63.6% | 36.9% | 23.8% |
 
-The gap narrows after 2024 and OpenAI has the highest combined 2025-2026
-long-context share. In 2026 YTD the broad shares are 21.6% for OpenAI, 15.0%
-for Google, and 13.6% for Anthropic. The broader 2025-2026 story shifts toward
-agentic and coding showcases across all three providers.
+The Google 2024 result is a bounded case study based on two benchmark-bearing releases. `Needle In A Haystack` on Gemini 1.5 contributes 25 percentage points to Google's 39.3% broad share. The primary-only measure and current drivers are available in the period summary and `long_context_benchmark_drivers.csv`.
 
-The main 2024 Google long-context driver is `Needle In A Haystack` on Gemini
-1.5, which alone contributes 25.0% of Google's release-normalized 2024
-benchmark emphasis. Gemini 2.0 adds smaller supporting signals through `MRCR`
-and `EgoSchema`. OpenAI's 2024 long-context signal is only `EgoSchema` on
-GPT-4o, and Anthropic's is only `Needle In A Haystack` on Claude 3.
-
-In 2025-2026, Google's largest broad long-context drivers include `MRCR v2`,
-`SWE-bench Pro`, `SWE-bench verified`, `MRCR`, and `FACTS Benchmark suite`.
-OpenAI's include `SWE-bench verified`, `SWE-bench Pro`, `GDPval`,
-`GraphWalks`, and `SWE-Lancer`. Anthropic's are led by `SWE-bench verified`,
-`SWE-bench Pro`, and `SWE-bench Multilingual`. This broad operationalization
-therefore captures supporting-context work benchmarks as well as pure
-long-context retrieval.
-
-The coding/agentic transition is visible in the period summaries and drivers.
-In 2025-2026, Anthropic is the most agentic provider by benchmark-showcase
-share, driven by `SWE-bench verified`, `Terminal-bench`, `Tau-bench`, `OSWorld`,
-and `TAU-2 bench`. OpenAI also moves sharply in 2026 YTD, with high agentic and
-coding shares around SWE, terminal, OSWorld, BrowseComp, and tool-use benchmarks.
+The 2025-2026 long-context gap is smaller, and agentic/coding shares rise across providers. For 2026 YTD through September 30, broad long-context shares are 12.3% for OpenAI, 9.2% for Google, 9.1% for Anthropic. The broad measure includes supporting-context work benchmarks; it is not restricted to retrieval tests. Use the primary-only column for that stricter comparison.
 
 ## Charts And Tables
 
@@ -104,7 +81,7 @@ Google highlighted long context or whether one model was objectively better.
 Provider intent and competitive differentiation would need page prose, launch
 context, and external positioning evidence.
 
-Facet review debt is material. For `context_pressure`, 217 of 219 facet rows are
+Facet review debt is material. For `context_pressure`, 296 of 298 facet rows are
 `needs_review`; only 2 are `accepted`. Domain and headline task mode also mix
 accepted rows with legacy seeds. Treat the shares as operationalized indicators
 from the current taxonomy, not final ground truth.
@@ -114,7 +91,7 @@ The broad long-context metric includes supporting-context benchmarks such as
 retrieval tests. Use `long_context_primary_share` in the CSVs for the stricter
 view.
 
-Empty benchmark release pages are counted in `release_count` but do not
+Model-release rows without benchmarks are counted in `release_count` but do not
 contribute to the share denominator. This is intentional because the analysis is
 about the composition of named benchmark mentions when a page includes them.
 
