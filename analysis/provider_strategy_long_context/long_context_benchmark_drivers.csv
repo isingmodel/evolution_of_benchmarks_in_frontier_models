@@ -1,5 +1,6 @@
 provider,period,benchmark_id,benchmark_name,raw_mention_count,weighted_mentions,models,first_release_date,last_release_date,is_long_context_primary,is_long_context_broad,is_agentic,is_multimodal,is_coding,is_coding_or_agentic,is_coding_and_agentic,period_weight_denominator,share_of_provider_period
 OpenAI,2024,benchmark_egoschema,EgoSchema,1,0.07142857142857142,GPT-4o,2024-05-13,2024-05-13,True,True,False,True,False,False,False,3.0,0.023809523809523808
+Google,2024,benchmark_mtob_benchmark,MTOB benchmark,1,0.5,Gemini 1.5,2024-02-15,2024-02-15,True,True,False,False,False,False,False,2.0,0.25
 Google,2024,benchmark_needle_in_a_haystack,Needle In A Haystack,1,0.5,Gemini 1.5,2024-02-15,2024-02-15,True,True,False,False,False,False,False,2.0,0.25
 Google,2024,benchmark_egoschema,EgoSchema,1,0.07142857142857142,Gemini 2.0,2024-12-11,2024-12-11,True,True,False,True,False,False,False,2.0,0.03571428571428571
 Google,2024,benchmark_facts_grounding,FACTS Grounding,1,0.07142857142857142,Gemini 2.0,2024-12-11,2024-12-11,False,True,False,False,False,False,False,2.0,0.03571428571428571
@@ -31,13 +32,13 @@ Google,2025-2026,benchmark_facts_benchmark_suite,FACTS Benchmark suite,2,0.13852
 Google,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.13852813852813853,Gemini 3.0 | Gemini 3.1 Flash-Lite,2025-11-18,2026-03-03,False,True,False,True,True,True,False,14.0,0.009894867037724181
 Google,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,1,0.047619047619047616,Gemini 3.0,2025-11-18,2025-11-18,False,True,True,True,False,True,False,14.0,0.003401360544217687
 Google,2025-2026,benchmark_graphwalks,GraphWalks,1,0.045454545454545456,Gemini 4 Argon,2026-09-30,2026-09-30,True,True,True,False,False,True,False,14.0,0.003246753246753247
-Anthropic,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,8,0.8036255858836504,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,True,True,False,True,True,True,15.0,0.05357503905891003
-Anthropic,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,4,0.27427826653633103,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,True,True,False,True,True,True,15.0,0.018285217769088737
-Anthropic,2025-2026,benchmark_swe_bench_multilingual,SWE-bench Multilingual,3,0.15680018905825358,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,True,True,False,True,True,True,15.0,0.010453345937216906
-Anthropic,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,False,False,False,False,False,15.0,0.005325140809011777
-Anthropic,2025-2026,benchmark_graphwalks,GraphWalks,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,True,True,True,False,False,True,False,15.0,0.005325140809011777
-Anthropic,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,2,0.07987711213517665,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,True,True,False,True,False,15.0,0.005325140809011777
+Anthropic,2025-2026,benchmark_swe_bench_verified,SWE-bench verified,8,0.8026175213675213,Claude 3.7 Sonnet | Claude 4 | Claude 4.1 (Opus) | Claude 4.5 (Haiku) | Claude 4.5 (Opus) | Claude 4.5 (Sonnet) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-02-25,2026-04-16,False,True,True,False,True,True,True,15.0,0.05350783475783475
+Anthropic,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,4,0.273270202020202,Claude 4.7 (Opus) | Claude 4.8 (Opus) | Claude 5 (Fable/Mythos) | Claude 5 (Sonnet),2026-04-16,2026-06-30,False,True,True,False,True,True,True,15.0,0.01821801346801347
+Anthropic,2025-2026,benchmark_swe_bench_multilingual,SWE-bench Multilingual,3,0.15579212454212454,Claude 4.5 (Opus) | Claude 4.6 (Opus) | Claude 4.7 (Opus),2025-11-24,2026-04-16,False,True,True,False,True,True,True,15.0,0.010386141636141636
+Anthropic,2025-2026,benchmark_biglaw_bench,BigLaw Bench,2,0.07886904761904762,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,False,False,False,False,False,15.0,0.0052579365079365075
+Anthropic,2025-2026,benchmark_graphwalks,GraphWalks,2,0.07886904761904762,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,True,True,True,False,False,True,False,15.0,0.0052579365079365075
+Anthropic,2025-2026,benchmark_vending_bench_2,Vending-Bench 2,2,0.07886904761904762,Claude 4.6 (Opus) | Claude 4.7 (Opus),2026-02-05,2026-04-16,False,True,True,True,False,True,False,15.0,0.0052579365079365075
 Anthropic,2025-2026,benchmark_mrcr_v2,MRCR v2,1,0.047619047619047616,Claude 4.6 (Opus),2026-02-05,2026-02-05,True,True,False,False,False,False,False,15.0,0.0031746031746031746
-Anthropic,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,False,True,False,15.0,0.002150537634408602
-Anthropic,2025-2026,benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,False,True,True,True,15.0,0.002150537634408602
-Anthropic,2025-2026,benchmark_swe_bench_multimodal,SWE-bench Multimodal,1,0.03225806451612903,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,True,True,True,15.0,0.002150537634408602
+Anthropic,2025-2026,benchmark_financeagent_v1_1,FinanceAgent v1.1,1,0.03125,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,False,True,False,15.0,0.0020833333333333333
+Anthropic,2025-2026,benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,1,0.03125,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,False,True,True,True,15.0,0.0020833333333333333
+Anthropic,2025-2026,benchmark_swe_bench_multimodal,SWE-bench Multimodal,1,0.03125,Claude 4.7 (Opus),2026-04-16,2026-04-16,False,True,True,True,True,True,True,15.0,0.0020833333333333333

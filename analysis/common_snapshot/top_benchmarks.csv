@@ -3,12 +3,12 @@ MMMU / MMMU Pro,22,3,2023-12-06,2026-03-03,Academia,none
 HLE (Humanity's Last Exam),20,3,2025-03-25,2026-09-28,"Academia, Others(CAIS; Scale AI)",OpenAI; Anthropic; Google; DeepMind; Microsoft
 SWE-bench verified,18,3,2024-10-23,2026-04-16,OpenAI,OpenAI
 AIME,15,3,2024-09-12,2025-11-18,Academia,none
-GPQA Diamond,15,3,2024-10-23,2026-09-03,"Anthropic, Academia, Others(Cohere)",none
-GPQA,14,3,2024-03-04,2025-12-11,"Anthropic, Academia, Cohere",none
+GPQA Diamond,15,3,2024-10-23,2026-09-03,"Anthropic, Academia, Others(Cohere)",Anthropic
+GPQA,14,3,2024-03-04,2025-12-11,"Anthropic, Academia, Cohere",Anthropic
 MMMLU,13,3,2025-02-25,2026-04-16,OpenAI,OpenAI
 SWE-bench Pro,13,3,2025-12-11,2026-07-21,Others(Scale AI),none
 DeepSWE v1.1,12,3,2026-07-09,2026-09-30,Others(DataCurve),none
-MRCR v2,12,3,2025-12-11,2026-09-03,OpenAI,Google; DeepMind
+MRCR v2,12,3,2025-12-11,2026-09-03,needs_review,needs_review
 BrowseComp,11,3,2025-04-16,2026-09-03,OpenAI,OpenAI
 OSWorld 2.0,11,3,2026-07-09,2026-09-30,Academia,none
 MMLU / MMLU-Pro,10,3,2023-12-06,2025-04-14,Academia,none
@@ -55,7 +55,7 @@ ExploitBench,4,2,2026-06-09,2026-09-03,OpenAI,OpenAI
 GSM8K,4,2,2023-07-11,2024-06-21,OpenAI,OpenAI
 HealthBench Professional,4,2,2026-06-09,2026-09-03,OpenAI,OpenAI
 MGSM,4,2,2024-03-04,2025-01-31,"Google, Academia",Google
-MRCR,4,2,2024-12-11,2025-11-18,OpenAI,Google; DeepMind
+MRCR,4,2,2024-12-11,2025-11-18,needs_review,needs_review
 SimpleQA,4,2,2025-01-31,2025-11-18,OpenAI,OpenAI
 Video-MMMU,4,2,2025-08-07,2026-03-03,Academia,none
 Codeforces,4,1,2024-09-12,2025-04-16,Others(Codeforces platform),none
@@ -209,7 +209,7 @@ Lovable internal evals,1,1,2026-07-24,2026-07-24,Others(Lovable),none
 M3Exam,1,1,2024-05-13,2024-05-13,"Academia, Others(Alibaba etc)",none
 MATH 500,1,1,2025-02-25,2025-02-25,Academia,none
 MCQA,1,1,2023-12-06,2023-12-06,Academia,none
-MTOB benchmark,1,1,2024-02-15,2024-02-15,"Academia, Google",none
+MTOB benchmark,1,1,2024-02-15,2024-02-15,"Academia, Google",Google
 Management Consulting Tasks (Internal),1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 MathArena Apex,1,1,2025-11-18,2025-11-18,Academia,none
 Mind2Web,1,1,2026-09-03,2026-09-03,Academia,none
@@ -228,6 +228,7 @@ PowerPoint eval,1,1,2026-09-01,2026-09-01,Others(Hebbia),none
 Qodo's real-world code review benchmark,1,1,2026-04-16,2026-04-16,Others(Qodo),none
 RSI Index,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Rakuten-SWE-Bench,1,1,2026-04-16,2026-04-16,Others(Rakuten),none
+Real Toxicity Prompts,1,1,2023-12-06,2023-12-06,Others(Allen Institute for AI),none
 RedlineBench,1,1,2026-09-01,2026-09-01,Others(Crosby),none
 RiemannBench,1,1,2026-09-30,2026-09-30,Others(unknown),none
 SRE-Bench,1,1,2026-09-03,2026-09-03,Academia,none
@@ -248,6 +249,7 @@ Vending-Bench,1,1,2025-11-24,2025-11-24,Others(Andon Labs),none
 ViBench,1,1,2026-06-09,2026-06-09,Others(early-access tester),none
 Vibe Code Bench,1,1,2026-09-30,2026-09-30,"Academia, Others(Vals AI)",none
 Video-MME,1,1,2025-04-14,2025-04-14,Academia,none
+Visual-acuity benchmark,1,1,2026-04-16,2026-04-16,Others(XBOW),none
 Vulnerability Discovery and Report Writing,1,1,2026-08-10,2026-08-10,OpenAI,OpenAI
 WANDR,1,1,2026-09-22,2026-09-22,Others(Perplexity),none
 WebArena-Verified,1,1,2026-03-05,2026-03-05,"Academia, Others(ServiceNow)",none

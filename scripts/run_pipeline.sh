@@ -43,5 +43,6 @@ echo "Running full pipeline as of ${AS_OF}"
 "${PYTHON_PATH}" analysis/benchmark_taxonomy_trends/separate_axis_trends.py --as-of "${AS_OF}" --window-days 180 --strict-resolution
 "${PYTHON_PATH}" analysis/benchmark_taxonomy_trends/facet_trends.py --as-of "${AS_OF}" --window-days 180 --axes modality,interaction_pattern,context_pressure --top-labels 8 --strict-resolution
 "${PYTHON_PATH}" analysis/readme_story/analyze.py --as-of "${AS_OF}"
+"${PYTHON_PATH}" analysis/project_overview/analyze.py --as-of "${AS_OF}" --readme-path README.md
 
 "${PYTHON_PATH}" scripts/validate_data.py

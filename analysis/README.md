@@ -1,23 +1,44 @@
-# Experimental Analyses
+# Analysis Guide
 
-This directory collects exploratory analyses built on the benchmark-release data.
-The committed refresh includes releases through `2026-09-30`. Generated CSVs are the source for current numeric findings; ideation and meta-review documents also retain methodological proposals.
-Each subfolder should be reproducible from local CSVs and should preserve the core project caveat: the dataset tracks benchmark mentions on public release pages, not direct model capability.
+These analyses describe evaluations named on selected public frontier-model
+launch pages. They do not measure model capability or every evaluation used by a
+provider. The [project overview](project_overview/README.md) supplies the evidence
+for the root README; [SYNTHESIS.md](SYNTHESIS.md) explains the current priorities.
+Generated CSVs are the source for numeric findings at each selected cutoff.
 
-## Folders
+## Primary analyses
 
-- `SYNTHESIS.md`: integrated findings and recommended story structure from the exploratory analyses.
-- `benchmark_evolution/`: README-facing benchmark evolution timeline analysis.
-- `benchmark_lifecycle/`: complete canonical reporting histories, announcement-level recurrence, diffusion and provider-cadence gaps.
-- `benchmark_taxonomy_trends/`: README-facing rolling taxonomy trend and review-debt analyses.
-- `common_snapshot/`: baseline resolved mention tables and review-debt context shared by the exploratory analyses.
-- `frontier_lab_benchmark_hegemony/`: tests cross-lab benchmark adoption and frontier-lab benchmark influence.
-- `provider_strategy_long_context/`: tests provider benchmark-showcase strategies, especially Google's 2024 long-context emphasis.
-- `ideation_network_dynamics/`: new network, diffusion, and competitive-dynamics analyses.
-- `ideation_narrative_strategy/`: new narrative and release-positioning analyses.
-- `ideation_methodology_visuals/`: visualization and methodology proposals for making the project more publication-ready.
-- `meta_review/`: review notes, scoring rubrics, and presentation recommendations for the exploratory analyses.
-- `readme_story/`: generated CSV tables and the analysis script for the README story sections.
+| Folder | Purpose |
+| --- | --- |
+| [project_overview](project_overview/README.md) | Preface counts, shared-core concentration, complete-window cross-provider sightings, and strict interaction-label sensitivity |
+| [benchmark_lifecycle](benchmark_lifecycle/README.md) | Complete catalog reporting histories, source-linked announcement observations, recurrence, and provider-cadence gaps |
+| [benchmark_evolution](benchmark_evolution/README.md) | Benchmark appearance timeline |
+| [benchmark_taxonomy_trends](benchmark_taxonomy_trends/README.md) | Rolling taxonomy composition and annotation-review context |
 
-Run analysis scripts from the repository root with `.venv/bin/python`.
-Most folders use `analyze.py`; grouped analyses may use descriptive script names. See each folder README for exact commands and outputs.
+The overview and lifecycle use a provider/date/normalized-URL announcement unit,
+unioning identities across jointly announced model rows. The overview also
+retains model-row sensitivity. Empty benchmark lists remain in launch inventory
+and lifecycle opportunity counts, but contribute no benchmark-composition unit.
+
+## Exploratory and supporting analyses
+
+| Folder | Purpose and reading guidance |
+| --- | --- |
+| [common_snapshot](common_snapshot/README.md) | Shared resolved mentions and review context for the exploratory analyses |
+| [readme_story](readme_story/README.md) | Older model-row-weighted story tables, including a broad software/tool proxy; distinct from the overview's strict interaction tags |
+| [frontier_lab_benchmark_hegemony](frontier_lab_benchmark_hegemony/README.md) | Identified source-author and affiliation links; the historical folder name does not imply demonstrated hegemony |
+| [provider_strategy_long_context](provider_strategy_long_context/README.md) | Provider-period long-context case studies; check source definitions, label coverage, and small cohorts |
+| [ideation_network_dynamics](ideation_network_dynamics/README.md) | Portfolio similarity and public-mention networks; conditional cascades are not population adoption probabilities |
+| [ideation_narrative_strategy](ideation_narrative_strategy/README.md) | Exploratory framing proxies and presentation ideas |
+| [ideation_methodology_visuals](ideation_methodology_visuals/README.md) | Taxonomy views and review-priority proposals |
+| [meta_review](meta_review/README.md) | Historical qualitative reviews and editorial proposals, not current numeric evidence |
+
+Weighting differs between modules. Some exploratory outputs count raw labels
+within model rows; others divide one unit across each benchmark-bearing model
+row. These are not interchangeable with announcement counts or equal-announcement
+shares. Consult the folder methods before comparing tables.
+
+Run scripts from the repository root with `.venv/bin/python`. The
+[full pipeline](../scripts/run_pipeline.sh) regenerates committed outputs; use
+`AS_OF=YYYY-MM-DD` for a selected cutoff. Each folder documents its command and
+outputs. Taxonomy authoring and source review are separate from reproduction.

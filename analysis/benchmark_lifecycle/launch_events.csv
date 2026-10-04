@@ -4,7 +4,7 @@ launch_3f8c4d2ed7ffdccb976f,Anthropic,2023-03-14,https://www.anthropic.com/news/
 launch_63d2a703b68189ddfeb2,OpenAI,2023-03-14,https://openai.com/ko-KR/index/gpt-4,GPT-4,1,2,True
 launch_a836d35f9e4f815db822,Anthropic,2023-07-11,https://www.anthropic.com/news/claude-2,Claude 2,1,4,True
 launch_d2fea6c27d6ef7c0b6f4,Anthropic,2023-11-21,https://www.anthropic.com/news/claude-2-1,Claude 2.1,1,0,False
-launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1,18,True
+launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1,19,True
 launch_0bdf5ecbb5b8b919fd09,Google,2024-02-15,https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024,Gemini 1.5,1,2,True
 launch_e83b3015e3f44246b04d,Anthropic,2024-03-04,https://www.anthropic.com/news/claude-3-family,Claude 3,1,16,True
 launch_c7ded5d58602e92e32c8,OpenAI,2024-05-13,https://openai.com/ko-KR/index/hello-gpt-4o,GPT-4o,1,14,True
@@ -33,7 +33,7 @@ launch_217c4a46c70956cacb29,OpenAI,2026-02-05,https://openai.com/ko-KR/index/int
 launch_15ef287332a896474915,Google,2026-02-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro,Gemini 3.1 Pro,1,16,True
 launch_bdbb43fbd3219cf63994,Google,2026-03-03,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite,Gemini 3.1 Flash-Lite,1,11,True
 launch_f2e87f0537570e1928b4,OpenAI,2026-03-05,https://openai.com/index/introducing-gpt-5-4,GPT-5.4,1,26,True
-launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1,30,True
+launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1,31,True
 launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1,34,True
 launch_86c46e1e045d95f6ccd0,Google,2026-05-19,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5,Gemini 3.5 Flash,1,14,True
 launch_83c5a671bd7d22df28a9,Anthropic,2026-05-28,https://www.anthropic.com/news/claude-opus-4-8,Claude 4.8 (Opus),1,11,True

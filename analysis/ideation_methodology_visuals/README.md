@@ -1,95 +1,95 @@
-# Ideation: Methodology Visuals and Creative Analyses
+# Methodology Visuals and Creative Analyses
 
-This folder prototypes additional analysis ideas for the benchmark-evolution project. The project studies benchmark mentions on public frontier-model release pages: it is about provider framing and benchmark selection, not direct model capability.
-
-Generated with:
+This folder prototypes ways to display benchmark reporting, multifacet
+classification, and review priorities. It uses local inputs and exact canonical
+resolution. These views do not measure model capability, benchmark quality,
+provider intent, or actual page prominence.
 
 ```bash
-.venv/bin/python analysis/ideation_methodology_visuals/analyze.py
+.venv/bin/python analysis/ideation_methodology_visuals/analyze.py --as-of 2026-09-30
 ```
 
-The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `data/benchmarks.csv` plus `data/benchmark_aliases.csv`. It does not fuzzy match mentions.
+The [project overview](../project_overview/README.md) and
+[complete lifecycle analysis](../benchmark_lifecycle/README.md) are the primary
+current analyses. This folder preserves supporting prototypes.
 
-## Prototype Outputs
+## Outputs and methods
 
 | Output | Purpose |
 | --- | --- |
-| `provider_strategy_fingerprints.png` / `.csv` | Recent provider-by-facet heatmaps for strategy contrast. |
-| `domain_interaction_alluvial.png` / `domain_interaction_flow.csv` | Alluvial flow from domain facets to interaction-pattern facets. |
-| `review_leverage_benchmarks.png` / `.csv` | Prioritized uncertainty view: which high-impact mentioned benchmarks have unaccepted facet rows. |
-| `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
-| `summary_stats.csv` | Reproducibility stats for the local data run. |
+| [summary_stats.csv](summary_stats.csv) | Run counts, cutoff, and annotation-review inventory |
+| [provider_strategy_fingerprints.csv](provider_strategy_fingerprints.csv) and corresponding PNG | Recent provider-by-facet reporting composition |
+| [domain_interaction_flow.csv](domain_interaction_flow.csv) and `domain_interaction_alluvial.png` | Domain/interaction co-classification, with fractional weights and accepted-pair coverage |
+| [review_leverage_benchmarks.csv](review_leverage_benchmarks.csv) and corresponding PNG | Recent reporting weight combined with nonaccepted facet-row share |
+| [benchmark_lifecycle_table.csv](benchmark_lifecycle_table.csv) | Exploratory first/last-sighting and reporting-count seed table |
 
-Local run summary through `2026-09-30`: 791 resolved raw mentions, 284 used canonical benchmarks, and 55 benchmark-bearing model rows. The facet frame has 3,953 `needs_review`, 60 `legacy_seed`, and 29 `accepted` rows out of 4,042. See `summary_stats.csv` for the current reproducibility record.
+Read generated tables for current values and rankings. Copied summaries become
+stale when source omissions, aliases, or classifications are corrected.
 
-## What The Prototypes Show
+### Provider fingerprints
 
-### Provider Strategy Fingerprints
+Each benchmark-bearing model row receives one total weight divided across raw
+resolved occurrences. Joint model announcements can therefore contribute several
+units. Each axis splits a mention's weight across its labels. The recent window
+runs inclusively from the analysis endpoint minus 365 days through that endpoint;
+the CSV exposes each provider's axis-weight denominator.
 
-`provider_strategy_fingerprints.png` uses the latest 365-day window, 2025-09-30 through 2026-09-30. Each model release receives equal total weight; multi-label facet axes split a benchmark mention equally across labels.
+Compare headline projections, domains, and interaction patterns separately.
+Coverage can differ across axes, and nondeprecated provisional labels remain
+included. These are reporting-composition fingerprints, not stable provider
+identities or evidence of strategy. Show sample sizes and label-review coverage
+beside any presentation.
 
-Current values are in `provider_strategy_fingerprints.csv`. Each provider's `axis_weight_total` exposes the recent model-row denominator. Compare headline projection, domain, and interaction axes separately; differences inherit facet review uncertainty and do not establish provider intent.
+For announcement weighting and confidence-versus-acceptance sensitivity, use
+[interaction_trends.csv](../project_overview/interaction_trends.csv) and
+[provider_interaction_trends.csv](../project_overview/provider_interaction_trends.csv).
+The overview's strict interaction flag is distinct from the broader
+[software/tool proxy](../readme_story/README.md).
 
-Recommendation: use a compact provider-framing panel after the global trend charts, with sample counts and review coverage visible.
+### Domain/interaction co-classification
 
-### Domain-To-Interaction Alluvial
+The alluvial joins domain labels with interaction labels for the same mentioned
+benchmark, splitting weight across label pairs. Its ribbons represent
+co-classification, not temporal movement, task execution, or a transition from
+one benchmark identity to another. A compact matrix can convey the same evidence
+without implying a flow over time.
 
-`domain_interaction_alluvial.png` shows how multi-facet annotations prevent overclaiming. Instead of saying a benchmark "is" agentic, the chart asks which domains are being projected into which interaction patterns.
+### Review leverage
 
-Current domain/interaction shares and accepted-pair coverage are in `domain_interaction_flow.csv`. This is a co-classification view, not temporal movement.
+Review leverage multiplies recent model-normalized reporting weight by the share
+of active facet rows lacking acceptance. This is a prioritization proxy, not a
+calibrated uncertainty estimate or benchmark-quality score. Its denominator mixes
+facet axes; missing annotations and axis-specific coverage require separate
+inspection. Catalog identity approval does not establish facet approval.
 
-Recommendation: use the figure or a compact matrix to show that headline categories are projections over a multi-facet table, rather than exclusive benchmark identities.
+Read [review_leverage_benchmarks.csv](review_leverage_benchmarks.csv) for current
+targets, and the overview's
+[interaction classifications](../project_overview/interaction_classification.csv)
+for explicit missing-versus-retained labels.
 
-### Review Leverage
+### Reporting-history seed
 
-`review_leverage_benchmarks.png` ranks benchmarks by recent model-normalized mention weight multiplied by the share of active facet rows that are not `accepted`.
+The older seed table does not replace the
+[source-linked lifecycle report](../benchmark_lifecycle/report.md), which retains
+the full catalog, announcement identity, same-day ties, and provider-specific
+follow-up opportunities. Reporting spans and gaps do not prove retirement or
+saturation.
 
-Top current review targets from `review_leverage_benchmarks.csv`:
+## Further visualization ideas
 
-- `HLE (Humanity's Last Exam)`
-- `SWE-bench Pro`
-- `CyberGym`
-- `DeepSWE v1.1`
-- `OSWorld-Verified`
-- `SWE-bench verified`
-- `Terminal-Bench 2.1`
-- `MRCR v2`
+- Use small multiples for provider-level changes, alongside cohort and annotation
+  coverage counts.
+- Compare all-active, confidence-selected, and accepted labels without treating
+  ratings as probabilities.
+- Show benchmark-family and version lineage after identity review, rather than
+  infer family continuity from similar names.
+- Build co-mention matrices with controls for long lists and jointly announced
+  variants; named suites and components need not be independent tests.
+- Display source-author and affiliation links only after attribution review,
+  distinguishing unresolved metadata from identified non-frontier affiliations.
+- Add source-linked mention prominence before describing influence or foregrounding.
 
-Recommendation: include this near the methodology caveats as a review roadmap. Review leverage measures current mention weight and unaccepted facet share, not benchmark quality.
-
-## Idea Catalog
-
-1. **Domain-to-interaction alluvial**: flow from `domain` to `interaction_pattern`, weighted by release-page mentions. This makes projection vs identity tangible.
-2. **Provider strategy fingerprints**: heatmap rows for providers and columns for selected facet labels, with a recent-window toggle.
-3. **Review leverage Pareto**: rank benchmarks by current influence times unaccepted facet share.
-4. **Benchmark lifecycle map**: x-axis first mention, y-axis provider spread or mentions per active month, bubble size by raw mentions, color by source author or lifecycle risk.
-5. **Source-author influence map**: track whether public release pages foreground academia, OpenAI, Google, Anthropic, Scale AI, Artificial Analysis, or other benchmark authors.
-6. **Benchmark family diffusion**: group variants such as SWE-bench, Terminal-Bench, BrowseComp, ARC-AGI, MMMU, MMLU, and GPQA; show how families split into variants over time.
-7. **Novelty and churn index**: per release, show share of first-time benchmark mentions, returning mentions, and deprecated/no-longer-mentioned benchmarks.
-8. **Provider contrast small multiples**: rolling facet shares per provider, not just global rolling trends.
-9. **Timeline annotation layer**: annotate releases where the public framing shifts: long context surge, multimodal plateau, coding-agent expansion, professional-task benchmarks.
-10. **Projection sensitivity bands**: plot headline trends under three inclusion rules: all active facets, accepted-only facets, and high-confidence facets. This would show how much the story depends on review debt.
-11. **Internal/private benchmark exposure index**: track `private_or_opaque_eval`, internal benchmark naming, and provider-created benchmark mentions over time.
-12. **Co-mention network**: connect benchmarks that appear on the same release page; cluster into "reasoning suite", "coding-agent suite", "multimodal suite", and "professional workflow suite".
-
-## Recommended Dashboard Story
-
-1. **Scope note**: release-page benchmark mentions are provider-framing signals, not capability measurements.
-2. **Global timeline**: keep the existing evolution timeline to orient the reader.
-3. **Headline growth chart**: keep the readable projection, but label it explicitly as a projection.
-4. **Multi-facet correction**: add the domain-to-interaction alluvial to show how benchmark identity is multi-dimensional.
-5. **Provider strategy**: add provider strategy fingerprints for the most recent 365-day period.
-6. **Lifecycle/adoption**: convert `benchmark_lifecycle_table.csv` into a bubble lifecycle map; annotate fast diffusers such as MMMLU, HLE, TAU-2 bench, Terminal-Bench 2.0, Scale MCP-Atlas, MRCR v2, and SWE-bench Pro.
-7. **Source influence**: add source-author influence or provider-created benchmark share to support the "battle for hegemony" thesis.
-8. **Uncertainty and review debt**: end with review leverage plus the existing review debt chart, so caveats are not hidden in prose.
-9. **Method appendix**: document exact resolution, equal-release weighting, multi-label fractional allocation, and accepted-only sensitivity views.
-
-## Caveats
-
-- The prototypes are local-data only; no web lookup was used.
-- The charts analyze public release-page mentions, not benchmark scores, model capability, or scientific validity.
-- A model release with more benchmark mentions is normalized to the same total weight as another release with fewer mentions.
-- Facet labels are fractional when a benchmark has multiple labels on the same axis.
-- The latest-window charts use 365 days ending on 2026-09-30.
-- Many facet rows are still `needs_review`; publication charts should offer accepted-only or uncertainty-aware variants.
-- Source-author labels and lifecycle-risk labels inherit the current local taxonomy and should be audited before strong claims.
+These are proposals, not additional findings. The
+[current synthesis](../SYNTHESIS.md) explains which evidence leads the preface;
+the [meta-review archive](../meta_review/README.md) preserves earlier editorial
+judgments.

@@ -13,8 +13,10 @@ Run from the repo root:
 .venv/bin/python analysis/provider_strategy_long_context/analyze.py
 ```
 
-The current run uses local data through `2026-09-30`, resolves 791 raw benchmark
-mentions, and has 0 unresolved mentions. The weighted unit is a benchmark-bearing model-release row; a shared launch URL can supply several rows.
+The current scope uses local data through `2026-09-30`. Current resolved and
+unresolved inventory counts are in the generated outputs. The weighted unit is
+a benchmark-bearing model-release row; a shared launch URL can supply several
+rows.
 
 ## Metrics
 
@@ -36,26 +38,26 @@ the CSVs.
 - Axis tables split a benchmark's weight evenly when a benchmark has multiple
   active labels within the same facet axis.
 
-## Current Findings
+## Reading Current Results
 
-Release-normalized shares through `2026-09-30`, from `provider_hypothesis_period_summary.csv`:
+Use [provider_hypothesis_period_summary.csv](provider_hypothesis_period_summary.csv)
+for the release-normalized 2024 versus 2025–2026 comparison, and
+[provider_period_summary.csv](provider_period_summary.csv) for non-overlapping
+periods. Each table reports both primary-only and broader long-context shares.
+The broad measure includes supporting-context work benchmarks; it is not
+restricted to retrieval tests.
 
-| Provider | Period | Long-context share | Agentic share | Coding share | Multimodal share |
-| --- | --- | ---: | ---: | ---: | ---: |
-| OpenAI | 2024 | 2.4% | 12.5% | 33.9% | 27.4% |
-| Google | 2024 | 39.3% | 3.6% | 14.3% | 42.9% |
-| Anthropic | 2024 | 5.8% | 11.1% | 24.1% | 32.7% |
-| OpenAI | 2025-2026 | 15.7% | 50.1% | 40.1% | 21.4% |
-| Google | 2025-2026 | 11.0% | 62.3% | 40.3% | 21.8% |
-| Anthropic | 2025-2026 | 10.8% | 63.6% | 36.9% | 23.8% |
-
-The Google 2024 result is a bounded case study based on two benchmark-bearing releases. `Needle In A Haystack` on Gemini 1.5 contributes 25 percentage points to Google's 39.3% broad share. The primary-only measure and current drivers are available in the period summary and `long_context_benchmark_drivers.csv`.
-
-The 2025-2026 long-context gap is smaller, and agentic/coding shares rise across providers. For 2026 YTD through September 30, broad long-context shares are 12.3% for OpenAI, 9.2% for Google, 9.1% for Anthropic. The broad measure includes supporting-context work benchmarks; it is not restricted to retrieval tests. Use the primary-only column for that stricter comparison.
+Google's 2024 sample has only two benchmark-bearing model-release rows, so it
+supports a limited case study. The Gemini 1.5 row contains just Needle In A
+Haystack and MTOB. The October source audit corrected MTOB from an erroneous
+image-generation classification to text translation from a long grammar-manual
+prompt. Both names therefore matter to that row's context share. Use the
+regenerated [long-context drivers](long_context_benchmark_drivers.csv) to inspect
+their contributions rather than reusing the previous snapshot's percentages.
 
 ## Charts And Tables
 
-![Long-context benchmark emphasis by provider](provider_long_context_share.png)
+![Long-context benchmark share by provider](provider_long_context_share.png)
 
 ![Provider showcase strategy heatmap](provider_strategy_heatmap.png)
 
@@ -81,10 +83,11 @@ Google highlighted long context or whether one model was objectively better.
 Provider intent and competitive differentiation would need page prose, launch
 context, and external positioning evidence.
 
-Facet review debt is material. For `context_pressure`, 296 of 298 facet rows are
-`needs_review`; only 2 are `accepted`. Domain and headline task mode also mix
-accepted rows with legacy seeds. Treat the shares as operationalized indicators
-from the current taxonomy, not final ground truth.
+Facet review debt is material. Check the current
+[review-status summary](facet_review_status_summary.csv) for accepted,
+provisional and legacy annotations. Domain and headline task mode also mix
+reviewed facets with legacy seeds. Treat the shares as operationalized
+indicators from the current taxonomy, not final ground truth.
 
 The broad long-context metric includes supporting-context benchmarks such as
 `EgoSchema`, `FACTS Benchmark suite`, and `GDPval`, not only pure long-context

@@ -1,9 +1,9 @@
 provider,facet_axis,facet_label,weighted_mentions,axis_weight_total,share_of_provider_axis
 Anthropic,benchmark_lifecycle_risk,none_identified,4.23498532427325,12.0,0.3529154436894375
-Anthropic,benchmark_lifecycle_risk,construct_validity_risk,1.8818463901292475,12.0,0.15682053251077063
-Anthropic,benchmark_lifecycle_risk,contamination_risk,1.7492360483735445,12.0,0.14576967069779537
-Anthropic,benchmark_lifecycle_risk,provider_created_benchmark,1.4593665776485611,12.0,0.12161388147071343
-Anthropic,benchmark_lifecycle_risk,private_or_opaque_eval,0.7565892860020493,12.0,0.06304910716683744
+Anthropic,benchmark_lifecycle_risk,construct_validity_risk,1.8739498847529032,12.0,0.15616249039607527
+Anthropic,benchmark_lifecycle_risk,contamination_risk,1.7442797311692435,12.0,0.14535664426410363
+Anthropic,benchmark_lifecycle_risk,provider_created_benchmark,1.4555863357130772,12.0,0.12129886130942309
+Anthropic,benchmark_lifecycle_risk,private_or_opaque_eval,0.7831349849267806,12.0,0.06526124874389838
 Google,benchmark_lifecycle_risk,none_identified,6.1237525632262475,13.0,0.4710578894789421
 Google,benchmark_lifecycle_risk,construct_validity_risk,1.756397148173464,13.0,0.1351074729364203
 Google,benchmark_lifecycle_risk,contamination_risk,1.6146222563985722,13.0,0.1242017120306594
@@ -14,11 +14,11 @@ OpenAI,benchmark_lifecycle_risk,none_identified,2.4055356408297586,10.0,0.240553
 OpenAI,benchmark_lifecycle_risk,construct_validity_risk,1.1359387344681462,10.0,0.11359387344681462
 OpenAI,benchmark_lifecycle_risk,provider_created_benchmark,1.0107223658694247,10.0,0.10107223658694246
 OpenAI,benchmark_lifecycle_risk,contamination_risk,0.9390693456869927,10.0,0.09390693456869928
-Anthropic,context_pressure,none,5.509510462960478,12.0,0.4591258719133731
-Anthropic,context_pressure,medium,3.133887836920894,12.0,0.26115731974340783
-Anthropic,context_pressure,short,2.1808454312978434,12.0,0.18173711927482028
-Anthropic,context_pressure,long_context_supporting,1.0482601090665606,12.0,0.08735500908888005
-Anthropic,context_pressure,long_context_primary,0.12749615975422426,12.0,0.010624679979518688
+Anthropic,context_pressure,none,5.539752398444349,12.0,0.46164603320369574
+Anthropic,context_pressure,medium,3.1177588046628295,12.0,0.25981323372190246
+Anthropic,context_pressure,short,2.174797044201069,12.0,0.18123308701675575
+Anthropic,context_pressure,long_context_supporting,1.0412036574536574,12.0,0.08676697145447144
+Anthropic,context_pressure,long_context_primary,0.12648809523809523,12.0,0.010540674603174602
 Google,context_pressure,none,7.496400091136933,13.0,0.5766461608566872
 Google,context_pressure,medium,2.2980120756436544,13.0,0.17677015966489648
 Google,context_pressure,short,1.9382177033492822,13.0,0.14909366948840633
@@ -29,12 +29,12 @@ OpenAI,context_pressure,medium,1.838111398405516,10.0,0.18381113984055159
 OpenAI,context_pressure,short,1.0176578323637147,10.0,0.10176578323637146
 OpenAI,context_pressure,long_context_supporting,0.9524294333117862,10.0,0.09524294333117862
 OpenAI,context_pressure,long_context_primary,0.3865869424692954,10.0,0.03865869424692954
-Anthropic,domain,Coding/Engineering,3.2373539703654055,12.0,0.26977949753045044
-Anthropic,domain,General/Commonsense,2.900602707276781,12.0,0.24171689227306506
-Anthropic,domain,Other Specialized,2.6451247265104,12.0,0.22042706054253333
-Anthropic,domain,STEM/Math,0.8694898812021302,12.0,0.07245749010017752
-Anthropic,domain,Bio/Medicine,0.7175352714012206,12.0,0.05979460595010172
-Anthropic,domain,Visual/Document,0.5262171997351015,12.0,0.04385143331125846
+Anthropic,domain,Coding/Engineering,3.2272397230535774,12.0,0.2689366435877981
+Anthropic,domain,General/Commonsense,2.9264763631907593,12.0,0.2438730302658966
+Anthropic,domain,Other Specialized,2.6393787587684647,12.0,0.21994822989737206
+Anthropic,domain,STEM/Math,0.8671041285139582,12.0,0.07225867737616319
+Anthropic,domain,Bio/Medicine,0.7161575832291777,12.0,0.05967979860243147
+Anthropic,domain,Visual/Document,0.5236634362942413,12.0,0.04363861969118677
 Google,domain,General/Commonsense,3.89523192450824,13.0,0.2996332249621723
 Google,domain,Coding/Engineering,3.74343671679198,13.0,0.28795667052246
 Google,domain,Other Specialized,2.790290356573251,13.0,0.21463771973640394
@@ -47,11 +47,11 @@ OpenAI,domain,Other Specialized,1.078338720103426,10.0,0.1078338720103426
 OpenAI,domain,STEM/Math,0.7341183652948359,10.0,0.07341183652948359
 OpenAI,domain,Visual/Document,0.31922125260360557,10.0,0.031922125260360555
 OpenAI,domain,Bio/Medicine,0.286413488472312,10.0,0.028641348847231202
-Anthropic,headline_task_mode,Agentic,8.346210948521945,12.0,0.6955175790434954
-Anthropic,headline_task_mode,Generative Reasoning,1.3812106617929047,12.0,0.11510088848274207
-Anthropic,headline_task_mode,Multimodal Perception,1.3427169342414524,12.0,0.11189307785345437
-Anthropic,headline_task_mode,Constraint Satisfaction,0.7497337167421059,12.0,0.062477809728508825
-Anthropic,headline_task_mode,Knowledge Retrieval,0.18012773870159268,12.0,0.01501064489179939
+Anthropic,headline_task_mode,Agentic,8.325041593683235,12.0,0.6937534661402696
+Anthropic,headline_task_mode,Generative Reasoning,1.3781864682445177,12.0,0.11484887235370982
+Anthropic,headline_task_mode,Multimodal Perception,1.3699346761769362,12.0,0.11416122301474468
+Anthropic,headline_task_mode,Constraint Satisfaction,0.7477175877098478,12.0,0.062309798975820646
+Anthropic,headline_task_mode,Knowledge Retrieval,0.17911967418546365,12.0,0.014926639515455304
 Google,headline_task_mode,Agentic,8.478485987696514,13.0,0.6521912298228087
 Google,headline_task_mode,Multimodal Perception,2.017791638186375,13.0,0.15521474139895194
 Google,headline_task_mode,Generative Reasoning,1.4455371383002962,13.0,0.11119516448463816
@@ -62,12 +62,12 @@ OpenAI,headline_task_mode,Constraint Satisfaction,1.6983927836869013,10.0,0.1698
 OpenAI,headline_task_mode,Multimodal Perception,0.9000969618616678,10.0,0.09000969618616678
 OpenAI,headline_task_mode,Generative Reasoning,0.8668713639301875,10.0,0.08668713639301875
 OpenAI,headline_task_mode,Knowledge Retrieval,0.6922146480970011,10.0,0.06922146480970011
-Anthropic,interaction_pattern,environment_interaction,4.294072130782283,12.0,0.35783934423185687
-Anthropic,interaction_pattern,static_prompt_response,3.7676306937067947,12.0,0.31396922447556624
-Anthropic,interaction_pattern,multi_step_planning,1.5016604996689635,12.0,0.12513837497241362
-Anthropic,interaction_pattern,terminal_or_codebase_interaction,1.2165516007225534,12.0,0.10137930006021278
-Anthropic,interaction_pattern,computer_control,0.49546065030822345,12.0,0.04128838752568529
-Anthropic,interaction_pattern,browser_or_web_interaction,0.41562055532344155,12.0,0.03463504627695346
+Anthropic,interaction_pattern,environment_interaction,4.288023743685509,12.0,0.35733531197379237
+Anthropic,interaction_pattern,static_prompt_response,3.7872879517713107,12.0,0.3156073293142759
+Anthropic,interaction_pattern,multi_step_planning,1.4946040480560605,12.0,0.12455033733800504
+Anthropic,interaction_pattern,terminal_or_codebase_interaction,1.2128553641634137,12.0,0.10107128034695113
+Anthropic,interaction_pattern,computer_control,0.4947046019211267,12.0,0.04122538349342723
+Anthropic,interaction_pattern,browser_or_web_interaction,0.414108458549248,12.0,0.03450903821243733
 Google,interaction_pattern,environment_interaction,5.10422149122807,13.0,0.39263242240215923
 Google,interaction_pattern,static_prompt_response,4.747046119085593,13.0,0.36515739377581485
 Google,interaction_pattern,terminal_or_codebase_interaction,1.538697358927622,13.0,0.11836133530212477

@@ -1,96 +1,106 @@
-# Network, Diffusion, and Competitive Dynamics Ideation
+# Network and Reporting Dynamics Prototypes
 
-This folder prototypes analyses over benchmark mentions on public frontier model
-release pages. The unit of observation is a public mention/adoption signal, not
-a direct measurement of model capability.
-
-Run from the repository root:
+This folder explores shared benchmark vocabulary, repeated names, portfolio
+overlap, and source-author links on public frontier-model launch pages. The
+observation is a recorded mention, not proof of internal use, true adoption,
+provider influence, or model capability.
 
 ```bash
-.venv/bin/python analysis/ideation_network_dynamics/analyze.py
+.venv/bin/python analysis/ideation_network_dynamics/analyze.py --as-of 2026-09-30
 ```
 
-The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` for exact
-canonical names plus explicit aliases. It does not fuzzy match benchmark names.
-Latest local release date in this run: `2026-09-30`.
+Resolution uses exact canonical names and explicit aliases. This module retains
+raw occurrences within model rows. Joint announcements and repeated aliases can
+therefore contribute multiple observations. Set-based portfolio similarity uses
+distinct canonical identities, while raw-count outputs retain those repetitions.
 
-## Ideation Catalog
+Use generated tables for the selected run's counts and rankings. The
+[project overview](../project_overview/README.md) supplies canonical
+announcement-level concentration and complete-window cross-provider estimates;
+the [lifecycle report](../benchmark_lifecycle/report.md) supplies full reporting
+histories and provider opportunity counts.
 
-| Idea | Core question | Persuasive evidence | Current data gaps | Publishable chart or section |
-|---|---|---|---|---|
-| Benchmark import/export ledger | Which providers first surface benchmarks, and which later import them? | Clear first-provider ordering, cross-provider adoption lags, role balance by provider. | Public pages may omit quiet internal eval use; benchmark creation dates are absent. | Provider import/export bar chart plus case-study table of exported benchmarks. |
-| Adoption cascade speed | Which benchmarks become shared competitive currency fastest? | Days from first mention to second and third provider, split by benchmark family/facet. | Only three providers; same-day releases are coarse at daily resolution. | Lollipop chart of cascade lag, colored by task mode or source author. |
-| Attention half-life | Do benchmarks get most public attention immediately or after long diffusion? | Time from first mention to 50% of observed mentions and active-span days. | Right-censoring for recent benchmarks; release cadence differs by provider. | Scatter of active span vs time-to-half-attention with labels for outliers. |
-| Strategic convergence clock | Are providers' benchmark portfolios getting more similar? | Pairwise cumulative Jaccard over time, with release annotations for big jumps. | Jaccard treats all mentions equally and ignores benchmark prominence on pages. | Time-series panel of provider-pair similarity. |
-| Differentiation releases | Which releases introduce novel public eval framing instead of repeating consensus benchmarks? | Per-release share of globally new, new-to-provider, self-repeat, and already-other-provider benchmarks. | No weighting by page placement, table size, or headline emphasis. | Release scatter: novelty share vs follower share, sized by benchmark count. |
-| Co-mention communities | Which benchmarks travel together as bundles on release pages? | Weighted co-occurrence network from same-release benchmark sets. | Large release tables create dense cliques; needs thresholding or backbone extraction. | Network map or clustered matrix of benchmark bundles. |
-| Benchmark bridges | Which benchmarks connect otherwise distinct evaluation communities? | High weighted degree or betweenness in the co-mention graph. | Robust betweenness needs a richer graph and possibly more providers/releases. | "Bridge benchmark" ranked table with neighboring communities. |
-| Source-author dependency | How much public eval attention depends on academia, independent vendors, or frontier-lab-authored benchmarks? | Mention shares by source group and provider, plus provider-created lifecycle-risk flags. | Authorship labels need periodic review; affiliation does not equal control. | Stacked source-author mix bars and a section on evaluation supply chains. |
-| Cross-provider follower graph | Whose benchmark vocabulary does each provider appear to follow? | For each imported benchmark, edge from prior provider(s) to adopting provider weighted by lag. | Multiple first movers and common academic benchmarks complicate causal claims. | Directed provider graph with edge labels for median lag. |
-| Facet-specific contagion | Do agentic, coding, multimodal, or long-context benchmarks diffuse at different rates? | Cascade-lag distributions by `legacy_task_mode`, domain, or v3 facets. | Some facets are still `needs_review`; sparse counts in newer categories. | Small multiples of cascade lag by facet. |
-| Version/alias drift | Are providers converging on canonical benchmark versions or using variant names strategically? | Raw variant count per canonical benchmark and provider/date paths. | Alias table intentionally exact; unlisted variants remain unresolved until curated. | Timeline of canonical benchmark name variants. |
-| Evaluation supply-chain concentration | Is attention concentrating around a few benchmark authors or vendors? | Herfindahl/entropy over source authors by year/provider. | Source-author names mix institutions and composite collaborations. | Stacked area or entropy trend by source group. |
+## Cascades and first/later reporting roles
 
-## Prototype A: Cascades and First-Mover Roles
+| Output | Purpose |
+| --- | --- |
+| [normalized_mentions.csv](normalized_mentions.csv) | Resolved raw occurrences and source metadata |
+| [cascade_metrics.csv](cascade_metrics.csv) | First/last sightings, provider reach, and later-provider lags |
+| [adoption_events.csv](adoption_events.csv) | Per-provider first reporting dates; historical field name retained |
+| [provider_diffusion_roles.csv](provider_diffusion_roles.csv) | First/later-reporting role counts |
+| [release_strategy_metrics.csv](release_strategy_metrics.csv) | New-to-sample, new-to-provider, reused, and previously elsewhere names |
+| `provider_role_balance.png` | Role-count visualization |
 
-Outputs: `normalized_mentions.csv`, `cascade_metrics.csv`, `adoption_events.csv`, `provider_diffusion_roles.csv`, `provider_role_balance.png`, and `release_strategy_metrics.csv`.
+The historical “originated,” “imported,” and “exported” terms describe ordering in
+this selected sample, not creation, copying, causal diffusion, or private use.
+First tracked reporting need not be the first public use of a benchmark.
 
-The refreshed local outputs resolve 791 raw mentions to 284 canonical benchmarks. They identify 74 cross-provider cascades and 210 single-provider benchmarks.
+The prototype's later-provider lag looks for a provider outside the group tied
+on the earliest date. If several providers first report on that day, they belong
+to the first group; they are not a sequential chain. This differs from the
+overview's second-provider lag, where a simultaneous second provider has lag zero.
+Within-day ordering is unknown.
 
-Fastest observed second-provider mentions:
+Fastest-case rankings select successful observed sharing. Recent benchmarks have
+less follow-up, and provider launch cadence differs. For estimates retaining
+provider-specific identities, use
+[diffusion_horizons.csv](../project_overview/diffusion_horizons.csv): each horizon
+admits its own complete calendar cohort. A calendar window still need not contain
+an opportunity from another provider.
 
-| Benchmark path | Days |
-| --- | ---: |
-| Terminal-Bench 4.0: Anthropic -> Google | 1 |
-| MMMLU: Anthropic -> OpenAI | 2 |
-| Terminal-Bench Science 0.1: Anthropic -> OpenAI | 2 |
-| Terminal-Bench 2.0: Google -> Anthropic | 6 |
-| OfficeQA Pro: Anthropic -> OpenAI | 7 |
+The prototype's time-to-half-of-observed-mentions and first/last span are summaries
+of the recorded sample. They are not attention decay, complete lifetimes,
+retirement, or saturation measures. Prefer provider-specific lifecycle gaps when
+asking how many later tracked launches omitted a benchmark.
 
-These are first tracked public mentions, not benchmark creation or private adoption dates. Use `provider_diffusion_roles.csv` for current provider role counts and `release_strategy_metrics.csv` for novelty and reuse. Pair any diffusion claim with source-page evidence and benchmark publication dates.
+## Portfolio similarity
 
-## Prototype B: Portfolio Similarity and Strategic Convergence
+[provider_similarity_timeseries.csv](provider_similarity_timeseries.csv),
+[provider_similarity_latest.csv](provider_similarity_latest.csv), and
+`portfolio_similarity_over_time.png` describe cumulative pairwise Jaccard overlap.
 
-Outputs: `provider_similarity_timeseries.csv`, `provider_similarity_latest.csv`, `portfolio_similarity_over_time.png`, and `release_strategy_metrics.csv`.
+Similarity compares sets of named identities, without weighting scores,
+prominence, or evaluation quality. Early portfolios can be small, and later
+cumulative sets retain old identities. Changes need not represent current
+provider convergence or copying. Inspect portfolio sizes and source coverage
+alongside the time series.
 
-Cumulative portfolio overlap at `2026-09-30`:
+Versions remain separate where the catalog distinguishes them; historical
+combined identities also remain. Family-level similarity requires explicit
+lineage decisions before regrouping.
 
-| Provider pair | Jaccard similarity |
-| --- | ---: |
-| Anthropic - Google | 0.249 |
-| Anthropic - OpenAI | 0.233 |
-| Google - OpenAI | 0.221 |
+## Source-author composition
 
-The time series can fluctuate when portfolios are small. Similarity describes shared benchmark vocabulary and does not establish copying, provider intent, or capability. Use the release-level strategy CSV for current novelty counts rather than inferring them from the overlap chart. Annotate major releases and portfolio sizes before foregrounding the chart.
+[source_author_dependency_by_provider.csv](source_author_dependency_by_provider.csv),
+[release_source_author_mix.csv](release_source_author_mix.csv), and
+`source_author_mix_by_provider.png` summarize raw-mention source groups and
+affiliation/risk flags.
 
-## Prototype C: Source-Author Dependency
+Flags can overlap. Authorship and author affiliation do not establish control or
+influence; provider-created does not imply private. When no known lab link is
+identified, unresolved source or affiliation metadata uses an `Unknown` grouping
+rather than assigning an institution by guess. Unknown mentions remain in full
+denominators, so identified link shares are not total-influence estimates.
 
-Outputs: `source_author_dependency_by_provider.csv`, `release_source_author_mix.csv`, and `source_author_mix_by_provider.png`.
+Review composite authors, MRCR implementation lineage, and provisional
+lifecycle-risk labels before interpreting these outputs. See the
+[attribution methods](../frontier_lab_benchmark_hegemony/README.md) and
+[preface audit](../../docs/readme_data_audit_2026_10_04.md).
 
-Current raw-mention shares:
+## Additional research ideas
 
-| Provider | Self-affiliated | Academia-sourced | Provider-created risk |
-| --- | ---: | ---: | ---: |
-| Anthropic | 20.2% | 31.9% | 25.1% |
-| Google | 13.0% | 39.9% | 13.0% |
-| OpenAI | 33.1% | 40.7% | 22.6% |
+| Question | Needed analysis or evidence |
+| --- | --- |
+| Which names appear together? | Co-mention matrix or graph, controlling long-list cliques and joint model rows |
+| Which identities connect reporting bundles? | Robust network structure, sensitivity to components and canonical versions |
+| How do task-specific sharing patterns differ? | Reviewed facets, cohort sizes, and complete-follow-up denominators |
+| Are benchmark families shared while versions change? | Source-backed family/implementation lineage |
+| How prominent are authors or benchmarks on a page? | Mention placement, section, result/comparison role, and source text |
+| How long after publication does reporting begin? | Publication dates and archived launch-page evidence |
+| Does source supply become more concentrated? | Audited author groups and explicit treatment of collaborations/unknowns |
 
-These flags are non-exclusive and inherit the taxonomy's source and affiliation annotations. Authorship does not establish benchmark control, and provider-created does not imply private. Audit composite authors and provisional lifecycle-risk labels before making evaluation-supply-chain claims.
-
-## Generated Files
-
-- `analyze.py`
-- `manifest.json`
-- `summary_metrics.csv`
-- `normalized_mentions.csv`
-- `cascade_metrics.csv`
-- `adoption_events.csv`
-- `provider_diffusion_roles.csv`
-- `release_strategy_metrics.csv`
-- `provider_similarity_timeseries.csv`
-- `provider_similarity_latest.csv`
-- `source_author_dependency_by_provider.csv`
-- `release_source_author_mix.csv`
-- `portfolio_similarity_over_time.png`
-- `provider_role_balance.png`
-- `source_author_mix_by_provider.png`
+These remain descriptive hypotheses and extensions. The
+[manifest](manifest.json) and [summary_metrics.csv](summary_metrics.csv) record
+the local run. The [current synthesis](../SYNTHESIS.md) explains evidence priorities;
+historical editorial rankings are preserved in the
+[meta-review archive](../meta_review/README.md).

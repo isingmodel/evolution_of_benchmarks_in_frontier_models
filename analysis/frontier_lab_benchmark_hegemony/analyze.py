@@ -52,12 +52,14 @@ AUTHOR_POSITION_ORDER = [
     "mixed_own_and_competitor",
     "competitor_lab_only",
     "neutral_or_non_frontier",
+    "unknown_affiliation",
 ]
 AUTHOR_POSITION_LABELS = {
     "own_lab_only": "Own lab only",
     "mixed_own_and_competitor": "Mixed own + competitor",
     "competitor_lab_only": "Competitor frontier lab only",
     "neutral_or_non_frontier": "Neutral / academic / vendor",
+    "unknown_affiliation": "Unknown affiliation",
 }
 LIFECYCLE_PROVIDER_OR_OPAQUE = {"provider_created_benchmark", "private_or_opaque_eval"}
 
@@ -89,16 +91,28 @@ def stable_id(prefix: str, *parts: object) -> str:
     return f"{prefix}_{slug or 'unknown'}"
 
 
-def split_semicolon_labels(value: str) -> set[str]:
-    value = exact_key(value)
+def affiliation_text(value: object) -> str:
+    return "" if value is None or pd.isna(value) else exact_key(str(value))
+
+
+def affiliation_is_unknown(value: object) -> bool:
+    text = affiliation_text(value)
+    if text.casefold() == "none":
+        return False
+    labels = {exact_key(part) for part in text.split(";") if exact_key(part)}
+    return not labels or bool(labels - FRONTIER_LABS)
+
+
+def split_semicolon_labels(value: object) -> set[str]:
+    value = affiliation_text(value)
     if not value or value.casefold() == "none":
         return set()
-    return {exact_key(part) for part in value.split(";") if exact_key(part)}
+    return {exact_key(part) for part in value.split(";") if exact_key(part) in FRONTIER_LABS}
 
 
-def labs_in_text(value: str) -> set[str]:
+def labs_in_text(value: object) -> set[str]:
     """Return frontier-lab tokens explicitly present in a source-author string."""
-    value = re.sub(r"backed by\s+google", "", value, flags=re.IGNORECASE)
+    value = re.sub(r"backed by\s+google", "", affiliation_text(value), flags=re.IGNORECASE)
     labs: set[str] = set()
     for lab in FRONTIER_LABS:
         if re.search(rf"(?<![A-Za-z]){re.escape(lab)}(?![A-Za-z])", value, flags=re.IGNORECASE):
@@ -123,7 +137,9 @@ def period_for_date(release_date: pd.Timestamp) -> str:
     return "outside_scope"
 
 
-def author_position(provider: str, affiliation_labs: set[str]) -> str:
+def author_position(provider: str, affiliation_labs: set[str], affiliation_unknown: bool = False) -> str:
+    if affiliation_unknown or affiliation_labs - FRONTIER_LABS:
+        return "unknown_affiliation"
     own_labs = provider_group(provider)
     if not affiliation_labs:
         return "neutral_or_non_frontier"
@@ -202,11 +218,16 @@ def add_provenance_columns(mentions: pd.DataFrame, benchmarks: pd.DataFrame, lif
     enriched["lifecycle_labels"] = enriched["lifecycle_labels"].fillna("")
 
     affiliation_sets = enriched["frontier_lab_author_affiliations"].map(split_semicolon_labels)
+    unknown_affiliations = enriched["frontier_lab_author_affiliations"].map(affiliation_is_unknown)
     source_author_sets = enriched["source_author"].map(labs_in_text)
-    enriched["frontier_lab_affiliation_labs"] = affiliation_sets.map(lambda labels: "; ".join(sorted(labels)) or "none")
+    enriched["frontier_lab_affiliation_labs"] = [
+        "; ".join(sorted(labels)) or ("unknown" if unknown else "none")
+        for labels, unknown in zip(affiliation_sets, unknown_affiliations, strict=True)
+    ]
     enriched["source_author_frontier_labs"] = source_author_sets.map(lambda labels: "; ".join(sorted(labels)) or "none")
     enriched["author_position"] = [
-        author_position(provider, labs) for provider, labs in zip(enriched["provider"], affiliation_sets, strict=True)
+        author_position(provider, labs, unknown)
+        for provider, labs, unknown in zip(enriched["provider"], affiliation_sets, unknown_affiliations, strict=True)
     ]
 
     for provider in CURRENT_PROVIDERS:
@@ -393,7 +414,7 @@ def write_cross_lab_matrix(enriched: pd.DataFrame) -> pd.DataFrame:
                 {
                     "provider": row["provider"],
                     "period": row["period"],
-                    "target_lab_group": "Neutral/no frontier lab",
+                    "target_lab_group": "Unknown affiliation" if affiliation_is_unknown(row["frontier_lab_author_affiliations"]) else "Neutral/no frontier lab",
                     "mention_id": row["mention_id"],
                     "benchmark_name": row["benchmark_name"],
                 }
@@ -483,6 +504,7 @@ def write_high_signal_benchmarks(enriched: pd.DataFrame) -> pd.DataFrame:
     for benchmark_id, group in scoped.groupby("benchmark_id", sort=False):
         provider_counts = Counter(group["provider"])
         affiliation_labs = split_semicolon_labels(group["frontier_lab_author_affiliations"].iloc[0])
+        unknown_affiliation = affiliation_is_unknown(group["frontier_lab_author_affiliations"].iloc[0])
         lab_groups = sorted({lab_group(lab) for lab in affiliation_labs})
         unique_providers = sorted(provider_counts)
         is_cross_provider = len(unique_providers) >= 2
@@ -500,7 +522,7 @@ def write_high_signal_benchmarks(enriched: pd.DataFrame) -> pd.DataFrame:
                 "anthropic_mentions": provider_counts.get("Anthropic", 0),
                 "source_author": group["source_author"].iloc[0],
                 "frontier_lab_author_affiliations": group["frontier_lab_author_affiliations"].iloc[0],
-                "frontier_lab_groups": "; ".join(lab_groups) or "none",
+                "frontier_lab_groups": "; ".join(lab_groups) or ("unknown" if unknown_affiliation else "none"),
                 "lifecycle_labels": group["lifecycle_labels"].iloc[0],
                 "first_seen_provider": first["provider"],
                 "first_seen_model": first["model_name"],
@@ -510,6 +532,7 @@ def write_high_signal_benchmarks(enriched: pd.DataFrame) -> pd.DataFrame:
                     is_frontier_affiliated=is_frontier_affiliated,
                     lab_groups=lab_groups,
                     mention_count=len(group),
+                    is_unknown_affiliation=unknown_affiliation,
                 ),
             }
         )
@@ -521,8 +544,11 @@ def write_high_signal_benchmarks(enriched: pd.DataFrame) -> pd.DataFrame:
 
 
 def high_signal_reason(
-    *, is_cross_provider: bool, is_frontier_affiliated: bool, lab_groups: list[str], mention_count: int
+    *, is_cross_provider: bool, is_frontier_affiliated: bool, lab_groups: list[str], mention_count: int,
+    is_unknown_affiliation: bool = False,
 ) -> str:
+    if is_unknown_affiliation:
+        return "unknown_affiliation_cross_provider" if is_cross_provider else "unknown_affiliation"
     if is_cross_provider and is_frontier_affiliated:
         return f"frontier_lab_cross_provider:{';'.join(lab_groups)}"
     if is_cross_provider and mention_count >= 6:
@@ -544,6 +570,7 @@ def write_chart(author_shares: pd.DataFrame) -> None:
         "mixed_own_and_competitor": "#6a4c93",
         "competitor_lab_only": "#d17a22",
         "neutral_or_non_frontier": "#6f7f80",
+        "unknown_affiliation": "#b7b7b7",
     }
     fig, ax = plt.subplots(figsize=(11, 6))
     bottom = [0.0] * len(plot)

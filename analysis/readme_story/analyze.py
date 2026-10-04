@@ -36,6 +36,9 @@ DEFAULT_ASSET_DIR = ROOT / "assets"
 
 PROVIDER_ORDER = ["OpenAI", "Google", "Anthropic"]
 
+# Legacy broad software/tool-task proxy: mechanisms and claims can qualify
+# static code tasks. Keep its CSV names for compatibility; it is not the strict
+# interaction-only measure in project_overview.
 WORK_INTERACTIONS = {
     "single_turn_tool_use",
     "multi_step_planning",
@@ -516,7 +519,7 @@ def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_di
     x = range(len(annual))
     series = [
         ("static_exam_share", "Static exam-style", "#4c78a8"),
-        ("work_simulation_share", "Work simulation", "#f58518"),
+        ("work_simulation_share", "Broad software/tool-task proxy", "#f58518"),
         ("specialized_domain_share", "Specialized domains", "#54a24b"),
     ]
     for column, label, color in series:
@@ -531,7 +534,7 @@ def write_static_work_outputs(enriched: pd.DataFrame, output_dir: Path, asset_di
     ax.set_xticklabels(labels)
     ax.set_ylim(0, max(0.65, annual[["static_exam_share", "work_simulation_share"]].max().max() + 0.08))
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
-    ax.set_title("Model-Release Benchmark Framing: Static Exams to Work Simulations", fontsize=15, weight="bold")
+    ax.set_title("Release-Page Framing: Broad software/tool-task proxy", fontsize=15, weight="bold")
     ax.set_ylabel("Mean share of benchmark mentions per benchmarked release row")
     ax.set_xlabel("Release year")
     ax.legend(frameon=False, loc="upper left")
@@ -729,6 +732,11 @@ def write_borrowed_authority_outputs(enriched: pd.DataFrame, output_dir: Path) -
 
 
 def write_diffusion_outputs(enriched: pd.DataFrame, output_dir: Path) -> None:
+    """Keep first-day diffusion ties; path arrows connect dates, not co-adopters.
+
+    The legacy next_provider column contains the complete co-dated provider
+    group for the second provider observation, including first-day ties.
+    """
     firsts = (
         enriched.groupby(["benchmark_id", "benchmark_name", "provider"])
         .agg(first_provider_date=("release_date", "min"), source_author=("source_author", "first"))
@@ -741,13 +749,11 @@ def write_diffusion_outputs(enriched: pd.DataFrame, output_dir: Path) -> None:
             continue
         first_date = group["first_provider_date"].min()
         first_providers = sorted(group[group["first_provider_date"] == first_date]["provider"].tolist())
-        later = group[~group["provider"].isin(first_providers)].sort_values(["first_provider_date", "provider"])
-        if later.empty:
-            continue
-        second = later.iloc[0]
+        second_date = group["first_provider_date"].iloc[1]
+        second_providers = sorted(group.loc[group["first_provider_date"].eq(second_date), "provider"])
         path = " -> ".join(
-            f"{row.provider} ({row.first_provider_date.date().isoformat()})"
-            for row in group.itertuples(index=False)
+            f"{'; '.join(sorted(coadopters['provider']))} ({date.date().isoformat()})"
+            for date, coadopters in group.groupby("first_provider_date", sort=True)
         )
         rows.append(
             {
@@ -755,9 +761,9 @@ def write_diffusion_outputs(enriched: pd.DataFrame, output_dir: Path) -> None:
                 "benchmark_name": benchmark_name,
                 "first_tracked_public_mention": first_date.date().isoformat(),
                 "first_tracked_providers": "; ".join(first_providers),
-                "next_provider": second["provider"],
-                "next_provider_date": second["first_provider_date"].date().isoformat(),
-                "days_to_next_provider": int((second["first_provider_date"] - first_date).days),
+                "next_provider": "; ".join(second_providers),
+                "next_provider_date": second_date.date().isoformat(),
+                "days_to_next_provider": int((second_date - first_date).days),
                 "public_mention_path": path,
                 "source_author": group["source_author"].iloc[0],
             }
@@ -778,6 +784,11 @@ def write_review_leverage_outputs(
     asset_dir: Path,
     cutoff: pd.Timestamp,
 ) -> None:
+    """Prioritize unaccepted annotation weight, including fully unannotated IDs.
+
+    No facet rows means full uncertainty (share one), rather than evidence that
+    annotations were accepted. Missing annotation counts remain zero.
+    """
     recent_start = cutoff - pd.to_timedelta(365, unit="D")
     recent = enriched[enriched["release_date"] >= recent_start].copy()
     weighted = (
@@ -790,9 +801,13 @@ def write_review_leverage_outputs(
         )
         .reset_index()
     )
-    leverage = weighted.merge(status_counts, on="benchmark_id", how="left")
-    for column in ["accepted", "legacy_seed", "needs_review", "disputed", "facet_rows_total", "nonaccepted_share"]:
+    count_columns = ["accepted", "legacy_seed", "needs_review", "disputed", "facet_rows_total"]
+    statuses = status_counts.reindex(columns=["benchmark_id", *count_columns, "nonaccepted_share"])
+    leverage = weighted.merge(statuses, on="benchmark_id", how="left")
+    for column in count_columns:
         leverage[column] = leverage[column].fillna(0)
+    leverage["nonaccepted_share"] = leverage["nonaccepted_share"].fillna(1)
+    leverage.loc[leverage["facet_rows_total"].eq(0), "nonaccepted_share"] = 1
     leverage["review_leverage"] = leverage["recent_weighted_mentions"] * leverage["nonaccepted_share"]
     leverage = leverage.sort_values(["review_leverage", "recent_weighted_mentions"], ascending=[False, False])
     leverage.to_csv(output_dir / "review_leverage_benchmarks.csv", index=False)

@@ -43,6 +43,8 @@ SOURCE_GROUP_ORDER = [
     "Independent/industry",
     "Unknown",
 ]
+FRONTIER_LABS = {"OpenAI", "Google", "DeepMind", "Anthropic", "Microsoft", "xAI"}
+UNKNOWN_PROVENANCE = {"", "needs_review", "needs review", "unknown", "missing", "n/a", "na", "null", "nan", "unspecified"}
 
 PARSER = create_analysis_parser(__doc__ or "Analyze benchmark network dynamics.")
 
@@ -57,7 +59,7 @@ def parse_lab_affiliations(value: object) -> set[str]:
     text = clean_text(value)
     if not text or text.casefold() == "none":
         return set()
-    return {part.strip() for part in text.split(";") if part.strip()}
+    return {part.strip() for part in text.split(";") if part.strip() in FRONTIER_LABS}
 
 
 def has_self_affiliation(provider: str, lab_affiliations: object, source_author: object = "") -> bool:
@@ -76,7 +78,11 @@ def source_author_group(provider: str, source_author: object, lab_affiliations: 
         return "Other frontier lab-affiliated"
 
     source = clean_text(source_author)
-    if not source:
+    source_parts = {part.strip() for part in source.replace(",", ";").split(";") if part.strip()}
+    if source_parts & FRONTIER_LABS:
+        return "Other frontier lab-affiliated"
+    affiliation = clean_text(lab_affiliations)
+    if source.casefold() in UNKNOWN_PROVENANCE | {"none"} or affiliation.casefold() in UNKNOWN_PROVENANCE:
         return "Unknown"
     if "Academia" in {part.strip() for part in source.replace(",", ";").split(";")}:
         return "Academia"

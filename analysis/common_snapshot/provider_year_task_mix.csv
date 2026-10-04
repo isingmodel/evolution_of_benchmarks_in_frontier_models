@@ -7,13 +7,14 @@ Anthropic,2025,Agentic,25,0.4807692307692308
 Anthropic,2025,Constraint Satisfaction,1,0.019230769230769232
 Anthropic,2025,Generative Reasoning,20,0.38461538461538464
 Anthropic,2025,Multimodal Perception,6,0.11538461538461539
-Anthropic,2026,Agentic,113,0.6686390532544378
-Anthropic,2026,Constraint Satisfaction,13,0.07692307692307693
-Anthropic,2026,Generative Reasoning,38,0.22485207100591717
-Anthropic,2026,Knowledge Retrieval,1,0.005917159763313609
-Anthropic,2026,Multimodal Perception,4,0.023668639053254437
-Google,2023,Generative Reasoning,9,0.5
-Google,2023,Multimodal Perception,9,0.5
+Anthropic,2026,Agentic,113,0.6647058823529411
+Anthropic,2026,Constraint Satisfaction,13,0.07647058823529412
+Anthropic,2026,Generative Reasoning,38,0.2235294117647059
+Anthropic,2026,Knowledge Retrieval,1,0.0058823529411764705
+Anthropic,2026,Multimodal Perception,5,0.029411764705882353
+Google,2023,Constraint Satisfaction,1,0.05263157894736842
+Google,2023,Generative Reasoning,9,0.47368421052631576
+Google,2023,Multimodal Perception,9,0.47368421052631576
 Google,2024,Agentic,1,0.0625
 Google,2024,Generative Reasoning,10,0.625
 Google,2024,Knowledge Retrieval,1,0.0625

@@ -1,6 +1,6 @@
 # Data Directory Guide
 
-This directory contains the source tables and integrated benchmark facet table for the benchmark evolution analysis. The project studies which benchmarks frontier model providers emphasize on public release pages. It does not claim to measure model capability directly.
+This directory contains the source tables and integrated benchmark facet table for the benchmark evolution analysis. The project studies which benchmarks frontier model providers name on public release pages. It does not claim to measure model capability directly.
 
 ## Data Flow
 
@@ -25,15 +25,18 @@ benchmark_facets.csv
 
 ## File Overview
 
-| File | Current rows | Role |
-| --- | ---: | --- |
-| `models.csv` | 59 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 286 | Canonical benchmark table used by scraping catalog matching and facet generation. |
-| `benchmark_aliases.csv` | 81 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_distinctness.csv` | 19 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
-| `benchmark_facets.csv` | 4,042 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| File | Role |
+| --- | --- |
+| `models.csv` | Source list of model release pages and benchmark names mentioned on them. |
+| `benchmarks.csv` | Canonical benchmark table used by scraping catalog matching and facet generation. |
+| `benchmark_aliases.csv` | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_distinctness.csv` | Reviewed opt-outs for near-duplicate canonical-name warnings. |
+| `benchmark_facets.csv` | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 
-Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
+Current inventory and facet-review counts are generated in
+[`analysis/project_overview/summary.json`](../analysis/project_overview/summary.json).
+The [preface audit](../docs/readme_data_audit_2026_10_04.md) records the latest
+source corrections and unresolved identity questions.
 
 ## File Reference
 
@@ -120,7 +123,7 @@ Notes:
 
 - This is the most important table for v3 multi-facet analysis.
 - A single benchmark can appear many times across axes and labels.
-- When multiple labels exist within the same benchmark and facet axis, trend scripts divide that benchmark's contribution equally across the labels at runtime.
+- Facet-composition plots divide a benchmark's contribution equally across labels on the same axis. The overview's strict interaction measure instead flags whether any retained label matches its documented interaction set.
 - The table is v3-first and does not persist legacy `headline_task_mode` projection rows.
 - Analysis scripts that need a single headline category derive it at runtime from the v3 facets.
 - Model-generated candidate rows and human-reviewed rows live together here after review.
@@ -195,4 +198,4 @@ Run the standard pipeline from the repository root:
 scripts/run_pipeline.sh
 ```
 
-The entrypoint defaults to the maximum release date in `models.csv`; set `AS_OF=YYYY-MM-DD` to override it. After adding new model releases or benchmark classifications, run the full pipeline before trusting the generated charts or analysis tables. The top-level `README.md` is maintained directly rather than generated from a data-directory template.
+The entrypoint defaults to the maximum release date in `models.csv`; set `AS_OF=YYYY-MM-DD` to override it. After adding new model releases or benchmark classifications, run the full pipeline before trusting the generated charts or analysis tables. The top-level `README.md` is rendered from [`analysis/project_overview/README.template.md`](../analysis/project_overview/README.template.md) and generated evidence tables, so its counts stay synchronized with the data.

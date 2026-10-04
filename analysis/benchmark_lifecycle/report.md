@@ -1,16 +1,16 @@
 # Benchmark reporting life cycles
 
-Observation cutoff: **2026-09-30**. This report covers all **286**
-catalog identities: **284** have an observed mention and
+Observation cutoff: **2026-09-30**. This report covers all **288**
+catalog identities: **286** have an observed mention and
 **2** have no observed mention through this cutoff.
 
 The **59** model rows collapse to **55** distinct
 announcements, **51** of which contain recorded benchmarks.
 Aliases are deduplicated within each model row and then within each announcement.
-There are **743** benchmark–announcement observations, compared with
-**790** canonical benchmark–model-row observations.
+There are **745** benchmark–announcement observations, compared with
+**792** canonical benchmark–model-row observations.
 
-**167** identities appear on one announcement,
+**169** identities appear on one announcement,
 **117** recur across announcements, and
 **74** appear across multiple providers.
 These are descriptions of the covered public pages, not a survival estimate.
@@ -263,9 +263,9 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | MMMU / MMMU Pro | 2023-12-06 | 2026-03-03 | 818 | 22 | 3 | shared_across_providers | legacy_seed |
 | MMMU Pro | 2026-02-05 | 2026-07-09 | 154 | 5 | 3 | shared_across_providers | accepted |
 | Model ML's FinBench | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
-| MRCR | 2024-12-11 | 2025-11-18 | 342 | 4 | 2 | shared_across_providers | legacy_seed |
-| MRCR v2 | 2025-12-11 | 2026-09-03 | 266 | 11 | 3 | shared_across_providers | legacy_seed |
-| MTOB benchmark | 2024-02-15 | 2024-02-15 | 0 | 1 | 1 | single_launch | legacy_seed |
+| MRCR | 2024-12-11 | 2025-11-18 | 342 | 4 | 2 | shared_across_providers | needs_review |
+| MRCR v2 | 2025-12-11 | 2026-09-03 | 266 | 11 | 3 | shared_across_providers | needs_review |
+| MTOB benchmark | 2024-02-15 | 2024-02-15 | 0 | 1 | 1 | single_launch | accepted |
 | Multi-IF | 2025-04-14 | 2025-04-14 | 0 | 1 | 1 | single_launch | legacy_seed |
 | multi-step Unity Editor and coding benchmark | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
 | MultiChallenge | 2025-04-14 | 2025-08-07 | 115 | 3 | 1 | repeated_one_provider | legacy_seed |
@@ -293,6 +293,7 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | prompt injection benchmark | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | Qodo's real-world code review benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
 | Rakuten-SWE-Bench | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
+| Real Toxicity Prompts | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | needs_review |
 | Real-world Vulnerability Discovery | 2026-09-02 | 2026-09-30 | 28 | 2 | 1 | repeated_one_provider | accepted |
 | receipt extraction benchmark | 2026-07-21 | 2026-07-21 | 0 | 1 | 1 | single_launch | needs_review |
 | RedlineBench | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
@@ -344,6 +345,7 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | ViBench | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Video-MME | 2025-04-14 | 2025-04-14 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Video-MMMU | 2025-08-07 | 2026-03-03 | 208 | 4 | 2 | shared_across_providers | legacy_seed |
+| Visual-acuity benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | needs_review |
 | τ-Voice | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | accepted |
 | τ-Voice-banking | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | needs_review |
 | VQAv2 | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | legacy_seed |

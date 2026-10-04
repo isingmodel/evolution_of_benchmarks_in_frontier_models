@@ -1,0 +1,865 @@
+benchmark_id,benchmark_name,variant,interaction_labels,positive,covered
+benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,all_active,environment_interaction,True,True
+benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,confidence_ge_0_7,,,False
+benchmark_30_day_simulated_run_a_business_eval,30-day simulated run-a-business eval,accepted,,,False
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,all_active,environment_interaction,True,True
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,confidence_ge_0_7,,,False
+benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,accepted,,,False
+benchmark_93_task_coding_benchmark,93-task coding benchmark,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_93_task_coding_benchmark,93-task coding benchmark,confidence_ge_0_7,,,False
+benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,,,False
+benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,all_active,environment_interaction,True,True
+benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,confidence_ge_0_7,,,False
+benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,accepted,,,False
+benchmark_aa_lcr,AA-LCR,all_active,static_prompt_response,False,True
+benchmark_aa_lcr,AA-LCR,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_aa_lcr,AA-LCR,accepted,,,False
+benchmark_aa_omniscience,AA-Omniscience,all_active,static_prompt_response,False,True
+benchmark_aa_omniscience,AA-Omniscience,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_aa_omniscience,AA-Omniscience,accepted,,,False
+benchmark_activitynet,ActivityNet,all_active,static_prompt_response,False,True
+benchmark_activitynet,ActivityNet,confidence_ge_0_7,,,False
+benchmark_activitynet,ActivityNet,accepted,,,False
+benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design competitions,all_active,environment_interaction,True,True
+benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design competitions,confidence_ge_0_7,,,False
+benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design competitions,accepted,,,False
+benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,all_active,static_prompt_response,False,True
+benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,confidence_ge_0_7,,,False
+benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,accepted,,,False
+benchmark_agentic_code_review_tests,agentic code-review tests,all_active,environment_interaction,True,True
+benchmark_agentic_code_review_tests,agentic code-review tests,confidence_ge_0_7,,,False
+benchmark_agentic_code_review_tests,agentic code-review tests,accepted,,,False
+benchmark_agents_last_exam,Agents' Last Exam,all_active,environment_interaction,True,True
+benchmark_agents_last_exam,Agents' Last Exam,confidence_ge_0_7,,,False
+benchmark_agents_last_exam,Agents' Last Exam,accepted,,,False
+benchmark_agents_last_exam_v1,Agents' Last Exam V1,all_active,environment_interaction,True,True
+benchmark_agents_last_exam_v1,Agents' Last Exam V1,confidence_ge_0_7,,,False
+benchmark_agents_last_exam_v1,Agents' Last Exam V1,accepted,,,False
+benchmark_ai2d,AI2D,all_active,static_prompt_response,False,True
+benchmark_ai2d,AI2D,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_ai2d,AI2D,accepted,,,False
+benchmark_aider_polyglot,Aider Polyglot,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_aider_polyglot,Aider Polyglot,confidence_ge_0_7,environment_interaction; terminal_or_codebase_interaction,True,True
+benchmark_aider_polyglot,Aider Polyglot,accepted,,,False
+benchmark_aime,AIME,all_active,static_prompt_response,False,True
+benchmark_aime,AIME,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_aime,AIME,accepted,,,False
+benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,confidence_ge_0_7,environment_interaction; multi_step_planning,True,True
+benchmark_anthropic_internal_autonomous_agentic_coding_evaluation,Anthropic internal autonomous agentic coding evaluation,accepted,,,False
+benchmark_apex_agents,APEX-Agents,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_apex_agents,APEX-Agents,confidence_ge_0_7,environment_interaction; multi_step_planning,True,True
+benchmark_apex_agents,APEX-Agents,accepted,,,False
+benchmark_arc_agi,ARC-AGI,all_active,static_prompt_response,False,True
+benchmark_arc_agi,ARC-AGI,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_arc_agi,ARC-AGI,accepted,,,False
+benchmark_arc_agi_2,ARC-AGI-2,all_active,static_prompt_response,False,True
+benchmark_arc_agi_2,ARC-AGI-2,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_arc_agi_2,ARC-AGI-2,accepted,,,False
+benchmark_arc_agi_3,ARC-AGI-3,all_active,static_prompt_response,False,True
+benchmark_arc_agi_3,ARC-AGI-3,confidence_ge_0_7,,,False
+benchmark_arc_agi_3,ARC-AGI-3,accepted,,,False
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,all_active,environment_interaction,True,True
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,accepted,,,False
+benchmark_artificial_analysis_coding_agent_index_v1_4,Artificial Analysis Coding Agent Index v1.4,all_active,environment_interaction,True,True
+benchmark_artificial_analysis_coding_agent_index_v1_4,Artificial Analysis Coding Agent Index v1.4,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_coding_agent_index_v1_4,Artificial Analysis Coding Agent Index v1.4,accepted,,,False
+benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_artificial_analysis_coding_index,Artificial Analysis Coding Index,accepted,,,False
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,all_active,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index,Artificial Analysis Intelligence Index,accepted,,,False
+benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,all_active,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intelligence Index v4.1,accepted,,,False
+benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,all_active,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,accepted,,,False
+benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,all_active,environment_interaction,True,True
+benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,accepted,,,False
+benchmark_automated_alignment_assessment,automated alignment assessment,all_active,static_prompt_response,False,True
+benchmark_automated_alignment_assessment,automated alignment assessment,confidence_ge_0_7,,,False
+benchmark_automated_alignment_assessment,automated alignment assessment,accepted,,,False
+benchmark_automated_behavioral_audit,automated behavioral audit,all_active,environment_interaction; multi_step_planning,True,True
+benchmark_automated_behavioral_audit,automated behavioral audit,confidence_ge_0_7,,,False
+benchmark_automated_behavioral_audit,automated behavioral audit,accepted,,,False
+benchmark_automationbench,AutomationBench,all_active,environment_interaction,True,True
+benchmark_automationbench,AutomationBench,confidence_ge_0_7,,,False
+benchmark_automationbench,AutomationBench,accepted,,,False
+benchmark_automationbench_1_0_6,AutomationBench 1.0.6,all_active,environment_interaction,True,True
+benchmark_automationbench_1_0_6,AutomationBench 1.0.6,confidence_ge_0_7,,,False
+benchmark_automationbench_1_0_6,AutomationBench 1.0.6,accepted,,,False
+benchmark_benchcad,BenchCAD,all_active,environment_interaction,True,True
+benchmark_benchcad,BenchCAD,confidence_ge_0_7,,,False
+benchmark_benchcad,BenchCAD,accepted,,,False
+benchmark_big_bench_audio,Big Bench Audio,all_active,static_prompt_response,False,True
+benchmark_big_bench_audio,Big Bench Audio,confidence_ge_0_7,,,False
+benchmark_big_bench_audio,Big Bench Audio,accepted,,,False
+benchmark_big_bench_hard,Big-Bench Hard,all_active,static_prompt_response,False,True
+benchmark_big_bench_hard,Big-Bench Hard,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_big_bench_hard,Big-Bench Hard,accepted,,,False
+benchmark_big_finance_bench,Big Finance Bench,all_active,environment_interaction,True,True
+benchmark_big_finance_bench,Big Finance Bench,confidence_ge_0_7,,,False
+benchmark_big_finance_bench,Big Finance Bench,accepted,,,False
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,all_active,environment_interaction,True,True
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,confidence_ge_0_7,,,False
+benchmark_big_sleep_evaluation,Big Sleep Evaluation,accepted,,,False
+benchmark_biglaw_bench,BigLaw Bench,all_active,static_prompt_response,False,True
+benchmark_biglaw_bench,BigLaw Bench,confidence_ge_0_7,,,False
+benchmark_biglaw_bench,BigLaw Bench,accepted,,,False
+benchmark_biology_olympiad,Biology Olympiad,all_active,static_prompt_response,False,True
+benchmark_biology_olympiad,Biology Olympiad,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_biology_olympiad,Biology Olympiad,accepted,,,False
+benchmark_biomysterybench,BioMysteryBench,all_active,static_prompt_response,False,True
+benchmark_biomysterybench,BioMysteryBench,confidence_ge_0_7,,,False
+benchmark_biomysterybench,BioMysteryBench,accepted,,,False
+benchmark_biopipelinebench,BioPipelineBench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_biopipelinebench,BioPipelineBench,confidence_ge_0_7,,,False
+benchmark_biopipelinebench,BioPipelineBench,accepted,,,False
+benchmark_bird_sql,Bird-SQL,all_active,static_prompt_response,False,True
+benchmark_bird_sql,Bird-SQL,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_bird_sql,Bird-SQL,accepted,,,False
+benchmark_bixbench,BixBench,all_active,environment_interaction; multi_step_planning; single_turn_tool_use; static_prompt_response,True,True
+benchmark_bixbench,BixBench,confidence_ge_0_7,,,False
+benchmark_bixbench,BixBench,accepted,,,False
+benchmark_blueprint_bench_2,Blueprint-Bench 2,all_active,environment_interaction,True,True
+benchmark_blueprint_bench_2,Blueprint-Bench 2,confidence_ge_0_7,,,False
+benchmark_blueprint_bench_2,Blueprint-Bench 2,accepted,,,False
+benchmark_broken_search,Broken search,all_active,static_prompt_response,False,True
+benchmark_broken_search,Broken search,confidence_ge_0_7,,,False
+benchmark_broken_search,Broken search,accepted,,,False
+benchmark_browsecomp,BrowseComp,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_browsecomp,BrowseComp,confidence_ge_0_7,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_browsecomp,BrowseComp,accepted,,,False
+benchmark_browsecomp_long_context,BrowseComp Long Context,all_active,static_prompt_response,False,True
+benchmark_browsecomp_long_context,BrowseComp Long Context,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_browsecomp_long_context,BrowseComp Long Context,accepted,,,False
+benchmark_browsecomp_plus,BrowseComp-Plus,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_browsecomp_plus,BrowseComp-Plus,confidence_ge_0_7,browser_or_web_interaction; multi_step_planning,True,True
+benchmark_browsecomp_plus,BrowseComp-Plus,accepted,,,False
+benchmark_browser_agent_benchmark,browser-agent benchmark,all_active,browser_or_web_interaction,True,True
+benchmark_browser_agent_benchmark,browser-agent benchmark,confidence_ge_0_7,,,False
+benchmark_browser_agent_benchmark,browser-agent benchmark,accepted,,,False
+benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),confidence_ge_0_7,,,False
+benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),accepted,,,False
+benchmark_chartography,Chartography,all_active,static_prompt_response,False,True
+benchmark_chartography,Chartography,confidence_ge_0_7,,,False
+benchmark_chartography,Chartography,accepted,,,False
+benchmark_chartqa,ChartQA,all_active,static_prompt_response,False,True
+benchmark_chartqa,ChartQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_chartqa,ChartQA,accepted,,,False
+benchmark_charxiv,CharXiv,all_active,static_prompt_response,False,True
+benchmark_charxiv,CharXiv,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_charxiv,CharXiv,accepted,,,False
+benchmark_charxiv_reasoning,CharXiv Reasoning,all_active,static_prompt_response,False,True
+benchmark_charxiv_reasoning,CharXiv Reasoning,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_charxiv_reasoning,CharXiv Reasoning,accepted,,,False
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,all_active,environment_interaction,True,True
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,confidence_ge_0_7,,,False
+benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,accepted,,,False
+benchmark_citations_eval,Citations eval,all_active,static_prompt_response,False,True
+benchmark_citations_eval,Citations eval,confidence_ge_0_7,,,False
+benchmark_citations_eval,Citations eval,accepted,,,False
+benchmark_codeforces,Codeforces,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_codeforces,Codeforces,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_codeforces,Codeforces,accepted,,,False
+benchmark_coding_deception,Coding deception,all_active,static_prompt_response,False,True
+benchmark_coding_deception,Coding deception,confidence_ge_0_7,,,False
+benchmark_coding_deception,Coding deception,accepted,,,False
+benchmark_coding_evals,coding evals,all_active,environment_interaction,True,True
+benchmark_coding_evals,coding evals,confidence_ge_0_7,,,False
+benchmark_coding_evals,coding evals,accepted,,,False
+benchmark_collie,COLLIE,all_active,static_prompt_response,False,True
+benchmark_collie,COLLIE,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_collie,COLLIE,accepted,,,False
+benchmark_combined_evaluation_suite,combined evaluation suite,all_active,environment_interaction,True,True
+benchmark_combined_evaluation_suite,combined evaluation suite,confidence_ge_0_7,,,False
+benchmark_combined_evaluation_suite,combined evaluation suite,accepted,,,False
+benchmark_complexfunc_bench,ComplexFunc Bench,all_active,multi_step_planning; single_turn_tool_use; static_prompt_response,True,True
+benchmark_complexfunc_bench,ComplexFunc Bench,confidence_ge_0_7,single_turn_tool_use,True,True
+benchmark_complexfunc_bench,ComplexFunc Bench,accepted,,,False
+benchmark_containment_boundary_evaluation,containment-boundary evaluation,all_active,static_prompt_response,False,True
+benchmark_containment_boundary_evaluation,containment-boundary evaluation,confidence_ge_0_7,,,False
+benchmark_containment_boundary_evaluation,containment-boundary evaluation,accepted,,,False
+benchmark_containment_evaluations,containment evaluations,all_active,static_prompt_response,False,True
+benchmark_containment_evaluations,containment evaluations,confidence_ge_0_7,,,False
+benchmark_containment_evaluations,containment evaluations,accepted,,,False
+benchmark_core_analytics_benchmark,core analytics benchmark,all_active,environment_interaction,True,True
+benchmark_core_analytics_benchmark,core analytics benchmark,confidence_ge_0_7,,,False
+benchmark_core_analytics_benchmark,core analytics benchmark,accepted,,,False
+benchmark_cot_control,CoT-Control,all_active,static_prompt_response,False,True
+benchmark_cot_control,CoT-Control,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_cot_control,CoT-Control,accepted,,,False
+benchmark_covost_2,CoVoST 2,all_active,static_prompt_response,False,True
+benchmark_covost_2,CoVoST 2,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_covost_2,CoVoST 2,accepted,,,False
+benchmark_critpt,CritPt,all_active,static_prompt_response,False,True
+benchmark_critpt,CritPt,confidence_ge_0_7,,,False
+benchmark_critpt,CritPt,accepted,,,False
+benchmark_cursorbench,CursorBench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_cursorbench,CursorBench,confidence_ge_0_7,,,False
+benchmark_cursorbench,CursorBench,accepted,,,False
+benchmark_cursorbench_3_2,CursorBench 3.2,all_active,environment_interaction,True,True
+benchmark_cursorbench_3_2,CursorBench 3.2,confidence_ge_0_7,,,False
+benchmark_cursorbench_3_2,CursorBench 3.2,accepted,,,False
+benchmark_cursorbench_4_0,CursorBench 4.0,all_active,environment_interaction,True,True
+benchmark_cursorbench_4_0,CursorBench 4.0,confidence_ge_0_7,,,False
+benchmark_cursorbench_4_0,CursorBench 4.0,accepted,,,False
+benchmark_cwe_bench,CWE-Bench,all_active,environment_interaction,True,True
+benchmark_cwe_bench,CWE-Bench,confidence_ge_0_7,,,False
+benchmark_cwe_bench,CWE-Bench,accepted,,,False
+benchmark_cwe_bench_v0,CWE-bench v0,all_active,environment_interaction,True,True
+benchmark_cwe_bench_v0,CWE-bench v0,confidence_ge_0_7,,,False
+benchmark_cwe_bench_v0,CWE-bench v0,accepted,,,False
+benchmark_cwe_bench_v1,CWE-bench v1,all_active,environment_interaction,True,True
+benchmark_cwe_bench_v1,CWE-bench v1,confidence_ge_0_7,,,False
+benchmark_cwe_bench_v1,CWE-bench v1,accepted,,,False
+benchmark_cybergym,CyberGym,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_cybergym,CyberGym,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_cybergym,CyberGym,accepted,,,False
+benchmark_cybersecurity_ctfs,Cybersecurity CTFs,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_cybersecurity_ctfs,Cybersecurity CTFs,confidence_ge_0_7,environment_interaction; multi_step_planning,True,True
+benchmark_cybersecurity_ctfs,Cybersecurity CTFs,accepted,,,False
+benchmark_cyscenariobench,CyScenarioBench,all_active,environment_interaction,True,True
+benchmark_cyscenariobench,CyScenarioBench,confidence_ge_0_7,,,False
+benchmark_cyscenariobench,CyScenarioBench,accepted,,,False
+benchmark_data_science_tasks_internal,Data Science Tasks (Internal),all_active,environment_interaction,True,True
+benchmark_data_science_tasks_internal,Data Science Tasks (Internal),confidence_ge_0_7,,,False
+benchmark_data_science_tasks_internal,Data Science Tasks (Internal),accepted,,,False
+benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),all_active,environment_interaction,True,True
+benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),confidence_ge_0_7,,,False
+benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),accepted,,,False
+benchmark_databench,DataBench,all_active,static_prompt_response,False,True
+benchmark_databench,DataBench,confidence_ge_0_7,,,False
+benchmark_databench,DataBench,accepted,,,False
+benchmark_deepsearchqa,DeepSearchQA,all_active,environment_interaction,True,True
+benchmark_deepsearchqa,DeepSearchQA,confidence_ge_0_7,,,False
+benchmark_deepsearchqa,DeepSearchQA,accepted,,,False
+benchmark_deepswe_v1_1,DeepSWE v1.1,all_active,terminal_or_codebase_interaction,True,True
+benchmark_deepswe_v1_1,DeepSWE v1.1,confidence_ge_0_7,,,False
+benchmark_deepswe_v1_1,DeepSWE v1.1,accepted,,,False
+benchmark_design_tasks_internal,Design Tasks (Internal),all_active,environment_interaction,True,True
+benchmark_design_tasks_internal,Design Tasks (Internal),confidence_ge_0_7,,,False
+benchmark_design_tasks_internal,Design Tasks (Internal),accepted,,,False
+benchmark_docvqa,DocVQA,all_active,static_prompt_response,False,True
+benchmark_docvqa,DocVQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_docvqa,DocVQA,accepted,,,False
+benchmark_drop,DROP,all_active,static_prompt_response,False,True
+benchmark_drop,DROP,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_drop,DROP,accepted,,,False
+benchmark_early_design_evals,early design evals,all_active,static_prompt_response,False,True
+benchmark_early_design_evals,early design evals,confidence_ge_0_7,,,False
+benchmark_early_design_evals,early design evals,accepted,,,False
+benchmark_egoschema,EgoSchema,all_active,static_prompt_response,False,True
+benchmark_egoschema,EgoSchema,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_egoschema,EgoSchema,accepted,,,False
+benchmark_erqa,ERQA,all_active,environment_interaction; multi_step_planning; static_prompt_response,True,True
+benchmark_erqa,ERQA,confidence_ge_0_7,,,False
+benchmark_erqa,ERQA,accepted,,,False
+benchmark_eva_bench,EVA-Bench,all_active,environment_interaction,True,True
+benchmark_eva_bench,EVA-Bench,confidence_ge_0_7,,,False
+benchmark_eva_bench,EVA-Bench,accepted,,,False
+benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,all_active,environment_interaction,True,True
+benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,confidence_ge_0_7,,,False
+benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,accepted,,,False
+benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,all_active,environment_interaction,True,True
+benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,confidence_ge_0_7,,,False
+benchmark_everyday_spreadsheet_suite,everyday spreadsheet suite,accepted,,,False
+benchmark_expert_swe_internal,Expert-SWE (Internal),all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_expert_swe_internal,Expert-SWE (Internal),confidence_ge_0_7,,,False
+benchmark_expert_swe_internal,Expert-SWE (Internal),accepted,,,False
+benchmark_exploitbench,ExploitBench,all_active,environment_interaction,True,True
+benchmark_exploitbench,ExploitBench,confidence_ge_0_7,,,False
+benchmark_exploitbench,ExploitBench,accepted,,,False
+benchmark_exploitbench_2,ExploitBench 2,all_active,environment_interaction,True,True
+benchmark_exploitbench_2,ExploitBench 2,confidence_ge_0_7,,,False
+benchmark_exploitbench_2,ExploitBench 2,accepted,,,False
+benchmark_exploitbench_juneaugust_2026,ExploitBench (June–August 2026),all_active,environment_interaction,True,True
+benchmark_exploitbench_juneaugust_2026,ExploitBench (June–August 2026),confidence_ge_0_7,,,False
+benchmark_exploitbench_juneaugust_2026,ExploitBench (June–August 2026),accepted,,,False
+benchmark_exploitgym,ExploitGym,all_active,environment_interaction,True,True
+benchmark_exploitgym,ExploitGym,confidence_ge_0_7,,,False
+benchmark_exploitgym,ExploitGym,accepted,,,False
+benchmark_exploitgym_3,ExploitGym 3,all_active,environment_interaction,True,True
+benchmark_exploitgym_3,ExploitGym 3,confidence_ge_0_7,,,False
+benchmark_exploitgym_3,ExploitGym 3,accepted,,,False
+benchmark_exploitgym_honeypot,ExploitGym honeypot,all_active,static_prompt_response,False,True
+benchmark_exploitgym_honeypot,ExploitGym honeypot,confidence_ge_0_7,,,False
+benchmark_exploitgym_honeypot,ExploitGym honeypot,accepted,,,False
+benchmark_facts_benchmark_suite,FACTS Benchmark suite,all_active,static_prompt_response,False,True
+benchmark_facts_benchmark_suite,FACTS Benchmark suite,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_facts_benchmark_suite,FACTS Benchmark suite,accepted,,,False
+benchmark_facts_grounding,FACTS Grounding,all_active,static_prompt_response,False,True
+benchmark_facts_grounding,FACTS Grounding,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_facts_grounding,FACTS Grounding,accepted,,,False
+benchmark_finance_agent,Finance Agent,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_finance_agent,Finance Agent,confidence_ge_0_7,multi_step_planning,False,True
+benchmark_finance_agent,Finance Agent,accepted,,,False
+benchmark_finance_agent_v2,Finance Agent v2,all_active,single_turn_tool_use,True,True
+benchmark_finance_agent_v2,Finance Agent v2,confidence_ge_0_7,,,False
+benchmark_finance_agent_v2,Finance Agent v2,accepted,,,False
+benchmark_financeagent_v1_1,FinanceAgent v1.1,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_financeagent_v1_1,FinanceAgent v1.1,confidence_ge_0_7,multi_step_planning,False,True
+benchmark_financeagent_v1_1,FinanceAgent v1.1,accepted,,,False
+benchmark_firefox,Firefox,all_active,environment_interaction,True,True
+benchmark_firefox,Firefox,confidence_ge_0_7,,,False
+benchmark_firefox,Firefox,accepted,,,False
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,all_active,environment_interaction,True,True
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,confidence_ge_0_7,,,False
+benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,accepted,,,False
+benchmark_first_generation_evals,first-generation evals,all_active,environment_interaction,True,True
+benchmark_first_generation_evals,first-generation evals,confidence_ge_0_7,,,False
+benchmark_first_generation_evals,first-generation evals,accepted,,,False
+benchmark_fleurs,FLEURS,all_active,static_prompt_response,False,True
+benchmark_fleurs,FLEURS,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_fleurs,FLEURS,accepted,,,False
+benchmark_frontend_benchmark,frontend benchmark,all_active,environment_interaction,True,True
+benchmark_frontend_benchmark,frontend benchmark,confidence_ge_0_7,,,False
+benchmark_frontend_benchmark,frontend benchmark,accepted,,,False
+benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,all_active,environment_interaction,True,True
+benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,confidence_ge_0_7,,,False
+benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,accepted,,,False
+benchmark_frontier_science_research,Frontier Science Research,all_active,static_prompt_response,False,True
+benchmark_frontier_science_research,Frontier Science Research,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_frontier_science_research,Frontier Science Research,accepted,,,False
+benchmark_frontierbench,FrontierBench,all_active,environment_interaction,True,True
+benchmark_frontierbench,FrontierBench,confidence_ge_0_7,,,False
+benchmark_frontierbench,FrontierBench,accepted,,,False
+benchmark_frontiercode_diamond,FrontierCode (Diamond),all_active,environment_interaction,True,True
+benchmark_frontiercode_diamond,FrontierCode (Diamond),confidence_ge_0_7,,,False
+benchmark_frontiercode_diamond,FrontierCode (Diamond),accepted,,,False
+benchmark_frontiercode_v1_1,FrontierCode v1.1,all_active,environment_interaction,True,True
+benchmark_frontiercode_v1_1,FrontierCode v1.1,confidence_ge_0_7,,,False
+benchmark_frontiercode_v1_1,FrontierCode v1.1,accepted,,,False
+benchmark_frontiercode_v1_1_extended,FrontierCode v1.1 (Extended),all_active,environment_interaction,True,True
+benchmark_frontiercode_v1_1_extended,FrontierCode v1.1 (Extended),confidence_ge_0_7,,,False
+benchmark_frontiercode_v1_1_extended,FrontierCode v1.1 (Extended),accepted,,,False
+benchmark_frontierfinance,FrontierFinance,all_active,environment_interaction,True,True
+benchmark_frontierfinance,FrontierFinance,confidence_ge_0_7,,,False
+benchmark_frontierfinance,FrontierFinance,accepted,,,False
+benchmark_frontiermath,FrontierMath,all_active,static_prompt_response,False,True
+benchmark_frontiermath,FrontierMath,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_frontiermath,FrontierMath,accepted,,,False
+benchmark_frontiermath_v2,FrontierMath v2,all_active,static_prompt_response,False,True
+benchmark_frontiermath_v2,FrontierMath v2,confidence_ge_0_7,,,False
+benchmark_frontiermath_v2,FrontierMath v2,accepted,,,False
+benchmark_frontierswe_v2,FrontierSWE v2,all_active,terminal_or_codebase_interaction,True,True
+benchmark_frontierswe_v2,FrontierSWE v2,confidence_ge_0_7,,,False
+benchmark_frontierswe_v2,FrontierSWE v2,accepted,,,False
+benchmark_gdp_pdf,gdp.pdf,all_active,static_prompt_response,False,True
+benchmark_gdp_pdf,gdp.pdf,confidence_ge_0_7,,,False
+benchmark_gdp_pdf,gdp.pdf,accepted,,,False
+benchmark_gdpval,GDPval,all_active,multi_step_planning; static_prompt_response,False,True
+benchmark_gdpval,GDPval,confidence_ge_0_7,multi_step_planning; static_prompt_response,False,True
+benchmark_gdpval,GDPval,accepted,,,False
+benchmark_gdpval_aa,GDPval-AA,all_active,multi_step_planning; static_prompt_response,False,True
+benchmark_gdpval_aa,GDPval-AA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_gdpval_aa,GDPval-AA,accepted,,,False
+benchmark_gdpval_aa_v2,GDPval-AA v2,all_active,environment_interaction,True,True
+benchmark_gdpval_aa_v2,GDPval-AA v2,confidence_ge_0_7,,,False
+benchmark_gdpval_aa_v2,GDPval-AA v2,accepted,,,False
+benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,all_active,environment_interaction,True,True
+benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,confidence_ge_0_7,,,False
+benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,accepted,,,False
+benchmark_genebench,GeneBench,all_active,static_prompt_response,False,True
+benchmark_genebench,GeneBench,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_genebench,GeneBench,accepted,,,False
+benchmark_genebench_pro,GeneBench Pro,all_active,environment_interaction,True,True
+benchmark_genebench_pro,GeneBench Pro,confidence_ge_0_7,,,False
+benchmark_genebench_pro,GeneBench Pro,accepted,,,False
+benchmark_genebench_pro_v13,GeneBench Pro v13,all_active,environment_interaction,True,True
+benchmark_genebench_pro_v13,GeneBench Pro v13,confidence_ge_0_7,,,False
+benchmark_genebench_pro_v13,GeneBench Pro v13,accepted,,,False
+benchmark_global_piqa,Global PIQA,all_active,static_prompt_response,False,True
+benchmark_global_piqa,Global PIQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_global_piqa,Global PIQA,accepted,,,False
+benchmark_gpqa,GPQA,all_active,static_prompt_response,False,True
+benchmark_gpqa,GPQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_gpqa,GPQA,accepted,,,False
+benchmark_gpqa_diamond,GPQA Diamond,all_active,static_prompt_response,False,True
+benchmark_gpqa_diamond,GPQA Diamond,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_gpqa_diamond,GPQA Diamond,accepted,,,False
+benchmark_graphwalks,GraphWalks,all_active,multi_step_planning; static_prompt_response,False,True
+benchmark_graphwalks,GraphWalks,confidence_ge_0_7,multi_step_planning; static_prompt_response,False,True
+benchmark_graphwalks,GraphWalks,accepted,,,False
+benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,all_active,static_prompt_response,False,True
+benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,confidence_ge_0_7,,,False
+benchmark_gray_swan_ipi_benchmark,Gray Swan IPI benchmark,accepted,,,False
+benchmark_gray_swan_prompt_injection_benchmark,Gray Swan prompt injection benchmark,all_active,static_prompt_response,False,True
+benchmark_gray_swan_prompt_injection_benchmark,Gray Swan prompt injection benchmark,confidence_ge_0_7,,,False
+benchmark_gray_swan_prompt_injection_benchmark,Gray Swan prompt injection benchmark,accepted,,,False
+benchmark_gre,GRE,all_active,static_prompt_response,False,True
+benchmark_gre,GRE,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_gre,GRE,accepted,,,False
+benchmark_gsm8k,GSM8K,all_active,static_prompt_response,False,True
+benchmark_gsm8k,GSM8K,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_gsm8k,GSM8K,accepted,static_prompt_response,False,True
+benchmark_harbor_index,Harbor-Index,all_active,environment_interaction,True,True
+benchmark_harbor_index,Harbor-Index,confidence_ge_0_7,,,False
+benchmark_harbor_index,Harbor-Index,accepted,,,False
+benchmark_harvey_lab_aa,Harvey LAB-AA,all_active,environment_interaction,True,True
+benchmark_harvey_lab_aa,Harvey LAB-AA,confidence_ge_0_7,,,False
+benchmark_harvey_lab_aa,Harvey LAB-AA,accepted,,,False
+benchmark_healthbench,Healthbench,all_active,multi_turn_dialogue; static_prompt_response,False,True
+benchmark_healthbench,Healthbench,confidence_ge_0_7,multi_turn_dialogue; static_prompt_response,False,True
+benchmark_healthbench,Healthbench,accepted,,,False
+benchmark_healthbench_professional,HealthBench Professional,all_active,static_prompt_response,False,True
+benchmark_healthbench_professional,HealthBench Professional,confidence_ge_0_7,,,False
+benchmark_healthbench_professional,HealthBench Professional,accepted,,,False
+benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,all_active,static_prompt_response,False,True
+benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,confidence_ge_0_7,,,False
+benchmark_hebbia_s_finance_benchmark,Hebbia's Finance Benchmark,accepted,,,False
+benchmark_hellaswag,HellaSwag,all_active,static_prompt_response,False,True
+benchmark_hellaswag,HellaSwag,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_hellaswag,HellaSwag,accepted,,,False
+benchmark_hiddenmath,HiddenMath,all_active,static_prompt_response,False,True
+benchmark_hiddenmath,HiddenMath,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_hiddenmath,HiddenMath,accepted,,,False
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),all_active,static_prompt_response,False,True
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),confidence_ge_0_7,static_prompt_response,False,True
+benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),accepted,,,False
+benchmark_hle_verified,HLE-Verified,all_active,static_prompt_response,False,True
+benchmark_hle_verified,HLE-Verified,confidence_ge_0_7,,,False
+benchmark_hle_verified,HLE-Verified,accepted,,,False
+benchmark_hmmt,HMMT,all_active,static_prompt_response,False,True
+benchmark_hmmt,HMMT,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_hmmt,HMMT,accepted,,,False
+benchmark_humaneval,HumanEval,all_active,static_prompt_response,False,True
+benchmark_humaneval,HumanEval,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_humaneval,HumanEval,accepted,static_prompt_response,False,True
+benchmark_ifbench,IFBench,all_active,static_prompt_response,False,True
+benchmark_ifbench,IFBench,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_ifbench,IFBench,accepted,,,False
+benchmark_ifeval,IFEval,all_active,static_prompt_response,False,True
+benchmark_ifeval,IFEval,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_ifeval,IFEval,accepted,,,False
+benchmark_imc_research_suite,IMC research suite,all_active,static_prompt_response,False,True
+benchmark_imc_research_suite,IMC research suite,confidence_ge_0_7,,,False
+benchmark_imc_research_suite,IMC research suite,accepted,,,False
+benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,all_active,static_prompt_response,False,True
+benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,confidence_ge_0_7,,,False
+benchmark_imc_trading_analysis_evaluations,IMC trading-analysis evaluations,accepted,,,False
+benchmark_imo,IMO,all_active,static_prompt_response,False,True
+benchmark_imo,IMO,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_imo,IMO,accepted,,,False
+benchmark_implicit_need_tests,implicit-need tests,all_active,static_prompt_response,False,True
+benchmark_implicit_need_tests,implicit-need tests,confidence_ge_0_7,,,False
+benchmark_implicit_need_tests,implicit-need tests,accepted,,,False
+benchmark_incident_investigation_evals,incident investigation evals,all_active,environment_interaction,True,True
+benchmark_incident_investigation_evals,incident investigation evals,confidence_ge_0_7,,,False
+benchmark_incident_investigation_evals,incident investigation evals,accepted,,,False
+benchmark_infographic_vqa,Infographic VQA,all_active,static_prompt_response,False,True
+benchmark_infographic_vqa,Infographic VQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_infographic_vqa,Infographic VQA,accepted,,,False
+benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,all_active,environment_interaction,True,True
+benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,confidence_ge_0_7,,,False
+benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,accepted,,,False
+benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,all_active,static_prompt_response,False,True
+benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,confidence_ge_0_7,,,False
+benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,accepted,,,False
+benchmark_internal_coding_benchmarks,internal coding benchmarks,all_active,environment_interaction,True,True
+benchmark_internal_coding_benchmarks,internal coding benchmarks,confidence_ge_0_7,,,False
+benchmark_internal_coding_benchmarks,internal coding benchmarks,accepted,,,False
+benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,all_active,static_prompt_response,False,True
+benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,confidence_ge_0_7,,,False
+benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,accepted,,,False
+benchmark_internal_factuality_evaluation,internal factuality evaluation,all_active,static_prompt_response,False,True
+benchmark_internal_factuality_evaluation,internal factuality evaluation,confidence_ge_0_7,,,False
+benchmark_internal_factuality_evaluation,internal factuality evaluation,accepted,,,False
+benchmark_internal_finance_benchmark,internal Finance benchmark,all_active,static_prompt_response,False,True
+benchmark_internal_finance_benchmark,internal Finance benchmark,confidence_ge_0_7,,,False
+benchmark_internal_finance_benchmark,internal Finance benchmark,accepted,,,False
+benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,all_active,static_prompt_response,False,True
+benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,confidence_ge_0_7,,,False
+benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,accepted,,,False
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,all_active,static_prompt_response,False,True
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,confidence_ge_0_7,,,False
+benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchmark,accepted,,,False
+benchmark_internal_research_agent_benchmark,internal research-agent benchmark,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
+benchmark_internal_research_agent_benchmark,internal research-agent benchmark,confidence_ge_0_7,,,False
+benchmark_internal_research_agent_benchmark,internal research-agent benchmark,accepted,,,False
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,all_active,environment_interaction,True,True
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,confidence_ge_0_7,,,False
+benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,accepted,,,False
+benchmark_internal_testing_benchmark,internal testing benchmark,all_active,environment_interaction,True,True
+benchmark_internal_testing_benchmark,internal testing benchmark,confidence_ge_0_7,,,False
+benchmark_internal_testing_benchmark,internal testing benchmark,accepted,,,False
+benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),all_active,static_prompt_response,False,True
+benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),confidence_ge_0_7,,,False
+benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),accepted,,,False
+benchmark_jailbreak_eval,Jailbreak Eval,all_active,static_prompt_response,False,True
+benchmark_jailbreak_eval,Jailbreak Eval,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_jailbreak_eval,Jailbreak Eval,accepted,,,False
+benchmark_kernelgen_1p,KernelGen 1P,all_active,environment_interaction,True,True
+benchmark_kernelgen_1p,KernelGen 1P,confidence_ge_0_7,,,False
+benchmark_kernelgen_1p,KernelGen 1P,accepted,,,False
+benchmark_labbench2,LABBench2,all_active,environment_interaction,True,True
+benchmark_labbench2,LABBench2,confidence_ge_0_7,,,False
+benchmark_labbench2,LABBench2,accepted,,,False
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,all_active,environment_interaction,True,True
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,confidence_ge_0_7,,,False
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,accepted,,,False
+benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,all_active,environment_interaction,True,True
+benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,confidence_ge_0_7,,,False
+benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,accepted,,,False
+benchmark_lifescibench,LifeSciBench,all_active,environment_interaction,True,True
+benchmark_lifescibench,LifeSciBench,confidence_ge_0_7,,,False
+benchmark_lifescibench,LifeSciBench,accepted,,,False
+benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,all_active,environment_interaction,True,True
+benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,confidence_ge_0_7,,,False
+benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,accepted,,,False
+benchmark_livebench_coding,LiveBench Coding,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_livebench_coding,LiveBench Coding,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_livebench_coding,LiveBench Coding,accepted,,,False
+benchmark_livecodebench,LiveCodeBench,all_active,static_prompt_response,False,True
+benchmark_livecodebench,LiveCodeBench,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_livecodebench,LiveCodeBench,accepted,,,False
+benchmark_livecodebench_pro,LiveCodeBench Pro,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_livecodebench_pro,LiveCodeBench Pro,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_livecodebench_pro,LiveCodeBench Pro,accepted,,,False
+benchmark_lmarena,LMArena,all_active,human_in_the_loop; multi_turn_dialogue; static_prompt_response,False,True
+benchmark_lmarena,LMArena,confidence_ge_0_7,human_in_the_loop; multi_turn_dialogue; static_prompt_response,False,True
+benchmark_lmarena,LMArena,accepted,,,False
+benchmark_long_horizon_molecular_prediction_and_design_evaluation,long-horizon molecular prediction and design evaluation,all_active,environment_interaction,True,True
+benchmark_long_horizon_molecular_prediction_and_design_evaluation,long-horizon molecular prediction and design evaluation,confidence_ge_0_7,,,False
+benchmark_long_horizon_molecular_prediction_and_design_evaluation,long-horizon molecular prediction and design evaluation,accepted,,,False
+benchmark_lovable_internal_evals,Lovable internal evals,all_active,environment_interaction,True,True
+benchmark_lovable_internal_evals,Lovable internal evals,confidence_ge_0_7,,,False
+benchmark_lovable_internal_evals,Lovable internal evals,accepted,,,False
+benchmark_lvbench,LVBench,all_active,static_prompt_response,False,True
+benchmark_lvbench,LVBench,confidence_ge_0_7,,,False
+benchmark_lvbench,LVBench,accepted,,,False
+benchmark_m3exam,M3Exam,all_active,static_prompt_response,False,True
+benchmark_m3exam,M3Exam,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_m3exam,M3Exam,accepted,,,False
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),all_active,environment_interaction,True,True
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),confidence_ge_0_7,,,False
+benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),accepted,,,False
+benchmark_math,MATH,all_active,static_prompt_response,False,True
+benchmark_math,MATH,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_math,MATH,accepted,,,False
+benchmark_math_500,MATH 500,all_active,static_prompt_response,False,True
+benchmark_math_500,MATH 500,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_math_500,MATH 500,accepted,,,False
+benchmark_matharena_apex,MathArena Apex,all_active,static_prompt_response,False,True
+benchmark_matharena_apex,MathArena Apex,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_matharena_apex,MathArena Apex,accepted,,,False
+benchmark_mathvista,MathVista,all_active,static_prompt_response,False,True
+benchmark_mathvista,MathVista,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mathvista,MathVista,accepted,,,False
+benchmark_mcqa,MCQA,all_active,static_prompt_response,False,True
+benchmark_mcqa,MCQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mcqa,MCQA,accepted,,,False
+benchmark_medchembench_internal,MedChemBench (Internal),all_active,static_prompt_response,False,True
+benchmark_medchembench_internal,MedChemBench (Internal),confidence_ge_0_7,,,False
+benchmark_medchembench_internal,MedChemBench (Internal),accepted,,,False
+benchmark_mgsm,MGSM,all_active,static_prompt_response,False,True
+benchmark_mgsm,MGSM,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mgsm,MGSM,accepted,,,False
+benchmark_mind2web,Mind2Web,all_active,environment_interaction,True,True
+benchmark_mind2web,Mind2Web,confidence_ge_0_7,,,False
+benchmark_mind2web,Mind2Web,accepted,,,False
+benchmark_mle_bench,MLE-Bench,all_active,environment_interaction,True,True
+benchmark_mle_bench,MLE-Bench,confidence_ge_0_7,,,False
+benchmark_mle_bench,MLE-Bench,accepted,,,False
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,all_active,static_prompt_response,False,True
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,accepted,,,False
+benchmark_mmmlu,MMMLU,all_active,static_prompt_response,False,True
+benchmark_mmmlu,MMMLU,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mmmlu,MMMLU,accepted,,,False
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,all_active,static_prompt_response,False,True
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,accepted,,,False
+benchmark_mmmu_pro,MMMU Pro,all_active,static_prompt_response,False,True
+benchmark_mmmu_pro,MMMU Pro,confidence_ge_0_7,,,False
+benchmark_mmmu_pro,MMMU Pro,accepted,,,False
+benchmark_model_ml_s_finbench,Model ML's FinBench,all_active,environment_interaction,True,True
+benchmark_model_ml_s_finbench,Model ML's FinBench,confidence_ge_0_7,,,False
+benchmark_model_ml_s_finbench,Model ML's FinBench,accepted,,,False
+benchmark_mrcr,MRCR,all_active,static_prompt_response,False,True
+benchmark_mrcr,MRCR,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mrcr,MRCR,accepted,,,False
+benchmark_mrcr_v2,MRCR v2,all_active,static_prompt_response,False,True
+benchmark_mrcr_v2,MRCR v2,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mrcr_v2,MRCR v2,accepted,,,False
+benchmark_mtob_benchmark,MTOB benchmark,all_active,static_prompt_response,False,True
+benchmark_mtob_benchmark,MTOB benchmark,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_mtob_benchmark,MTOB benchmark,accepted,static_prompt_response,False,True
+benchmark_multi_if,Multi-IF,all_active,static_prompt_response,False,True
+benchmark_multi_if,Multi-IF,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_multi_if,Multi-IF,accepted,,,False
+benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,all_active,environment_interaction,True,True
+benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,confidence_ge_0_7,,,False
+benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,accepted,,,False
+benchmark_multichallenge,MultiChallenge,all_active,multi_turn_dialogue,False,True
+benchmark_multichallenge,MultiChallenge,confidence_ge_0_7,multi_turn_dialogue,False,True
+benchmark_multichallenge,MultiChallenge,accepted,,,False
+benchmark_nanogpt,NanoGPT,all_active,environment_interaction,True,True
+benchmark_nanogpt,NanoGPT,confidence_ge_0_7,,,False
+benchmark_nanogpt,NanoGPT,accepted,,,False
+benchmark_natural2code,Natural2Code,all_active,static_prompt_response,False,True
+benchmark_natural2code,Natural2Code,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_natural2code,Natural2Code,accepted,,,False
+benchmark_needle_in_a_haystack,Needle In A Haystack,all_active,static_prompt_response,False,True
+benchmark_needle_in_a_haystack,Needle In A Haystack,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_needle_in_a_haystack,Needle In A Haystack,accepted,,,False
+benchmark_officeqa,OfficeQA,all_active,computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_officeqa,OfficeQA,confidence_ge_0_7,,,False
+benchmark_officeqa,OfficeQA,accepted,,,False
+benchmark_officeqa_pro,OfficeQA Pro,all_active,static_prompt_response,False,True
+benchmark_officeqa_pro,OfficeQA Pro,confidence_ge_0_7,,,False
+benchmark_officeqa_pro,OfficeQA Pro,accepted,,,False
+benchmark_offline_slackbot_evals,offline Slackbot evals,all_active,environment_interaction,True,True
+benchmark_offline_slackbot_evals,offline Slackbot evals,confidence_ge_0_7,,,False
+benchmark_offline_slackbot_evals,offline Slackbot evals,accepted,,,False
+benchmark_omnidocbench,OmniDocBench,all_active,static_prompt_response,False,True
+benchmark_omnidocbench,OmniDocBench,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_omnidocbench,OmniDocBench,accepted,,,False
+benchmark_omnidocbench_1_5,OmniDocBench 1.5,all_active,static_prompt_response,False,True
+benchmark_omnidocbench_1_5,OmniDocBench 1.5,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_omnidocbench_1_5,OmniDocBench 1.5,accepted,,,False
+benchmark_online_mind2web,Online-Mind2Web,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_online_mind2web,Online-Mind2Web,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_online_mind2web,Online-Mind2Web,accepted,,,False
+benchmark_openrca,OpenRCA,all_active,static_prompt_response,False,True
+benchmark_openrca,OpenRCA,confidence_ge_0_7,,,False
+benchmark_openrca,OpenRCA,accepted,,,False
+benchmark_openscore_string_quartets,OpenScore String Quartets,all_active,static_prompt_response,False,True
+benchmark_openscore_string_quartets,OpenScore String Quartets,confidence_ge_0_7,,,False
+benchmark_openscore_string_quartets,OpenScore String Quartets,accepted,,,False
+benchmark_oss_fuzz,OSS-Fuzz,all_active,environment_interaction,True,True
+benchmark_oss_fuzz,OSS-Fuzz,confidence_ge_0_7,,,False
+benchmark_oss_fuzz,OSS-Fuzz,accepted,,,False
+benchmark_osworld,OSWorld,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_osworld,OSWorld,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_osworld,OSWorld,accepted,,,False
+benchmark_osworld_2_0,OSWorld 2.0,all_active,computer_control,True,True
+benchmark_osworld_2_0,OSWorld 2.0,confidence_ge_0_7,,,False
+benchmark_osworld_2_0,OSWorld 2.0,accepted,,,False
+benchmark_osworld_2_1,OSWorld 2.1,all_active,computer_control,True,True
+benchmark_osworld_2_1,OSWorld 2.1,confidence_ge_0_7,,,False
+benchmark_osworld_2_1,OSWorld 2.1,accepted,,,False
+benchmark_osworld_verified,OSWorld-Verified,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_osworld_verified,OSWorld-Verified,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_osworld_verified,OSWorld-Verified,accepted,,,False
+benchmark_pokemon_red,Pokémon Red,all_active,environment_interaction,True,True
+benchmark_pokemon_red,Pokémon Red,confidence_ge_0_7,,,False
+benchmark_pokemon_red,Pokémon Red,accepted,,,False
+benchmark_posttrainbench,PostTrainBench,all_active,environment_interaction,True,True
+benchmark_posttrainbench,PostTrainBench,confidence_ge_0_7,,,False
+benchmark_posttrainbench,PostTrainBench,accepted,,,False
+benchmark_posttrainbench_lite,PostTrainBench Lite,all_active,environment_interaction,True,True
+benchmark_posttrainbench_lite,PostTrainBench Lite,confidence_ge_0_7,,,False
+benchmark_posttrainbench_lite,PostTrainBench Lite,accepted,,,False
+benchmark_powerpoint_eval,PowerPoint eval,all_active,environment_interaction,True,True
+benchmark_powerpoint_eval,PowerPoint eval,confidence_ge_0_7,,,False
+benchmark_powerpoint_eval,PowerPoint eval,accepted,,,False
+benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,all_active,static_prompt_response,False,True
+benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,confidence_ge_0_7,,,False
+benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,accepted,,,False
+benchmark_prompt_injection_benchmark,prompt injection benchmark,all_active,static_prompt_response,False,True
+benchmark_prompt_injection_benchmark,prompt injection benchmark,confidence_ge_0_7,,,False
+benchmark_prompt_injection_benchmark,prompt injection benchmark,accepted,,,False
+benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,all_active,static_prompt_response,False,True
+benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,confidence_ge_0_7,,,False
+benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,accepted,,,False
+benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,confidence_ge_0_7,terminal_or_codebase_interaction,True,True
+benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,accepted,,,False
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,all_active,static_prompt_response,False,True
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,confidence_ge_0_7,,,False
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,accepted,,,False
+benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,all_active,environment_interaction,True,True
+benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,confidence_ge_0_7,,,False
+benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,accepted,,,False
+benchmark_receipt_extraction_benchmark,receipt extraction benchmark,all_active,static_prompt_response,False,True
+benchmark_receipt_extraction_benchmark,receipt extraction benchmark,confidence_ge_0_7,,,False
+benchmark_receipt_extraction_benchmark,receipt extraction benchmark,accepted,,,False
+benchmark_redlinebench,RedlineBench,all_active,environment_interaction,True,True
+benchmark_redlinebench,RedlineBench,confidence_ge_0_7,,,False
+benchmark_redlinebench,RedlineBench,accepted,,,False
+benchmark_reviewer_bypass,Reviewer bypass,all_active,static_prompt_response,False,True
+benchmark_reviewer_bypass,Reviewer bypass,confidence_ge_0_7,,,False
+benchmark_reviewer_bypass,Reviewer bypass,accepted,,,False
+benchmark_riemannbench,RiemannBench,all_active,static_prompt_response,False,True
+benchmark_riemannbench,RiemannBench,confidence_ge_0_7,,,False
+benchmark_riemannbench,RiemannBench,accepted,,,False
+benchmark_rsi_index,RSI Index,all_active,environment_interaction,True,True
+benchmark_rsi_index,RSI Index,confidence_ge_0_7,,,False
+benchmark_rsi_index,RSI Index,accepted,,,False
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,all_active,environment_interaction; multi_step_planning; single_turn_tool_use,True,True
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,confidence_ge_0_7,environment_interaction,True,True
+benchmark_scale_mcp_atlas,Scale MCP-Atlas,accepted,,,False
+benchmark_scicode,SciCode,all_active,multi_step_planning; static_prompt_response,False,True
+benchmark_scicode,SciCode,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_scicode,SciCode,accepted,,,False
+benchmark_screenspot_pro,ScreenSpot-Pro,all_active,static_prompt_response,False,True
+benchmark_screenspot_pro,ScreenSpot-Pro,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_screenspot_pro,ScreenSpot-Pro,accepted,,,False
+benchmark_sec_bench_pro,SEC-Bench Pro,all_active,environment_interaction,True,True
+benchmark_sec_bench_pro,SEC-Bench Pro,confidence_ge_0_7,,,False
+benchmark_sec_bench_pro,SEC-Bench Pro,accepted,,,False
+benchmark_seven_task_benchmark,seven-task benchmark,all_active,static_prompt_response,False,True
+benchmark_seven_task_benchmark,seven-task benchmark,confidence_ge_0_7,,,False
+benchmark_seven_task_benchmark,seven-task benchmark,accepted,,,False
+benchmark_simpleqa,SimpleQA,all_active,static_prompt_response,False,True
+benchmark_simpleqa,SimpleQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_simpleqa,SimpleQA,accepted,,,False
+benchmark_simpleqa_verified,SimpleQA Verified,all_active,static_prompt_response,False,True
+benchmark_simpleqa_verified,SimpleQA Verified,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_simpleqa_verified,SimpleQA Verified,accepted,,,False
+benchmark_speech_agent_arena,Speech Agent Arena,all_active,environment_interaction,True,True
+benchmark_speech_agent_arena,Speech Agent Arena,confidence_ge_0_7,,,False
+benchmark_speech_agent_arena,Speech Agent Arena,accepted,,,False
+benchmark_sre_bench,SRE-Bench,all_active,environment_interaction,True,True
+benchmark_sre_bench,SRE-Bench,confidence_ge_0_7,,,False
+benchmark_sre_bench,SRE-Bench,accepted,,,False
+benchmark_staticbench,StaticBench,all_active,environment_interaction,True,True
+benchmark_staticbench,StaticBench,confidence_ge_0_7,,,False
+benchmark_staticbench,StaticBench,accepted,,,False
+benchmark_stem,STEM,all_active,static_prompt_response,False,True
+benchmark_stem,STEM,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_stem,STEM,accepted,,,False
+benchmark_structural_biology,Structural Biology,all_active,static_prompt_response,False,True
+benchmark_structural_biology,Structural Biology,confidence_ge_0_7,,,False
+benchmark_structural_biology,Structural Biology,accepted,,,False
+benchmark_super_agent_benchmark,Super-Agent benchmark,all_active,environment_interaction,True,True
+benchmark_super_agent_benchmark,Super-Agent benchmark,confidence_ge_0_7,,,False
+benchmark_super_agent_benchmark,Super-Agent benchmark,accepted,,,False
+benchmark_swe_bench,SWE-bench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench,SWE-bench,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench,SWE-bench,accepted,,,False
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_multilingual,SWE-bench Multilingual,accepted,,,False
+benchmark_swe_bench_multimodal,SWE-bench Multimodal,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_multimodal,SWE-bench Multimodal,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_multimodal,SWE-bench Multimodal,accepted,,,False
+benchmark_swe_bench_pro,SWE-bench Pro,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_pro,SWE-bench Pro,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_pro,SWE-bench Pro,accepted,,,False
+benchmark_swe_bench_verified,SWE-bench verified,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_verified,SWE-bench verified,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_bench_verified,SWE-bench verified,accepted,,,False
+benchmark_swe_lancer,SWE-Lancer,all_active,environment_interaction; multi_step_planning; static_prompt_response; terminal_or_codebase_interaction,True,True
+benchmark_swe_lancer,SWE-Lancer,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_lancer,SWE-Lancer,accepted,,,False
+benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,accepted,,,False
+benchmark_tau_2_bench,TAU-2 bench,all_active,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_tau_2_bench,TAU-2 bench,confidence_ge_0_7,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_tau_2_bench,TAU-2 bench,accepted,,,False
+benchmark_tau_bench,Tau-bench,all_active,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_tau_bench,Tau-bench,confidence_ge_0_7,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_tau_bench,Tau-bench,accepted,,,False
+benchmark_terminal_bench,Terminal-bench,all_active,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench,Terminal-bench,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench,Terminal-bench,accepted,,,False
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,all_active,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,confidence_ge_0_7,environment_interaction; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_2_0,Terminal-Bench 2.0,accepted,,,False
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,all_active,terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,confidence_ge_0_7,,,False
+benchmark_terminal_bench_2_1,Terminal-Bench 2.1,accepted,,,False
+benchmark_terminal_bench_3_0,Terminal-Bench 3.0,all_active,terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_3_0,Terminal-Bench 3.0,confidence_ge_0_7,,,False
+benchmark_terminal_bench_3_0,Terminal-Bench 3.0,accepted,,,False
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,all_active,terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,confidence_ge_0_7,,,False
+benchmark_terminal_bench_4_0,Terminal-Bench 4.0,accepted,,,False
+benchmark_terminal_bench_hard,Terminal-Bench Hard,all_active,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_hard,Terminal-Bench Hard,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_hard,Terminal-Bench Hard,accepted,,,False
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,all_active,terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,confidence_ge_0_7,,,False
+benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,accepted,,,False
+benchmark_textvqa,TextVQA,all_active,static_prompt_response,False,True
+benchmark_textvqa,TextVQA,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_textvqa,TextVQA,accepted,,,False
+benchmark_toolathlon,Toolathlon,all_active,environment_interaction; multi_step_planning; single_turn_tool_use,True,True
+benchmark_toolathlon,Toolathlon,confidence_ge_0_7,,,False
+benchmark_toolathlon,Toolathlon,accepted,,,False
+benchmark_trading_benchmark,trading benchmark,all_active,static_prompt_response,False,True
+benchmark_trading_benchmark,trading benchmark,confidence_ge_0_7,,,False
+benchmark_trading_benchmark,trading benchmark,accepted,,,False
+benchmark_trading_intuition_evaluations,trading intuition evaluations,all_active,static_prompt_response,False,True
+benchmark_trading_intuition_evaluations,trading intuition evaluations,confidence_ge_0_7,,,False
+benchmark_trading_intuition_evaluations,trading intuition evaluations,accepted,,,False
+benchmark_trading_support_suite,trading-support suite,all_active,static_prompt_response,False,True
+benchmark_trading_support_suite,trading-support suite,confidence_ge_0_7,,,False
+benchmark_trading_support_suite,trading-support suite,accepted,,,False
+benchmark_unauthorized_interaction,Unauthorized interaction,all_active,static_prompt_response,False,True
+benchmark_unauthorized_interaction,Unauthorized interaction,confidence_ge_0_7,,,False
+benchmark_unauthorized_interaction,Unauthorized interaction,accepted,,,False
+benchmark_uniform_bar_exam,Uniform Bar Exam,all_active,static_prompt_response,False,True
+benchmark_uniform_bar_exam,Uniform Bar Exam,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_uniform_bar_exam,Uniform Bar Exam,accepted,,,False
+benchmark_vals_index,Vals Index,all_active,environment_interaction,True,True
+benchmark_vals_index,Vals Index,confidence_ge_0_7,,,False
+benchmark_vals_index,Vals Index,accepted,,,False
+benchmark_vatex,VATEX,all_active,static_prompt_response,False,True
+benchmark_vatex,VATEX,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_vatex,VATEX,accepted,,,False
+benchmark_vending_bench,Vending-Bench,all_active,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_vending_bench,Vending-Bench,confidence_ge_0_7,environment_interaction; multi_step_planning,True,True
+benchmark_vending_bench,Vending-Bench,accepted,,,False
+benchmark_vending_bench_2,Vending-Bench 2,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
+benchmark_vending_bench_2,Vending-Bench 2,confidence_ge_0_7,environment_interaction; multi_step_planning,True,True
+benchmark_vending_bench_2,Vending-Bench 2,accepted,,,False
+benchmark_vibe_code_bench,Vibe Code Bench,all_active,environment_interaction,True,True
+benchmark_vibe_code_bench,Vibe Code Bench,confidence_ge_0_7,,,False
+benchmark_vibe_code_bench,Vibe Code Bench,accepted,,,False
+benchmark_vibe_eval,Vibe-Eval,all_active,static_prompt_response,False,True
+benchmark_vibe_eval,Vibe-Eval,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_vibe_eval,Vibe-Eval,accepted,,,False
+benchmark_vibench,ViBench,all_active,environment_interaction,True,True
+benchmark_vibench,ViBench,confidence_ge_0_7,,,False
+benchmark_vibench,ViBench,accepted,,,False
+benchmark_video_mme,Video-MME,all_active,static_prompt_response,False,True
+benchmark_video_mme,Video-MME,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_video_mme,Video-MME,accepted,,,False
+benchmark_video_mmmu,Video-MMMU,all_active,static_prompt_response,False,True
+benchmark_video_mmmu,Video-MMMU,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_video_mmmu,Video-MMMU,accepted,,,False
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,all_active,static_prompt_response,False,True
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,confidence_ge_0_7,,,False
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,accepted,,,False
+benchmark_voice,τ-Voice,all_active,environment_interaction,True,True
+benchmark_voice,τ-Voice,confidence_ge_0_7,,,False
+benchmark_voice,τ-Voice,accepted,,,False
+benchmark_voice_banking,τ-Voice-banking,all_active,environment_interaction,True,True
+benchmark_voice_banking,τ-Voice-banking,confidence_ge_0_7,,,False
+benchmark_voice_banking,τ-Voice-banking,accepted,,,False
+benchmark_vqav2,VQAv2,all_active,static_prompt_response,False,True
+benchmark_vqav2,VQAv2,confidence_ge_0_7,static_prompt_response,False,True
+benchmark_vqav2,VQAv2,accepted,,,False
+benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,all_active,environment_interaction,True,True
+benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,confidence_ge_0_7,,,False
+benchmark_vulnerability_discovery_and_report_writing,Vulnerability Discovery and Report Writing,accepted,,,False
+benchmark_wandr,WANDR,all_active,environment_interaction,True,True
+benchmark_wandr,WANDR,confidence_ge_0_7,,,False
+benchmark_wandr,WANDR,accepted,,,False
+benchmark_warning_circumvention,Warning circumvention,all_active,static_prompt_response,False,True
+benchmark_warning_circumvention,Warning circumvention,confidence_ge_0_7,,,False
+benchmark_warning_circumvention,Warning circumvention,accepted,,,False
+benchmark_webarena_verified,WebArena-Verified,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_webarena_verified,WebArena-Verified,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_webarena_verified,WebArena-Verified,accepted,,,False
+benchmark_webdev_arena,WebDev Arena,all_active,human_in_the_loop; static_prompt_response,False,True
+benchmark_webdev_arena,WebDev Arena,confidence_ge_0_7,human_in_the_loop,False,True
+benchmark_webdev_arena,WebDev Arena,accepted,,,False
+benchmark_webvoyager,WebVoyager,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_webvoyager,WebVoyager,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
+benchmark_webvoyager,WebVoyager,accepted,,,False
+benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,all_active,environment_interaction,True,True
+benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,confidence_ge_0_7,,,False
+benchmark_wiz_penetration_test_benchmark,Wiz Penetration Test Benchmark,accepted,,,False
+benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,all_active,environment_interaction,True,True
+benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,confidence_ge_0_7,,,False
+benchmark_zero_day_discovery_eval,Zero-Day Discovery Eval,accepted,,,False

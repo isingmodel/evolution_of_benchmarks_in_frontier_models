@@ -1,0 +1,4 @@
+provider,model_rows,launch_events,benchmark_bearing_launches,observed_benchmarks,first_release,last_release
+Anthropic,21,21,19,132,2023-03-14,2026-09-28
+Google,17,14,14,111,2023-12-06,2026-09-30
+OpenAI,21,20,18,155,2022-11-30,2026-09-29

@@ -1,93 +1,95 @@
-# Frontier Lab Benchmark Hegemony
+# Benchmark Authorship and Affiliation Links
 
-This analysis concretizes idea #1: frontier labs may shape model-development direction by publishing, popularizing, and repeatedly using benchmarks that other labs then adopt on public release pages.
+This exploratory analysis describes identified authorship and affiliation links
+among evaluations named on public model launch pages. The historical folder name
+is retained for compatibility; the data does not establish benchmark hegemony,
+provider influence, institutional ownership, or causal adoption.
 
-The quantitative unit is a benchmark mention on a public model release page in `data/models.csv`. It is not a measure of model capability, benchmark quality, or all evaluations used by a lab.
-
-## Hypothesis
-
-If OpenAI had early benchmark hegemony that weakened as competition became more even, then Anthropic and Google release pages should show a higher share of OpenAI-authored or OpenAI-affiliated benchmark mentions in 2023-2024 than in 2025-2026.
-
-Through `2026-09-30`, the combined OpenAI-source-or-affiliated share for Anthropic and Google is nearly flat across the two periods. Provider-specific patterns and the affiliation-only measure differ, so the data does not establish a single fading or rising hegemony story.
-
-## Methodology
-
-Run:
+## Method and units
 
 ```bash
-.venv/bin/python analysis/frontier_lab_benchmark_hegemony/analyze.py
+.venv/bin/python analysis/frontier_lab_benchmark_hegemony/analyze.py --as-of 2026-09-30
 ```
 
-The script uses `scripts/taxonomy_utils.py::CanonicalResolver`, so every raw mention resolves only through an exact canonical benchmark name or explicit alias.
+The shared canonical resolver accepts only exact names and explicit aliases.
+This module counts resolved raw label occurrences within model rows. Repeated
+aliases and models launched together can therefore contribute more than once.
+Pages with longer lists also contribute more weight. These raw shares differ
+from the main [overview's](../project_overview/README.md) announcement-weighted
+composition shares and the [README story module's](../readme_story/README.md)
+model-row-normalized attribution sensitivity.
 
-Measured concepts:
+Two metadata fields remain separate:
 
-- Own-lab benchmark usage: release provider mentions a benchmark whose `frontier_lab_author_affiliations` contains that provider's lab group. Google includes `Google` and `DeepMind`.
-- Competitor-lab benchmark adoption: release provider mentions a benchmark affiliated with another frontier lab.
-- Neutral / academic / vendor adoption: the benchmark has no frontier-lab author affiliation.
-- Mixed own + competitor: multi-affiliation benchmarks such as HLE that include both the release provider and other frontier labs.
-- OpenAI-authored-or-affiliated adoption: `source_author` contains OpenAI or `frontier_lab_author_affiliations` contains OpenAI. The output also separates those two fields.
-- Provider-created/private/opaque lifecycle share: mentions whose `benchmark_lifecycle_risk` facet includes `provider_created_benchmark` or `private_or_opaque_eval`.
-- Release-page lag: first competitor mention date minus first owner-lab mention date inside this dataset only.
+- `source_author`: the recorded benchmark author or publishing organization.
+- `frontier_lab_author_affiliations`: identified frontier-lab affiliations of
+  authors, including multi-affiliated collaborations.
 
-## Outputs
+The OpenAI-source-or-affiliated flag is the union of an identified OpenAI token
+in either field. Affiliation-only outputs answer a different question. Google
+and DeepMind are grouped for provider comparisons. Multi-affiliation matrices
+are nonexclusive; provider-position shares use mutually exclusive categories.
 
-- `mentions_enriched.csv`: mention-level resolved data with authorship, affiliation, lifecycle, period, and provider-position labels.
-- `provider_period_author_shares.csv`: main period-level author-position shares.
-- `provider_year_author_shares.csv`: yearly author-position shares.
-- `openai_adoption_period_comparison.csv`: Anthropic/Google use of OpenAI-authored and/or OpenAI-affiliated benchmarks.
-- `cross_lab_adoption_matrix.csv`: non-exclusive provider-to-lab mention matrix.
-- `provider_period_lifecycle_shares.csv` and `provider_year_lifecycle_shares.csv`: lifecycle-risk shares.
-- `benchmark_first_adoption_lags.csv`: release-page lag calculations where possible.
-- `high_signal_benchmarks.csv`: benchmark-level examples with provider counts.
-- `provider_period_author_mix.png`: stacked bar chart of provider/period author-position shares.
+Unknown or unresolved authorship remains in the full mention denominator.
+Linked shares therefore measure **identified links**, not all influence.
+A missing link is not proof of independence. Unresolved affiliation has its own
+`unknown_affiliation` provider-position category and an `Unknown affiliation`
+matrix target. Known-lab flags use only recognized frontier-lab names. The
+`neutral_or_non_frontier` category covers recorded `none` affiliations, which
+still should not be interpreted as a verified neutrality judgment.
 
-## Findings
+Provider-created and private/opaque flags are separate lifecycle-risk facets.
+They must not be conflated: a provider-authored benchmark can be public, and a
+private partner evaluation need not be provider-authored.
 
-Current raw-mention comparison from `openai_adoption_period_comparison.csv`, through `2026-09-30`:
+## Current evidence tables
 
-| Provider group | OpenAI source/affiliated 2023-2024 | OpenAI source/affiliated 2025-2026 |
-| --- | ---: | ---: |
-| Anthropic+Google | 11/76 (14.5%) | 60/410 (14.6%) |
-| Anthropic | 8/42 (19.0%) | 35/221 (15.8%) |
-| Google | 3/34 (8.8%) | 25/189 (13.2%) |
+Use regenerated outputs rather than a manually copied period comparison:
 
-The combined inclusive share is nearly flat. Anthropic's share falls while Google's rises. Counting only frontier-lab affiliation gives a different combined comparison: 10/76 (13.2%) versus 51/410 (12.4%). These are raw mention shares; pages with long lists and shared model rows can affect the denominator.
+| Output | Purpose |
+| --- | --- |
+| [mentions_enriched.csv](mentions_enriched.csv) | Source-linked raw occurrences and metadata flags |
+| [provider_period_author_shares.csv](provider_period_author_shares.csv) | Mutually exclusive provider-position categories |
+| [provider_year_author_shares.csv](provider_year_author_shares.csv) | Annual categories with observation counts |
+| [openai_adoption_period_comparison.csv](openai_adoption_period_comparison.csv) | Separate source, affiliation, and union comparisons |
+| [cross_lab_adoption_matrix.csv](cross_lab_adoption_matrix.csv) | Nonexclusive provider-to-lab identified links |
+| [provider_period_lifecycle_shares.csv](provider_period_lifecycle_shares.csv) | Provider-created and private/opaque facet flags |
+| [benchmark_first_adoption_lags.csv](benchmark_first_adoption_lags.csv) | First owner/later-provider reporting dates within this sample |
+| [high_signal_benchmarks.csv](high_signal_benchmarks.csv) | Benchmark examples and observed provider counts |
 
-Neutral / academic / vendor benchmarks remain the majority by the affiliation classification in every provider-period cell. Current own-lab and competitor shares are in `provider_period_author_shares.csv` and `cross_lab_adoption_matrix.csv`; the latter is non-exclusive for multi-affiliated benchmarks. Provider-created and private/opaque flags are reported separately in `provider_period_lifecycle_shares.csv` and should remain provisional until their facet review debt is reduced.
+Compare provider-specific results before pooling labs, and compare raw shares
+with the model-row-normalized
+[attribution table](../readme_story/borrowed_benchmark_authority.csv). A pooled
+change can reflect sample composition or longer evaluation lists. Neither a
+rising nor falling share establishes changes in authority or competitiveness.
 
-## High-Signal Examples
+## Attribution corrections and unresolved lineage
 
-`SWE-bench verified` is the clearest OpenAI-affiliated cross-provider signal: 18 mentions across OpenAI, Google, and Anthropic release pages.
+`GPQA` and `GPQA Diamond` now record Anthropic author affiliation. Their
+source-author strings also include academic and other collaborators. Source
+authorship is not equivalent to exclusive institutional ownership.
 
-`HumanEval`, `GSM8K`, `MMMLU`, `BrowseComp`, `GraphWalks`, and `SimpleQA` are OpenAI-authored or OpenAI-affiliated benchmarks that appear outside OpenAI pages.
+`MRCR` and `MRCR v2` retain historical stable identities, but both
+`source_author` and `frontier_lab_author_affiliations` are explicitly
+`needs_review`. The original evaluation has Google DeepMind/Google Research
+authors; OpenAI publishes an expanded implementation inspired by it. Existing
+generic, OpenAI-prefixed, and GDM-prefixed aliases mix implementation labels.
+Do not attribute every mapped observation to a single creator or infer version
+continuity while this remains unresolved.
 
-`Terminal-Bench 2.0` is a useful counterexample: `source_author` is Academia, but `frontier_lab_author_affiliations` is Anthropic, and it appears across providers in 2025-2026.
+See the [affiliation review](../../docs/frontier_lab_author_affiliation_review.md)
+and [preface source audit](../../docs/readme_data_audit_2026_10_04.md). These
+corrections supersede earlier attribution examples and copied numeric claims.
 
-`HLE (Humanity's Last Exam)` is multi-affiliated with OpenAI, Anthropic, Google, DeepMind, and Microsoft. It is counted as mixed own + competitor in author-position shares, not as a clean competitor-only adoption.
+## Limits and next steps
 
-`MRCR` and `MRCR v2` show why `source_author` and `frontier_lab_author_affiliations` must stay separate: their `source_author` is OpenAI, while the affiliation field lists Google/DeepMind.
+Release-page first sightings are not publication dates or true adoption dates.
+Negative or missing owner-to-competitor lags often reflect the selected launch
+sample. Private/opaque and provider-created facets remain provisional where
+their source review is incomplete.
 
-`GPQA` and `GPQA Diamond` also need care: `source_author` includes Anthropic, but `frontier_lab_author_affiliations` is `none`, so this analysis treats them as neutral by affiliation while preserving the source-author field.
-
-## Limitations
-
-This measures release-page benchmark mentions, not all internal evaluations or model capability.
-
-The time-lag table uses first mention in this dataset, not benchmark publication date. Negative or blank lags often mean the owner lab did not mention the benchmark on an earlier release page captured here.
-
-Lifecycle facets include many `needs_review` rows. Treat provider-created/private/opaque counts as a structured signal to review, not as a final transparency audit.
-
-Multi-affiliated benchmarks are counted once per target lab in `cross_lab_adoption_matrix.csv`, so that table is intentionally non-exclusive. The author-position share table is mutually exclusive.
-
-The current provider universe is OpenAI, Google, and Anthropic. Adding Meta, xAI, Mistral, or other labs could change asymmetry estimates.
-
-## Next Analysis Ideas
-
-Add benchmark publication dates and paper-level citation metadata to estimate real adoption lag instead of release-page lag.
-
-Cluster benchmark variants into families, such as SWE-bench, MRCR, GPQA, and MMLU/MMMLU, to separate family hegemony from version churn.
-
-Manually review divergent rows where `source_author` and `frontier_lab_author_affiliations` tell different stories.
-
-Normalize by release-page length or table density so mention shares are not dominated by long appendix-style releases.
+Audit implementation-specific attribution, author affiliations, and benchmark
+families before interpreting dependence. Publication dates, archived source
+versions, citation metadata, and mention prominence would support stronger
+questions than name presence alone permits. Extending the provider inventory
+would also change which links count as own-lab or cross-lab.
