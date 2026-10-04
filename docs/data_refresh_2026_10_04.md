@@ -39,6 +39,15 @@ images were also checked. Anthropic's new charts expose selectable SVG text;
 their remaining bitmap assets were inspected for evaluation names. Independent
 image review and PR review are recorded in the refresh PR.
 
+When OpenAI's JavaScript chunks blocked hydration, the final visual pass rendered
+the exact Vega-Lite specifications embedded in the official source HTML. Audit
+dimensions and theme colors were fixed for legibility; labels, data and captions
+were preserved. Two reviewers inspected all 32 Astra source panels and all ten
+6.1 Sol source panels; the eleven Sol/Luna panels were reviewed from native
+screenshots. This source-render method is distinct from a live-page screenshot.
+The [compact OpenAI visual-audit manifest](data_refresh_2026_10_04_openai_visual_audit.json)
+records all 53 states, source locations and independent pass completion.
+
 Availability was rechecked for all 17 existing OpenAI URLs and all 12 existing
 Google URLs. The latest existing Google and Anthropic benchmark tables were
 checked for drift. This is a targeted historical recheck, not a claim that every
@@ -66,6 +75,8 @@ remain provisional catalog entries.
 | ExploitGym honeypot / Impossible ExploitGym | One safety test with complementary displayed metrics. Astra cross-references the impossible task evaluation; [system-card section 8.2.3](https://deploymentsafety.openai.com/gpt-6-astra) describes planted unauthorized targets in hard/impossible tasks. Keep ordinary ExploitGym capability evaluation separate. |
 | FrontierMath / FrontierMath Tier 4 (v2) | Preserve `FrontierMath v2` as a changed dataset, collapsing tier slices within v2. [Epoch's changelog](https://epoch.ai/benchmarks/frontiermath-tier-4-v2) records corrections and removals on June 12. Older unversioned mentions remain separate. |
 | GDP.PDF / GDP.pdf / gdp.pdf | Case spelling only. Normalize the new uppercase surface form to the existing `GDP.pdf` alias because the validator disallows duplicate aliases differing only in case. |
+| Broken search / Broken search tool | One safety suite across Sol/Luna and 6.1. Both panels use the same long title, procedure and exact Astra 1.5%, Sol 4.9%, Luna 28.7% baseline results. Keep `Broken search`; alias the longer tab and chart labels. |
+| Computer-use safety / Internal computer use safety benchmark | One stress test across Astra and 6.1, with identical chart title, general computer-use procedure without automatic safeguards and Astra 2.4% baseline. Store the precise `Computer-use safety stress test` chart title in 6.1 and alias it to the internal benchmark row. The shorter tab wording is retained here rather than added as a broad global alias. |
 | Vals Finance Agent v2; Harvey's Legal Agent Benchmark; LABBench 2; ARC-AGI-1 | Existing Finance Agent v2, Legal Agent Benchmark, LABBench2 and ARC-AGI identities, respectively. Explicit narrow spelling/publisher aliases. |
 | τ-Voice-banking / τ³-Banking Leaderboard | Same displayed score suggests continuity but the identity is unresolved; keep separate provisional rows. |
 | StaticBench / CWE-Bench | Flash Cyber alt text says StaticBench while the visible chart says CWE-Bench. Retain StaticBench as a provisional appearance and flag the conflict rather than asserting an alias. |

@@ -63,6 +63,7 @@ OpenAI,2025-2026,benchmark_deepswe_v1_1,DeepSWE v1.1,5,0.3294372294372294,GPT-5.
 OpenAI,2025-2026,benchmark_osworld_2_0,OSWorld 2.0,5,0.3294372294372294,GPT-5.6 | GPT-6 Astra | GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-07-09,2026-09-29,False,False,True,True,False,True,False,15.0,0.02196248196248196
 OpenAI,2025-2026,benchmark_swe_bench_pro,SWE-bench Pro,5,0.28453996983408747,GPT-5.2 | GPT-5.3-Codex | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,True,True,False,True,True,True,15.0,0.0189693313222725
 OpenAI,2025-2026,benchmark_automationbench_1_0_6,AutomationBench 1.0.6,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,True,False,False,True,False,15.0,0.01878787878787879
+OpenAI,2025-2026,benchmark_broken_search,Broken search,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
 OpenAI,2025-2026,benchmark_reviewer_bypass,Reviewer bypass,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
 OpenAI,2025-2026,benchmark_warning_circumvention,Warning circumvention,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
 OpenAI,2025-2026,benchmark_internal_factuality_evaluation,internal factuality evaluation,3,0.28181818181818186,GPT-6 Luna | GPT-6 Sol | GPT-6.1 Sol,2026-09-22,2026-09-29,False,False,False,False,False,False,False,15.0,0.01878787878787879
@@ -85,7 +86,6 @@ OpenAI,2025-2026,benchmark_graphwalks,GraphWalks,5,0.19431440592431304,GPT-4.1 |
 OpenAI,2025-2026,benchmark_aider_polyglot,Aider Polyglot,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,True,False,True,True,True,15.0,0.012803643724696357
 OpenAI,2025-2026,benchmark_multichallenge,MultiChallenge,3,0.19205465587044535,GPT-4.1 | GPT-5 | o3,2025-04-14,2025-08-07,False,False,False,False,False,False,False,15.0,0.012803643724696357
 OpenAI,2025-2026,benchmark_agents_last_exam_v1,Agents' Last Exam V1,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,True,False,False,True,False,15.0,0.012121212121212121
-OpenAI,2025-2026,benchmark_broken_search,Broken search,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.012121212121212121
 OpenAI,2025-2026,benchmark_coding_deception,Coding deception,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,False,False,True,True,False,15.0,0.012121212121212121
 OpenAI,2025-2026,benchmark_unauthorized_interaction,Unauthorized interaction,2,0.18181818181818182,GPT-6 Luna | GPT-6 Sol,2026-09-22,2026-09-22,False,False,False,False,False,False,False,15.0,0.012121212121212121
 OpenAI,2025-2026,benchmark_tau_2_bench,TAU-2 bench,4,0.1803733031674208,GPT-5 | GPT-5.2 | GPT-5.4 | GPT-5.5,2025-08-07,2026-04-23,False,False,True,False,False,True,False,15.0,0.012024886877828054
@@ -100,6 +100,7 @@ OpenAI,2025-2026,benchmark_arc_agi,ARC-AGI,4,0.14168282697694462,GPT-5.2 | GPT-5
 OpenAI,2025-2026,benchmark_toolathlon,Toolathlon,4,0.14168282697694462,GPT-5.2 | GPT-5.4 | GPT-5.5 | GPT-5.6,2025-12-11,2026-07-09,False,False,True,False,False,True,False,15.0,0.009445521798462975
 OpenAI,2025-2026,benchmark_mathvista,MathVista,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,False,True,False,False,False,15.0,0.00863697705802969
 OpenAI,2025-2026,benchmark_tau_bench,Tau-bench,2,0.12955465587044535,GPT-4.1 | o3,2025-04-14,2025-04-16,False,False,True,False,False,True,False,15.0,0.00863697705802969
+OpenAI,2025-2026,benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,2,0.12380952380952381,GPT-6 Astra | GPT-6.1 Sol,2026-09-03,2026-09-29,False,False,False,False,False,False,False,15.0,0.008253968253968255
 OpenAI,2025-2026,benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,2,0.12380952380952381,GPT-6 Astra | GPT-6.1 Sol,2026-09-03,2026-09-29,False,False,True,False,True,True,True,15.0,0.008253968253968255
 OpenAI,2025-2026,benchmark_gdp_pdf,gdp.pdf,2,0.12380952380952381,GPT-5.6 | GPT-6.1 Sol,2026-07-09,2026-09-29,False,False,False,True,False,False,False,15.0,0.008253968253968255
 OpenAI,2025-2026,benchmark_scale_mcp_atlas,Scale MCP-Atlas,3,0.11787330316742081,GPT-5.2 | GPT-5.4 | GPT-5.5,2025-12-11,2026-04-23,False,False,True,False,False,True,False,15.0,0.007858220211161388
@@ -107,8 +108,6 @@ OpenAI,2025-2026,benchmark_gpqa_diamond,GPQA Diamond,4,0.11549235078646844,GPT-5
 OpenAI,2025-2026,benchmark_collie,COLLIE,2,0.11513157894736842,GPT-4.1 | GPT-5,2025-04-14,2025-08-07,False,False,False,False,False,False,False,15.0,0.007675438596491228
 OpenAI,2025-2026,benchmark_hmmt,HMMT,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,False,False,False,False,False,False,15.0,0.007500000000000001
 OpenAI,2025-2026,benchmark_video_mmmu,Video-MMMU,2,0.1125,GPT-5 | GPT-5.2,2025-08-07,2025-12-11,False,True,False,True,True,True,False,15.0,0.007500000000000001
-OpenAI,2025-2026,benchmark_broken_search_tool,Broken search tool,1,0.1,GPT-6.1 Sol,2026-09-29,2026-09-29,False,False,True,False,False,True,False,15.0,0.006666666666666667
-OpenAI,2025-2026,benchmark_computer_use_safety,Computer-use safety,1,0.1,GPT-6.1 Sol,2026-09-29,2026-09-29,False,False,False,False,False,False,False,15.0,0.006666666666666667
 OpenAI,2025-2026,benchmark_arc_agi_2,ARC-AGI-2,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-6 Astra,2026-03-05,2026-09-03,False,False,False,True,False,False,False,15.0,0.0061121884651296424
 OpenAI,2025-2026,benchmark_mmmu_pro,MMMU Pro,3,0.09168282697694463,GPT-5.4 | GPT-5.5 | GPT-5.6,2026-03-05,2026-07-09,False,False,False,True,False,False,False,15.0,0.0061121884651296424
 OpenAI,2025-2026,benchmark_livebench_coding,LiveBench Coding,1,0.09090909090909091,o3-mini,2025-01-31,2025-01-31,False,False,True,False,True,True,True,15.0,0.006060606060606061
@@ -175,7 +174,6 @@ OpenAI,2025-2026,benchmark_genebench_pro,GeneBench Pro,1,0.023809523809523808,GP
 OpenAI,2025-2026,benchmark_genebench_pro_v13,GeneBench Pro v13,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,True,False,False,True,False,15.0,0.0015873015873015873
 OpenAI,2025-2026,benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
 OpenAI,2025-2026,benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
-OpenAI,2025-2026,benchmark_internal_computer_use_safety_benchmark,Internal computer use safety benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
 OpenAI,2025-2026,benchmark_internal_hallucination_benchmark,Internal hallucination benchmark,1,0.023809523809523808,GPT-6 Astra,2026-09-03,2026-09-03,False,False,False,False,False,False,False,15.0,0.0015873015873015873
 OpenAI,2025-2026,benchmark_kernelgen_1p,KernelGen 1P,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,True,True,True,15.0,0.0015873015873015873
 OpenAI,2025-2026,benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,1,0.023809523809523808,GPT-5.6,2026-07-09,2026-07-09,False,False,True,False,False,True,False,15.0,0.0015873015873015873

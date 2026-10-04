@@ -6,14 +6,12 @@ benchmark_big_bench_hard,Big-Bench Hard,Google,Google,Google,Google,gemini 1.0,2
 benchmark_biomysterybench,BioMysteryBench,Anthropic,Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Google,Gemini 3.7 Flash,2026-08-13,65,False
 benchmark_biopipelinebench,BioPipelineBench,Anthropic,Anthropic,Anthropic,Anthropic,Claude 4.6 (Opus),2026-02-05,Anthropic,Claude 4.6 (Opus),2026-02-05,,,,,
 benchmark_broken_search,Broken search,OpenAI,OpenAI,OpenAI,OpenAI,GPT-6 Luna,2026-09-22,OpenAI,GPT-6 Luna,2026-09-22,,,,,
-benchmark_broken_search_tool,Broken search tool,OpenAI,OpenAI,OpenAI,OpenAI,GPT-6.1 Sol,2026-09-29,OpenAI,GPT-6.1 Sol,2026-09-29,,,,,
 benchmark_browsecomp,BrowseComp,OpenAI,OpenAI,OpenAI,OpenAI,o3,2025-04-16,OpenAI,o3,2025-04-16,Anthropic,Claude 4.6 (Opus),2026-02-05,295,False
 benchmark_browsecomp_long_context,BrowseComp Long Context,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.2,2025-12-11,OpenAI,GPT-5.2,2025-12-11,,,,,
 benchmark_capture_the_flags_challenge_tasks_internal,Capture-the-Flags challenge tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,
 benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,Google,Google,Google,Google,Gemini 3.5 Flash Cyber,2026-07-21,Google,Gemini 3.5 Flash Cyber,2026-07-21,,,,,
 benchmark_cot_control,CoT-Control,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
 benchmark_coding_deception,Coding deception,OpenAI,OpenAI,OpenAI,OpenAI,GPT-6 Luna,2026-09-22,OpenAI,GPT-6 Luna,2026-09-22,,,,,
-benchmark_computer_use_safety,Computer-use safety,OpenAI,OpenAI,OpenAI,OpenAI,GPT-6.1 Sol,2026-09-29,OpenAI,GPT-6.1 Sol,2026-09-29,,,,,
 benchmark_data_science_tasks_internal,Data Science Tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-6 Astra,2026-09-03,OpenAI,GPT-6 Astra,2026-09-03,,,,,
 benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-6 Astra,2026-09-03,OpenAI,GPT-6 Astra,2026-09-03,,,,,
 benchmark_deepsearchqa,DeepSearchQA,"Academia, Google DeepMind",Google; DeepMind,Google,Anthropic,Claude 5 (Opus),2026-07-24,,,,Anthropic,Claude 5 (Opus),2026-07-24,,

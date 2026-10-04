@@ -45,7 +45,7 @@ Release-normalized shares through `2026-09-30`, from `provider_hypothesis_period
 | OpenAI | 2024 | 2.4% | 12.5% | 33.9% | 27.4% |
 | Google | 2024 | 39.3% | 3.6% | 14.3% | 42.9% |
 | Anthropic | 2024 | 5.8% | 11.1% | 24.1% | 32.7% |
-| OpenAI | 2025-2026 | 15.7% | 50.8% | 40.1% | 21.4% |
+| OpenAI | 2025-2026 | 15.7% | 50.1% | 40.1% | 21.4% |
 | Google | 2025-2026 | 11.0% | 62.3% | 40.3% | 21.8% |
 | Anthropic | 2025-2026 | 10.8% | 63.6% | 36.9% | 23.8% |
 
@@ -81,7 +81,7 @@ Google highlighted long context or whether one model was objectively better.
 Provider intent and competitive differentiation would need page prose, launch
 context, and external positioning evidence.
 
-Facet review debt is material. For `context_pressure`, 298 of 300 facet rows are
+Facet review debt is material. For `context_pressure`, 296 of 298 facet rows are
 `needs_review`; only 2 are `accepted`. Domain and headline task mode also mix
 accepted rows with legacy seeds. Treat the shares as operationalized indicators
 from the current taxonomy, not final ground truth.

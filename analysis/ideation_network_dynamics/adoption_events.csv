@@ -385,8 +385,6 @@ benchmark_containment_evaluations,containment evaluations,Anthropic,2026-09-28,C
 benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor and coding benchmark,Anthropic,2026-09-28,Claude 5.5 (Sonnet),multi-step Unity Editor and coding benchmark,1,0,True,Anthropic,Others(Unity),none,Agentic,Coding/Engineering
 benchmark_offline_slackbot_evals,offline Slackbot evals,Anthropic,2026-09-28,Claude 5.5 (Sonnet),offline Slackbot evals,1,0,True,Anthropic,Others(Slack),none,Agentic,General/Commonsense
 benchmark_private_suite_of_2441_finance_tasks,private suite of 2441 finance tasks,Anthropic,2026-09-28,Claude 5.5 (Sonnet),private suite of 2441 finance tasks,1,0,True,Anthropic,Others(Balyasny Asset Management),none,Generative Reasoning,Specialized (Law/Bio/Finance)
-benchmark_broken_search_tool,Broken search tool,OpenAI,2026-09-29,GPT-6.1 Sol,Broken search tool,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense
-benchmark_computer_use_safety,Computer-use safety,OpenAI,2026-09-29,GPT-6.1 Sol,Computer-use safety,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense
 benchmark_cwe_bench_v0,CWE-bench v0,Google,2026-09-30,Gemini 4 Argon,CWE-bench v0,1,0,True,Google,Others(Collinear AI),none,Agentic,Coding/Engineering
 benchmark_cwe_bench_v1,CWE-bench v1,Google,2026-09-30,Gemini 4 Argon,CWE-bench v1,1,0,True,Google,Others(Collinear AI),none,Agentic,Coding/Engineering
 benchmark_chartography,Chartography,Google,2026-09-30,Gemini 4 Argon,Chartography,2,8,False,Anthropic,Others(Surge AI),none,Generative Reasoning,Specialized (Law/Bio/Finance)

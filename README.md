@@ -12,7 +12,7 @@ benchmark portfolios have changed over time: from academic tests and static
 question sets toward coding environments, tool use, computer interaction, and
 other work-like tasks.
 
-**59 tracked releases · 55 benchmark-bearing rows · 791 raw mentions · 288 catalog entries**
+**59 tracked releases · 55 benchmark-bearing rows · 791 raw mentions · 286 catalog entries**
 
 Release discovery and source checks were refreshed through October 4, 2026.
 [Source and identity audit](docs/data_refresh_2026_10_04.md).
@@ -49,7 +49,7 @@ The main files are:
 ### Release pages are moving from exams toward work simulations
 
 Static question answering still appears frequently, but the mix changed sharply
-after 2024. The active taxonomy assigns 70.2% of the weighted 2026 YTD portfolio
+after 2024. The active taxonomy assigns 69.9% of the weighted 2026 YTD portfolio
 to work-simulation characteristics, up from 12.0% in 2023.
 
 ![Weighted shift from static evaluation to work simulation](assets/static_to_work_simulation_trend.png)
@@ -59,9 +59,9 @@ to work-simulation characteristics, up from 12.0% in 2023.
 | 2023 | 82.4% | 12.0% | 53.7% | 3 |
 | 2024 | 70.7% | 18.0% | 28.0% | 8 |
 | 2025 | 54.4% | 39.1% | 48.7% | 14 |
-| 2026 YTD | 12.2% | 70.2% | 37.1% | 30 |
+| 2026 YTD | 12.2% | 69.9% | 37.1% | 30 |
 
-The 2026 estimate is sensitive to taxonomy review coverage. It is 70.2% across
+The 2026 estimate is sensitive to taxonomy review coverage. It is 69.9% across
 all active labels, 20.9% under a fixed-denominator lower bound, and 51.2% among
 mentions with complete high-confidence coverage.
 
@@ -70,7 +70,7 @@ mentions with complete high-confidence coverage.
 | 2023 | 12.0% | 12.0% | 12.0% | 100.0% |
 | 2024 | 18.0% | 18.0% | 18.1% | 99.1% |
 | 2025 | 39.1% | 38.6% | 37.9% | 97.9% |
-| 2026 YTD | 70.2% | 20.9% | 51.2% | 32.8% |
+| 2026 YTD | 69.9% | 20.9% | 51.2% | 32.8% |
 
 SWE-bench Verified, OSWorld-Verified, SWE-bench Pro, HumanEval, and the TAU
 family account for much of the work-simulation signal. Full sensitivity tables
@@ -185,8 +185,8 @@ largest payoff from manual taxonomy review.
 | Review | Store confidence, provenance, and review status with each facet assignment |
 
 The charts use a concise headline projection built from the multi-label taxonomy.
-The facet table currently contains 4,058 rows: 29 accepted, 3,969 awaiting
-review, and 60 legacy rows. Of these, 2,163 have confidence below 0.70. Review
+The facet table currently contains 4,042 rows: 29 accepted, 3,953 awaiting
+review, and 60 legacy rows. Of these, 2,147 have confidence below 0.70. Review
 priority is driven by both uncertainty and the number of release-page mentions
 affected by a benchmark.
 

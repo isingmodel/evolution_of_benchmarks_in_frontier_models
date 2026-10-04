@@ -1,8 +1,8 @@
 metric,value,detail
 resolved_mentions,791.0,
-unique_benchmarks_mentioned,286.0,
+unique_benchmarks_mentioned,284.0,
 cross_provider_cascades,74.0,benchmarks adopted by more providers than their first-provider set
-single_provider_benchmarks,212.0,
+single_provider_benchmarks,210.0,
 fastest_cascade,1.0,Terminal-Bench 4.0: Anthropic -> Google
 fastest_cascade,2.0,MMMLU: Anthropic -> OpenAI
 fastest_cascade,2.0,Terminal-Bench Science 0.1: Anthropic -> OpenAI
@@ -17,8 +17,8 @@ provider_net_export_balance,-2.0,Anthropic
 provider_net_export_balance,-16.0,Google
 provider_net_export_balance,-20.0,OpenAI
 latest_portfolio_similarity,0.249,Anthropic - Google
-latest_portfolio_similarity,0.231,Anthropic - OpenAI
-latest_portfolio_similarity,0.219,Google - OpenAI
+latest_portfolio_similarity,0.233,Anthropic - OpenAI
+latest_portfolio_similarity,0.221,Google - OpenAI
 self_affiliated_mention_share,0.331,OpenAI
 self_affiliated_mention_share,0.202,Anthropic
 self_affiliated_mention_share,0.13,Google

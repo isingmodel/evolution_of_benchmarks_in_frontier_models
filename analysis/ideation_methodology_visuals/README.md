@@ -20,7 +20,7 @@ The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `dat
 | `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
 | `summary_stats.csv` | Reproducibility stats for the local data run. |
 
-Local run summary through `2026-09-30`: 791 resolved raw mentions, 286 used canonical benchmarks, and 55 benchmark-bearing model rows. The facet frame has 3,969 `needs_review`, 60 `legacy_seed`, and 29 `accepted` rows out of 4,058. See `summary_stats.csv` for the current reproducibility record.
+Local run summary through `2026-09-30`: 791 resolved raw mentions, 284 used canonical benchmarks, and 55 benchmark-bearing model rows. The facet frame has 3,953 `needs_review`, 60 `legacy_seed`, and 29 `accepted` rows out of 4,042. See `summary_stats.csv` for the current reproducibility record.
 
 ## What The Prototypes Show
 

@@ -72,6 +72,7 @@ Chartography,3,2,2026-09-22,2026-09-30,Others(Surge AI),none
 FinanceAgent v1.1,3,2,2026-03-05,2026-04-23,"Academia, Others(vals.ai)",none
 Vending-Bench 2,3,2,2025-11-18,2026-04-16,Others(Andon Labs),none
 AutomationBench 1.0.6,3,1,2026-09-22,2026-09-29,"Academia, Others(Zapier)",none
+Broken search,3,1,2026-09-22,2026-09-29,OpenAI,OpenAI
 ExploitGym,3,1,2026-07-09,2026-09-03,"Academia, OpenAI",OpenAI
 Gray Swan IPI benchmark,3,1,2026-09-02,2026-09-30,Others(Gray Swan),none
 HLE-Verified,3,1,2026-08-13,2026-09-02,"Academia, Others(Alibaba)",none
@@ -98,7 +99,6 @@ Agents' Last Exam V1,2,1,2026-09-22,2026-09-22,"Academia, Others(Berkeley RDI; R
 Artificial Analysis Speech to Speech Index,2,1,2026-09-15,2026-09-15,Others(Artificial Analysis),none
 BenchCAD,2,1,2026-07-09,2026-09-03,Others(BenchCAD),none
 Big Bench Audio,2,1,2026-09-15,2026-09-15,Others(Artificial Analysis),none
-Broken search,2,1,2026-09-22,2026-09-22,OpenAI,OpenAI
 COLLIE,2,1,2025-04-14,2025-08-07,Academia,none
 CWE-Bench,2,1,2026-09-02,2026-09-02,Others(Collinear AI),none
 Capture-the-Flags challenge tasks (Internal),2,1,2026-04-23,2026-07-09,OpenAI,OpenAI
@@ -113,6 +113,7 @@ Finance Agent,2,1,2025-09-30,2026-02-05,"Academia, Others(vals.ai)",none
 FrontierMath v2,2,1,2026-07-09,2026-09-03,Others(Epoch AI),none
 GDPval-AA v2.1,2,1,2026-09-22,2026-09-28,Others(Artificial Analysis),none
 HMMT,2,1,2025-08-07,2025-12-11,Academia,none
+Internal computer use safety benchmark,2,1,2026-09-03,2026-09-29,OpenAI,OpenAI
 Investment Banking Modeling Tasks (Internal),2,1,2026-03-05,2026-04-23,OpenAI,OpenAI
 LMArena,2,1,2025-11-18,2026-03-03,Academia,none
 MLE-Bench,2,1,2026-07-21,2026-07-21,OpenAI,OpenAI
@@ -147,7 +148,6 @@ BioPipelineBench,1,1,2026-02-05,2026-02-05,Anthropic,Anthropic
 Biology Olympiad,1,1,2023-03-14,2023-03-14,Academia,none
 Bird-SQL,1,1,2024-12-11,2024-12-11,Academia,none
 BixBench,1,1,2026-04-23,2026-04-23,Others(FutureHouse),none
-Broken search tool,1,1,2026-09-29,2026-09-29,OpenAI,OpenAI
 BrowseComp Long Context,1,1,2025-12-11,2025-12-11,OpenAI,OpenAI
 BrowseComp-Plus,1,1,2025-11-24,2025-11-24,Academia,none
 CWE-bench v0,1,1,2026-09-30,2026-09-30,Others(Collinear AI),none
@@ -156,7 +156,6 @@ Chrome Production Commit Scanning Pipeline,1,1,2026-07-21,2026-07-21,Google,Goog
 Citations eval,1,1,2026-09-01,2026-09-01,Others(Hebbia),none
 CoT-Control,1,1,2026-03-05,2026-03-05,OpenAI,OpenAI
 ComplexFunc Bench,1,1,2025-04-14,2025-04-14,Academia,none
-Computer-use safety,1,1,2026-09-29,2026-09-29,OpenAI,OpenAI
 CritPt,1,1,2026-04-23,2026-04-23,Academia,none
 CyScenarioBench,1,1,2026-06-09,2026-06-09,Others(Irregular),none
 Data Science Tasks (Internal),1,1,2026-09-03,2026-09-03,OpenAI,OpenAI
@@ -198,7 +197,6 @@ IMO,1,1,2024-09-12,2024-09-12,Academia,none
 Infographic VQA,1,1,2023-12-06,2023-12-06,Academia,none
 Internal Research Debugging Evaluation,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI
 Internal circumvention benchmark,1,1,2026-09-03,2026-09-03,OpenAI,OpenAI
-Internal computer use safety benchmark,1,1,2026-09-03,2026-09-03,OpenAI,OpenAI
 Internal hallucination benchmark,1,1,2026-09-03,2026-09-03,OpenAI,OpenAI
 Jailbreak Eval,1,1,2024-09-12,2024-09-12,Academia,none
 KernelGen 1P,1,1,2026-07-09,2026-07-09,OpenAI,OpenAI

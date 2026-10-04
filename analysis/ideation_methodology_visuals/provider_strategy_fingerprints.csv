@@ -57,8 +57,8 @@ Google,headline_task_mode,Multimodal Perception,2.017791638186375,13.0,0.1552147
 Google,headline_task_mode,Generative Reasoning,1.4455371383002962,13.0,0.11119516448463816
 Google,headline_task_mode,Knowledge Retrieval,0.7064393939393939,13.0,0.05434149184149184
 Google,headline_task_mode,Constraint Satisfaction,0.3517458418774208,13.0,0.027057372452109294
-OpenAI,headline_task_mode,Agentic,5.942424242424242,10.0,0.5942424242424242
-OpenAI,headline_task_mode,Constraint Satisfaction,1.5983927836869014,10.0,0.15983927836869014
+OpenAI,headline_task_mode,Agentic,5.842424242424243,10.0,0.5842424242424242
+OpenAI,headline_task_mode,Constraint Satisfaction,1.6983927836869013,10.0,0.16983927836869012
 OpenAI,headline_task_mode,Multimodal Perception,0.9000969618616678,10.0,0.09000969618616678
 OpenAI,headline_task_mode,Generative Reasoning,0.8668713639301875,10.0,0.08668713639301875
 OpenAI,headline_task_mode,Knowledge Retrieval,0.6922146480970011,10.0,0.06922146480970011
@@ -74,7 +74,7 @@ Google,interaction_pattern,terminal_or_codebase_interaction,1.538697358927622,13
 Google,interaction_pattern,multi_step_planning,0.7359399920255183,13.0,0.05661076861734756
 Google,interaction_pattern,computer_control,0.29610460811118705,13.0,0.022777277547014387
 Google,interaction_pattern,browser_or_web_interaction,0.12142857142857143,13.0,0.00934065934065934
-OpenAI,interaction_pattern,static_prompt_response,4.254879679144385,10.0,0.4254879679144385
+OpenAI,interaction_pattern,static_prompt_response,4.354879679144386,10.0,0.43548796791443856
 OpenAI,interaction_pattern,environment_interaction,3.1094843881608587,10.0,0.31094843881608586
 OpenAI,interaction_pattern,multi_step_planning,0.8946482439129498,10.0,0.08946482439129498
 OpenAI,interaction_pattern,terminal_or_codebase_interaction,0.8877624826154238,10.0,0.08877624826154237

@@ -35,7 +35,7 @@ Latest local release date in this run: `2026-09-30`.
 
 Outputs: `normalized_mentions.csv`, `cascade_metrics.csv`, `adoption_events.csv`, `provider_diffusion_roles.csv`, `provider_role_balance.png`, and `release_strategy_metrics.csv`.
 
-The refreshed local outputs resolve 791 raw mentions to 286 canonical benchmarks. They identify 74 cross-provider cascades and 212 single-provider benchmarks.
+The refreshed local outputs resolve 791 raw mentions to 284 canonical benchmarks. They identify 74 cross-provider cascades and 210 single-provider benchmarks.
 
 Fastest observed second-provider mentions:
 
@@ -58,8 +58,8 @@ Cumulative portfolio overlap at `2026-09-30`:
 | Provider pair | Jaccard similarity |
 | --- | ---: |
 | Anthropic - Google | 0.249 |
-| Anthropic - OpenAI | 0.231 |
-| Google - OpenAI | 0.219 |
+| Anthropic - OpenAI | 0.233 |
+| Google - OpenAI | 0.221 |
 
 The time series can fluctuate when portfolios are small. Similarity describes shared benchmark vocabulary and does not establish copying, provider intent, or capability. Use the release-level strategy CSV for current novelty counts rather than inferring them from the overlap chart. Annotate major releases and portfolio sizes before foregrounding the chart.
 

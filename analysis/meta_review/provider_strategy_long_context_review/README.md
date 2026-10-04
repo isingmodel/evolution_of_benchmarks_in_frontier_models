@@ -28,7 +28,7 @@ The analysis directly supports the project's themes of provider showcase strateg
 - **Overclaiming provider intent:** the folder README opens with language about Google emphasizing long context "because" it was differentiating. The data supports a release-page showcase pattern, but the causal explanation needs page-prose evidence.
 - **Small denominator:** Google 2024 has 2 benchmarked releases and 16 raw mentions. The result is a legitimate case study, but not a stable statistical generalization.
 - **Single-release leverage:** Gemini 1.5 has only two resolved benchmark mentions, so `Needle In A Haystack` gets 0.5 release weight and 25 percentage points of the provider-period share.
-- **Taxonomy dependency:** `facet_review_status_summary.csv` reports 298 of 300 `context_pressure` rows as `needs_review`. Key 2024 labels including `Needle In A Haystack`, `MRCR`, and `EgoSchema` are still `needs_review`.
+- **Taxonomy dependency:** `facet_review_status_summary.csv` reports 296 of 298 `context_pressure` rows as `needs_review`. Key 2024 labels including `Needle In A Haystack`, `MRCR`, and `EgoSchema` are still `needs_review`.
 - **Broad metric ambiguity:** the broad long-context metric includes supporting-context benchmarks such as `EgoSchema`, `GDPval`, and `FACTS Benchmark suite`. That is useful for strategy, but a reader may read it as pure long-context retrieval unless the caption is explicit.
 - **Heatmap risk:** `provider_strategy_heatmap.png` combines long-context, agentic, coding, and multimodal flags from different facet axes with different review maturity. It is directionally interesting, but too compressed for a main claim.
 

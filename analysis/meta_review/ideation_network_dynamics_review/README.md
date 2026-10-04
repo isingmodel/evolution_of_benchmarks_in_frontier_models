@@ -75,7 +75,7 @@ Create one additional high-value chart from `release_strategy_metrics.csv`: `rel
 
 Place this after the existing multi-facet trend and review-debt sections, before or inside a revised "Provider Strategy" section. It should replace broad claims like "OpenAI often created new benchmarks to define the direction of the field" with a narrower, data-backed claim:
 
-> Through 2026-09-30, 74 of 286 used canonical benchmarks show cross-provider public mention cascades. Latest cumulative pairwise portfolio overlap ranges from 0.219 to 0.249. These are public vocabulary patterns, not creation or private adoption histories.
+> Through 2026-09-30, 74 of 284 used canonical benchmarks show cross-provider public mention cascades. Latest cumulative pairwise portfolio overlap ranges from 0.221 to 0.249. These are public vocabulary patterns, not creation or private adoption histories.
 
 Recommended README shape:
 

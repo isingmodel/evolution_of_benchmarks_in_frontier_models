@@ -53,7 +53,7 @@ Release-normalized headline projection from `provider_headline_portfolio.csv`:
 | --- | ---: | ---: | ---: |
 | Anthropic | 51.5% | 24.6% | 15.9% |
 | Google | 51.5% | 14.7% | 21.5% |
-| OpenAI | 41.0% | 23.7% | 16.6% |
+| OpenAI | 40.5% | 23.7% | 16.6% |
 
 Use `provider_signature_lift.csv` for comparisons with the global portfolio. These are projections over facet annotations, not stable provider identities.
 
@@ -66,7 +66,7 @@ Mean release-normalized shares from `annual_strategy_frames.csv`:
 | 2023 | 82.4% | 12.0% | 53.7% | 3 |
 | 2024 | 70.7% | 18.0% | 28.0% | 8 |
 | 2025 | 54.4% | 39.1% | 48.7% | 14 |
-| 2026 YTD | 12.2% | 70.2% | 37.2% | 30 |
+| 2026 YTD | 12.2% | 69.9% | 37.2% | 30 |
 
 2026 YTD ends on `2026-09-30`. Static and work flags are operationalized from taxonomy facets; provider mix and review status can affect the trend. Use the README-story sensitivity outputs for confidence and extraction-granularity checks.
 
@@ -78,7 +78,7 @@ Release-normalized shares from `risk_private_usage_by_provider.csv`:
 | --- | ---: | ---: | ---: |
 | Anthropic | 31.4% | 13.5% | 1.1% |
 | Google | 19.9% | 8.2% | 0.0% |
-| OpenAI | 42.4% | 28.8% | 4.0% |
+| OpenAI | 42.4% | 28.8% | 4.6% |
 
 The combined flag includes public frontier-lab-authored benchmarks and should not be interpreted as an opacity measure. See the release-level risk CSV for current examples and preserve the distinction between authorship, private access, and internal naming.
 
