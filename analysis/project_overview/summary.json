@@ -1,0 +1,23 @@
+{
+  "as_of": "2026-09-30",
+  "model_rows": 59,
+  "launch_events": 55,
+  "benchmark_bearing_launches": 51,
+  "catalog_benchmarks": 288,
+  "observed_benchmarks": 286,
+  "raw_model_mentions": 793,
+  "canonical_model_mentions": 792,
+  "launch_mentions": 745,
+  "single_launch_benchmarks": 169,
+  "shared_benchmarks": 74,
+  "shared_mention_share": 0.6214765100671141,
+  "shared_announcement_weight_share": 0.6333341691837558,
+  "all_three_benchmarks": 38,
+  "shared_conditional_median_lag_days": 59.5,
+  "latest_release_year": 2026,
+  "single_launch_first_seen_latest_year": 136,
+  "facet_rows": 4052,
+  "facet_accepted": 36,
+  "facet_needs_review": 3956,
+  "facet_legacy_seed": 60
+}

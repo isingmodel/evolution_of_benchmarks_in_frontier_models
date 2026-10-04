@@ -1,28 +1,35 @@
 provider,period,target_lab_group,mentions,unique_benchmarks
+Anthropic,2023-2024,Anthropic,3,2
 Anthropic,2023-2024,Google/DeepMind,4,2
 Anthropic,2023-2024,Microsoft,2,1
-Anthropic,2023-2024,Neutral/no frontier lab,28,17
+Anthropic,2023-2024,Neutral/no frontier lab,25,15
 Anthropic,2023-2024,OpenAI,8,3
-Anthropic,2025-2026,Anthropic,42,17
-Anthropic,2025-2026,Google/DeepMind,12,4
+Anthropic,2025-2026,Anthropic,50,18
+Anthropic,2025-2026,Google/DeepMind,11,3
 Anthropic,2025-2026,Microsoft,10,2
-Anthropic,2025-2026,Neutral/no frontier lab,150,87
+Anthropic,2025-2026,Neutral/no frontier lab,143,87
 Anthropic,2025-2026,OpenAI,34,7
+Anthropic,2025-2026,Unknown affiliation,1,1
+Google,2023-2024,Anthropic,1,1
 Google,2023-2024,Google/DeepMind,7,6
 Google,2023-2024,Microsoft,1,1
-Google,2023-2024,Neutral/no frontier lab,24,20
+Google,2023-2024,Neutral/no frontier lab,23,19
 Google,2023-2024,OpenAI,2,2
-Google,2025-2026,Anthropic,16,4
-Google,2025-2026,Google/DeepMind,21,8
+Google,2023-2024,Unknown affiliation,1,1
+Google,2025-2026,Anthropic,20,6
+Google,2025-2026,Google/DeepMind,13,6
 Google,2025-2026,Microsoft,5,1
-Google,2025-2026,Neutral/no frontier lab,145,69
+Google,2025-2026,Neutral/no frontier lab,141,67
 Google,2025-2026,OpenAI,17,7
+Google,2025-2026,Unknown affiliation,8,2
+OpenAI,2023-2024,Anthropic,3,1
 OpenAI,2023-2024,Google/DeepMind,1,1
 OpenAI,2023-2024,Microsoft,2,1
-OpenAI,2023-2024,Neutral/no frontier lab,27,18
+OpenAI,2023-2024,Neutral/no frontier lab,24,17
 OpenAI,2023-2024,OpenAI,2,1
-OpenAI,2025-2026,Anthropic,10,3
-OpenAI,2025-2026,Google/DeepMind,15,6
+OpenAI,2025-2026,Anthropic,20,5
+OpenAI,2025-2026,Google/DeepMind,9,4
 OpenAI,2025-2026,Microsoft,8,2
-OpenAI,2025-2026,Neutral/no frontier lab,165,87
+OpenAI,2025-2026,Neutral/no frontier lab,155,85
 OpenAI,2025-2026,OpenAI,93,48
+OpenAI,2025-2026,Unknown affiliation,6,2

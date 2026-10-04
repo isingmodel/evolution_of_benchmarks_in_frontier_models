@@ -1,110 +1,106 @@
-# Analysis Synthesis
+# Current Analysis Synthesis
 
-This synthesis collects the five subagent explorations plus the common data snapshot. The shared caveat remains central: these analyses measure benchmark mentions on public release pages, not hidden evaluations or model capability.
+The project measures evaluations named on selected public model launch pages.
+It records public reporting, not model capability, all internal evaluations,
+benchmark quality, or provider intent. A name can appear in a result, comparison,
+footnote, component list, or partner quotation.
 
-## Verification
+The [project overview](project_overview/README.md) is the primary evidence source
+for the repository preface. Its generated tables use the committed inputs and
+the selected cutoff; this synthesis does not duplicate their changing numbers.
+The [historical meta-review](meta_review/SYNTHESIS.md) preserves earlier editorial
+judgments and hypotheses, rather than current findings.
 
-All analysis scripts were rerun from the repository root with `.venv/bin/python`, and the source data validator still passes:
+## Evidence priorities
 
-```bash
-.venv/bin/python scripts/validate_data.py
-```
+### Shared identities and a long tail
 
-Current baseline:
+The most direct result compares how many canonical identities appear across
+providers with how much reporting those identities account for. This requires
+canonical resolution and announcement identity, but no provisional task taxonomy.
 
-- 557 resolved benchmark mentions
-- 196 canonical benchmarks mentioned at least once
-- 3 providers: OpenAI, Google, Anthropic
-- Latest modeled release date: 2026-07-24
+Use [sharing_summary.csv](project_overview/sharing_summary.csv) for observed
+identity shares, benchmark–announcement counts, and equal-announcement weights.
+The identity denominator excludes catalog entries without a sighting. The
+weighted comparison gives each benchmark-bearing announcement one unit, so long
+tables and jointly announced variants do not independently dominate it.
 
-## Main Findings
+This is concentration among catalog identities, not among benchmark families or
+independent tests. Explicit versions remain separate, some historical combined
+identities remain, and a named suite and its components can all be recorded.
 
-### 1. OpenAI benchmark hegemony did not fade in the simple sense
+### Reporting histories and cross-provider sightings
 
-The first hypothesis was framed as: if OpenAI's early benchmark hegemony weakened as Google and Anthropic became more competitive, then Google/Anthropic release pages should use fewer OpenAI-authored or OpenAI-affiliated benchmarks in 2025-2026 than in 2023-2024.
+The [lifecycle report](benchmark_lifecycle/report.md) follows every catalog
+identity through first and last sightings, recurrence, provider-specific
+opportunities, and reporting gaps. One announcement is a provider, release date,
+and normalized source URL; model-row counts are retained separately. Empty
+benchmark lists remain in opportunity counts.
 
-The current data shows the opposite:
+[diffusion_horizons.csv](project_overview/diffusion_horizons.csv) compares second
+provider sightings within complete calendar windows, including identities that
+remain provider-specific. Each horizon has its own eligible cohort. Same-day
+ties have zero lag. This is preferable to using only the fastest cases or only
+identities that eventually become shared.
 
-- Anthropic+Google OpenAI-authored-or-affiliated mentions rose from 11/76 in 2023-2024 (14.5%) to 53/255 in 2025-2026 (20.8%).
-- Google drove most of the increase, from 8.8% to 24.7%.
-- Anthropic stayed nearly flat, from 19.0% to 18.8%.
+First seen means first recorded in this selected sample, not publication or true
+adoption. A completed calendar window need not contain another provider's launch.
+Last seen and a reporting gap do not establish retirement, saturation, or
+replacement.
 
-Better interpretation: OpenAI's benchmark vocabulary became more shared competitive currency even as the field grew more competitive. The more nuanced hegemony story is not "less OpenAI influence"; it is "more shared use of OpenAI-linked benchmarks alongside more self-authored/private/provider-created benchmarks."
+### Interaction-tag trends with annotation coverage
 
-Primary folder: `analysis/frontier_lab_benchmark_hegemony/`.
+The overview uses five explicit interaction labels: single-turn tool use,
+environment interaction, browser/web interaction, terminal/codebase interaction,
+and computer control. Static code generation, unit-test scoring, planning, or a
+construct claim alone do not qualify. This is a narrow reporting-composition
+measure, not a measure of all agentic or real-world work.
 
-### 2. Google 2024 long-context showcase is strongly visible
+[interaction_trends.csv](project_overview/interaction_trends.csv) retains original
+weights while comparing all active labels, confidence-filtered labels, and
+accepted labels. It reports positive shares and classification coverage together.
+A confidence rating is neither a count weight nor evidence of completed review.
+Unknown classifications remain missing; zero positive weight under zero coverage
+is not evidence that interaction is absent. See the
+[exact retained labels](project_overview/interaction_classification.csv) and
+[provider-level sensitivity](project_overview/provider_interaction_trends.csv).
 
-The second hypothesis is supported descriptively. Using release-normalized benchmark shares:
+The older [README story analysis](readme_story/README.md) uses a broader
+software/tool proxy and model-row weighting. It remains useful as an exploratory
+sensitivity lens, but its “work simulation” field is not the overview's construct.
 
-- Google 2024 broad long-context share: 39.3%.
-- OpenAI 2024 broad long-context share: 2.4%.
-- Anthropic 2024 broad long-context share: 5.8%.
+## Secondary analyses
 
-The signal is mostly Gemini 1.5 and `Needle In A Haystack`, with smaller 2024 support from Gemini 2.0 benchmarks such as `MRCR` and `EgoSchema`.
+- [Long-context analysis](provider_strategy_long_context/README.md) supports
+  bounded release-page case studies. Compare broad and primary-only labels,
+  annotation status, and the number of contributing announcements. Corrected
+  source definitions, including MTOB's translation task, can change older
+  summaries; use regenerated tables rather than historical numeric claims.
+- [Benchmark attribution](frontier_lab_benchmark_hegemony/README.md) distinguishes
+  source authorship from frontier-lab author affiliation. Identified links are
+  descriptive metadata, not evidence of influence or benchmark ownership.
+  Unresolved MRCR implementation lineage and multi-affiliated papers limit
+  interpretation.
+- [Network dynamics](ideation_network_dynamics/README.md) and
+  [taxonomy trends](benchmark_taxonomy_trends/README.md) provide additional
+  portfolio and classification views. Historical cascade rankings condition on
+  observed sharing and should not replace complete-window denominators.
 
-In 2025-2026, the long-context gap narrows:
+## Highest-value improvements
 
-- Google: 18.0%.
-- OpenAI: 23.3%.
-- Anthropic: 13.5%.
+Review source evidence for influential provisional facets before strengthening
+task-composition claims. Keep identity acceptance separate from facet acceptance.
+The overview's coverage tables expose this distinction; older review-leverage
+rankings are prioritization proxies, not calibrated uncertainty estimates.
 
-The later competition axis shifts more toward agentic/coding showcases. Anthropic has the strongest 2025-2026 agentic share at 61.8%, followed by Google at 54.7%.
+Record benchmark-family and implementation lineage without silently merging
+versions. Add mention-level evidence identifying direct results, comparisons,
+components, and quotations before making claims about prominence. Publication
+dates and archived launch-page versions would also support stronger timing
+analysis than release dates and current page contents alone.
 
-Primary folder: `analysis/provider_strategy_long_context/`.
-
-### 3. The strongest new story may be "exam to work simulation"
-
-The narrative-strategy prototype found a major shift from static benchmark exams toward work simulations:
-
-- Mean static-exam share falls from 82.4% in 2023 to 18.7% in 2026 YTD.
-- Mean work-simulation share rises from 12.0% in 2023 to 18.0% in 2024, 39.1% in 2025, and 73.3% in 2026 YTD.
-- Specialized-domain share is 46.2% in 2026 YTD.
-
-This gives the project a strong broader thesis: frontier release-page benchmarking is moving from "can pass canonical exams" toward "can operate inside work environments."
-
-Primary folder: `analysis/ideation_narrative_strategy/`.
-
-### 4. Provider strategy fingerprints are publication-ready candidates
-
-The recent-window fingerprint prototype suggests a clear provider contrast:
-
-- Anthropic is most agentic-coded in headline projection and terminal/codebase interaction.
-- Google leans more general-reasoning, multimodal, and knowledge retrieval.
-- OpenAI is split between agentic and generative reasoning, with a smaller but distinctive constraint/control signal.
-
-Recommended use: put this panel after the global trend charts to turn the dataset into a provider-positioning comparison without claiming capability differences.
-
-Primary folder: `analysis/ideation_methodology_visuals/`.
-
-### 5. Benchmark diffusion can become a new analysis section
-
-The network-dynamics prototype found:
-
-- 65 cross-provider benchmark cascades.
-- 131 benchmarks remain single-provider in observed release pages.
-- Latest cumulative portfolio similarity is highest for Anthropic-OpenAI at 0.282, followed by Anthropic-Google at 0.278 and Google-OpenAI at 0.258.
-- Fast cascades include `MMMLU` (Anthropic to OpenAI in 2 days), `Terminal-Bench 2.0` (Google to Anthropic in 6 days), and `OfficeQA Pro` (Anthropic to OpenAI in 7 days).
-
-This can support a "benchmark vocabulary diffusion" section, especially once benchmark publication dates are added.
-
-Primary folder: `analysis/ideation_network_dynamics/`.
-
-## Suggested Next Story Structure
-
-1. Scope note: release-page benchmark mentions are public framing signals.
-2. Existing global timeline and headline trend charts.
-3. Add Google 2024 long-context case study as a concrete provider strategy example.
-4. Add "exam to work simulation" as the major cross-provider historical shift.
-5. Add provider strategy fingerprints for the latest 365-day window.
-6. Add frontier-lab benchmark hegemony/source-author analysis.
-7. Add benchmark diffusion/cascade analysis.
-8. End with uncertainty: review leverage and review debt.
-
-## Highest-Leverage Follow-Ups
-
-1. Review high-impact facet rows before making strong claims: `SWE-bench verified`, `MMMU / MMMU Pro`, `MMMLU`, `GPQA Diamond`, `AIME`, `Terminal-bench`, `HLE`, and `Terminal-Bench 2.0`.
-2. Add accepted-only versus all-facets sensitivity charts.
-3. Add benchmark publication dates to replace release-page first-mention lag with real adoption lag.
-4. Add release-page text/prominence features: heading placement, table order, footnote status, benchmark result presence, and claim language.
-5. Group benchmark families such as SWE-bench, MRCR, GPQA, MMLU/MMMLU, Terminal-Bench, ARC-AGI, and BrowseComp to separate family adoption from version churn.
+Reproduce the current tables with the
+[pipeline](../scripts/run_pipeline.sh). See the
+[analysis guide](README.md) for folder purposes and the
+[overview methods](project_overview/README.md) for denominators and sensitivity
+definitions.

@@ -1,9 +1,9 @@
 variant,excluded_lifecycle_risks,min_mentions,minimum_facet_confidence,coverage_conditioning,release_year,year_label,work_simulation_share,work_classification_coverage_share,work_classification_covered_mentions,canonical_release_mentions,benchmarked_release_rows
-all active facets,,1,,none,2023,2023,0.12037037037037036,1.0,24,24,3
+all active facets,,1,,none,2023,2023,0.11842105263157894,1.0,25,25,3
 all active facets,,1,,none,2024,2024,0.1801262973137973,0.9999999999999999,84,84,8
 all active facets,,1,,none,2025,2025,0.390540093782575,1.0,168,168,14
-all active facets,,1,,none,2026,2026 YTD,0.6987860839424306,1.0,514,514,30
-excl. private/opaque,private_or_opaque_eval,1,,none,2023,2023,0.20370370370370372,1.0,21,21,3
+all active facets,,1,,none,2026,2026 YTD,0.6979975534764808,1.0,515,515,30
+excl. private/opaque,private_or_opaque_eval,1,,none,2023,2023,0.20175438596491227,1.0,22,22,3
 excl. private/opaque,private_or_opaque_eval,1,,none,2024,2024,0.17491796398046397,0.9999999999999999,81,81,8
 excl. private/opaque,private_or_opaque_eval,1,,none,2025,2025,0.37607870899556,0.9999999999999999,151,151,14
 excl. private/opaque,private_or_opaque_eval,1,,none,2026,2026 YTD,0.739293563449286,1.0,394,394,30
@@ -15,11 +15,11 @@ excl. both,private_or_opaque_eval,2,,none,2023,2023,0.3333333333333333,1.0,14,14
 excl. both,private_or_opaque_eval,2,,none,2024,2024,0.16792391636141635,0.9999999999999999,74,74,8
 excl. both,private_or_opaque_eval,2,,none,2025,2025,0.36260958929026155,0.9999999999999999,138,138,14
 excl. both,private_or_opaque_eval,2,,none,2026,2026 YTD,0.7379817867317867,1.0,308,308,30
-confidence >= 0.7 lower bound,,1,0.7,none,2023,2023,0.12037037037037036,1.0,24,24,3
+confidence >= 0.7 lower bound,,1,0.7,none,2023,2023,0.11842105263157894,0.9824561403508771,24,25,3
 confidence >= 0.7 lower bound,,1,0.7,none,2024,2024,0.1801262973137973,0.9910714285714285,83,84,8
 confidence >= 0.7 lower bound,,1,0.7,none,2025,2025,0.38607580806828923,0.9785332722832722,164,168,14
-confidence >= 0.7 lower bound,,1,0.7,none,2026,2026 YTD,0.2091952798663325,0.327502836717233,170,514,30
-"confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2023,2023,0.12037037037037036,1.0,24,24,3
+confidence >= 0.7 lower bound,,1,0.7,none,2026,2026 YTD,0.20855011857600989,0.3267859908390968,170,515,30
+"confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2023,2023,0.12037037037037036,0.9824561403508771,24,25,3
 "confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2024,2024,0.1808131105006105,0.9910714285714285,83,84,8
 "confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2025,2025,0.37939885928607736,0.9785332722832722,164,168,14
-"confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2026,2026 YTD,0.5119372425078946,0.327502836717233,170,514,24
+"confidence >= 0.7, complete work axes",,1,0.7,all_three_work_axes,2026,2026 YTD,0.5119372425078946,0.3267859908390968,170,515,24

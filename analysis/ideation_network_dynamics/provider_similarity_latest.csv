@@ -1,4 +1,4 @@
 date,provider_pair,left_provider,right_provider,left_portfolio_size,right_portfolio_size,intersection_size,union_size,jaccard_similarity
-2026-09-30,Anthropic - Google,Anthropic,Google,131,110,48,193,0.24870466321243523
-2026-09-30,Anthropic - OpenAI,Anthropic,OpenAI,131,155,54,232,0.23275862068965517
-2026-09-30,Google - OpenAI,Google,OpenAI,110,155,48,217,0.22119815668202766
+2026-09-30,Anthropic - Google,Anthropic,Google,132,111,48,195,0.24615384615384617
+2026-09-30,Anthropic - OpenAI,Anthropic,OpenAI,132,155,54,233,0.2317596566523605
+2026-09-30,Google - OpenAI,Google,OpenAI,111,155,48,218,0.22018348623853212

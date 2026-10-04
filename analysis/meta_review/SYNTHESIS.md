@@ -1,4 +1,20 @@
-# Meta-Review Synthesis
+# Historical Meta-Review Synthesis
+
+> **Archived editorial review — not current evidence.** This synthesis was
+> written against the earlier July 2026 snapshot. Numeric quotations, rankings,
+> and readiness judgments below are preserved as historical material and have
+> not been updated by later pipeline runs. In particular, the old pooled
+> OpenAI-linked growth claim and the broad “work simulation” headline are
+> superseded by the current analysis definitions and source corrections.
+>
+> Start with the [current analysis synthesis](../SYNTHESIS.md) and
+> [project overview](../project_overview/README.md) for present evidence.
+> Corrected MTOB definitions and unresolved MRCR implementation attribution also
+> limit reuse of the historical long-context and authorship examples.
+
+---
+
+## Original review
 
 This document integrates the five result reviews. The goal is to decide which exploratory outputs should become core project material, which should be shown as case studies or appendix material, and which need more data work before publication.
 

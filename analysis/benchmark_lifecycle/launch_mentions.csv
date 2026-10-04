@@ -20,6 +20,7 @@ benchmark_mcqa,MCQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.g
 benchmark_mmlu_mmlu_pro,MMLU / MMLU-Pro,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
 benchmark_mmmu_mmmu_pro,MMMU / MMMU Pro,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
 benchmark_natural2code,Natural2Code,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
 benchmark_textvqa,TextVQA,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
 benchmark_vatex,VATEX,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
 benchmark_vqav2,VQAv2,launch_55ba82faa70f45c52b91,Google,2023-12-06,https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai,gemini 1.0,1
@@ -386,6 +387,7 @@ benchmark_swe_bench_verified,SWE-bench verified,launch_3fa9d5f118012c2f2df6,Anth
 benchmark_terminal_bench,Terminal-bench,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
 benchmark_terminal_bench_2_0,Terminal-Bench 2.0,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
 benchmark_vending_bench_2,Vending-Bench 2,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,launch_3fa9d5f118012c2f2df6,Anthropic,2026-04-16,https://www.anthropic.com/news/claude-opus-4-7,Claude 4.7 (Opus),1
 benchmark_aa_lcr,AA-LCR,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
 benchmark_aa_omniscience,AA-Omniscience,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1
 benchmark_arc_agi,ARC-AGI,launch_8ad1d10ddc3d589e710b,OpenAI,2026-04-23,https://openai.com/index/introducing-gpt-5-5,GPT-5.5,1

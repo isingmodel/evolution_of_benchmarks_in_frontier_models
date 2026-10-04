@@ -70,22 +70,22 @@ OpenAI; Anthropic; Google; DeepMind; Microsoft
 
 ### `benchmark_gpqa` and `benchmark_gpqa_diamond`
 
-The local metadata included Anthropic, but the direct-source pass did not establish a target affiliation from the referenced GitHub/arXiv sources. Review whether paper author affiliations should be recovered from a richer source before keeping `none`.
+The earlier direct-source pass did not establish an affiliation and conservatively stored `none`. The 2026-10-04 recheck of the primary paper's author block establishes Anthropic affiliation for GPQA and its Diamond subset, superseding that value.
 
 Current source-verified value:
 
 ```text
-none
+Anthropic
 ```
 
 ### `benchmark_mrcr` and `benchmark_mrcr_v2`
 
-The direct-source pass found the MRCR/Michelangelo paper author affiliations as Google DeepMind and Google Research, replacing the first-pass `OpenAI` value.
+The earlier direct-source pass found the MRCR/Michelangelo paper author affiliations as Google DeepMind and Google Research. The 2026-10-04 audit found that the canonical rows and aliases also cover an expanded OpenAI implementation, so attributing every mapped occurrence to the original paper's authors is not established. Stable identities and aliases remain pending implementation-level adjudication; source authorship, affiliation and identity review are explicitly `needs_review`.
 
 Current source-verified value:
 
 ```text
-Google; DeepMind
+needs_review
 ```
 
 ### `benchmark_fleurs`
@@ -126,7 +126,7 @@ Examples:
 
 - `benchmark_swe_bench_multimodal`: changed from `Anthropic` to `none`
 - `benchmark_structural_biology`: kept as `Anthropic` after system-card review
-- `benchmark_visual_acuity_benchmark`: removed because it is an external partner's private internal test
+- `benchmark_visual_acuity_benchmark`: the earlier removal because it was an external partner's private test was superseded on 2026-10-04. The launch-page appearance policy includes identifiable partner evaluations; the row is restored with XBOW authorship, no frontier-lab author affiliation, and provisional identity/facets.
 
 The key question is whether the source establishes benchmark creation/evaluation ownership, not merely that Anthropic reported the result.
 
@@ -164,8 +164,18 @@ After the direct-source pass, several `needs_review` rows were rechecked for mor
 
 | benchmark_id | reason |
 | --- | --- |
-| `benchmark_visual_acuity_benchmark` | XBOW describes this as its own visual-acuity benchmark in an early-access quote, but it is an external company's private internal test rather than a public benchmark row to track here. |
+| `benchmark_visual_acuity_benchmark` | Historical removal, superseded on 2026-10-04: the source explicitly names XBOW's visual-acuity benchmark. Its private partner ownership does not justify exclusion under the current appearance policy. |
+
+## 2026-10-04 Source Corrections
+
+The [Opus 4.7 launch page](https://www.anthropic.com/news/claude-opus-4-7) includes XBOW's visual-acuity benchmark in its CEO testimonial. The restored canonical identity is `Visual-acuity benchmark`, with `source_author=Others(XBOW)` and `frontier_lab_author_affiliations=none`. Its identity and facet rows remain `needs_review`: the source reports percentages but does not disclose a task protocol or metric definition. The surrounding computer-use product description is insufficient to classify the benchmark as a full computer-control task.
+
+Both `GPQA` and its `GPQA Diamond` subset now have `frontier_lab_author_affiliations=Anthropic`. The [primary GPQA paper](https://arxiv.org/html/2311.12022v1) explicitly lists an Anthropic author affiliation and defines Diamond as a subset of GPQA. This supersedes the earlier conservative `none` values; it does not promote identity or facet review statuses.
+
+`MTOB benchmark` now has `frontier_lab_author_affiliations=Google`, retaining `source_author=Academia, Google`. The [primary paper's author block](https://arxiv.org/html/2309.16575v1) explicitly identifies Google alongside universities. Its stable identity denotes Machine Translation from One Book; incorrect mathematical-optimization and image-generation descriptions are superseded by the focused source audit in [the README data audit](readme_data_audit_2026_10_04.md).
+
+MRCR and MRCR v2 now explicitly carry unresolved attribution. The [Michelangelo paper](https://arxiv.org/html/2409.12640v1) establishes the original Google evaluation, while the [OpenAI dataset card](https://huggingface.co/datasets/openai/mrcr) describes an expanded implementation inspired by it. Neither source settles every generic or versioned label mapped by the current catalog. Keep the stable IDs and aliases pending further source review rather than forcing one lab attribution across them.
 
 ### Remaining `needs_review`
 
-No rows remain with `frontier_lab_author_affiliations=needs_review` after this pass.
+The historical pass ended with no `frontier_lab_author_affiliations=needs_review` rows. That statement is superseded by the 2026-10-04 MRCR audit: MRCR and MRCR v2 now use `needs_review` for unresolved implementation-level attribution.

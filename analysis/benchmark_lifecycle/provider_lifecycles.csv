@@ -581,15 +581,15 @@ benchmark_mmmu_pro,MMMU Pro,accepted,OpenAI,2026-03-05,2026-07-09,126,3,3,6,2,0.
 benchmark_model_ml_s_finbench,Model ML's FinBench,needs_review,Anthropic,,,,0,0,,,,,,
 benchmark_model_ml_s_finbench,Model ML's FinBench,needs_review,Google,,,,0,0,,,,,,
 benchmark_model_ml_s_finbench,Model ML's FinBench,needs_review,OpenAI,2026-07-09,2026-07-09,0,1,1,4,0,0.0,4,83,0
-benchmark_mrcr,MRCR,legacy_seed,Anthropic,,,,0,0,,,,,,
-benchmark_mrcr,MRCR,legacy_seed,Google,2024-12-11,2025-11-18,342,3,3,11,2,0.18181818181818182,9,316,0
-benchmark_mrcr,MRCR,legacy_seed,OpenAI,2025-04-14,2025-04-14,0,1,1,12,0,0.0,12,534,0
-benchmark_mrcr_v2,MRCR v2,legacy_seed,Anthropic,2026-02-05,2026-02-05,0,1,1,8,0,0.0,8,237,0
-benchmark_mrcr_v2,MRCR v2,legacy_seed,Google,2026-02-19,2026-08-13,175,5,6,8,4,0.5,3,48,0
-benchmark_mrcr_v2,MRCR v2,legacy_seed,OpenAI,2025-12-11,2026-09-03,266,5,5,8,4,0.5,2,27,1
-benchmark_mtob_benchmark,MTOB benchmark,legacy_seed,Anthropic,,,,0,0,,,,,,
-benchmark_mtob_benchmark,MTOB benchmark,legacy_seed,Google,2024-02-15,2024-02-15,0,1,1,12,0,0.0,12,958,0
-benchmark_mtob_benchmark,MTOB benchmark,legacy_seed,OpenAI,,,,0,0,,,,,,
+benchmark_mrcr,MRCR,needs_review,Anthropic,,,,0,0,,,,,,
+benchmark_mrcr,MRCR,needs_review,Google,2024-12-11,2025-11-18,342,3,3,11,2,0.18181818181818182,9,316,0
+benchmark_mrcr,MRCR,needs_review,OpenAI,2025-04-14,2025-04-14,0,1,1,12,0,0.0,12,534,0
+benchmark_mrcr_v2,MRCR v2,needs_review,Anthropic,2026-02-05,2026-02-05,0,1,1,8,0,0.0,8,237,0
+benchmark_mrcr_v2,MRCR v2,needs_review,Google,2026-02-19,2026-08-13,175,5,6,8,4,0.5,3,48,0
+benchmark_mrcr_v2,MRCR v2,needs_review,OpenAI,2025-12-11,2026-09-03,266,5,5,8,4,0.5,2,27,1
+benchmark_mtob_benchmark,MTOB benchmark,accepted,Anthropic,,,,0,0,,,,,,
+benchmark_mtob_benchmark,MTOB benchmark,accepted,Google,2024-02-15,2024-02-15,0,1,1,12,0,0.0,12,958,0
+benchmark_mtob_benchmark,MTOB benchmark,accepted,OpenAI,,,,0,0,,,,,,
 benchmark_multi_if,Multi-IF,legacy_seed,Anthropic,,,,0,0,,,,,,
 benchmark_multi_if,Multi-IF,legacy_seed,Google,,,,0,0,,,,,,
 benchmark_multi_if,Multi-IF,legacy_seed,OpenAI,2025-04-14,2025-04-14,0,1,1,12,0,0.0,12,534,0
@@ -671,6 +671,9 @@ benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review 
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,accepted,Anthropic,2026-04-16,2026-04-16,0,1,1,7,0,0.0,7,167,0
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,accepted,Google,,,,0,0,,,,,,
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,accepted,OpenAI,,,,0,0,,,,,,
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,needs_review,Anthropic,,,,0,0,,,,,,
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,needs_review,Google,2023-12-06,2023-12-06,0,1,1,13,0,0.0,13,1029,0
+benchmark_real_toxicity_prompts,Real Toxicity Prompts,needs_review,OpenAI,,,,0,0,,,,,,
 benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,accepted,Anthropic,,,,0,0,,,,,,
 benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,accepted,Google,2026-09-02,2026-09-30,28,2,3,2,1,0.5,0,0,1
 benchmark_real_world_vulnerability_discovery,Real-world Vulnerability Discovery,accepted,OpenAI,,,,0,0,,,,,,
@@ -824,6 +827,9 @@ benchmark_video_mme,Video-MME,legacy_seed,OpenAI,2025-04-14,2025-04-14,0,1,1,12,
 benchmark_video_mmmu,Video-MMMU,legacy_seed,Anthropic,,,,0,0,,,,,,
 benchmark_video_mmmu,Video-MMMU,legacy_seed,Google,2025-11-18,2026-03-03,105,2,2,9,1,0.1111111111111111,7,211,1
 benchmark_video_mmmu,Video-MMMU,legacy_seed,OpenAI,2025-08-07,2025-12-11,126,2,2,10,1,0.1,8,293,1
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,needs_review,Anthropic,2026-04-16,2026-04-16,0,1,1,7,0,0.0,7,167,0
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,needs_review,Google,,,,0,0,,,,,,
+benchmark_visual_acuity_benchmark,Visual-acuity benchmark,needs_review,OpenAI,,,,0,0,,,,,,
 benchmark_voice,τ-Voice,accepted,Anthropic,,,,0,0,,,,,,
 benchmark_voice,τ-Voice,accepted,Google,2026-09-15,2026-09-15,0,1,2,1,0,0.0,1,15,0
 benchmark_voice,τ-Voice,accepted,OpenAI,,,,0,0,,,,,,

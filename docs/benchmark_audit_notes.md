@@ -163,9 +163,11 @@ The near-duplicate validator also finds the following unresolved benchmark-famil
 - `SimpleQA` / `SimpleQA Verified`
 - `Terminal-Bench Hard` / `Terminal-bench`
 
-### Combined family labels versus standalone versions (reviewed)
+### Combined family labels versus standalone versions (partial review)
 
-Some historical release pages present one joint chart label, such as `MMLU / MMLU-Pro` or `MMMU / MMMU Pro`. Those exact joint surface forms remain family-level canonical rows because the extraction does not support assigning the displayed result to only one version. Standalone `MMMU Pro` and `MMMU-Pro` mentions now resolve to `benchmark_mmmu_pro`, which is distinct from the joint family row. Unused aliases that previously mapped standalone MMLU or MMMU versions into combined family rows were removed so future standalone labels fail validation until explicitly canonicalized.
+The historical inventory uses harmonized family labels such as `MMLU / MMLU-Pro` and `MMMU / MMMU Pro`. These are not universally verbatim joint chart labels: the stored [Gemini 1.0 announcement](https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai/) explicitly names plain MMLU and MMMU. The combined stable IDs remain for compatibility pending a page-by-page version audit. Their reporting spans describe this legacy family normalization and cannot establish the first use or retirement of an individual version.
+
+Standalone `MMMU Pro` and `MMMU-Pro` mentions resolve to `benchmark_mmmu_pro`, distinct from the combined family row. Unused aliases that previously mapped standalone MMLU or MMMU versions into combined rows were removed so future standalone labels fail validation until explicitly canonicalized. That prospective rule does not retroactively verify the version labels of historical rows.
 
 ## Open Caveats
 

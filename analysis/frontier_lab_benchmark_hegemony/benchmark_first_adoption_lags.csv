@@ -29,6 +29,8 @@ benchmark_firefox,Firefox,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthr
 benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthropic,Claude 5 (Sonnet),2026-06-30,Anthropic,Claude 5 (Sonnet),2026-06-30,,,,,
 benchmark_frontier_science_research,Frontier Science Research,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
 benchmark_gdpval,GDPval,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.2,2025-12-11,OpenAI,GPT-5.2,2025-12-11,,,,,
+benchmark_gpqa,GPQA,"Anthropic, Academia, Cohere",Anthropic,Anthropic,Anthropic,Claude 3,2024-03-04,Anthropic,Claude 3,2024-03-04,OpenAI,GPT-4o,2024-05-13,70,False
+benchmark_gpqa_diamond,GPQA Diamond,"Anthropic, Academia, Others(Cohere)",Anthropic,Anthropic,Anthropic,Claude 3.5 Haiku,2024-10-23,Anthropic,Claude 3.5 Haiku,2024-10-23,Google,Gemini 3.1 Pro,2026-02-19,484,False
 benchmark_gsm8k,GSM8K,OpenAI,OpenAI,OpenAI,Anthropic,Claude 2,2023-07-11,,,,Anthropic,Claude 2,2023-07-11,,
 benchmark_genebench,GeneBench,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,
 benchmark_genebench_pro,GeneBench Pro,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
@@ -51,8 +53,7 @@ benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,OpenAI,OpenAI,OpenAI,OpenAI,
 benchmark_mgsm,MGSM,"Google, Academia",Google,Google,Anthropic,Claude 3,2024-03-04,,,,Anthropic,Claude 3,2024-03-04,,
 benchmark_mle_bench,MLE-Bench,OpenAI,OpenAI,OpenAI,Google,Gemini 3.5 Flash-Lite,2026-07-21,,,,Google,Gemini 3.5 Flash-Lite,2026-07-21,,
 benchmark_mmmlu,MMMLU,OpenAI,OpenAI,OpenAI,Anthropic,Claude 3.7 Sonnet,2025-02-25,OpenAI,GPT-4.5,2025-02-27,Anthropic,Claude 3.7 Sonnet,2025-02-25,-2,True
-benchmark_mrcr,MRCR,OpenAI,Google; DeepMind,Google,Google,Gemini 2.0,2024-12-11,Google,Gemini 2.0,2024-12-11,OpenAI,GPT-4.1,2025-04-14,124,False
-benchmark_mrcr_v2,MRCR v2,OpenAI,Google; DeepMind,Google,OpenAI,GPT-5.2,2025-12-11,Google,Gemini 3.1 Pro,2026-02-19,OpenAI,GPT-5.2,2025-12-11,-70,True
+benchmark_mtob_benchmark,MTOB benchmark,"Academia, Google",Google,Google,Google,Gemini 1.5,2024-02-15,Google,Gemini 1.5,2024-02-15,,,,,
 benchmark_management_consulting_tasks_internal,Management Consulting Tasks (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_medchembench_internal,MedChemBench (Internal),OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_nanogpt,NanoGPT,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,

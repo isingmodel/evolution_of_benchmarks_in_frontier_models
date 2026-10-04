@@ -1,5 +1,12 @@
 # Provider Strategy Long-Context Review
 
+> **Historical editorial review.** The judgments and numeric quotations below
+> belong to the earlier review context and were not rerun in the current preface
+> audit. References to “current” or “refreshed” results below are historical.
+> For present evidence, use the [project overview](../../project_overview/README.md)
+> and [current synthesis](../../SYNTHESIS.md), rather than these copied numbers.
+> An editorial verdict is not source verification or facet acceptance.
+
 These are methodological review notes retained during the data refresh through `2026-09-30`. Numeric findings should be read from the linked regenerated CSVs; design scores and recommendations are qualitative review judgments.
 
 ## Verdict

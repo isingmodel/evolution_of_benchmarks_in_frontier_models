@@ -25,15 +25,18 @@ benchmark_facets.csv
 
 ## File Overview
 
-| File | Current rows | Role |
-| --- | ---: | --- |
-| `models.csv` | 59 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 286 | Canonical benchmark table used by scraping catalog matching and facet generation. |
-| `benchmark_aliases.csv` | 81 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_distinctness.csv` | 19 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
-| `benchmark_facets.csv` | 4,042 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| File | Role |
+| --- | --- |
+| `models.csv` | Source list of model release pages and benchmark names mentioned on them. |
+| `benchmarks.csv` | Canonical benchmark table used by scraping catalog matching and facet generation. |
+| `benchmark_aliases.csv` | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_distinctness.csv` | Reviewed opt-outs for near-duplicate canonical-name warnings. |
+| `benchmark_facets.csv` | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 
-Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
+Current inventory and facet-review counts are generated in
+[`analysis/project_overview/summary.json`](../analysis/project_overview/summary.json).
+The [preface audit](../docs/readme_data_audit_2026_10_04.md) records the latest
+source corrections and unresolved identity questions.
 
 ## File Reference
 
@@ -195,4 +198,4 @@ Run the standard pipeline from the repository root:
 scripts/run_pipeline.sh
 ```
 
-The entrypoint defaults to the maximum release date in `models.csv`; set `AS_OF=YYYY-MM-DD` to override it. After adding new model releases or benchmark classifications, run the full pipeline before trusting the generated charts or analysis tables. The top-level `README.md` is maintained directly rather than generated from a data-directory template.
+The entrypoint defaults to the maximum release date in `models.csv`; set `AS_OF=YYYY-MM-DD` to override it. After adding new model releases or benchmark classifications, run the full pipeline before trusting the generated charts or analysis tables. The top-level `README.md` is rendered from [`analysis/project_overview/README.template.md`](../analysis/project_overview/README.template.md) and generated evidence tables, so its counts stay synchronized with the data.
