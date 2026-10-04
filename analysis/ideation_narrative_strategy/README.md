@@ -8,7 +8,7 @@ Run with:
 .venv/bin/python analysis/ideation_narrative_strategy/analyze.py
 ```
 
-The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact canonicalization. It does not fuzzy match. Current run: 582 resolved benchmark mentions across 43 benchmarked release pages, with 0 unresolved mentions.
+The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact canonicalization. It does not fuzzy match. Current run through `2026-09-30`: 791 resolved raw benchmark mentions across 55 benchmark-bearing model-release rows, with 0 unresolved mentions. Shared launch URLs can supply several model rows.
 
 ## Outputs
 
@@ -43,51 +43,58 @@ The script uses `scripts/taxonomy_utils.py` / `CanonicalResolver` for exact cano
 
 ## Prototype Findings
 
+The following figures come from the regenerated local outputs through `2026-09-30`. They describe benchmark-selection framing, not observed page rhetoric or model capability.
+
 ### 1. Provider Signature Portfolios
 
-Provider portfolios now lean more agentic under the runtime headline projection, but the signatures differ:
+Release-normalized headline projection from `provider_headline_portfolio.csv`:
 
-- Anthropic: 47.9% agentic and 27.4% generative reasoning. Agentic is 1.11x the global share.
-- Google: 42.5% agentic and 25.4% multimodal perception. Knowledge retrieval is 2.16x the global share, from a 13.1% share.
-- OpenAI: 38.4% agentic, 28.9% generative reasoning, and 19.7% multimodal. Generative reasoning is 1.17x the global share.
+| Provider | Agentic | Generative reasoning | Multimodal perception |
+| --- | ---: | ---: | ---: |
+| Anthropic | 51.5% | 24.6% | 15.9% |
+| Google | 51.5% | 14.7% | 21.5% |
+| OpenAI | 41.0% | 23.7% | 16.6% |
 
-Interpretation: a reasonable first narrative cut is Anthropic as agentic/workflow-heavy, Google as multimodal/knowledge-heavy, and OpenAI as broad reasoning with a small but distinctive constraint/control signal.
+Use `provider_signature_lift.csv` for comparisons with the global portfolio. These are projections over facet annotations, not stable provider identities.
 
 ### 2. Static Exams to Work Simulations
 
-The release-page benchmark mix shows a clear shift toward work simulations:
+Mean release-normalized shares from `annual_strategy_frames.csv`:
 
-- Mean static-exam share falls from 82.4% in 2023 to 70.7% in 2024, 54.4% in 2025, and 16.0% in 2026 YTD.
-- Mean work-simulation share rises from 12.0% in 2023 to 18.0% in 2024, 39.1% in 2025, and 73.5% in 2026 YTD.
-- Specialized-domain share is 42.4% in 2026 YTD.
+| Year | Static exam | Work simulation | Specialized domain | Benchmarked rows |
+| --- | ---: | ---: | ---: | ---: |
+| 2023 | 82.4% | 12.0% | 53.7% | 3 |
+| 2024 | 70.7% | 18.0% | 28.0% | 8 |
+| 2025 | 54.4% | 39.1% | 48.7% | 14 |
+| 2026 YTD | 12.2% | 70.2% | 37.2% | 30 |
 
-Top work-simulation-heavy releases include Gemini 3.6 Flash, Gemini 3.5 Flash Cyber, and GPT-5.3-Codex at 100%, followed by Claude 4.8 Opus at 90.9%, Claude 5 Sonnet at 88.9%, and GPT-5.6-Cyber at 80.0%.
-
-Interpretation: benchmark rhetoric appears to be moving from "can pass the exam" toward "can operate in work environments," especially coding, tools, terminal, browser, finance, legal, bio, and office-like workflows.
+2026 YTD ends on `2026-09-30`. Static and work flags are operationalized from taxonomy facets; provider mix and review status can affect the trend. Use the README-story sensitivity outputs for confidence and extraction-granularity checks.
 
 ### 3. Provider-Created, Private, and Internal Signals
 
-Provider-created or private/opaque benchmark share is high but differentiated across providers:
+Release-normalized shares from `risk_private_usage_by_provider.csv`:
 
-- Anthropic: 34.6% provider-created/private share; 14.6% private/opaque only; 1.0% explicitly internal-named.
-- Google: 24.0% provider-created/private share; 8.7% private/opaque only; 0.0% explicitly internal-named.
-- OpenAI: 40.6% provider-created/private share; 24.3% private/opaque only; 1.8% explicitly internal-named.
+| Provider | Provider-created or private | Private/opaque | Explicit internal name |
+| --- | ---: | ---: | ---: |
+| Anthropic | 31.4% | 13.5% | 1.1% |
+| Google | 19.9% | 8.2% | 0.0% |
+| OpenAI | 42.4% | 28.8% | 4.0% |
 
-Recent releases show stronger opaque/internal signals. GPT-5.6-Cyber has 100.0% provider-created/private share; GPT-5.3-Codex has 71.4%; Gemini 3.5 Flash Cyber has 66.7%; and Claude 4.7 Opus has 61.3%. Explicit internal-named benchmarks appear on several recent pages, including GPT-5.4, Claude 4.7 Opus, GPT-5.5, and GPT-5.6.
-
-Interpretation: the strongest signal is not many explicitly private benchmarks, but a growing reliance on frontier-lab/provider-created benchmark authority. This should be framed carefully because `provider_created_benchmark` does not necessarily mean same-provider or private.
+The combined flag includes public frontier-lab-authored benchmarks and should not be interpreted as an opacity measure. See the release-level risk CSV for current examples and preserve the distinction between authorship, private access, and internal naming.
 
 ### 4. Launch-Page Benchmark Density
 
-Benchmark density also looks like a strategic signal:
+Current densest model-release rows from `launch_benchmark_density.csv`:
 
-- 2024 benchmarked releases average 10.5 resolved benchmark mentions.
-- 2025 benchmarked releases average 12.0.
-- 2026 benchmarked releases average 17.0.
+| Model-release row | Resolved raw mentions |
+| --- | ---: |
+| GPT-5.6 | 42 |
+| GPT-6 Astra | 42 |
+| GPT-5.5 | 34 |
+| Claude 4.7 (Opus) | 31 |
+| GPT-5.4 | 26 |
 
-The densest pages are GPT-5.6 with 42 mentions, GPT-5.5 with 34, Claude 4.7 Opus with 31, GPT-5.4 with 26, and Claude 5 Fable/Mythos with 25.
-
-Interpretation: later releases increasingly package capability claims as broad benchmark portfolios rather than a few canonical scores.
+Density counts names per tracked model row. Shared launch pages and extraction coverage affect it, so it does not by itself measure rhetoric or a benchmark arms race.
 
 ## CSV-Only vs Text-Parsing Boundary
 
@@ -108,7 +115,7 @@ Requires release-page text or HTML parsing:
 
 ## Caveats
 
-- Release-normalized weights treat each benchmarked release page as one portfolio. This avoids letting long benchmark lists dominate provider strategy, but raw mention counts are also retained in the CSVs.
+- Release-normalized weights treat each benchmark-bearing model-release row as one portfolio. This avoids letting long benchmark lists dominate provider strategy, but raw mention counts are also retained in the CSVs.
 - Pages with zero benchmark mentions are included in density outputs but omitted from portfolio shares because they have no benchmark portfolio to normalize.
 - Multi-label facet axes split a mention's normalized weight across labels on that axis.
 - Facets with `needs_review` are included unless deprecated; this is exploratory, not a final taxonomy audit.

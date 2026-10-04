@@ -1,5 +1,7 @@
 # Ideation Network Dynamics Review
 
+These are methodological review notes retained during the data refresh through `2026-09-30`. Numeric findings should be read from the linked regenerated CSVs; design scores and recommendations are qualitative review judgments.
+
 ## Verdict
 
 This is a strong secondary analysis for the project, especially as a way to replace loose "provider hegemony" claims with measurable public-release-page behavior. It fits the repository's actual object of study: benchmark mentions on public frontier-model launch pages.
@@ -17,8 +19,8 @@ Best use: a compact public-diffusion subsection plus appendix tables. The result
 - The analysis matches core project themes: benchmark diffusion, provider strategy, competitive dynamics, benchmark evolution, multi-facet taxonomy, and review debt.
 - The unit is mostly correct: the script treats benchmark mentions as public attention/adoption signals, not model capability.
 - The reproducible surface is good: `analysis/ideation_network_dynamics/analyze.py` emits a manifest, normalized mention table, cascade table, provider role table, similarity table, source-author table, and charts.
-- `cascade_metrics.csv` is especially useful. It shows 557 resolved mentions, 196 canonical benchmarks, 65 cross-provider public cascades, and 131 single-provider benchmarks.
-- `provider_similarity_timeseries.csv` and `provider_similarity_latest.csv` offer a clear convergence lens: latest cumulative Jaccard similarities are 0.287 for Anthropic-OpenAI, 0.284 for Anthropic-Google, and 0.263 for Google-OpenAI.
+- `cascade_metrics.csv` exposes observed public-mention ordering and denominators. Current counts are in `summary_metrics.csv`; they are not benchmark creation or internal adoption counts.
+- `provider_similarity_timeseries.csv` and `provider_similarity_latest.csv` provide a convergence lens with current portfolio-size denominators.
 - `release_strategy_metrics.csv` may be the most underused output. It directly separates globally new mentions, new-to-provider mentions, self-repeats, and already-used-by-other-provider mentions at the release level.
 - The source-author dependency prototype is conceptually important because it connects benchmark attention to evaluation supply chains rather than capability.
 
@@ -30,7 +32,7 @@ Best use: a compact public-diffusion subsection plus appendix tables. The result
 - The sample has only three providers. Provider-to-provider edges will look more stable than they really are because the graph is tiny.
 - The charts treat every mention equally. A benchmark in a large appendix-style table counts the same as a headline benchmark.
 - The portfolio similarity chart has early spikes driven by small portfolio denominators. It should be interpreted mainly from the more stable 2025-2026 region.
-- Source-author dependency needs audit before foregrounding. In `data/benchmarks.csv`, 92 of 197 benchmark rows are still `legacy_seed`; provider-created lifecycle-risk labels also remain predominantly provisional.
+- Source-author dependency needs audit before foregrounding. Read benchmark review status from the current catalog; lifecycle-risk labels remain largely provisional.
 - `source_author_mix_by_provider.png` uses counts, which partly reflects different total mention volumes by provider. For cross-provider comparison, shares are safer.
 - Running `analyze.py` directly rewrites the result folder, so review and publication workflows should be explicit about when outputs are regenerated.
 
@@ -73,7 +75,7 @@ Create one additional high-value chart from `release_strategy_metrics.csv`: `rel
 
 Place this after the existing multi-facet trend and review-debt sections, before or inside a revised "Provider Strategy" section. It should replace broad claims like "OpenAI often created new benchmarks to define the direction of the field" with a narrower, data-backed claim:
 
-> Across tracked public launch pages through 2026-07-24, benchmark vocabulary partly converges across providers: 64 of 195 mentioned canonical benchmarks appear in cross-provider public mention cascades, while pairwise cumulative portfolio overlap sits around 0.26-0.28 by the latest release date.
+> Through 2026-09-30, 74 of 286 used canonical benchmarks show cross-provider public mention cascades. Latest cumulative pairwise portfolio overlap ranges from 0.219 to 0.249. These are public vocabulary patterns, not creation or private adoption histories.
 
 Recommended README shape:
 

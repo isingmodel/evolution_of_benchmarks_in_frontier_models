@@ -27,11 +27,11 @@ benchmark_facets.csv
 
 | File | Current rows | Role |
 | --- | ---: | --- |
-| `models.csv` | 47 | Source list of model release pages and benchmark names mentioned on them. |
-| `benchmarks.csv` | 207 | Canonical benchmark table used by scraping catalog matching and facet generation. |
-| `benchmark_aliases.csv` | 55 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
-| `benchmark_distinctness.csv` | 17 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
-| `benchmark_facets.csv` | 3,410 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
+| `models.csv` | 59 | Source list of model release pages and benchmark names mentioned on them. |
+| `benchmarks.csv` | 288 | Canonical benchmark table used by scraping catalog matching and facet generation. |
+| `benchmark_aliases.csv` | 73 | Source-backed mapping from release-page surface forms to canonical benchmark IDs. |
+| `benchmark_distinctness.csv` | 19 | Reviewed opt-outs for near-duplicate canonical-name warnings. |
+| `benchmark_facets.csv` | 4,058 | Integrated v3 benchmark-to-facet long table used by multi-facet analyses. |
 
 Row counts are approximate orientation only. Run validation or inspect the CSVs directly for authoritative counts.
 

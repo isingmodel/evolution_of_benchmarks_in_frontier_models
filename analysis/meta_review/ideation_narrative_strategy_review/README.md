@@ -1,5 +1,7 @@
 # Ideation Narrative Strategy Review
 
+These are methodological review notes retained during the data refresh through `2026-09-30`. Numeric findings should be read from the linked regenerated CSVs; design scores and recommendations are qualitative review judgments.
+
 ## Verdict
 
 This is one of the better-fitting exploratory outputs for the project. It stays mostly inside the repository's actual question: which benchmarks providers choose to mention on public launch pages, and how that selection changes over time. The strongest result is the static-exam to work-simulation transition, because it directly supports the project's benchmark-evolution theme without requiring claims about model capability.
@@ -15,25 +17,25 @@ The result aligns well with provider narrative strategy, benchmark evolution, la
 ## What Works
 
 - `static_to_work_simulation_trend.png` is the clearest main finding. It shows benchmarked release pages moving from static exam framing toward work-simulation framing, with the supporting values in `annual_strategy_frames.csv`.
-- `annual_strategy_frames.csv` has a readable denominator: release-normalized shares averaged across benchmarked release pages. The explicit counts by year are useful: 3 benchmarked pages in 2023, 8 in 2024, 14 in 2025, and 7 in 2026.
-- `provider_headline_portfolio.csv` and `provider_signature_lift.csv` give a compact provider-positioning lens: Anthropic over-indexes on agentic benchmarks, Google on multimodal/knowledge retrieval, and OpenAI on broad reasoning with a small constraint/control signal.
+- `annual_strategy_frames.csv` reports mean release-normalized shares and benchmark-bearing model-row counts for each year; 2026 remains year-to-date.
+- `provider_headline_portfolio.csv` and `provider_signature_lift.csv` support a compact exploratory provider-framing comparison. Use their current shares and lifts rather than fixed provider identities.
 - `launch_benchmark_density.csv` is useful because it includes zero-benchmark pages as well as dense benchmark-list pages. That makes it a good support file for the "benchmark density as launch-page packaging" theme.
-- The script is reproducible and scoped: `analyze.py` uses the canonical resolver, emits all CSVs and PNGs, and reports 557 resolved mentions across 41 benchmarked release pages with 0 unresolved mentions.
+- The script is reproducible and scoped: `analyze.py` uses exact canonical resolution and emits mention inventories, CSV summaries, and chart assets.
 - The README's caveats are unusually helpful. It already says provider-created does not mean same-provider or private, and it preserves the project boundary that this is not a model capability analysis.
 
 ## Risks
 
 - **Overclaiming narrative intent:** The current outputs infer positioning from benchmark selection. They do not observe actual rhetoric, page prominence, headline placement, caveats, or score framing. Use "benchmark-selection framing" unless a text/HTML extraction layer is added.
-- **2026 is year-to-date:** The trend chart shows 2026 as a normal annual point, but the data only runs through the latest listed release, Claude 5 Opus on 2026-07-24. The chart should label this as `2026 YTD` and show `n=16` benchmarked release pages.
+- **2026 is year-to-date:** The refreshed cutoff is `2026-09-30`; chart captions should display that date and the current row count from `annual_strategy_frames.csv`.
 - **Provider-created/private is too blended:** `provider_created_or_private_escalation.png` combines public frontier-lab-created benchmarks with private/opaque evaluations. This can look like an opacity claim even though much of the signal is provider-authored but public benchmark authority.
-- **Small provider samples:** Provider signatures are based on 12 Anthropic, 7 Google, and 13 OpenAI benchmarked release pages. This is enough for an exploratory portfolio cut, not enough for a strong provider-identity claim.
+- **Small provider samples:** Portfolio comparisons use a limited number of benchmark-bearing model rows. Show current denominators from `risk_private_usage_by_provider.csv` and account for shared launch URLs.
 - **Release mix affects year trends:** Later years have more releases and more benchmark-dense pages. The release-normalized method is reasonable, but a provider-balanced sensitivity view would make the trend more defensible.
 - **Taxonomy dependency:** The static/work distinction depends on facet rules for interaction patterns, task mechanisms, and construct claims. The output should expose a small "top contributing benchmarks" table so readers can see what is driving the category shift.
 - **Chart polish:** `provider_headline_portfolio_heatmap.png` is understandable but less persuasive than a table because it invites comparison across tiny shares and has cramped axis/colorbar labeling.
 
 ## Best Presentation
 
-Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked model-release row; 2026 is year-to-date through 2026-07-24." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-row count, plus the confidence-coverage sensitivity.
+Foreground `static_to_work_simulation_trend.png`, revised with clearer labeling. The caption should say: "Mean share of benchmark mentions per benchmarked model-release row; 2026 is year-to-date through 2026-09-30." Pair it with a tiny table sourced from `annual_strategy_frames.csv` showing static exam share, work simulation share, specialized domain share, and release-row count, plus the confidence-coverage sensitivity.
 
 Use `provider_signature_lift.csv` as a compact supporting table, not as a standalone major chart. Recommended table columns: `Provider`, `highest-lift task mode`, `share`, `lift_vs_global`, and `raw_mentions`. This is more README-friendly than the full heatmap.
 

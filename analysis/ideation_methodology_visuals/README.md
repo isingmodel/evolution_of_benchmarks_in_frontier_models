@@ -20,53 +20,42 @@ The script uses `scripts/taxonomy_utils.py` and `CanonicalResolver` against `dat
 | `benchmark_lifecycle_table.csv` | Seed table for a future benchmark lifecycle/adoption map. |
 | `summary_stats.csv` | Reproducibility stats for the local data run. |
 
-Local run summary: 582 release-page benchmark mentions resolved to 207 canonical benchmarks. The latest modeled release date is 2026-08-13. The canonical facet frame contains 3,339 rows marked `needs_review`, 42 `legacy_seed` rows, and 29 `accepted` rows out of 3,410, so uncertainty should remain visible in publication charts.
+Local run summary through `2026-09-30`: 791 resolved raw mentions, 286 used canonical benchmarks, and 55 benchmark-bearing model rows. The facet frame has 3,969 `needs_review`, 60 `legacy_seed`, and 29 `accepted` rows out of 4,058. See `summary_stats.csv` for the current reproducibility record.
 
 ## What The Prototypes Show
 
 ### Provider Strategy Fingerprints
 
-`provider_strategy_fingerprints.png` uses the latest 365-day window, 2025-08-13 through 2026-08-13. Each model release receives equal total weight; multi-label facet axes split a benchmark mention equally across labels.
+`provider_strategy_fingerprints.png` uses the latest 365-day window, 2025-09-30 through 2026-09-30. Each model release receives equal total weight; multi-label facet axes split a benchmark mention equally across labels.
 
-Useful readouts:
+Current values are in `provider_strategy_fingerprints.csv`. Each provider's `axis_weight_total` exposes the recent model-row denominator. Compare headline projection, domain, and interaction axes separately; differences inherit facet review uncertainty and do not establish provider intent.
 
-- Anthropic is most agentic-coded in headline projection at 69%.
-- Google is 60% Agentic and 18% Multimodal Perception in this window.
-- OpenAI is 65% Agentic, with Generative Reasoning and Multimodal Perception each near 12%.
-- Coding/Engineering is highest for OpenAI at 43%, followed by Google at 33% and Anthropic at 30%.
-- Terminal/codebase interaction is 12% for Google, 10% for Anthropic, and 7% for OpenAI; environment interaction is the larger work-like differentiator.
-
-Recommendation: use this as the main "provider strategy" panel after the global trend charts. It turns the dataset into a market-positioning comparison without claiming model ability.
+Recommendation: use a compact provider-framing panel after the global trend charts, with sample counts and review coverage visible.
 
 ### Domain-To-Interaction Alluvial
 
 `domain_interaction_alluvial.png` shows how multi-facet annotations prevent overclaiming. Instead of saying a benchmark "is" agentic, the chart asks which domains are being projected into which interaction patterns.
 
-Top recent flows:
+Current domain/interaction shares and accepted-pair coverage are in `domain_interaction_flow.csv`. This is a co-classification view, not temporal movement.
 
-- Coding/Engineering -> environment interaction: 16.5%.
-- General/Commonsense -> static prompt response: 9.1%.
-- Coding/Engineering -> terminal or codebase interaction: 8.4%.
-- STEM/Math -> static prompt response: 8.2%.
-
-Recommendation: place this immediately after any headline projection chart. It visually teaches the reader that headline categories are views over a multi-facet table, not exclusive benchmark identities.
+Recommendation: use the figure or a compact matrix to show that headline categories are projections over a multi-facet table, rather than exclusive benchmark identities.
 
 ### Review Leverage
 
 `review_leverage_benchmarks.png` ranks benchmarks by recent model-normalized mention weight multiplied by the share of active facet rows that are not `accepted`.
 
-Top review targets:
+Top current review targets from `review_leverage_benchmarks.csv`:
 
-- `OSWorld-Verified`
-- `SWE-bench Pro`
 - `HLE (Humanity's Last Exam)`
+- `SWE-bench Pro`
+- `CyberGym`
+- `DeepSWE v1.1`
+- `OSWorld-Verified`
 - `SWE-bench verified`
+- `Terminal-Bench 2.1`
 - `MRCR v2`
-- `MMMLU`
-- `GPQA Diamond`
-- `GDPval-AA v2`
 
-Recommendation: include this near the methodology caveats or as a review roadmap. It makes uncertainty actionable: reviewers should not audit randomly; they should focus on high-leverage benchmarks that shape current claims.
+Recommendation: include this near the methodology caveats as a review roadmap. Review leverage measures current mention weight and unaccepted facet share, not benchmark quality.
 
 ## Idea Catalog
 
@@ -101,6 +90,6 @@ Recommendation: include this near the methodology caveats or as a review roadmap
 - The charts analyze public release-page mentions, not benchmark scores, model capability, or scientific validity.
 - A model release with more benchmark mentions is normalized to the same total weight as another release with fewer mentions.
 - Facet labels are fractional when a benchmark has multiple labels on the same axis.
-- The latest-window charts use 365 days ending on 2026-08-13.
+- The latest-window charts use 365 days ending on 2026-09-30.
 - Many facet rows are still `needs_review`; publication charts should offer accepted-only or uncertainty-aware variants.
 - Source-author labels and lifecycle-risk labels inherit the current local taxonomy and should be audited before strong claims.

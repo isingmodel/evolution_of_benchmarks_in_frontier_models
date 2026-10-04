@@ -1,6 +1,7 @@
 # Experimental Analyses
 
 This directory collects exploratory analyses built on the benchmark-release data.
+The committed refresh includes releases through `2026-09-30`. Generated CSVs are the source for current numeric findings; ideation and meta-review documents also retain methodological proposals.
 Each subfolder should be reproducible from local CSVs and should preserve the core project caveat: the dataset tracks benchmark mentions on public release pages, not direct model capability.
 
 ## Folders
