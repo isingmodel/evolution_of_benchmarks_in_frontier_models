@@ -73,7 +73,7 @@ Current raw-mention shares:
 | --- | ---: | ---: | ---: |
 | Anthropic | 20.2% | 31.9% | 25.1% |
 | Google | 13.0% | 39.9% | 13.0% |
-| OpenAI | 35.4% | 40.7% | 22.6% |
+| OpenAI | 33.1% | 40.7% | 22.6% |
 
 These flags are non-exclusive and inherit the taxonomy's source and affiliation annotations. Authorship does not establish benchmark control, and provider-created does not imply private. Audit composite authors and provisional lifecycle-risk labels before making evaluation-supply-chain claims.
 

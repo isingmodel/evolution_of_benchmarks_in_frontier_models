@@ -86,7 +86,7 @@ benchmark_vending_bench_2,Vending-Bench 2,0.12749615975422426,3,Anthropic; Googl
 benchmark_cursorbench_4_0,CursorBench 4.0,0.12549019607843137,2,Anthropic,1,0.0,0.0,8.0,0,8.0,0.0,0.0,1.0,0.0,2026-09-22,2026-09-28,2,Others(Cursor),none,1.0,0.12549019607843137
 benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,0.12549019607843137,2,Anthropic,1,0.0,0.0,8.0,0,8.0,0.0,0.0,1.0,0.0,2026-09-22,2026-09-28,2,Others(Artificial Analysis),none,1.0,0.12549019607843137
 benchmark_osworld_2_1,OSWorld 2.1,0.12549019607843137,2,Anthropic,1,0.0,0.0,8.0,0,8.0,0.0,0.0,1.0,0.0,2026-09-22,2026-09-28,2,Academia,none,1.0,0.12549019607843137
-benchmark_frontiermath,FrontierMath,0.11787330316742081,3,OpenAI,1,0.0,0.0,15.0,0,15.0,0.0,0.0,1.0,0.0,2025-01-31,2026-04-23,5,Others(Epoch AI),OpenAI,1.0,0.11787330316742081
+benchmark_frontiermath,FrontierMath,0.11787330316742081,3,OpenAI,1,0.0,0.0,15.0,0,15.0,0.0,0.0,1.0,0.0,2025-01-31,2026-04-23,5,Others(Epoch AI),none,1.0,0.11787330316742081
 benchmark_blueprint_bench_2,Blueprint-Bench 2,0.11142857142857143,2,Anthropic; Google,2,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-05-19,2026-06-09,2,Others(Andon Labs),none,1.0,0.11142857142857143
 benchmark_eve_s_plaintiff_law_tasks,Eve's plaintiff-law tasks,0.1111111111111111,1,Anthropic,1,0.0,0.0,8.0,0,8.0,0.0,0.0,1.0,0.0,2026-06-30,2026-06-30,1,Others(Eve),none,1.0,0.1111111111111111
 benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,0.1111111111111111,1,Anthropic,1,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-06-30,2026-06-30,1,"Anthropic, Others(Mozilla)",Anthropic,1.0,0.1111111111111111
@@ -148,7 +148,7 @@ benchmark_benchcad,BenchCAD,0.047619047619047616,2,OpenAI,1,0.0,1.0,7.0,0,8.0,0.
 benchmark_biopipelinebench,BioPipelineBench,0.047619047619047616,1,Anthropic,1,0.0,0.0,27.0,0,27.0,0.0,0.0,1.0,0.0,2026-02-05,2026-02-05,1,Anthropic,Anthropic,1.0,0.047619047619047616
 benchmark_deepsearchqa,DeepSearchQA,0.047619047619047616,1,Anthropic,1,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-07-24,2026-07-24,1,"Academia, Google DeepMind",Google; DeepMind,1.0,0.047619047619047616
 benchmark_frontier_bench_v0_1,Frontier-Bench v0.1,0.047619047619047616,1,Anthropic,1,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-07-24,2026-07-24,1,"Academia, Others(Harbor; Laude Institute)",none,1.0,0.047619047619047616
-benchmark_frontiermath_v2,FrontierMath v2,0.047619047619047616,2,OpenAI,1,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-07-09,2026-09-03,2,Others(Epoch AI),OpenAI,1.0,0.047619047619047616
+benchmark_frontiermath_v2,FrontierMath v2,0.047619047619047616,2,OpenAI,1,0.0,1.0,7.0,0,8.0,0.0,0.125,0.875,0.0,2026-07-09,2026-09-03,2,Others(Epoch AI),none,1.0,0.047619047619047616
 benchmark_global_piqa,Global PIQA,0.047619047619047616,1,Google,1,0.0,0.0,11.0,0,11.0,0.0,0.0,1.0,0.0,2025-11-18,2025-11-18,1,Academia,none,1.0,0.047619047619047616
 benchmark_lovable_internal_evals,Lovable internal evals,0.047619047619047616,1,Anthropic,1,0.0,0.0,8.0,0,8.0,0.0,0.0,1.0,0.0,2026-07-24,2026-07-24,1,Others(Lovable),none,1.0,0.047619047619047616
 benchmark_mrcr,MRCR,0.047619047619047616,1,Google,1,0.0,0.0,15.0,0,15.0,0.0,0.0,1.0,0.0,2024-12-11,2025-11-18,4,OpenAI,Google; DeepMind,1.0,0.047619047619047616

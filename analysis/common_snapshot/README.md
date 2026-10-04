@@ -3,7 +3,7 @@
 This folder contains lightweight baseline tables for the experimental analyses under `analysis/`.
 The numbers are derived only from local CSVs and use exact canonical benchmark resolution plus explicit aliases.
 
-The current snapshot includes tracked releases through `2026-09-30`. Counts below use resolved raw mentions; analyses that deduplicate canonical identities within a model-release row can have a smaller count.
+Counts below use resolved raw mentions; analyses that deduplicate canonical identities within a model-release row can have a smaller count.
 
 ## Baseline Counts
 

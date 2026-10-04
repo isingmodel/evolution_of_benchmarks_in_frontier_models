@@ -75,7 +75,7 @@ benchmark_scicode,SciCode,2,2,Google; OpenAI,1,1,0,Academia,none,none,construct_
 benchmark_uniform_bar_exam,Uniform Bar Exam,2,2,Anthropic; OpenAI,1,0,1,Academia,none,none,construct_validity_risk|contamination_risk|private_or_opaque_eval,OpenAI,GPT-4,2023-03-14,lower_signal
 benchmark_automated_behavioral_audit,automated behavioral audit,8,1,Anthropic,0,0,8,Anthropic,Anthropic,Anthropic,construct_validity_risk|private_or_opaque_eval|provider_created_benchmark|unclear_metric,Anthropic,Claude 4.7 (Opus),2026-04-16,frontier_lab_repeated_within_provider:Anthropic
 benchmark_terminal_bench,Terminal-bench,6,1,Anthropic,0,0,6,Academia,Anthropic,Anthropic,construct_validity_risk|contamination_risk|distribution_shift_risk,Anthropic,Claude 4,2025-05-23,frontier_lab_repeated_within_provider:Anthropic
-benchmark_frontiermath,FrontierMath,5,1,OpenAI,5,0,0,Others(Epoch AI),OpenAI,OpenAI,private_or_opaque_eval,OpenAI,o3-mini,2025-01-31,frontier_lab_repeated_within_provider:OpenAI
+benchmark_frontiermath,FrontierMath,5,1,OpenAI,5,0,0,Others(Epoch AI),none,none,private_or_opaque_eval,OpenAI,o3-mini,2025-01-31,lower_signal
 benchmark_osworld,OSWorld,5,1,Anthropic,0,0,5,Academia,none,none,construct_validity_risk|contamination_risk|distribution_shift_risk|version_instability,Anthropic,Claude 3.5 Haiku,2024-10-23,lower_signal
 benchmark_codeforces,Codeforces,4,1,OpenAI,4,0,0,Others(Codeforces platform),none,none,contamination_risk|distribution_shift_risk|unclear_metric|version_instability,OpenAI,o1-mini,2024-09-12,lower_signal
 benchmark_gdpval,GDPval,4,1,OpenAI,4,0,0,OpenAI,OpenAI,OpenAI,construct_validity_risk|distribution_shift_risk|private_or_opaque_eval|provider_created_benchmark,OpenAI,GPT-5.2,2025-12-11,frontier_lab_repeated_within_provider:OpenAI
@@ -110,7 +110,7 @@ benchmark_cybersecurity_ctfs,Cybersecurity CTFs,2,1,OpenAI,2,0,0,Academia,none,n
 benchmark_eva_bench,EVA-Bench,2,1,Google,0,2,0,Others(ServiceNow),none,none,none_identified,Google,Gemini 3.8 Live,2026-09-15,lower_signal
 benchmark_facts_benchmark_suite,FACTS Benchmark suite,2,1,Google,0,2,0,Google,Google; DeepMind,Google/DeepMind,construct_validity_risk|contamination_risk|provider_created_benchmark,Google,Gemini 3.0,2025-11-18,lower_signal
 benchmark_finance_agent,Finance Agent,2,1,Anthropic,0,0,2,"Academia, Others(vals.ai)",none,none,distribution_shift_risk|private_or_opaque_eval|unclear_metric,Anthropic,Claude 4.5 (Sonnet),2025-09-30,lower_signal
-benchmark_frontiermath_v2,FrontierMath v2,2,1,OpenAI,2,0,0,Others(Epoch AI),OpenAI,OpenAI,none_identified,OpenAI,GPT-5.6,2026-07-09,lower_signal
+benchmark_frontiermath_v2,FrontierMath v2,2,1,OpenAI,2,0,0,Others(Epoch AI),none,none,none_identified,OpenAI,GPT-5.6,2026-07-09,lower_signal
 benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,2,1,Anthropic,0,0,2,Others(Artificial Analysis),none,none,none_identified,Anthropic,Claude 5.5 (Opus),2026-09-22,lower_signal
 benchmark_hmmt,HMMT,2,1,OpenAI,2,0,0,Academia,none,none,contamination_risk|unclear_metric|version_instability,OpenAI,GPT-5,2025-08-07,lower_signal
 benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling Tasks (Internal),2,1,OpenAI,2,0,0,OpenAI,OpenAI,OpenAI,construct_validity_risk|private_or_opaque_eval|provider_created_benchmark|unclear_metric,OpenAI,GPT-5.4,2026-03-05,lower_signal

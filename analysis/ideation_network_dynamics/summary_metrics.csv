@@ -19,6 +19,6 @@ provider_net_export_balance,-20.0,OpenAI
 latest_portfolio_similarity,0.249,Anthropic - Google
 latest_portfolio_similarity,0.231,Anthropic - OpenAI
 latest_portfolio_similarity,0.219,Google - OpenAI
-self_affiliated_mention_share,0.354,OpenAI
+self_affiliated_mention_share,0.331,OpenAI
 self_affiliated_mention_share,0.202,Anthropic
 self_affiliated_mention_share,0.13,Google

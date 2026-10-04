@@ -161,6 +161,8 @@ def write_markdown(mentions: pd.DataFrame, paths: dict[str, Path]) -> None:
         "This folder contains lightweight baseline tables for the experimental analyses under `analysis/`.",
         "The numbers are derived only from local CSVs and use exact canonical benchmark resolution plus explicit aliases.",
         "",
+        "Counts below use resolved raw mentions; analyses that deduplicate canonical identities within a model-release row can have a smaller count.",
+        "",
         "## Baseline Counts",
         "",
         f"- Resolved benchmark mentions: {len(mentions)}",

@@ -100,8 +100,9 @@ their former attribution requires archived-source verification. This does not
 establish when the source page changed.
 
 Epoch's primary FrontierMath page identifies OpenAI funding, correcting the
-catalog's earlier Google backing claim. Author is Epoch AI and funding affiliation
-is OpenAI for both the generic and v2 rows. WebDev Arena's primary
+catalog's earlier Google backing claim. Author is Epoch AI. Funding is excluded
+from the repository's author-affiliation field, so both the generic and v2 rows
+retain `none` there. WebDev Arena's primary
 [web.lmarena.ai](https://web.lmarena.ai/) redirects to Arena's Code Arena; its
 earlier Epoch AI author label is corrected to Arena.
 

@@ -72,7 +72,7 @@ benchmark_livecodebench,LiveCodeBench,Google,2024-12-11,Gemini 2.0,LiveCodeBench
 benchmark_mrcr,MRCR,Google,2024-12-11,Gemini 2.0,MRCR,1,0,True,Google,OpenAI,Google; DeepMind,Generative Reasoning,General/Commonsense
 benchmark_vibe_eval,Vibe-Eval,Google,2024-12-11,Gemini 2.0,Vibe-Eval,1,0,True,Google,Others(Reka AI),none,Multimodal Perception,General/Commonsense
 benchmark_webvoyager,WebVoyager,Google,2024-12-11,Gemini 2.0,WebVoyager,1,0,True,Google,Academia,none,Agentic,General/Commonsense
-benchmark_frontiermath,FrontierMath,OpenAI,2025-01-31,o3-mini,FrontierMath,1,0,True,OpenAI,Others(Epoch AI),OpenAI,Generative Reasoning,STEM/Math
+benchmark_frontiermath,FrontierMath,OpenAI,2025-01-31,o3-mini,FrontierMath,1,0,True,OpenAI,Others(Epoch AI),none,Generative Reasoning,STEM/Math
 benchmark_livebench_coding,LiveBench Coding,OpenAI,2025-01-31,o3-mini,LiveBench Coding,1,0,True,OpenAI,"Academia, Others(Nvidia etc)",none,Generative Reasoning,Coding/Engineering
 benchmark_stem,STEM,OpenAI,2025-01-31,o3-mini,STEM,1,0,True,OpenAI,Academia,none,Generative Reasoning,STEM/Math
 benchmark_swe_bench_verified,SWE-bench verified,OpenAI,2025-01-31,o3-mini,SWE-bench verified,2,100,False,Anthropic,OpenAI,OpenAI,Agentic,Coding/Engineering
@@ -251,7 +251,7 @@ benchmark_cursorbench,CursorBench,OpenAI,2026-07-09,GPT-5.6,CursorBench,2,84,Fal
 benchmark_deepswe_v1_1,DeepSWE v1.1,OpenAI,2026-07-09,GPT-5.6,DeepSWE v1.1,1,0,True,OpenAI,Others(DataCurve),none,Agentic,Coding/Engineering
 benchmark_exploitbench,ExploitBench,OpenAI,2026-07-09,GPT-5.6,ExploitBench,2,30,False,Anthropic,OpenAI,OpenAI,Agentic,Coding/Engineering
 benchmark_exploitgym,ExploitGym,OpenAI,2026-07-09,GPT-5.6,ExploitGym,1,0,True,OpenAI,"Academia, OpenAI",OpenAI,Agentic,Coding/Engineering
-benchmark_frontiermath_v2,FrontierMath v2,OpenAI,2026-07-09,GPT-5.6,FrontierMath v2,1,0,True,OpenAI,Others(Epoch AI),OpenAI,Generative Reasoning,STEM/Math
+benchmark_frontiermath_v2,FrontierMath v2,OpenAI,2026-07-09,GPT-5.6,FrontierMath v2,1,0,True,OpenAI,Others(Epoch AI),none,Generative Reasoning,STEM/Math
 benchmark_gdpval_aa_v2,GDPval-AA v2,OpenAI,2026-07-09,GPT-5.6,GDPval-AA v2,2,9,False,Anthropic,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
 benchmark_genebench_pro,GeneBench Pro,OpenAI,2026-07-09,GPT-5.6,GeneBench Pro,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance)
 benchmark_healthbench_professional,HealthBench Professional,OpenAI,2026-07-09,GPT-5.6,HealthBench Professional,2,30,False,Anthropic,OpenAI,OpenAI,Generative Reasoning,Specialized (Law/Bio/Finance)

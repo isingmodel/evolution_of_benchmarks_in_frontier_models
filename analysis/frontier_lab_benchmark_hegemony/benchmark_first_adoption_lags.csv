@@ -30,8 +30,6 @@ benchmark_fleurs,FLEURS,"Meta, Google",Google,Google,Google,gemini 1.0,2023-12-0
 benchmark_firefox,Firefox,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,Anthropic,Claude 5 (Fable/Mythos),2026-06-09,,,,,
 benchmark_firefox_147_exploit_evaluation,Firefox 147 exploit evaluation,"Anthropic, Others(Mozilla)",Anthropic,Anthropic,Anthropic,Claude 5 (Sonnet),2026-06-30,Anthropic,Claude 5 (Sonnet),2026-06-30,,,,,
 benchmark_frontier_science_research,Frontier Science Research,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.4,2026-03-05,OpenAI,GPT-5.4,2026-03-05,,,,,
-benchmark_frontiermath,FrontierMath,Others(Epoch AI),OpenAI,OpenAI,OpenAI,o3-mini,2025-01-31,OpenAI,o3-mini,2025-01-31,,,,,
-benchmark_frontiermath_v2,FrontierMath v2,Others(Epoch AI),OpenAI,OpenAI,OpenAI,GPT-5.6,2026-07-09,OpenAI,GPT-5.6,2026-07-09,,,,,
 benchmark_gdpval,GDPval,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.2,2025-12-11,OpenAI,GPT-5.2,2025-12-11,,,,,
 benchmark_gsm8k,GSM8K,OpenAI,OpenAI,OpenAI,Anthropic,Claude 2,2023-07-11,,,,Anthropic,Claude 2,2023-07-11,,
 benchmark_genebench,GeneBench,OpenAI,OpenAI,OpenAI,OpenAI,GPT-5.5,2026-04-23,OpenAI,GPT-5.5,2026-04-23,,,,,

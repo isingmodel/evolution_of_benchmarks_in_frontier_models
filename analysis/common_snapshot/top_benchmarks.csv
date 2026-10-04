@@ -43,7 +43,7 @@ BioMysteryBench,5,2,2026-06-09,2026-09-02,Anthropic,Anthropic
 CharXiv,5,2,2025-04-14,2025-12-11,Academia,none
 Finance Agent v2,5,2,2026-05-19,2026-09-30,Others(vals.ai),none
 Toolathlon,5,2,2025-12-11,2026-07-09,"Academia, Others(All Hands AI)",none
-FrontierMath,5,1,2025-01-31,2026-04-23,Others(Epoch AI),OpenAI
+FrontierMath,5,1,2025-01-31,2026-04-23,Others(Epoch AI),none
 OSWorld,5,1,2024-10-23,2026-02-05,Academia,none
 DROP,4,3,2023-12-06,2024-06-21,Academia,none
 DocVQA,4,3,2023-12-06,2024-06-21,Academia,none
@@ -110,7 +110,7 @@ Cybersecurity CTFs,2,1,2024-09-12,2026-02-05,Academia,none
 EVA-Bench,2,1,2026-09-15,2026-09-15,Others(ServiceNow),none
 FACTS Benchmark suite,2,1,2025-11-18,2026-03-03,Google,Google; DeepMind
 Finance Agent,2,1,2025-09-30,2026-02-05,"Academia, Others(vals.ai)",none
-FrontierMath v2,2,1,2026-07-09,2026-09-03,Others(Epoch AI),OpenAI
+FrontierMath v2,2,1,2026-07-09,2026-09-03,Others(Epoch AI),none
 GDPval-AA v2.1,2,1,2026-09-22,2026-09-28,Others(Artificial Analysis),none
 HMMT,2,1,2025-08-07,2025-12-11,Academia,none
 Investment Banking Modeling Tasks (Internal),2,1,2026-03-05,2026-04-23,OpenAI,OpenAI
