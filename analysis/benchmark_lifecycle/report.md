@@ -1,18 +1,18 @@
 # Benchmark reporting life cycles
 
-Observation cutoff: **2026-09-30**. This report covers all **288**
-catalog identities: **286** have an observed mention and
+Observation cutoff: **2026-11-18**. This report covers all **357**
+catalog identities: **355** have an observed mention and
 **2** have no observed mention through this cutoff.
 
-The **59** model rows collapse to **55** distinct
-announcements, **51** of which contain recorded benchmarks.
+The **68** model rows collapse to **63** distinct
+announcements, **59** of which contain recorded benchmarks.
 Aliases are deduplicated within each model row and then within each announcement.
-There are **745** benchmark–announcement observations, compared with
-**792** canonical benchmark–model-row observations.
+There are **896** benchmark–announcement observations, compared with
+**970** canonical benchmark–model-row observations.
 
-**169** identities appear on one announcement,
-**117** recur across announcements, and
-**74** appear across multiple providers.
+**214** identities appear on one announcement,
+**141** recur across announcements, and
+**82** appear across multiple providers.
 These are descriptions of the covered public pages, not a survival estimate.
 
 First observed is entry into this sample, not publication or private adoption.
@@ -52,13 +52,13 @@ remain ties, with zero second/third-provider lag.
 | Terminal-Bench 4.0 | 2026-09-01 | Anthropic | 1 | 2 |
 | MMMLU | 2025-02-25 | Anthropic | 2 | 266 |
 | Terminal-Bench Science 0.1 | 2026-09-01 | Anthropic | 2 | 29 |
+| Artificial Analysis Intelligence Index v5.0.1 | 2026-11-12 | Google | 5 | — |
 | Terminal-Bench 2.0 | 2025-11-18 | Google | 6 | 79 |
 | OfficeQA Pro | 2026-04-16 | Anthropic | 7 | — |
 | Chartography | 2026-09-22 | Anthropic | 8 | — |
+| BenchCAD 2.1 Core | 2026-11-09 | Anthropic | 8 | — |
+| FrontierCode 2.0 | 2026-11-09 | Anthropic | 8 | 9 |
 | Finance Agent v2 | 2026-05-19 | Google | 9 | — |
-| Terminal-Bench 2.1 | 2026-05-19 | Google | 9 | 51 |
-| GDPval-AA v2 | 2026-06-30 | Anthropic | 9 | 21 |
-| DeepSWE v1.1 | 2026-07-09 | OpenAI | 12 | 15 |
 
 ## Complete catalog
 
@@ -72,15 +72,23 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | 30-day simulated run-a-business eval | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | τ³-Banking Leaderboard | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | needs_review |
 | 93-task coding benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
-| AA-Briefcase v1.1 | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
+| AA-3D | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
+| AA-AnalystAgent | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
+| AA-Briefcase v1.1 | 2026-09-28 | 2026-11-09 | 42 | 3 | 1 | repeated_one_provider | needs_review |
 | AA-LCR | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | AA-Omniscience | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | ActivityNet | 2024-05-13 | 2024-05-13 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Adaptyv Bio's protein design competitions | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | Advanced Cybersecurity Completion Rate | 2026-08-10 | 2026-08-10 | 0 | 1 | 1 | single_launch | accepted |
+| adversarial sandbox escape evaluation | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
+| Agent Arena Index | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| agent honesty evaluation | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| agentic behavior evaluation | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | agentic code-review tests | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
+| agentic safety suite | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | Agents' Last Exam | 2026-07-09 | 2026-09-30 | 83 | 4 | 2 | shared_across_providers | accepted |
-| Agents' Last Exam V1 | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
+| Agents' Last Exam V1 | 2026-09-22 | 2026-10-26 | 34 | 2 | 1 | repeated_one_provider | needs_review |
+| Agents' Last Exam v1.1 | 2026-10-28 | 2026-11-18 | 21 | 4 | 2 | shared_across_providers | needs_review |
 | AI2D | 2024-03-04 | 2024-06-21 | 109 | 3 | 2 | shared_across_providers | legacy_seed |
 | Aider Polyglot | 2025-03-25 | 2025-11-24 | 244 | 5 | 3 | shared_across_providers | legacy_seed |
 | AIME | 2024-09-12 | 2025-11-18 | 432 | 15 | 3 | shared_across_providers | legacy_seed |
@@ -89,18 +97,26 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | ARC-AGI | 2024-03-04 | 2026-09-03 | 913 | 6 | 3 | shared_across_providers | legacy_seed |
 | ARC-AGI-2 | 2025-11-24 | 2026-09-03 | 283 | 7 | 3 | shared_across_providers | legacy_seed |
 | ARC-AGI-3 | 2026-07-09 | 2026-09-03 | 56 | 3 | 2 | shared_across_providers | accepted |
+| Artificial Analysis Coding Agent Index | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | Artificial Analysis Coding Agent Index v1.1 | 2026-07-09 | 2026-07-24 | 15 | 2 | 2 | shared_across_providers | accepted |
 | Artificial Analysis Coding Agent Index v1.4 | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | Artificial Analysis Coding Index | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | Artificial Analysis Intelligence Index | 2026-04-23 | 2026-08-13 | 112 | 4 | 2 | shared_across_providers | accepted |
 | Artificial Analysis Intelligence Index v4.1 | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | accepted |
 | Artificial Analysis Intelligence Index v4.1.1 | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
+| Artificial Analysis Intelligence Index v5.0 | 2026-10-28 | 2026-10-28 | 0 | 1 | 1 | single_launch | needs_review |
+| Artificial Analysis Intelligence Index v5.0.1 | 2026-11-12 | 2026-11-18 | 6 | 3 | 2 | shared_across_providers | needs_review |
 | Artificial Analysis Speech to Speech Index | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | accepted |
+| Asana AI Teammates eval suite | 2026-10-07 | 2026-10-07 | 0 | 1 | 1 | single_launch | needs_review |
+| Ask in Document | 2026-10-07 | 2026-10-07 | 0 | 1 | 1 | single_launch | needs_review |
+| AutoBaxBench | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | automated alignment assessment | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
-| automated behavioral audit | 2026-04-16 | 2026-09-28 | 165 | 7 | 1 | repeated_one_provider | accepted |
-| AutomationBench | 2026-06-09 | 2026-09-30 | 113 | 8 | 3 | shared_across_providers | accepted |
-| AutomationBench 1.0.6 | 2026-09-22 | 2026-09-29 | 7 | 2 | 1 | repeated_one_provider | needs_review |
+| automated behavioral audit | 2026-04-16 | 2026-11-09 | 207 | 8 | 1 | repeated_one_provider | accepted |
+| AutomationBench | 2026-06-09 | 2026-11-18 | 162 | 11 | 3 | shared_across_providers | accepted |
+| AutomationBench 1.0.6 | 2026-09-22 | 2026-11-17 | 56 | 3 | 1 | repeated_one_provider | needs_review |
+| AutomationBench-AA | 2026-11-12 | 2026-11-12 | 0 | 1 | 1 | single_launch | needs_review |
 | BenchCAD | 2026-07-09 | 2026-09-03 | 56 | 2 | 1 | repeated_one_provider | accepted |
+| BenchCAD 2.1 Core | 2026-11-09 | 2026-11-17 | 8 | 2 | 2 | shared_across_providers | needs_review |
 | Big Bench Audio | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | accepted |
 | Big-Bench Hard | 2023-12-06 | 2024-06-21 | 198 | 3 | 2 | shared_across_providers | legacy_seed |
 | Big Finance Bench | 2026-07-09 | 2026-09-22 | 75 | 2 | 2 | shared_across_providers | accepted |
@@ -111,22 +127,29 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | BioPipelineBench | 2026-02-05 | 2026-02-05 | 0 | 1 | 1 | single_launch | accepted |
 | Bird-SQL | 2024-12-11 | 2024-12-11 | 0 | 1 | 1 | single_launch | legacy_seed |
 | BixBench | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
-| Blueprint-Bench 2 | 2026-05-19 | 2026-06-09 | 21 | 2 | 2 | shared_across_providers | accepted |
+| Blocker deception | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
+| Blueprint-Bench 2 | 2026-05-19 | 2026-10-28 | 162 | 3 | 2 | shared_across_providers | accepted |
+| Box AI enterprise content evaluation | 2026-10-07 | 2026-10-07 | 0 | 1 | 1 | single_launch | needs_review |
 | Broken search | 2026-09-22 | 2026-09-29 | 7 | 2 | 1 | repeated_one_provider | needs_review |
 | BrowseComp | 2025-04-16 | 2026-09-03 | 505 | 11 | 3 | shared_across_providers | legacy_seed |
 | BrowseComp Long Context | 2025-12-11 | 2025-12-11 | 0 | 1 | 1 | single_launch | accepted |
 | BrowseComp-Plus | 2025-11-24 | 2025-11-24 | 0 | 1 | 1 | single_launch | legacy_seed |
 | browser-agent benchmark | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | Capture-the-Flags challenge tasks (Internal) | 2026-04-23 | 2026-07-09 | 77 | 2 | 1 | repeated_one_provider | accepted |
-| Chartography | 2026-09-22 | 2026-09-30 | 8 | 3 | 2 | shared_across_providers | needs_review |
+| Chartography | 2026-09-22 | 2026-11-18 | 57 | 8 | 2 | shared_across_providers | needs_review |
 | ChartQA | 2024-03-04 | 2024-06-21 | 109 | 3 | 2 | shared_across_providers | legacy_seed |
 | CharXiv | 2025-04-14 | 2025-12-11 | 241 | 5 | 2 | shared_across_providers | legacy_seed |
 | CharXiv Reasoning | 2026-03-03 | 2026-09-02 | 183 | 5 | 2 | shared_across_providers | accepted |
 | Chrome Production Commit Scanning Pipeline | 2026-07-21 | 2026-07-21 | 0 | 1 | 1 | single_launch | needs_review |
+| Chrome team patch quality evaluation | 2026-10-28 | 2026-10-28 | 0 | 1 | 1 | single_launch | needs_review |
 | Citations eval | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
+| ClickUp Brain blind testing | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | Codeforces | 2024-09-12 | 2025-04-16 | 216 | 4 | 1 | repeated_one_provider | legacy_seed |
+| CodeRabbit internal security review benchmark | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
+| coding cheating evaluation | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | Coding deception | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
 | coding evals | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
+| Cognition vulnerability discovery and exploitation benchmarks | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
 | COLLIE | 2025-04-14 | 2025-08-07 | 115 | 2 | 1 | repeated_one_provider | legacy_seed |
 | combined evaluation suite | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | ComplexFunc Bench | 2025-04-14 | 2025-04-14 | 0 | 1 | 1 | single_launch | legacy_seed |
@@ -139,19 +162,26 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | CursorBench | 2026-04-16 | 2026-07-09 | 84 | 4 | 2 | shared_across_providers | accepted |
 | CursorBench 3.2 | 2026-07-24 | 2026-09-01 | 39 | 2 | 1 | repeated_one_provider | accepted |
 | CursorBench 4.0 | 2026-09-22 | 2026-09-28 | 6 | 2 | 1 | repeated_one_provider | needs_review |
-| CWE-Bench | 2026-09-02 | 2026-09-02 | 0 | 1 | 1 | single_launch | needs_review |
+| CursorBench 4.1 | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
+| CVE Rediscovery | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
+| CWE-Bench | 2026-09-02 | 2026-10-28 | 56 | 2 | 1 | repeated_one_provider | needs_review |
 | CWE-bench v0 | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
 | CWE-bench v1 | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
+| CWE-bench v2 | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | CyberGym | 2026-02-05 | 2026-09-02 | 209 | 7 | 3 | shared_across_providers | legacy_seed |
 | Cybersecurity CTFs | 2024-09-12 | 2026-02-05 | 511 | 2 | 1 | repeated_one_provider | legacy_seed |
-| CyScenarioBench | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | accepted |
+| CyScenarioBench | 2026-06-09 | 2026-11-09 | 153 | 2 | 1 | repeated_one_provider | accepted |
+| data-eng-bench | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Data Science Tasks (Internal) | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | Database Migration Tasks (Internal) | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | DataBench | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
+| De novo binder design | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
+| DeepBinary | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | DeepSearchQA | 2026-07-24 | 2026-07-24 | 0 | 1 | 1 | single_launch | accepted |
 | DeepSWE v1.1 | 2026-07-09 | 2026-09-30 | 83 | 9 | 3 | shared_across_providers | accepted |
 | Design Tasks (Internal) | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | DocVQA | 2023-12-06 | 2024-06-21 | 198 | 4 | 3 | shared_across_providers | legacy_seed |
+| Dragos operational technology evaluations | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
 | DROP | 2023-12-06 | 2024-06-21 | 198 | 4 | 3 | shared_across_providers | legacy_seed |
 | early design evals | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | EgoSchema | 2024-05-13 | 2024-12-11 | 212 | 2 | 2 | shared_across_providers | legacy_seed |
@@ -162,15 +192,18 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Expert-SWE (Internal) | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | ExploitBench | 2026-06-09 | 2026-09-03 | 86 | 4 | 2 | shared_across_providers | needs_review |
 | ExploitBench 2 | — | — | — | 0 | 0 | unobserved | needs_review |
-| ExploitBench (June–August 2026) | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
-| ExploitGym | 2026-07-09 | 2026-09-03 | 56 | 3 | 1 | repeated_one_provider | needs_review |
+| ExploitBench (June–August 2026) | 2026-09-03 | 2026-11-17 | 75 | 3 | 1 | repeated_one_provider | needs_review |
+| ExploitGym | 2026-07-09 | 2026-11-18 | 132 | 6 | 2 | shared_across_providers | needs_review |
 | ExploitGym 3 | — | — | — | 0 | 0 | unobserved | needs_review |
-| ExploitGym honeypot | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | accepted |
+| ExploitGym honeypot | 2026-09-03 | 2026-11-05 | 63 | 2 | 1 | repeated_one_provider | accepted |
+| Factory coding task set | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | FACTS Benchmark suite | 2025-11-18 | 2026-03-03 | 105 | 2 | 1 | repeated_one_provider | accepted |
 | FACTS Grounding | 2024-12-11 | 2024-12-11 | 0 | 1 | 1 | single_launch | legacy_seed |
+| Fermat's Last Theorem proof formalization | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Finance Agent | 2025-09-30 | 2026-02-05 | 128 | 2 | 1 | repeated_one_provider | legacy_seed |
 | Finance Agent v2 | 2026-05-19 | 2026-09-30 | 134 | 4 | 2 | shared_across_providers | accepted |
 | FinanceAgent v1.1 | 2026-03-05 | 2026-04-23 | 49 | 3 | 2 | shared_across_providers | accepted |
+| financial forecasting model evaluation | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Firefox | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Firefox 147 exploit evaluation | 2026-06-30 | 2026-06-30 | 0 | 1 | 1 | single_launch | accepted |
 | first-generation evals | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
@@ -179,49 +212,62 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Frontier-Bench v0.1 | 2026-07-24 | 2026-07-24 | 0 | 1 | 1 | single_launch | accepted |
 | Frontier Science Research | 2026-03-05 | 2026-03-05 | 0 | 1 | 1 | single_launch | accepted |
 | FrontierBench | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
+| FrontierCode | 2026-10-07 | 2026-10-07 | 0 | 1 | 1 | single_launch | needs_review |
+| FrontierCode 2.0 | 2026-11-09 | 2026-11-18 | 9 | 3 | 3 | shared_across_providers | needs_review |
 | FrontierCode (Diamond) | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | accepted |
-| FrontierCode v1.1 | 2026-07-24 | 2026-09-28 | 66 | 6 | 3 | shared_across_providers | accepted |
+| FrontierCode v1.1 | 2026-07-24 | 2026-10-07 | 75 | 7 | 3 | shared_across_providers | accepted |
 | FrontierCode v1.1 (Extended) | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | FrontierFinance | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | FrontierMath | 2025-01-31 | 2026-04-23 | 447 | 5 | 1 | repeated_one_provider | legacy_seed |
 | FrontierMath v2 | 2026-07-09 | 2026-09-03 | 56 | 2 | 1 | repeated_one_provider | accepted |
-| FrontierSWE v2 | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
+| FrontierSWE v2 | 2026-09-30 | 2026-11-09 | 40 | 3 | 2 | shared_across_providers | accepted |
 | gdp.pdf | 2026-06-09 | 2026-09-29 | 112 | 5 | 3 | shared_across_providers | accepted |
-| GDPval | 2025-12-11 | 2026-04-23 | 133 | 4 | 1 | repeated_one_provider | accepted |
+| GDPval | 2025-12-11 | 2026-11-17 | 341 | 5 | 1 | repeated_one_provider | accepted |
 | GDPval-AA | 2026-02-05 | 2026-06-09 | 124 | 7 | 3 | shared_across_providers | accepted |
 | GDPval-AA v2 | 2026-06-30 | 2026-09-02 | 64 | 7 | 3 | shared_across_providers | accepted |
-| GDPval-AA v2.1 | 2026-09-22 | 2026-09-28 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| GDPval-AA v2.1 | 2026-09-22 | 2026-10-07 | 15 | 3 | 1 | repeated_one_provider | needs_review |
+| GDPval v2 (Internal) | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | GeneBench | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | GeneBench Pro | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | accepted |
 | GeneBench Pro v13 | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | Global PIQA | 2025-11-18 | 2025-11-18 | 0 | 1 | 1 | single_launch | legacy_seed |
+| Google internal secure code generation benchmarks | 2026-10-28 | 2026-10-28 | 0 | 1 | 1 | single_launch | needs_review |
 | GPQA | 2024-03-04 | 2025-12-11 | 647 | 14 | 3 | shared_across_providers | legacy_seed |
 | GPQA Diamond | 2024-10-23 | 2026-09-03 | 680 | 15 | 3 | shared_across_providers | legacy_seed |
-| GraphWalks | 2025-04-14 | 2026-09-30 | 534 | 8 | 3 | shared_across_providers | legacy_seed |
-| Gray Swan IPI benchmark | 2026-09-02 | 2026-09-30 | 28 | 2 | 1 | repeated_one_provider | accepted |
+| GraphWalks | 2025-04-14 | 2026-11-18 | 583 | 10 | 3 | shared_across_providers | legacy_seed |
+| Gray Swan IPI benchmark | 2026-09-02 | 2026-11-18 | 77 | 5 | 1 | repeated_one_provider | accepted |
 | Gray Swan prompt injection benchmark | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
 | GRE | 2023-07-11 | 2023-07-11 | 0 | 1 | 1 | single_launch | legacy_seed |
 | GSM8K | 2023-07-11 | 2024-06-21 | 346 | 4 | 2 | shared_across_providers | legacy_seed |
 | Harbor-Index | 2026-08-13 | 2026-08-13 | 0 | 1 | 1 | single_launch | accepted |
 | Harvey LAB-AA | 2026-08-13 | 2026-08-13 | 0 | 1 | 1 | single_launch | accepted |
+| Harvey LAB-AA v1.1 | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | Healthbench | 2025-08-07 | 2025-08-07 | 0 | 1 | 1 | single_launch | legacy_seed |
+| HealthBench Pro | 2026-11-12 | 2026-11-12 | 0 | 1 | 1 | single_launch | needs_review |
 | HealthBench Professional | 2026-06-09 | 2026-09-03 | 86 | 4 | 2 | shared_across_providers | accepted |
 | Hebbia's Finance Benchmark | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
 | HellaSwag | 2023-12-06 | 2024-03-04 | 89 | 2 | 2 | shared_across_providers | legacy_seed |
 | HiddenMath | 2024-12-11 | 2024-12-11 | 0 | 1 | 1 | single_launch | legacy_seed |
-| HLE (Humanity's Last Exam) | 2025-03-25 | 2026-09-28 | 552 | 20 | 3 | shared_across_providers | accepted |
+| HLE-Diamond | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| HLE (Humanity's Last Exam) | 2025-03-25 | 2026-11-09 | 594 | 22 | 3 | shared_across_providers | accepted |
 | HLE-Verified | 2026-08-13 | 2026-09-02 | 20 | 2 | 1 | repeated_one_provider | accepted |
 | HMMT | 2025-08-07 | 2025-12-11 | 126 | 2 | 1 | repeated_one_provider | legacy_seed |
+| HubSpot simulated CRM portals | 2026-10-07 | 2026-10-07 | 0 | 1 | 1 | single_launch | needs_review |
 | HumanEval | 2023-07-11 | 2024-10-23 | 470 | 7 | 3 | shared_across_providers | legacy_seed |
 | IFBench | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
 | IFEval | 2025-02-25 | 2025-04-14 | 48 | 2 | 2 | shared_across_providers | legacy_seed |
+| IMC briefing and infographics evaluation | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
+| IMC quant research problems | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | IMC research suite | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | IMC trading-analysis evaluations | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
 | IMO | 2024-09-12 | 2024-09-12 | 0 | 1 | 1 | single_launch | legacy_seed |
 | implicit-need tests | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
+| Improper actions in workplace tasks | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | incident investigation evals | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | Infographic VQA | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | legacy_seed |
+| internal 3D generation evals | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | internal and external PR benchmarks | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
+| internal benchmark of error-inducing prompts | 2026-10-26 | 2026-10-26 | 0 | 1 | 1 | single_launch | needs_review |
 | Internal circumvention benchmark | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | internal coding benchmarks | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | Internal computer use safety benchmark | 2026-09-03 | 2026-09-29 | 26 | 2 | 1 | repeated_one_provider | needs_review |
@@ -230,23 +276,28 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Internal hallucination benchmark | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | internal organic chemistry benchmark | 2026-07-24 | 2026-07-24 | 0 | 1 | 1 | single_launch | needs_review |
 | internal research-agent benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
+| internal research automation benchmark | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Internal Research Debugging Evaluation | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | internal testing benchmark | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | Investment Banking Modeling Tasks (Internal) | 2026-03-05 | 2026-04-23 | 49 | 2 | 1 | repeated_one_provider | accepted |
 | Jailbreak Eval | 2024-09-12 | 2024-09-12 | 0 | 1 | 1 | single_launch | legacy_seed |
+| Jump Trading hardware optimization benchmark | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | KernelGen 1P | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | LABBench2 | 2026-08-13 | 2026-09-30 | 48 | 3 | 1 | repeated_one_provider | accepted |
-| Legal Agent Benchmark | 2026-05-28 | 2026-09-30 | 125 | 6 | 2 | shared_across_providers | accepted |
+| Legal Agent Benchmark | 2026-05-28 | 2026-11-17 | 173 | 7 | 3 | shared_across_providers | accepted |
+| Legal Research Bench | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| Legora Agent evals | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | Legora's internal eval harness | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | LifeSciBench | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | accepted |
 | LifeSciBench Gold v1 | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
+| LifeVal | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | LiveBench Coding | 2025-01-31 | 2025-01-31 | 0 | 1 | 1 | single_launch | legacy_seed |
 | LiveCodeBench | 2024-12-11 | 2026-03-03 | 447 | 4 | 1 | repeated_one_provider | legacy_seed |
 | LiveCodeBench Pro | 2026-02-19 | 2026-02-19 | 0 | 1 | 1 | single_launch | legacy_seed |
 | LMArena | 2025-11-18 | 2026-03-03 | 105 | 2 | 1 | repeated_one_provider | legacy_seed |
 | long-horizon molecular prediction and design evaluation | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
 | Lovable internal evals | 2026-07-24 | 2026-07-24 | 0 | 1 | 1 | single_launch | needs_review |
-| LVBench | 2026-08-13 | 2026-09-30 | 48 | 3 | 1 | repeated_one_provider | accepted |
+| LVBench | 2026-08-13 | 2026-11-18 | 97 | 4 | 1 | repeated_one_provider | accepted |
 | M3Exam | 2024-05-13 | 2024-05-13 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Management Consulting Tasks (Internal) | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | MATH | 2023-12-06 | 2025-01-31 | 422 | 9 | 3 | shared_across_providers | legacy_seed |
@@ -261,7 +312,7 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | MMLU / MMLU-Pro | 2023-12-06 | 2025-04-14 | 495 | 10 | 3 | shared_across_providers | legacy_seed |
 | MMMLU | 2025-02-25 | 2026-04-16 | 415 | 13 | 3 | shared_across_providers | legacy_seed |
 | MMMU / MMMU Pro | 2023-12-06 | 2026-03-03 | 818 | 22 | 3 | shared_across_providers | legacy_seed |
-| MMMU Pro | 2026-02-05 | 2026-07-09 | 154 | 5 | 3 | shared_across_providers | accepted |
+| MMMU Pro | 2026-02-05 | 2026-10-26 | 263 | 6 | 3 | shared_across_providers | accepted |
 | Model ML's FinBench | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | MRCR | 2024-12-11 | 2025-11-18 | 342 | 4 | 2 | shared_across_providers | needs_review |
 | MRCR v2 | 2025-12-11 | 2026-09-03 | 266 | 11 | 3 | shared_across_providers | needs_review |
@@ -269,6 +320,7 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Multi-IF | 2025-04-14 | 2025-04-14 | 0 | 1 | 1 | single_launch | legacy_seed |
 | multi-step Unity Editor and coding benchmark | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
 | MultiChallenge | 2025-04-14 | 2025-08-07 | 115 | 3 | 1 | repeated_one_provider | legacy_seed |
+| Multimodal Knowledge Agent (MKA) | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
 | NanoGPT | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Natural2Code | 2023-12-06 | 2024-12-11 | 371 | 2 | 1 | repeated_one_provider | legacy_seed |
 | Needle In A Haystack | 2024-02-15 | 2025-04-14 | 424 | 3 | 3 | shared_across_providers | legacy_seed |
@@ -278,13 +330,15 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | OmniDocBench | 2026-03-05 | 2026-03-05 | 0 | 1 | 1 | single_launch | accepted |
 | OmniDocBench 1.5 | 2025-11-18 | 2025-11-18 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Online-Mind2Web | 2026-03-05 | 2026-05-28 | 84 | 2 | 2 | shared_across_providers | accepted |
+| OpenAI prompt-injection tests | 2026-10-26 | 2026-10-26 | 0 | 1 | 1 | single_launch | needs_review |
 | OpenRCA | 2026-02-05 | 2026-02-05 | 0 | 1 | 1 | single_launch | legacy_seed |
 | OpenScore String Quartets | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
 | OSS-Fuzz | 2026-06-09 | 2026-07-24 | 45 | 2 | 1 | repeated_one_provider | accepted |
 | OSWorld | 2024-10-23 | 2026-02-05 | 470 | 5 | 1 | repeated_one_provider | legacy_seed |
 | OSWorld 2.0 | 2026-07-09 | 2026-09-30 | 83 | 9 | 3 | shared_across_providers | accepted |
-| OSWorld 2.1 | 2026-09-22 | 2026-09-28 | 6 | 2 | 1 | repeated_one_provider | needs_review |
+| OSWorld 2.1 | 2026-09-22 | 2026-11-12 | 51 | 7 | 3 | shared_across_providers | needs_review |
 | OSWorld-Verified | 2026-02-05 | 2026-07-21 | 166 | 9 | 3 | shared_across_providers | accepted |
+| PatchBench | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | Pokémon Red | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
 | PostTrainBench | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
 | PostTrainBench Lite | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
@@ -292,27 +346,35 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | private suite of 2441 finance tasks | 2026-09-28 | 2026-09-28 | 0 | 1 | 1 | single_launch | needs_review |
 | prompt injection benchmark | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
 | Qodo's real-world code review benchmark | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
+| Quantum ESPRESSO phonon benchmark cases | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | Rakuten-SWE-Bench | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
 | Real Toxicity Prompts | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | needs_review |
 | Real-world Vulnerability Discovery | 2026-09-02 | 2026-09-30 | 28 | 2 | 1 | repeated_one_provider | accepted |
 | receipt extraction benchmark | 2026-07-21 | 2026-07-21 | 0 | 1 | 1 | single_launch | needs_review |
 | RedlineBench | 2026-09-01 | 2026-09-01 | 0 | 1 | 1 | single_launch | needs_review |
+| Remote Labor Index (RLI) | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
+| RemoteExploitBench | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
+| Replit greenfield software tests | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | Reviewer bypass | 2026-09-22 | 2026-09-29 | 7 | 2 | 1 | repeated_one_provider | needs_review |
-| RiemannBench | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | needs_review |
+| RiemannBench | 2026-09-30 | 2026-11-18 | 49 | 3 | 1 | repeated_one_provider | needs_review |
+| RoboDojo Sim | 2026-11-09 | 2026-11-09 | 0 | 1 | 1 | single_launch | needs_review |
 | RSI Index | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
+| Safeguard performance on sensitive red-teaming | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
 | Scale MCP-Atlas | 2025-11-24 | 2026-05-19 | 176 | 8 | 3 | shared_across_providers | accepted |
 | SciCode | 2026-02-19 | 2026-04-23 | 63 | 2 | 2 | shared_across_providers | legacy_seed |
 | ScreenSpot-Pro | 2025-11-18 | 2026-09-03 | 289 | 4 | 3 | shared_across_providers | legacy_seed |
-| SEC-Bench Pro | 2026-07-09 | 2026-09-03 | 56 | 2 | 1 | repeated_one_provider | accepted |
+| SEC-Bench Pro | 2026-07-09 | 2026-11-18 | 132 | 4 | 2 | shared_across_providers | accepted |
+| SecureSWE | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | seven-task benchmark | 2026-07-09 | 2026-07-09 | 0 | 1 | 1 | single_launch | needs_review |
 | SimpleQA | 2025-01-31 | 2025-11-18 | 291 | 4 | 2 | shared_across_providers | legacy_seed |
 | SimpleQA Verified | 2026-03-03 | 2026-03-03 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Speech Agent Arena | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | accepted |
-| SRE-Bench | 2026-09-03 | 2026-09-03 | 0 | 1 | 1 | single_launch | needs_review |
+| SRE-Bench | 2026-09-03 | 2026-11-05 | 63 | 2 | 1 | repeated_one_provider | needs_review |
 | StaticBench | 2026-09-02 | 2026-09-02 | 0 | 1 | 1 | single_launch | needs_review |
 | STEM | 2025-01-31 | 2025-01-31 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Structural Biology | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
 | Super-Agent benchmark | 2026-05-28 | 2026-05-28 | 0 | 1 | 1 | single_launch | needs_review |
+| Surge AI benchmarks | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | SWE-bench | 2025-02-27 | 2025-02-27 | 0 | 1 | 1 | single_launch | legacy_seed |
 | SWE-bench Multilingual | 2025-11-24 | 2026-04-16 | 143 | 3 | 1 | repeated_one_provider | legacy_seed |
 | SWE-bench Multimodal | 2026-04-16 | 2026-04-16 | 0 | 1 | 1 | single_launch | accepted |
@@ -320,15 +382,18 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | SWE-bench verified | 2024-10-23 | 2026-04-16 | 540 | 18 | 3 | shared_across_providers | legacy_seed |
 | SWE-Lancer | 2025-04-14 | 2025-12-11 | 241 | 3 | 1 | repeated_one_provider | legacy_seed |
 | SWE-Lancer IC Diamond | 2026-02-05 | 2026-02-05 | 0 | 1 | 1 | single_launch | accepted |
+| SWE-sweep | 2026-10-28 | 2026-11-18 | 21 | 3 | 1 | repeated_one_provider | needs_review |
 | TAU-2 bench | 2025-08-07 | 2026-04-23 | 259 | 10 | 3 | shared_across_providers | accepted |
 | Tau-bench | 2024-10-23 | 2025-08-05 | 286 | 6 | 2 | shared_across_providers | legacy_seed |
+| Tax Agent Bench | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
 | Terminal-bench | 2025-05-23 | 2026-04-16 | 328 | 6 | 1 | repeated_one_provider | legacy_seed |
 | Terminal-Bench 2.0 | 2025-11-18 | 2026-04-23 | 156 | 7 | 3 | shared_across_providers | legacy_seed |
 | Terminal-Bench 2.1 | 2026-05-19 | 2026-09-02 | 106 | 8 | 3 | shared_across_providers | accepted |
 | Terminal-Bench 3.0 | 2026-08-13 | 2026-08-13 | 0 | 1 | 1 | single_launch | accepted |
-| Terminal-Bench 4.0 | 2026-09-01 | 2026-09-30 | 29 | 6 | 3 | shared_across_providers | accepted |
+| Terminal-Bench 4.0 | 2026-09-01 | 2026-11-18 | 78 | 11 | 3 | shared_across_providers | accepted |
+| Terminal-Bench 4.1 | 2026-11-12 | 2026-11-18 | 6 | 2 | 1 | repeated_one_provider | needs_review |
 | Terminal-Bench Hard | 2026-04-23 | 2026-04-23 | 0 | 1 | 1 | single_launch | accepted |
-| Terminal-Bench Science 0.1 | 2026-09-01 | 2026-09-30 | 29 | 5 | 3 | shared_across_providers | accepted |
+| Terminal-Bench Science 0.1 | 2026-09-01 | 2026-11-18 | 78 | 11 | 3 | shared_across_providers | accepted |
 | TextVQA | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Toolathlon | 2025-12-11 | 2026-07-09 | 210 | 5 | 2 | shared_across_providers | legacy_seed |
 | trading benchmark | 2026-07-24 | 2026-07-24 | 0 | 1 | 1 | single_launch | needs_review |
@@ -337,9 +402,11 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | Unauthorized interaction | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
 | Uniform Bar Exam | 2023-03-14 | 2023-07-11 | 119 | 2 | 2 | shared_across_providers | legacy_seed |
 | Vals Index | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
+| Vals Index v2.2 | 2026-10-28 | 2026-11-18 | 21 | 2 | 1 | repeated_one_provider | needs_review |
+| Vals Science Index v1 | 2026-11-17 | 2026-11-17 | 0 | 1 | 1 | single_launch | needs_review |
 | VATEX | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Vending-Bench | 2025-11-24 | 2025-11-24 | 0 | 1 | 1 | single_launch | legacy_seed |
-| Vending-Bench 2 | 2025-11-18 | 2026-04-16 | 149 | 3 | 2 | shared_across_providers | accepted |
+| Vending-Bench 2 | 2025-11-18 | 2026-11-18 | 365 | 6 | 2 | shared_across_providers | accepted |
 | Vibe Code Bench | 2026-09-30 | 2026-09-30 | 0 | 1 | 1 | single_launch | accepted |
 | Vibe-Eval | 2024-12-11 | 2025-03-25 | 104 | 2 | 1 | repeated_one_provider | legacy_seed |
 | ViBench | 2026-06-09 | 2026-06-09 | 0 | 1 | 1 | single_launch | needs_review |
@@ -350,10 +417,12 @@ do not describe benchmark maturity, quality, inactivity or retirement.
 | τ-Voice-banking | 2026-09-15 | 2026-09-15 | 0 | 1 | 1 | single_launch | needs_review |
 | VQAv2 | 2023-12-06 | 2023-12-06 | 0 | 1 | 1 | single_launch | legacy_seed |
 | Vulnerability Discovery and Report Writing | 2026-08-10 | 2026-08-10 | 0 | 1 | 1 | single_launch | accepted |
-| WANDR | 2026-09-22 | 2026-09-22 | 0 | 1 | 1 | single_launch | needs_review |
+| WANDR | 2026-09-22 | 2026-11-09 | 48 | 2 | 1 | repeated_one_provider | needs_review |
 | Warning circumvention | 2026-09-22 | 2026-09-29 | 7 | 2 | 1 | repeated_one_provider | needs_review |
+| Web Pentesting | 2026-11-05 | 2026-11-05 | 0 | 1 | 1 | single_launch | needs_review |
 | WebArena-Verified | 2026-03-05 | 2026-03-05 | 0 | 1 | 1 | single_launch | accepted |
-| WebDev Arena | 2026-08-13 | 2026-08-13 | 0 | 1 | 1 | single_launch | legacy_seed |
+| WebDev Arena | 2026-08-13 | 2026-10-28 | 76 | 2 | 1 | repeated_one_provider | legacy_seed |
+| WebExploitBench v1.2 | 2026-11-18 | 2026-11-18 | 0 | 1 | 1 | single_launch | needs_review |
 | WebVoyager | 2024-12-11 | 2024-12-11 | 0 | 1 | 1 | single_launch | legacy_seed |
-| Wiz Penetration Test Benchmark | 2026-09-02 | 2026-09-30 | 28 | 2 | 1 | repeated_one_provider | accepted |
+| Wiz Penetration Test Benchmark | 2026-09-02 | 2026-10-28 | 56 | 3 | 1 | repeated_one_provider | accepted |
 | Zero-Day Discovery Eval | 2026-08-10 | 2026-08-10 | 0 | 1 | 1 | single_launch | accepted |

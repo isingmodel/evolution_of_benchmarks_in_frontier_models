@@ -4,7 +4,7 @@
 **How the evaluations named in OpenAI, Google, and Anthropic model announcements change over time.**
 
 [![CI](https://github.com/isingmodel/evolution_of_benchmarks_in_frontier_models/actions/workflows/ci.yml/badge.svg)](https://github.com/isingmodel/evolution_of_benchmarks_in_frontier_models/actions/workflows/ci.yml)
-[![Snapshot](https://img.shields.io/badge/observations_through-2026--09--30-555)](#sample-and-method)
+[![Snapshot](https://img.shields.io/badge/observations_through-2026--11--18-555)](#sample-and-method)
 [![License](https://img.shields.io/badge/license-Apache--2.0-3b7d44)](LICENSE)
 
 Which kinds of tasks appear in each model's benchmark portfolio? How does that
@@ -12,21 +12,21 @@ mix change, which benchmarks become shared reference points, and which return
 across later releases? This project connects a visual release history to a
 source-linked catalog and reproducible analysis of each benchmark's reporting history.
 
-**59 model rows · 55 distinct announcements · 286 observed benchmark identities · through 2026-09-30**
+**68 model rows · 63 distinct announcements · 355 observed benchmark identities · through 2026-11-18**
 
 The evidence is **names appearing on selected public launch pages**: results,
 comparisons, footnotes, suite components, and partner quotations all count.
 Appearance does not by itself establish a score for the new model, prominence,
-or use during training. Release discovery was checked through **October 4, 2026**.
+or use during training. Release discovery was checked through **November 22, 2026**.
 
 <details>
 <summary>Sample coverage by provider</summary>
 
 | Provider | Model rows | Announcements | With benchmarks | First tracked | Latest tracked |
 | --- | --- | --- | --- | --- | --- |
-| Anthropic | 21 | 21 | 19 | 2023-03-14 | 2026-09-28 |
-| Google | 17 | 14 | 14 | 2023-12-06 | 2026-09-30 |
-| OpenAI | 21 | 20 | 18 | 2022-11-30 | 2026-09-29 |
+| Anthropic | 23 | 23 | 21 | 2023-03-14 | 2026-11-09 |
+| Google | 20 | 17 | 17 | 2023-12-06 | 2026-11-18 |
+| OpenAI | 25 | 23 | 21 | 2022-11-30 | 2026-11-17 |
 
 The inventory includes selected general-purpose frontier releases and cyber
 variants, including restricted launches. It is not an exhaustive model history.
@@ -79,14 +79,14 @@ announcement once, and the interaction analysis compares both units.
 
 ## A small shared set accounts for most reporting
 
-**25.9% of observed benchmark identities appear across providers**. These identities account for **62.1% of benchmark–announcement observations**.
-**74 identities** appear at two or more providers;
-**38** appear at all three.
+**23.1% of observed benchmark identities appear across providers**. These identities account for **58.6% of benchmark–announcement observations**.
+**82 identities** appear at two or more providers;
+**41** appear at all three.
 
 ![Benchmark identities and reporting weight grouped by provider coverage](assets/benchmark_shared_core.png)
 
 Giving each benchmark-bearing announcement one unit, divided across its canonical
-benchmark set, shared identities contribute **63.3%** of
+benchmark set, shared identities contribute **60.5%** of
 the average portfolio. The shared majority persists under equal announcement weighting. Long tables and jointly announced variants therefore do not explain it by themselves.
 
 This result uses catalog identities: explicit versions remain separate, while
@@ -96,8 +96,8 @@ concentration or comparable scoring protocols.
 
 ## Each benchmark has a reporting history
 
-**169 identities appear on one announcement.** Of these,
-**136 first enter the sample in 2026**.
+**214 identities appear on one announcement.** Of these,
+**181 first enter the sample in 2026**.
 Recent entries have less time to recur, so a single appearance is not a completed
 lifetime. The lifecycle analysis follows first and last sightings, recurrence,
 provider spread, and reporting gaps for every catalog identity.
@@ -107,7 +107,7 @@ provider spread, and reporting gaps for every catalog identity.
 Dots are actual announcement dates; grey spans connect first and last sightings
 and can contain gaps. Last seen does not establish retirement, saturation, or
 replacement. The [complete catalog report](analysis/benchmark_lifecycle/report.md)
-covers **288 identities**, including **2**
+covers **357 identities**, including **2**
 unobserved by this cutoff. [Provider histories](analysis/benchmark_lifecycle/provider_lifecycles.csv)
 count subsequent launches, including pages with no recorded benchmarks, so gaps
 can be read against each provider's release cadence.
@@ -119,13 +119,13 @@ the entire follow-up window fits inside the observed series.
 
 | Follow-up window | Eligible identities | Seen at a second provider within window | Share |
 | --- | --- | --- | --- |
-| 30 days | 209 | 26 | 12.4% |
-| 90 days | 160 | 50 | 31.2% |
-| 180 days | 113 | 45 | 39.8% |
+| 30 days | 291 | 29 | 10.0% |
+| 90 days | 209 | 57 | 27.3% |
+| 180 days | 139 | 51 | 36.7% |
 
 Each row has a different eligible cohort. Time starts at the first mention in
 this dataset, rather than benchmark publication; an eligible window need not
-contain another provider's launch. Follow-up ends at **2026-09-30**.
+contain another provider's launch. Follow-up ends at **2026-11-18**.
 These are descriptive reporting fractions, not a survival curve or a field-wide
 adoption probability.
 [Window definitions and evidence](analysis/project_overview/README.md#diffusion-with-complete-calendar-follow-up).
@@ -137,7 +137,7 @@ This narrower measure requires a tool, environment, browser, terminal/codebase,
 or computer-control interaction label. Static code generation, unit-test scoring,
 and planning alone do not qualify.
 
-With equal weight per benchmark-bearing announcement in **2026**, **64.0%** of portfolio weight carries a tool or environment interaction label. Filtering to labels rated ≥0.70 gives **17.2%**. Under that filter, **36.6%** of portfolio weight has any annotation on the interaction axis; accepted interaction annotations cover **0.0%**.
+With equal weight per benchmark-bearing announcement in **2026**, **65.0%** of portfolio weight carries a tool or environment interaction label. Filtering to labels rated ≥0.70 gives **13.5%**. Under that filter, **29.2%** of portfolio weight has any annotation on the interaction axis; accepted interaction annotations cover **0.0%**.
 
 The difference between all active labels and the rating-filtered view makes
 annotation quality part of the result. A confidence rating of at least 0.70 is
@@ -148,7 +148,7 @@ basis for an estimate, rather than evidence that interaction is absent.
 <details>
 <summary>Interaction trend, annual values, and model-row sensitivity</summary>
 
-The annual share carrying tool or environment interaction labels rises from **0.0% in 2023** to **64.0% in 2026**, using all active labels.
+The annual share carrying tool or environment interaction labels rises from **0.0% in 2023** to **65.0% in 2026**, using all active labels.
 
 ![Interaction-label shares alongside confidence-filtered and accepted-label coverage](assets/interaction_taxonomy_sensitivity.png)
 
@@ -157,12 +157,12 @@ The annual share carrying tool or environment interaction labels rises from **0.
 | 2023 | 3 | 0.0% | 0.0% | 98.2% | 20.2% |
 | 2024 | 8 | 9.7% | 6.6% | 99.1% | 13.6% |
 | 2025 | 14 | 35.9% | 32.4% | 99.2% | 0.0% |
-| 2026 YTD | 26 | 64.0% | 17.2% | 36.6% | 0.0% |
+| 2026 YTD | 34 | 65.0% | 13.5% | 29.2% | 0.0% |
 
 Positive shares and coverage both use the full announcement-weighted denominator.
 Coverage means any retained interaction label, including static tasks.
 Changing the unit from announcements to model rows gives
-**64.0% versus 64.4%** for the 2026 all-active estimate.
+**65.0% versus 65.5%** for the 2026 all-active estimate.
 [Provider-level comparisons](analysis/project_overview/provider_interaction_trends.csv)
 and [the exact retained labels](analysis/project_overview/interaction_classification.csv)
 allow closer inspection. The older [broad software/tool-task proxy](analysis/readme_story/README.md)
@@ -172,8 +172,8 @@ also included static coding tests and remains an exploratory comparison.
 
 ## Sample and method
 
-There are **51 benchmark-bearing announcements** and
-**745 canonical benchmark–announcement observations**. The
+There are **59 benchmark-bearing announcements** and
+**896 canonical benchmark–announcement observations**. The
 announcement unit is a provider, release date, and normalized source URL;
 aliases resolve through exact mappings.
 [Annual inventory](analysis/project_overview/annual_inventory.csv) exposes uneven
@@ -185,12 +185,12 @@ tests. Some historical labels combine versions, and current launch pages can
 have been edited since release. First sightings describe this sample, not
 archived proof of when a benchmark entered public use.
 
-The facet table contains **4,052 labels: 36 accepted,
-3,956 needing review, and 60 legacy seeds**.
+The facet table contains **4,604 labels: 36 accepted,
+4,508 needing review, and 60 legacy seeds**.
 Identity approval and facet approval are separate. The
 [preface audit](docs/readme_data_audit_2026_10_04.md) records corrections including
 MTOB's task definition and missing mentions, plus unresolved MRCR lineage. The
-[release audit](docs/data_refresh_2026_10_04.md) records source-discovery coverage.
+[release audit](docs/data_refresh_2026_11_22.md) records source-discovery coverage.
 
 ## Explore the evidence
 

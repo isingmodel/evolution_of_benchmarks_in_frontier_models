@@ -58,3 +58,12 @@ OpenAI,GPT-6 Sol,https://openai.com/index/introducing-gpt-6-sol-and-luna/,2026-0
 Anthropic,Claude 5.5 (Sonnet),https://www.anthropic.com/claude-sonnet-5-5,2026-09-28,2026,15,15,0,1.0
 OpenAI,GPT-6.1 Sol,https://openai.com/index/introducing-gpt-6-1-sol/,2026-09-29,2026,10,10,0,1.0
 Google,Gemini 4 Argon,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/,2026-09-30,2026,22,22,0,1.0
+Anthropic,Claude 5.5 (Haiku),https://www.anthropic.com/claude-haiku-5-5,2026-10-07,2026,12,12,0,1.0
+OpenAI,GPT-6.1 Terra,https://openai.com/index/introducing-gpt-6-1-terra/,2026-10-26,2026,7,7,0,1.0
+Google,Gemini 4 Carbon,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/,2026-10-28,2026,22,22,0,1.0
+OpenAI,GPT-6 Cyber,https://openai.com/index/introducing-gpt-6-cyber/,2026-11-05,2026,10,10,0,1.0
+Anthropic,Claude 5.2 (Fable/Mythos),https://www.anthropic.com/claude-fable-and-mythos-5-2,2026-11-09,2026,23,23,0,1.0
+Google,Gemini 4 Hydrogen,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/,2026-11-12,2026,18,18,0,1.0
+OpenAI,GPT-6.2 Astra,https://openai.com/index/introducing-gpt-6-2-astra-sol/,2026-11-17,2026,27,27,0,1.0
+OpenAI,GPT-6.2 Sol,https://openai.com/index/introducing-gpt-6-2-astra-sol/,2026-11-17,2026,27,27,0,1.0
+Google,Gemini 4 Neon,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/,2026-11-18,2026,32,32,0,1.0

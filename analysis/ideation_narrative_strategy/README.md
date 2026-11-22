@@ -7,7 +7,7 @@ capability. The [project overview](../project_overview/README.md) supplies curre
 preface evidence; this module retains exploratory measures.
 
 ```bash
-.venv/bin/python analysis/ideation_narrative_strategy/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/ideation_narrative_strategy/analyze.py --as-of 2026-11-18
 ```
 
 Resolution uses exact canonical names and explicit aliases, without fuzzy

@@ -1,7 +1,7 @@
 provider_group,period,total_mentions,release_weight_total,openai_source_or_affiliated_mentions,openai_source_or_affiliated_share,openai_source_or_affiliated_release_normalized_share,strict_openai_affiliation_mentions,strict_openai_affiliation_share,unique_openai_linked_benchmarks
 Anthropic,2023-2024,42.0,4.0,8.0,0.19047619047619047,0.250267094017094,8.0,0.19047619047619047,GSM8K; HumanEval; SWE-bench verified
-Anthropic,2025-2026,222.0,14.999999999999996,34.0,0.15315315315315314,0.17339951594580577,25.0,0.11261261261261261,BrowseComp; ExploitBench; GraphWalks; HLE (Humanity's Last Exam); HealthBench Professional; MMMLU; SWE-bench verified
+Anthropic,2025-2026,257.0,17.0,36.0,0.14007782101167315,0.160459078434705,25.0,0.09727626459143969,BrowseComp; ExploitBench; GraphWalks; HLE (Humanity's Last Exam); HealthBench Professional; MMMLU; SWE-bench verified
 Google,2023-2024,35.0,3.0000000000000004,2.0,0.05714285714285714,0.035087719298245605,2.0,0.05714285714285714,GSM8K; HumanEval
-Google,2025-2026,189.0,14.0,17.0,0.08994708994708994,0.08851267779839209,12.0,0.06349206349206349,BrowseComp; GraphWalks; HLE (Humanity's Last Exam); MLE-Bench; MMMLU; SWE-bench verified; SimpleQA
+Google,2025-2026,261.0,17.0,21.0,0.08045977011494253,0.08191685765215176,16.0,0.06130268199233716,BrowseComp; ExploitGym; GraphWalks; HLE (Humanity's Last Exam); MLE-Bench; MMMLU; SWE-bench verified; SimpleQA
 Anthropic+Google,2023-2024,77.0,6.999999999999998,10.0,0.12987012987012986,0.15804736199473046,10.0,0.12987012987012986,GSM8K; HumanEval; SWE-bench verified
-Anthropic+Google,2025-2026,411.0,28.999999999999996,51.0,0.12408759124087591,0.13241966304705435,37.0,0.09002433090024331,BrowseComp; ExploitBench; GraphWalks; HLE (Humanity's Last Exam); HealthBench Professional; MLE-Bench; MMMLU; SWE-bench verified; SimpleQA
+Anthropic+Google,2025-2026,518.0,34.0,57.0,0.11003861003861004,0.12118796804342838,41.0,0.07915057915057915,BrowseComp; ExploitBench; ExploitGym; GraphWalks; HLE (Humanity's Last Exam); HealthBench Professional; MLE-Bench; MMMLU; SWE-bench verified; SimpleQA

@@ -81,3 +81,12 @@ Capability Hallucination Rate,benchmark_internal_hallucination_benchmark,provide
 Circumventing auto-review,benchmark_internal_circumvention_benchmark,provider_abbreviation,"Exact source-rendered chart title or tab shorthand, adjudicated in docs/data_refresh_2026_10_04.md. Shared title/procedure/baselines establish continuity for repeated safety panels; metric qualifiers omitted."
 ExploitBench - Internal Port (June–August 2026),benchmark_exploitbench_juneaugust_2026,provider_abbreviation,"Exact source-rendered chart title or tab shorthand, adjudicated in docs/data_refresh_2026_10_04.md. Shared title/procedure/baselines establish continuity for repeated safety panels; metric qualifiers omitted."
 visual-acuity benchmark,benchmark_visual_acuity_benchmark,case_variant,Lowercase source label in XBOW's testimonial on the Claude Opus 4.7 launch page; same restored canonical private visual-acuity evaluation.
+AA Index v5.0,benchmark_artificial_analysis_intelligence_index_v5_0,provider_abbreviation,Carbon figure and adjacent prose identify the versioned index.
+AA Index v5.0.1,benchmark_artificial_analysis_intelligence_index_v5_0_1,provider_abbreviation,Neon benchmark table uses the abbreviated title.
+AA Index 5.0.1,benchmark_artificial_analysis_intelligence_index_v5_0_1,provider_abbreviation,Hydrogen chart title omits the v prefix.
+FrontierSWE 2,benchmark_frontierswe_v2,provider_abbreviation,The Carbon table omits the v prefix for the same revision.
+Agent Arena,benchmark_agent_arena_index,provider_abbreviation,Hydrogen and Neon link the same Arena leaderboard.
+MKA,benchmark_multimodal_knowledge_agent_mka,provider_abbreviation,Hydrogen expands the abbreviation used in both Google comparison tables.
+Vals Tax Agent Bench,benchmark_tax_agent_bench,provider_abbreviation,The Google pages link the same Vals benchmark.
+Vals Legal Research Bench,benchmark_legal_research_bench,provider_abbreviation,The Google pages link the same Vals benchmark.
+BenchCAD 2.1,benchmark_benchcad_2_1_core,provider_abbreviation,The BenchCAD 2.1 release notes identify the Anthropic 83.5 result as a Core run.

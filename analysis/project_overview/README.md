@@ -5,7 +5,7 @@ figures. It uses the source CSVs directly and the shared lifecycle builder for
 announcement identity, cutoff handling, and canonical resolution.
 
 ```bash
-.venv/bin/python analysis/project_overview/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/project_overview/analyze.py --as-of 2026-11-18
 ```
 
 `--output-dir` and `--asset-dir` support isolated runs. `--readme-path README.md`

@@ -28,7 +28,7 @@ not independently establish a transition between natural task categories.
 ## Run and outputs
 
 ```bash
-.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/readme_story/analyze.py --as-of 2026-11-18
 ```
 
 Outputs include:

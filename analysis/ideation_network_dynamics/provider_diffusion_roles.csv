@@ -1,4 +1,4 @@
 provider,total_mentions,unique_benchmarks_mentioned,first_mover_benchmarks,exported_benchmarks_later_adopted,follower_adoptions_created,imported_benchmarks,avg_import_lag_days,median_import_lag_days,net_export_balance,first_mover_share_of_portfolio
-Anthropic,264,132,99,31,48,33,88.7,79.0,-2,0.75
-Google,224,111,74,21,33,37,139.2,87.0,-16,0.6666666666666666
-OpenAI,305,155,113,22,31,42,105.3,70.0,-20,0.7290322580645161
+Anthropic,299,151,117,34,54,34,87.3,77.0,0,0.7748344370860927
+Google,296,140,99,24,36,41,132.1,87.0,-17,0.7071428571428572
+OpenAI,376,187,139,24,33,48,97.3,57.0,-24,0.7433155080213903

@@ -7,18 +7,18 @@ Counts below use resolved raw mentions; analyses that deduplicate canonical iden
 
 ## Baseline Counts
 
-- Resolved benchmark mentions: 793
-- Providers: Anthropic=264, Google=224, OpenAI=305
-- Years: 2023=25, 2024=84, 2025=168, 2026=516
-- Legacy task-mode mentions: Agentic=372, Generative Reasoning=265, Multimodal Perception=93, Constraint Satisfaction=46, Knowledge Retrieval=17
-- Legacy domain mentions: General/Commonsense=316, Coding/Engineering=212, Specialized (Law/Bio/Finance)=146, STEM/Math=119
+- Resolved benchmark mentions: 971
+- Providers: Anthropic=299, Google=296, OpenAI=376
+- Years: 2023=25, 2024=84, 2025=168, 2026=694
+- Legacy task-mode mentions: Agentic=492, Generative Reasoning=302, Multimodal Perception=95, Constraint Satisfaction=63, Knowledge Retrieval=19
+- Legacy domain mentions: General/Commonsense=382, Coding/Engineering=276, Specialized (Law/Bio/Finance)=179, STEM/Math=134
 
 ## Top Benchmarks
 
 | Mentions | Benchmark |
 | ---: | --- |
 | 22 | MMMU / MMMU Pro |
-| 20 | HLE (Humanity's Last Exam) |
+| 22 | HLE (Humanity's Last Exam) |
 | 18 | SWE-bench verified |
 | 15 | AIME |
 | 15 | GPQA Diamond |

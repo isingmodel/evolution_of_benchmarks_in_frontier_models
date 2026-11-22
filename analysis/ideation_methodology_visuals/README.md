@@ -6,7 +6,7 @@ resolution. These views do not measure model capability, benchmark quality,
 provider intent, or actual page prominence.
 
 ```bash
-.venv/bin/python analysis/ideation_methodology_visuals/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/ideation_methodology_visuals/analyze.py --as-of 2026-11-18
 ```
 
 The [project overview](../project_overview/README.md) and

@@ -8,6 +8,12 @@ benchmark_3_banking_leaderboard,τ³-Banking Leaderboard,accepted,,,False
 benchmark_93_task_coding_benchmark,93-task coding benchmark,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
 benchmark_93_task_coding_benchmark,93-task coding benchmark,confidence_ge_0_7,,,False
 benchmark_93_task_coding_benchmark,93-task coding benchmark,accepted,,,False
+benchmark_aa_3d,AA-3D,all_active,static_prompt_response,False,True
+benchmark_aa_3d,AA-3D,confidence_ge_0_7,,,False
+benchmark_aa_3d,AA-3D,accepted,,,False
+benchmark_aa_analystagent,AA-AnalystAgent,all_active,environment_interaction,True,True
+benchmark_aa_analystagent,AA-AnalystAgent,confidence_ge_0_7,,,False
+benchmark_aa_analystagent,AA-AnalystAgent,accepted,,,False
 benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,all_active,environment_interaction,True,True
 benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,confidence_ge_0_7,,,False
 benchmark_aa_briefcase_v1_1,AA-Briefcase v1.1,accepted,,,False
@@ -26,15 +32,33 @@ benchmark_adaptyv_bio_s_protein_design_competitions,Adaptyv Bio's protein design
 benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,all_active,static_prompt_response,False,True
 benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,confidence_ge_0_7,,,False
 benchmark_advanced_cybersecurity_completion_rate,Advanced Cybersecurity Completion Rate,accepted,,,False
+benchmark_adversarial_sandbox_escape_evaluation,adversarial sandbox escape evaluation,all_active,static_prompt_response,False,True
+benchmark_adversarial_sandbox_escape_evaluation,adversarial sandbox escape evaluation,confidence_ge_0_7,,,False
+benchmark_adversarial_sandbox_escape_evaluation,adversarial sandbox escape evaluation,accepted,,,False
+benchmark_agent_arena_index,Agent Arena Index,all_active,environment_interaction,True,True
+benchmark_agent_arena_index,Agent Arena Index,confidence_ge_0_7,,,False
+benchmark_agent_arena_index,Agent Arena Index,accepted,,,False
+benchmark_agent_honesty_evaluation,agent honesty evaluation,all_active,static_prompt_response,False,True
+benchmark_agent_honesty_evaluation,agent honesty evaluation,confidence_ge_0_7,,,False
+benchmark_agent_honesty_evaluation,agent honesty evaluation,accepted,,,False
+benchmark_agentic_behavior_evaluation,agentic behavior evaluation,all_active,static_prompt_response,False,True
+benchmark_agentic_behavior_evaluation,agentic behavior evaluation,confidence_ge_0_7,,,False
+benchmark_agentic_behavior_evaluation,agentic behavior evaluation,accepted,,,False
 benchmark_agentic_code_review_tests,agentic code-review tests,all_active,environment_interaction,True,True
 benchmark_agentic_code_review_tests,agentic code-review tests,confidence_ge_0_7,,,False
 benchmark_agentic_code_review_tests,agentic code-review tests,accepted,,,False
+benchmark_agentic_safety_suite,agentic safety suite,all_active,static_prompt_response,False,True
+benchmark_agentic_safety_suite,agentic safety suite,confidence_ge_0_7,,,False
+benchmark_agentic_safety_suite,agentic safety suite,accepted,,,False
 benchmark_agents_last_exam,Agents' Last Exam,all_active,environment_interaction,True,True
 benchmark_agents_last_exam,Agents' Last Exam,confidence_ge_0_7,,,False
 benchmark_agents_last_exam,Agents' Last Exam,accepted,,,False
 benchmark_agents_last_exam_v1,Agents' Last Exam V1,all_active,environment_interaction,True,True
 benchmark_agents_last_exam_v1,Agents' Last Exam V1,confidence_ge_0_7,,,False
 benchmark_agents_last_exam_v1,Agents' Last Exam V1,accepted,,,False
+benchmark_agents_last_exam_v1_1,Agents' Last Exam v1.1,all_active,environment_interaction,True,True
+benchmark_agents_last_exam_v1_1,Agents' Last Exam v1.1,confidence_ge_0_7,,,False
+benchmark_agents_last_exam_v1_1,Agents' Last Exam v1.1,accepted,,,False
 benchmark_ai2d,AI2D,all_active,static_prompt_response,False,True
 benchmark_ai2d,AI2D,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_ai2d,AI2D,accepted,,,False
@@ -59,6 +83,9 @@ benchmark_arc_agi_2,ARC-AGI-2,accepted,,,False
 benchmark_arc_agi_3,ARC-AGI-3,all_active,static_prompt_response,False,True
 benchmark_arc_agi_3,ARC-AGI-3,confidence_ge_0_7,,,False
 benchmark_arc_agi_3,ARC-AGI-3,accepted,,,False
+benchmark_artificial_analysis_coding_agent_index,Artificial Analysis Coding Agent Index,all_active,environment_interaction,True,True
+benchmark_artificial_analysis_coding_agent_index,Artificial Analysis Coding Agent Index,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_coding_agent_index,Artificial Analysis Coding Agent Index,accepted,,,False
 benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,all_active,environment_interaction,True,True
 benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,confidence_ge_0_7,,,False
 benchmark_artificial_analysis_coding_agent_index_v1_1,Artificial Analysis Coding Agent Index v1.1,accepted,,,False
@@ -77,9 +104,24 @@ benchmark_artificial_analysis_intelligence_index_v4_1,Artificial Analysis Intell
 benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,all_active,static_prompt_response,False,True
 benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,confidence_ge_0_7,,,False
 benchmark_artificial_analysis_intelligence_index_v4_1_1,Artificial Analysis Intelligence Index v4.1.1,accepted,,,False
+benchmark_artificial_analysis_intelligence_index_v5_0,Artificial Analysis Intelligence Index v5.0,all_active,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index_v5_0,Artificial Analysis Intelligence Index v5.0,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_intelligence_index_v5_0,Artificial Analysis Intelligence Index v5.0,accepted,,,False
+benchmark_artificial_analysis_intelligence_index_v5_0_1,Artificial Analysis Intelligence Index v5.0.1,all_active,static_prompt_response,False,True
+benchmark_artificial_analysis_intelligence_index_v5_0_1,Artificial Analysis Intelligence Index v5.0.1,confidence_ge_0_7,,,False
+benchmark_artificial_analysis_intelligence_index_v5_0_1,Artificial Analysis Intelligence Index v5.0.1,accepted,,,False
 benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,all_active,environment_interaction,True,True
 benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,confidence_ge_0_7,,,False
 benchmark_artificial_analysis_speech_to_speech_index,Artificial Analysis Speech to Speech Index,accepted,,,False
+benchmark_asana_ai_teammates_eval_suite,Asana AI Teammates eval suite,all_active,environment_interaction,True,True
+benchmark_asana_ai_teammates_eval_suite,Asana AI Teammates eval suite,confidence_ge_0_7,,,False
+benchmark_asana_ai_teammates_eval_suite,Asana AI Teammates eval suite,accepted,,,False
+benchmark_ask_in_document,Ask in Document,all_active,static_prompt_response,False,True
+benchmark_ask_in_document,Ask in Document,confidence_ge_0_7,,,False
+benchmark_ask_in_document,Ask in Document,accepted,,,False
+benchmark_autobaxbench,AutoBaxBench,all_active,static_prompt_response,False,True
+benchmark_autobaxbench,AutoBaxBench,confidence_ge_0_7,,,False
+benchmark_autobaxbench,AutoBaxBench,accepted,,,False
 benchmark_automated_alignment_assessment,automated alignment assessment,all_active,static_prompt_response,False,True
 benchmark_automated_alignment_assessment,automated alignment assessment,confidence_ge_0_7,,,False
 benchmark_automated_alignment_assessment,automated alignment assessment,accepted,,,False
@@ -92,9 +134,15 @@ benchmark_automationbench,AutomationBench,accepted,,,False
 benchmark_automationbench_1_0_6,AutomationBench 1.0.6,all_active,environment_interaction,True,True
 benchmark_automationbench_1_0_6,AutomationBench 1.0.6,confidence_ge_0_7,,,False
 benchmark_automationbench_1_0_6,AutomationBench 1.0.6,accepted,,,False
+benchmark_automationbench_aa,AutomationBench-AA,all_active,environment_interaction,True,True
+benchmark_automationbench_aa,AutomationBench-AA,confidence_ge_0_7,,,False
+benchmark_automationbench_aa,AutomationBench-AA,accepted,,,False
 benchmark_benchcad,BenchCAD,all_active,environment_interaction,True,True
 benchmark_benchcad,BenchCAD,confidence_ge_0_7,,,False
 benchmark_benchcad,BenchCAD,accepted,,,False
+benchmark_benchcad_2_1_core,BenchCAD 2.1 Core,all_active,environment_interaction,True,True
+benchmark_benchcad_2_1_core,BenchCAD 2.1 Core,confidence_ge_0_7,,,False
+benchmark_benchcad_2_1_core,BenchCAD 2.1 Core,accepted,,,False
 benchmark_big_bench_audio,Big Bench Audio,all_active,static_prompt_response,False,True
 benchmark_big_bench_audio,Big Bench Audio,confidence_ge_0_7,,,False
 benchmark_big_bench_audio,Big Bench Audio,accepted,,,False
@@ -125,9 +173,15 @@ benchmark_bird_sql,Bird-SQL,accepted,,,False
 benchmark_bixbench,BixBench,all_active,environment_interaction; multi_step_planning; single_turn_tool_use; static_prompt_response,True,True
 benchmark_bixbench,BixBench,confidence_ge_0_7,,,False
 benchmark_bixbench,BixBench,accepted,,,False
+benchmark_blocker_deception,Blocker deception,all_active,static_prompt_response,False,True
+benchmark_blocker_deception,Blocker deception,confidence_ge_0_7,,,False
+benchmark_blocker_deception,Blocker deception,accepted,,,False
 benchmark_blueprint_bench_2,Blueprint-Bench 2,all_active,environment_interaction,True,True
 benchmark_blueprint_bench_2,Blueprint-Bench 2,confidence_ge_0_7,,,False
 benchmark_blueprint_bench_2,Blueprint-Bench 2,accepted,,,False
+benchmark_box_ai_enterprise_content_evaluation,Box AI enterprise content evaluation,all_active,static_prompt_response,False,True
+benchmark_box_ai_enterprise_content_evaluation,Box AI enterprise content evaluation,confidence_ge_0_7,,,False
+benchmark_box_ai_enterprise_content_evaluation,Box AI enterprise content evaluation,accepted,,,False
 benchmark_broken_search,Broken search,all_active,static_prompt_response,False,True
 benchmark_broken_search,Broken search,confidence_ge_0_7,,,False
 benchmark_broken_search,Broken search,accepted,,,False
@@ -161,18 +215,33 @@ benchmark_charxiv_reasoning,CharXiv Reasoning,accepted,,,False
 benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,all_active,environment_interaction,True,True
 benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,confidence_ge_0_7,,,False
 benchmark_chrome_production_commit_scanning_pipeline,Chrome Production Commit Scanning Pipeline,accepted,,,False
+benchmark_chrome_team_patch_quality_evaluation,Chrome team patch quality evaluation,all_active,environment_interaction,True,True
+benchmark_chrome_team_patch_quality_evaluation,Chrome team patch quality evaluation,confidence_ge_0_7,,,False
+benchmark_chrome_team_patch_quality_evaluation,Chrome team patch quality evaluation,accepted,,,False
 benchmark_citations_eval,Citations eval,all_active,static_prompt_response,False,True
 benchmark_citations_eval,Citations eval,confidence_ge_0_7,,,False
 benchmark_citations_eval,Citations eval,accepted,,,False
+benchmark_clickup_brain_blind_testing,ClickUp Brain blind testing,all_active,environment_interaction,True,True
+benchmark_clickup_brain_blind_testing,ClickUp Brain blind testing,confidence_ge_0_7,,,False
+benchmark_clickup_brain_blind_testing,ClickUp Brain blind testing,accepted,,,False
 benchmark_codeforces,Codeforces,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
 benchmark_codeforces,Codeforces,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_codeforces,Codeforces,accepted,,,False
+benchmark_coderabbit_internal_security_review_benchmark,CodeRabbit internal security review benchmark,all_active,environment_interaction,True,True
+benchmark_coderabbit_internal_security_review_benchmark,CodeRabbit internal security review benchmark,confidence_ge_0_7,,,False
+benchmark_coderabbit_internal_security_review_benchmark,CodeRabbit internal security review benchmark,accepted,,,False
+benchmark_coding_cheating_evaluation,coding cheating evaluation,all_active,static_prompt_response,False,True
+benchmark_coding_cheating_evaluation,coding cheating evaluation,confidence_ge_0_7,,,False
+benchmark_coding_cheating_evaluation,coding cheating evaluation,accepted,,,False
 benchmark_coding_deception,Coding deception,all_active,static_prompt_response,False,True
 benchmark_coding_deception,Coding deception,confidence_ge_0_7,,,False
 benchmark_coding_deception,Coding deception,accepted,,,False
 benchmark_coding_evals,coding evals,all_active,environment_interaction,True,True
 benchmark_coding_evals,coding evals,confidence_ge_0_7,,,False
 benchmark_coding_evals,coding evals,accepted,,,False
+benchmark_cognition_vulnerability_discovery_and_exploitation_benchmarks,Cognition vulnerability discovery and exploitation benchmarks,all_active,environment_interaction,True,True
+benchmark_cognition_vulnerability_discovery_and_exploitation_benchmarks,Cognition vulnerability discovery and exploitation benchmarks,confidence_ge_0_7,,,False
+benchmark_cognition_vulnerability_discovery_and_exploitation_benchmarks,Cognition vulnerability discovery and exploitation benchmarks,accepted,,,False
 benchmark_collie,COLLIE,all_active,static_prompt_response,False,True
 benchmark_collie,COLLIE,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_collie,COLLIE,accepted,,,False
@@ -209,6 +278,12 @@ benchmark_cursorbench_3_2,CursorBench 3.2,accepted,,,False
 benchmark_cursorbench_4_0,CursorBench 4.0,all_active,environment_interaction,True,True
 benchmark_cursorbench_4_0,CursorBench 4.0,confidence_ge_0_7,,,False
 benchmark_cursorbench_4_0,CursorBench 4.0,accepted,,,False
+benchmark_cursorbench_4_1,CursorBench 4.1,all_active,environment_interaction,True,True
+benchmark_cursorbench_4_1,CursorBench 4.1,confidence_ge_0_7,,,False
+benchmark_cursorbench_4_1,CursorBench 4.1,accepted,,,False
+benchmark_cve_rediscovery,CVE Rediscovery,all_active,environment_interaction,True,True
+benchmark_cve_rediscovery,CVE Rediscovery,confidence_ge_0_7,,,False
+benchmark_cve_rediscovery,CVE Rediscovery,accepted,,,False
 benchmark_cwe_bench,CWE-Bench,all_active,environment_interaction,True,True
 benchmark_cwe_bench,CWE-Bench,confidence_ge_0_7,,,False
 benchmark_cwe_bench,CWE-Bench,accepted,,,False
@@ -218,6 +293,9 @@ benchmark_cwe_bench_v0,CWE-bench v0,accepted,,,False
 benchmark_cwe_bench_v1,CWE-bench v1,all_active,environment_interaction,True,True
 benchmark_cwe_bench_v1,CWE-bench v1,confidence_ge_0_7,,,False
 benchmark_cwe_bench_v1,CWE-bench v1,accepted,,,False
+benchmark_cwe_bench_v2,CWE-bench v2,all_active,environment_interaction,True,True
+benchmark_cwe_bench_v2,CWE-bench v2,confidence_ge_0_7,,,False
+benchmark_cwe_bench_v2,CWE-bench v2,accepted,,,False
 benchmark_cybergym,CyberGym,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_cybergym,CyberGym,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_cybergym,CyberGym,accepted,,,False
@@ -227,6 +305,9 @@ benchmark_cybersecurity_ctfs,Cybersecurity CTFs,accepted,,,False
 benchmark_cyscenariobench,CyScenarioBench,all_active,environment_interaction,True,True
 benchmark_cyscenariobench,CyScenarioBench,confidence_ge_0_7,,,False
 benchmark_cyscenariobench,CyScenarioBench,accepted,,,False
+benchmark_data_eng_bench,data-eng-bench,all_active,environment_interaction,True,True
+benchmark_data_eng_bench,data-eng-bench,confidence_ge_0_7,,,False
+benchmark_data_eng_bench,data-eng-bench,accepted,,,False
 benchmark_data_science_tasks_internal,Data Science Tasks (Internal),all_active,environment_interaction,True,True
 benchmark_data_science_tasks_internal,Data Science Tasks (Internal),confidence_ge_0_7,,,False
 benchmark_data_science_tasks_internal,Data Science Tasks (Internal),accepted,,,False
@@ -236,6 +317,12 @@ benchmark_database_migration_tasks_internal,Database Migration Tasks (Internal),
 benchmark_databench,DataBench,all_active,static_prompt_response,False,True
 benchmark_databench,DataBench,confidence_ge_0_7,,,False
 benchmark_databench,DataBench,accepted,,,False
+benchmark_de_novo_binder_design,De novo binder design,all_active,environment_interaction,True,True
+benchmark_de_novo_binder_design,De novo binder design,confidence_ge_0_7,,,False
+benchmark_de_novo_binder_design,De novo binder design,accepted,,,False
+benchmark_deepbinary,DeepBinary,all_active,environment_interaction,True,True
+benchmark_deepbinary,DeepBinary,confidence_ge_0_7,,,False
+benchmark_deepbinary,DeepBinary,accepted,,,False
 benchmark_deepsearchqa,DeepSearchQA,all_active,environment_interaction,True,True
 benchmark_deepsearchqa,DeepSearchQA,confidence_ge_0_7,,,False
 benchmark_deepsearchqa,DeepSearchQA,accepted,,,False
@@ -248,6 +335,9 @@ benchmark_design_tasks_internal,Design Tasks (Internal),accepted,,,False
 benchmark_docvqa,DocVQA,all_active,static_prompt_response,False,True
 benchmark_docvqa,DocVQA,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_docvqa,DocVQA,accepted,,,False
+benchmark_dragos_operational_technology_evaluations,Dragos operational technology evaluations,all_active,environment_interaction,True,True
+benchmark_dragos_operational_technology_evaluations,Dragos operational technology evaluations,confidence_ge_0_7,,,False
+benchmark_dragos_operational_technology_evaluations,Dragos operational technology evaluations,accepted,,,False
 benchmark_drop,DROP,all_active,static_prompt_response,False,True
 benchmark_drop,DROP,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_drop,DROP,accepted,,,False
@@ -290,12 +380,18 @@ benchmark_exploitgym_3,ExploitGym 3,accepted,,,False
 benchmark_exploitgym_honeypot,ExploitGym honeypot,all_active,static_prompt_response,False,True
 benchmark_exploitgym_honeypot,ExploitGym honeypot,confidence_ge_0_7,,,False
 benchmark_exploitgym_honeypot,ExploitGym honeypot,accepted,,,False
+benchmark_factory_coding_task_set,Factory coding task set,all_active,environment_interaction,True,True
+benchmark_factory_coding_task_set,Factory coding task set,confidence_ge_0_7,,,False
+benchmark_factory_coding_task_set,Factory coding task set,accepted,,,False
 benchmark_facts_benchmark_suite,FACTS Benchmark suite,all_active,static_prompt_response,False,True
 benchmark_facts_benchmark_suite,FACTS Benchmark suite,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_facts_benchmark_suite,FACTS Benchmark suite,accepted,,,False
 benchmark_facts_grounding,FACTS Grounding,all_active,static_prompt_response,False,True
 benchmark_facts_grounding,FACTS Grounding,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_facts_grounding,FACTS Grounding,accepted,,,False
+benchmark_fermat_s_last_theorem_proof_formalization,Fermat's Last Theorem proof formalization,all_active,environment_interaction,True,True
+benchmark_fermat_s_last_theorem_proof_formalization,Fermat's Last Theorem proof formalization,confidence_ge_0_7,,,False
+benchmark_fermat_s_last_theorem_proof_formalization,Fermat's Last Theorem proof formalization,accepted,,,False
 benchmark_finance_agent,Finance Agent,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
 benchmark_finance_agent,Finance Agent,confidence_ge_0_7,multi_step_planning,False,True
 benchmark_finance_agent,Finance Agent,accepted,,,False
@@ -305,6 +401,9 @@ benchmark_finance_agent_v2,Finance Agent v2,accepted,,,False
 benchmark_financeagent_v1_1,FinanceAgent v1.1,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
 benchmark_financeagent_v1_1,FinanceAgent v1.1,confidence_ge_0_7,multi_step_planning,False,True
 benchmark_financeagent_v1_1,FinanceAgent v1.1,accepted,,,False
+benchmark_financial_forecasting_model_evaluation,financial forecasting model evaluation,all_active,static_prompt_response,False,True
+benchmark_financial_forecasting_model_evaluation,financial forecasting model evaluation,confidence_ge_0_7,,,False
+benchmark_financial_forecasting_model_evaluation,financial forecasting model evaluation,accepted,,,False
 benchmark_firefox,Firefox,all_active,environment_interaction,True,True
 benchmark_firefox,Firefox,confidence_ge_0_7,,,False
 benchmark_firefox,Firefox,accepted,,,False
@@ -329,6 +428,12 @@ benchmark_frontier_science_research,Frontier Science Research,accepted,,,False
 benchmark_frontierbench,FrontierBench,all_active,environment_interaction,True,True
 benchmark_frontierbench,FrontierBench,confidence_ge_0_7,,,False
 benchmark_frontierbench,FrontierBench,accepted,,,False
+benchmark_frontiercode,FrontierCode,all_active,environment_interaction,True,True
+benchmark_frontiercode,FrontierCode,confidence_ge_0_7,,,False
+benchmark_frontiercode,FrontierCode,accepted,,,False
+benchmark_frontiercode_2_0,FrontierCode 2.0,all_active,environment_interaction,True,True
+benchmark_frontiercode_2_0,FrontierCode 2.0,confidence_ge_0_7,,,False
+benchmark_frontiercode_2_0,FrontierCode 2.0,accepted,,,False
 benchmark_frontiercode_diamond,FrontierCode (Diamond),all_active,environment_interaction,True,True
 benchmark_frontiercode_diamond,FrontierCode (Diamond),confidence_ge_0_7,,,False
 benchmark_frontiercode_diamond,FrontierCode (Diamond),accepted,,,False
@@ -365,6 +470,9 @@ benchmark_gdpval_aa_v2,GDPval-AA v2,accepted,,,False
 benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,all_active,environment_interaction,True,True
 benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,confidence_ge_0_7,,,False
 benchmark_gdpval_aa_v2_1,GDPval-AA v2.1,accepted,,,False
+benchmark_gdpval_v2_internal,GDPval v2 (Internal),all_active,environment_interaction,True,True
+benchmark_gdpval_v2_internal,GDPval v2 (Internal),confidence_ge_0_7,,,False
+benchmark_gdpval_v2_internal,GDPval v2 (Internal),accepted,,,False
 benchmark_genebench,GeneBench,all_active,static_prompt_response,False,True
 benchmark_genebench,GeneBench,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_genebench,GeneBench,accepted,,,False
@@ -377,6 +485,9 @@ benchmark_genebench_pro_v13,GeneBench Pro v13,accepted,,,False
 benchmark_global_piqa,Global PIQA,all_active,static_prompt_response,False,True
 benchmark_global_piqa,Global PIQA,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_global_piqa,Global PIQA,accepted,,,False
+benchmark_google_internal_secure_code_generation_benchmarks,Google internal secure code generation benchmarks,all_active,static_prompt_response,False,True
+benchmark_google_internal_secure_code_generation_benchmarks,Google internal secure code generation benchmarks,confidence_ge_0_7,,,False
+benchmark_google_internal_secure_code_generation_benchmarks,Google internal secure code generation benchmarks,accepted,,,False
 benchmark_gpqa,GPQA,all_active,static_prompt_response,False,True
 benchmark_gpqa,GPQA,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_gpqa,GPQA,accepted,,,False
@@ -404,9 +515,15 @@ benchmark_harbor_index,Harbor-Index,accepted,,,False
 benchmark_harvey_lab_aa,Harvey LAB-AA,all_active,environment_interaction,True,True
 benchmark_harvey_lab_aa,Harvey LAB-AA,confidence_ge_0_7,,,False
 benchmark_harvey_lab_aa,Harvey LAB-AA,accepted,,,False
+benchmark_harvey_lab_aa_v1_1,Harvey LAB-AA v1.1,all_active,environment_interaction,True,True
+benchmark_harvey_lab_aa_v1_1,Harvey LAB-AA v1.1,confidence_ge_0_7,,,False
+benchmark_harvey_lab_aa_v1_1,Harvey LAB-AA v1.1,accepted,,,False
 benchmark_healthbench,Healthbench,all_active,multi_turn_dialogue; static_prompt_response,False,True
 benchmark_healthbench,Healthbench,confidence_ge_0_7,multi_turn_dialogue; static_prompt_response,False,True
 benchmark_healthbench,Healthbench,accepted,,,False
+benchmark_healthbench_pro,HealthBench Pro,all_active,static_prompt_response,False,True
+benchmark_healthbench_pro,HealthBench Pro,confidence_ge_0_7,,,False
+benchmark_healthbench_pro,HealthBench Pro,accepted,,,False
 benchmark_healthbench_professional,HealthBench Professional,all_active,static_prompt_response,False,True
 benchmark_healthbench_professional,HealthBench Professional,confidence_ge_0_7,,,False
 benchmark_healthbench_professional,HealthBench Professional,accepted,,,False
@@ -419,6 +536,9 @@ benchmark_hellaswag,HellaSwag,accepted,,,False
 benchmark_hiddenmath,HiddenMath,all_active,static_prompt_response,False,True
 benchmark_hiddenmath,HiddenMath,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_hiddenmath,HiddenMath,accepted,,,False
+benchmark_hle_diamond,HLE-Diamond,all_active,static_prompt_response,False,True
+benchmark_hle_diamond,HLE-Diamond,confidence_ge_0_7,,,False
+benchmark_hle_diamond,HLE-Diamond,accepted,,,False
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),all_active,static_prompt_response,False,True
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),confidence_ge_0_7,static_prompt_response,False,True
 benchmark_hle_humanity_s_last_exam,HLE (Humanity's Last Exam),accepted,,,False
@@ -428,6 +548,9 @@ benchmark_hle_verified,HLE-Verified,accepted,,,False
 benchmark_hmmt,HMMT,all_active,static_prompt_response,False,True
 benchmark_hmmt,HMMT,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_hmmt,HMMT,accepted,,,False
+benchmark_hubspot_simulated_crm_portals,HubSpot simulated CRM portals,all_active,environment_interaction,True,True
+benchmark_hubspot_simulated_crm_portals,HubSpot simulated CRM portals,confidence_ge_0_7,,,False
+benchmark_hubspot_simulated_crm_portals,HubSpot simulated CRM portals,accepted,,,False
 benchmark_humaneval,HumanEval,all_active,static_prompt_response,False,True
 benchmark_humaneval,HumanEval,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_humaneval,HumanEval,accepted,static_prompt_response,False,True
@@ -437,6 +560,12 @@ benchmark_ifbench,IFBench,accepted,,,False
 benchmark_ifeval,IFEval,all_active,static_prompt_response,False,True
 benchmark_ifeval,IFEval,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_ifeval,IFEval,accepted,,,False
+benchmark_imc_briefing_and_infographics_evaluation,IMC briefing and infographics evaluation,all_active,static_prompt_response,False,True
+benchmark_imc_briefing_and_infographics_evaluation,IMC briefing and infographics evaluation,confidence_ge_0_7,,,False
+benchmark_imc_briefing_and_infographics_evaluation,IMC briefing and infographics evaluation,accepted,,,False
+benchmark_imc_quant_research_problems,IMC quant research problems,all_active,static_prompt_response,False,True
+benchmark_imc_quant_research_problems,IMC quant research problems,confidence_ge_0_7,,,False
+benchmark_imc_quant_research_problems,IMC quant research problems,accepted,,,False
 benchmark_imc_research_suite,IMC research suite,all_active,static_prompt_response,False,True
 benchmark_imc_research_suite,IMC research suite,confidence_ge_0_7,,,False
 benchmark_imc_research_suite,IMC research suite,accepted,,,False
@@ -449,15 +578,24 @@ benchmark_imo,IMO,accepted,,,False
 benchmark_implicit_need_tests,implicit-need tests,all_active,static_prompt_response,False,True
 benchmark_implicit_need_tests,implicit-need tests,confidence_ge_0_7,,,False
 benchmark_implicit_need_tests,implicit-need tests,accepted,,,False
+benchmark_improper_actions_in_workplace_tasks,Improper actions in workplace tasks,all_active,static_prompt_response,False,True
+benchmark_improper_actions_in_workplace_tasks,Improper actions in workplace tasks,confidence_ge_0_7,,,False
+benchmark_improper_actions_in_workplace_tasks,Improper actions in workplace tasks,accepted,,,False
 benchmark_incident_investigation_evals,incident investigation evals,all_active,environment_interaction,True,True
 benchmark_incident_investigation_evals,incident investigation evals,confidence_ge_0_7,,,False
 benchmark_incident_investigation_evals,incident investigation evals,accepted,,,False
 benchmark_infographic_vqa,Infographic VQA,all_active,static_prompt_response,False,True
 benchmark_infographic_vqa,Infographic VQA,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_infographic_vqa,Infographic VQA,accepted,,,False
+benchmark_internal_3d_generation_evals,internal 3D generation evals,all_active,static_prompt_response,False,True
+benchmark_internal_3d_generation_evals,internal 3D generation evals,confidence_ge_0_7,,,False
+benchmark_internal_3d_generation_evals,internal 3D generation evals,accepted,,,False
 benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,all_active,environment_interaction,True,True
 benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,confidence_ge_0_7,,,False
 benchmark_internal_and_external_pr_benchmarks,internal and external PR benchmarks,accepted,,,False
+benchmark_internal_benchmark_of_error_inducing_prompts,internal benchmark of error-inducing prompts,all_active,static_prompt_response,False,True
+benchmark_internal_benchmark_of_error_inducing_prompts,internal benchmark of error-inducing prompts,confidence_ge_0_7,,,False
+benchmark_internal_benchmark_of_error_inducing_prompts,internal benchmark of error-inducing prompts,accepted,,,False
 benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,all_active,static_prompt_response,False,True
 benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,confidence_ge_0_7,,,False
 benchmark_internal_circumvention_benchmark,Internal circumvention benchmark,accepted,,,False
@@ -482,6 +620,9 @@ benchmark_internal_organic_chemistry_benchmark,internal organic chemistry benchm
 benchmark_internal_research_agent_benchmark,internal research-agent benchmark,all_active,browser_or_web_interaction; environment_interaction; multi_step_planning,True,True
 benchmark_internal_research_agent_benchmark,internal research-agent benchmark,confidence_ge_0_7,,,False
 benchmark_internal_research_agent_benchmark,internal research-agent benchmark,accepted,,,False
+benchmark_internal_research_automation_benchmark,internal research automation benchmark,all_active,environment_interaction,True,True
+benchmark_internal_research_automation_benchmark,internal research automation benchmark,confidence_ge_0_7,,,False
+benchmark_internal_research_automation_benchmark,internal research automation benchmark,accepted,,,False
 benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,all_active,environment_interaction,True,True
 benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,confidence_ge_0_7,,,False
 benchmark_internal_research_debugging_evaluation,Internal Research Debugging Evaluation,accepted,,,False
@@ -494,6 +635,9 @@ benchmark_investment_banking_modeling_tasks_internal,Investment Banking Modeling
 benchmark_jailbreak_eval,Jailbreak Eval,all_active,static_prompt_response,False,True
 benchmark_jailbreak_eval,Jailbreak Eval,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_jailbreak_eval,Jailbreak Eval,accepted,,,False
+benchmark_jump_trading_hardware_optimization_benchmark,Jump Trading hardware optimization benchmark,all_active,environment_interaction,True,True
+benchmark_jump_trading_hardware_optimization_benchmark,Jump Trading hardware optimization benchmark,confidence_ge_0_7,,,False
+benchmark_jump_trading_hardware_optimization_benchmark,Jump Trading hardware optimization benchmark,accepted,,,False
 benchmark_kernelgen_1p,KernelGen 1P,all_active,environment_interaction,True,True
 benchmark_kernelgen_1p,KernelGen 1P,confidence_ge_0_7,,,False
 benchmark_kernelgen_1p,KernelGen 1P,accepted,,,False
@@ -503,6 +647,12 @@ benchmark_labbench2,LABBench2,accepted,,,False
 benchmark_legal_agent_benchmark,Legal Agent Benchmark,all_active,environment_interaction,True,True
 benchmark_legal_agent_benchmark,Legal Agent Benchmark,confidence_ge_0_7,,,False
 benchmark_legal_agent_benchmark,Legal Agent Benchmark,accepted,,,False
+benchmark_legal_research_bench,Legal Research Bench,all_active,environment_interaction,True,True
+benchmark_legal_research_bench,Legal Research Bench,confidence_ge_0_7,,,False
+benchmark_legal_research_bench,Legal Research Bench,accepted,,,False
+benchmark_legora_agent_evals,Legora Agent evals,all_active,environment_interaction,True,True
+benchmark_legora_agent_evals,Legora Agent evals,confidence_ge_0_7,,,False
+benchmark_legora_agent_evals,Legora Agent evals,accepted,,,False
 benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,all_active,environment_interaction,True,True
 benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,confidence_ge_0_7,,,False
 benchmark_legora_s_internal_eval_harness,Legora's internal eval harness,accepted,,,False
@@ -512,6 +662,9 @@ benchmark_lifescibench,LifeSciBench,accepted,,,False
 benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,all_active,environment_interaction,True,True
 benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,confidence_ge_0_7,,,False
 benchmark_lifescibench_gold_v1,LifeSciBench Gold v1,accepted,,,False
+benchmark_lifeval,LifeVal,all_active,environment_interaction,True,True
+benchmark_lifeval,LifeVal,confidence_ge_0_7,,,False
+benchmark_lifeval,LifeVal,accepted,,,False
 benchmark_livebench_coding,LiveBench Coding,all_active,static_prompt_response; terminal_or_codebase_interaction,True,True
 benchmark_livebench_coding,LiveBench Coding,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_livebench_coding,LiveBench Coding,accepted,,,False
@@ -599,6 +752,9 @@ benchmark_multi_step_unity_editor_and_coding_benchmark,multi-step Unity Editor a
 benchmark_multichallenge,MultiChallenge,all_active,multi_turn_dialogue,False,True
 benchmark_multichallenge,MultiChallenge,confidence_ge_0_7,multi_turn_dialogue,False,True
 benchmark_multichallenge,MultiChallenge,accepted,,,False
+benchmark_multimodal_knowledge_agent_mka,Multimodal Knowledge Agent (MKA),all_active,environment_interaction,True,True
+benchmark_multimodal_knowledge_agent_mka,Multimodal Knowledge Agent (MKA),confidence_ge_0_7,,,False
+benchmark_multimodal_knowledge_agent_mka,Multimodal Knowledge Agent (MKA),accepted,,,False
 benchmark_nanogpt,NanoGPT,all_active,environment_interaction,True,True
 benchmark_nanogpt,NanoGPT,confidence_ge_0_7,,,False
 benchmark_nanogpt,NanoGPT,accepted,,,False
@@ -626,6 +782,9 @@ benchmark_omnidocbench_1_5,OmniDocBench 1.5,accepted,,,False
 benchmark_online_mind2web,Online-Mind2Web,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_online_mind2web,Online-Mind2Web,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_online_mind2web,Online-Mind2Web,accepted,,,False
+benchmark_openai_prompt_injection_tests,OpenAI prompt-injection tests,all_active,static_prompt_response,False,True
+benchmark_openai_prompt_injection_tests,OpenAI prompt-injection tests,confidence_ge_0_7,,,False
+benchmark_openai_prompt_injection_tests,OpenAI prompt-injection tests,accepted,,,False
 benchmark_openrca,OpenRCA,all_active,static_prompt_response,False,True
 benchmark_openrca,OpenRCA,confidence_ge_0_7,,,False
 benchmark_openrca,OpenRCA,accepted,,,False
@@ -647,6 +806,9 @@ benchmark_osworld_2_1,OSWorld 2.1,accepted,,,False
 benchmark_osworld_verified,OSWorld-Verified,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_osworld_verified,OSWorld-Verified,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_osworld_verified,OSWorld-Verified,accepted,,,False
+benchmark_patchbench,PatchBench,all_active,environment_interaction,True,True
+benchmark_patchbench,PatchBench,confidence_ge_0_7,,,False
+benchmark_patchbench,PatchBench,accepted,,,False
 benchmark_pokemon_red,Pokémon Red,all_active,environment_interaction,True,True
 benchmark_pokemon_red,Pokémon Red,confidence_ge_0_7,,,False
 benchmark_pokemon_red,Pokémon Red,accepted,,,False
@@ -668,6 +830,9 @@ benchmark_prompt_injection_benchmark,prompt injection benchmark,accepted,,,False
 benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,all_active,static_prompt_response,False,True
 benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,confidence_ge_0_7,,,False
 benchmark_qodo_s_real_world_code_review_benchmark,Qodo's real-world code review benchmark,accepted,,,False
+benchmark_quantum_espresso_phonon_benchmark_cases,Quantum ESPRESSO phonon benchmark cases,all_active,static_prompt_response,False,True
+benchmark_quantum_espresso_phonon_benchmark_cases,Quantum ESPRESSO phonon benchmark cases,confidence_ge_0_7,,,False
+benchmark_quantum_espresso_phonon_benchmark_cases,Quantum ESPRESSO phonon benchmark cases,accepted,,,False
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,confidence_ge_0_7,terminal_or_codebase_interaction,True,True
 benchmark_rakuten_swe_bench,Rakuten-SWE-Bench,accepted,,,False
@@ -683,15 +848,30 @@ benchmark_receipt_extraction_benchmark,receipt extraction benchmark,accepted,,,F
 benchmark_redlinebench,RedlineBench,all_active,environment_interaction,True,True
 benchmark_redlinebench,RedlineBench,confidence_ge_0_7,,,False
 benchmark_redlinebench,RedlineBench,accepted,,,False
+benchmark_remote_labor_index_rli,Remote Labor Index (RLI),all_active,environment_interaction,True,True
+benchmark_remote_labor_index_rli,Remote Labor Index (RLI),confidence_ge_0_7,,,False
+benchmark_remote_labor_index_rli,Remote Labor Index (RLI),accepted,,,False
+benchmark_remoteexploitbench,RemoteExploitBench,all_active,environment_interaction,True,True
+benchmark_remoteexploitbench,RemoteExploitBench,confidence_ge_0_7,,,False
+benchmark_remoteexploitbench,RemoteExploitBench,accepted,,,False
+benchmark_replit_greenfield_software_tests,Replit greenfield software tests,all_active,environment_interaction,True,True
+benchmark_replit_greenfield_software_tests,Replit greenfield software tests,confidence_ge_0_7,,,False
+benchmark_replit_greenfield_software_tests,Replit greenfield software tests,accepted,,,False
 benchmark_reviewer_bypass,Reviewer bypass,all_active,static_prompt_response,False,True
 benchmark_reviewer_bypass,Reviewer bypass,confidence_ge_0_7,,,False
 benchmark_reviewer_bypass,Reviewer bypass,accepted,,,False
 benchmark_riemannbench,RiemannBench,all_active,static_prompt_response,False,True
 benchmark_riemannbench,RiemannBench,confidence_ge_0_7,,,False
 benchmark_riemannbench,RiemannBench,accepted,,,False
+benchmark_robodojo_sim,RoboDojo Sim,all_active,environment_interaction,True,True
+benchmark_robodojo_sim,RoboDojo Sim,confidence_ge_0_7,,,False
+benchmark_robodojo_sim,RoboDojo Sim,accepted,,,False
 benchmark_rsi_index,RSI Index,all_active,environment_interaction,True,True
 benchmark_rsi_index,RSI Index,confidence_ge_0_7,,,False
 benchmark_rsi_index,RSI Index,accepted,,,False
+benchmark_safeguard_performance_on_sensitive_red_teaming,Safeguard performance on sensitive red-teaming,all_active,static_prompt_response,False,True
+benchmark_safeguard_performance_on_sensitive_red_teaming,Safeguard performance on sensitive red-teaming,confidence_ge_0_7,,,False
+benchmark_safeguard_performance_on_sensitive_red_teaming,Safeguard performance on sensitive red-teaming,accepted,,,False
 benchmark_scale_mcp_atlas,Scale MCP-Atlas,all_active,environment_interaction; multi_step_planning; single_turn_tool_use,True,True
 benchmark_scale_mcp_atlas,Scale MCP-Atlas,confidence_ge_0_7,environment_interaction,True,True
 benchmark_scale_mcp_atlas,Scale MCP-Atlas,accepted,,,False
@@ -704,6 +884,9 @@ benchmark_screenspot_pro,ScreenSpot-Pro,accepted,,,False
 benchmark_sec_bench_pro,SEC-Bench Pro,all_active,environment_interaction,True,True
 benchmark_sec_bench_pro,SEC-Bench Pro,confidence_ge_0_7,,,False
 benchmark_sec_bench_pro,SEC-Bench Pro,accepted,,,False
+benchmark_secureswe,SecureSWE,all_active,terminal_or_codebase_interaction,True,True
+benchmark_secureswe,SecureSWE,confidence_ge_0_7,,,False
+benchmark_secureswe,SecureSWE,accepted,,,False
 benchmark_seven_task_benchmark,seven-task benchmark,all_active,static_prompt_response,False,True
 benchmark_seven_task_benchmark,seven-task benchmark,confidence_ge_0_7,,,False
 benchmark_seven_task_benchmark,seven-task benchmark,accepted,,,False
@@ -731,6 +914,9 @@ benchmark_structural_biology,Structural Biology,accepted,,,False
 benchmark_super_agent_benchmark,Super-Agent benchmark,all_active,environment_interaction,True,True
 benchmark_super_agent_benchmark,Super-Agent benchmark,confidence_ge_0_7,,,False
 benchmark_super_agent_benchmark,Super-Agent benchmark,accepted,,,False
+benchmark_surge_ai_benchmarks,Surge AI benchmarks,all_active,static_prompt_response,False,True
+benchmark_surge_ai_benchmarks,Surge AI benchmarks,confidence_ge_0_7,,,False
+benchmark_surge_ai_benchmarks,Surge AI benchmarks,accepted,,,False
 benchmark_swe_bench,SWE-bench,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_swe_bench,SWE-bench,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_swe_bench,SWE-bench,accepted,,,False
@@ -752,12 +938,18 @@ benchmark_swe_lancer,SWE-Lancer,accepted,,,False
 benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,all_active,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,confidence_ge_0_7,environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_swe_lancer_ic_diamond,SWE-Lancer IC Diamond,accepted,,,False
+benchmark_swe_sweep,SWE-sweep,all_active,terminal_or_codebase_interaction,True,True
+benchmark_swe_sweep,SWE-sweep,confidence_ge_0_7,,,False
+benchmark_swe_sweep,SWE-sweep,accepted,,,False
 benchmark_tau_2_bench,TAU-2 bench,all_active,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
 benchmark_tau_2_bench,TAU-2 bench,confidence_ge_0_7,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
 benchmark_tau_2_bench,TAU-2 bench,accepted,,,False
 benchmark_tau_bench,Tau-bench,all_active,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
 benchmark_tau_bench,Tau-bench,confidence_ge_0_7,environment_interaction; multi_step_planning; multi_turn_dialogue,True,True
 benchmark_tau_bench,Tau-bench,accepted,,,False
+benchmark_tax_agent_bench,Tax Agent Bench,all_active,environment_interaction,True,True
+benchmark_tax_agent_bench,Tax Agent Bench,confidence_ge_0_7,,,False
+benchmark_tax_agent_bench,Tax Agent Bench,accepted,,,False
 benchmark_terminal_bench,Terminal-bench,all_active,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_terminal_bench,Terminal-bench,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_terminal_bench,Terminal-bench,accepted,,,False
@@ -773,6 +965,9 @@ benchmark_terminal_bench_3_0,Terminal-Bench 3.0,accepted,,,False
 benchmark_terminal_bench_4_0,Terminal-Bench 4.0,all_active,terminal_or_codebase_interaction,True,True
 benchmark_terminal_bench_4_0,Terminal-Bench 4.0,confidence_ge_0_7,,,False
 benchmark_terminal_bench_4_0,Terminal-Bench 4.0,accepted,,,False
+benchmark_terminal_bench_4_1,Terminal-Bench 4.1,all_active,terminal_or_codebase_interaction,True,True
+benchmark_terminal_bench_4_1,Terminal-Bench 4.1,confidence_ge_0_7,,,False
+benchmark_terminal_bench_4_1,Terminal-Bench 4.1,accepted,,,False
 benchmark_terminal_bench_hard,Terminal-Bench Hard,all_active,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_terminal_bench_hard,Terminal-Bench Hard,confidence_ge_0_7,computer_control; environment_interaction; multi_step_planning; terminal_or_codebase_interaction,True,True
 benchmark_terminal_bench_hard,Terminal-Bench Hard,accepted,,,False
@@ -803,6 +998,12 @@ benchmark_uniform_bar_exam,Uniform Bar Exam,accepted,,,False
 benchmark_vals_index,Vals Index,all_active,environment_interaction,True,True
 benchmark_vals_index,Vals Index,confidence_ge_0_7,,,False
 benchmark_vals_index,Vals Index,accepted,,,False
+benchmark_vals_index_v2_2,Vals Index v2.2,all_active,environment_interaction,True,True
+benchmark_vals_index_v2_2,Vals Index v2.2,confidence_ge_0_7,,,False
+benchmark_vals_index_v2_2,Vals Index v2.2,accepted,,,False
+benchmark_vals_science_index_v1,Vals Science Index v1,all_active,environment_interaction,True,True
+benchmark_vals_science_index_v1,Vals Science Index v1,confidence_ge_0_7,,,False
+benchmark_vals_science_index_v1,Vals Science Index v1,accepted,,,False
 benchmark_vatex,VATEX,all_active,static_prompt_response,False,True
 benchmark_vatex,VATEX,confidence_ge_0_7,static_prompt_response,False,True
 benchmark_vatex,VATEX,accepted,,,False
@@ -848,12 +1049,18 @@ benchmark_wandr,WANDR,accepted,,,False
 benchmark_warning_circumvention,Warning circumvention,all_active,static_prompt_response,False,True
 benchmark_warning_circumvention,Warning circumvention,confidence_ge_0_7,,,False
 benchmark_warning_circumvention,Warning circumvention,accepted,,,False
+benchmark_web_pentesting,Web Pentesting,all_active,environment_interaction,True,True
+benchmark_web_pentesting,Web Pentesting,confidence_ge_0_7,,,False
+benchmark_web_pentesting,Web Pentesting,accepted,,,False
 benchmark_webarena_verified,WebArena-Verified,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_webarena_verified,WebArena-Verified,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_webarena_verified,WebArena-Verified,accepted,,,False
 benchmark_webdev_arena,WebDev Arena,all_active,human_in_the_loop; static_prompt_response,False,True
 benchmark_webdev_arena,WebDev Arena,confidence_ge_0_7,human_in_the_loop,False,True
 benchmark_webdev_arena,WebDev Arena,accepted,,,False
+benchmark_webexploitbench_v1_2,WebExploitBench v1.2,all_active,environment_interaction,True,True
+benchmark_webexploitbench_v1_2,WebExploitBench v1.2,confidence_ge_0_7,,,False
+benchmark_webexploitbench_v1_2,WebExploitBench v1.2,accepted,,,False
 benchmark_webvoyager,WebVoyager,all_active,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_webvoyager,WebVoyager,confidence_ge_0_7,browser_or_web_interaction; computer_control; environment_interaction; multi_step_planning,True,True
 benchmark_webvoyager,WebVoyager,accepted,,,False

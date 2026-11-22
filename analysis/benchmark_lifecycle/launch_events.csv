@@ -54,3 +54,11 @@ launch_e6f644c73384396465bd,OpenAI,2026-09-22,https://openai.com/index/introduci
 launch_52216df1c684885abd70,Anthropic,2026-09-28,https://www.anthropic.com/claude-sonnet-5-5,Claude 5.5 (Sonnet),1,15,True
 launch_84e2b91346124147377f,OpenAI,2026-09-29,https://openai.com/index/introducing-gpt-6-1-sol,GPT-6.1 Sol,1,10,True
 launch_092fe4b6b0863927210f,Google,2026-09-30,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon,Gemini 4 Argon,1,22,True
+launch_96b6f612bc79bc7b0eab,Anthropic,2026-10-07,https://www.anthropic.com/claude-haiku-5-5,Claude 5.5 (Haiku),1,12,True
+launch_ca77a7df9410e39a7c8c,OpenAI,2026-10-26,https://openai.com/index/introducing-gpt-6-1-terra,GPT-6.1 Terra,1,7,True
+launch_26c31bddd80c52a2b5b6,Google,2026-10-28,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon,Gemini 4 Carbon,1,22,True
+launch_85ea05bf12b8a5ce2ec5,OpenAI,2026-11-05,https://openai.com/index/introducing-gpt-6-cyber,GPT-6 Cyber,1,10,True
+launch_5c45be167fc0e958daaa,Anthropic,2026-11-09,https://www.anthropic.com/claude-fable-and-mythos-5-2,Claude 5.2 (Fable/Mythos),1,23,True
+launch_30e69e360ea598cd86d0,Google,2026-11-12,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen,Gemini 4 Hydrogen,1,18,True
+launch_bd9a0af0c46df0251d68,OpenAI,2026-11-17,https://openai.com/index/introducing-gpt-6-2-astra-sol,GPT-6.2 Astra; GPT-6.2 Sol,2,27,True
+launch_ed6c0b6ddc1c228bcd04,Google,2026-11-18,https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon,Gemini 4 Neon,1,32,True

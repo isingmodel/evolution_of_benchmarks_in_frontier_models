@@ -8,7 +8,7 @@ provider influence, institutional ownership, or causal adoption.
 ## Method and units
 
 ```bash
-.venv/bin/python analysis/frontier_lab_benchmark_hegemony/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/frontier_lab_benchmark_hegemony/analyze.py --as-of 2026-11-18
 ```
 
 The shared canonical resolver accepts only exact names and explicit aliases.

@@ -18,3 +18,10 @@ benchmark_terminal_bench_2_1,benchmark_terminal_bench_3_0,Terminal-Bench 2.1 and
 benchmark_vending_bench,benchmark_vending_bench_2,Vending-Bench 2 is an explicitly named successor rather than a spelling alias for Vending-Bench.
 benchmark_frontiermath,benchmark_frontiermath_v2,Epoch v2 changelog (2026-06-12) corrects/removes problems; retain older unversioned mentions separately. https://epoch.ai/benchmarks/frontiermath-tier-4-v2
 benchmark_frontiercode_v1_1,benchmark_frontiercode_v1_1_extended,Astra table explicitly separates Main and Extended tracks; existing FrontierCode v1.1 identity represents Main. https://openai.com/index/gpt-6-astra/
+benchmark_ifeval,benchmark_lifeval,IFEval measures instruction following. LifeVal evaluates everyday tasks tailored to the user. https://openai.com/index/lifeval/
+benchmark_artificial_analysis_coding_index,benchmark_artificial_analysis_coding_agent_index,The legacy coding composite and the index for coding agents have different benchmark portfolios. Neon specifically links the latter.
+benchmark_artificial_analysis_intelligence_index_v5_0,benchmark_artificial_analysis_intelligence_index_v5_0_1,Carbon names 5.0 and the Hydrogen and Neon figures explicitly label patch revision 5.0.1. Retain the reported precision.
+benchmark_terminal_bench_4_0,benchmark_terminal_bench_4_1,"Hydrogen separately reports both revisions, with distinct scores and chart labels."
+benchmark_automationbench,benchmark_automationbench_aa,Hydrogen links the Artificial Analysis implementation. Carbon and Neon explicitly identify Zapier.
+benchmark_agents_last_exam_v1,benchmark_agents_last_exam_v1_1,"Terra identifies v1, while Carbon and the November launch figures explicitly identify v1.1."
+benchmark_cursorbench_4_0,benchmark_cursorbench_4_1,Sonnet 5.5 and Neon explicitly report different CursorBench releases.

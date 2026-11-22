@@ -11,8 +11,8 @@ The count trend is a separate view of unique resolved canonical benchmarks per m
 ## Run
 
 ```bash
-.venv/bin/python -m analysis.benchmark_evolution.analyze --as-of 2026-09-30 --strict-resolution --detail-output assets/benchmark_evolution_detail.png
-.venv/bin/python analysis/benchmark_evolution/benchmark_count_trend.py --as-of 2026-09-30 --window-days 90 --strict-resolution
+.venv/bin/python -m analysis.benchmark_evolution.analyze --as-of 2026-11-18 --strict-resolution --detail-output assets/benchmark_evolution_detail.png
+.venv/bin/python analysis/benchmark_evolution/benchmark_count_trend.py --as-of 2026-11-18 --window-days 90 --strict-resolution
 ```
 
 ## Outputs

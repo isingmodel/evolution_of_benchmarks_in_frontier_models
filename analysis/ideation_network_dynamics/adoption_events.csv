@@ -397,3 +397,83 @@ benchmark_riemannbench,RiemannBench,Google,2026-09-30,Gemini 4 Argon,RiemannBenc
 benchmark_terminal_bench_science_0_1,Terminal-Bench Science 0.1,Google,2026-09-30,Gemini 4 Argon,Terminal-Bench Science 0.1,3,29,False,Anthropic,"Academia, Others(Harbor; Laude Institute)",none,Agentic,STEM/Math
 benchmark_vals_index,Vals Index,Google,2026-09-30,Gemini 4 Argon,Vals Index,1,0,True,Google,Others(Vals AI),none,Agentic,Specialized (Law/Bio/Finance)
 benchmark_vibe_code_bench,Vibe Code Bench,Google,2026-09-30,Gemini 4 Argon,Vibe Code Bench,1,0,True,Google,"Academia, Others(Vals AI)",none,Agentic,Coding/Engineering
+benchmark_asana_ai_teammates_eval_suite,Asana AI Teammates eval suite,Anthropic,2026-10-07,Claude 5.5 (Haiku),Asana AI Teammates eval suite,1,0,True,Anthropic,Others(Asana),none,Agentic,General/Commonsense
+benchmark_ask_in_document,Ask in Document,Anthropic,2026-10-07,Claude 5.5 (Haiku),Ask in Document,1,0,True,Anthropic,Others(AlphaSense),none,Knowledge Retrieval,Specialized (Law/Bio/Finance)
+benchmark_box_ai_enterprise_content_evaluation,Box AI enterprise content evaluation,Anthropic,2026-10-07,Claude 5.5 (Haiku),Box AI enterprise content evaluation,1,0,True,Anthropic,Others(Box),none,Generative Reasoning,General/Commonsense
+benchmark_frontiercode,FrontierCode,Anthropic,2026-10-07,Claude 5.5 (Haiku),FrontierCode,1,0,True,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_hubspot_simulated_crm_portals,HubSpot simulated CRM portals,Anthropic,2026-10-07,Claude 5.5 (Haiku),HubSpot simulated CRM portals,1,0,True,Anthropic,Others(HubSpot),none,Agentic,General/Commonsense
+benchmark_osworld_2_1,OSWorld 2.1,OpenAI,2026-10-26,GPT-6.1 Terra,OSWorld 2.1,2,34,False,Anthropic,Academia,none,Agentic,General/Commonsense
+benchmark_openai_prompt_injection_tests,OpenAI prompt-injection tests,OpenAI,2026-10-26,GPT-6.1 Terra,OpenAI prompt-injection tests,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense
+benchmark_internal_benchmark_of_error_inducing_prompts,internal benchmark of error-inducing prompts,OpenAI,2026-10-26,GPT-6.1 Terra,internal benchmark of error-inducing prompts,1,0,True,OpenAI,OpenAI,OpenAI,Knowledge Retrieval,General/Commonsense
+benchmark_agents_last_exam_v1_1,Agents' Last Exam v1.1,Google,2026-10-28,Gemini 4 Carbon,Agents' Last Exam v1.1,1,0,True,Google,"Academia, Others(Berkeley RDI; RDI Foundation)",none,Agentic,General/Commonsense
+benchmark_artificial_analysis_intelligence_index_v5_0,Artificial Analysis Intelligence Index v5.0,Google,2026-10-28,Gemini 4 Carbon,AA Index v5.0,1,0,True,Google,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
+benchmark_chrome_team_patch_quality_evaluation,Chrome team patch quality evaluation,Google,2026-10-28,Gemini 4 Carbon,Chrome team patch quality evaluation,1,0,True,Google,Google,Google,Agentic,Coding/Engineering
+benchmark_exploitgym,ExploitGym,Google,2026-10-28,Gemini 4 Carbon,ExploitGym,2,111,False,OpenAI,"Academia, OpenAI",OpenAI,Agentic,Coding/Engineering
+benchmark_google_internal_secure_code_generation_benchmarks,Google internal secure code generation benchmarks,Google,2026-10-28,Gemini 4 Carbon,Google internal secure code generation benchmarks,1,0,True,Google,Google,Google; DeepMind,Generative Reasoning,Coding/Engineering
+benchmark_osworld_2_1,OSWorld 2.1,Google,2026-10-28,Gemini 4 Carbon,OSWorld 2.1,3,36,False,Anthropic,Academia,none,Agentic,General/Commonsense
+benchmark_sec_bench_pro,SEC-Bench Pro,Google,2026-10-28,Gemini 4 Carbon,SEC-Bench Pro,2,111,False,OpenAI,Academia,none,Agentic,Coding/Engineering
+benchmark_swe_sweep,SWE-sweep,Google,2026-10-28,Gemini 4 Carbon,SWE-sweep,1,0,True,Google,"Academia, Others(Meta)",none,Agentic,Coding/Engineering
+benchmark_vals_index_v2_2,Vals Index v2.2,Google,2026-10-28,Gemini 4 Carbon,Vals Index v2.2,1,0,True,Google,Others(Vals AI),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_coderabbit_internal_security_review_benchmark,CodeRabbit internal security review benchmark,OpenAI,2026-11-05,GPT-6 Cyber,CodeRabbit internal security review benchmark,1,0,True,OpenAI,Others(CodeRabbit),none,Agentic,Coding/Engineering
+benchmark_cognition_vulnerability_discovery_and_exploitation_benchmarks,Cognition vulnerability discovery and exploitation benchmarks,OpenAI,2026-11-05,GPT-6 Cyber,Cognition vulnerability discovery and exploitation benchmarks,1,0,True,OpenAI,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_dragos_operational_technology_evaluations,Dragos operational technology evaluations,OpenAI,2026-11-05,GPT-6 Cyber,Dragos operational technology evaluations,1,0,True,OpenAI,Others(Dragos),none,Agentic,Coding/Engineering
+benchmark_remoteexploitbench,RemoteExploitBench,OpenAI,2026-11-05,GPT-6 Cyber,RemoteExploitBench,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_safeguard_performance_on_sensitive_red_teaming,Safeguard performance on sensitive red-teaming,OpenAI,2026-11-05,GPT-6 Cyber,Safeguard performance on sensitive red-teaming,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense
+benchmark_web_pentesting,Web Pentesting,OpenAI,2026-11-05,GPT-6 Cyber,Web Pentesting,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_benchcad_2_1_core,BenchCAD 2.1 Core,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),BenchCAD 2.1,1,0,True,Anthropic,Others(BenchCAD),none,Agentic,Coding/Engineering
+benchmark_cve_rediscovery,CVE Rediscovery,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),CVE Rediscovery,1,0,True,Anthropic,Anthropic,Anthropic,Agentic,Coding/Engineering
+benchmark_de_novo_binder_design,De novo binder design,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),De novo binder design,1,0,True,Anthropic,Anthropic,Anthropic,Agentic,Specialized (Law/Bio/Finance)
+benchmark_fermat_s_last_theorem_proof_formalization,Fermat's Last Theorem proof formalization,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),Fermat's Last Theorem proof formalization,1,0,True,Anthropic,Anthropic,Anthropic,Agentic,STEM/Math
+benchmark_frontiercode_2_0,FrontierCode 2.0,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),FrontierCode 2.0,1,0,True,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_frontierswe_v2,FrontierSWE v2,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),FrontierSWE v2,2,40,False,Google,Others(Proximal),none,Agentic,Coding/Engineering
+benchmark_imc_quant_research_problems,IMC quant research problems,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),IMC quant research problems,1,0,True,Anthropic,Others(IMC),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_quantum_espresso_phonon_benchmark_cases,Quantum ESPRESSO phonon benchmark cases,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),Quantum ESPRESSO phonon benchmark cases,1,0,True,Anthropic,Others(Discovered Materials),none,Generative Reasoning,STEM/Math
+benchmark_remote_labor_index_rli,Remote Labor Index (RLI),Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),Remote Labor Index (RLI),1,0,True,Anthropic,Others(Scale AI; CAIS),none,Agentic,General/Commonsense
+benchmark_robodojo_sim,RoboDojo Sim,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),RoboDojo Sim,1,0,True,Anthropic,Others(RoboDojo),needs_review,Agentic,Coding/Engineering
+benchmark_adversarial_sandbox_escape_evaluation,adversarial sandbox escape evaluation,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),adversarial sandbox escape evaluation,1,0,True,Anthropic,Anthropic,Anthropic,Constraint Satisfaction,Coding/Engineering
+benchmark_data_eng_bench,data-eng-bench,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),data-eng-bench,1,0,True,Anthropic,Others(Snowflake),none,Agentic,Coding/Engineering
+benchmark_financial_forecasting_model_evaluation,financial forecasting model evaluation,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),financial forecasting model evaluation,1,0,True,Anthropic,Others(Fundamental Research Labs),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_internal_research_automation_benchmark,internal research automation benchmark,Anthropic,2026-11-09,Claude 5.2 (Fable/Mythos),internal research automation benchmark,1,0,True,Anthropic,Others(Jump Trading),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_agent_arena_index,Agent Arena Index,Google,2026-11-12,Gemini 4 Hydrogen,Agent Arena,1,0,True,Google,Others(Arena),none,Agentic,General/Commonsense
+benchmark_artificial_analysis_intelligence_index_v5_0_1,Artificial Analysis Intelligence Index v5.0.1,Google,2026-11-12,Gemini 4 Hydrogen,AA Index 5.0.1,1,0,True,Google,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
+benchmark_automationbench_aa,AutomationBench-AA,Google,2026-11-12,Gemini 4 Hydrogen,AutomationBench-AA,1,0,True,Google,Others(Artificial Analysis),none,Agentic,General/Commonsense
+benchmark_hle_diamond,HLE-Diamond,Google,2026-11-12,Gemini 4 Hydrogen,HLE-Diamond,1,0,True,Google,Others(CAIS; Scale AI),needs_review,Generative Reasoning,General/Commonsense
+benchmark_healthbench_pro,HealthBench Pro,Google,2026-11-12,Gemini 4 Hydrogen,HealthBench Pro,1,0,True,Google,Others(unknown),needs_review,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_legal_research_bench,Legal Research Bench,Google,2026-11-12,Gemini 4 Hydrogen,Vals Legal Research Bench,1,0,True,Google,Others(Vals AI),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_multimodal_knowledge_agent_mka,Multimodal Knowledge Agent (MKA),Google,2026-11-12,Gemini 4 Hydrogen,Multimodal Knowledge Agent (MKA),1,0,True,Google,"Google, Others(Artificial Analysis)",Google; DeepMind,Agentic,General/Commonsense
+benchmark_tax_agent_bench,Tax Agent Bench,Google,2026-11-12,Gemini 4 Hydrogen,Vals Tax Agent Bench,1,0,True,Google,Others(Vals AI),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_terminal_bench_4_1,Terminal-Bench 4.1,Google,2026-11-12,Gemini 4 Hydrogen,Terminal-Bench 4.1,1,0,True,Google,"Academia, Others(Harbor; Laude Institute)",none,Agentic,Coding/Engineering
+benchmark_agent_honesty_evaluation,agent honesty evaluation,Google,2026-11-12,Gemini 4 Hydrogen,agent honesty evaluation,1,0,True,Google,Google,Google; DeepMind,Constraint Satisfaction,General/Commonsense
+benchmark_aa_3d,AA-3D,OpenAI,2026-11-17,GPT-6.2 Astra,AA-3D,1,0,True,OpenAI,Others(Artificial Analysis),none,Generative Reasoning,Coding/Engineering
+benchmark_aa_analystagent,AA-AnalystAgent,OpenAI,2026-11-17,GPT-6.2 Astra,AA-AnalystAgent,1,0,True,OpenAI,Others(Artificial Analysis),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_agents_last_exam_v1_1,Agents' Last Exam v1.1,OpenAI,2026-11-17,GPT-6.2 Astra,Agents' Last Exam v1.1,2,20,False,Google,"Academia, Others(Berkeley RDI; RDI Foundation)",none,Agentic,General/Commonsense
+benchmark_artificial_analysis_intelligence_index_v5_0_1,Artificial Analysis Intelligence Index v5.0.1,OpenAI,2026-11-17,GPT-6.2 Astra,Artificial Analysis Intelligence Index v5.0.1,2,5,False,Google,Others(Artificial Analysis),none,Generative Reasoning,General/Commonsense
+benchmark_benchcad_2_1_core,BenchCAD 2.1 Core,OpenAI,2026-11-17,GPT-6.2 Astra,BenchCAD 2.1 Core,2,8,False,Anthropic,Others(BenchCAD),none,Agentic,Coding/Engineering
+benchmark_blocker_deception,Blocker deception,OpenAI,2026-11-17,GPT-6.2 Astra,Blocker deception,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,Coding/Engineering
+benchmark_clickup_brain_blind_testing,ClickUp Brain blind testing,OpenAI,2026-11-17,GPT-6.2 Astra,ClickUp Brain blind testing,1,0,True,OpenAI,Others(ClickUp),none,Agentic,General/Commonsense
+benchmark_deepbinary,DeepBinary,OpenAI,2026-11-17,GPT-6.2 Astra,DeepBinary,1,0,True,OpenAI,Academia,none,Agentic,Coding/Engineering
+benchmark_factory_coding_task_set,Factory coding task set,OpenAI,2026-11-17,GPT-6.2 Astra,Factory coding task set,1,0,True,OpenAI,Others(Factory),none,Agentic,Coding/Engineering
+benchmark_frontiercode_2_0,FrontierCode 2.0,OpenAI,2026-11-17,GPT-6.2 Astra,FrontierCode 2.0,2,8,False,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_gdpval_v2_internal,GDPval v2 (Internal),OpenAI,2026-11-17,GPT-6.2 Astra,GDPval v2 (Internal),1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Specialized (Law/Bio/Finance)
+benchmark_harvey_lab_aa_v1_1,Harvey LAB-AA v1.1,OpenAI,2026-11-17,GPT-6.2 Astra,Harvey LAB-AA v1.1,1,0,True,OpenAI,Others(Artificial Analysis; Harvey),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_imc_briefing_and_infographics_evaluation,IMC briefing and infographics evaluation,OpenAI,2026-11-17,GPT-6.2 Astra,IMC briefing and infographics evaluation,1,0,True,OpenAI,Others(IMC),none,Generative Reasoning,General/Commonsense
+benchmark_improper_actions_in_workplace_tasks,Improper actions in workplace tasks,OpenAI,2026-11-17,GPT-6.2 Astra,Improper actions in workplace tasks,1,0,True,OpenAI,OpenAI,OpenAI,Constraint Satisfaction,General/Commonsense
+benchmark_jump_trading_hardware_optimization_benchmark,Jump Trading hardware optimization benchmark,OpenAI,2026-11-17,GPT-6.2 Astra,Jump Trading hardware optimization benchmark,1,0,True,OpenAI,Others(Jump Trading),none,Agentic,Coding/Engineering
+benchmark_legal_agent_benchmark,Legal Agent Benchmark,OpenAI,2026-11-17,GPT-6.2 Astra,Legal Agent Benchmark,3,173,False,Anthropic,Others(Harvey),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_legora_agent_evals,Legora Agent evals,OpenAI,2026-11-17,GPT-6.2 Astra,Legora Agent evals,1,0,True,OpenAI,Others(Legora),none,Agentic,Specialized (Law/Bio/Finance)
+benchmark_lifeval,LifeVal,OpenAI,2026-11-17,GPT-6.2 Astra,LifeVal,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,General/Commonsense
+benchmark_patchbench,PatchBench,OpenAI,2026-11-17,GPT-6.2 Astra,PatchBench,1,0,True,OpenAI,OpenAI,OpenAI,Agentic,Coding/Engineering
+benchmark_replit_greenfield_software_tests,Replit greenfield software tests,OpenAI,2026-11-17,GPT-6.2 Astra,Replit greenfield software tests,1,0,True,OpenAI,Others(Replit),none,Agentic,Coding/Engineering
+benchmark_secureswe,SecureSWE,OpenAI,2026-11-17,GPT-6.2 Astra,SecureSWE,1,0,True,OpenAI,OpenAI,OpenAI,Generative Reasoning,Coding/Engineering
+benchmark_vals_science_index_v1,Vals Science Index v1,OpenAI,2026-11-17,GPT-6.2 Astra,Vals Science Index v1,1,0,True,OpenAI,Others(Vals AI),none,Agentic,STEM/Math
+benchmark_internal_3d_generation_evals,internal 3D generation evals,OpenAI,2026-11-17,GPT-6.2 Astra,internal 3D generation evals,1,0,True,OpenAI,Others(Higgsfield AI),none,Generative Reasoning,Coding/Engineering
+benchmark_artificial_analysis_coding_agent_index,Artificial Analysis Coding Agent Index,Google,2026-11-18,Gemini 4 Neon,Artificial Analysis Coding Agent Index,1,0,True,Google,Others(Artificial Analysis),none,Agentic,Coding/Engineering
+benchmark_autobaxbench,AutoBaxBench,Google,2026-11-18,Gemini 4 Neon,AutoBaxBench,1,0,True,Google,Academia,none,Generative Reasoning,Coding/Engineering
+benchmark_cwe_bench_v2,CWE-bench v2,Google,2026-11-18,Gemini 4 Neon,CWE-bench v2,1,0,True,Google,Others(Collinear AI),none,Agentic,Coding/Engineering
+benchmark_cursorbench_4_1,CursorBench 4.1,Google,2026-11-18,Gemini 4 Neon,CursorBench 4.1,1,0,True,Google,Others(Cursor),none,Agentic,Coding/Engineering
+benchmark_frontiercode_2_0,FrontierCode 2.0,Google,2026-11-18,Gemini 4 Neon,FrontierCode 2.0,3,9,False,Anthropic,Others(Cognition),none,Agentic,Coding/Engineering
+benchmark_surge_ai_benchmarks,Surge AI benchmarks,Google,2026-11-18,Gemini 4 Neon,Surge AI benchmarks,1,0,True,Google,Others(Surge AI),none,Generative Reasoning,Specialized (Law/Bio/Finance)
+benchmark_webexploitbench_v1_2,WebExploitBench v1.2,Google,2026-11-18,Gemini 4 Neon,WebExploitBench v1.2,1,0,True,Google,Others(Agent Cyber Range),needs_review,Agentic,Coding/Engineering
+benchmark_agentic_behavior_evaluation,agentic behavior evaluation,Google,2026-11-18,Gemini 4 Neon,agentic behavior evaluation,1,0,True,Google,Google,Google; DeepMind,Constraint Satisfaction,General/Commonsense
+benchmark_agentic_safety_suite,agentic safety suite,Google,2026-11-18,Gemini 4 Neon,agentic safety suite,1,0,True,Google,Google,Google; DeepMind,Constraint Satisfaction,General/Commonsense
+benchmark_coding_cheating_evaluation,coding cheating evaluation,Google,2026-11-18,Gemini 4 Neon,coding cheating evaluation,1,0,True,Google,Google,Google; DeepMind,Constraint Satisfaction,Coding/Engineering

@@ -35,8 +35,9 @@ benchmark_facets.csv
 
 Current inventory and facet-review counts are generated in
 [`analysis/project_overview/summary.json`](../analysis/project_overview/summary.json).
-The [preface audit](../docs/readme_data_audit_2026_10_04.md) records the latest
-source corrections and unresolved identity questions.
+The [November release audit](../docs/data_refresh_2026_11_22.md) records the latest
+launch additions and identity decisions. The [October preface audit](../docs/readme_data_audit_2026_10_04.md)
+records earlier source corrections.
 
 ## File Reference
 

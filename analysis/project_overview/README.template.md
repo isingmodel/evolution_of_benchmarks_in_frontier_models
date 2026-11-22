@@ -17,7 +17,7 @@ source-linked catalog and reproducible analysis of each benchmark's reporting hi
 The evidence is **names appearing on selected public launch pages**: results,
 comparisons, footnotes, suite components, and partner quotations all count.
 Appearance does not by itself establish a score for the new model, prominence,
-or use during training. Release discovery was checked through **October 4, 2026**.
+or use during training. Release discovery was checked through **November 22, 2026**.
 
 <details>
 <summary>Sample coverage by provider</summary>
@@ -175,7 +175,7 @@ The facet table contains **{{FACET_ROWS}} labels: {{FACET_ACCEPTED}} accepted,
 Identity approval and facet approval are separate. The
 [preface audit](docs/readme_data_audit_2026_10_04.md) records corrections including
 MTOB's task definition and missing mentions, plus unresolved MRCR lineage. The
-[release audit](docs/data_refresh_2026_10_04.md) records source-discovery coverage.
+[release audit](docs/data_refresh_2026_11_22.md) records source-discovery coverage.
 
 ## Explore the evidence
 

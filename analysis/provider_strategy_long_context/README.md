@@ -13,7 +13,7 @@ Run from the repo root:
 .venv/bin/python analysis/provider_strategy_long_context/analyze.py
 ```
 
-The current scope uses local data through `2026-09-30`. Current resolved and
+The current scope uses local data through `2026-11-18`. Current resolved and
 unresolved inventory counts are in the generated outputs. The weighted unit is
 a benchmark-bearing model-release row; a shared launch URL can supply several
 rows.

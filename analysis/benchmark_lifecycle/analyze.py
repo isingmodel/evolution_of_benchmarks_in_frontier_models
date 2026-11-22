@@ -40,6 +40,7 @@ TIMELINE_IDS = [
     "benchmark_terminal_bench_2_1",
     "benchmark_terminal_bench_3_0",
     "benchmark_terminal_bench_4_0",
+    "benchmark_terminal_bench_4_1",
     "benchmark_frontier_science_research",
     "benchmark_terminal_bench_science_0_1",
 ]

@@ -8,7 +8,7 @@ capability saturation, private use, maturity or retirement.
 ## Run
 
 ```bash
-.venv/bin/python analysis/benchmark_lifecycle/analyze.py --as-of 2026-09-30
+.venv/bin/python analysis/benchmark_lifecycle/analyze.py --as-of 2026-11-18
 ```
 
 The default cutoff is the latest tracked release date. `--window-days` controls
